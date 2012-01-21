@@ -1,0 +1,1906 @@
+
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\Tutorial1\pygmy_file.o:     file format elf32-littlearm
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\Tutorial1\pygmy_file.o
+
+
+Disassembly of section .text.fileOpenResource:
+
+00000000 <fileOpenResource>:
+fileOpenResource():
+   0:	78ca      	ldrb	r2, [r1, #3]
+   2:	4603      	mov	r3, r0
+   4:	7808      	ldrb	r0, [r1, #0]
+   6:	ea42 6000 	orr.w	r0, r2, r0, lsl #24
+   a:	784a      	ldrb	r2, [r1, #1]
+   c:	ea40 4002 	orr.w	r0, r0, r2, lsl #16
+  10:	788a      	ldrb	r2, [r1, #2]
+  12:	3104      	adds	r1, #4
+  14:	ea40 2002 	orr.w	r0, r0, r2, lsl #8
+  18:	6058      	str	r0, [r3, #4]
+  1a:	2200      	movs	r2, #0
+  1c:	2001      	movs	r0, #1
+  1e:	6159      	str	r1, [r3, #20]
+  20:	761a      	strb	r2, [r3, #24]
+  22:	609a      	str	r2, [r3, #8]
+  24:	7418      	strb	r0, [r3, #16]
+  26:	4770      	bx	lr
+
+Disassembly of section .text.fileGetPosition:
+
+00000000 <fileGetPosition>:
+fileGetPosition():
+   0:	6880      	ldr	r0, [r0, #8]
+   2:	4770      	bx	lr
+
+Disassembly of section .text.fileSetPosition:
+
+00000000 <fileSetPosition>:
+fileSetPosition():
+   0:	2901      	cmp	r1, #1
+   2:	d107      	bne.n	14 <fileSetPosition+0x14>
+   4:	2a00      	cmp	r2, #0
+   6:	db16      	blt.n	36 <fileSetPosition+0x36>
+   8:	6843      	ldr	r3, [r0, #4]
+   a:	429a      	cmp	r2, r3
+   c:	d213      	bcs.n	36 <fileSetPosition+0x36>
+   e:	6082      	str	r2, [r0, #8]
+  10:	4608      	mov	r0, r1
+  12:	4770      	bx	lr
+  14:	2902      	cmp	r1, #2
+  16:	d106      	bne.n	26 <fileSetPosition+0x26>
+  18:	6883      	ldr	r3, [r0, #8]
+  1a:	18d2      	adds	r2, r2, r3
+  1c:	6843      	ldr	r3, [r0, #4]
+  1e:	429a      	cmp	r2, r3
+  20:	d209      	bcs.n	36 <fileSetPosition+0x36>
+  22:	6082      	str	r2, [r0, #8]
+  24:	e005      	b.n	32 <fileSetPosition+0x32>
+  26:	2904      	cmp	r1, #4
+  28:	d105      	bne.n	36 <fileSetPosition+0x36>
+  2a:	6843      	ldr	r3, [r0, #4]
+  2c:	18d2      	adds	r2, r2, r3
+  2e:	d304      	bcc.n	3a <fileSetPosition+0x3a>
+  30:	6042      	str	r2, [r0, #4]
+  32:	2001      	movs	r0, #1
+  34:	4770      	bx	lr
+  36:	2000      	movs	r0, #0
+  38:	4770      	bx	lr
+  3a:	2000      	movs	r0, #0
+  3c:	4770      	bx	lr
+
+Disassembly of section .text.fileIsEOF:
+
+00000000 <fileIsEOF>:
+fileIsEOF():
+   0:	7c00      	ldrb	r0, [r0, #16]
+   2:	f000 0080 	and.w	r0, r0, #128	; 0x80
+   6:	4770      	bx	lr
+
+Disassembly of section .text.fileIsValidName:
+
+00000000 <fileIsValidName>:
+fileIsValidName():
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	4605      	mov	r5, r0
+   4:	240d      	movs	r4, #13
+   6:	e017      	b.n	38 <fileIsValidName+0x38>
+   8:	2c01      	cmp	r4, #1
+   a:	d01b      	beq.n	44 <fileIsValidName+0x44>
+   c:	f7ff fffe 	bl	0 <isAlpha>
+  10:	b978      	cbnz	r0, 32 <fileIsValidName+0x32>
+  12:	f815 3c01 	ldrb.w	r3, [r5, #-1]
+  16:	f1a3 0223 	sub.w	r2, r3, #35	; 0x23
+  1a:	b2d2      	uxtb	r2, r2
+  1c:	2a03      	cmp	r2, #3
+  1e:	d908      	bls.n	32 <fileIsValidName+0x32>
+  20:	f1a3 022d 	sub.w	r2, r3, #45	; 0x2d
+  24:	b2d2      	uxtb	r2, r2
+  26:	2a0c      	cmp	r2, #12
+  28:	d903      	bls.n	32 <fileIsValidName+0x32>
+  2a:	2b5f      	cmp	r3, #95	; 0x5f
+  2c:	d001      	beq.n	32 <fileIsValidName+0x32>
+  2e:	2b7e      	cmp	r3, #126	; 0x7e
+  30:	d10b      	bne.n	4a <fileIsValidName+0x4a>
+  32:	3c01      	subs	r4, #1
+  34:	b2e4      	uxtb	r4, r4
+  36:	b13c      	cbz	r4, 48 <fileIsValidName+0x48>
+  38:	f815 0b01 	ldrb.w	r0, [r5], #1
+  3c:	2800      	cmp	r0, #0
+  3e:	d1e3      	bne.n	8 <fileIsValidName+0x8>
+  40:	3001      	adds	r0, #1
+  42:	bd38      	pop	{r3, r4, r5, pc}
+  44:	2000      	movs	r0, #0
+  46:	bd38      	pop	{r3, r4, r5, pc}
+  48:	2001      	movs	r0, #1
+  4a:	bd38      	pop	{r3, r4, r5, pc}
+
+Disassembly of section .text.fileGetMaxFiles:
+
+00000000 <fileGetMaxFiles>:
+fileGetMaxFiles():
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <fileGetMaxFiles+0x8>)
+   2:	8c18      	ldrh	r0, [r3, #32]
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+   8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.flashReadWord:
+
+00000000 <flashReadWord>:
+flashReadWord():
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	4c0b      	ldr	r4, [pc, #44]	; (30 <flashReadWord+0x30>)
+   4:	f44f 5580 	mov.w	r5, #4096	; 0x1000
+   8:	f040 7140 	orr.w	r1, r0, #50331648	; 0x3000000
+   c:	6165      	str	r5, [r4, #20]
+   e:	4809      	ldr	r0, [pc, #36]	; (34 <flashReadWord+0x34>)
+  10:	f7ff fffe 	bl	0 <spiWriteLong>
+  14:	4807      	ldr	r0, [pc, #28]	; (20 <spiReadByte+0x20>)
+  16:	f7ff fffe 	bl	0 <spiReadByte>
+  1a:	0200      	lsls	r0, r0, #8
+  1c:	b286      	uxth	r6, r0
+  1e:	4805      	ldr	r0, [pc, #20]	; (34 <flashReadWord+0x34>)
+  20:	f7ff fffe 	bl	0 <spiReadByte>
+  24:	ea46 0000 	orr.w	r0, r6, r0
+  28:	6125      	str	r5, [r4, #16]
+  2a:	b280      	uxth	r0, r0
+  2c:	bd70      	pop	{r4, r5, r6, pc}
+  2e:	bf00      	nop
+  30:	40010c00 	.word	0x40010c00
+  34:	00000000 	.word	0x00000000
+
+Disassembly of section .text.flashReadLong:
+
+00000000 <flashReadLong>:
+flashReadLong():
+   0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+   4:	4c10      	ldr	r4, [pc, #64]	; (48 <flashReadLong+0x48>)
+   6:	f44f 5580 	mov.w	r5, #4096	; 0x1000
+   a:	f040 7140 	orr.w	r1, r0, #50331648	; 0x3000000
+   e:	6165      	str	r5, [r4, #20]
+  10:	480e      	ldr	r0, [pc, #56]	; (4c <flashReadLong+0x4c>)
+  12:	f7ff fffe 	bl	0 <spiWriteLong>
+  16:	480d      	ldr	r0, [pc, #52]	; (38 <spiReadByte+0x38>)
+  18:	f7ff fffe 	bl	0 <spiReadByte>
+  1c:	0607      	lsls	r7, r0, #24
+  1e:	480b      	ldr	r0, [pc, #44]	; (4c <flashReadLong+0x4c>)
+  20:	f7ff fffe 	bl	0 <spiReadByte>
+  24:	4680      	mov	r8, r0
+  26:	4809      	ldr	r0, [pc, #36]	; (4c <flashReadLong+0x4c>)
+  28:	f7ff fffe 	bl	0 <spiReadByte>
+  2c:	4606      	mov	r6, r0
+  2e:	4807      	ldr	r0, [pc, #28]	; (4c <flashReadLong+0x4c>)
+  30:	f7ff fffe 	bl	0 <spiReadByte>
+  34:	ea47 4308 	orr.w	r3, r7, r8, lsl #16
+  38:	ea43 0000 	orr.w	r0, r3, r0
+  3c:	6125      	str	r5, [r4, #16]
+  3e:	ea40 2006 	orr.w	r0, r0, r6, lsl #8
+  42:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  46:	bf00      	nop
+  48:	40010c00 	.word	0x40010c00
+  4c:	00000000 	.word	0x00000000
+
+Disassembly of section .text.flashReadByte:
+
+00000000 <flashReadByte>:
+flashReadByte():
+   0:	4c07b538 	.word	0x4c07b538
+   4:	f44f 5580 	mov.w	r5, #4096	; 0x1000
+   8:	f040 7140 	orr.w	r1, r0, #50331648	; 0x3000000
+   c:	6165      	str	r5, [r4, #20]
+   e:	4805      	ldr	r0, [pc, #20]	; (24 <flashReadByte+0x24>)
+  10:	f7ff fffe 	bl	0 <spiWriteLong>
+  14:	4803      	ldr	r0, [pc, #12]	; (10 <spiReadByte+0x10>)
+  16:	f7ff fffe 	bl	0 <spiReadByte>
+  1a:	6125      	str	r5, [r4, #16]
+  1c:	bd38      	pop	{r3, r4, r5, pc}
+  1e:	bf00      	nop
+  20:	40010c00 	.word	0x40010c00
+  24:	00000000 	.word	0x00000000
+
+Disassembly of section .text.fileGetActiveFiles:
+
+00000000 <fileGetActiveFiles>:
+fileGetActiveFiles():
+   0:	b510      	push	{r4, lr}
+   2:	4c08      	ldr	r4, [pc, #32]	; (24 <fileGetActiveFiles+0x24>)
+   4:	6b60      	ldr	r0, [r4, #52]	; 0x34
+   6:	f7ff fffe 	bl	0 <fileGetActiveFiles>
+   a:	b108      	cbz	r0, 10 <fileGetActiveFiles+0x10>
+   c:	6b60      	ldr	r0, [r4, #52]	; 0x34
+   e:	bd10      	pop	{r4, pc}
+  10:	6ba0      	ldr	r0, [r4, #56]	; 0x38
+  12:	f7ff fffe 	bl	0 <fileGetActiveFiles>
+  16:	b108      	cbz	r0, 1c <fileGetActiveFiles+0x1c>
+  18:	6ba0      	ldr	r0, [r4, #56]	; 0x38
+  1a:	bd10      	pop	{r4, pc}
+  1c:	f04f 30ff 	mov.w	r0, #4294967295
+  20:	bd10      	pop	{r4, pc}
+  22:	bf00      	nop
+  24:	00000000 	.word	0x00000000
+
+Disassembly of section .text.fileGetFAT:
+
+00000000 <fileGetFAT>:
+fileGetFAT():
+   0:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
+   4:	4604      	mov	r4, r0
+   6:	4688      	mov	r8, r1
+   8:	2500      	movs	r5, #0
+   a:	e019      	b.n	40 <fileGetFAT+0x40>
+   c:	6970      	ldr	r0, [r6, #20]
+   e:	00af      	lsls	r7, r5, #2
+  10:	1838      	adds	r0, r7, r0
+  12:	f7ff fffe 	bl	0 <fileGetFAT>
+  16:	4682      	mov	sl, r0
+  18:	6970      	ldr	r0, [r6, #20]
+  1a:	3001      	adds	r0, #1
+  1c:	19c0      	adds	r0, r0, r7
+  1e:	f7ff fffe 	bl	0 <fileGetFAT>
+  22:	4681      	mov	r9, r0
+  24:	6970      	ldr	r0, [r6, #20]
+  26:	3002      	adds	r0, #2
+  28:	19c0      	adds	r0, r0, r7
+  2a:	f7ff fffe 	bl	0 <fileGetFAT>
+  2e:	f1ba 0f7f 	cmp.w	sl, #127	; 0x7f
+  32:	d103      	bne.n	3c <fileGetFAT+0x3c>
+  34:	45c1      	cmp	r9, r8
+  36:	d101      	bne.n	3c <fileGetFAT+0x3c>
+  38:	4284      	cmp	r4, r0
+  3a:	d007      	beq.n	4c <fileGetFAT+0x4c>
+  3c:	3501      	adds	r5, #1
+  3e:	b2ad      	uxth	r5, r5
+  40:	4e04      	ldr	r6, [pc, #16]	; (54 <fileGetFAT+0x54>)
+  42:	69b3      	ldr	r3, [r6, #24]
+  44:	429d      	cmp	r5, r3
+  46:	d3e1      	bcc.n	c <fileGetFAT+0xc>
+  48:	f64f 75ff 	movw	r5, #65535	; 0xffff
+  4c:	4628      	mov	r0, r5
+  4e:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+  52:	bf00      	nop
+  54:	00000000 	.word	0x00000000
+
+Disassembly of section .text.fileGetChar:
+
+00000000 <fileGetChar>:
+fileGetChar():
+   0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+   4:	4c43      	ldr	r4, [pc, #268]	; (114 <fileGetChar+0x114>)
+   6:	6823      	ldr	r3, [r4, #0]
+   8:	4298      	cmp	r0, r3
+   a:	d103      	bne.n	14 <fileGetChar+0x14>
+   c:	6862      	ldr	r2, [r4, #4]
+   e:	6883      	ldr	r3, [r0, #8]
+  10:	429a      	cmp	r2, r3
+  12:	d002      	beq.n	1a <fileGetChar+0x1a>
+  14:	2380      	movs	r3, #128	; 0x80
+  16:	6020      	str	r0, [r4, #0]
+  18:	7223      	strb	r3, [r4, #8]
+  1a:	6823      	ldr	r3, [r4, #0]
+  1c:	493d      	ldr	r1, [pc, #244]	; (114 <fileGetChar+0x114>)
+  1e:	689a      	ldr	r2, [r3, #8]
+  20:	6858      	ldr	r0, [r3, #4]
+  22:	4282      	cmp	r2, r0
+  24:	d306      	bcc.n	34 <fileGetChar+0x34>
+  26:	7c1a      	ldrb	r2, [r3, #16]
+  28:	2000      	movs	r0, #0
+  2a:	f062 027f 	orn	r2, r2, #127	; 0x7f
+  2e:	741a      	strb	r2, [r3, #16]
+  30:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  34:	6958      	ldr	r0, [r3, #20]
+  36:	b128      	cbz	r0, 44 <fileGetChar+0x44>
+  38:	5c80      	ldrb	r0, [r0, r2]
+  3a:	3201      	adds	r2, #1
+  3c:	7248      	strb	r0, [r1, #9]
+  3e:	609a      	str	r2, [r3, #8]
+  40:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  44:	7a09      	ldrb	r1, [r1, #8]
+  46:	4d34      	ldr	r5, [pc, #208]	; (118 <fileGetChar+0x118>)
+  48:	2980      	cmp	r1, #128	; 0x80
+  4a:	d008      	beq.n	5e <fileGetChar+0x5e>
+  4c:	8ba9      	ldrh	r1, [r5, #28]
+  4e:	f102 0080 	add.w	r0, r2, #128	; 0x80
+  52:	fbb0 f6f1 	udiv	r6, r0, r1
+  56:	fb01 0116 	mls	r1, r1, r6, r0
+  5a:	2900      	cmp	r1, #0
+  5c:	d149      	bne.n	f2 <fileGetChar+0xf2>
+  5e:	2100      	movs	r1, #0
+  60:	7221      	strb	r1, [r4, #8]
+  62:	8ba9      	ldrh	r1, [r5, #28]
+  64:	3280      	adds	r2, #128	; 0x80
+  66:	fbb2 f8f1 	udiv	r8, r2, r1
+  6a:	fb01 2818 	mls	r8, r1, r8, r2
+  6e:	4f29      	ldr	r7, [pc, #164]	; (114 <fileGetChar+0x114>)
+  70:	4e29      	ldr	r6, [pc, #164]	; (118 <fileGetChar+0x118>)
+  72:	f1b8 0f00 	cmp.w	r8, #0
+  76:	d11b      	bne.n	b0 <fileGetChar+0xb0>
+  78:	7b19      	ldrb	r1, [r3, #12]
+  7a:	89d8      	ldrh	r0, [r3, #14]
+  7c:	3101      	adds	r1, #1
+  7e:	b2c9      	uxtb	r1, r1
+  80:	f7ff fffe 	bl	0 <fileGetChar>
+  84:	f64f 73ff 	movw	r3, #65535	; 0xffff
+  88:	4298      	cmp	r0, r3
+  8a:	d107      	bne.n	9c <fileGetChar+0x9c>
+  8c:	683b      	ldr	r3, [r7, #0]
+  8e:	4640      	mov	r0, r8
+  90:	7c1a      	ldrb	r2, [r3, #16]
+  92:	f062 027f 	orn	r2, r2, #127	; 0x7f
+  96:	741a      	strb	r2, [r3, #16]
+  98:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  9c:	8bb2      	ldrh	r2, [r6, #28]
+  9e:	6b31      	ldr	r1, [r6, #48]	; 0x30
+  a0:	683b      	ldr	r3, [r7, #0]
+  a2:	fbb1 f2f2 	udiv	r2, r1, r2
+  a6:	1880      	adds	r0, r0, r2
+  a8:	899a      	ldrh	r2, [r3, #12]
+  aa:	6018      	str	r0, [r3, #0]
+  ac:	3201      	adds	r2, #1
+  ae:	819a      	strh	r2, [r3, #12]
+  b0:	6822      	ldr	r2, [r4, #0]
+  b2:	8bab      	ldrh	r3, [r5, #28]
+  b4:	6891      	ldr	r1, [r2, #8]
+  b6:	6812      	ldr	r2, [r2, #0]
+  b8:	3180      	adds	r1, #128	; 0x80
+  ba:	fbb1 f0f3 	udiv	r0, r1, r3
+  be:	fb03 1110 	mls	r1, r3, r0, r1
+  c2:	fb02 1103 	mla	r1, r2, r3, r1
+  c6:	4b15      	ldr	r3, [pc, #84]	; (11c <fileGetChar+0x11c>)
+  c8:	f44f 5280 	mov.w	r2, #4096	; 0x1000
+  cc:	615a      	str	r2, [r3, #20]
+  ce:	4814      	ldr	r0, [pc, #80]	; (120 <fileGetChar+0x120>)
+  d0:	f041 7140 	orr.w	r1, r1, #50331648	; 0x3000000
+  d4:	f7ff fffe 	bl	0 <spiWriteLong>
+  d8:	2500      	movs	r5, #0
+  da:	4811      	ldr	r0, [pc, #68]	; (120 <fileGetChar+0x120>)
+  dc:	f7ff fffe 	bl	0 <spiReadByte>
+  e0:	4b10      	ldr	r3, [pc, #64]	; (124 <fileGetChar+0x124>)
+  e2:	5558      	strb	r0, [r3, r5]
+  e4:	3501      	adds	r5, #1
+  e6:	2d80      	cmp	r5, #128	; 0x80
+  e8:	d1f7      	bne.n	da <fileGetChar+0xda>
+  ea:	4b0c      	ldr	r3, [pc, #48]	; (11c <fileGetChar+0x11c>)
+  ec:	f44f 5280 	mov.w	r2, #4096	; 0x1000
+  f0:	611a      	str	r2, [r3, #16]
+  f2:	6823      	ldr	r3, [r4, #0]
+  f4:	689a      	ldr	r2, [r3, #8]
+  f6:	6859      	ldr	r1, [r3, #4]
+  f8:	428a      	cmp	r2, r1
+  fa:	d203      	bcs.n	104 <fileGetChar+0x104>
+  fc:	3201      	adds	r2, #1
+  fe:	609a      	str	r2, [r3, #8]
+ 100:	4b04      	ldr	r3, [pc, #16]	; (114 <fileGetChar+0x114>)
+ 102:	605a      	str	r2, [r3, #4]
+ 104:	7a23      	ldrb	r3, [r4, #8]
+ 106:	18e2      	adds	r2, r4, r3
+ 108:	3301      	adds	r3, #1
+ 10a:	7a90      	ldrb	r0, [r2, #10]
+ 10c:	7223      	strb	r3, [r4, #8]
+ 10e:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+ 112:	bf00      	nop
+	...
+ 11c:	40010c00 	.word	0x40010c00
+ 120:	00000000 	.word	0x00000000
+ 124:	0000000a 	.word	0x0000000a
+
+Disassembly of section .text.fileGetLong:
+
+00000000 <fileGetLong>:
+fileGetLong():
+   0:	2901      	cmp	r1, #1
+   2:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+   4:	4604      	mov	r4, r0
+   6:	d114      	bne.n	32 <fileGetLong+0x32>
+   8:	f7ff fffe 	bl	0 <fileGetLong>
+   c:	0605      	lsls	r5, r0, #24
+   e:	4620      	mov	r0, r4
+  10:	f7ff fffe 	bl	0 <fileGetLong>
+  14:	4607      	mov	r7, r0
+  16:	4620      	mov	r0, r4
+  18:	f7ff fffe 	bl	0 <fileGetLong>
+  1c:	4606      	mov	r6, r0
+  1e:	4620      	mov	r0, r4
+  20:	f7ff fffe 	bl	0 <fileGetLong>
+  24:	ea45 4507 	orr.w	r5, r5, r7, lsl #16
+  28:	ea45 0000 	orr.w	r0, r5, r0
+  2c:	ea40 2006 	orr.w	r0, r0, r6, lsl #8
+  30:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+  32:	f7ff fffe 	bl	0 <fileGetLong>
+  36:	4606      	mov	r6, r0
+  38:	4620      	mov	r0, r4
+  3a:	f7ff fffe 	bl	0 <fileGetLong>
+  3e:	4605      	mov	r5, r0
+  40:	4620      	mov	r0, r4
+  42:	f7ff fffe 	bl	0 <fileGetLong>
+  46:	0400      	lsls	r0, r0, #16
+  48:	ea40 2505 	orr.w	r5, r0, r5, lsl #8
+  4c:	4620      	mov	r0, r4
+  4e:	f7ff fffe 	bl	0 <fileGetLong>
+  52:	4335      	orrs	r5, r6
+  54:	ea45 6000 	orr.w	r0, r5, r0, lsl #24
+  58:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+
+Disassembly of section .text.fileGetWord:
+
+00000000 <fileGetWord>:
+fileGetWord():
+   0:	2901      	cmp	r1, #1
+   2:	b538      	push	{r3, r4, r5, lr}
+   4:	4604      	mov	r4, r0
+   6:	d10a      	bne.n	1e <fileGetWord+0x1e>
+   8:	f7ff fffe 	bl	0 <fileGetWord>
+   c:	0200      	lsls	r0, r0, #8
+   e:	b285      	uxth	r5, r0
+  10:	4620      	mov	r0, r4
+  12:	f7ff fffe 	bl	0 <fileGetWord>
+  16:	ea45 0000 	orr.w	r0, r5, r0
+  1a:	b280      	uxth	r0, r0
+  1c:	bd38      	pop	{r3, r4, r5, pc}
+  1e:	f7ff fffe 	bl	0 <fileGetWord>
+  22:	4605      	mov	r5, r0
+  24:	4620      	mov	r0, r4
+  26:	f7ff fffe 	bl	0 <fileGetWord>
+  2a:	ea45 2000 	orr.w	r0, r5, r0, lsl #8
+  2e:	b280      	uxth	r0, r0
+  30:	bd38      	pop	{r3, r4, r5, pc}
+
+Disassembly of section .text.fileGetBuffer:
+
+00000000 <fileGetBuffer>:
+fileGetBuffer():
+   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+   2:	4604      	mov	r4, r0
+   4:	460d      	mov	r5, r1
+   6:	4617      	mov	r7, r2
+   8:	2600      	movs	r6, #0
+   a:	e006      	b.n	1a <fileGetBuffer+0x1a>
+   c:	4620      	mov	r0, r4
+   e:	f7ff fffe 	bl	0 <fileGetBuffer>
+  12:	3601      	adds	r6, #1
+  14:	f807 0b01 	strb.w	r0, [r7], #1
+  18:	b2b6      	uxth	r6, r6
+  1a:	42ae      	cmp	r6, r5
+  1c:	d3f6      	bcc.n	c <fileGetBuffer+0xc>
+  1e:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+
+Disassembly of section .text.fileGetLength:
+
+00000000 <fileGetLength>:
+fileGetLength():
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	2101      	movs	r1, #1
+   4:	b280      	uxth	r0, r0
+   6:	f7ff fffe 	bl	0 <fileGetLength>
+   a:	f64f 73ff 	movw	r3, #65535	; 0xffff
+   e:	4298      	cmp	r0, r3
+  10:	d013      	beq.n	3a <fileGetLength+0x3a>
+  12:	4a0b      	ldr	r2, [pc, #44]	; (40 <fileGetLength+0x40>)
+  14:	2400      	movs	r4, #0
+  16:	8b93      	ldrh	r3, [r2, #28]
+  18:	6b15      	ldr	r5, [r2, #48]	; 0x30
+  1a:	fbb5 f5f3 	udiv	r5, r5, r3
+  1e:	1945      	adds	r5, r0, r5
+  20:	435d      	muls	r5, r3
+  22:	1960      	adds	r0, r4, r5
+  24:	f7ff fffe 	bl	0 <fileGetLength>
+  28:	1e43      	subs	r3, r0, #1
+  2a:	f113 0f03 	cmn.w	r3, #3
+  2e:	d905      	bls.n	3c <fileGetLength+0x3c>
+  30:	3404      	adds	r4, #4
+  32:	2c80      	cmp	r4, #128	; 0x80
+  34:	d1f5      	bne.n	22 <fileGetLength+0x22>
+  36:	2000      	movs	r0, #0
+  38:	bd38      	pop	{r3, r4, r5, pc}
+  3a:	2000      	movs	r0, #0
+  3c:	bd38      	pop	{r3, r4, r5, pc}
+  3e:	bf00      	nop
+  40:	00000000 	.word	0x00000000
+
+Disassembly of section .text.fileSeekName:
+
+00000000 <fileSeekName>:
+fileSeekName():
+   0:	e92d 41ff 	stmdb	sp!, {r0, r1, r2, r3, r4, r5, r6, r7, r8, lr}
+   4:	4606      	mov	r6, r0
+   6:	2540      	movs	r5, #64	; 0x40
+   8:	2400      	movs	r4, #0
+   a:	e01f      	b.n	4c <fileSeekName+0x4c>
+   c:	2700      	movs	r7, #0
+   e:	f8d8 0010 	ldr.w	r0, [r8, #16]
+  12:	1828      	adds	r0, r5, r0
+  14:	19c0      	adds	r0, r0, r7
+  16:	f7ff fffe 	bl	0 <fileSeekName>
+  1a:	f80d 0007 	strb.w	r0, [sp, r7]
+  1e:	3801      	subs	r0, #1
+  20:	b2c0      	uxtb	r0, r0
+  22:	28fd      	cmp	r0, #253	; 0xfd
+  24:	d905      	bls.n	32 <fileSeekName+0x32>
+  26:	ab04      	add	r3, sp, #16
+  28:	19df      	adds	r7, r3, r7
+  2a:	2300      	movs	r3, #0
+  2c:	f807 3c10 	strb.w	r3, [r7, #-16]
+  30:	e002      	b.n	38 <fileSeekName+0x38>
+  32:	3701      	adds	r7, #1
+  34:	2f0c      	cmp	r7, #12
+  36:	d1ea      	bne.n	e <fileSeekName+0xe>
+  38:	4630      	mov	r0, r6
+  3a:	4669      	mov	r1, sp
+  3c:	f7ff fffe 	bl	0 <isStringSame>
+  40:	3510      	adds	r5, #16
+  42:	b110      	cbz	r0, 4a <fileSeekName+0x4a>
+  44:	3404      	adds	r4, #4
+  46:	b2a0      	uxth	r0, r4
+  48:	e006      	b.n	58 <fileSeekName+0x58>
+  4a:	3401      	adds	r4, #1
+  4c:	4b04      	ldr	r3, [pc, #16]	; (60 <fileSeekName+0x60>)
+  4e:	6a1a      	ldr	r2, [r3, #32]
+  50:	4698      	mov	r8, r3
+  52:	4294      	cmp	r4, r2
+  54:	d3da      	bcc.n	c <fileSeekName+0xc>
+  56:	2000      	movs	r0, #0
+  58:	b004      	add	sp, #16
+  5a:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  5e:	bf00      	nop
+  60:	00000000 	.word	0x00000000
+
+Disassembly of section .text.fileGetName:
+
+00000000 <fileGetName>:
+fileGetName():
+   0:	e92d4b12 	.word	0xe92d4b12
+   4:	41f0      	rors	r0, r6
+   6:	6a1a      	ldr	r2, [r3, #32]
+   8:	460f      	mov	r7, r1
+   a:	4290      	cmp	r0, r2
+   c:	d818      	bhi.n	40 <fileGetName+0x40>
+   e:	691e      	ldr	r6, [r3, #16]
+  10:	2400      	movs	r4, #0
+  12:	3640      	adds	r6, #64	; 0x40
+  14:	eb06 1600 	add.w	r6, r6, r0, lsl #4
+  18:	19a0      	adds	r0, r4, r6
+  1a:	f7ff fffe 	bl	0 <fileGetName>
+  1e:	28ff      	cmp	r0, #255	; 0xff
+  20:	bf08      	it	eq
+  22:	2000      	moveq	r0, #0
+  24:	b2e5      	uxtb	r5, r4
+  26:	5538      	strb	r0, [r7, r4]
+  28:	b908      	cbnz	r0, 2e <fileGetName+0x2e>
+  2a:	b91d      	cbnz	r5, 34 <fileGetName+0x34>
+  2c:	e00b      	b.n	46 <fileGetName+0x46>
+  2e:	3401      	adds	r4, #1
+  30:	2c0c      	cmp	r4, #12
+  32:	d1f1      	bne.n	18 <fileGetName+0x18>
+  34:	f106 000e 	add.w	r0, r6, #14
+  38:	e8bd 41f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, lr}
+  3c:	f7ff bffe 	b.w	0 <fileGetName>
+  40:	2000      	movs	r0, #0
+  42:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  46:	4628      	mov	r0, r5
+  48:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  4c:	00000000 	.word	0x00000000
+
+Disassembly of section .text.fileGetFreeSpace:
+
+00000000 <fileGetFreeSpace>:
+fileGetFreeSpace():
+   0:	2400b570 	.word	0x2400b570
+   4:	4625      	mov	r5, r4
+   6:	e00c      	b.n	22 <fileGetFreeSpace+0x22>
+   8:	6970      	ldr	r0, [r6, #20]
+   a:	eb00 0084 	add.w	r0, r0, r4, lsl #2
+   e:	f7ff fffe 	bl	0 <fileGetFreeSpace>
+  12:	3801      	subs	r0, #1
+  14:	b2c0      	uxtb	r0, r0
+  16:	28fd      	cmp	r0, #253	; 0xfd
+  18:	bf84      	itt	hi
+  1a:	8bb3      	ldrhhi	r3, [r6, #28]
+  1c:	18ed      	addhi	r5, r5, r3
+  1e:	3401      	adds	r4, #1
+  20:	b2a4      	uxth	r4, r4
+  22:	4e03      	ldr	r6, [pc, #12]	; (30 <fileGetFreeSpace+0x30>)
+  24:	69b3      	ldr	r3, [r6, #24]
+  26:	429c      	cmp	r4, r3
+  28:	d3ee      	bcc.n	8 <fileGetFreeSpace+0x8>
+  2a:	4628      	mov	r0, r5
+  2c:	bd70      	pop	{r4, r5, r6, pc}
+  2e:	bf00      	nop
+  30:	00000000 	.word	0x00000000
+
+Disassembly of section .text.fileGetVolumeName:
+
+00000000 <fileGetVolumeName>:
+fileGetVolumeName():
+   0:	2400b538 	.word	0x2400b538
+   4:	4605      	mov	r5, r0
+   6:	7004      	strb	r4, [r0, #0]
+   8:	4b05      	ldr	r3, [pc, #20]	; (20 <fileGetVolumeName+0x20>)
+   a:	6918      	ldr	r0, [r3, #16]
+   c:	1820      	adds	r0, r4, r0
+   e:	f7ff fffe 	bl	0 <fileGetVolumeName>
+  12:	5528      	strb	r0, [r5, r4]
+  14:	b110      	cbz	r0, 1c <fileGetVolumeName+0x1c>
+  16:	3401      	adds	r4, #1
+  18:	2c0d      	cmp	r4, #13
+  1a:	d1f5      	bne.n	8 <fileGetVolumeName+0x8>
+  1c:	4628      	mov	r0, r5
+  1e:	bd38      	pop	{r3, r4, r5, pc}
+  20:	00000000 	.word	0x00000000
+
+Disassembly of section .text.flashReadBuffer:
+
+00000000 <flashReadBuffer>:
+flashReadBuffer():
+   0:	4b0d      	ldr	r3, [pc, #52]	; (38 <flashReadBuffer+0x38>)
+   2:	b570      	push	{r4, r5, r6, lr}
+   4:	4615      	mov	r5, r2
+   6:	f44f 5280 	mov.w	r2, #4096	; 0x1000
+   a:	460c      	mov	r4, r1
+   c:	615a      	str	r2, [r3, #20]
+   e:	f040 7140 	orr.w	r1, r0, #50331648	; 0x3000000
+  12:	480a      	ldr	r0, [pc, #40]	; (2c <spiWriteLong+0x2c>)
+  14:	f7ff fffe 	bl	0 <spiWriteLong>
+  18:	2600      	movs	r6, #0
+  1a:	e006      	b.n	2a <flashReadBuffer+0x2a>
+  1c:	4807      	ldr	r0, [pc, #28]	; (3c <flashReadBuffer+0x3c>)
+  1e:	f7ff fffe 	bl	0 <spiReadByte>
+  22:	3601      	adds	r6, #1
+  24:	f804 0b01 	strb.w	r0, [r4], #1
+  28:	b2b6      	uxth	r6, r6
+  2a:	42ae      	cmp	r6, r5
+  2c:	d3f6      	bcc.n	1c <flashReadBuffer+0x1c>
+  2e:	4b02      	ldr	r3, [pc, #8]	; (38 <flashReadBuffer+0x38>)
+  30:	f44f 5280 	mov.w	r2, #4096	; 0x1000
+  34:	611a      	str	r2, [r3, #16]
+  36:	bd70      	pop	{r4, r5, r6, pc}
+  38:	40010c00 	.word	0x40010c00
+  3c:	00000000 	.word	0x00000000
+
+Disassembly of section .text.flashReadStatus:
+
+00000000 <flashReadStatus>:
+flashReadStatus():
+   0:	4c06b538 	.word	0x4c06b538
+   4:	f44f 5580 	mov.w	r5, #4096	; 0x1000
+   8:	2105      	movs	r1, #5
+   a:	6165      	str	r5, [r4, #20]
+   c:	4804      	ldr	r0, [pc, #16]	; (20 <flashReadStatus+0x20>)
+   e:	f7ff fffe 	bl	0 <spiWriteByte>
+  12:	4803      	ldr	r0, [pc, #12]	; (10 <spiReadByte+0x10>)
+  14:	f7ff fffe 	bl	0 <spiReadByte>
+  18:	6125      	str	r5, [r4, #16]
+  1a:	bd38      	pop	{r3, r4, r5, pc}
+  1c:	40010c00 	.word	0x40010c00
+  20:	00000000 	.word	0x00000000
+
+Disassembly of section .text.flashReadID:
+
+00000000 <flashReadID>:
+flashReadID():
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	4c09      	ldr	r4, [pc, #36]	; (28 <flashReadID+0x28>)
+   4:	f44f 5580 	mov.w	r5, #4096	; 0x1000
+   8:	219f      	movs	r1, #159	; 0x9f
+   a:	6165      	str	r5, [r4, #20]
+   c:	4807      	ldr	r0, [pc, #28]	; (2c <flashReadID+0x2c>)
+   e:	f7ff fffe 	bl	0 <spiWriteByte>
+  12:	4806      	ldr	r0, [pc, #24]	; (1c <spiReadByte+0x1c>)
+  14:	f7ff fffe 	bl	0 <spiReadByte>
+  18:	4804      	ldr	r0, [pc, #16]	; (14 <spiReadByte+0x14>)
+  1a:	f7ff fffe 	bl	0 <spiReadByte>
+  1e:	4803      	ldr	r0, [pc, #12]	; (10 <spiReadByte+0x10>)
+  20:	f7ff fffe 	bl	0 <spiReadByte>
+  24:	6125      	str	r5, [r4, #16]
+  26:	bd38      	pop	{r3, r4, r5, pc}
+  28:	40010c00 	.word	0x40010c00
+  2c:	00000000 	.word	0x00000000
+
+Disassembly of section .text.flashWaitForBusy:
+
+00000000 <flashWaitForBusy>:
+flashWaitForBusy():
+   0:	b508      	push	{r3, lr}
+   2:	f7ff fffe 	bl	0 <flashWaitForBusy>
+   6:	f010 0f01 	tst.w	r0, #1
+   a:	d1fa      	bne.n	2 <flashWaitForBusy+0x2>
+   c:	bd08      	pop	{r3, pc}
+
+Disassembly of section .text.flashChipErase:
+
+00000000 <flashChipErase>:
+flashChipErase():
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	4c09      	ldr	r4, [pc, #36]	; (28 <flashChipErase+0x28>)
+   4:	f44f 5580 	mov.w	r5, #4096	; 0x1000
+   8:	2106      	movs	r1, #6
+   a:	6165      	str	r5, [r4, #20]
+   c:	4807      	ldr	r0, [pc, #28]	; (2c <flashChipErase+0x2c>)
+   e:	f7ff fffe 	bl	0 <spiWriteByte>
+  12:	6125      	str	r5, [r4, #16]
+  14:	4805      	ldr	r0, [pc, #20]	; (2c <flashChipErase+0x2c>)
+  16:	2160      	movs	r1, #96	; 0x60
+  18:	6165      	str	r5, [r4, #20]
+  1a:	f7ff fffe 	bl	0 <spiWriteByte>
+  1e:	6125      	str	r5, [r4, #16]
+  20:	f7ff fffe 	bl	0 <flashChipErase>
+  24:	2001      	movs	r0, #1
+  26:	bd38      	pop	{r3, r4, r5, pc}
+  28:	40010c00 	.word	0x40010c00
+  2c:	00000000 	.word	0x00000000
+
+Disassembly of section .text.flashSectorErase:
+
+00000000 <flashSectorErase>:
+flashSectorErase():
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	4c0a      	ldr	r4, [pc, #40]	; (2c <flashSectorErase+0x2c>)
+   4:	f44f 5580 	mov.w	r5, #4096	; 0x1000
+   8:	4606      	mov	r6, r0
+   a:	2106      	movs	r1, #6
+   c:	6165      	str	r5, [r4, #20]
+   e:	4808      	ldr	r0, [pc, #32]	; (30 <flashSectorErase+0x30>)
+  10:	f7ff fffe 	bl	0 <spiWriteByte>
+  14:	6125      	str	r5, [r4, #16]
+  16:	4806      	ldr	r0, [pc, #24]	; (30 <flashSectorErase+0x30>)
+  18:	6165      	str	r5, [r4, #20]
+  1a:	f046 5100 	orr.w	r1, r6, #536870912	; 0x20000000
+  1e:	f7ff fffe 	bl	0 <spiWriteLong>
+  22:	6125      	str	r5, [r4, #16]
+  24:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+  28:	f7ff bffe 	b.w	0 <flashSectorErase>
+  2c:	40010c00 	.word	0x40010c00
+  30:	00000000 	.word	0x00000000
+
+Disassembly of section .text.flashWriteByte:
+
+00000000 <flashWriteByte>:
+flashWriteByte():
+   0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+   4:	4c0c      	ldr	r4, [pc, #48]	; (38 <flashWriteByte+0x38>)
+   6:	f44f 5580 	mov.w	r5, #4096	; 0x1000
+   a:	4607      	mov	r7, r0
+   c:	460e      	mov	r6, r1
+   e:	6165      	str	r5, [r4, #20]
+  10:	2106      	movs	r1, #6
+  12:	480a      	ldr	r0, [pc, #40]	; (3c <flashWriteByte+0x3c>)
+  14:	f7ff fffe 	bl	0 <spiWriteByte>
+  18:	6125      	str	r5, [r4, #16]
+  1a:	f047 7100 	orr.w	r1, r7, #33554432	; 0x2000000
+  1e:	6165      	str	r5, [r4, #20]
+  20:	4806      	ldr	r0, [pc, #24]	; (3c <flashWriteByte+0x3c>)
+  22:	f7ff fffe 	bl	0 <spiWriteLong>
+  26:	4805      	ldr	r0, [pc, #20]	; (3c <flashWriteByte+0x3c>)
+  28:	4631      	mov	r1, r6
+  2a:	f7ff fffe 	bl	0 <spiWriteByte>
+  2e:	6125      	str	r5, [r4, #16]
+  30:	e8bd 41f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, lr}
+  34:	f7ff bffe 	b.w	0 <flashWriteByte>
+  38:	40010c00 	.word	0x40010c00
+  3c:	00000000 	.word	0x00000000
+
+Disassembly of section .text.flashWriteBuffer:
+
+00000000 <flashWriteBuffer>:
+flashWriteBuffer():
+   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+   2:	4605      	mov	r5, r0
+   4:	460c      	mov	r4, r1
+   6:	4617      	mov	r7, r2
+   8:	2600      	movs	r6, #0
+   a:	e004      	b.n	16 <flashWriteBuffer+0x16>
+   c:	1970      	adds	r0, r6, r5
+   e:	5db9      	ldrb	r1, [r7, r6]
+  10:	f7ff fffe 	bl	0 <flashWriteBuffer>
+  14:	3601      	adds	r6, #1
+  16:	42a6      	cmp	r6, r4
+  18:	d3f8      	bcc.n	c <flashWriteBuffer+0xc>
+  1a:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+
+Disassembly of section .text.flashWriteString:
+
+00000000 <flashWriteString>:
+flashWriteString():
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	460c      	mov	r4, r1
+   4:	4615      	mov	r5, r2
+   6:	e003      	b.n	10 <flashWriteString+0x10>
+   8:	1c46      	adds	r6, r0, #1
+   a:	f7ff fffe 	bl	0 <flashWriteString>
+   e:	4630      	mov	r0, r6
+  10:	f815 1b01 	ldrb.w	r1, [r5], #1
+  14:	2900      	cmp	r1, #0
+  16:	d1f7      	bne.n	8 <flashWriteString+0x8>
+  18:	b11c      	cbz	r4, 22 <flashWriteString+0x22>
+  1a:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+  1e:	f7ff bffe 	b.w	0 <flashWriteString>
+  22:	bd70      	pop	{r4, r5, r6, pc}
+
+Disassembly of section .text.flashWriteLong:
+
+00000000 <flashWriteLong>:
+flashWriteLong():
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	4605      	mov	r5, r0
+   4:	460e      	mov	r6, r1
+   6:	2418      	movs	r4, #24
+   8:	fa36 f104 	lsrs.w	r1, r6, r4
+   c:	4628      	mov	r0, r5
+   e:	b2c9      	uxtb	r1, r1
+  10:	3c08      	subs	r4, #8
+  12:	f7ff fffe 	bl	0 <flashWriteLong>
+  16:	3501      	adds	r5, #1
+  18:	f114 0f08 	cmn.w	r4, #8
+  1c:	d1f4      	bne.n	8 <flashWriteLong+0x8>
+  1e:	bd70      	pop	{r4, r5, r6, pc}
+
+Disassembly of section .text.fileWriteLength:
+
+00000000 <fileWriteLength>:
+fileWriteLength():
+   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+   2:	4c13      	ldr	r4, [pc, #76]	; (50 <fileWriteLength+0x50>)
+   4:	460d      	mov	r5, r1
+   6:	89c0      	ldrh	r0, [r0, #14]
+   8:	2101      	movs	r1, #1
+   a:	6b26      	ldr	r6, [r4, #48]	; 0x30
+   c:	f7ff fffe 	bl	0 <fileWriteLength>
+  10:	8ba3      	ldrh	r3, [r4, #28]
+  12:	2400      	movs	r4, #0
+  14:	fb03 6600 	mla	r6, r3, r0, r6
+  18:	19a7      	adds	r7, r4, r6
+  1a:	4638      	mov	r0, r7
+  1c:	f7ff fffe 	bl	0 <fileWriteLength>
+  20:	f1b0 3fff 	cmp.w	r0, #4294967295
+  24:	d105      	bne.n	32 <fileWriteLength+0x32>
+  26:	4638      	mov	r0, r7
+  28:	4629      	mov	r1, r5
+  2a:	f7ff fffe 	bl	0 <fileWriteLength>
+  2e:	2001      	movs	r0, #1
+  30:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+  32:	b128      	cbz	r0, 40 <fileWriteLength+0x40>
+  34:	42a8      	cmp	r0, r5
+  36:	d008      	beq.n	4a <fileWriteLength+0x4a>
+  38:	4638      	mov	r0, r7
+  3a:	2100      	movs	r1, #0
+  3c:	f7ff fffe 	bl	0 <fileWriteLength>
+  40:	3404      	adds	r4, #4
+  42:	2c80      	cmp	r4, #128	; 0x80
+  44:	d1e8      	bne.n	18 <fileWriteLength+0x18>
+  46:	2000      	movs	r0, #0
+  48:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+  4a:	2001      	movs	r0, #1
+  4c:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+  4e:	bf00      	nop
+  50:	00000000 	.word	0x00000000
+
+Disassembly of section .text.flashWriteWord:
+
+00000000 <flashWriteWord>:
+flashWriteWord():
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	460c      	mov	r4, r1
+   4:	0a09      	lsrs	r1, r1, #8
+   6:	4605      	mov	r5, r0
+   8:	f7ff fffe 	bl	0 <flashWriteWord>
+   c:	1c68      	adds	r0, r5, #1
+   e:	b2e1      	uxtb	r1, r4
+  10:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+  14:	f7ff bffe 	b.w	0 <flashWriteWord>
+
+Disassembly of section .text.fileDeleteFATEntry:
+
+00000000 <fileDeleteFATEntry>:
+fileDeleteFATEntry():
+   0:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
+   4:	f04f 0900 	mov.w	r9, #0
+   8:	4606      	mov	r6, r0
+   a:	460d      	mov	r5, r1
+   c:	464c      	mov	r4, r9
+   e:	e032      	b.n	76 <fileDeleteFATEntry+0x76>
+  10:	6978      	ldr	r0, [r7, #20]
+  12:	ea4f 0884 	mov.w	r8, r4, lsl #2
+  16:	3002      	adds	r0, #2
+  18:	4440      	add	r0, r8
+  1a:	f7ff fffe 	bl	0 <fileDeleteFATEntry>
+  1e:	0200      	lsls	r0, r0, #8
+  20:	fa1f fa80 	uxth.w	sl, r0
+  24:	6978      	ldr	r0, [r7, #20]
+  26:	3003      	adds	r0, #3
+  28:	4440      	add	r0, r8
+  2a:	f7ff fffe 	bl	0 <fileDeleteFATEntry>
+  2e:	ea4a 0a00 	orr.w	sl, sl, r0
+  32:	fa1f fa8a 	uxth.w	sl, sl
+  36:	45b2      	cmp	sl, r6
+  38:	d11c      	bne.n	74 <fileDeleteFATEntry+0x74>
+  3a:	b93d      	cbnz	r5, 4c <fileDeleteFATEntry+0x4c>
+  3c:	6978      	ldr	r0, [r7, #20]
+  3e:	4629      	mov	r1, r5
+  40:	4440      	add	r0, r8
+  42:	f7ff fffe 	bl	0 <fileDeleteFATEntry>
+  46:	f04f 0901 	mov.w	r9, #1
+  4a:	e013      	b.n	74 <fileDeleteFATEntry+0x74>
+  4c:	6978      	ldr	r0, [r7, #20]
+  4e:	3001      	adds	r0, #1
+  50:	4440      	add	r0, r8
+  52:	f7ff fffe 	bl	0 <fileDeleteFATEntry>
+  56:	4285      	cmp	r5, r0
+  58:	d10c      	bne.n	74 <fileDeleteFATEntry+0x74>
+  5a:	6978      	ldr	r0, [r7, #20]
+  5c:	4440      	add	r0, r8
+  5e:	f7ff fffe 	bl	0 <fileDeleteFATEntry>
+  62:	b138      	cbz	r0, 74 <fileDeleteFATEntry+0x74>
+  64:	6978      	ldr	r0, [r7, #20]
+  66:	2100      	movs	r1, #0
+  68:	4440      	add	r0, r8
+  6a:	f7ff fffe 	bl	0 <fileDeleteFATEntry>
+  6e:	2001      	movs	r0, #1
+  70:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+  74:	3401      	adds	r4, #1
+  76:	4f04      	ldr	r7, [pc, #16]	; (88 <fileDeleteFATEntry+0x88>)
+  78:	69bb      	ldr	r3, [r7, #24]
+  7a:	429c      	cmp	r4, r3
+  7c:	d3c8      	bcc.n	10 <fileDeleteFATEntry+0x10>
+  7e:	fa5f f089 	uxtb.w	r0, r9
+  82:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+  86:	bf00      	nop
+  88:	00000000 	.word	0x00000000
+
+Disassembly of section .text.fileGetActiveFAT:
+
+00000000 <fileGetActiveFAT>:
+fileGetActiveFAT():
+   0:	4c11b510 	.word	0x4c11b510
+   4:	6be3      	ldr	r3, [r4, #60]	; 0x3c
+   6:	8ba2      	ldrh	r2, [r4, #28]
+   8:	8da0      	ldrh	r0, [r4, #44]	; 0x2c
+   a:	3b01      	subs	r3, #1
+   c:	fb00 3002 	mla	r0, r0, r2, r3
+  10:	f7ff fffe 	bl	0 <fileGetActiveFAT>
+  14:	b908      	cbnz	r0, 1a <fileGetActiveFAT+0x1a>
+  16:	6be0      	ldr	r0, [r4, #60]	; 0x3c
+  18:	bd10      	pop	{r4, pc}
+  1a:	6c23      	ldr	r3, [r4, #64]	; 0x40
+  1c:	8ba2      	ldrh	r2, [r4, #28]
+  1e:	8da0      	ldrh	r0, [r4, #44]	; 0x2c
+  20:	3b01      	subs	r3, #1
+  22:	fb00 3002 	mla	r0, r0, r2, r3
+  26:	f7ff fffe 	bl	0 <fileGetActiveFAT>
+  2a:	b908      	cbnz	r0, 30 <fileGetActiveFAT+0x30>
+  2c:	6c20      	ldr	r0, [r4, #64]	; 0x40
+  2e:	bd10      	pop	{r4, pc}
+  30:	6be3      	ldr	r3, [r4, #60]	; 0x3c
+  32:	8ba2      	ldrh	r2, [r4, #28]
+  34:	8da0      	ldrh	r0, [r4, #44]	; 0x2c
+  36:	3b01      	subs	r3, #1
+  38:	fb00 3002 	mla	r0, r0, r2, r3
+  3c:	2100      	movs	r1, #0
+  3e:	f7ff fffe 	bl	0 <fileGetActiveFAT>
+  42:	6be0      	ldr	r0, [r4, #60]	; 0x3c
+  44:	bd10      	pop	{r4, pc}
+  46:	bf00      	nop
+  48:	00000000 	.word	0x00000000
+
+Disassembly of section .text.fileGetFreeFATEntry:
+
+00000000 <fileGetFreeFATEntry>:
+fileGetFreeFATEntry():
+   0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+   4:	2500      	movs	r5, #0
+   6:	462f      	mov	r7, r5
+   8:	e00a      	b.n	20 <fileGetFreeFATEntry+0x20>
+   a:	6958      	ldr	r0, [r3, #20]
+   c:	eb00 0087 	add.w	r0, r0, r7, lsl #2
+  10:	f7ff fffe 	bl	0 <fileGetFreeFATEntry>
+  14:	b110      	cbz	r0, 1c <fileGetFreeFATEntry+0x1c>
+  16:	28ff      	cmp	r0, #255	; 0xff
+  18:	d101      	bne.n	1e <fileGetFreeFATEntry+0x1e>
+  1a:	e040      	b.n	9e <fileGetFreeFATEntry+0x9e>
+  1c:	2501      	movs	r5, #1
+  1e:	3701      	adds	r7, #1
+  20:	4b22      	ldr	r3, [pc, #136]	; (ac <fileGetFreeFATEntry+0xac>)
+  22:	699a      	ldr	r2, [r3, #24]
+  24:	461c      	mov	r4, r3
+  26:	4297      	cmp	r7, r2
+  28:	d3ef      	bcc.n	a <fileGetFreeFATEntry+0xa>
+  2a:	2d00      	cmp	r5, #0
+  2c:	d03a      	beq.n	a4 <fileGetFreeFATEntry+0xa4>
+  2e:	f7ff fffe 	bl	0 <fileGetFreeFATEntry>
+  32:	6c25      	ldr	r5, [r4, #64]	; 0x40
+  34:	6160      	str	r0, [r4, #20]
+  36:	42a8      	cmp	r0, r5
+  38:	bf08      	it	eq
+  3a:	6be5      	ldreq	r5, [r4, #60]	; 0x3c
+  3c:	f04f 37ff 	mov.w	r7, #4294967295
+  40:	46a8      	mov	r8, r5
+  42:	2600      	movs	r6, #0
+  44:	e014      	b.n	70 <fileGetFreeFATEntry+0x70>
+  46:	4b19      	ldr	r3, [pc, #100]	; (ac <fileGetFreeFATEntry+0xac>)
+  48:	6958      	ldr	r0, [r3, #20]
+  4a:	eb00 0086 	add.w	r0, r0, r6, lsl #2
+  4e:	f7ff fffe 	bl	0 <fileGetFreeFATEntry>
+  52:	f010 4f7f 	tst.w	r0, #4278190080	; 0xff000000
+  56:	4601      	mov	r1, r0
+  58:	d003      	beq.n	62 <fileGetFreeFATEntry+0x62>
+  5a:	4640      	mov	r0, r8
+  5c:	f7ff fffe 	bl	0 <fileGetFreeFATEntry>
+  60:	e003      	b.n	6a <fileGetFreeFATEntry+0x6a>
+  62:	f1b7 3fff 	cmp.w	r7, #4294967295
+  66:	bf08      	it	eq
+  68:	4637      	moveq	r7, r6
+  6a:	3601      	adds	r6, #1
+  6c:	f108 0804 	add.w	r8, r8, #4
+  70:	69a3      	ldr	r3, [r4, #24]
+  72:	429e      	cmp	r6, r3
+  74:	d3e7      	bcc.n	46 <fileGetFreeFATEntry+0x46>
+  76:	2600      	movs	r6, #0
+  78:	e005      	b.n	86 <fileGetFreeFATEntry+0x86>
+  7a:	6948      	ldr	r0, [r1, #20]
+  7c:	fb02 0006 	mla	r0, r2, r6, r0
+  80:	f7ff fffe 	bl	0 <fileGetFreeFATEntry>
+  84:	3601      	adds	r6, #1
+  86:	8da3      	ldrh	r3, [r4, #44]	; 0x2c
+  88:	4908      	ldr	r1, [pc, #32]	; (ac <fileGetFreeFATEntry+0xac>)
+  8a:	429e      	cmp	r6, r3
+  8c:	8ba2      	ldrh	r2, [r4, #28]
+  8e:	d3f4      	bcc.n	7a <fileGetFreeFATEntry+0x7a>
+  90:	1e68      	subs	r0, r5, #1
+  92:	614d      	str	r5, [r1, #20]
+  94:	fb02 0003 	mla	r0, r2, r3, r0
+  98:	2100      	movs	r1, #0
+  9a:	f7ff fffe 	bl	0 <fileGetFreeFATEntry>
+  9e:	b2b8      	uxth	r0, r7
+  a0:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  a4:	f64f 70ff 	movw	r0, #65535	; 0xffff
+  a8:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  ac:	00000000 	.word	0x00000000
+
+Disassembly of section .text.fileGetFreeFileEntry:
+
+00000000 <fileGetFreeFileEntry>:
+fileGetFreeFileEntry():
+   0:	e92d 43f8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
+   4:	f7ff fffe 	bl	0 <fileGetFreeFileEntry>
+   8:	4f37      	ldr	r7, [pc, #220]	; (e8 <fileGetFreeFileEntry+0xe8>)
+   a:	f1b0 3fff 	cmp.w	r0, #4294967295
+   e:	6138      	str	r0, [r7, #16]
+  10:	d063      	beq.n	da <fileGetFreeFileEntry+0xda>
+  12:	2504      	movs	r5, #4
+  14:	2400      	movs	r4, #0
+  16:	e00e      	b.n	36 <fileGetFreeFileEntry+0x36>
+  18:	6918      	ldr	r0, [r3, #16]
+  1a:	eb00 1005 	add.w	r0, r0, r5, lsl #4
+  1e:	f7ff fffe 	bl	0 <fileGetFreeFileEntry>
+  22:	28ff      	cmp	r0, #255	; 0xff
+  24:	d102      	bne.n	2c <fileGetFreeFileEntry+0x2c>
+  26:	b2a8      	uxth	r0, r5
+  28:	e8bd 83f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
+  2c:	b914      	cbnz	r4, 34 <fileGetFreeFileEntry+0x34>
+  2e:	2800      	cmp	r0, #0
+  30:	bf08      	it	eq
+  32:	462c      	moveq	r4, r5
+  34:	3501      	adds	r5, #1
+  36:	6a3a      	ldr	r2, [r7, #32]
+  38:	1f29      	subs	r1, r5, #4
+  3a:	4291      	cmp	r1, r2
+  3c:	4b2a      	ldr	r3, [pc, #168]	; (e8 <fileGetFreeFileEntry+0xe8>)
+  3e:	d3eb      	bcc.n	18 <fileGetFreeFileEntry+0x18>
+  40:	2c00      	cmp	r4, #0
+  42:	d04d      	beq.n	e0 <fileGetFreeFileEntry+0xe0>
+  44:	6b9d      	ldr	r5, [r3, #56]	; 0x38
+  46:	691a      	ldr	r2, [r3, #16]
+  48:	42aa      	cmp	r2, r5
+  4a:	bf08      	it	eq
+  4c:	6b5d      	ldreq	r5, [r3, #52]	; 0x34
+  4e:	2600      	movs	r6, #0
+  50:	e006      	b.n	60 <fileGetFreeFileEntry+0x60>
+  52:	4b25      	ldr	r3, [pc, #148]	; (e8 <fileGetFreeFileEntry+0xe8>)
+  54:	8b98      	ldrh	r0, [r3, #28]
+  56:	fb00 5006 	mla	r0, r0, r6, r5
+  5a:	f7ff fffe 	bl	0 <fileGetFreeFileEntry>
+  5e:	3601      	adds	r6, #1
+  60:	8d7b      	ldrh	r3, [r7, #42]	; 0x2a
+  62:	429e      	cmp	r6, r3
+  64:	d3f5      	bcc.n	52 <fileGetFreeFileEntry+0x52>
+  66:	2600      	movs	r6, #0
+  68:	6938      	ldr	r0, [r7, #16]
+  6a:	1830      	adds	r0, r6, r0
+  6c:	f7ff fffe 	bl	0 <fileGetFreeFileEntry>
+  70:	4601      	mov	r1, r0
+  72:	1970      	adds	r0, r6, r5
+  74:	3601      	adds	r6, #1
+  76:	f7ff fffe 	bl	0 <fileGetFreeFileEntry>
+  7a:	2e40      	cmp	r6, #64	; 0x40
+  7c:	d1f4      	bne.n	68 <fileGetFreeFileEntry+0x68>
+  7e:	f04f 0900 	mov.w	r9, #0
+  82:	e01b      	b.n	bc <fileGetFreeFileEntry+0xbc>
+  84:	f8d8 0010 	ldr.w	r0, [r8, #16]
+  88:	1830      	adds	r0, r6, r0
+  8a:	f7ff fffe 	bl	0 <fileGetFreeFileEntry>
+  8e:	b190      	cbz	r0, b6 <fileGetFreeFileEntry+0xb6>
+  90:	f04f 0800 	mov.w	r8, #0
+  94:	6938      	ldr	r0, [r7, #16]
+  96:	1830      	adds	r0, r6, r0
+  98:	4440      	add	r0, r8
+  9a:	f7ff fffe 	bl	0 <fileGetFreeFileEntry>
+  9e:	28ff      	cmp	r0, #255	; 0xff
+  a0:	4601      	mov	r1, r0
+  a2:	d003      	beq.n	ac <fileGetFreeFileEntry+0xac>
+  a4:	1970      	adds	r0, r6, r5
+  a6:	4440      	add	r0, r8
+  a8:	f7ff fffe 	bl	0 <fileGetFreeFileEntry>
+  ac:	f108 0801 	add.w	r8, r8, #1
+  b0:	f1b8 0f10 	cmp.w	r8, #16
+  b4:	d1ee      	bne.n	94 <fileGetFreeFileEntry+0x94>
+  b6:	f109 0901 	add.w	r9, r9, #1
+  ba:	3610      	adds	r6, #16
+  bc:	6a3b      	ldr	r3, [r7, #32]
+  be:	f8df 8028 	ldr.w	r8, [pc, #40]	; e8 <fileGetFreeFileEntry+0xe8>
+  c2:	4599      	cmp	r9, r3
+  c4:	d3de      	bcc.n	84 <fileGetFreeFileEntry+0x84>
+  c6:	f8d8 0010 	ldr.w	r0, [r8, #16]
+  ca:	2100      	movs	r1, #0
+  cc:	f7ff fffe 	bl	0 <fileGetFreeFileEntry>
+  d0:	f8c8 5010 	str.w	r5, [r8, #16]
+  d4:	b2a0      	uxth	r0, r4
+  d6:	e8bd 83f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
+  da:	2000      	movs	r0, #0
+  dc:	e8bd 83f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
+  e0:	4620      	mov	r0, r4
+  e2:	e8bd 83f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
+  e6:	bf00      	nop
+  e8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.fileAllocateFAT:
+
+00000000 <fileAllocateFAT>:
+fileAllocateFAT():
+   0:	41f0e92d 	.word	0x41f0e92d
+   4:	4607      	mov	r7, r0
+   6:	4688      	mov	r8, r1
+   8:	f7ff fffe 	bl	0 <fileAllocateFAT>
+   c:	f64f 73ff 	movw	r3, #65535	; 0xffff
+  10:	4298      	cmp	r0, r3
+  12:	4605      	mov	r5, r0
+  14:	d018      	beq.n	48 <fileAllocateFAT+0x48>
+  16:	4c0e      	ldr	r4, [pc, #56]	; (50 <fileAllocateFAT+0x50>)
+  18:	6b23      	ldr	r3, [r4, #48]	; 0x30
+  1a:	8ba0      	ldrh	r0, [r4, #28]
+  1c:	fb00 3005 	mla	r0, r0, r5, r3
+  20:	f7ff fffe 	bl	0 <fileAllocateFAT>
+  24:	6960      	ldr	r0, [r4, #20]
+  26:	00ab      	lsls	r3, r5, #2
+  28:	1818      	adds	r0, r3, r0
+  2a:	217f      	movs	r1, #127	; 0x7f
+  2c:	1c5e      	adds	r6, r3, #1
+  2e:	f7ff fffe 	bl	0 <fileAllocateFAT>
+  32:	6960      	ldr	r0, [r4, #20]
+  34:	4641      	mov	r1, r8
+  36:	1830      	adds	r0, r6, r0
+  38:	f7ff fffe 	bl	0 <fileAllocateFAT>
+  3c:	6960      	ldr	r0, [r4, #20]
+  3e:	4639      	mov	r1, r7
+  40:	3001      	adds	r0, #1
+  42:	1980      	adds	r0, r0, r6
+  44:	f7ff fffe 	bl	0 <fileAllocateFAT>
+  48:	4628      	mov	r0, r5
+  4a:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  4e:	bf00      	nop
+  50:	00000000 	.word	0x00000000
+
+Disassembly of section .text.fileAllocateContiguousFATEntries:
+
+00000000 <fileAllocateContiguousFATEntries>:
+fileAllocateContiguousFATEntries():
+   0:	e92d 43f8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
+   4:	4681      	mov	r9, r0
+   6:	4688      	mov	r8, r1
+   8:	2700      	movs	r7, #0
+   a:	2601      	movs	r6, #1
+   c:	e018      	b.n	40 <fileAllocateContiguousFATEntries+0x40>
+   e:	f7ff fffe 	bl	0 <fileAllocateContiguousFATEntries>
+  12:	4605      	mov	r5, r0
+  14:	2e01      	cmp	r6, #1
+  16:	bf08      	it	eq
+  18:	4604      	moveq	r4, r0
+  1a:	490e      	ldr	r1, [pc, #56]	; (54 <fileAllocateContiguousFATEntries+0x54>)
+  1c:	2002      	movs	r0, #2
+  1e:	462a      	mov	r2, r5
+  20:	f7ff fffe 	bl	0 <print>
+  24:	19e3      	adds	r3, r4, r7
+  26:	429d      	cmp	r5, r3
+  28:	f64f 73ff 	movw	r3, #65535	; 0xffff
+  2c:	d10b      	bne.n	46 <fileAllocateContiguousFATEntries+0x46>
+  2e:	3701      	adds	r7, #1
+  30:	429d      	cmp	r5, r3
+  32:	d00a      	beq.n	4a <fileAllocateContiguousFATEntries+0x4a>
+  34:	b2f1      	uxtb	r1, r6
+  36:	4648      	mov	r0, r9
+  38:	f7ff fffe 	bl	0 <fileAllocateContiguousFATEntries>
+  3c:	3601      	adds	r6, #1
+  3e:	b2b6      	uxth	r6, r6
+  40:	4546      	cmp	r6, r8
+  42:	d3e4      	bcc.n	e <fileAllocateContiguousFATEntries+0xe>
+  44:	e002      	b.n	4c <fileAllocateContiguousFATEntries+0x4c>
+  46:	461c      	mov	r4, r3
+  48:	e000      	b.n	4c <fileAllocateContiguousFATEntries+0x4c>
+  4a:	462c      	mov	r4, r5
+  4c:	4620      	mov	r0, r4
+  4e:	e8bd 83f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
+  52:	bf00      	nop
+  54:	00000000 	.word	0x00000000
+
+Disassembly of section .text.filePreAllocate:
+
+00000000 <filePreAllocate>:
+filePreAllocate():
+   0:	b510      	push	{r4, lr}
+   2:	7c03      	ldrb	r3, [r0, #16]
+   4:	f013 0f02 	tst.w	r3, #2
+   8:	d003      	beq.n	12 <filePreAllocate+0x12>
+   a:	6843      	ldr	r3, [r0, #4]
+   c:	b90b      	cbnz	r3, 12 <filePreAllocate+0x12>
+   e:	6883      	ldr	r3, [r0, #8]
+  10:	b113      	cbz	r3, 18 <filePreAllocate+0x18>
+  12:	2002      	movs	r0, #2
+  14:	490f      	ldr	r1, [pc, #60]	; (54 <filePreAllocate+0x54>)
+  16:	e014      	b.n	42 <filePreAllocate+0x42>
+  18:	4c0f      	ldr	r4, [pc, #60]	; (58 <filePreAllocate+0x58>)
+  1a:	f101 0280 	add.w	r2, r1, #128	; 0x80
+  1e:	8ba3      	ldrh	r3, [r4, #28]
+  20:	fbb2 f1f3 	udiv	r1, r2, r3
+  24:	fb03 2311 	mls	r3, r3, r1, r2
+  28:	b103      	cbz	r3, 2c <filePreAllocate+0x2c>
+  2a:	3101      	adds	r1, #1
+  2c:	89c0      	ldrh	r0, [r0, #14]
+  2e:	b289      	uxth	r1, r1
+  30:	f7ff fffe 	bl	0 <filePreAllocate>
+  34:	f64f 73ff 	movw	r3, #65535	; 0xffff
+  38:	4298      	cmp	r0, r3
+  3a:	d000      	beq.n	3e <filePreAllocate+0x3e>
+  3c:	b928      	cbnz	r0, 4a <filePreAllocate+0x4a>
+  3e:	4907      	ldr	r1, [pc, #28]	; (5c <filePreAllocate+0x5c>)
+  40:	2002      	movs	r0, #2
+  42:	f7ff fffe 	bl	0 <print>
+  46:	2000      	movs	r0, #0
+  48:	bd10      	pop	{r4, pc}
+  4a:	8ba3      	ldrh	r3, [r4, #28]
+  4c:	4358      	muls	r0, r3
+  4e:	3080      	adds	r0, #128	; 0x80
+  50:	bd10      	pop	{r4, pc}
+  52:	bf00      	nop
+  54:	0000000b 	.word	0x0000000b
+  58:	00000000 	.word	0x00000000
+  5c:	0000001a 	.word	0x0000001a
+
+Disassembly of section .text.filePutChar:
+
+00000000 <filePutChar>:
+filePutChar():
+   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+   2:	4604      	mov	r4, r0
+   4:	7c00      	ldrb	r0, [r0, #16]
+   6:	460f      	mov	r7, r1
+   8:	f010 0002 	ands.w	r0, r0, #2
+   c:	d02f      	beq.n	6e <filePutChar+0x6e>
+   e:	4d18      	ldr	r5, [pc, #96]	; (70 <filePutChar+0x70>)
+  10:	68a6      	ldr	r6, [r4, #8]
+  12:	8bab      	ldrh	r3, [r5, #28]
+  14:	3680      	adds	r6, #128	; 0x80
+  16:	fbb6 f2f3 	udiv	r2, r6, r3
+  1a:	fb03 6612 	mls	r6, r3, r2, r6
+  1e:	b996      	cbnz	r6, 46 <filePutChar+0x46>
+  20:	7b21      	ldrb	r1, [r4, #12]
+  22:	89e0      	ldrh	r0, [r4, #14]
+  24:	3101      	adds	r1, #1
+  26:	b2c9      	uxtb	r1, r1
+  28:	f7ff fffe 	bl	0 <filePutChar>
+  2c:	f64f 73ff 	movw	r3, #65535	; 0xffff
+  30:	4298      	cmp	r0, r3
+  32:	d01b      	beq.n	6c <filePutChar+0x6c>
+  34:	8bab      	ldrh	r3, [r5, #28]
+  36:	6b2a      	ldr	r2, [r5, #48]	; 0x30
+  38:	fbb2 f3f3 	udiv	r3, r2, r3
+  3c:	18c0      	adds	r0, r0, r3
+  3e:	89a3      	ldrh	r3, [r4, #12]
+  40:	6020      	str	r0, [r4, #0]
+  42:	3301      	adds	r3, #1
+  44:	81a3      	strh	r3, [r4, #12]
+  46:	68a2      	ldr	r2, [r4, #8]
+  48:	8bab      	ldrh	r3, [r5, #28]
+  4a:	3280      	adds	r2, #128	; 0x80
+  4c:	fbb2 f1f3 	udiv	r1, r2, r3
+  50:	fb03 2211 	mls	r2, r3, r1, r2
+  54:	6820      	ldr	r0, [r4, #0]
+  56:	4639      	mov	r1, r7
+  58:	fb00 2003 	mla	r0, r0, r3, r2
+  5c:	f7ff fffe 	bl	0 <filePutChar>
+  60:	68a3      	ldr	r3, [r4, #8]
+  62:	2001      	movs	r0, #1
+  64:	3301      	adds	r3, #1
+  66:	60a3      	str	r3, [r4, #8]
+  68:	6063      	str	r3, [r4, #4]
+  6a:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+  6c:	4630      	mov	r0, r6
+  6e:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+  70:	00000000 	.word	0x00000000
+
+Disassembly of section .text.filePutLong:
+
+00000000 <filePutLong>:
+filePutLong():
+   0:	2a01      	cmp	r2, #1
+   2:	b570      	push	{r4, r5, r6, lr}
+   4:	4605      	mov	r5, r0
+   6:	460c      	mov	r4, r1
+   8:	d10f      	bne.n	2a <filePutLong+0x2a>
+   a:	0e09      	lsrs	r1, r1, #24
+   c:	f7ff fffe 	bl	0 <filePutLong>
+  10:	0c21      	lsrs	r1, r4, #16
+  12:	b2c9      	uxtb	r1, r1
+  14:	4628      	mov	r0, r5
+  16:	f7ff fffe 	bl	0 <filePutLong>
+  1a:	0a21      	lsrs	r1, r4, #8
+  1c:	b2c9      	uxtb	r1, r1
+  1e:	4628      	mov	r0, r5
+  20:	f7ff fffe 	bl	0 <filePutLong>
+  24:	4628      	mov	r0, r5
+  26:	b2e1      	uxtb	r1, r4
+  28:	e00e      	b.n	48 <filePutLong+0x48>
+  2a:	b2c9      	uxtb	r1, r1
+  2c:	f7ff fffe 	bl	0 <filePutLong>
+  30:	0a21      	lsrs	r1, r4, #8
+  32:	b2c9      	uxtb	r1, r1
+  34:	4628      	mov	r0, r5
+  36:	f7ff fffe 	bl	0 <filePutLong>
+  3a:	0c21      	lsrs	r1, r4, #16
+  3c:	b2c9      	uxtb	r1, r1
+  3e:	4628      	mov	r0, r5
+  40:	f7ff fffe 	bl	0 <filePutLong>
+  44:	4628      	mov	r0, r5
+  46:	0e21      	lsrs	r1, r4, #24
+  48:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+  4c:	f7ff bffe 	b.w	0 <filePutLong>
+
+Disassembly of section .text.filePutWord:
+
+00000000 <filePutWord>:
+filePutWord():
+   0:	2a01      	cmp	r2, #1
+   2:	b570      	push	{r4, r5, r6, lr}
+   4:	4605      	mov	r5, r0
+   6:	460c      	mov	r4, r1
+   8:	ea4f 2611 	mov.w	r6, r1, lsr #8
+   c:	d105      	bne.n	1a <filePutWord+0x1a>
+   e:	4631      	mov	r1, r6
+  10:	f7ff fffe 	bl	0 <filePutWord>
+  14:	4628      	mov	r0, r5
+  16:	b2e1      	uxtb	r1, r4
+  18:	e004      	b.n	24 <filePutWord+0x24>
+  1a:	b2c9      	uxtb	r1, r1
+  1c:	f7ff fffe 	bl	0 <filePutWord>
+  20:	4628      	mov	r0, r5
+  22:	4631      	mov	r1, r6
+  24:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+  28:	f7ff bffe 	b.w	0 <filePutWord>
+
+Disassembly of section .text.filePutString:
+
+00000000 <filePutString>:
+filePutString():
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	4605      	mov	r5, r0
+   4:	460c      	mov	r4, r1
+   6:	e003      	b.n	10 <filePutString+0x10>
+   8:	4628      	mov	r0, r5
+   a:	f7ff fffe 	bl	0 <filePutString>
+   e:	b120      	cbz	r0, 1a <filePutString+0x1a>
+  10:	f814 1b01 	ldrb.w	r1, [r4], #1
+  14:	2900      	cmp	r1, #0
+  16:	d1f7      	bne.n	8 <filePutString+0x8>
+  18:	2001      	movs	r0, #1
+  1a:	bd38      	pop	{r3, r4, r5, pc}
+
+Disassembly of section .text.filePutBuffer:
+
+00000000 <filePutBuffer>:
+filePutBuffer():
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	4605      	mov	r5, r0
+   4:	460c      	mov	r4, r1
+   6:	4616      	mov	r6, r2
+   8:	e007      	b.n	1a <filePutBuffer+0x1a>
+   a:	4628      	mov	r0, r5
+   c:	f816 1b01 	ldrb.w	r1, [r6], #1
+  10:	f7ff fffe 	bl	0 <filePutBuffer>
+  14:	3c01      	subs	r4, #1
+  16:	b2a4      	uxth	r4, r4
+  18:	b110      	cbz	r0, 20 <filePutBuffer+0x20>
+  1a:	2c00      	cmp	r4, #0
+  1c:	d1f5      	bne.n	a <filePutBuffer+0xa>
+  1e:	2001      	movs	r0, #1
+  20:	bd70      	pop	{r4, r5, r6, pc}
+
+Disassembly of section .text.fileClose:
+
+00000000 <fileClose>:
+fileClose():
+   0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+   4:	4e25      	ldr	r6, [pc, #148]	; (9c <fileClose+0x9c>)
+   6:	4604      	mov	r4, r0
+   8:	2101      	movs	r1, #1
+   a:	89c0      	ldrh	r0, [r0, #14]
+   c:	6b35      	ldr	r5, [r6, #48]	; 0x30
+   e:	f7ff fffe 	bl	0 <fileClose>
+  12:	8bb7      	ldrh	r7, [r6, #28]
+  14:	6861      	ldr	r1, [r4, #4]
+  16:	fb07 5700 	mla	r7, r7, r0, r5
+  1a:	4620      	mov	r0, r4
+  1c:	f7ff fffe 	bl	0 <fileClose>
+  20:	4605      	mov	r5, r0
+  22:	2800      	cmp	r0, #0
+  24:	d133      	bne.n	8e <fileClose+0x8e>
+  26:	2101      	movs	r1, #1
+  28:	89e0      	ldrh	r0, [r4, #14]
+  2a:	f7ff fffe 	bl	0 <fileClose>
+  2e:	2101      	movs	r1, #1
+  30:	89e0      	ldrh	r0, [r4, #14]
+  32:	f7ff fffe 	bl	0 <fileClose>
+  36:	f64f 73ff 	movw	r3, #65535	; 0xffff
+  3a:	4298      	cmp	r0, r3
+  3c:	d02a      	beq.n	94 <fileClose+0x94>
+  3e:	f8b6 801c 	ldrh.w	r8, [r6, #28]
+  42:	6b33      	ldr	r3, [r6, #48]	; 0x30
+  44:	fbb3 f3f8 	udiv	r3, r3, r8
+  48:	18c0      	adds	r0, r0, r3
+  4a:	89a3      	ldrh	r3, [r4, #12]
+  4c:	fb08 f800 	mul.w	r8, r8, r0
+  50:	2b01      	cmp	r3, #1
+  52:	bf08      	it	eq
+  54:	6020      	streq	r0, [r4, #0]
+  56:	2580      	movs	r5, #128	; 0x80
+  58:	e00a      	b.n	70 <fileClose+0x70>
+  5a:	19e8      	adds	r0, r5, r7
+  5c:	f7ff fffe 	bl	0 <fileClose>
+  60:	28ff      	cmp	r0, #255	; 0xff
+  62:	4601      	mov	r1, r0
+  64:	d003      	beq.n	6e <fileClose+0x6e>
+  66:	eb05 0008 	add.w	r0, r5, r8
+  6a:	f7ff fffe 	bl	0 <fileClose>
+  6e:	3501      	adds	r5, #1
+  70:	8bb3      	ldrh	r3, [r6, #28]
+  72:	429d      	cmp	r5, r3
+  74:	d3f1      	bcc.n	5a <fileClose+0x5a>
+  76:	4638      	mov	r0, r7
+  78:	f7ff fffe 	bl	0 <fileClose>
+  7c:	4620      	mov	r0, r4
+  7e:	6861      	ldr	r1, [r4, #4]
+  80:	f7ff fffe 	bl	0 <fileClose>
+  84:	3800      	subs	r0, #0
+  86:	bf18      	it	ne
+  88:	2001      	movne	r0, #1
+  8a:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  8e:	2001      	movs	r0, #1
+  90:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  94:	4628      	mov	r0, r5
+  96:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  9a:	bf00      	nop
+  9c:	00000000 	.word	0x00000000
+
+Disassembly of section .text.fileRename:
+
+00000000 <fileRename>:
+fileRename():
+   0:	e92d 43f8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
+   4:	4605      	mov	r5, r0
+   6:	4608      	mov	r0, r1
+   8:	460f      	mov	r7, r1
+   a:	f7ff fffe 	bl	0 <fileRename>
+   e:	2800      	cmp	r0, #0
+  10:	d041      	beq.n	96 <fileRename+0x96>
+  12:	4628      	mov	r0, r5
+  14:	f7ff fffe 	bl	0 <fileRename>
+  18:	2800      	cmp	r0, #0
+  1a:	d03c      	beq.n	96 <fileRename+0x96>
+  1c:	4628      	mov	r0, r5
+  1e:	f7ff fffe 	bl	0 <fileRename>
+  22:	4605      	mov	r5, r0
+  24:	2800      	cmp	r0, #0
+  26:	d033      	beq.n	90 <fileRename+0x90>
+  28:	4638      	mov	r0, r7
+  2a:	f7ff fffe 	bl	0 <fileRename>
+  2e:	4681      	mov	r9, r0
+  30:	2800      	cmp	r0, #0
+  32:	d12f      	bne.n	94 <fileRename+0x94>
+  34:	4c19      	ldr	r4, [pc, #100]	; (9c <fileRename+0x9c>)
+  36:	6923      	ldr	r3, [r4, #16]
+  38:	eb03 1805 	add.w	r8, r3, r5, lsl #4
+  3c:	f108 000d 	add.w	r0, r8, #13
+  40:	f7ff fffe 	bl	0 <fileRename>
+  44:	4606      	mov	r6, r0
+  46:	f108 000e 	add.w	r0, r8, #14
+  4a:	f7ff fffe 	bl	0 <fileRename>
+  4e:	4649      	mov	r1, r9
+  50:	4605      	mov	r5, r0
+  52:	4640      	mov	r0, r8
+  54:	f7ff fffe 	bl	0 <fileRename>
+  58:	f7ff fffe 	bl	0 <fileRename>
+  5c:	b1d8      	cbz	r0, 96 <fileRename+0x96>
+  5e:	6924      	ldr	r4, [r4, #16]
+  60:	eb04 1400 	add.w	r4, r4, r0, lsl #4
+  64:	4638      	mov	r0, r7
+  66:	f7ff fffe 	bl	0 <len>
+  6a:	1c41      	adds	r1, r0, #1
+  6c:	463a      	mov	r2, r7
+  6e:	4620      	mov	r0, r4
+  70:	b289      	uxth	r1, r1
+  72:	f7ff fffe 	bl	0 <fileRename>
+  76:	f104 000d 	add.w	r0, r4, #13
+  7a:	4631      	mov	r1, r6
+  7c:	f7ff fffe 	bl	0 <fileRename>
+  80:	f104 000e 	add.w	r0, r4, #14
+  84:	4629      	mov	r1, r5
+  86:	f7ff fffe 	bl	0 <fileRename>
+  8a:	2001      	movs	r0, #1
+  8c:	e8bd 83f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
+  90:	e8bd 83f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
+  94:	2000      	movs	r0, #0
+  96:	e8bd 83f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
+  9a:	bf00      	nop
+  9c:	00000000 	.word	0x00000000
+
+Disassembly of section .text.flashWriteEnable:
+
+00000000 <flashWriteEnable>:
+flashWriteEnable():
+   0:	231fb537 	.word	0x231fb537
+   4:	4c0d      	ldr	r4, [pc, #52]	; (3c <flashWriteEnable+0x3c>)
+   6:	221d      	movs	r2, #29
+   8:	f44f 5580 	mov.w	r5, #4096	; 0x1000
+   c:	9300      	str	r3, [sp, #0]
+   e:	480c      	ldr	r0, [pc, #48]	; (40 <flashWriteEnable+0x40>)
+  10:	3b01      	subs	r3, #1
+  12:	211c      	movs	r1, #28
+  14:	f7ff fffe 	bl	0 <spiConfig>
+  18:	4809      	ldr	r0, [pc, #36]	; (40 <flashWriteEnable+0x40>)
+  1a:	2106      	movs	r1, #6
+  1c:	6165      	str	r5, [r4, #20]
+  1e:	f7ff fffe 	bl	0 <spiWriteByte>
+  22:	6125      	str	r5, [r4, #16]
+  24:	4806      	ldr	r0, [pc, #24]	; (40 <flashWriteEnable+0x40>)
+  26:	2101      	movs	r1, #1
+  28:	6165      	str	r5, [r4, #20]
+  2a:	f7ff fffe 	bl	0 <spiWriteByte>
+  2e:	4804      	ldr	r0, [pc, #16]	; (40 <flashWriteEnable+0x40>)
+  30:	2100      	movs	r1, #0
+  32:	f7ff fffe 	bl	0 <spiWriteByte>
+  36:	6125      	str	r5, [r4, #16]
+  38:	bd3e      	pop	{r1, r2, r3, r4, r5, pc}
+  3a:	bf00      	nop
+  3c:	40010c00 	.word	0x40010c00
+  40:	00000000 	.word	0x00000000
+
+Disassembly of section .text.fileFormat:
+
+00000000 <fileFormat>:
+fileFormat():
+   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+   2:	7803      	ldrb	r3, [r0, #0]
+   4:	4606      	mov	r6, r0
+   6:	b11b      	cbz	r3, 10 <fileFormat+0x10>
+   8:	f7ff fffe 	bl	0 <fileFormat>
+   c:	2800      	cmp	r0, #0
+   e:	d06b      	beq.n	e8 <fileFormat+0xe8>
+  10:	f7ff fffe 	bl	0 <fileFormat>
+  14:	f7ff fffe 	bl	0 <fileFormat>
+  18:	f7ff fffe 	bl	0 <fileFormat>
+  1c:	284a      	cmp	r0, #74	; 0x4a
+  1e:	d009      	beq.n	34 <fileFormat+0x34>
+  20:	2841      	cmp	r0, #65	; 0x41
+  22:	d00b      	beq.n	3c <fileFormat+0x3c>
+  24:	288e      	cmp	r0, #142	; 0x8e
+  26:	d00d      	beq.n	44 <fileFormat+0x44>
+  28:	2401      	movs	r4, #1
+  2a:	288d      	cmp	r0, #141	; 0x8d
+  2c:	bf0c      	ite	eq
+  2e:	2580      	moveq	r5, #128	; 0x80
+  30:	2500      	movne	r5, #0
+  32:	e00a      	b.n	4a <fileFormat+0x4a>
+  34:	2404      	movs	r4, #4
+  36:	f44f 6580 	mov.w	r5, #1024	; 0x400
+  3a:	e006      	b.n	4a <fileFormat+0x4a>
+  3c:	2402      	movs	r4, #2
+  3e:	f44f 7500 	mov.w	r5, #512	; 0x200
+  42:	e002      	b.n	4a <fileFormat+0x4a>
+  44:	2401      	movs	r4, #1
+  46:	f44f 7580 	mov.w	r5, #256	; 0x100
+  4a:	7833      	ldrb	r3, [r6, #0]
+  4c:	b123      	cbz	r3, 58 <fileFormat+0x58>
+  4e:	2000      	movs	r0, #0
+  50:	2101      	movs	r1, #1
+  52:	4632      	mov	r2, r6
+  54:	f7ff fffe 	bl	0 <fileFormat>
+  58:	26fc      	movs	r6, #252	; 0xfc
+  5a:	fb06 f704 	mul.w	r7, r6, r4
+  5e:	200f      	movs	r0, #15
+  60:	210b      	movs	r1, #11
+  62:	f7ff fffe 	bl	0 <fileFormat>
+  66:	f64f 71fc 	movw	r1, #65532	; 0xfffc
+  6a:	2010      	movs	r0, #16
+  6c:	ea07 0101 	and.w	r1, r7, r1
+  70:	f7ff fffe 	bl	0 <fileFormat>
+  74:	2012      	movs	r0, #18
+  76:	f44f 5180 	mov.w	r1, #4096	; 0x1000
+  7a:	f7ff fffe 	bl	0 <fileFormat>
+  7e:	2014      	movs	r0, #20
+  80:	4639      	mov	r1, r7
+  82:	f7ff fffe 	bl	0 <fileFormat>
+  86:	0063      	lsls	r3, r4, #1
+  88:	1aed      	subs	r5, r5, r3
+  8a:	032d      	lsls	r5, r5, #12
+  8c:	2018      	movs	r0, #24
+  8e:	4629      	mov	r1, r5
+  90:	f7ff fffe 	bl	0 <fileFormat>
+  94:	201c      	movs	r0, #28
+  96:	4631      	mov	r1, r6
+  98:	f7ff fffe 	bl	0 <fileFormat>
+  9c:	201e      	movs	r0, #30
+  9e:	4621      	mov	r1, r4
+  a0:	f7ff fffe 	bl	0 <fileFormat>
+  a4:	2020      	movs	r0, #32
+  a6:	4621      	mov	r1, r4
+  a8:	f7ff fffe 	bl	0 <fileFormat>
+  ac:	f44f 41a0 	mov.w	r1, #20480	; 0x5000
+  b0:	4361      	muls	r1, r4
+  b2:	2022      	movs	r0, #34	; 0x22
+  b4:	f7ff fffe 	bl	0 <fileFormat>
+  b8:	2026      	movs	r0, #38	; 0x26
+  ba:	2100      	movs	r1, #0
+  bc:	f7ff fffe 	bl	0 <fileFormat>
+  c0:	0321      	lsls	r1, r4, #12
+  c2:	202a      	movs	r0, #42	; 0x2a
+  c4:	f7ff fffe 	bl	0 <fileFormat>
+  c8:	0361      	lsls	r1, r4, #13
+  ca:	202e      	movs	r0, #46	; 0x2e
+  cc:	f7ff fffe 	bl	0 <fileFormat>
+  d0:	f44f 5140 	mov.w	r1, #12288	; 0x3000
+  d4:	2032      	movs	r0, #50	; 0x32
+  d6:	4361      	muls	r1, r4
+  d8:	f7ff fffe 	bl	0 <fileFormat>
+  dc:	03a0      	lsls	r0, r4, #14
+  de:	3801      	subs	r0, #1
+  e0:	2100      	movs	r1, #0
+  e2:	f7ff fffe 	bl	0 <fileFormat>
+  e6:	e000      	b.n	ea <fileFormat+0xea>
+  e8:	4605      	mov	r5, r0
+  ea:	4628      	mov	r0, r5
+  ec:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+
+Disassembly of section .text.fileMountRoot:
+
+00000000 <fileMountRoot>:
+fileMountRoot():
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	4d2b      	ldr	r5, [pc, #172]	; (b0 <fileMountRoot+0xb0>)
+   4:	f7ff fffe 	bl	0 <fileMountRoot>
+   8:	2600      	movs	r6, #0
+   a:	202a      	movs	r0, #42	; 0x2a
+   c:	636e      	str	r6, [r5, #52]	; 0x34
+   e:	f7ff fffe 	bl	0 <fileMountRoot>
+  12:	63a8      	str	r0, [r5, #56]	; 0x38
+  14:	f7ff fffe 	bl	0 <fileMountRoot>
+  18:	f1b0 3fff 	cmp.w	r0, #4294967295
+  1c:	4604      	mov	r4, r0
+  1e:	d108      	bne.n	32 <fileMountRoot+0x32>
+  20:	4824      	ldr	r0, [pc, #144]	; (b4 <fileMountRoot+0xb4>)
+  22:	f7ff fffe 	bl	0 <fileMountRoot>
+  26:	f7ff fffe 	bl	0 <fileMountRoot>
+  2a:	f1b0 3fff 	cmp.w	r0, #4294967295
+  2e:	4604      	mov	r4, r0
+  30:	d03b      	beq.n	aa <fileMountRoot+0xaa>
+  32:	f104 000f 	add.w	r0, r4, #15
+  36:	f7ff fffe 	bl	0 <fileMountRoot>
+  3a:	81e8      	strh	r0, [r5, #14]
+  3c:	f104 0010 	add.w	r0, r4, #16
+  40:	f7ff fffe 	bl	0 <fileMountRoot>
+  44:	61a8      	str	r0, [r5, #24]
+  46:	f104 0012 	add.w	r0, r4, #18
+  4a:	f7ff fffe 	bl	0 <fileMountRoot>
+  4e:	83a8      	strh	r0, [r5, #28]
+  50:	f104 0014 	add.w	r0, r4, #20
+  54:	f7ff fffe 	bl	0 <fileMountRoot>
+  58:	6228      	str	r0, [r5, #32]
+  5a:	f104 0018 	add.w	r0, r4, #24
+  5e:	f7ff fffe 	bl	0 <fileMountRoot>
+  62:	6268      	str	r0, [r5, #36]	; 0x24
+  64:	f104 001c 	add.w	r0, r4, #28
+  68:	f7ff fffe 	bl	0 <fileMountRoot>
+  6c:	8528      	strh	r0, [r5, #40]	; 0x28
+  6e:	f104 001e 	add.w	r0, r4, #30
+  72:	f7ff fffe 	bl	0 <fileMountRoot>
+  76:	8568      	strh	r0, [r5, #42]	; 0x2a
+  78:	f104 0020 	add.w	r0, r4, #32
+  7c:	f7ff fffe 	bl	0 <fileMountRoot>
+  80:	85a8      	strh	r0, [r5, #44]	; 0x2c
+  82:	f104 0022 	add.w	r0, r4, #34	; 0x22
+  86:	f7ff fffe 	bl	0 <fileMountRoot>
+  8a:	6328      	str	r0, [r5, #48]	; 0x30
+  8c:	f104 002e 	add.w	r0, r4, #46	; 0x2e
+  90:	f7ff fffe 	bl	0 <fileMountRoot>
+  94:	63e8      	str	r0, [r5, #60]	; 0x3c
+  96:	f104 0032 	add.w	r0, r4, #50	; 0x32
+  9a:	f7ff fffe 	bl	0 <fileMountRoot>
+  9e:	6428      	str	r0, [r5, #64]	; 0x40
+  a0:	f7ff fffe 	bl	0 <fileMountRoot>
+  a4:	6168      	str	r0, [r5, #20]
+  a6:	2001      	movs	r0, #1
+  a8:	bd70      	pop	{r4, r5, r6, pc}
+  aa:	4630      	mov	r0, r6
+  ac:	bd70      	pop	{r4, r5, r6, pc}
+  ae:	bf00      	nop
+  b0:	00000000 	.word	0x00000000
+  b4:	0000002a 	.word	0x0000002a
+
+Disassembly of section .text.fileDelete:
+
+00000000 <fileDelete>:
+fileDelete():
+   0:	4604b510 	.word	0x4604b510
+   4:	f7ff fffe 	bl	0 <fileDelete>
+   8:	4620      	mov	r0, r4
+   a:	f7ff fffe 	bl	0 <fileDelete>
+   e:	4604      	mov	r4, r0
+  10:	b160      	cbz	r0, 2c <fileDelete+0x2c>
+  12:	4b07      	ldr	r3, [pc, #28]	; (30 <fileDelete+0x30>)
+  14:	2100      	movs	r1, #0
+  16:	6918      	ldr	r0, [r3, #16]
+  18:	eb00 1004 	add.w	r0, r0, r4, lsl #4
+  1c:	f7ff fffe 	bl	0 <fileDelete>
+  20:	4620      	mov	r0, r4
+  22:	2100      	movs	r1, #0
+  24:	f7ff fffe 	bl	0 <fileDelete>
+  28:	2001      	movs	r0, #1
+  2a:	bd10      	pop	{r4, pc}
+  2c:	bd10      	pop	{r4, pc}
+  2e:	bf00      	nop
+  30:	00000000 	.word	0x00000000
+
+Disassembly of section .text.fileOpen:
+
+00000000 <fileOpen>:
+fileOpen():
+   0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+   4:	4604      	mov	r4, r0
+   6:	4688      	mov	r8, r1
+   8:	b10a      	cbz	r2, e <fileOpen+0xe>
+   a:	7402      	strb	r2, [r0, #16]
+   c:	e001      	b.n	12 <fileOpen+0x12>
+   e:	2301      	movs	r3, #1
+  10:	7403      	strb	r3, [r0, #16]
+  12:	f7ff fffe 	bl	0 <fileOpen>
+  16:	4640      	mov	r0, r8
+  18:	f7ff fffe 	bl	0 <fileOpen>
+  1c:	2800      	cmp	r0, #0
+  1e:	d069      	beq.n	f4 <fileOpen+0xf4>
+  20:	4640      	mov	r0, r8
+  22:	f7ff fffe 	bl	0 <fileOpen>
+  26:	4606      	mov	r6, r0
+  28:	4605      	mov	r5, r0
+  2a:	b918      	cbnz	r0, 34 <fileOpen+0x34>
+  2c:	7c23      	ldrb	r3, [r4, #16]
+  2e:	f013 0f01 	tst.w	r3, #1
+  32:	d15d      	bne.n	f0 <fileOpen+0xf0>
+  34:	f104 0718 	add.w	r7, r4, #24
+  38:	4640      	mov	r0, r8
+  3a:	4639      	mov	r1, r7
+  3c:	f7ff fffe 	bl	0 <copyString>
+  40:	2300      	movs	r3, #0
+  42:	6163      	str	r3, [r4, #20]
+  44:	7c23      	ldrb	r3, [r4, #16]
+  46:	f013 0f02 	tst.w	r3, #2
+  4a:	d029      	beq.n	a0 <fileOpen+0xa0>
+  4c:	b12e      	cbz	r6, 5a <fileOpen+0x5a>
+  4e:	f013 0f04 	tst.w	r3, #4
+  52:	d125      	bne.n	a0 <fileOpen+0xa0>
+  54:	4638      	mov	r0, r7
+  56:	f7ff fffe 	bl	0 <fileOpen>
+  5a:	f7ff fffe 	bl	0 <fileOpen>
+  5e:	4605      	mov	r5, r0
+  60:	2800      	cmp	r0, #0
+  62:	d047      	beq.n	f4 <fileOpen+0xf4>
+  64:	4b24      	ldr	r3, [pc, #144]	; (f8 <fileOpen+0xf8>)
+  66:	691e      	ldr	r6, [r3, #16]
+  68:	eb06 1600 	add.w	r6, r6, r0, lsl #4
+  6c:	4638      	mov	r0, r7
+  6e:	f7ff fffe 	bl	0 <len>
+  72:	1c41      	adds	r1, r0, #1
+  74:	463a      	mov	r2, r7
+  76:	4630      	mov	r0, r6
+  78:	b289      	uxth	r1, r1
+  7a:	f7ff fffe 	bl	0 <fileOpen>
+  7e:	f106 000d 	add.w	r0, r6, #13
+  82:	2103      	movs	r1, #3
+  84:	f7ff fffe 	bl	0 <fileOpen>
+  88:	2201      	movs	r2, #1
+  8a:	f106 000e 	add.w	r0, r6, #14
+  8e:	4629      	mov	r1, r5
+  90:	81e5      	strh	r5, [r4, #14]
+  92:	81a2      	strh	r2, [r4, #12]
+  94:	f7ff fffe 	bl	0 <fileOpen>
+  98:	89e0      	ldrh	r0, [r4, #14]
+  9a:	7b21      	ldrb	r1, [r4, #12]
+  9c:	f7ff fffe 	bl	0 <fileOpen>
+  a0:	4e15      	ldr	r6, [pc, #84]	; (f8 <fileOpen+0xf8>)
+  a2:	6930      	ldr	r0, [r6, #16]
+  a4:	300e      	adds	r0, #14
+  a6:	eb00 1005 	add.w	r0, r0, r5, lsl #4
+  aa:	f7ff fffe 	bl	0 <fileOpen>
+  ae:	81e0      	strh	r0, [r4, #14]
+  b0:	f7ff fffe 	bl	0 <fileOpen>
+  b4:	8bb3      	ldrh	r3, [r6, #28]
+  b6:	6b32      	ldr	r2, [r6, #48]	; 0x30
+  b8:	6060      	str	r0, [r4, #4]
+  ba:	fbb2 f2f3 	udiv	r2, r2, r3
+  be:	6022      	str	r2, [r4, #0]
+  c0:	2201      	movs	r2, #1
+  c2:	81a2      	strh	r2, [r4, #12]
+  c4:	7c22      	ldrb	r2, [r4, #16]
+  c6:	f012 0204 	ands.w	r2, r2, #4
+  ca:	d006      	beq.n	da <fileOpen+0xda>
+  cc:	60a0      	str	r0, [r4, #8]
+  ce:	3080      	adds	r0, #128	; 0x80
+  d0:	fbb0 f3f3 	udiv	r3, r0, r3
+  d4:	3301      	adds	r3, #1
+  d6:	81a3      	strh	r3, [r4, #12]
+  d8:	e000      	b.n	dc <fileOpen+0xdc>
+  da:	60a2      	str	r2, [r4, #8]
+  dc:	89e0      	ldrh	r0, [r4, #14]
+  de:	7b21      	ldrb	r1, [r4, #12]
+  e0:	6825      	ldr	r5, [r4, #0]
+  e2:	f7ff fffe 	bl	0 <fileOpen>
+  e6:	1940      	adds	r0, r0, r5
+  e8:	6020      	str	r0, [r4, #0]
+  ea:	2001      	movs	r0, #1
+  ec:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  f0:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  f4:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  f8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.fileCopy:
+
+00000000 <fileCopy>:
+fileCopy():
+   0:	b530      	push	{r4, r5, lr}
+   2:	b095      	sub	sp, #84	; 0x54
+   4:	4605      	mov	r5, r0
+   6:	460c      	mov	r4, r1
+   8:	f7ff fffe 	bl	0 <fileCopy>
+   c:	b318      	cbz	r0, 56 <fileCopy+0x56>
+   e:	4620      	mov	r0, r4
+  10:	f7ff fffe 	bl	0 <fileCopy>
+  14:	b1f8      	cbz	r0, 56 <fileCopy+0x56>
+  16:	4668      	mov	r0, sp
+  18:	4629      	mov	r1, r5
+  1a:	2201      	movs	r2, #1
+  1c:	f7ff fffe 	bl	0 <fileCopy>
+  20:	b1c8      	cbz	r0, 56 <fileCopy+0x56>
+  22:	a80a      	add	r0, sp, #40	; 0x28
+  24:	4621      	mov	r1, r4
+  26:	2202      	movs	r2, #2
+  28:	f7ff fffe 	bl	0 <fileCopy>
+  2c:	b958      	cbnz	r0, 46 <fileCopy+0x46>
+  2e:	e012      	b.n	56 <fileCopy+0x56>
+  30:	4668      	mov	r0, sp
+  32:	f7ff fffe 	bl	0 <fileCopy>
+  36:	f99d 3010 	ldrsb.w	r3, [sp, #16]
+  3a:	4601      	mov	r1, r0
+  3c:	2b00      	cmp	r3, #0
+  3e:	db02      	blt.n	46 <fileCopy+0x46>
+  40:	a80a      	add	r0, sp, #40	; 0x28
+  42:	f7ff fffe 	bl	0 <fileCopy>
+  46:	f99d 3010 	ldrsb.w	r3, [sp, #16]
+  4a:	2b00      	cmp	r3, #0
+  4c:	daf0      	bge.n	30 <fileCopy+0x30>
+  4e:	a80a      	add	r0, sp, #40	; 0x28
+  50:	f7ff fffe 	bl	0 <fileCopy>
+  54:	2001      	movs	r0, #1
+  56:	b015      	add	sp, #84	; 0x54
+  58:	bd30      	pop	{r4, r5, pc}

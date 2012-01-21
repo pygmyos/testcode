@@ -1,0 +1,66 @@
+
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\Tutorial1\main.o:     file format elf32-littlearm
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\Tutorial1\main.o
+
+
+Disassembly of section .text.main:
+
+00000000 <main>:
+main():
+   0:	b508      	push	{r3, lr}
+   2:	f7ff fffe 	bl	0 <sysInit>
+   6:	2002      	movs	r0, #2
+   8:	f7ff fffe 	bl	0 <streamEnableEcho>
+   c:	2002      	movs	r0, #2
+   e:	f7ff fffe 	bl	0 <streamEnableBackspace>
+  12:	2002      	movs	r0, #2
+  14:	f7ff fffe 	bl	0 <streamEnableActionChars>
+  18:	f7ff fffe 	bl	0 <descriptorGetID>
+  1c:	4902      	ldr	r1, [pc, #8]	; (28 <main+0x28>)
+  1e:	4602      	mov	r2, r0
+  20:	2002      	movs	r0, #2
+  22:	f7ff fffe 	bl	0 <print>
+  26:	e7fe      	b.n	0 <main>
+  28:	00000000 	.word	0x00000000
+
+Disassembly of section .text.blink1:
+
+00000000 <blink1>:
+blink1():
+   0:	480a      	ldr	r0, [pc, #40]	; (2c <blink1+0x2c>)
+   2:	4b0b      	ldr	r3, [pc, #44]	; (30 <blink1+0x30>)
+   4:	7802      	ldrb	r2, [r0, #0]
+   6:	7819      	ldrb	r1, [r3, #0]
+   8:	188a      	adds	r2, r1, r2
+   a:	b2d2      	uxtb	r2, r2
+   c:	b2d1      	uxtb	r1, r2
+   e:	7001      	strb	r1, [r0, #0]
+  10:	b249      	sxtb	r1, r1
+  12:	2950      	cmp	r1, #80	; 0x50
+  14:	dd01      	ble.n	1a <blink1+0x1a>
+  16:	21ff      	movs	r1, #255	; 0xff
+  18:	e002      	b.n	20 <blink1+0x20>
+  1a:	2900      	cmp	r1, #0
+  1c:	dc01      	bgt.n	22 <blink1+0x22>
+  1e:	2101      	movs	r1, #1
+  20:	7019      	strb	r1, [r3, #0]
+  22:	200b      	movs	r0, #11
+  24:	f44f 51fa 	mov.w	r1, #8000	; 0x1f40
+  28:	f7ff bffe 	b.w	0 <pinPWM>
+	...
+
+Disassembly of section .text.blink2:
+
+00000000 <blink2>:
+blink2():
+   0:	b510      	push	{r4, lr}
+   2:	200c      	movs	r0, #12
+   4:	f7ff fffe 	bl	0 <pinGet>
+   8:	b110      	cbz	r0, 10 <blink2+0x10>
+   a:	200c      	movs	r0, #12
+   c:	2100      	movs	r1, #0
+   e:	e001      	b.n	14 <blink2+0x14>
+  10:	200c      	movs	r0, #12
+  12:	2101      	movs	r1, #1
+  14:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+  18:	f7ff bffe 	b.w	0 <pinSet>

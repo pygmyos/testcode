@@ -1,0 +1,1368 @@
+
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\Tutorial1\pygmy_gui.o:     file format elf32-littlearm
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\Tutorial1\pygmy_gui.o
+
+
+Disassembly of section .text.guiOutputBMHeader:
+
+00000000 <guiOutputBMHeader>:
+guiOutputBMHeader():
+   0:	f013 0f02 	tst.w	r3, #2
+   4:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+   8:	4604      	mov	r4, r0
+   a:	460d      	mov	r5, r1
+   c:	4616      	mov	r6, r2
+   e:	d10c      	bne.n	2a <guiOutputBMHeader+0x2a>
+  10:	f013 0f04 	tst.w	r3, #4
+  14:	d10c      	bne.n	30 <guiOutputBMHeader+0x30>
+  16:	f003 0305 	and.w	r3, r3, #5
+  1a:	2b00      	cmp	r3, #0
+  1c:	bf0c      	ite	eq
+  1e:	2304      	moveq	r3, #4
+  20:	2303      	movne	r3, #3
+  22:	bf0c      	ite	eq
+  24:	2720      	moveq	r7, #32
+  26:	2718      	movne	r7, #24
+  28:	e004      	b.n	34 <guiOutputBMHeader+0x34>
+  2a:	2301      	movs	r3, #1
+  2c:	2708      	movs	r7, #8
+  2e:	e001      	b.n	34 <guiOutputBMHeader+0x34>
+  30:	2302      	movs	r3, #2
+  32:	2710      	movs	r7, #16
+  34:	f005 0803 	and.w	r8, r5, #3
+  38:	44a8      	add	r8, r5
+  3a:	fb06 f808 	mul.w	r8, r6, r8
+  3e:	fb03 f808 	mul.w	r8, r3, r8
+  42:	2142      	movs	r1, #66	; 0x42
+  44:	4620      	mov	r0, r4
+  46:	f7ff fffe 	bl	0 <filePutChar>
+  4a:	214d      	movs	r1, #77	; 0x4d
+  4c:	4620      	mov	r0, r4
+  4e:	f7ff fffe 	bl	0 <filePutChar>
+  52:	4620      	mov	r0, r4
+  54:	f108 0136 	add.w	r1, r8, #54	; 0x36
+  58:	2200      	movs	r2, #0
+  5a:	f7ff fffe 	bl	0 <filePutLong>
+  5e:	2100      	movs	r1, #0
+  60:	4620      	mov	r0, r4
+  62:	460a      	mov	r2, r1
+  64:	f7ff fffe 	bl	0 <filePutLong>
+  68:	4620      	mov	r0, r4
+  6a:	2136      	movs	r1, #54	; 0x36
+  6c:	2200      	movs	r2, #0
+  6e:	f7ff fffe 	bl	0 <filePutLong>
+  72:	4620      	mov	r0, r4
+  74:	2128      	movs	r1, #40	; 0x28
+  76:	2200      	movs	r2, #0
+  78:	f7ff fffe 	bl	0 <filePutLong>
+  7c:	4620      	mov	r0, r4
+  7e:	4629      	mov	r1, r5
+  80:	2200      	movs	r2, #0
+  82:	f7ff fffe 	bl	0 <filePutLong>
+  86:	4620      	mov	r0, r4
+  88:	4631      	mov	r1, r6
+  8a:	2200      	movs	r2, #0
+  8c:	f7ff fffe 	bl	0 <filePutLong>
+  90:	4620      	mov	r0, r4
+  92:	2101      	movs	r1, #1
+  94:	2200      	movs	r2, #0
+  96:	f7ff fffe 	bl	0 <filePutWord>
+  9a:	4620      	mov	r0, r4
+  9c:	4639      	mov	r1, r7
+  9e:	2200      	movs	r2, #0
+  a0:	f7ff fffe 	bl	0 <filePutWord>
+  a4:	2100      	movs	r1, #0
+  a6:	4620      	mov	r0, r4
+  a8:	460a      	mov	r2, r1
+  aa:	f7ff fffe 	bl	0 <filePutLong>
+  ae:	4620      	mov	r0, r4
+  b0:	4641      	mov	r1, r8
+  b2:	2200      	movs	r2, #0
+  b4:	f7ff fffe 	bl	0 <filePutLong>
+  b8:	2100      	movs	r1, #0
+  ba:	4620      	mov	r0, r4
+  bc:	460a      	mov	r2, r1
+  be:	f7ff fffe 	bl	0 <filePutLong>
+  c2:	2100      	movs	r1, #0
+  c4:	4620      	mov	r0, r4
+  c6:	460a      	mov	r2, r1
+  c8:	f7ff fffe 	bl	0 <filePutLong>
+  cc:	2100      	movs	r1, #0
+  ce:	4620      	mov	r0, r4
+  d0:	460a      	mov	r2, r1
+  d2:	f7ff fffe 	bl	0 <filePutLong>
+  d6:	2100      	movs	r1, #0
+  d8:	4620      	mov	r0, r4
+  da:	460a      	mov	r2, r1
+  dc:	e8bd 41f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, lr}
+  e0:	f7ff bffe 	b.w	0 <filePutLong>
+
+Disassembly of section .text.drawBitmap:
+
+00000000 <drawBitmap>:
+drawBitmap():
+   0:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+   4:	b085      	sub	sp, #20
+   6:	9003      	str	r0, [sp, #12]
+   8:	4610      	mov	r0, r2
+   a:	468a      	mov	sl, r1
+   c:	4614      	mov	r4, r2
+   e:	f7ff fffe 	bl	0 <fileGetChar>
+  12:	2842      	cmp	r0, #66	; 0x42
+  14:	f040 80a3 	bne.w	15e <drawBitmap+0x15e>
+  18:	4620      	mov	r0, r4
+  1a:	f7ff fffe 	bl	0 <fileGetChar>
+  1e:	284d      	cmp	r0, #77	; 0x4d
+  20:	f040 809d 	bne.w	15e <drawBitmap+0x15e>
+  24:	2102      	movs	r1, #2
+  26:	2208      	movs	r2, #8
+  28:	4620      	mov	r0, r4
+  2a:	f7ff fffe 	bl	0 <fileSetPosition>
+  2e:	4620      	mov	r0, r4
+  30:	f7ff fffe 	bl	0 <fileGetChar>
+  34:	4606      	mov	r6, r0
+  36:	4620      	mov	r0, r4
+  38:	f7ff fffe 	bl	0 <fileGetChar>
+  3c:	4605      	mov	r5, r0
+  3e:	4620      	mov	r0, r4
+  40:	f7ff fffe 	bl	0 <fileGetChar>
+  44:	0400      	lsls	r0, r0, #16
+  46:	ea40 2505 	orr.w	r5, r0, r5, lsl #8
+  4a:	4620      	mov	r0, r4
+  4c:	f7ff fffe 	bl	0 <fileGetChar>
+  50:	4335      	orrs	r5, r6
+  52:	2102      	movs	r1, #2
+  54:	2204      	movs	r2, #4
+  56:	4606      	mov	r6, r0
+  58:	4620      	mov	r0, r4
+  5a:	f7ff fffe 	bl	0 <fileSetPosition>
+  5e:	4620      	mov	r0, r4
+  60:	f7ff fffe 	bl	0 <fileGetChar>
+  64:	4680      	mov	r8, r0
+  66:	4620      	mov	r0, r4
+  68:	f7ff fffe 	bl	0 <fileGetChar>
+  6c:	4607      	mov	r7, r0
+  6e:	4620      	mov	r0, r4
+  70:	f7ff fffe 	bl	0 <fileGetChar>
+  74:	0400      	lsls	r0, r0, #16
+  76:	ea40 2707 	orr.w	r7, r0, r7, lsl #8
+  7a:	4620      	mov	r0, r4
+  7c:	f7ff fffe 	bl	0 <fileGetChar>
+  80:	ea47 0708 	orr.w	r7, r7, r8
+  84:	ea47 6700 	orr.w	r7, r7, r0, lsl #24
+  88:	4620      	mov	r0, r4
+  8a:	f7ff fffe 	bl	0 <fileGetChar>
+  8e:	4681      	mov	r9, r0
+  90:	4620      	mov	r0, r4
+  92:	f7ff fffe 	bl	0 <fileGetChar>
+  96:	4680      	mov	r8, r0
+  98:	4620      	mov	r0, r4
+  9a:	f7ff fffe 	bl	0 <fileGetChar>
+  9e:	0400      	lsls	r0, r0, #16
+  a0:	ea40 2808 	orr.w	r8, r0, r8, lsl #8
+  a4:	4620      	mov	r0, r4
+  a6:	f7ff fffe 	bl	0 <fileGetChar>
+  aa:	ea48 0809 	orr.w	r8, r8, r9
+  ae:	ea48 6800 	orr.w	r8, r8, r0, lsl #24
+  b2:	4620      	mov	r0, r4
+  b4:	f7ff fffe 	bl	0 <fileGetChar>
+  b8:	4620      	mov	r0, r4
+  ba:	f7ff fffe 	bl	0 <fileGetChar>
+  be:	4620      	mov	r0, r4
+  c0:	f7ff fffe 	bl	0 <fileGetChar>
+  c4:	4620      	mov	r0, r4
+  c6:	f7ff fffe 	bl	0 <fileGetChar>
+  ca:	4620      	mov	r0, r4
+  cc:	f7ff fffe 	bl	0 <fileGetChar>
+  d0:	ea45 6206 	orr.w	r2, r5, r6, lsl #24
+  d4:	4620      	mov	r0, r4
+  d6:	2101      	movs	r1, #1
+  d8:	f7ff fffe 	bl	0 <fileSetPosition>
+  dc:	f007 0303 	and.w	r3, r7, #3
+  e0:	9302      	str	r3, [sp, #8]
+  e2:	2500      	movs	r5, #0
+  e4:	e027      	b.n	136 <drawBitmap+0x136>
+  e6:	4620      	mov	r0, r4
+  e8:	f7ff fffe 	bl	0 <fileGetChar>
+  ec:	4603      	mov	r3, r0
+  ee:	4620      	mov	r0, r4
+  f0:	9301      	str	r3, [sp, #4]
+  f2:	f7ff fffe 	bl	0 <fileGetChar>
+  f6:	4683      	mov	fp, r0
+  f8:	4620      	mov	r0, r4
+  fa:	f7ff fffe 	bl	0 <fileGetChar>
+  fe:	9b01      	ldr	r3, [sp, #4]
+ 100:	4602      	mov	r2, r0
+ 102:	4659      	mov	r1, fp
+ 104:	4618      	mov	r0, r3
+ 106:	f7ff fffe 	bl	0 <lcdSetColor>
+ 10a:	9b03      	ldr	r3, [sp, #12]
+ 10c:	4649      	mov	r1, r9
+ 10e:	18f0      	adds	r0, r6, r3
+ 110:	b280      	uxth	r0, r0
+ 112:	f7ff fffe 	bl	0 <lcdDrawPixel>
+ 116:	3601      	adds	r6, #1
+ 118:	b2b6      	uxth	r6, r6
+ 11a:	42be      	cmp	r6, r7
+ 11c:	d3e3      	bcc.n	e6 <drawBitmap+0xe6>
+ 11e:	2600      	movs	r6, #0
+ 120:	e004      	b.n	12c <drawBitmap+0x12c>
+ 122:	4620      	mov	r0, r4
+ 124:	f7ff fffe 	bl	0 <fileGetChar>
+ 128:	3601      	adds	r6, #1
+ 12a:	b2b6      	uxth	r6, r6
+ 12c:	9b02      	ldr	r3, [sp, #8]
+ 12e:	429e      	cmp	r6, r3
+ 130:	d3f7      	bcc.n	122 <drawBitmap+0x122>
+ 132:	3501      	adds	r5, #1
+ 134:	b2ad      	uxth	r5, r5
+ 136:	4545      	cmp	r5, r8
+ 138:	d209      	bcs.n	14e <drawBitmap+0x14e>
+ 13a:	f108 39ff 	add.w	r9, r8, #4294967295
+ 13e:	ebc5 0909 	rsb	r9, r5, r9
+ 142:	fb07 a909 	mla	r9, r7, r9, sl
+ 146:	2600      	movs	r6, #0
+ 148:	fa1f f989 	uxth.w	r9, r9
+ 14c:	e7e5      	b.n	11a <drawBitmap+0x11a>
+ 14e:	4620      	mov	r0, r4
+ 150:	2101      	movs	r1, #1
+ 152:	2200      	movs	r2, #0
+ 154:	b005      	add	sp, #20
+ 156:	e8bd 4ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+ 15a:	f7ff bffe 	b.w	0 <fileSetPosition>
+ 15e:	b005      	add	sp, #20
+ 160:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+
+Disassembly of section .text.getImage:
+
+00000000 <getImage>:
+getImage():
+   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+   2:	4604      	mov	r4, r0
+   4:	460d      	mov	r5, r1
+   6:	f7ff fffe 	bl	0 <fileGetChar>
+   a:	0206      	lsls	r6, r0, #8
+   c:	4620      	mov	r0, r4
+   e:	f7ff fffe 	bl	0 <fileGetChar>
+  12:	b2b6      	uxth	r6, r6
+  14:	4306      	orrs	r6, r0
+  16:	b2b6      	uxth	r6, r6
+  18:	f416 4070 	ands.w	r0, r6, #61440	; 0xf000
+  1c:	d03b      	beq.n	96 <getImage+0x96>
+  1e:	4620      	mov	r0, r4
+  20:	f7ff fffe 	bl	0 <fileGetChar>
+  24:	0200      	lsls	r0, r0, #8
+  26:	b287      	uxth	r7, r0
+  28:	4620      	mov	r0, r4
+  2a:	f7ff fffe 	bl	0 <fileGetChar>
+  2e:	4307      	orrs	r7, r0
+  30:	b2bf      	uxth	r7, r7
+  32:	42bd      	cmp	r5, r7
+  34:	d82e      	bhi.n	94 <getImage+0x94>
+  36:	f416 6f80 	tst.w	r6, #1024	; 0x400
+  3a:	d01b      	beq.n	74 <getImage+0x74>
+  3c:	2102      	movs	r1, #2
+  3e:	fa15 f201 	lsls.w	r2, r5, r1
+  42:	4620      	mov	r0, r4
+  44:	f7ff fffe 	bl	0 <fileSetPosition>
+  48:	4620      	mov	r0, r4
+  4a:	f7ff fffe 	bl	0 <fileGetChar>
+  4e:	0605      	lsls	r5, r0, #24
+  50:	4620      	mov	r0, r4
+  52:	f7ff fffe 	bl	0 <fileGetChar>
+  56:	4607      	mov	r7, r0
+  58:	4620      	mov	r0, r4
+  5a:	f7ff fffe 	bl	0 <fileGetChar>
+  5e:	4606      	mov	r6, r0
+  60:	4620      	mov	r0, r4
+  62:	f7ff fffe 	bl	0 <fileGetChar>
+  66:	ea45 4507 	orr.w	r5, r5, r7, lsl #16
+  6a:	ea45 0000 	orr.w	r0, r5, r0
+  6e:	ea40 2006 	orr.w	r0, r0, r6, lsl #8
+  72:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+  74:	2101      	movs	r1, #1
+  76:	1caa      	adds	r2, r5, #2
+  78:	408a      	lsls	r2, r1
+  7a:	4620      	mov	r0, r4
+  7c:	f7ff fffe 	bl	0 <fileSetPosition>
+  80:	4620      	mov	r0, r4
+  82:	f7ff fffe 	bl	0 <fileGetChar>
+  86:	0205      	lsls	r5, r0, #8
+  88:	4620      	mov	r0, r4
+  8a:	f7ff fffe 	bl	0 <fileGetChar>
+  8e:	ea45 0000 	orr.w	r0, r5, r0
+  92:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+  94:	2000      	movs	r0, #0
+  96:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+
+Disassembly of section .text.drawImage:
+
+00000000 <drawImage>:
+drawImage():
+   0:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+   4:	b08b      	sub	sp, #44	; 0x2c
+   6:	9008      	str	r0, [sp, #32]
+   8:	9109      	str	r1, [sp, #36]	; 0x24
+   a:	4610      	mov	r0, r2
+   c:	4619      	mov	r1, r3
+   e:	4614      	mov	r4, r2
+  10:	f7ff fffe 	bl	0 <drawImage>
+  14:	2101      	movs	r1, #1
+  16:	4602      	mov	r2, r0
+  18:	4620      	mov	r0, r4
+  1a:	f7ff fffe 	bl	0 <fileSetPosition>
+  1e:	4620      	mov	r0, r4
+  20:	f7ff fffe 	bl	0 <fileGetChar>
+  24:	ea4f 2900 	mov.w	r9, r0, lsl #8
+  28:	4620      	mov	r0, r4
+  2a:	f7ff fffe 	bl	0 <fileGetChar>
+  2e:	fa1f f989 	uxth.w	r9, r9
+  32:	ea49 0900 	orr.w	r9, r9, r0
+  36:	fa1f f989 	uxth.w	r9, r9
+  3a:	f419 7680 	ands.w	r6, r9, #256	; 0x100
+  3e:	d005      	beq.n	4c <drawImage+0x4c>
+  40:	4620      	mov	r0, r4
+  42:	f7ff fffe 	bl	0 <fileGetChar>
+  46:	0200      	lsls	r0, r0, #8
+  48:	b287      	uxth	r7, r0
+  4a:	e000      	b.n	4e <drawImage+0x4e>
+  4c:	4637      	mov	r7, r6
+  4e:	4620      	mov	r0, r4
+  50:	f7ff fffe 	bl	0 <fileGetChar>
+  54:	4338      	orrs	r0, r7
+  56:	b280      	uxth	r0, r0
+  58:	9006      	str	r0, [sp, #24]
+  5a:	b126      	cbz	r6, 66 <drawImage+0x66>
+  5c:	4620      	mov	r0, r4
+  5e:	f7ff fffe 	bl	0 <fileGetChar>
+  62:	0206      	lsls	r6, r0, #8
+  64:	b2b6      	uxth	r6, r6
+  66:	4620      	mov	r0, r4
+  68:	f7ff fffe 	bl	0 <fileGetChar>
+  6c:	9a06      	ldr	r2, [sp, #24]
+  6e:	ea40 0606 	orr.w	r6, r0, r6
+  72:	b2b6      	uxth	r6, r6
+  74:	4356      	muls	r6, r2
+  76:	f009 090f 	and.w	r9, r9, #15
+  7a:	4648      	mov	r0, r9
+  7c:	9607      	str	r6, [sp, #28]
+  7e:	27ff      	movs	r7, #255	; 0xff
+  80:	f7ff fffe 	bl	0 <lcdSetBPP>
+  84:	2300      	movs	r3, #0
+  86:	46ba      	mov	sl, r7
+  88:	463e      	mov	r6, r7
+  8a:	9302      	str	r3, [sp, #8]
+  8c:	9301      	str	r3, [sp, #4]
+  8e:	9305      	str	r3, [sp, #20]
+  90:	e0cd      	b.n	22e <drawImage+0x22e>
+  92:	4620      	mov	r0, r4
+  94:	f7ff fffe 	bl	0 <fileGetChar>
+  98:	f000 033f 	and.w	r3, r0, #63	; 0x3f
+  9c:	3301      	adds	r3, #1
+  9e:	4680      	mov	r8, r0
+  a0:	9304      	str	r3, [sp, #16]
+  a2:	f1b9 0f00 	cmp.w	r9, #0
+  a6:	d106      	bne.n	b6 <drawImage+0xb6>
+  a8:	9a04      	ldr	r2, [sp, #16]
+  aa:	b243      	sxtb	r3, r0
+  ac:	ea12 0223 	ands.w	r2, r2, r3, asr #32
+  b0:	bf38      	it	cc
+  b2:	2207      	movcc	r2, #7
+  b4:	9204      	str	r2, [sp, #16]
+  b6:	9b05      	ldr	r3, [sp, #20]
+  b8:	9a04      	ldr	r2, [sp, #16]
+  ba:	f04f 0b00 	mov.w	fp, #0
+  be:	189b      	adds	r3, r3, r2
+  c0:	9305      	str	r3, [sp, #20]
+  c2:	f8cd b00c 	str.w	fp, [sp, #12]
+  c6:	9b03      	ldr	r3, [sp, #12]
+  c8:	b11b      	cbz	r3, d2 <drawImage+0xd2>
+  ca:	f018 0f80 	tst.w	r8, #128	; 0x80
+  ce:	f040 8086 	bne.w	1de <drawImage+0x1de>
+  d2:	f1b9 0f00 	cmp.w	r9, #0
+  d6:	d10f      	bne.n	f8 <drawImage+0xf8>
+  d8:	f018 0f80 	tst.w	r8, #128	; 0x80
+  dc:	d17f      	bne.n	1de <drawImage+0x1de>
+  de:	9a03      	ldr	r2, [sp, #12]
+  e0:	2340      	movs	r3, #64	; 0x40
+  e2:	4113      	asrs	r3, r2
+  e4:	ea13 0f08 	tst.w	r3, r8
+  e8:	bf1a      	itte	ne
+  ea:	f048 0840 	orrne.w	r8, r8, #64	; 0x40
+  ee:	fa5f f888 	uxtbne.w	r8, r8
+  f2:	f008 08bf 	andeq.w	r8, r8, #191	; 0xbf
+  f6:	e072      	b.n	1de <drawImage+0x1de>
+  f8:	f1b9 0f01 	cmp.w	r9, #1
+  fc:	d113      	bne.n	126 <drawImage+0x126>
+  fe:	f1bb 0f00 	cmp.w	fp, #0
+ 102:	d109      	bne.n	118 <drawImage+0x118>
+ 104:	4620      	mov	r0, r4
+ 106:	f7ff fffe 	bl	0 <fileGetChar>
+ 10a:	0906      	lsrs	r6, r0, #4
+ 10c:	b2f6      	uxtb	r6, r6
+ 10e:	4605      	mov	r5, r0
+ 110:	4637      	mov	r7, r6
+ 112:	46b2      	mov	sl, r6
+ 114:	46cb      	mov	fp, r9
+ 116:	e098      	b.n	24a <drawImage+0x24a>
+ 118:	f005 060f 	and.w	r6, r5, #15
+ 11c:	4637      	mov	r7, r6
+ 11e:	46b2      	mov	sl, r6
+ 120:	f04f 0b00 	mov.w	fp, #0
+ 124:	e091      	b.n	24a <drawImage+0x24a>
+ 126:	f1b9 0f03 	cmp.w	r9, #3
+ 12a:	d121      	bne.n	170 <drawImage+0x170>
+ 12c:	f1bb 0f00 	cmp.w	fp, #0
+ 130:	d10f      	bne.n	152 <drawImage+0x152>
+ 132:	4620      	mov	r0, r4
+ 134:	f7ff fffe 	bl	0 <fileGetChar>
+ 138:	4605      	mov	r5, r0
+ 13a:	4620      	mov	r0, r4
+ 13c:	f7ff fffe 	bl	0 <fileGetChar>
+ 140:	ea4f 1a10 	mov.w	sl, r0, lsr #4
+ 144:	9000      	str	r0, [sp, #0]
+ 146:	fa5f fa8a 	uxtb.w	sl, sl
+ 14a:	f000 070f 	and.w	r7, r0, #15
+ 14e:	462e      	mov	r6, r5
+ 150:	e07b      	b.n	24a <drawImage+0x24a>
+ 152:	4620      	mov	r0, r4
+ 154:	f7ff fffe 	bl	0 <fileGetChar>
+ 158:	9b00      	ldr	r3, [sp, #0]
+ 15a:	ea4f 1a10 	mov.w	sl, r0, lsr #4
+ 15e:	f003 060f 	and.w	r6, r3, #15
+ 162:	fa5f fa8a 	uxtb.w	sl, sl
+ 166:	f000 070f 	and.w	r7, r0, #15
+ 16a:	f04f 0b01 	mov.w	fp, #1
+ 16e:	e06c      	b.n	24a <drawImage+0x24a>
+ 170:	f1b9 0f02 	cmp.w	r9, #2
+ 174:	d10c      	bne.n	190 <drawImage+0x190>
+ 176:	4620      	mov	r0, r4
+ 178:	f7ff fffe 	bl	0 <fileGetChar>
+ 17c:	0946      	lsrs	r6, r0, #5
+ 17e:	f000 0a18 	and.w	sl, r0, #24
+ 182:	4605      	mov	r5, r0
+ 184:	b2f6      	uxtb	r6, r6
+ 186:	ea4f 0ada 	mov.w	sl, sl, lsr #3
+ 18a:	f000 0707 	and.w	r7, r0, #7
+ 18e:	e05c      	b.n	24a <drawImage+0x24a>
+ 190:	f1b9 0f04 	cmp.w	r9, #4
+ 194:	d113      	bne.n	1be <drawImage+0x1be>
+ 196:	4620      	mov	r0, r4
+ 198:	f7ff fffe 	bl	0 <fileGetChar>
+ 19c:	4605      	mov	r5, r0
+ 19e:	4620      	mov	r0, r4
+ 1a0:	f7ff fffe 	bl	0 <fileGetChar>
+ 1a4:	f005 0a07 	and.w	sl, r5, #7
+ 1a8:	0943      	lsrs	r3, r0, #5
+ 1aa:	08ee      	lsrs	r6, r5, #3
+ 1ac:	ea43 0aca 	orr.w	sl, r3, sl, lsl #3
+ 1b0:	9000      	str	r0, [sp, #0]
+ 1b2:	b2f6      	uxtb	r6, r6
+ 1b4:	fa5f fa8a 	uxtb.w	sl, sl
+ 1b8:	f000 071f 	and.w	r7, r0, #31
+ 1bc:	e045      	b.n	24a <drawImage+0x24a>
+ 1be:	f1b9 0f05 	cmp.w	r9, #5
+ 1c2:	d142      	bne.n	24a <drawImage+0x24a>
+ 1c4:	4620      	mov	r0, r4
+ 1c6:	f7ff fffe 	bl	0 <fileGetChar>
+ 1ca:	4606      	mov	r6, r0
+ 1cc:	4620      	mov	r0, r4
+ 1ce:	f7ff fffe 	bl	0 <fileGetChar>
+ 1d2:	4682      	mov	sl, r0
+ 1d4:	4620      	mov	r0, r4
+ 1d6:	f7ff fffe 	bl	0 <fileGetChar>
+ 1da:	4607      	mov	r7, r0
+ 1dc:	e035      	b.n	24a <drawImage+0x24a>
+ 1de:	9a01      	ldr	r2, [sp, #4]
+ 1e0:	9b08      	ldr	r3, [sp, #32]
+ 1e2:	f018 0f40 	tst.w	r8, #64	; 0x40
+ 1e6:	eb02 0003 	add.w	r0, r2, r3
+ 1ea:	9a02      	ldr	r2, [sp, #8]
+ 1ec:	9b09      	ldr	r3, [sp, #36]	; 0x24
+ 1ee:	eb02 0103 	add.w	r1, r2, r3
+ 1f2:	d004      	beq.n	1fe <drawImage+0x1fe>
+ 1f4:	b280      	uxth	r0, r0
+ 1f6:	b289      	uxth	r1, r1
+ 1f8:	f7ff fffe 	bl	0 <lcdDrawPixel>
+ 1fc:	e003      	b.n	206 <drawImage+0x206>
+ 1fe:	b280      	uxth	r0, r0
+ 200:	b289      	uxth	r1, r1
+ 202:	f7ff fffe 	bl	0 <lcdClearPixel>
+ 206:	9a01      	ldr	r2, [sp, #4]
+ 208:	1c53      	adds	r3, r2, #1
+ 20a:	9a06      	ldr	r2, [sp, #24]
+ 20c:	b29b      	uxth	r3, r3
+ 20e:	4293      	cmp	r3, r2
+ 210:	9301      	str	r3, [sp, #4]
+ 212:	d105      	bne.n	220 <drawImage+0x220>
+ 214:	9a02      	ldr	r2, [sp, #8]
+ 216:	1c53      	adds	r3, r2, #1
+ 218:	b29b      	uxth	r3, r3
+ 21a:	9302      	str	r3, [sp, #8]
+ 21c:	2300      	movs	r3, #0
+ 21e:	9301      	str	r3, [sp, #4]
+ 220:	9a03      	ldr	r2, [sp, #12]
+ 222:	9b04      	ldr	r3, [sp, #16]
+ 224:	3201      	adds	r2, #1
+ 226:	429a      	cmp	r2, r3
+ 228:	9203      	str	r2, [sp, #12]
+ 22a:	f4ff af4c 	bcc.w	c6 <drawImage+0xc6>
+ 22e:	9a05      	ldr	r2, [sp, #20]
+ 230:	9b07      	ldr	r3, [sp, #28]
+ 232:	429a      	cmp	r2, r3
+ 234:	f4ff af2d 	bcc.w	92 <drawImage+0x92>
+ 238:	4620      	mov	r0, r4
+ 23a:	2101      	movs	r1, #1
+ 23c:	2200      	movs	r2, #0
+ 23e:	f7ff fffe 	bl	0 <fileSetPosition>
+ 242:	9806      	ldr	r0, [sp, #24]
+ 244:	b00b      	add	sp, #44	; 0x2c
+ 246:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+ 24a:	4630      	mov	r0, r6
+ 24c:	4651      	mov	r1, sl
+ 24e:	463a      	mov	r2, r7
+ 250:	f7ff fffe 	bl	0 <lcdSetColor>
+ 254:	e7c3      	b.n	1de <drawImage+0x1de>
+
+Disassembly of section .text.drawFill:
+
+00000000 <drawFill>:
+drawFill():
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	4605      	mov	r5, r0
+   4:	460c      	mov	r4, r1
+   6:	4628      	mov	r0, r5
+   8:	4621      	mov	r1, r4
+   a:	f7ff fffe 	bl	0 <lcdGetPixel>
+   e:	b1a8      	cbz	r0, 3c <drawFill+0x3c>
+  10:	4621      	mov	r1, r4
+  12:	4628      	mov	r0, r5
+  14:	f7ff fffe 	bl	0 <lcdDrawPixel>
+  18:	1c68      	adds	r0, r5, #1
+  1a:	4621      	mov	r1, r4
+  1c:	b280      	uxth	r0, r0
+  1e:	f7ff fffe 	bl	0 <drawFill>
+  22:	1e68      	subs	r0, r5, #1
+  24:	4621      	mov	r1, r4
+  26:	b280      	uxth	r0, r0
+  28:	f7ff fffe 	bl	0 <drawFill>
+  2c:	1c61      	adds	r1, r4, #1
+  2e:	4628      	mov	r0, r5
+  30:	b289      	uxth	r1, r1
+  32:	3c01      	subs	r4, #1
+  34:	f7ff fffe 	bl	0 <drawFill>
+  38:	b2a4      	uxth	r4, r4
+  3a:	e7e4      	b.n	6 <drawFill+0x6>
+  3c:	bd38      	pop	{r3, r4, r5, pc}
+
+Disassembly of section .text.guiGetPixelOpening:
+
+00000000 <guiGetPixelOpening>:
+guiGetPixelOpening():
+   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+   2:	4604      	mov	r4, r0
+   4:	3001      	adds	r0, #1
+   6:	b280      	uxth	r0, r0
+   8:	4617      	mov	r7, r2
+   a:	460d      	mov	r5, r1
+   c:	f7ff fffe 	bl	0 <lcdGetPixel>
+  10:	1bc6      	subs	r6, r0, r7
+  12:	bf18      	it	ne
+  14:	2601      	movne	r6, #1
+  16:	1e60      	subs	r0, r4, #1
+  18:	4629      	mov	r1, r5
+  1a:	b280      	uxth	r0, r0
+  1c:	f7ff fffe 	bl	0 <lcdGetPixel>
+  20:	42b8      	cmp	r0, r7
+  22:	bf1c      	itt	ne
+  24:	f046 0602 	orrne.w	r6, r6, #2
+  28:	b2f6      	uxtbne	r6, r6
+  2a:	1c69      	adds	r1, r5, #1
+  2c:	4620      	mov	r0, r4
+  2e:	b289      	uxth	r1, r1
+  30:	f7ff fffe 	bl	0 <lcdGetPixel>
+  34:	42b8      	cmp	r0, r7
+  36:	bf18      	it	ne
+  38:	f046 0604 	orrne.w	r6, r6, #4
+  3c:	1e69      	subs	r1, r5, #1
+  3e:	4620      	mov	r0, r4
+  40:	b289      	uxth	r1, r1
+  42:	f7ff fffe 	bl	0 <lcdGetPixel>
+  46:	42b8      	cmp	r0, r7
+  48:	bf18      	it	ne
+  4a:	f046 0608 	orrne.w	r6, r6, #8
+  4e:	4630      	mov	r0, r6
+  50:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+
+Disassembly of section .text.drawPixelInArea:
+
+00000000 <drawPixelInArea>:
+drawPixelInArea():
+   0:	b5f0      	push	{r4, r5, r6, r7, lr}
+   2:	4290      	cmp	r0, r2
+   4:	4605      	mov	r5, r0
+   6:	460c      	mov	r4, r1
+   8:	f8bd 7014 	ldrh.w	r7, [sp, #20]
+   c:	f8bd 6018 	ldrh.w	r6, [sp, #24]
+  10:	d309      	bcc.n	26 <drawPixelInArea+0x26>
+  12:	42b8      	cmp	r0, r7
+  14:	d807      	bhi.n	26 <drawPixelInArea+0x26>
+  16:	4299      	cmp	r1, r3
+  18:	d305      	bcc.n	26 <drawPixelInArea+0x26>
+  1a:	42b1      	cmp	r1, r6
+  1c:	d803      	bhi.n	26 <drawPixelInArea+0x26>
+  1e:	e8bd 40f0 	ldmia.w	sp!, {r4, r5, r6, r7, lr}
+  22:	f7ff bffe 	b.w	0 <lcdDrawPixel>
+  26:	bdf0      	pop	{r4, r5, r6, r7, pc}
+
+Disassembly of section .text.setFontColor:
+
+00000000 <setFontColor>:
+setFontColor():
+   0:	7001      	strb	r1, [r0, #0]
+   2:	7042      	strb	r2, [r0, #1]
+   4:	7083      	strb	r3, [r0, #2]
+   6:	4770      	bx	lr
+
+Disassembly of section .text.setFontBackColor:
+
+00000000 <setFontBackColor>:
+setFontBackColor():
+   0:	70c1      	strb	r1, [r0, #3]
+   2:	7102      	strb	r2, [r0, #4]
+   4:	7143      	strb	r3, [r0, #5]
+   6:	4770      	bx	lr
+
+Disassembly of section .text.setFont:
+
+00000000 <setFont>:
+setFont():
+   0:	6803      	ldr	r3, [r0, #0]
+   2:	b570      	push	{r4, r5, r6, lr}
+   4:	608b      	str	r3, [r1, #8]
+   6:	6843      	ldr	r3, [r0, #4]
+   8:	460c      	mov	r4, r1
+   a:	60cb      	str	r3, [r1, #12]
+   c:	6883      	ldr	r3, [r0, #8]
+   e:	4605      	mov	r5, r0
+  10:	610b      	str	r3, [r1, #16]
+  12:	8983      	ldrh	r3, [r0, #12]
+  14:	26ff      	movs	r6, #255	; 0xff
+  16:	828b      	strh	r3, [r1, #20]
+  18:	89c3      	ldrh	r3, [r0, #14]
+  1a:	82cb      	strh	r3, [r1, #22]
+  1c:	7c03      	ldrb	r3, [r0, #16]
+  1e:	760b      	strb	r3, [r1, #24]
+  20:	6943      	ldr	r3, [r0, #20]
+  22:	3018      	adds	r0, #24
+  24:	61cb      	str	r3, [r1, #28]
+  26:	3120      	adds	r1, #32
+  28:	f7ff fffe 	bl	0 <copyString>
+  2c:	2100      	movs	r1, #0
+  2e:	7026      	strb	r6, [r4, #0]
+  30:	7066      	strb	r6, [r4, #1]
+  32:	70a6      	strb	r6, [r4, #2]
+  34:	70e1      	strb	r1, [r4, #3]
+  36:	7121      	strb	r1, [r4, #4]
+  38:	7161      	strb	r1, [r4, #5]
+  3a:	4628      	mov	r0, r5
+  3c:	f7ff fffe 	bl	0 <setFont>
+  40:	4602      	mov	r2, r0
+  42:	b358      	cbz	r0, 9c <setFont+0x9c>
+  44:	2101      	movs	r1, #1
+  46:	4628      	mov	r0, r5
+  48:	f7ff fffe 	bl	0 <fileSetPosition>
+  4c:	4628      	mov	r0, r5
+  4e:	f7ff fffe 	bl	0 <fileGetChar>
+  52:	0206      	lsls	r6, r0, #8
+  54:	4628      	mov	r0, r5
+  56:	f7ff fffe 	bl	0 <fileGetChar>
+  5a:	b2b6      	uxth	r6, r6
+  5c:	4306      	orrs	r6, r0
+  5e:	f416 7680 	ands.w	r6, r6, #256	; 0x100
+  62:	d00a      	beq.n	7a <setFont+0x7a>
+  64:	2102      	movs	r1, #2
+  66:	2203      	movs	r2, #3
+  68:	4628      	mov	r0, r5
+  6a:	f7ff fffe 	bl	0 <fileSetPosition>
+  6e:	4628      	mov	r0, r5
+  70:	f7ff fffe 	bl	0 <fileGetChar>
+  74:	0200      	lsls	r0, r0, #8
+  76:	8660      	strh	r0, [r4, #50]	; 0x32
+  78:	e005      	b.n	86 <setFont+0x86>
+  7a:	4628      	mov	r0, r5
+  7c:	2102      	movs	r1, #2
+  7e:	2201      	movs	r2, #1
+  80:	f7ff fffe 	bl	0 <fileSetPosition>
+  84:	8666      	strh	r6, [r4, #50]	; 0x32
+  86:	4628      	mov	r0, r5
+  88:	8e66      	ldrh	r6, [r4, #50]	; 0x32
+  8a:	f7ff fffe 	bl	0 <fileGetChar>
+  8e:	4330      	orrs	r0, r6
+  90:	8660      	strh	r0, [r4, #50]	; 0x32
+  92:	4620      	mov	r0, r4
+  94:	f7ff fffe 	bl	0 <lcdSetFont>
+  98:	2001      	movs	r0, #1
+  9a:	bd70      	pop	{r4, r5, r6, pc}
+  9c:	4630      	mov	r0, r6
+  9e:	bd70      	pop	{r4, r5, r6, pc}
+
+Disassembly of section .text.drawChar:
+
+00000000 <drawChar>:
+drawChar():
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	4606      	mov	r6, r0
+   4:	f7ff fffe 	bl	0 <lcdGetCursorX>
+   8:	4605      	mov	r5, r0
+   a:	f7ff fffe 	bl	0 <lcdGetCursorY>
+   e:	4604      	mov	r4, r0
+  10:	f7ff fffe 	bl	0 <lcdGetFont>
+  14:	f1a6 0320 	sub.w	r3, r6, #32
+  18:	f100 0208 	add.w	r2, r0, #8
+  1c:	4621      	mov	r1, r4
+  1e:	4628      	mov	r0, r5
+  20:	b29b      	uxth	r3, r3
+  22:	f7ff fffe 	bl	0 <drawChar>
+  26:	1828      	adds	r0, r5, r0
+  28:	3001      	adds	r0, #1
+  2a:	b280      	uxth	r0, r0
+  2c:	4621      	mov	r1, r4
+  2e:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+  32:	f7ff bffe 	b.w	0 <lcdSetCursor>
+
+Disassembly of section .text.drawString:
+
+00000000 <drawString>:
+drawString():
+   0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+   4:	4606      	mov	r6, r0
+   6:	f7ff fffe 	bl	0 <lcdGetCursorX>
+   a:	4604      	mov	r4, r0
+   c:	f7ff fffe 	bl	0 <lcdGetCursorY>
+  10:	4605      	mov	r5, r0
+  12:	f7ff fffe 	bl	0 <lcdGetFont>
+  16:	4607      	mov	r7, r0
+  18:	e00a      	b.n	30 <drawString+0x30>
+  1a:	3b20      	subs	r3, #32
+  1c:	4620      	mov	r0, r4
+  1e:	4629      	mov	r1, r5
+  20:	f107 0208 	add.w	r2, r7, #8
+  24:	b29b      	uxth	r3, r3
+  26:	f7ff fffe 	bl	0 <drawString>
+  2a:	3001      	adds	r0, #1
+  2c:	1824      	adds	r4, r4, r0
+  2e:	b2a4      	uxth	r4, r4
+  30:	f816 3b01 	ldrb.w	r3, [r6], #1
+  34:	2b00      	cmp	r3, #0
+  36:	d1f0      	bne.n	1a <drawString+0x1a>
+  38:	4620      	mov	r0, r4
+  3a:	4629      	mov	r1, r5
+  3c:	e8bd 41f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, lr}
+  40:	f7ff bffe 	b.w	0 <lcdSetCursor>
+
+Disassembly of section .text.drawAll:
+
+00000000 <drawAll>:
+drawAll():
+   0:	f7ff bffe 	b.w	0 <lcdWriteScreenBuffer>
+
+Disassembly of section .text.drawObject:
+
+00000000 <drawObject>:
+drawObject():
+   0:	4770      	bx	lr
+
+Disassembly of section .text.drawLine:
+
+00000000 <drawLine>:
+drawLine():
+   0:	e92d 4ff8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, lr}
+   4:	460d      	mov	r5, r1
+   6:	b289      	uxth	r1, r1
+   8:	4616      	mov	r6, r2
+   a:	1a5a      	subs	r2, r3, r1
+   c:	4604      	mov	r4, r0
+   e:	b292      	uxth	r2, r2
+  10:	b280      	uxth	r0, r0
+  12:	469a      	mov	sl, r3
+  14:	f412 4f00 	tst.w	r2, #32768	; 0x8000
+  18:	ebc0 0306 	rsb	r3, r0, r6
+  1c:	b29b      	uxth	r3, r3
+  1e:	d004      	beq.n	2a <drawLine+0x2a>
+  20:	4252      	negs	r2, r2
+  22:	b292      	uxth	r2, r2
+  24:	f64f 79ff 	movw	r9, #65535	; 0xffff
+  28:	e001      	b.n	2e <drawLine+0x2e>
+  2a:	f04f 0901 	mov.w	r9, #1
+  2e:	f413 4f00 	tst.w	r3, #32768	; 0x8000
+  32:	d004      	beq.n	3e <drawLine+0x3e>
+  34:	425b      	negs	r3, r3
+  36:	b29b      	uxth	r3, r3
+  38:	f64f 78ff 	movw	r8, #65535	; 0xffff
+  3c:	e001      	b.n	42 <drawLine+0x42>
+  3e:	f04f 0801 	mov.w	r8, #1
+  42:	0052      	lsls	r2, r2, #1
+  44:	005b      	lsls	r3, r3, #1
+  46:	f64f 77fe 	movw	r7, #65534	; 0xfffe
+  4a:	f64f 7bfe 	movw	fp, #65534	; 0xfffe
+  4e:	ea02 0707 	and.w	r7, r2, r7
+  52:	ea03 0b0b 	and.w	fp, r3, fp
+  56:	f7ff fffe 	bl	0 <lcdDrawPixel>
+  5a:	fa0f f28b 	sxth.w	r2, fp
+  5e:	b23b      	sxth	r3, r7
+  60:	429a      	cmp	r2, r3
+  62:	dd1b      	ble.n	9c <drawLine+0x9c>
+  64:	b2bf      	uxth	r7, r7
+  66:	eba7 0a62 	sub.w	sl, r7, r2, asr #1
+  6a:	fa1f fa8a 	uxth.w	sl, sl
+  6e:	e011      	b.n	94 <drawLine+0x94>
+  70:	f41a 4f00 	tst.w	sl, #32768	; 0x8000
+  74:	d105      	bne.n	82 <drawLine+0x82>
+  76:	444d      	add	r5, r9
+  78:	ebcb 0a0a 	rsb	sl, fp, sl
+  7c:	b22d      	sxth	r5, r5
+  7e:	fa1f fa8a 	uxth.w	sl, sl
+  82:	4444      	add	r4, r8
+  84:	b2a0      	uxth	r0, r4
+  86:	44ba      	add	sl, r7
+  88:	b2a9      	uxth	r1, r5
+  8a:	b204      	sxth	r4, r0
+  8c:	fa1f fa8a 	uxth.w	sl, sl
+  90:	f7ff fffe 	bl	0 <lcdDrawPixel>
+  94:	42a6      	cmp	r6, r4
+  96:	d1eb      	bne.n	70 <drawLine+0x70>
+  98:	e8bd 8ff8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}
+  9c:	fa1f fb8b 	uxth.w	fp, fp
+  a0:	ebab 0663 	sub.w	r6, fp, r3, asr #1
+  a4:	b2b6      	uxth	r6, r6
+  a6:	e00e      	b.n	c6 <drawLine+0xc6>
+  a8:	f416 4f00 	tst.w	r6, #32768	; 0x8000
+  ac:	d103      	bne.n	b6 <drawLine+0xb6>
+  ae:	4444      	add	r4, r8
+  b0:	1bf6      	subs	r6, r6, r7
+  b2:	b224      	sxth	r4, r4
+  b4:	b2b6      	uxth	r6, r6
+  b6:	444d      	add	r5, r9
+  b8:	b2a9      	uxth	r1, r5
+  ba:	445e      	add	r6, fp
+  bc:	b2a0      	uxth	r0, r4
+  be:	b20d      	sxth	r5, r1
+  c0:	b2b6      	uxth	r6, r6
+  c2:	f7ff fffe 	bl	0 <lcdDrawPixel>
+  c6:	45aa      	cmp	sl, r5
+  c8:	d1ee      	bne.n	a8 <drawLine+0xa8>
+  ca:	e8bd 8ff8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}
+
+Disassembly of section .text.drawRadius:
+
+00000000 <drawRadius>:
+drawRadius():
+   0:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+   4:	461d      	mov	r5, r3
+   6:	f1c3 0301 	rsb	r3, r3, #1
+   a:	b089      	sub	sp, #36	; 0x24
+   c:	b29b      	uxth	r3, r3
+   e:	9304      	str	r3, [sp, #16]
+  10:	f06f 0301 	mvn.w	r3, #1
+  14:	436b      	muls	r3, r5
+  16:	9f12      	ldr	r7, [sp, #72]	; 0x48
+  18:	460e      	mov	r6, r1
+  1a:	b29b      	uxth	r3, r3
+  1c:	f417 7180 	ands.w	r1, r7, #256	; 0x100
+  20:	4604      	mov	r4, r0
+  22:	4690      	mov	r8, r2
+  24:	9306      	str	r3, [sp, #24]
+  26:	9107      	str	r1, [sp, #28]
+  28:	d023      	beq.n	72 <drawRadius+0x72>
+  2a:	b231      	sxth	r1, r6
+  2c:	1b40      	subs	r0, r0, r5
+  2e:	192a      	adds	r2, r5, r4
+  30:	460b      	mov	r3, r1
+  32:	b200      	sxth	r0, r0
+  34:	b212      	sxth	r2, r2
+  36:	9700      	str	r7, [sp, #0]
+  38:	f7ff fffe 	bl	0 <drawRadius>
+  3c:	b220      	sxth	r0, r4
+  3e:	1b71      	subs	r1, r6, r5
+  40:	19ab      	adds	r3, r5, r6
+  42:	b209      	sxth	r1, r1
+  44:	4602      	mov	r2, r0
+  46:	b21b      	sxth	r3, r3
+  48:	9700      	str	r7, [sp, #0]
+  4a:	f7ff fffe 	bl	0 <drawRadius>
+  4e:	1e73      	subs	r3, r6, #1
+  50:	f104 39ff 	add.w	r9, r4, #4294967295
+  54:	f106 0a01 	add.w	sl, r6, #1
+  58:	f104 0b01 	add.w	fp, r4, #1
+  5c:	b29b      	uxth	r3, r3
+  5e:	2200      	movs	r2, #0
+  60:	fa1f f989 	uxth.w	r9, r9
+  64:	fa1f fa8a 	uxth.w	sl, sl
+  68:	fa1f fb8b 	uxth.w	fp, fp
+  6c:	9303      	str	r3, [sp, #12]
+  6e:	9205      	str	r2, [sp, #20]
+  70:	e0de      	b.n	230 <drawRadius+0x230>
+  72:	19a9      	adds	r1, r5, r6
+  74:	b289      	uxth	r1, r1
+  76:	f7ff fffe 	bl	0 <lcdDrawPixel>
+  7a:	1b71      	subs	r1, r6, r5
+  7c:	4620      	mov	r0, r4
+  7e:	b289      	uxth	r1, r1
+  80:	f7ff fffe 	bl	0 <lcdDrawPixel>
+  84:	1928      	adds	r0, r5, r4
+  86:	4631      	mov	r1, r6
+  88:	b280      	uxth	r0, r0
+  8a:	f7ff fffe 	bl	0 <lcdDrawPixel>
+  8e:	1b60      	subs	r0, r4, r5
+  90:	b280      	uxth	r0, r0
+  92:	4631      	mov	r1, r6
+  94:	f7ff fffe 	bl	0 <lcdDrawPixel>
+  98:	e7d9      	b.n	4e <drawRadius+0x4e>
+  9a:	9b04      	ldr	r3, [sp, #16]
+  9c:	f413 4f00 	tst.w	r3, #32768	; 0x8000
+  a0:	d10a      	bne.n	b8 <drawRadius+0xb8>
+  a2:	9906      	ldr	r1, [sp, #24]
+  a4:	3d01      	subs	r5, #1
+  a6:	1c8b      	adds	r3, r1, #2
+  a8:	9904      	ldr	r1, [sp, #16]
+  aa:	b29b      	uxth	r3, r3
+  ac:	b29a      	uxth	r2, r3
+  ae:	185b      	adds	r3, r3, r1
+  b0:	b29b      	uxth	r3, r3
+  b2:	b2ad      	uxth	r5, r5
+  b4:	9206      	str	r2, [sp, #24]
+  b6:	9304      	str	r3, [sp, #16]
+  b8:	9a05      	ldr	r2, [sp, #20]
+  ba:	9904      	ldr	r1, [sp, #16]
+  bc:	1c53      	adds	r3, r2, #1
+  be:	b29b      	uxth	r3, r3
+  c0:	9305      	str	r3, [sp, #20]
+  c2:	eb01 0343 	add.w	r3, r1, r3, lsl #1
+  c6:	3301      	adds	r3, #1
+  c8:	9a07      	ldr	r2, [sp, #28]
+  ca:	b29b      	uxth	r3, r3
+  cc:	9304      	str	r3, [sp, #16]
+  ce:	f008 0301 	and.w	r3, r8, #1
+  d2:	2a00      	cmp	r2, #0
+  d4:	d06a      	beq.n	1ac <drawRadius+0x1ac>
+  d6:	b1bb      	cbz	r3, 108 <drawRadius+0x108>
+  d8:	1b71      	subs	r1, r6, r5
+  da:	fa0f fc84 	sxth.w	ip, r4
+  de:	b209      	sxth	r1, r1
+  e0:	4660      	mov	r0, ip
+  e2:	460b      	mov	r3, r1
+  e4:	fa0f f289 	sxth.w	r2, r9
+  e8:	f8cd c008 	str.w	ip, [sp, #8]
+  ec:	9700      	str	r7, [sp, #0]
+  ee:	f7ff fffe 	bl	0 <drawRadius>
+  f2:	9b03      	ldr	r3, [sp, #12]
+  f4:	f8dd c008 	ldr.w	ip, [sp, #8]
+  f8:	b219      	sxth	r1, r3
+  fa:	1b62      	subs	r2, r4, r5
+  fc:	4660      	mov	r0, ip
+  fe:	b212      	sxth	r2, r2
+ 100:	460b      	mov	r3, r1
+ 102:	9700      	str	r7, [sp, #0]
+ 104:	f7ff fffe 	bl	0 <drawRadius>
+ 108:	f018 0f02 	tst.w	r8, #2
+ 10c:	d017      	beq.n	13e <drawRadius+0x13e>
+ 10e:	1b71      	subs	r1, r6, r5
+ 110:	fa0f fc84 	sxth.w	ip, r4
+ 114:	b209      	sxth	r1, r1
+ 116:	4660      	mov	r0, ip
+ 118:	460b      	mov	r3, r1
+ 11a:	fa0f f28b 	sxth.w	r2, fp
+ 11e:	f8cd c008 	str.w	ip, [sp, #8]
+ 122:	9700      	str	r7, [sp, #0]
+ 124:	f7ff fffe 	bl	0 <drawRadius>
+ 128:	9a03      	ldr	r2, [sp, #12]
+ 12a:	f8dd c008 	ldr.w	ip, [sp, #8]
+ 12e:	b211      	sxth	r1, r2
+ 130:	192a      	adds	r2, r5, r4
+ 132:	4660      	mov	r0, ip
+ 134:	b212      	sxth	r2, r2
+ 136:	460b      	mov	r3, r1
+ 138:	9700      	str	r7, [sp, #0]
+ 13a:	f7ff fffe 	bl	0 <drawRadius>
+ 13e:	f018 0f04 	tst.w	r8, #4
+ 142:	d017      	beq.n	174 <drawRadius+0x174>
+ 144:	19a9      	adds	r1, r5, r6
+ 146:	fa0f fc84 	sxth.w	ip, r4
+ 14a:	b209      	sxth	r1, r1
+ 14c:	4660      	mov	r0, ip
+ 14e:	460b      	mov	r3, r1
+ 150:	fa0f f28b 	sxth.w	r2, fp
+ 154:	f8cd c008 	str.w	ip, [sp, #8]
+ 158:	9700      	str	r7, [sp, #0]
+ 15a:	f7ff fffe 	bl	0 <drawRadius>
+ 15e:	f8dd c008 	ldr.w	ip, [sp, #8]
+ 162:	fa0f f18a 	sxth.w	r1, sl
+ 166:	192a      	adds	r2, r5, r4
+ 168:	4660      	mov	r0, ip
+ 16a:	b212      	sxth	r2, r2
+ 16c:	460b      	mov	r3, r1
+ 16e:	9700      	str	r7, [sp, #0]
+ 170:	f7ff fffe 	bl	0 <drawRadius>
+ 174:	f018 0f08 	tst.w	r8, #8
+ 178:	d04a      	beq.n	210 <drawRadius+0x210>
+ 17a:	19a9      	adds	r1, r5, r6
+ 17c:	fa0f fc84 	sxth.w	ip, r4
+ 180:	b209      	sxth	r1, r1
+ 182:	4660      	mov	r0, ip
+ 184:	fa0f f289 	sxth.w	r2, r9
+ 188:	460b      	mov	r3, r1
+ 18a:	f8cd c008 	str.w	ip, [sp, #8]
+ 18e:	9700      	str	r7, [sp, #0]
+ 190:	f7ff fffe 	bl	0 <drawRadius>
+ 194:	f8dd c008 	ldr.w	ip, [sp, #8]
+ 198:	fa0f f18a 	sxth.w	r1, sl
+ 19c:	1b62      	subs	r2, r4, r5
+ 19e:	4660      	mov	r0, ip
+ 1a0:	b212      	sxth	r2, r2
+ 1a2:	460b      	mov	r3, r1
+ 1a4:	9700      	str	r7, [sp, #0]
+ 1a6:	f7ff fffe 	bl	0 <drawRadius>
+ 1aa:	e031      	b.n	210 <drawRadius+0x210>
+ 1ac:	b14b      	cbz	r3, 1c2 <drawRadius+0x1c2>
+ 1ae:	1b71      	subs	r1, r6, r5
+ 1b0:	4648      	mov	r0, r9
+ 1b2:	b289      	uxth	r1, r1
+ 1b4:	f7ff fffe 	bl	0 <lcdDrawPixel>
+ 1b8:	1b60      	subs	r0, r4, r5
+ 1ba:	b280      	uxth	r0, r0
+ 1bc:	9903      	ldr	r1, [sp, #12]
+ 1be:	f7ff fffe 	bl	0 <lcdDrawPixel>
+ 1c2:	f018 0f02 	tst.w	r8, #2
+ 1c6:	d009      	beq.n	1dc <drawRadius+0x1dc>
+ 1c8:	1b71      	subs	r1, r6, r5
+ 1ca:	4658      	mov	r0, fp
+ 1cc:	b289      	uxth	r1, r1
+ 1ce:	f7ff fffe 	bl	0 <lcdDrawPixel>
+ 1d2:	1928      	adds	r0, r5, r4
+ 1d4:	b280      	uxth	r0, r0
+ 1d6:	9903      	ldr	r1, [sp, #12]
+ 1d8:	f7ff fffe 	bl	0 <lcdDrawPixel>
+ 1dc:	f018 0f04 	tst.w	r8, #4
+ 1e0:	d009      	beq.n	1f6 <drawRadius+0x1f6>
+ 1e2:	19a9      	adds	r1, r5, r6
+ 1e4:	4658      	mov	r0, fp
+ 1e6:	b289      	uxth	r1, r1
+ 1e8:	f7ff fffe 	bl	0 <lcdDrawPixel>
+ 1ec:	1928      	adds	r0, r5, r4
+ 1ee:	b280      	uxth	r0, r0
+ 1f0:	4651      	mov	r1, sl
+ 1f2:	f7ff fffe 	bl	0 <lcdDrawPixel>
+ 1f6:	f018 0f08 	tst.w	r8, #8
+ 1fa:	d009      	beq.n	210 <drawRadius+0x210>
+ 1fc:	19a9      	adds	r1, r5, r6
+ 1fe:	4648      	mov	r0, r9
+ 200:	b289      	uxth	r1, r1
+ 202:	f7ff fffe 	bl	0 <lcdDrawPixel>
+ 206:	1b60      	subs	r0, r4, r5
+ 208:	b280      	uxth	r0, r0
+ 20a:	4651      	mov	r1, sl
+ 20c:	f7ff fffe 	bl	0 <lcdDrawPixel>
+ 210:	9903      	ldr	r1, [sp, #12]
+ 212:	f109 39ff 	add.w	r9, r9, #4294967295
+ 216:	1e4b      	subs	r3, r1, #1
+ 218:	f10a 0a01 	add.w	sl, sl, #1
+ 21c:	f10b 0b01 	add.w	fp, fp, #1
+ 220:	b29b      	uxth	r3, r3
+ 222:	fa1f f989 	uxth.w	r9, r9
+ 226:	fa1f fa8a 	uxth.w	sl, sl
+ 22a:	fa1f fb8b 	uxth.w	fp, fp
+ 22e:	9303      	str	r3, [sp, #12]
+ 230:	9a05      	ldr	r2, [sp, #20]
+ 232:	42aa      	cmp	r2, r5
+ 234:	f4ff af31 	bcc.w	9a <drawRadius+0x9a>
+ 238:	b009      	add	sp, #36	; 0x24
+ 23a:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+
+Disassembly of section .text.drawRect:
+
+00000000 <drawRect>:
+drawRect():
+   0:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+   4:	b087      	sub	sp, #28
+   6:	9c10      	ldr	r4, [sp, #64]	; 0x40
+   8:	4682      	mov	sl, r0
+   a:	f414 7f80 	tst.w	r4, #256	; 0x100
+   e:	4689      	mov	r9, r1
+  10:	4690      	mov	r8, r2
+  12:	461e      	mov	r6, r3
+  14:	f8bd 5044 	ldrh.w	r5, [sp, #68]	; 0x44
+  18:	d05d      	beq.n	d6 <drawRect+0xd6>
+  1a:	fa1f fc81 	uxth.w	ip, r1
+  1e:	2d00      	cmp	r5, #0
+  20:	d048      	beq.n	b4 <drawRect+0xb4>
+  22:	f014 0fc0 	tst.w	r4, #192	; 0xc0
+  26:	d045      	beq.n	b4 <drawRect+0xb4>
+  28:	eb05 070c 	add.w	r7, r5, ip
+  2c:	b2bf      	uxth	r7, r7
+  2e:	46e3      	mov	fp, ip
+  30:	e008      	b.n	44 <drawRect+0x44>
+  32:	b239      	sxth	r1, r7
+  34:	4650      	mov	r0, sl
+  36:	4642      	mov	r2, r8
+  38:	460b      	mov	r3, r1
+  3a:	9400      	str	r4, [sp, #0]
+  3c:	f7ff fffe 	bl	0 <drawRect>
+  40:	3701      	adds	r7, #1
+  42:	b2bf      	uxth	r7, r7
+  44:	1b73      	subs	r3, r6, r5
+  46:	42bb      	cmp	r3, r7
+  48:	daf3      	bge.n	32 <drawRect+0x32>
+  4a:	46dc      	mov	ip, fp
+  4c:	2700      	movs	r7, #0
+  4e:	f8cd 9014 	str.w	r9, [sp, #20]
+  52:	46bb      	mov	fp, r7
+  54:	46e1      	mov	r9, ip
+  56:	e028      	b.n	aa <drawRect+0xaa>
+  58:	eb05 020a 	add.w	r2, r5, sl
+  5c:	ebc5 0308 	rsb	r3, r5, r8
+  60:	18fb      	adds	r3, r7, r3
+  62:	1bd2      	subs	r2, r2, r7
+  64:	eb0b 0109 	add.w	r1, fp, r9
+  68:	fa0f fc83 	sxth.w	ip, r3
+  6c:	b212      	sxth	r2, r2
+  6e:	b209      	sxth	r1, r1
+  70:	4610      	mov	r0, r2
+  72:	460b      	mov	r3, r1
+  74:	9204      	str	r2, [sp, #16]
+  76:	4662      	mov	r2, ip
+  78:	f8cd c00c 	str.w	ip, [sp, #12]
+  7c:	9400      	str	r4, [sp, #0]
+  7e:	f7ff fffe 	bl	0 <drawRect>
+  82:	f8dd c00c 	ldr.w	ip, [sp, #12]
+  86:	ebcb 0106 	rsb	r1, fp, r6
+  8a:	b209      	sxth	r1, r1
+  8c:	9804      	ldr	r0, [sp, #16]
+  8e:	4662      	mov	r2, ip
+  90:	460b      	mov	r3, r1
+  92:	9400      	str	r4, [sp, #0]
+  94:	f7ff fffe 	bl	0 <drawRect>
+  98:	f014 0f80 	tst.w	r4, #128	; 0x80
+  9c:	d001      	beq.n	a2 <drawRect+0xa2>
+  9e:	3701      	adds	r7, #1
+  a0:	b2bf      	uxth	r7, r7
+  a2:	f10b 0b01 	add.w	fp, fp, #1
+  a6:	fa1f fb8b 	uxth.w	fp, fp
+  aa:	45ab      	cmp	fp, r5
+  ac:	d3d4      	bcc.n	58 <drawRect+0x58>
+  ae:	f8dd 9014 	ldr.w	r9, [sp, #20]
+  b2:	e010      	b.n	d6 <drawRect+0xd6>
+  b4:	4667      	mov	r7, ip
+  b6:	e00c      	b.n	d2 <drawRect+0xd2>
+  b8:	b239      	sxth	r1, r7
+  ba:	f10a 0001 	add.w	r0, sl, #1
+  be:	f108 32ff 	add.w	r2, r8, #4294967295
+  c2:	b200      	sxth	r0, r0
+  c4:	b212      	sxth	r2, r2
+  c6:	460b      	mov	r3, r1
+  c8:	9400      	str	r4, [sp, #0]
+  ca:	f7ff fffe 	bl	0 <drawRect>
+  ce:	3701      	adds	r7, #1
+  d0:	b2bf      	uxth	r7, r7
+  d2:	42b7      	cmp	r7, r6
+  d4:	dbf0      	blt.n	b8 <drawRect+0xb8>
+  d6:	f014 0f80 	tst.w	r4, #128	; 0x80
+  da:	d02d      	beq.n	138 <drawRect+0x138>
+  dc:	ebc5 0708 	rsb	r7, r5, r8
+  e0:	eb05 0c09 	add.w	ip, r5, r9
+  e4:	fa0f fc8c 	sxth.w	ip, ip
+  e8:	b23f      	sxth	r7, r7
+  ea:	4663      	mov	r3, ip
+  ec:	4638      	mov	r0, r7
+  ee:	4649      	mov	r1, r9
+  f0:	4642      	mov	r2, r8
+  f2:	ebc5 0b06 	rsb	fp, r5, r6
+  f6:	f8cd c00c 	str.w	ip, [sp, #12]
+  fa:	fa0f fb8b 	sxth.w	fp, fp
+  fe:	9400      	str	r4, [sp, #0]
+ 100:	f7ff fffe 	bl	0 <drawRect>
+ 104:	4638      	mov	r0, r7
+ 106:	eb05 070a 	add.w	r7, r5, sl
+ 10a:	4631      	mov	r1, r6
+ 10c:	4642      	mov	r2, r8
+ 10e:	465b      	mov	r3, fp
+ 110:	b23f      	sxth	r7, r7
+ 112:	9400      	str	r4, [sp, #0]
+ 114:	f7ff fffe 	bl	0 <drawRect>
+ 118:	4638      	mov	r0, r7
+ 11a:	4631      	mov	r1, r6
+ 11c:	4652      	mov	r2, sl
+ 11e:	465b      	mov	r3, fp
+ 120:	9400      	str	r4, [sp, #0]
+ 122:	f7ff fffe 	bl	0 <drawRect>
+ 126:	f8dd c00c 	ldr.w	ip, [sp, #12]
+ 12a:	4650      	mov	r0, sl
+ 12c:	4661      	mov	r1, ip
+ 12e:	463a      	mov	r2, r7
+ 130:	464b      	mov	r3, r9
+ 132:	9400      	str	r4, [sp, #0]
+ 134:	f7ff fffe 	bl	0 <drawRect>
+ 138:	f014 0f40 	tst.w	r4, #64	; 0x40
+ 13c:	eb05 0b0a 	add.w	fp, r5, sl
+ 140:	d029      	beq.n	196 <drawRect+0x196>
+ 142:	44a9      	add	r9, r5
+ 144:	fa1f fb8b 	uxth.w	fp, fp
+ 148:	fa1f f989 	uxth.w	r9, r9
+ 14c:	ebc5 0808 	rsb	r8, r5, r8
+ 150:	4658      	mov	r0, fp
+ 152:	4649      	mov	r1, r9
+ 154:	2201      	movs	r2, #1
+ 156:	462b      	mov	r3, r5
+ 158:	fa1f f888 	uxth.w	r8, r8
+ 15c:	1b76      	subs	r6, r6, r5
+ 15e:	b2b6      	uxth	r6, r6
+ 160:	9400      	str	r4, [sp, #0]
+ 162:	f7ff fffe 	bl	0 <drawRect>
+ 166:	4640      	mov	r0, r8
+ 168:	4649      	mov	r1, r9
+ 16a:	2202      	movs	r2, #2
+ 16c:	462b      	mov	r3, r5
+ 16e:	9400      	str	r4, [sp, #0]
+ 170:	f7ff fffe 	bl	0 <drawRect>
+ 174:	4658      	mov	r0, fp
+ 176:	4631      	mov	r1, r6
+ 178:	2208      	movs	r2, #8
+ 17a:	462b      	mov	r3, r5
+ 17c:	9400      	str	r4, [sp, #0]
+ 17e:	f7ff fffe 	bl	0 <drawRect>
+ 182:	4640      	mov	r0, r8
+ 184:	4631      	mov	r1, r6
+ 186:	2204      	movs	r2, #4
+ 188:	462b      	mov	r3, r5
+ 18a:	9410      	str	r4, [sp, #64]	; 0x40
+ 18c:	b007      	add	sp, #28
+ 18e:	e8bd 4ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+ 192:	f7ff bffe 	b.w	0 <drawRect>
+ 196:	ebc5 0708 	rsb	r7, r5, r8
+ 19a:	fa0f fb8b 	sxth.w	fp, fp
+ 19e:	b23f      	sxth	r7, r7
+ 1a0:	4658      	mov	r0, fp
+ 1a2:	4649      	mov	r1, r9
+ 1a4:	463a      	mov	r2, r7
+ 1a6:	464b      	mov	r3, r9
+ 1a8:	44a9      	add	r9, r5
+ 1aa:	1b75      	subs	r5, r6, r5
+ 1ac:	fa0f f989 	sxth.w	r9, r9
+ 1b0:	b22d      	sxth	r5, r5
+ 1b2:	9400      	str	r4, [sp, #0]
+ 1b4:	f7ff fffe 	bl	0 <drawRect>
+ 1b8:	4658      	mov	r0, fp
+ 1ba:	4631      	mov	r1, r6
+ 1bc:	463a      	mov	r2, r7
+ 1be:	4633      	mov	r3, r6
+ 1c0:	9400      	str	r4, [sp, #0]
+ 1c2:	f7ff fffe 	bl	0 <drawRect>
+ 1c6:	4650      	mov	r0, sl
+ 1c8:	4649      	mov	r1, r9
+ 1ca:	4652      	mov	r2, sl
+ 1cc:	462b      	mov	r3, r5
+ 1ce:	9400      	str	r4, [sp, #0]
+ 1d0:	f7ff fffe 	bl	0 <drawRect>
+ 1d4:	4640      	mov	r0, r8
+ 1d6:	4649      	mov	r1, r9
+ 1d8:	4642      	mov	r2, r8
+ 1da:	462b      	mov	r3, r5
+ 1dc:	9410      	str	r4, [sp, #64]	; 0x40
+ 1de:	b007      	add	sp, #28
+ 1e0:	e8bd 4ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+ 1e4:	f7ff bffe 	b.w	0 <drawRect>
+
+Disassembly of section .text.drawWidget:
+
+00000000 <drawWidget>:
+drawWidget():
+   0:	b5f7      	push	{r0, r1, r2, r4, r5, r6, r7, lr}
+   2:	4604      	mov	r4, r0
+   4:	f7ff fffe 	bl	0 <lcdGetFont>
+   8:	68e3      	ldr	r3, [r4, #12]
+   a:	4607      	mov	r7, r0
+   c:	f013 0f01 	tst.w	r3, #1
+  10:	d04b      	beq.n	aa <drawWidget+0xaa>
+  12:	78a0      	ldrb	r0, [r4, #2]
+  14:	7861      	ldrb	r1, [r4, #1]
+  16:	7822      	ldrb	r2, [r4, #0]
+  18:	f7ff fffe 	bl	0 <lcdSetColor>
+  1c:	7960      	ldrb	r0, [r4, #5]
+  1e:	7921      	ldrb	r1, [r4, #4]
+  20:	78e2      	ldrb	r2, [r4, #3]
+  22:	f7ff fffe 	bl	0 <lcdSetBackColor>
+  26:	68e0      	ldr	r0, [r4, #12]
+  28:	f010 0f10 	tst.w	r0, #16
+  2c:	d03d      	beq.n	aa <drawWidget+0xaa>
+  2e:	f8b4 e014 	ldrh.w	lr, [r4, #20]
+  32:	8ae1      	ldrh	r1, [r4, #22]
+  34:	8b22      	ldrh	r2, [r4, #24]
+  36:	8b63      	ldrh	r3, [r4, #26]
+  38:	4472      	add	r2, lr
+  3a:	18cb      	adds	r3, r1, r3
+  3c:	9000      	str	r0, [sp, #0]
+  3e:	2008      	movs	r0, #8
+  40:	9001      	str	r0, [sp, #4]
+  42:	b21b      	sxth	r3, r3
+  44:	fa0f f08e 	sxth.w	r0, lr
+  48:	b209      	sxth	r1, r1
+  4a:	b212      	sxth	r2, r2
+  4c:	f7ff fffe 	bl	0 <drawWidget>
+  50:	69e0      	ldr	r0, [r4, #28]
+  52:	7803      	ldrb	r3, [r0, #0]
+  54:	b313      	cbz	r3, 9c <drawWidget+0x9c>
+  56:	68e3      	ldr	r3, [r4, #12]
+  58:	f413 3f80 	tst.w	r3, #65536	; 0x10000
+  5c:	d017      	beq.n	8e <drawWidget+0x8e>
+  5e:	8e7d      	ldrh	r5, [r7, #50]	; 0x32
+  60:	8b26      	ldrh	r6, [r4, #24]
+  62:	f7ff fffe 	bl	0 <len>
+  66:	fb05 6610 	mls	r6, r5, r0, r6
+  6a:	eb06 76d6 	add.w	r6, r6, r6, lsr #31
+  6e:	8b23      	ldrh	r3, [r4, #24]
+  70:	1076      	asrs	r6, r6, #1
+  72:	b2b6      	uxth	r6, r6
+  74:	42b3      	cmp	r3, r6
+  76:	bf38      	it	cc
+  78:	2608      	movcc	r6, #8
+  7a:	8e7d      	ldrh	r5, [r7, #50]	; 0x32
+  7c:	8b63      	ldrh	r3, [r4, #26]
+  7e:	1b5d      	subs	r5, r3, r5
+  80:	eb05 75d5 	add.w	r5, r5, r5, lsr #31
+  84:	106d      	asrs	r5, r5, #1
+  86:	b2ad      	uxth	r5, r5
+  88:	429d      	cmp	r5, r3
+  8a:	bf88      	it	hi
+  8c:	2508      	movhi	r5, #8
+  8e:	8aa3      	ldrh	r3, [r4, #20]
+  90:	18f6      	adds	r6, r6, r3
+  92:	8ae3      	ldrh	r3, [r4, #22]
+  94:	b2b0      	uxth	r0, r6
+  96:	18ed      	adds	r5, r5, r3
+  98:	b2a9      	uxth	r1, r5
+  9a:	e001      	b.n	a0 <drawWidget+0xa0>
+  9c:	8aa0      	ldrh	r0, [r4, #20]
+  9e:	8ae1      	ldrh	r1, [r4, #22]
+  a0:	b003      	add	sp, #12
+  a2:	e8bd 40f0 	ldmia.w	sp!, {r4, r5, r6, r7, lr}
+  a6:	f7ff bffe 	b.w	0 <lcdSetCursor>
+  aa:	b003      	add	sp, #12
+  ac:	bdf0      	pop	{r4, r5, r6, r7, pc}
+
+Disassembly of section .text.drawCircle:
+
+00000000 <drawCircle>:
+drawCircle():
+   0:	b513      	push	{r0, r1, r4, lr}
+   2:	4614      	mov	r4, r2
+   4:	9300      	str	r3, [sp, #0]
+   6:	220f      	movs	r2, #15
+   8:	4623      	mov	r3, r4
+   a:	f7ff fffe 	bl	0 <drawCircle>
+   e:	bd1c      	pop	{r2, r3, r4, pc}
+
+Disassembly of section .text.drawSine:
+
+00000000 <drawSine>:
+drawSine():
+   0:	4770      	bx	lr

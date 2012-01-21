@@ -1,0 +1,4 @@
+
+<Project Header="Project 'Boot'" Path=".\Boot.rprj" Project="Yes" AsyncBuild="" OutputFile="" sate="96" ActiveApp="Boot" >
+	<ApplicationBuild Header="Boot" Extern=".\Boot.rapp" Path=".\Boot.rapp" AsyncBuild="" OutputFile=".\Boot.elf" sate="98" />
+</Project>

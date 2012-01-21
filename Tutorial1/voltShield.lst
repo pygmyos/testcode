@@ -1,0 +1,308 @@
+
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\Tutorial1\voltShield.o:     file format elf32-littlearm
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\Tutorial1\voltShield.o
+
+
+Disassembly of section .text.voltShieldSetInputMode:
+
+00000000 <voltShieldSetInputMode>:
+voltShieldSetInputMode():
+   0:	4b17      	ldr	r3, [pc, #92]	; (60 <voltShieldSetInputMode+0x60>)
+   2:	b570      	push	{r4, r5, r6, lr}
+   4:	881b      	ldrh	r3, [r3, #0]
+   6:	4605      	mov	r5, r0
+   8:	460c      	mov	r4, r1
+   a:	b90b      	cbnz	r3, 10 <voltShieldSetInputMode+0x10>
+   c:	f7ff fffe 	bl	0 <voltShieldSetInputMode>
+  10:	2d01      	cmp	r5, #1
+  12:	d107      	bne.n	24 <voltShieldSetInputMode+0x24>
+  14:	2018      	movs	r0, #24
+  16:	4621      	mov	r1, r4
+  18:	f7ff fffe 	bl	0 <pinSet>
+  1c:	2c01      	cmp	r4, #1
+  1e:	d11d      	bne.n	5c <voltShieldSetInputMode+0x5c>
+  20:	2016      	movs	r0, #22
+  22:	e016      	b.n	52 <voltShieldSetInputMode+0x52>
+  24:	2d02      	cmp	r5, #2
+  26:	d101      	bne.n	2c <voltShieldSetInputMode+0x2c>
+  28:	2017      	movs	r0, #23
+  2a:	e002      	b.n	32 <voltShieldSetInputMode+0x32>
+  2c:	2d03      	cmp	r5, #3
+  2e:	d107      	bne.n	40 <voltShieldSetInputMode+0x40>
+  30:	2006      	movs	r0, #6
+  32:	4621      	mov	r1, r4
+  34:	f7ff fffe 	bl	0 <pinSet>
+  38:	2c01      	cmp	r4, #1
+  3a:	d10f      	bne.n	5c <voltShieldSetInputMode+0x5c>
+  3c:	2027      	movs	r0, #39	; 0x27
+  3e:	e008      	b.n	52 <voltShieldSetInputMode+0x52>
+  40:	2d04      	cmp	r5, #4
+  42:	d10b      	bne.n	5c <voltShieldSetInputMode+0x5c>
+  44:	2024      	movs	r0, #36	; 0x24
+  46:	4621      	mov	r1, r4
+  48:	f7ff fffe 	bl	0 <pinSet>
+  4c:	2c01      	cmp	r4, #1
+  4e:	d105      	bne.n	5c <voltShieldSetInputMode+0x5c>
+  50:	2007      	movs	r0, #7
+  52:	4621      	mov	r1, r4
+  54:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+  58:	f7ff bffe 	b.w	0 <pinSet>
+  5c:	bd70      	pop	{r4, r5, r6, pc}
+  5e:	bf00      	nop
+  60:	00000000 	.word	0x00000000
+
+Disassembly of section .text.voltShieldInit:
+
+00000000 <voltShieldInit>:
+voltShieldInit():
+   0:	b537      	push	{r0, r1, r2, r4, r5, lr}
+   2:	4b40      	ldr	r3, [pc, #256]	; (104 <voltShieldInit+0x104>)
+   4:	2201      	movs	r2, #1
+   6:	801a      	strh	r2, [r3, #0]
+   8:	2002      	movs	r0, #2
+   a:	493f      	ldr	r1, [pc, #252]	; (108 <voltShieldInit+0x108>)
+   c:	2400      	movs	r4, #0
+   e:	f7ff fffe 	bl	0 <print>
+  12:	220a      	movs	r2, #10
+  14:	2350      	movs	r3, #80	; 0x50
+  16:	2109      	movs	r1, #9
+  18:	483c      	ldr	r0, [pc, #240]	; (10c <voltShieldInit+0x10c>)
+  1a:	9400      	str	r4, [sp, #0]
+  1c:	f7ff fffe 	bl	0 <i2cConfig>
+  20:	2002      	movs	r0, #2
+  22:	493b      	ldr	r1, [pc, #236]	; (110 <voltShieldInit+0x110>)
+  24:	f7ff fffe 	bl	0 <print>
+  28:	220a      	movs	r2, #10
+  2a:	232f      	movs	r3, #47	; 0x2f
+  2c:	2109      	movs	r1, #9
+  2e:	4839      	ldr	r0, [pc, #228]	; (114 <voltShieldInit+0x114>)
+  30:	9400      	str	r4, [sp, #0]
+  32:	f7ff fffe 	bl	0 <i2cConfig>
+  36:	2002      	movs	r0, #2
+  38:	4937      	ldr	r1, [pc, #220]	; (118 <voltShieldInit+0x118>)
+  3a:	f7ff fffe 	bl	0 <print>
+  3e:	2025      	movs	r0, #37	; 0x25
+  40:	2103      	movs	r1, #3
+  42:	f7ff fffe 	bl	0 <pinConfig>
+  46:	2019      	movs	r0, #25
+  48:	2103      	movs	r1, #3
+  4a:	f7ff fffe 	bl	0 <pinConfig>
+  4e:	2016      	movs	r0, #22
+  50:	2103      	movs	r1, #3
+  52:	f7ff fffe 	bl	0 <pinConfig>
+  56:	2027      	movs	r0, #39	; 0x27
+  58:	2103      	movs	r1, #3
+  5a:	f7ff fffe 	bl	0 <pinConfig>
+  5e:	2026      	movs	r0, #38	; 0x26
+  60:	2103      	movs	r1, #3
+  62:	f7ff fffe 	bl	0 <pinConfig>
+  66:	2007      	movs	r0, #7
+  68:	2103      	movs	r1, #3
+  6a:	f7ff fffe 	bl	0 <pinConfig>
+  6e:	2018      	movs	r0, #24
+  70:	2103      	movs	r1, #3
+  72:	f7ff fffe 	bl	0 <pinConfig>
+  76:	2017      	movs	r0, #23
+  78:	2103      	movs	r1, #3
+  7a:	f7ff fffe 	bl	0 <pinConfig>
+  7e:	2006      	movs	r0, #6
+  80:	2103      	movs	r1, #3
+  82:	f7ff fffe 	bl	0 <pinConfig>
+  86:	2024      	movs	r0, #36	; 0x24
+  88:	2103      	movs	r1, #3
+  8a:	f7ff fffe 	bl	0 <pinConfig>
+  8e:	2001      	movs	r0, #1
+  90:	4621      	mov	r1, r4
+  92:	f7ff fffe 	bl	0 <pinConfig>
+  96:	4620      	mov	r0, r4
+  98:	4621      	mov	r1, r4
+  9a:	f7ff fffe 	bl	0 <pinConfig>
+  9e:	2020      	movs	r0, #32
+  a0:	4621      	mov	r1, r4
+  a2:	f7ff fffe 	bl	0 <pinConfig>
+  a6:	2021      	movs	r0, #33	; 0x21
+  a8:	4621      	mov	r1, r4
+  aa:	f7ff fffe 	bl	0 <pinConfig>
+  ae:	2025      	movs	r0, #37	; 0x25
+  b0:	4621      	mov	r1, r4
+  b2:	f7ff fffe 	bl	0 <pinSet>
+  b6:	2002      	movs	r0, #2
+  b8:	4918      	ldr	r1, [pc, #96]	; (11c <voltShieldInit+0x11c>)
+  ba:	f7ff fffe 	bl	0 <print>
+  be:	b2e5      	uxtb	r5, r4
+  c0:	2100      	movs	r1, #0
+  c2:	4628      	mov	r0, r5
+  c4:	3401      	adds	r4, #1
+  c6:	f7ff fffe 	bl	0 <voltShieldInit>
+  ca:	b2a4      	uxth	r4, r4
+  cc:	2101      	movs	r1, #1
+  ce:	4628      	mov	r0, r5
+  d0:	f7ff fffe 	bl	0 <voltShieldInit>
+  d4:	2c04      	cmp	r4, #4
+  d6:	d1f2      	bne.n	be <voltShieldInit+0xbe>
+  d8:	2002      	movs	r0, #2
+  da:	4911      	ldr	r1, [pc, #68]	; (120 <voltShieldInit+0x120>)
+  dc:	f7ff fffe 	bl	0 <print>
+  e0:	2100      	movs	r1, #0
+  e2:	2019      	movs	r0, #25
+  e4:	f7ff fffe 	bl	0 <pinSet>
+  e8:	201e      	movs	r0, #30
+  ea:	f7ff fffe 	bl	0 <delay>
+  ee:	2019      	movs	r0, #25
+  f0:	2101      	movs	r1, #1
+  f2:	f7ff fffe 	bl	0 <pinSet>
+  f6:	490b      	ldr	r1, [pc, #44]	; (124 <voltShieldInit+0x124>)
+  f8:	2002      	movs	r0, #2
+  fa:	b003      	add	sp, #12
+  fc:	e8bd 4030 	ldmia.w	sp!, {r4, r5, lr}
+ 100:	f7ff bffe 	b.w	0 <print>
+	...
+ 110:	00000014 	.word	0x00000014
+ 114:	00000000 	.word	0x00000000
+ 118:	00000029 	.word	0x00000029
+ 11c:	0000003b 	.word	0x0000003b
+ 120:	0000005d 	.word	0x0000005d
+ 124:	0000006f 	.word	0x0000006f
+
+Disassembly of section .text.voltShieldSetCoupling:
+
+00000000 <voltShieldSetCoupling>:
+voltShieldSetCoupling():
+   0:	b5134b0f 	.word	0xb5134b0f
+   4:	881b      	ldrh	r3, [r3, #0]
+   6:	4604      	mov	r4, r0
+   8:	b91b      	cbnz	r3, 12 <voltShieldSetCoupling+0x12>
+   a:	9101      	str	r1, [sp, #4]
+   c:	f7ff fffe 	bl	0 <voltShieldSetCoupling>
+  10:	9901      	ldr	r1, [sp, #4]
+  12:	2c01      	cmp	r4, #1
+  14:	d101      	bne.n	1a <voltShieldSetCoupling+0x1a>
+  16:	2016      	movs	r0, #22
+  18:	e00a      	b.n	30 <voltShieldSetCoupling+0x30>
+  1a:	2c02      	cmp	r4, #2
+  1c:	d101      	bne.n	22 <voltShieldSetCoupling+0x22>
+  1e:	2027      	movs	r0, #39	; 0x27
+  20:	e006      	b.n	30 <voltShieldSetCoupling+0x30>
+  22:	2c03      	cmp	r4, #3
+  24:	d101      	bne.n	2a <voltShieldSetCoupling+0x2a>
+  26:	2026      	movs	r0, #38	; 0x26
+  28:	e002      	b.n	30 <voltShieldSetCoupling+0x30>
+  2a:	2c04      	cmp	r4, #4
+  2c:	d105      	bne.n	3a <voltShieldSetCoupling+0x3a>
+  2e:	2007      	movs	r0, #7
+  30:	b002      	add	sp, #8
+  32:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+  36:	f7ff bffe 	b.w	0 <pinSet>
+  3a:	b002      	add	sp, #8
+  3c:	bd10      	pop	{r4, pc}
+  3e:	bf00      	nop
+  40:	00000000 	.word	0x00000000
+
+Disassembly of section .text.voltShieldSetGain:
+
+00000000 <voltShieldSetGain>:
+voltShieldSetGain():
+   0:	b5374b0b 	.word	0xb5374b0b
+   4:	881b      	ldrh	r3, [r3, #0]
+   6:	4604      	mov	r4, r0
+   8:	460d      	mov	r5, r1
+   a:	b90b      	cbnz	r3, 10 <voltShieldSetGain+0x10>
+   c:	f7ff fffe 	bl	0 <voltShieldSetGain>
+  10:	1e63      	subs	r3, r4, #1
+  12:	011b      	lsls	r3, r3, #4
+  14:	0a2d      	lsrs	r5, r5, #8
+  16:	aa02      	add	r2, sp, #8
+  18:	f64f 71f0 	movw	r1, #65520	; 0xfff0
+  1c:	ea03 0101 	and.w	r1, r3, r1
+  20:	f802 5d04 	strb.w	r5, [r2, #-4]!
+  24:	2301      	movs	r3, #1
+  26:	4803      	ldr	r0, [pc, #12]	; (34 <voltShieldSetGain+0x34>)
+  28:	f7ff fffe 	bl	0 <i2cWriteBuffer>
+  2c:	bd3e      	pop	{r1, r2, r3, r4, r5, pc}
+  2e:	bf00      	nop
+	...
+
+Disassembly of section .text.voltShieldGetGain:
+
+00000000 <voltShieldGetGain>:
+voltShieldGetGain():
+   0:	4b0c      	ldr	r3, [pc, #48]	; (34 <voltShieldGetGain+0x34>)
+   2:	b513      	push	{r0, r1, r4, lr}
+   4:	881b      	ldrh	r3, [r3, #0]
+   6:	4604      	mov	r4, r0
+   8:	b90b      	cbnz	r3, e <voltShieldGetGain+0xe>
+   a:	f7ff fffe 	bl	0 <voltShieldGetGain>
+   e:	1e63      	subs	r3, r4, #1
+  10:	011b      	lsls	r3, r3, #4
+  12:	f64f 71f0 	movw	r1, #65520	; 0xfff0
+  16:	ea03 0101 	and.w	r1, r3, r1
+  1a:	aa01      	add	r2, sp, #4
+  1c:	2302      	movs	r3, #2
+  1e:	4806      	ldr	r0, [pc, #24]	; (38 <voltShieldGetGain+0x38>)
+  20:	f7ff fffe 	bl	0 <i2cReadBuffer>
+  24:	f89d 0004 	ldrb.w	r0, [sp, #4]
+  28:	f89d 3005 	ldrb.w	r3, [sp, #5]
+  2c:	ea43 2000 	orr.w	r0, r3, r0, lsl #8
+  30:	bd1c      	pop	{r2, r3, r4, pc}
+  32:	bf00      	nop
+	...
+
+Disassembly of section .text.voltShieldGetVoltage:
+
+00000000 <voltShieldGetVoltage>:
+voltShieldGetVoltage():
+   0:	4b07      	ldr	r3, [pc, #28]	; (20 <voltShieldGetVoltage+0x20>)
+   2:	b510      	push	{r4, lr}
+   4:	881b      	ldrh	r3, [r3, #0]
+   6:	4604      	mov	r4, r0
+   8:	b90b      	cbnz	r3, e <voltShieldGetVoltage+0xe>
+   a:	f7ff fffe 	bl	0 <voltShieldGetVoltage>
+   e:	4620      	mov	r0, r4
+  10:	2100      	movs	r1, #0
+  12:	f7ff fffe 	bl	0 <voltShieldGetVoltage>
+  16:	2001      	movs	r0, #1
+  18:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+  1c:	f7ff bffe 	b.w	0 <pinAnalog>
+  20:	00000000 	.word	0x00000000
+
+Disassembly of section .text.voltShieldGetResistance:
+
+00000000 <voltShieldGetResistance>:
+voltShieldGetResistance():
+   0:	4b14      	ldr	r3, [pc, #80]	; (54 <voltShieldGetResistance+0x54>)
+   2:	b510      	push	{r4, lr}
+   4:	881b      	ldrh	r3, [r3, #0]
+   6:	4604      	mov	r4, r0
+   8:	b90b      	cbnz	r3, e <voltShieldGetResistance+0xe>
+   a:	f7ff fffe 	bl	0 <voltShieldGetResistance>
+   e:	2025      	movs	r0, #37	; 0x25
+  10:	2101      	movs	r1, #1
+  12:	f7ff fffe 	bl	0 <pinSet>
+  16:	2101      	movs	r1, #1
+  18:	4620      	mov	r0, r4
+  1a:	f7ff fffe 	bl	0 <voltShieldGetResistance>
+  1e:	2c01      	cmp	r4, #1
+  20:	d101      	bne.n	26 <voltShieldGetResistance+0x26>
+  22:	4620      	mov	r0, r4
+  24:	e00a      	b.n	3c <voltShieldGetResistance+0x3c>
+  26:	2c02      	cmp	r4, #2
+  28:	d101      	bne.n	2e <voltShieldGetResistance+0x2e>
+  2a:	2000      	movs	r0, #0
+  2c:	e006      	b.n	3c <voltShieldGetResistance+0x3c>
+  2e:	2c03      	cmp	r4, #3
+  30:	d101      	bne.n	36 <voltShieldGetResistance+0x36>
+  32:	2020      	movs	r0, #32
+  34:	e002      	b.n	3c <voltShieldGetResistance+0x3c>
+  36:	2c04      	cmp	r4, #4
+  38:	d108      	bne.n	4c <voltShieldGetResistance+0x4c>
+  3a:	2021      	movs	r0, #33	; 0x21
+  3c:	f7ff fffe 	bl	0 <pinAnalog>
+  40:	2100      	movs	r1, #0
+  42:	4604      	mov	r4, r0
+  44:	2025      	movs	r0, #37	; 0x25
+  46:	f7ff fffe 	bl	0 <pinSet>
+  4a:	e001      	b.n	50 <voltShieldGetResistance+0x50>
+  4c:	f64f 74ff 	movw	r4, #65535	; 0xffff
+  50:	4620      	mov	r0, r4
+  52:	bd10      	pop	{r4, pc}
+  54:	00000000 	.word	0x00000000

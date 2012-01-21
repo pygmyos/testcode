@@ -1,0 +1,418 @@
+
+C:\Users\MightyDubster\Ride7\Nebula\boot\vectors_stm32f10x_hd.o:     file format elf32-littlearm
+C:\Users\MightyDubster\Ride7\Nebula\boot\vectors_stm32f10x_hd.o
+
+
+Disassembly of section .text.NMI_Handler:
+
+00000000 <NMI_Handler>:
+NMI_Handler():
+   0:	e7fe      	b.n	0 <NMI_Handler>
+
+Disassembly of section .text.HardFault_Handler:
+
+00000000 <HardFault_Handler>:
+HardFault_Handler():
+   0:	e7fe      	b.n	0 <HardFault_Handler>
+
+Disassembly of section .text.MemManage_Handler:
+
+00000000 <MemManage_Handler>:
+MemManage_Handler():
+   0:	e7fe      	b.n	0 <MemManage_Handler>
+
+Disassembly of section .text.BusFault_Handler:
+
+00000000 <BusFault_Handler>:
+BusFault_Handler():
+   0:	e7fe      	b.n	0 <BusFault_Handler>
+
+Disassembly of section .text.UsageFault_Handler:
+
+00000000 <UsageFault_Handler>:
+UsageFault_Handler():
+   0:	e7fe      	b.n	0 <UsageFault_Handler>
+
+Disassembly of section .text.SVC_Handler:
+
+00000000 <SVC_Handler>:
+SVC_Handler():
+   0:	e7fe      	b.n	0 <SVC_Handler>
+
+Disassembly of section .text.DebugMon_Handler:
+
+00000000 <DebugMon_Handler>:
+DebugMon_Handler():
+   0:	e7fe      	b.n	0 <DebugMon_Handler>
+
+Disassembly of section .text.PendSV_Handler:
+
+00000000 <PendSV_Handler>:
+PendSV_Handler():
+   0:	e7fe      	b.n	0 <PendSV_Handler>
+
+Disassembly of section .text.SysTick_Handler:
+
+00000000 <SysTick_Handler>:
+SysTick_Handler():
+   0:	e7fe      	b.n	0 <SysTick_Handler>
+
+Disassembly of section .text.WWDG_IRQHandler:
+
+00000000 <WWDG_IRQHandler>:
+WWDG_IRQHandler():
+   0:	e7fe      	b.n	0 <WWDG_IRQHandler>
+
+Disassembly of section .text.PVD_IRQHandler:
+
+00000000 <PVD_IRQHandler>:
+PVD_IRQHandler():
+   0:	e7fe      	b.n	0 <PVD_IRQHandler>
+
+Disassembly of section .text.TAMPER_IRQHandler:
+
+00000000 <TAMPER_IRQHandler>:
+TAMPER_IRQHandler():
+   0:	e7fe      	b.n	0 <TAMPER_IRQHandler>
+
+Disassembly of section .text.RTC_IRQHandler:
+
+00000000 <RTC_IRQHandler>:
+RTC_IRQHandler():
+   0:	e7fe      	b.n	0 <RTC_IRQHandler>
+
+Disassembly of section .text.FLASH_IRQHandler:
+
+00000000 <FLASH_IRQHandler>:
+FLASH_IRQHandler():
+   0:	e7fe      	b.n	0 <FLASH_IRQHandler>
+
+Disassembly of section .text.RCC_IRQHandler:
+
+00000000 <RCC_IRQHandler>:
+RCC_IRQHandler():
+   0:	e7fe      	b.n	0 <RCC_IRQHandler>
+
+Disassembly of section .text.EXTI0_IRQHandler:
+
+00000000 <EXTI0_IRQHandler>:
+EXTI0_IRQHandler():
+   0:	e7fe      	b.n	0 <EXTI0_IRQHandler>
+
+Disassembly of section .text.EXTI1_IRQHandler:
+
+00000000 <EXTI1_IRQHandler>:
+EXTI1_IRQHandler():
+   0:	e7fe      	b.n	0 <EXTI1_IRQHandler>
+
+Disassembly of section .text.EXTI2_IRQHandler:
+
+00000000 <EXTI2_IRQHandler>:
+EXTI2_IRQHandler():
+   0:	e7fe      	b.n	0 <EXTI2_IRQHandler>
+
+Disassembly of section .text.EXTI3_IRQHandler:
+
+00000000 <EXTI3_IRQHandler>:
+EXTI3_IRQHandler():
+   0:	e7fe      	b.n	0 <EXTI3_IRQHandler>
+
+Disassembly of section .text.EXTI4_IRQHandler:
+
+00000000 <EXTI4_IRQHandler>:
+EXTI4_IRQHandler():
+   0:	e7fe      	b.n	0 <EXTI4_IRQHandler>
+
+Disassembly of section .text.DMA1_Channel1_IRQHandler:
+
+00000000 <DMA1_Channel1_IRQHandler>:
+DMA1_Channel1_IRQHandler():
+   0:	e7fe      	b.n	0 <DMA1_Channel1_IRQHandler>
+
+Disassembly of section .text.DMA1_Channel2_IRQHandler:
+
+00000000 <DMA1_Channel2_IRQHandler>:
+DMA1_Channel2_IRQHandler():
+   0:	e7fe      	b.n	0 <DMA1_Channel2_IRQHandler>
+
+Disassembly of section .text.DMA1_Channel3_IRQHandler:
+
+00000000 <DMA1_Channel3_IRQHandler>:
+DMA1_Channel3_IRQHandler():
+   0:	e7fe      	b.n	0 <DMA1_Channel3_IRQHandler>
+
+Disassembly of section .text.DMA1_Channel4_IRQHandler:
+
+00000000 <DMA1_Channel4_IRQHandler>:
+DMA1_Channel4_IRQHandler():
+   0:	e7fe      	b.n	0 <DMA1_Channel4_IRQHandler>
+
+Disassembly of section .text.DMA1_Channel5_IRQHandler:
+
+00000000 <DMA1_Channel5_IRQHandler>:
+DMA1_Channel5_IRQHandler():
+   0:	e7fe      	b.n	0 <DMA1_Channel5_IRQHandler>
+
+Disassembly of section .text.DMA1_Channel6_IRQHandler:
+
+00000000 <DMA1_Channel6_IRQHandler>:
+DMA1_Channel6_IRQHandler():
+   0:	e7fe      	b.n	0 <DMA1_Channel6_IRQHandler>
+
+Disassembly of section .text.DMA1_Channel7_IRQHandler:
+
+00000000 <DMA1_Channel7_IRQHandler>:
+DMA1_Channel7_IRQHandler():
+   0:	e7fe      	b.n	0 <DMA1_Channel7_IRQHandler>
+
+Disassembly of section .text.ADC1_2_IRQHandler:
+
+00000000 <ADC1_2_IRQHandler>:
+ADC1_2_IRQHandler():
+   0:	e7fe      	b.n	0 <ADC1_2_IRQHandler>
+
+Disassembly of section .text.USB_HP_CAN_TX_IRQHandler:
+
+00000000 <USB_HP_CAN_TX_IRQHandler>:
+USB_HP_CAN_TX_IRQHandler():
+   0:	e7fe      	b.n	0 <USB_HP_CAN_TX_IRQHandler>
+
+Disassembly of section .text.USB_LP_CAN_RX0_IRQHandler:
+
+00000000 <USB_LP_CAN_RX0_IRQHandler>:
+USB_LP_CAN_RX0_IRQHandler():
+   0:	e7fe      	b.n	0 <USB_LP_CAN_RX0_IRQHandler>
+
+Disassembly of section .text.CAN_RX1_IRQHandler:
+
+00000000 <CAN_RX1_IRQHandler>:
+CAN_RX1_IRQHandler():
+   0:	e7fe      	b.n	0 <CAN_RX1_IRQHandler>
+
+Disassembly of section .text.CAN_SCE_IRQHandler:
+
+00000000 <CAN_SCE_IRQHandler>:
+CAN_SCE_IRQHandler():
+   0:	e7fe      	b.n	0 <CAN_SCE_IRQHandler>
+
+Disassembly of section .text.EXTI9_5_IRQHandler:
+
+00000000 <EXTI9_5_IRQHandler>:
+EXTI9_5_IRQHandler():
+   0:	e7fe      	b.n	0 <EXTI9_5_IRQHandler>
+
+Disassembly of section .text.TIM1_BRK_IRQHandler:
+
+00000000 <TIM1_BRK_IRQHandler>:
+TIM1_BRK_IRQHandler():
+   0:	e7fe      	b.n	0 <TIM1_BRK_IRQHandler>
+
+Disassembly of section .text.TIM1_UP_IRQHandler:
+
+00000000 <TIM1_UP_IRQHandler>:
+TIM1_UP_IRQHandler():
+   0:	e7fe      	b.n	0 <TIM1_UP_IRQHandler>
+
+Disassembly of section .text.TIM1_TRG_COM_IRQHandler:
+
+00000000 <TIM1_TRG_COM_IRQHandler>:
+TIM1_TRG_COM_IRQHandler():
+   0:	e7fe      	b.n	0 <TIM1_TRG_COM_IRQHandler>
+
+Disassembly of section .text.TIM1_CC_IRQHandler:
+
+00000000 <TIM1_CC_IRQHandler>:
+TIM1_CC_IRQHandler():
+   0:	e7fe      	b.n	0 <TIM1_CC_IRQHandler>
+
+Disassembly of section .text.TIM2_IRQHandler:
+
+00000000 <TIM2_IRQHandler>:
+TIM2_IRQHandler():
+   0:	e7fe      	b.n	0 <TIM2_IRQHandler>
+
+Disassembly of section .text.TIM3_IRQHandler:
+
+00000000 <TIM3_IRQHandler>:
+TIM3_IRQHandler():
+   0:	e7fe      	b.n	0 <TIM3_IRQHandler>
+
+Disassembly of section .text.TIM4_IRQHandler:
+
+00000000 <TIM4_IRQHandler>:
+TIM4_IRQHandler():
+   0:	e7fe      	b.n	0 <TIM4_IRQHandler>
+
+Disassembly of section .text.I2C1_EV_IRQHandler:
+
+00000000 <I2C1_EV_IRQHandler>:
+I2C1_EV_IRQHandler():
+   0:	e7fe      	b.n	0 <I2C1_EV_IRQHandler>
+
+Disassembly of section .text.I2C1_ER_IRQHandler:
+
+00000000 <I2C1_ER_IRQHandler>:
+I2C1_ER_IRQHandler():
+   0:	e7fe      	b.n	0 <I2C1_ER_IRQHandler>
+
+Disassembly of section .text.I2C2_EV_IRQHandler:
+
+00000000 <I2C2_EV_IRQHandler>:
+I2C2_EV_IRQHandler():
+   0:	e7fe      	b.n	0 <I2C2_EV_IRQHandler>
+
+Disassembly of section .text.I2C2_ER_IRQHandler:
+
+00000000 <I2C2_ER_IRQHandler>:
+I2C2_ER_IRQHandler():
+   0:	e7fe      	b.n	0 <I2C2_ER_IRQHandler>
+
+Disassembly of section .text.SPI1_IRQHandler:
+
+00000000 <SPI1_IRQHandler>:
+SPI1_IRQHandler():
+   0:	e7fe      	b.n	0 <SPI1_IRQHandler>
+
+Disassembly of section .text.SPI2_IRQHandler:
+
+00000000 <SPI2_IRQHandler>:
+SPI2_IRQHandler():
+   0:	e7fe      	b.n	0 <SPI2_IRQHandler>
+
+Disassembly of section .text.USART1_IRQHandler:
+
+00000000 <USART1_IRQHandler>:
+USART1_IRQHandler():
+   0:	e7fe      	b.n	0 <USART1_IRQHandler>
+
+Disassembly of section .text.USART2_IRQHandler:
+
+00000000 <USART2_IRQHandler>:
+USART2_IRQHandler():
+   0:	e7fe      	b.n	0 <USART2_IRQHandler>
+
+Disassembly of section .text.USART3_IRQHandler:
+
+00000000 <USART3_IRQHandler>:
+USART3_IRQHandler():
+   0:	e7fe      	b.n	0 <USART3_IRQHandler>
+
+Disassembly of section .text.EXTI15_10_IRQHandler:
+
+00000000 <EXTI15_10_IRQHandler>:
+EXTI15_10_IRQHandler():
+   0:	e7fe      	b.n	0 <EXTI15_10_IRQHandler>
+
+Disassembly of section .text.RTCAlarm_IRQHandler:
+
+00000000 <RTCAlarm_IRQHandler>:
+RTCAlarm_IRQHandler():
+   0:	e7fe      	b.n	0 <RTCAlarm_IRQHandler>
+
+Disassembly of section .text.USBWakeUp_IRQHandler:
+
+00000000 <USBWakeUp_IRQHandler>:
+USBWakeUp_IRQHandler():
+   0:	e7fe      	b.n	0 <USBWakeUp_IRQHandler>
+
+Disassembly of section .text.TIM8_BRK_IRQHandler:
+
+00000000 <TIM8_BRK_IRQHandler>:
+TIM8_BRK_IRQHandler():
+   0:	e7fe      	b.n	0 <TIM8_BRK_IRQHandler>
+
+Disassembly of section .text.TIM8_UP_IRQHandler:
+
+00000000 <TIM8_UP_IRQHandler>:
+TIM8_UP_IRQHandler():
+   0:	e7fe      	b.n	0 <TIM8_UP_IRQHandler>
+
+Disassembly of section .text.TIM8_TRG_COM_IRQHandler:
+
+00000000 <TIM8_TRG_COM_IRQHandler>:
+TIM8_TRG_COM_IRQHandler():
+   0:	e7fe      	b.n	0 <TIM8_TRG_COM_IRQHandler>
+
+Disassembly of section .text.TIM8_CC_IRQHandler:
+
+00000000 <TIM8_CC_IRQHandler>:
+TIM8_CC_IRQHandler():
+   0:	e7fe      	b.n	0 <TIM8_CC_IRQHandler>
+
+Disassembly of section .text.ADC3_IRQHandler:
+
+00000000 <ADC3_IRQHandler>:
+ADC3_IRQHandler():
+   0:	e7fe      	b.n	0 <ADC3_IRQHandler>
+
+Disassembly of section .text.FSMC_IRQHandler:
+
+00000000 <FSMC_IRQHandler>:
+FSMC_IRQHandler():
+   0:	e7fe      	b.n	0 <FSMC_IRQHandler>
+
+Disassembly of section .text.SDIO_IRQHandler:
+
+00000000 <SDIO_IRQHandler>:
+SDIO_IRQHandler():
+   0:	e7fe      	b.n	0 <SDIO_IRQHandler>
+
+Disassembly of section .text.TIM5_IRQHandler:
+
+00000000 <TIM5_IRQHandler>:
+TIM5_IRQHandler():
+   0:	e7fe      	b.n	0 <TIM5_IRQHandler>
+
+Disassembly of section .text.SPI3_IRQHandler:
+
+00000000 <SPI3_IRQHandler>:
+SPI3_IRQHandler():
+   0:	e7fe      	b.n	0 <SPI3_IRQHandler>
+
+Disassembly of section .text.UART4_IRQHandler:
+
+00000000 <UART4_IRQHandler>:
+UART4_IRQHandler():
+   0:	e7fe      	b.n	0 <UART4_IRQHandler>
+
+Disassembly of section .text.UART5_IRQHandler:
+
+00000000 <UART5_IRQHandler>:
+UART5_IRQHandler():
+   0:	e7fe      	b.n	0 <UART5_IRQHandler>
+
+Disassembly of section .text.TIM6_IRQHandler:
+
+00000000 <TIM6_IRQHandler>:
+TIM6_IRQHandler():
+   0:	e7fe      	b.n	0 <TIM6_IRQHandler>
+
+Disassembly of section .text.TIM7_IRQHandler:
+
+00000000 <TIM7_IRQHandler>:
+TIM7_IRQHandler():
+   0:	e7fe      	b.n	0 <TIM7_IRQHandler>
+
+Disassembly of section .text.DMA2_Channel1_IRQHandler:
+
+00000000 <DMA2_Channel1_IRQHandler>:
+DMA2_Channel1_IRQHandler():
+   0:	e7fe      	b.n	0 <DMA2_Channel1_IRQHandler>
+
+Disassembly of section .text.DMA2_Channel2_IRQHandler:
+
+00000000 <DMA2_Channel2_IRQHandler>:
+DMA2_Channel2_IRQHandler():
+   0:	e7fe      	b.n	0 <DMA2_Channel2_IRQHandler>
+
+Disassembly of section .text.DMA2_Channel3_IRQHandler:
+
+00000000 <DMA2_Channel3_IRQHandler>:
+DMA2_Channel3_IRQHandler():
+   0:	e7fe      	b.n	0 <DMA2_Channel3_IRQHandler>
+
+Disassembly of section .text.DMA2_Channel4_5_IRQHandler:
+
+00000000 <DMA2_Channel4_5_IRQHandler>:
+DMA2_Channel4_5_IRQHandler():
+   0:	e7fe      	b.n	0 <DMA2_Channel4_5_IRQHandler>

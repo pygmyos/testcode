@@ -1,0 +1,2643 @@
+
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o:     file format elf32-littlearm
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
+
+
+Disassembly of section .text.cmdReset:
+
+00000000 <cmdReset>:
+cmdReset():
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:677
+    return( fileRename( getNextSubString( ucParams, WHITESPACE|NEWLINE ), getNextSubString( "", WHITESPACE|NEWLINE ) ) );
+}
+
+u8 cmdReset( u8 *ucParams )
+{
+    PYGMY_RESET;
+   0:	4a01      	ldr	r2, [pc, #4]	; (8 <cmdReset+0x8>)
+   2:	4b02      	ldr	r3, [pc, #8]	; (c <cmdReset+0xc>)
+   4:	60da      	str	r2, [r3, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:680
+
+    // No return after reset
+}
+   6:	4770      	bx	lr
+   8:	05fa0004 	.word	0x05fa0004
+   c:	e000ed00 	.word	0xe000ed00
+
+Disassembly of section .text.cmdNull:
+
+00000000 <cmdNull>:
+cmdNull():
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:705
+}
+
+u8 cmdNull( u8 *ucParams )
+{
+    return( 0 );
+}
+   0:	2000      	movs	r0, #0
+   2:	4770      	bx	lr
+
+Disassembly of section .text.cmdMv:
+
+00000000 <cmdMv>:
+cmdMv():
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:671
+
+    return( 1 );
+}
+
+u8 cmdMv( u8 *ucParams )
+{
+   0:	b510      	push	{r4, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:672
+    return( fileRename( getNextSubString( ucParams, WHITESPACE|NEWLINE ), getNextSubString( "", WHITESPACE|NEWLINE ) ) );
+   2:	2106      	movs	r1, #6
+   4:	f7ff fffe 	bl	0 <getNextSubString>
+   8:	2106      	movs	r1, #6
+   a:	4604      	mov	r4, r0
+   c:	4804      	ldr	r0, [pc, #16]	; (20 <cmdMv+0x20>)
+   e:	f7ff fffe 	bl	0 <getNextSubString>
+  12:	4601      	mov	r1, r0
+  14:	4620      	mov	r0, r4
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:673
+}
+  16:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:672
+    return( 1 );
+}
+
+u8 cmdMv( u8 *ucParams )
+{
+    return( fileRename( getNextSubString( ucParams, WHITESPACE|NEWLINE ), getNextSubString( "", WHITESPACE|NEWLINE ) ) );
+  1a:	f7ff bffe 	b.w	0 <fileRename>
+  1e:	bf00      	nop
+  20:	00000000 	.word	0x00000000
+
+Disassembly of section .text.cmdRm:
+
+00000000 <cmdRm>:
+cmdRm():
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:644
+
+    return( 0 );
+}
+
+u8 cmdRm( u8 *ucParams )
+{   
+   0:	b510      	push	{r4, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:645
+    return( fileDelete( getNextSubString( ucParams, WHITESPACE|NEWLINE ) ) );
+   2:	2106      	movs	r1, #6
+   4:	f7ff fffe 	bl	0 <getNextSubString>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:648
+
+    return( 0 );
+}
+   8:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:645
+    return( 0 );
+}
+
+u8 cmdRm( u8 *ucParams )
+{   
+    return( fileDelete( getNextSubString( ucParams, WHITESPACE|NEWLINE ) ) );
+   c:	f7ff bffe 	b.w	0 <fileDelete>
+
+Disassembly of section .text.cmdSend:
+
+00000000 <cmdSend>:
+cmdSend():
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:599
+
+u8 cmdSend( u8 *ucParams )
+{
+    u8 *ucSubString;
+    
+    ucSubString = getNextSubString( ucParams, WHITESPACE|NEWLINE );
+   0:	2106      	movs	r1, #6
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:596
+        
+    return( 0 );
+}
+
+u8 cmdSend( u8 *ucParams )
+{
+   2:	b508      	push	{r3, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:599
+    u8 *ucSubString;
+    
+    ucSubString = getNextSubString( ucParams, WHITESPACE|NEWLINE );
+   4:	f7ff fffe 	bl	0 <getNextSubString>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:600
+    if( fileOpen( &pygmyFile, ucSubString, READ ) ){
+   8:	2201      	movs	r2, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:599
+
+u8 cmdSend( u8 *ucParams )
+{
+    u8 *ucSubString;
+    
+    ucSubString = getNextSubString( ucParams, WHITESPACE|NEWLINE );
+   a:	4601      	mov	r1, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:600
+    if( fileOpen( &pygmyFile, ucSubString, READ ) ){
+   c:	4808      	ldr	r0, [pc, #32]	; (30 <cmdSend+0x30>)
+   e:	f7ff fffe 	bl	0 <fileOpen>
+  12:	b160      	cbz	r0, 2e <cmdSend+0x2e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:601
+        globalXMCount = 1;
+  14:	4b07      	ldr	r3, [pc, #28]	; (34 <cmdSend+0x34>)
+  16:	2001      	movs	r0, #1
+  18:	6018      	str	r0, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:602
+        globalXMTimeout = 1000;
+  1a:	4b07      	ldr	r3, [pc, #28]	; (38 <cmdSend+0x38>)
+  1c:	f44f 727a 	mov.w	r2, #1000	; 0x3e8
+  20:	601a      	str	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:603
+        globalTransaction = 10;
+  22:	4b06      	ldr	r3, [pc, #24]	; (3c <cmdSend+0x3c>)
+  24:	220a      	movs	r2, #10
+  26:	601a      	str	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:604
+        globalStatus = ( XMODEM_SEND | XMODEM_SEND_WAIT ); 
+  28:	4b05      	ldr	r3, [pc, #20]	; (40 <cmdSend+0x40>)
+  2a:	320e      	adds	r2, #14
+  2c:	701a      	strb	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:610
+        
+        return( 1 );
+     } // if
+ 
+    return( 0 );
+}
+  2e:	bd08      	pop	{r3, pc}
+	...
+
+Disassembly of section .text.cmdRecv:
+
+00000000 <cmdRecv>:
+cmdRecv():
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:583
+
+u8 cmdRecv( u8 *ucParams )
+{
+    u8 *ucSubString;
+    
+    ucSubString = getNextSubString( ucParams, WHITESPACE|NEWLINE );
+   0:	2106      	movs	r1, #6
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:580
+
+    return( 1 );
+}
+
+u8 cmdRecv( u8 *ucParams )
+{
+   2:	b508      	push	{r3, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:583
+    u8 *ucSubString;
+    
+    ucSubString = getNextSubString( ucParams, WHITESPACE|NEWLINE );
+   4:	f7ff fffe 	bl	0 <getNextSubString>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:584
+    if( fileOpen( &pygmyFile, ucSubString, WRITE ) ){
+   8:	2202      	movs	r2, #2
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:583
+
+u8 cmdRecv( u8 *ucParams )
+{
+    u8 *ucSubString;
+    
+    ucSubString = getNextSubString( ucParams, WHITESPACE|NEWLINE );
+   a:	4601      	mov	r1, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:584
+    if( fileOpen( &pygmyFile, ucSubString, WRITE ) ){
+   c:	4809      	ldr	r0, [pc, #36]	; (34 <cmdRecv+0x34>)
+   e:	f7ff fffe 	bl	0 <fileOpen>
+  12:	b170      	cbz	r0, 32 <cmdRecv+0x32>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:585
+        globalStatus |= BIT1;       // BIT1 used to mark In XModem Status
+  14:	4b08      	ldr	r3, [pc, #32]	; (38 <cmdRecv+0x38>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:588
+        globalXMTimeout = 1000; // 10 seconds
+        globalTransaction = 60;
+        globalXMCount = 1;
+  16:	2001      	movs	r0, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:585
+{
+    u8 *ucSubString;
+    
+    ucSubString = getNextSubString( ucParams, WHITESPACE|NEWLINE );
+    if( fileOpen( &pygmyFile, ucSubString, WRITE ) ){
+        globalStatus |= BIT1;       // BIT1 used to mark In XModem Status
+  18:	781a      	ldrb	r2, [r3, #0]
+  1a:	f042 0202 	orr.w	r2, r2, #2
+  1e:	701a      	strb	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:586
+        globalXMTimeout = 1000; // 10 seconds
+  20:	4b06      	ldr	r3, [pc, #24]	; (3c <cmdRecv+0x3c>)
+  22:	f44f 727a 	mov.w	r2, #1000	; 0x3e8
+  26:	601a      	str	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:587
+        globalTransaction = 60;
+  28:	4b05      	ldr	r3, [pc, #20]	; (40 <cmdRecv+0x40>)
+  2a:	223c      	movs	r2, #60	; 0x3c
+  2c:	601a      	str	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:588
+        globalXMCount = 1;
+  2e:	4b05      	ldr	r3, [pc, #20]	; (44 <cmdRecv+0x44>)
+  30:	6018      	str	r0, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:593
+        return( 1 );
+    } // if
+        
+    return( 0 );
+}
+  32:	bd08      	pop	{r3, pc}
+	...
+
+Disassembly of section .text.cmdFormat:
+
+00000000 <cmdFormat>:
+cmdFormat():
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:573
+
+    return( 1 );
+}
+
+u8 cmdFormat( u8 *ucParams )
+{
+   0:	b508      	push	{r3, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:574
+    fileFormat( "" );
+   2:	4802      	ldr	r0, [pc, #8]	; (c <cmdFormat+0xc>)
+   4:	f7ff fffe 	bl	0 <fileFormat>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:577
+
+    return( 1 );
+}
+   8:	2001      	movs	r0, #1
+   a:	bd08      	pop	{r3, pc}
+   c:	00000000 	.word	0x00000000
+
+Disassembly of section .text.cmdErase:
+
+00000000 <cmdErase>:
+cmdErase():
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:564
+    } // else if
+    
+}
+
+u8 cmdErase( u8 *ucParams )
+{
+   0:	b508      	push	{r3, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:565
+    fpecUnlock();
+   2:	f7ff fffe 	bl	0 <fpecUnlock>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:566
+    fpecEraseProgramMemory( 8, SIZEREG->Pages - 2 );
+   6:	4b07      	ldr	r3, [pc, #28]	; (24 <cmdErase+0x24>)
+   8:	2008      	movs	r0, #8
+   a:	8819      	ldrh	r1, [r3, #0]
+   c:	3902      	subs	r1, #2
+   e:	b289      	uxth	r1, r1
+  10:	f7ff fffe 	bl	0 <fpecEraseProgramMemory>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:567
+    globalStatus |= BIT0; // Mark main memory as erased
+  14:	4b04      	ldr	r3, [pc, #16]	; (28 <cmdErase+0x28>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:570
+
+    return( 1 );
+}
+  16:	2001      	movs	r0, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:567
+
+u8 cmdErase( u8 *ucParams )
+{
+    fpecUnlock();
+    fpecEraseProgramMemory( 8, SIZEREG->Pages - 2 );
+    globalStatus |= BIT0; // Mark main memory as erased
+  18:	781a      	ldrb	r2, [r3, #0]
+  1a:	f042 0201 	orr.w	r2, r2, #1
+  1e:	701a      	strb	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:570
+
+    return( 1 );
+}
+  20:	bd08      	pop	{r3, pc}
+  22:	bf00      	nop
+  24:	1ffff7e0 	.word	0x1ffff7e0
+  28:	00000000 	.word	0x00000000
+
+Disassembly of section .text.putcUSART3:
+
+00000000 <putcUSART3>:
+putcUSART3():
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:368
+    
+}
+
+void putcUSART3( u8 ucChar )
+{
+    while( !( USART3->SR & USART_TXE ) );
+   0:	881a4b03 	.word	0x881a4b03
+   4:	f012 0f80 	tst.w	r2, #128	; 0x80
+   8:	d0fa      	beq.n	0 <putcUSART3>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:369
+    USART3->DR = ucChar; 
+   a:	8098      	strh	r0, [r3, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:370
+}
+   c:	4770      	bx	lr
+   e:	bf00      	nop
+  10:	40004800 	.word	0x40004800
+
+Disassembly of section .text.putIntUSART3:
+
+00000000 <putIntUSART3>:
+putIntUSART3():
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:351
+        putcUSART3( ucBuffer[ i ] ) ;
+    }    
+}
+
+void putIntUSART3( u32 ulData )
+{
+   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+   2:	4606      	mov	r6, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:354
+    s32 i, iMagnitude, iValue;
+
+    for( i = 0, iMagnitude = 1; ( iMagnitude * 10 ) <= ulData; i++ )
+   4:	2401      	movs	r4, #1
+   6:	2500      	movs	r5, #0
+   8:	e001      	b.n	e <putIntUSART3+0xe>
+   a:	3501      	adds	r5, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:355
+        iMagnitude *= 10;
+   c:	461c      	mov	r4, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:354
+
+void putIntUSART3( u32 ulData )
+{
+    s32 i, iMagnitude, iValue;
+
+    for( i = 0, iMagnitude = 1; ( iMagnitude * 10 ) <= ulData; i++ )
+   e:	230a      	movs	r3, #10
+  10:	4363      	muls	r3, r4
+  12:	42b3      	cmp	r3, r6
+  14:	d9f9      	bls.n	a <putIntUSART3+0xa>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:358
+        iMagnitude *= 10;
+    
+    for( ; i >= 0; i-- ){
+        iValue = ulData / iMagnitude;
+  16:	fbb6 f7f4 	udiv	r7, r6, r4
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:359
+        putcUSART3( 48 + iValue ); // 48 = '0' in ASCII
+  1a:	f107 0030 	add.w	r0, r7, #48	; 0x30
+  1e:	b2c0      	uxtb	r0, r0
+  20:	f7ff fffe 	bl	0 <putIntUSART3>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:361
+        ulData -= ( iValue * iMagnitude );
+        iMagnitude /= 10;
+  24:	230a      	movs	r3, #10
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:357
+    s32 i, iMagnitude, iValue;
+
+    for( i = 0, iMagnitude = 1; ( iMagnitude * 10 ) <= ulData; i++ )
+        iMagnitude *= 10;
+    
+    for( ; i >= 0; i-- ){
+  26:	3d01      	subs	r5, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:360
+        iValue = ulData / iMagnitude;
+        putcUSART3( 48 + iValue ); // 48 = '0' in ASCII
+        ulData -= ( iValue * iMagnitude );
+  28:	fb04 6617 	mls	r6, r4, r7, r6
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:361
+        iMagnitude /= 10;
+  2c:	fb94 f4f3 	sdiv	r4, r4, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:357
+    s32 i, iMagnitude, iValue;
+
+    for( i = 0, iMagnitude = 1; ( iMagnitude * 10 ) <= ulData; i++ )
+        iMagnitude *= 10;
+    
+    for( ; i >= 0; i-- ){
+  30:	d2f1      	bcs.n	16 <putIntUSART3+0x16>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:364
+        putcUSART3( 48 + iValue ); // 48 = '0' in ASCII
+        ulData -= ( iValue * iMagnitude );
+        iMagnitude /= 10;
+    }
+    
+}
+  32:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+
+Disassembly of section .text.cmdRead:
+
+00000000 <cmdRead>:
+cmdRead():
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:617
+u8 cmdRead( u8 *ucParams )
+{
+    u16 i;
+    u8 *ucSubString, ucChar;
+    
+    ucSubString = getNextSubString( ucParams, WHITESPACE|NEWLINE );
+   0:	2106      	movs	r1, #6
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:613
+ 
+    return( 0 );
+}
+
+u8 cmdRead( u8 *ucParams )
+{
+   2:	b570      	push	{r4, r5, r6, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:617
+    u16 i;
+    u8 *ucSubString, ucChar;
+    
+    ucSubString = getNextSubString( ucParams, WHITESPACE|NEWLINE );
+   4:	f7ff fffe 	bl	0 <getNextSubString>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:618
+    if( ucSubString && fileOpen( &pygmyFile, ucSubString, READ ) ){
+   8:	4601      	mov	r1, r0
+   a:	2800      	cmp	r0, #0
+   c:	d037      	beq.n	7e <cmdRead+0x7e>
+   e:	481c      	ldr	r0, [pc, #112]	; (80 <cmdRead+0x80>)
+  10:	2201      	movs	r2, #1
+  12:	f7ff fffe 	bl	0 <fileOpen>
+  16:	2800      	cmp	r0, #0
+  18:	d031      	beq.n	7e <cmdRead+0x7e>
+  1a:	2400      	movs	r4, #0
+  1c:	e028      	b.n	70 <cmdRead+0x70>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:620
+        for( i = 0; !(pygmyFile.Attributes & EOF ); i++ ){
+            ucChar = fileGetChar( &pygmyFile );
+  1e:	4630      	mov	r0, r6
+  20:	f7ff fffe 	bl	0 <fileGetChar>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:621
+            if( !(pygmyFile.Attributes & EOF ) ){
+  24:	f996 3010 	ldrsb.w	r3, [r6, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:620
+    u8 *ucSubString, ucChar;
+    
+    ucSubString = getNextSubString( ucParams, WHITESPACE|NEWLINE );
+    if( ucSubString && fileOpen( &pygmyFile, ucSubString, READ ) ){
+        for( i = 0; !(pygmyFile.Attributes & EOF ); i++ ){
+            ucChar = fileGetChar( &pygmyFile );
+  28:	4605      	mov	r5, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:621
+            if( !(pygmyFile.Attributes & EOF ) ){
+  2a:	2b00      	cmp	r3, #0
+  2c:	db1e      	blt.n	6c <cmdRead+0x6c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:623
+                if( ucChar == '\r' ){
+                    i = 0;
+  2e:	280d      	cmp	r0, #13
+  30:	bf08      	it	eq
+  32:	2400      	moveq	r4, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:625
+                } // if
+                if( !( i % 80 ) ){
+  34:	2350      	movs	r3, #80	; 0x50
+  36:	fbb4 f2f3 	udiv	r2, r4, r3
+  3a:	fb03 4312 	mls	r3, r3, r2, r4
+  3e:	b29b      	uxth	r3, r3
+  40:	b913      	cbnz	r3, 48 <cmdRead+0x48>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:626
+                    putcUSART3( '\r' );
+  42:	200d      	movs	r0, #13
+  44:	f7ff fffe 	bl	0 <cmdRead>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:628
+                } // if
+                if( ucChar != '\r' && ( ucChar < 32 || ucChar > 126 ) ){
+  48:	2d0d      	cmp	r5, #13
+  4a:	d00c      	beq.n	66 <cmdRead+0x66>
+  4c:	f1a5 0320 	sub.w	r3, r5, #32
+  50:	b2db      	uxtb	r3, r3
+  52:	2b5e      	cmp	r3, #94	; 0x5e
+  54:	d907      	bls.n	66 <cmdRead+0x66>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:629
+                    putcUSART3( '(' );
+  56:	2028      	movs	r0, #40	; 0x28
+  58:	f7ff fffe 	bl	0 <cmdRead>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:630
+                    putIntUSART3( ucChar );
+  5c:	4628      	mov	r0, r5
+  5e:	f7ff fffe 	bl	0 <cmdRead>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:631
+                    putcUSART3( ')' );
+  62:	2029      	movs	r0, #41	; 0x29
+  64:	e000      	b.n	68 <cmdRead+0x68>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:633
+                } else{
+                    putcUSART3( ucChar );
+  66:	4628      	mov	r0, r5
+  68:	f7ff fffe 	bl	0 <cmdRead>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:619
+    u16 i;
+    u8 *ucSubString, ucChar;
+    
+    ucSubString = getNextSubString( ucParams, WHITESPACE|NEWLINE );
+    if( ucSubString && fileOpen( &pygmyFile, ucSubString, READ ) ){
+        for( i = 0; !(pygmyFile.Attributes & EOF ); i++ ){
+  6c:	3401      	adds	r4, #1
+  6e:	b2a4      	uxth	r4, r4
+  70:	4e03      	ldr	r6, [pc, #12]	; (80 <cmdRead+0x80>)
+  72:	f996 3010 	ldrsb.w	r3, [r6, #16]
+  76:	2b00      	cmp	r3, #0
+  78:	dad1      	bge.n	1e <cmdRead+0x1e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:637
+                } else{
+                    putcUSART3( ucChar );
+                } // else
+            } // if
+        } // 
+        return( 1 );
+  7a:	2001      	movs	r0, #1
+  7c:	bd70      	pop	{r4, r5, r6, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:641
+    } // if
+
+    return( 0 );
+}
+  7e:	bd70      	pop	{r4, r5, r6, pc}
+  80:	00000000 	.word	0x00000000
+
+Disassembly of section .text.putBufferUSART3:
+
+00000000 <putBufferUSART3>:
+putBufferUSART3():
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:342
+    globalBootStatus = BOOT_CANCEL;
+    putstr( "\rNo OS\r> " );
+} 
+
+void putBufferUSART3( u16 uiLen, u8 *ucBuffer )
+{
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	4604      	mov	r4, r0
+   4:	460e      	mov	r6, r1
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:345
+    u16 i;
+
+    for( i = 0; i < uiLen ; i++ ){
+   6:	2500      	movs	r5, #0
+   8:	e005      	b.n	16 <putBufferUSART3+0x16>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:346
+        putcUSART3( ucBuffer[ i ] ) ;
+   a:	f816 0b01 	ldrb.w	r0, [r6], #1
+   e:	f7ff fffe 	bl	0 <putBufferUSART3>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:345
+
+void putBufferUSART3( u16 uiLen, u8 *ucBuffer )
+{
+    u16 i;
+
+    for( i = 0; i < uiLen ; i++ ){
+  12:	3501      	adds	r5, #1
+  14:	b2ad      	uxth	r5, r5
+  16:	42a5      	cmp	r5, r4
+  18:	d3f7      	bcc.n	a <putBufferUSART3+0xa>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:348
+        putcUSART3( ucBuffer[ i ] ) ;
+    }    
+}
+  1a:	bd70      	pop	{r4, r5, r6, pc}
+
+Disassembly of section .text.putstr:
+
+00000000 <putstr>:
+putstr():
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:373
+    while( !( USART3->SR & USART_TXE ) );
+    USART3->DR = ucChar; 
+}
+
+void putstr( u8 *ucBuffer )
+{ 
+   0:	b510      	push	{r4, lr}
+   2:	4604      	mov	r4, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:374
+    for( ; *ucBuffer ; ){
+   4:	e001      	b.n	a <putstr+0xa>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:375
+        putcUSART3( *(ucBuffer++) );
+   6:	f7ff fffe 	bl	0 <putstr>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:374
+    USART3->DR = ucChar; 
+}
+
+void putstr( u8 *ucBuffer )
+{ 
+    for( ; *ucBuffer ; ){
+   a:	f814 0b01 	ldrb.w	r0, [r4], #1
+   e:	2800      	cmp	r0, #0
+  10:	d1f9      	bne.n	6 <putstr+0x6>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:377
+        putcUSART3( *(ucBuffer++) );
+    }
+}
+  12:	bd10      	pop	{r4, pc}
+
+Disassembly of section .text.cmdLs:
+
+00000000 <cmdLs>:
+cmdLs():
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:651
+
+    return( 0 );
+}
+
+u8 cmdLs( u8 *ucParams )
+{
+   0:	b538      	push	{r3, r4, r5, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:654
+    u16 i, uiID;
+  
+    for( i = 0; i < pygmyRootVolume.MaxFiles; i++ ){
+   2:	2400      	movs	r4, #0
+   4:	e015      	b.n	32 <cmdLs+0x32>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:655
+        uiID = fileGetName( i, pygmyFile.Name );
+   6:	4620      	mov	r0, r4
+   8:	4912      	ldr	r1, [pc, #72]	; (54 <cmdLs+0x54>)
+   a:	f7ff fffe 	bl	0 <fileGetName>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:656
+        if( uiID ){
+   e:	4605      	mov	r5, r0
+  10:	b168      	cbz	r0, 2e <cmdLs+0x2e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:657
+            putcUSART3( '\r' );
+  12:	200d      	movs	r0, #13
+  14:	f7ff fffe 	bl	0 <cmdLs>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:658
+            putstr( pygmyFile.Name );
+  18:	480e      	ldr	r0, [pc, #56]	; (3c <cmdLs+0x3c>)
+  1a:	f7ff fffe 	bl	0 <cmdLs>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:659
+            putcUSART3( '\t' );
+  1e:	2009      	movs	r0, #9
+  20:	f7ff fffe 	bl	0 <cmdLs>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:660
+            putIntUSART3( fileGetLength( uiID ) );
+  24:	4628      	mov	r0, r5
+  26:	f7ff fffe 	bl	0 <fileGetLength>
+  2a:	f7ff fffe 	bl	0 <cmdLs>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:654
+
+u8 cmdLs( u8 *ucParams )
+{
+    u16 i, uiID;
+  
+    for( i = 0; i < pygmyRootVolume.MaxFiles; i++ ){
+  2e:	3401      	adds	r4, #1
+  30:	b2a4      	uxth	r4, r4
+  32:	4b09      	ldr	r3, [pc, #36]	; (58 <cmdLs+0x58>)
+  34:	6a1b      	ldr	r3, [r3, #32]
+  36:	429c      	cmp	r4, r3
+  38:	d3e5      	bcc.n	6 <cmdLs+0x6>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:663
+            putstr( pygmyFile.Name );
+            putcUSART3( '\t' );
+            putIntUSART3( fileGetLength( uiID ) );
+        } // if
+    } // for
+    putstr( "\rFree:\t\t" );
+  3a:	4808      	ldr	r0, [pc, #32]	; (5c <cmdLs+0x5c>)
+  3c:	f7ff fffe 	bl	0 <cmdLs>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:664
+    putIntUSART3( fileGetFreeSpace() );
+  40:	f7ff fffe 	bl	0 <fileGetFreeSpace>
+  44:	f7ff fffe 	bl	0 <cmdLs>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:665
+    putcUSART3( '\r' );
+  48:	200d      	movs	r0, #13
+  4a:	f7ff fffe 	bl	0 <cmdLs>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:668
+
+    return( 1 );
+}
+  4e:	2001      	movs	r0, #1
+  50:	bd38      	pop	{r3, r4, r5, pc}
+  52:	bf00      	nop
+  54:	00000018 	.word	0x00000018
+  58:	00000000 	.word	0x00000000
+  5c:	00000001 	.word	0x00000001
+
+Disassembly of section .text.bootBootOS:
+
+00000000 <bootBootOS>:
+bootBootOS():
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:325
+
+    return( 1 );
+}
+
+void bootBootOS( void )
+{
+   0:	4c0cb510 	.word	0x4c0cb510
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:330
+    PYGMYVOIDPTR pygmyMain;
+    u32 *ulOS;
+    
+    ulOS = (u32*)0x08002004; // Address is start vector table + 4 bytes
+    if ( *ulOS != 0xFFFFFFFF ){
+   4:	6823      	ldr	r3, [r4, #0]
+   6:	f1b3 3fff 	cmp.w	r3, #4294967295
+   a:	d00b      	beq.n	24 <bootBootOS+0x24>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:331
+        putstr( "\rBooting..." );
+   c:	480a      	ldr	r0, [pc, #40]	; (38 <bootBootOS+0x38>)
+   e:	f7ff fffe 	bl	0 <bootBootOS>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:333
+        pygmyMain = (PYGMYVOIDPTR)*ulOS;
+        RCC->CIR = 0x009F0000;
+  12:	4a0a      	ldr	r2, [pc, #40]	; (3c <bootBootOS+0x3c>)
+  14:	f44f 011f 	mov.w	r1, #10420224	; 0x9f0000
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:332
+    u32 *ulOS;
+    
+    ulOS = (u32*)0x08002004; // Address is start vector table + 4 bytes
+    if ( *ulOS != 0xFFFFFFFF ){
+        putstr( "\rBooting..." );
+        pygmyMain = (PYGMYVOIDPTR)*ulOS;
+  18:	6823      	ldr	r3, [r4, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:333
+        RCC->CIR = 0x009F0000;
+  1a:	6091      	str	r1, [r2, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:334
+        SCB->VTOR = ((u32)0x08002000 & (u32)0x1FFFFF80);
+  1c:	4908      	ldr	r1, [pc, #32]	; (40 <bootBootOS+0x40>)
+  1e:	4a09      	ldr	r2, [pc, #36]	; (44 <bootBootOS+0x44>)
+  20:	6091      	str	r1, [r2, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:335
+        pygmyMain(); // pass control to Pygmy OS
+  22:	4798      	blx	r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:337
+    } // if
+    globalBootStatus = BOOT_CANCEL;
+  24:	4b08      	ldr	r3, [pc, #32]	; (48 <bootBootOS+0x48>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:338
+    putstr( "\rNo OS\r> " );
+  26:	4809      	ldr	r0, [pc, #36]	; (4c <bootBootOS+0x4c>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:337
+        pygmyMain = (PYGMYVOIDPTR)*ulOS;
+        RCC->CIR = 0x009F0000;
+        SCB->VTOR = ((u32)0x08002000 & (u32)0x1FFFFF80);
+        pygmyMain(); // pass control to Pygmy OS
+    } // if
+    globalBootStatus = BOOT_CANCEL;
+  28:	2280      	movs	r2, #128	; 0x80
+  2a:	705a      	strb	r2, [r3, #1]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:339
+    putstr( "\rNo OS\r> " );
+} 
+  2c:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:338
+        RCC->CIR = 0x009F0000;
+        SCB->VTOR = ((u32)0x08002000 & (u32)0x1FFFFF80);
+        pygmyMain(); // pass control to Pygmy OS
+    } // if
+    globalBootStatus = BOOT_CANCEL;
+    putstr( "\rNo OS\r> " );
+  30:	f7ff bffe 	b.w	0 <bootBootOS>
+  34:	08002004 	.word	0x08002004
+  38:	0000000a 	.word	0x0000000a
+  3c:	40021000 	.word	0x40021000
+  40:	08002000 	.word	0x08002000
+  44:	e000ed00 	.word	0xe000ed00
+  48:	00000000 	.word	0x00000000
+  4c:	00000016 	.word	0x00000016
+
+Disassembly of section .text.bootTestAndLoad:
+
+00000000 <bootTestAndLoad>:
+bootTestAndLoad():
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:285
+
+    return( 1 );
+}
+
+u8 bootTestAndLoad( void )
+{
+   0:	b530      	push	{r4, r5, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:290
+    u32 i;
+    u16 *uiAddress;
+    u8 ucBuffer[ 64 ], ucStatus, *ucSubString;
+
+    putstr( "\rFlashing..." );
+   2:	4829      	ldr	r0, [pc, #164]	; (a8 <bootTestAndLoad+0xa8>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:285
+
+    return( 1 );
+}
+
+u8 bootTestAndLoad( void )
+{
+   4:	b091      	sub	sp, #68	; 0x44
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:290
+    u32 i;
+    u16 *uiAddress;
+    u8 ucBuffer[ 64 ], ucStatus, *ucSubString;
+
+    putstr( "\rFlashing..." );
+   6:	f7ff fffe 	bl	0 <bootTestAndLoad>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:292
+    
+    if( !fileOpen( &pygmyFile, (u8*)BOOT_filename, READ ) ){ // If file boot.hex exists then load
+   a:	4828      	ldr	r0, [pc, #160]	; (ac <bootTestAndLoad+0xac>)
+   c:	4928      	ldr	r1, [pc, #160]	; (b0 <bootTestAndLoad+0xb0>)
+   e:	2201      	movs	r2, #1
+  10:	f7ff fffe 	bl	0 <fileOpen>
+  14:	2800      	cmp	r0, #0
+  16:	d045      	beq.n	a4 <bootTestAndLoad+0xa4>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:295
+        return( 0 );
+    } // if
+    fpecUnlock();
+  18:	f7ff fffe 	bl	0 <fpecUnlock>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:296
+    if ( !fpecEraseProgramMemory( 8, SIZEREG->Pages - 2 ) ){ // Always erase all pages before attempting a write
+  1c:	4b25      	ldr	r3, [pc, #148]	; (b4 <bootTestAndLoad+0xb4>)
+  1e:	2008      	movs	r0, #8
+  20:	8819      	ldrh	r1, [r3, #0]
+  22:	3902      	subs	r1, #2
+  24:	b289      	uxth	r1, r1
+  26:	f7ff fffe 	bl	0 <fpecEraseProgramMemory>
+  2a:	2800      	cmp	r0, #0
+  2c:	d03a      	beq.n	a4 <bootTestAndLoad+0xa4>
+  2e:	2500      	movs	r5, #0
+  30:	e018      	b.n	64 <bootTestAndLoad+0x64>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:300
+        return( 0 );
+    } // if
+
+    for( ucStatus = 0; !( pygmyFile.Attributes & EOF ) && ucStatus != 0xFF; ){
+  32:	2400      	movs	r4, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:302
+        for( i = 0; i < 64; i++ ){
+            ucBuffer[ i ] = fileGetChar( &pygmyFile );
+  34:	481d      	ldr	r0, [pc, #116]	; (ac <bootTestAndLoad+0xac>)
+  36:	f7ff fffe 	bl	0 <fileGetChar>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:303
+            if( ucBuffer[ i ] == '\r' ){
+  3a:	280d      	cmp	r0, #13
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:302
+        return( 0 );
+    } // if
+
+    for( ucStatus = 0; !( pygmyFile.Attributes & EOF ) && ucStatus != 0xFF; ){
+        for( i = 0; i < 64; i++ ){
+            ucBuffer[ i ] = fileGetChar( &pygmyFile );
+  3c:	f80d 0004 	strb.w	r0, [sp, r4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:303
+            if( ucBuffer[ i ] == '\r' ){
+  40:	d10d      	bne.n	5e <bootTestAndLoad+0x5e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:304
+                ucBuffer[ i ] = '\0';
+  42:	ab10      	add	r3, sp, #64	; 0x40
+  44:	191c      	adds	r4, r3, r4
+  46:	2300      	movs	r3, #0
+  48:	f804 3c40 	strb.w	r3, [r4, #-64]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:305
+                ucSubString = getNextSubString( (u8*)ucBuffer, WHITESPACE|NEWLINE );
+  4c:	2106      	movs	r1, #6
+  4e:	4668      	mov	r0, sp
+  50:	f7ff fffe 	bl	0 <getNextSubString>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:307
+                // Add 1 to pointer before passing to skip the ':' packet start char
+                ucStatus = fpecProcessIHEX( (u8*)( ucSubString + 1 ) );
+  54:	3001      	adds	r0, #1
+  56:	f7ff fffe 	bl	0 <fpecProcessIHEX>
+  5a:	4605      	mov	r5, r0
+  5c:	e002      	b.n	64 <bootTestAndLoad+0x64>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:301
+    if ( !fpecEraseProgramMemory( 8, SIZEREG->Pages - 2 ) ){ // Always erase all pages before attempting a write
+        return( 0 );
+    } // if
+
+    for( ucStatus = 0; !( pygmyFile.Attributes & EOF ) && ucStatus != 0xFF; ){
+        for( i = 0; i < 64; i++ ){
+  5e:	3401      	adds	r4, #1
+  60:	2c40      	cmp	r4, #64	; 0x40
+  62:	d1e7      	bne.n	34 <bootTestAndLoad+0x34>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:300
+    fpecUnlock();
+    if ( !fpecEraseProgramMemory( 8, SIZEREG->Pages - 2 ) ){ // Always erase all pages before attempting a write
+        return( 0 );
+    } // if
+
+    for( ucStatus = 0; !( pygmyFile.Attributes & EOF ) && ucStatus != 0xFF; ){
+  64:	4b11      	ldr	r3, [pc, #68]	; (ac <bootTestAndLoad+0xac>)
+  66:	f993 3010 	ldrsb.w	r3, [r3, #16]
+  6a:	2b00      	cmp	r3, #0
+  6c:	db01      	blt.n	72 <bootTestAndLoad+0x72>
+  6e:	2dff      	cmp	r5, #255	; 0xff
+  70:	d1df      	bne.n	32 <bootTestAndLoad+0x32>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:314
+            } // if
+        } // for
+    } // for
+
+    // Write Device Descriptor to last page of FLASH
+    uiAddress = (u16*)globalBaseAddress; //(u16*)0x08000000 + ( ( SIZEREG->Pages - 2 ) * 1024 ); // start of last page
+  72:	4b11      	ldr	r3, [pc, #68]	; (b8 <bootTestAndLoad+0xb8>)
+  74:	681c      	ldr	r4, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:315
+    fpecWriteLong( uiAddress, globalID );
+  76:	4b11      	ldr	r3, [pc, #68]	; (bc <bootTestAndLoad+0xbc>)
+  78:	4620      	mov	r0, r4
+  7a:	6819      	ldr	r1, [r3, #0]
+  7c:	f7ff fffe 	bl	0 <fpecWriteLong>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:316
+    fpecWriteLong( uiAddress + 2, globalXTAL );
+  80:	4b0f      	ldr	r3, [pc, #60]	; (c0 <bootTestAndLoad+0xc0>)
+  82:	1d20      	adds	r0, r4, #4
+  84:	6819      	ldr	r1, [r3, #0]
+  86:	f7ff fffe 	bl	0 <fpecWriteLong>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:317
+    fpecWriteLong( uiAddress + 4, globalFreq );
+  8a:	4b0e      	ldr	r3, [pc, #56]	; (c4 <bootTestAndLoad+0xc4>)
+  8c:	f104 0008 	add.w	r0, r4, #8
+  90:	6819      	ldr	r1, [r3, #0]
+  92:	f7ff fffe 	bl	0 <fpecWriteLong>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:318
+    fpecWriteLong( uiAddress + 6, BOOT_BUILDVERSION );
+  96:	f104 000c 	add.w	r0, r4, #12
+  9a:	f44f 6196 	mov.w	r1, #1200	; 0x4b0
+  9e:	f7ff fffe 	bl	0 <fpecWriteLong>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:321
+     
+
+    return( 1 );
+  a2:	2001      	movs	r0, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:322
+}
+  a4:	b011      	add	sp, #68	; 0x44
+  a6:	bd30      	pop	{r4, r5, pc}
+  a8:	00000020 	.word	0x00000020
+	...
+  b4:	1ffff7e0 	.word	0x1ffff7e0
+	...
+
+Disassembly of section .text.cmdFlash:
+
+00000000 <cmdFlash>:
+cmdFlash():
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:692
+    // No return after reset
+}
+
+u8 cmdFlash( u8 *ucParams )
+{
+    return( bootTestAndLoad() );
+   0:	f7ff bffe 	b.w	0 <cmdFlash>
+
+Disassembly of section .text.cmdBoot:
+
+00000000 <cmdBoot>:
+cmdBoot():
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:683
+
+    // No return after reset
+}
+
+u8 cmdBoot( u8 *ucParams )
+{
+   0:	b508      	push	{r3, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:684
+    bootTestAndLoad();
+   2:	f7ff fffe 	bl	0 <cmdBoot>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:685
+    PYGMY_RESET;
+   6:	4a02      	ldr	r2, [pc, #8]	; (10 <cmdBoot+0x10>)
+   8:	4b02      	ldr	r3, [pc, #8]	; (14 <cmdBoot+0x14>)
+   a:	60da      	str	r2, [r3, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:688
+    
+    // No return after reset
+}
+   c:	bd08      	pop	{r3, pc}
+   e:	bf00      	nop
+  10:	05fa0004 	.word	0x05fa0004
+  14:	e000ed00 	.word	0xe000ed00
+
+Disassembly of section .text.bootTest:
+
+00000000 <bootTest>:
+bootTest():
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:239
+
+    return( (u16)uiBRR ); 
+}*/
+
+u8 bootTest( void )
+{
+   0:	b570      	push	{r4, r5, r6, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:244
+    // This function pre-tests every row in firmware file for corruption before erase and program
+    u32 i;
+    u8 ucBuffer[ 64 ], ucCalculatedSum, *ucSubString;
+
+    if( !fileOpen( &pygmyFile, (u8*)BOOT_filename, READ ) ){
+   2:	4827      	ldr	r0, [pc, #156]	; (a0 <bootTest+0xa0>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:239
+
+    return( (u16)uiBRR ); 
+}*/
+
+u8 bootTest( void )
+{
+   4:	b090      	sub	sp, #64	; 0x40
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:244
+    // This function pre-tests every row in firmware file for corruption before erase and program
+    u32 i;
+    u8 ucBuffer[ 64 ], ucCalculatedSum, *ucSubString;
+
+    if( !fileOpen( &pygmyFile, (u8*)BOOT_filename, READ ) ){
+   6:	4927      	ldr	r1, [pc, #156]	; (a4 <bootTest+0xa4>)
+   8:	2201      	movs	r2, #1
+   a:	f7ff fffe 	bl	0 <fileOpen>
+   e:	2800      	cmp	r0, #0
+  10:	d139      	bne.n	86 <bootTest+0x86>
+  12:	e043      	b.n	9c <bootTest+0x9c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:248
+        return( 0 );
+    }
+ 
+    for( ; !( pygmyFile.Attributes & EOF ); ){
+  14:	2400      	movs	r4, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:251
+        // Get an IHEX packet
+        for( i = 0; i < 64; i++ ){
+            ucBuffer[ i ] = fileGetChar( &pygmyFile );
+  16:	4822      	ldr	r0, [pc, #136]	; (a0 <bootTest+0xa0>)
+  18:	f7ff fffe 	bl	0 <fileGetChar>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:252
+            if( ucBuffer[ i ] == '\r' ){
+  1c:	280d      	cmp	r0, #13
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:251
+    }
+ 
+    for( ; !( pygmyFile.Attributes & EOF ); ){
+        // Get an IHEX packet
+        for( i = 0; i < 64; i++ ){
+            ucBuffer[ i ] = fileGetChar( &pygmyFile );
+  1e:	f80d 0004 	strb.w	r0, [sp, r4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:252
+            if( ucBuffer[ i ] == '\r' ){
+  22:	d105      	bne.n	30 <bootTest+0x30>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:253
+                ucBuffer[ i ] = '\0';
+  24:	ab10      	add	r3, sp, #64	; 0x40
+  26:	191c      	adds	r4, r3, r4
+  28:	2300      	movs	r3, #0
+  2a:	f804 3c40 	strb.w	r3, [r4, #-64]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:254
+                break;
+  2e:	e002      	b.n	36 <bootTest+0x36>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:250
+        return( 0 );
+    }
+ 
+    for( ; !( pygmyFile.Attributes & EOF ); ){
+        // Get an IHEX packet
+        for( i = 0; i < 64; i++ ){
+  30:	3401      	adds	r4, #1
+  32:	2c40      	cmp	r4, #64	; 0x40
+  34:	d1ef      	bne.n	16 <bootTest+0x16>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:257
+            if( ucBuffer[ i ] == '\r' ){
+                ucBuffer[ i ] = '\0';
+                break;
+            } // if
+        } // for
+        ucSubString = getNextSubString( ucBuffer, WHITESPACE|NEWLINE );
+  36:	2106      	movs	r1, #6
+  38:	4668      	mov	r0, sp
+  3a:	f7ff fffe 	bl	0 <getNextSubString>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:258
+        if( *(ucSubString++) != ':' ){
+  3e:	7803      	ldrb	r3, [r0, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:257
+            if( ucBuffer[ i ] == '\r' ){
+                ucBuffer[ i ] = '\0';
+                break;
+            } // if
+        } // for
+        ucSubString = getNextSubString( ucBuffer, WHITESPACE|NEWLINE );
+  40:	4605      	mov	r5, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:258
+        if( *(ucSubString++) != ':' ){
+  42:	2b3a      	cmp	r3, #58	; 0x3a
+  44:	d129      	bne.n	9a <bootTest+0x9a>
+  46:	1c44      	adds	r4, r0, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:262
+            return( 0 );
+        } // if
+        // Following works because the output cannot be longer than the input being converted
+        convertHexEncodedStringToBuffer( ucSubString, ucSubString );
+  48:	4620      	mov	r0, r4
+  4a:	4621      	mov	r1, r4
+  4c:	f7ff fffe 	bl	0 <convertHexEncodedStringToBuffer>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:263
+        if( ucSubString[ 3 ] == IHEX_EOF ){
+  50:	78e0      	ldrb	r0, [r4, #3]
+  52:	2801      	cmp	r0, #1
+  54:	d01c      	beq.n	90 <bootTest+0x90>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:266
+            break; // We have reached EOF without error
+        }
+        for( i = 0, ucCalculatedSum = 0; i < ucSubString[ 0 ]+4; i++ ){
+  56:	7869      	ldrb	r1, [r5, #1]
+  58:	2300      	movs	r3, #0
+  5a:	3104      	adds	r1, #4
+  5c:	461a      	mov	r2, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:267
+            ucCalculatedSum += ucSubString[ i ];
+  5e:	f815 6f01 	ldrb.w	r6, [r5, #1]!
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:266
+        // Following works because the output cannot be longer than the input being converted
+        convertHexEncodedStringToBuffer( ucSubString, ucSubString );
+        if( ucSubString[ 3 ] == IHEX_EOF ){
+            break; // We have reached EOF without error
+        }
+        for( i = 0, ucCalculatedSum = 0; i < ucSubString[ 0 ]+4; i++ ){
+  62:	3201      	adds	r2, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:267
+            ucCalculatedSum += ucSubString[ i ];
+  64:	199b      	adds	r3, r3, r6
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:266
+        // Following works because the output cannot be longer than the input being converted
+        convertHexEncodedStringToBuffer( ucSubString, ucSubString );
+        if( ucSubString[ 3 ] == IHEX_EOF ){
+            break; // We have reached EOF without error
+        }
+        for( i = 0, ucCalculatedSum = 0; i < ucSubString[ 0 ]+4; i++ ){
+  66:	428a      	cmp	r2, r1
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:267
+            ucCalculatedSum += ucSubString[ i ];
+  68:	b2db      	uxtb	r3, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:266
+        // Following works because the output cannot be longer than the input being converted
+        convertHexEncodedStringToBuffer( ucSubString, ucSubString );
+        if( ucSubString[ 3 ] == IHEX_EOF ){
+            break; // We have reached EOF without error
+        }
+        for( i = 0, ucCalculatedSum = 0; i < ucSubString[ 0 ]+4; i++ ){
+  6a:	d3f8      	bcc.n	5e <bootTest+0x5e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:269
+            ucCalculatedSum += ucSubString[ i ];
+        } // for
+        ucCalculatedSum = 1 + ( 0xFF ^ (u8)ucCalculatedSum ); 
+  6c:	425b      	negs	r3, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:270
+        if( (u8)ucCalculatedSum != ucSubString[ i ] ){ // Last short is checksum
+  6e:	5c62      	ldrb	r2, [r4, r1]
+  70:	b2db      	uxtb	r3, r3
+  72:	429a      	cmp	r2, r3
+  74:	d111      	bne.n	9a <bootTest+0x9a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:273
+            return( 0 ); // Corrupt HEX Row
+        } // if
+        i = ( (u16)ucSubString[ 1 ] << 8 ) + ucSubString[ 2 ];
+  76:	7863      	ldrb	r3, [r4, #1]
+  78:	78a2      	ldrb	r2, [r4, #2]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:274
+        if( ucSubString[ 3 ] == IHEX_DATA && i < 0x2000 ){
+  7a:	b920      	cbnz	r0, 86 <bootTest+0x86>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:273
+        } // for
+        ucCalculatedSum = 1 + ( 0xFF ^ (u8)ucCalculatedSum ); 
+        if( (u8)ucCalculatedSum != ucSubString[ i ] ){ // Last short is checksum
+            return( 0 ); // Corrupt HEX Row
+        } // if
+        i = ( (u16)ucSubString[ 1 ] << 8 ) + ucSubString[ 2 ];
+  7c:	021b      	lsls	r3, r3, #8
+  7e:	189b      	adds	r3, r3, r2
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:274
+        if( ucSubString[ 3 ] == IHEX_DATA && i < 0x2000 ){
+  80:	f5b3 5f00 	cmp.w	r3, #8192	; 0x2000
+  84:	d30a      	bcc.n	9c <bootTest+0x9c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:248
+
+    if( !fileOpen( &pygmyFile, (u8*)BOOT_filename, READ ) ){
+        return( 0 );
+    }
+ 
+    for( ; !( pygmyFile.Attributes & EOF ); ){
+  86:	4b06      	ldr	r3, [pc, #24]	; (a0 <bootTest+0xa0>)
+  88:	f993 3010 	ldrsb.w	r3, [r3, #16]
+  8c:	2b00      	cmp	r3, #0
+  8e:	dac1      	bge.n	14 <bootTest+0x14>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:279
+        if( ucSubString[ 3 ] == IHEX_DATA && i < 0x2000 ){
+            return( 0 );
+        } // if 
+    } // for
+
+    putstr( (u8*)BOOT_OK );
+  90:	4805      	ldr	r0, [pc, #20]	; (a8 <bootTest+0xa8>)
+  92:	f7ff fffe 	bl	0 <bootTest>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:281
+
+    return( 1 );
+  96:	2001      	movs	r0, #1
+  98:	e000      	b.n	9c <bootTest+0x9c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:271
+        for( i = 0, ucCalculatedSum = 0; i < ucSubString[ 0 ]+4; i++ ){
+            ucCalculatedSum += ucSubString[ i ];
+        } // for
+        ucCalculatedSum = 1 + ( 0xFF ^ (u8)ucCalculatedSum ); 
+        if( (u8)ucCalculatedSum != ucSubString[ i ] ){ // Last short is checksum
+            return( 0 ); // Corrupt HEX Row
+  9a:	2000      	movs	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:282
+    } // for
+
+    putstr( (u8*)BOOT_OK );
+
+    return( 1 );
+}
+  9c:	b010      	add	sp, #64	; 0x40
+  9e:	bd70      	pop	{r4, r5, r6, pc}
+	...
+  a8:	00000009 	.word	0x00000009
+
+Disassembly of section .text.cmdVerify:
+
+00000000 <cmdVerify>:
+cmdVerify():
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:699
+    //return( 1 );
+}
+
+u8 cmdVerify( u8 *ucParams )
+{
+    return( bootTest() );
+   0:	f7ff bffe 	b.w	0 <cmdVerify>
+
+Disassembly of section .text.main:
+
+00000000 <main>:
+main():
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:104
+volatile u32 globalPLL, globalID, globalXTAL, globalFreq, globalBaseAddress;
+volatile u8 globalStatus = 0, globalBootStatus = 0;
+volatile u8 *globalStrID;
+                                
+int main( void )
+{    
+   0:	b538      	push	{r3, r4, r5, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:111
+    
+    // First test the descriptor page ( last page in FLASH )
+    // if configuration exists, use programmed ID, else query
+    // Degub registers for ID. This is a workaround for silicon
+    // issues in the F103 STM32s
+    globalBaseAddress = 0x08000000 + ( ( SIZEREG->Pages - 2 ) * 1024 );
+   2:	4b64      	ldr	r3, [pc, #400]	; (194 <main+0x194>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:118
+    if( *ulID == 0xFFFFFFFF ){
+        ulID = (u32*)0xE0042000; // Address of 32bit ID and revision code in DBG regs
+    } // if    
+    globalID = *ulID & 0x00000FFF;
+    
+    globalPLL = BIT16|BIT1;
+   4:	4864      	ldr	r0, [pc, #400]	; (198 <main+0x198>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:111
+    
+    // First test the descriptor page ( last page in FLASH )
+    // if configuration exists, use programmed ID, else query
+    // Degub registers for ID. This is a workaround for silicon
+    // issues in the F103 STM32s
+    globalBaseAddress = 0x08000000 + ( ( SIZEREG->Pages - 2 ) * 1024 );
+   6:	881a      	ldrh	r2, [r3, #0]
+   8:	4b64      	ldr	r3, [pc, #400]	; (19c <main+0x19c>)
+   a:	b292      	uxth	r2, r2
+   c:	18d3      	adds	r3, r2, r3
+   e:	4a64      	ldr	r2, [pc, #400]	; (1a0 <main+0x1a0>)
+  10:	029b      	lsls	r3, r3, #10
+  12:	6013      	str	r3, [r2, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:112
+    ulID = (u32*)globalBaseAddress;
+  14:	6813      	ldr	r3, [r2, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:114
+    if( *ulID == 0xFFFFFFFF ){
+        ulID = (u32*)0xE0042000; // Address of 32bit ID and revision code in DBG regs
+  16:	4a63      	ldr	r2, [pc, #396]	; (1a4 <main+0x1a4>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:113
+    // if configuration exists, use programmed ID, else query
+    // Degub registers for ID. This is a workaround for silicon
+    // issues in the F103 STM32s
+    globalBaseAddress = 0x08000000 + ( ( SIZEREG->Pages - 2 ) * 1024 );
+    ulID = (u32*)globalBaseAddress;
+    if( *ulID == 0xFFFFFFFF ){
+  18:	6819      	ldr	r1, [r3, #0]
+  1a:	4c63      	ldr	r4, [pc, #396]	; (1a8 <main+0x1a8>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:114
+        ulID = (u32*)0xE0042000; // Address of 32bit ID and revision code in DBG regs
+  1c:	f1b1 3fff 	cmp.w	r1, #4294967295
+  20:	bf08      	it	eq
+  22:	4613      	moveq	r3, r2
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:116
+    } // if    
+    globalID = *ulID & 0x00000FFF;
+  24:	681b      	ldr	r3, [r3, #0]
+  26:	4a61      	ldr	r2, [pc, #388]	; (1ac <main+0x1ac>)
+  28:	051b      	lsls	r3, r3, #20
+  2a:	0d1b      	lsrs	r3, r3, #20
+  2c:	6013      	str	r3, [r2, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:118
+    
+    globalPLL = BIT16|BIT1;
+  2e:	4b60      	ldr	r3, [pc, #384]	; (1b0 <main+0x1b0>)
+  30:	6003      	str	r3, [r0, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:120
+    // First Init the Clocks
+    if( globalID == 0x0416 ){
+  32:	6811      	ldr	r1, [r2, #0]
+  34:	f240 4316 	movw	r3, #1046	; 0x416
+  38:	4299      	cmp	r1, r3
+  3a:	495e      	ldr	r1, [pc, #376]	; (1b4 <main+0x1b4>)
+  3c:	4b5e      	ldr	r3, [pc, #376]	; (1b8 <main+0x1b8>)
+  3e:	d107      	bne.n	50 <main+0x50>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:122
+        // L152
+        globalStrID = (u8*)STRID_L15X;  
+  40:	4a5e      	ldr	r2, [pc, #376]	; (1bc <main+0x1bc>)
+  42:	6022      	str	r2, [r4, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:123
+		globalXTAL = 16000000;  
+  44:	4a5e      	ldr	r2, [pc, #376]	; (1c0 <main+0x1c0>)
+  46:	600a      	str	r2, [r1, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:124
+        globalFreq = 32000000;
+  48:	4a5e      	ldr	r2, [pc, #376]	; (1c4 <main+0x1c4>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:125
+        FPEC->ACR = FPEC_ACR_PRFTBE | FPEC_ACR_LATENCY1;
+  4a:	2111      	movs	r1, #17
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:124
+    // First Init the Clocks
+    if( globalID == 0x0416 ){
+        // L152
+        globalStrID = (u8*)STRID_L15X;  
+		globalXTAL = 16000000;  
+        globalFreq = 32000000;
+  4c:	601a      	str	r2, [r3, #0]
+  4e:	e017      	b.n	80 <main+0x80>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:126
+        FPEC->ACR = FPEC_ACR_PRFTBE | FPEC_ACR_LATENCY1;
+    } else if( globalID == 0x0420 || globalID == 0x0428 ){
+  50:	6815      	ldr	r5, [r2, #0]
+  52:	f5b5 6f84 	cmp.w	r5, #1056	; 0x420
+  56:	d003      	beq.n	60 <main+0x60>
+  58:	6812      	ldr	r2, [r2, #0]
+  5a:	f5b2 6f85 	cmp.w	r2, #1064	; 0x428
+  5e:	d106      	bne.n	6e <main+0x6e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:128
+        // F100 
+        globalStrID = (u8*)STRID_F100;
+  60:	4a59      	ldr	r2, [pc, #356]	; (1c8 <main+0x1c8>)
+  62:	6022      	str	r2, [r4, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:129
+        globalXTAL = 12000000;
+  64:	4a59      	ldr	r2, [pc, #356]	; (1cc <main+0x1cc>)
+  66:	600a      	str	r2, [r1, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:130
+        globalFreq = 24000000;
+  68:	4a59      	ldr	r2, [pc, #356]	; (1d0 <main+0x1d0>)
+  6a:	601a      	str	r2, [r3, #0]
+  6c:	e00a      	b.n	84 <main+0x84>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:133
+    } else{
+        // F103
+        globalStrID = (u8*)STRID_F103;
+  6e:	4a59      	ldr	r2, [pc, #356]	; (1d4 <main+0x1d4>)
+  70:	6022      	str	r2, [r4, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:134
+        globalXTAL = 8000000;
+  72:	4a59      	ldr	r2, [pc, #356]	; (1d8 <main+0x1d8>)
+  74:	600a      	str	r2, [r1, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:135
+        globalFreq = 72022900;
+  76:	4a59      	ldr	r2, [pc, #356]	; (1dc <main+0x1dc>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:137
+        globalPLL = RCC_PLL_X9|BIT16|BIT15|BIT14|BIT1;//BIT10|BIT1;
+        FPEC->ACR = FPEC_ACR_PRFTBE | FPEC_ACR_LATENCY2;
+  78:	2112      	movs	r1, #18
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:135
+        globalFreq = 24000000;
+    } else{
+        // F103
+        globalStrID = (u8*)STRID_F103;
+        globalXTAL = 8000000;
+        globalFreq = 72022900;
+  7a:	601a      	str	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:136
+        globalPLL = RCC_PLL_X9|BIT16|BIT15|BIT14|BIT1;//BIT10|BIT1;
+  7c:	4a58      	ldr	r2, [pc, #352]	; (1e0 <main+0x1e0>)
+  7e:	6002      	str	r2, [r0, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:137
+        FPEC->ACR = FPEC_ACR_PRFTBE | FPEC_ACR_LATENCY2;
+  80:	4a58      	ldr	r2, [pc, #352]	; (1e4 <main+0x1e4>)
+  82:	6011      	str	r1, [r2, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:139
+    } // else
+    PYGMY_RCC_HSE_ENABLE;
+  84:	4a58      	ldr	r2, [pc, #352]	; (1e8 <main+0x1e8>)
+  86:	6811      	ldr	r1, [r2, #0]
+  88:	f441 3180 	orr.w	r1, r1, #65536	; 0x10000
+  8c:	6011      	str	r1, [r2, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:140
+    while( !PYGMY_RCC_HSE_READY );
+  8e:	4a56      	ldr	r2, [pc, #344]	; (1e8 <main+0x1e8>)
+  90:	6811      	ldr	r1, [r2, #0]
+  92:	f411 3f00 	tst.w	r1, #131072	; 0x20000
+  96:	d0fa      	beq.n	8e <main+0x8e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:141
+    RCC->CFGR2 = 0;
+  98:	2100      	movs	r1, #0
+  9a:	6291      	str	r1, [r2, #40]	; 0x28
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:142
+    RCC->CFGR = globalPLL;
+  9c:	6801      	ldr	r1, [r0, #0]
+  9e:	6051      	str	r1, [r2, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:143
+    PYGMY_RCC_PLL_ENABLE;
+  a0:	6811      	ldr	r1, [r2, #0]
+  a2:	f041 7180 	orr.w	r1, r1, #16777216	; 0x1000000
+  a6:	6011      	str	r1, [r2, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:144
+    while( !PYGMY_RCC_PLL_READY );
+  a8:	4a4f      	ldr	r2, [pc, #316]	; (1e8 <main+0x1e8>)
+  aa:	6811      	ldr	r1, [r2, #0]
+  ac:	f011 7f00 	tst.w	r1, #33554432	; 0x2000000
+  b0:	d0fa      	beq.n	a8 <main+0xa8>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:150
+    // HSI Must be ON for Flash Program/Erase Operations
+    //PYGMY_RCC_HSI_ENABLE;
+    // End Clock Init 
+
+    // Configure Interrupts
+    PYGMY_WATCHDOG_UNLOCK;
+  b2:	494e      	ldr	r1, [pc, #312]	; (1ec <main+0x1ec>)
+  b4:	f245 5055 	movw	r0, #21845	; 0x5555
+  b8:	6008      	str	r0, [r1, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:151
+    PYGMY_WATCHDOG_PRESCALER( IWDT_PREDIV128 );
+  ba:	2005      	movs	r0, #5
+  bc:	6048      	str	r0, [r1, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:152
+    PYGMY_WATCHDOG_TIMER( 0x0FFF );
+  be:	f640 70ff 	movw	r0, #4095	; 0xfff
+  c2:	6088      	str	r0, [r1, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:153
+    PYGMY_WATCHDOG_START;
+  c4:	f64c 40cc 	movw	r0, #52428	; 0xcccc
+  c8:	6008      	str	r0, [r1, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:154
+    PYGMY_WATCHDOG_REFRESH;
+  ca:	f64a 20aa 	movw	r0, #43690	; 0xaaaa
+  ce:	6008      	str	r0, [r1, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:157
+    // Do not read from NVIC LOAD or VAL!!!
+    // Reading from Write only registers causes unpredictable behavior!!!
+    NVIC->ISER[ 1 ] = 0x00000001 <<  7 ;
+  d0:	4947      	ldr	r1, [pc, #284]	; (1f0 <main+0x1f0>)
+  d2:	2080      	movs	r0, #128	; 0x80
+  d4:	6048      	str	r0, [r1, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:158
+    SYSTICK->VAL = ( globalFreq * 2 ) / 1000;
+  d6:	681d      	ldr	r5, [r3, #0]
+  d8:	f44f 707a 	mov.w	r0, #1000	; 0x3e8
+  dc:	006d      	lsls	r5, r5, #1
+  de:	fbb5 f5f0 	udiv	r5, r5, r0
+  e2:	f841 5ce8 	str.w	r5, [r1, #-232]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:159
+    SYSTICK->LOAD = ( globalFreq * 2 ) / 1000; // Based on  ( 2X the System Clock ) / 1000
+  e6:	681d      	ldr	r5, [r3, #0]
+  e8:	006d      	lsls	r5, r5, #1
+  ea:	fbb5 f0f0 	udiv	r0, r5, r0
+  ee:	f841 0cec 	str.w	r0, [r1, #-236]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:160
+    SYSTICK->CTRL = 0x07;   // Enable system timer
+  f2:	2007      	movs	r0, #7
+  f4:	f841 0cf0 	str.w	r0, [r1, #-240]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:164
+    // End Configure Interrupts
+
+    // Basic Port Init
+    RCC->APB2ENR |= (RCC_IOPBEN|RCC_IOPCEN|RCC_IOPAEN);
+  f8:	6991      	ldr	r1, [r2, #24]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:184
+    // End USART3 Init
+        
+    // Note: SST FLASH ICs must have write-protection removed by formatting before use
+    
+    
+    putstr( "\rPygmy Boot V1.2\rMCU " );
+  fa:	483e      	ldr	r0, [pc, #248]	; (1f4 <main+0x1f4>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:164
+    SYSTICK->LOAD = ( globalFreq * 2 ) / 1000; // Based on  ( 2X the System Clock ) / 1000
+    SYSTICK->CTRL = 0x07;   // Enable system timer
+    // End Configure Interrupts
+
+    // Basic Port Init
+    RCC->APB2ENR |= (RCC_IOPBEN|RCC_IOPCEN|RCC_IOPAEN);
+  fc:	f041 011c 	orr.w	r1, r1, #28
+ 100:	6191      	str	r1, [r2, #24]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:165
+    PYGMY_RCC_USART3_ENABLE;
+ 102:	69d1      	ldr	r1, [r2, #28]
+ 104:	f441 2180 	orr.w	r1, r1, #262144	; 0x40000
+ 108:	61d1      	str	r1, [r2, #28]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:170
+       
+    // End Basic Port Init
+    
+	// USART3 Init, PB10 TXD, PB11 RXD
+    GPIOB->CRH &= ~( PIN10_CLEAR | PIN11_CLEAR );
+ 10a:	4a3b      	ldr	r2, [pc, #236]	; (1f8 <main+0x1f8>)
+ 10c:	6851      	ldr	r1, [r2, #4]
+ 10e:	f421 417f 	bic.w	r1, r1, #65280	; 0xff00
+ 112:	6051      	str	r1, [r2, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:171
+    GPIOB->CRH |= ( PIN10_OUT50_ALTPUSHPULL | PIN11_IN_FLOAT );
+ 114:	6851      	ldr	r1, [r2, #4]
+ 116:	f441 4196 	orr.w	r1, r1, #19200	; 0x4b00
+ 11a:	6051      	str	r1, [r2, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:172
+    ulClock = globalFreq;
+ 11c:	681b      	ldr	r3, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:173
+    if( ulClock > 70000000 ){
+ 11e:	4a37      	ldr	r2, [pc, #220]	; (1fc <main+0x1fc>)
+ 120:	4293      	cmp	r3, r2
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:174
+        ulClock /= 2;
+ 122:	bf88      	it	hi
+ 124:	085b      	lsrhi	r3, r3, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:176
+    } // if
+    USART3->BRR = ( ( (ulClock >> 3 ) / BOOT_BAUDRATE ) << 4 ) + ( ( ( ulClock / BOOT_BAUDRATE ) ) & 0x0007 );
+ 126:	f44f 3261 	mov.w	r2, #230400	; 0x38400
+ 12a:	08d9      	lsrs	r1, r3, #3
+ 12c:	fbb3 f3f2 	udiv	r3, r3, r2
+ 130:	fbb1 f1f2 	udiv	r1, r1, r2
+ 134:	f003 0307 	and.w	r3, r3, #7
+ 138:	4a31      	ldr	r2, [pc, #196]	; (200 <main+0x200>)
+ 13a:	eb03 1301 	add.w	r3, r3, r1, lsl #4
+ 13e:	b29b      	uxth	r3, r3
+ 140:	8113      	strh	r3, [r2, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:177
+    USART3->CR3 |= USART_ONEBITE;
+ 142:	8a93      	ldrh	r3, [r2, #20]
+ 144:	b29b      	uxth	r3, r3
+ 146:	f443 6300 	orr.w	r3, r3, #2048	; 0x800
+ 14a:	8293      	strh	r3, [r2, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:178
+    USART3->CR1 = ( USART_OVER8 | USART_UE | USART_RXNEIE | USART_TE | USART_RE  );
+ 14c:	f24a 032c 	movw	r3, #41004	; 0xa02c
+ 150:	8193      	strh	r3, [r2, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:184
+    // End USART3 Init
+        
+    // Note: SST FLASH ICs must have write-protection removed by formatting before use
+    
+    
+    putstr( "\rPygmy Boot V1.2\rMCU " );
+ 152:	f7ff fffe 	bl	0 <main>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:185
+    putstr( (u8*)globalStrID );
+ 156:	6820      	ldr	r0, [r4, #0]
+ 158:	f7ff fffe 	bl	0 <main>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:186
+    putstr( "\rFLASH " );
+ 15c:	4829      	ldr	r0, [pc, #164]	; (a8 <main+0xa8>)
+ 15e:	f7ff fffe 	bl	0 <main>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:187
+    putIntUSART3( SIZEREG->Pages );
+ 162:	4b0c      	ldr	r3, [pc, #48]	; (194 <main+0x194>)
+ 164:	8818      	ldrh	r0, [r3, #0]
+ 166:	b280      	uxth	r0, r0
+ 168:	f7ff fffe 	bl	0 <main>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:188
+    putcUSART3( '\r' );
+ 16c:	200d      	movs	r0, #13
+ 16e:	f7ff fffe 	bl	0 <main>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:189
+    fileMountRoot();
+ 172:	f7ff fffe 	bl	0 <fileMountRoot>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:193
+    // First allow 2 seconds for receipt of '+' char 
+    // If received, cancel download sequence and wait for commands
+    // Timeout is incremented every millisecond by SysTick
+    for( globalBootTimeout = 0; globalBootTimeout < 2000; ){
+ 176:	4b24      	ldr	r3, [pc, #144]	; (208 <main+0x208>)
+ 178:	2200      	movs	r2, #0
+ 17a:	601a      	str	r2, [r3, #0]
+ 17c:	681a      	ldr	r2, [r3, #0]
+ 17e:	f5b2 6ffa 	cmp.w	r2, #2000	; 0x7d0
+ 182:	d3fb      	bcc.n	17c <main+0x17c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:196
+        ;
+    }
+    if( !(globalBootStatus & BOOT_CANCEL) ){
+ 184:	4b21      	ldr	r3, [pc, #132]	; (20c <main+0x20c>)
+ 186:	785b      	ldrb	r3, [r3, #1]
+ 188:	f013 0f80 	tst.w	r3, #128	; 0x80
+ 18c:	d101      	bne.n	6 <main+0x6>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:197
+        bootBootOS();   
+ 18e:	f7ff fffe 	bl	0 <main>
+ 192:	e7fe      	b.n	192 <main+0x192>
+ 194:	1ffff7e0 	.word	0x1ffff7e0
+ 198:	00000000 	.word	0x00000000
+ 19c:	0001fffe 	.word	0x0001fffe
+ 1a0:	00000000 	.word	0x00000000
+ 1a4:	e0042000 	.word	0xe0042000
+	...
+ 1b0:	00010002 	.word	0x00010002
+	...
+ 1bc:	0000000e 	.word	0x0000000e
+ 1c0:	00f42400 	.word	0x00f42400
+ 1c4:	01e84800 	.word	0x01e84800
+ 1c8:	00000013 	.word	0x00000013
+ 1cc:	00b71b00 	.word	0x00b71b00
+ 1d0:	016e3600 	.word	0x016e3600
+ 1d4:	00000018 	.word	0x00000018
+ 1d8:	007a1200 	.word	0x007a1200
+ 1dc:	044afb74 	.word	0x044afb74
+ 1e0:	001dc002 	.word	0x001dc002
+ 1e4:	40022000 	.word	0x40022000
+ 1e8:	40021000 	.word	0x40021000
+ 1ec:	40003000 	.word	0x40003000
+ 1f0:	e000e100 	.word	0xe000e100
+ 1f4:	0000002d 	.word	0x0000002d
+ 1f8:	40010c00 	.word	0x40010c00
+ 1fc:	042c1d80 	.word	0x042c1d80
+ 200:	40004800 	.word	0x40004800
+ 204:	00000043 	.word	0x00000043
+	...
+
+Disassembly of section .text.xmodemWritePacket:
+
+00000000 <xmodemWritePacket>:
+xmodemWritePacket():
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:488
+    } // if
+   
+}
+
+u8 xmodemWritePacket( u8 *ucBuffer )
+{
+   0:	7803b508 	.word	0x7803b508
+   4:	4602      	mov	r2, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:494
+    u8 i, ucSum;
+
+    // count ( 0-1 before calling this function ) must be validated by calling function 
+    // 0-127 are data bytes, 128 is checksum 
+    ucSum = ucBuffer[ 0 ];
+    for( i = 1; i < 128; i++ ){
+   6:	2101      	movs	r1, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:495
+        ucSum += ucBuffer[ i ]; 
+   8:	5c50      	ldrb	r0, [r2, r1]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:494
+    u8 i, ucSum;
+
+    // count ( 0-1 before calling this function ) must be validated by calling function 
+    // 0-127 are data bytes, 128 is checksum 
+    ucSum = ucBuffer[ 0 ];
+    for( i = 1; i < 128; i++ ){
+   a:	3101      	adds	r1, #1
+   c:	b2c9      	uxtb	r1, r1
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:495
+        ucSum += ucBuffer[ i ]; 
+   e:	181b      	adds	r3, r3, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:494
+    u8 i, ucSum;
+
+    // count ( 0-1 before calling this function ) must be validated by calling function 
+    // 0-127 are data bytes, 128 is checksum 
+    ucSum = ucBuffer[ 0 ];
+    for( i = 1; i < 128; i++ ){
+  10:	2980      	cmp	r1, #128	; 0x80
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:495
+        ucSum += ucBuffer[ i ]; 
+  12:	b2db      	uxtb	r3, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:494
+    u8 i, ucSum;
+
+    // count ( 0-1 before calling this function ) must be validated by calling function 
+    // 0-127 are data bytes, 128 is checksum 
+    ucSum = ucBuffer[ 0 ];
+    for( i = 1; i < 128; i++ ){
+  14:	d1f8      	bne.n	8 <xmodemWritePacket+0x8>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:497
+        ucSum += ucBuffer[ i ]; 
+    } // for  
+    if( ucSum == ucBuffer[ 128 ] ){
+  16:	f892 0080 	ldrb.w	r0, [r2, #128]	; 0x80
+  1a:	4298      	cmp	r0, r3
+  1c:	d104      	bne.n	28 <xmodemWritePacket+0x28>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:498
+        filePutBuffer( &pygmyFile, 128, ucBuffer );
+  1e:	4803      	ldr	r0, [pc, #12]	; (2c <xmodemWritePacket+0x2c>)
+  20:	f7ff fffe 	bl	0 <filePutBuffer>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:499
+        return( 1 );
+  24:	2001      	movs	r0, #1
+  26:	bd08      	pop	{r3, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:502
+    } // if
+	
+    return( 0 );
+  28:	2000      	movs	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:503
+}
+  2a:	bd08      	pop	{r3, pc}
+  2c:	00000000 	.word	0x00000000
+
+Disassembly of section .text.xmodemSendPacket:
+
+00000000 <xmodemSendPacket>:
+xmodemSendPacket():
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:506
+
+void xmodemSendPacket( u8 ucLast )
+{
+   0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:510
+    static u8 ucBuffer[ 132 ];
+    u8 i, ucSum;
+    
+    if( !ucLast ){ // If not resend then make a new packet
+   4:	b9b8      	cbnz	r0, 36 <xmodemSendPacket+0x36>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:511
+        ucBuffer[ 0 ] = 0x01; // <SOH>
+   6:	4e0f      	ldr	r6, [pc, #60]	; (44 <xmodemSendPacket+0x44>)
+   8:	2301      	movs	r3, #1
+   a:	70b3      	strb	r3, [r6, #2]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:512
+        ucBuffer[ 1 ] = globalXMCount; // Packet Count
+   c:	4b0e      	ldr	r3, [pc, #56]	; (48 <xmodemSendPacket+0x48>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:513
+        ucBuffer[ 2 ] = 0xFF - globalXMCount; // Ones Complement of Count
+   e:	4634      	mov	r4, r6
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:512
+    static u8 ucBuffer[ 132 ];
+    u8 i, ucSum;
+    
+    if( !ucLast ){ // If not resend then make a new packet
+        ucBuffer[ 0 ] = 0x01; // <SOH>
+        ucBuffer[ 1 ] = globalXMCount; // Packet Count
+  10:	781b      	ldrb	r3, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:505
+    } // if
+	
+    return( 0 );
+}
+
+void xmodemSendPacket( u8 ucLast )
+  12:	f106 0784 	add.w	r7, r6, #132	; 0x84
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:512
+    static u8 ucBuffer[ 132 ];
+    u8 i, ucSum;
+    
+    if( !ucLast ){ // If not resend then make a new packet
+        ucBuffer[ 0 ] = 0x01; // <SOH>
+        ucBuffer[ 1 ] = globalXMCount; // Packet Count
+  16:	70f3      	strb	r3, [r6, #3]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:513
+        ucBuffer[ 2 ] = 0xFF - globalXMCount; // Ones Complement of Count
+  18:	43db      	mvns	r3, r3
+  1a:	f804 3f04 	strb.w	r3, [r4, #4]!
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:514
+        for( ucSum = 0, i = 3; i < 131; i++ ){ // 128 bytes payload
+  1e:	4605      	mov	r5, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:515
+            ucBuffer[ i ] = fileGetChar( &pygmyFile );
+  20:	480a      	ldr	r0, [pc, #40]	; (4c <xmodemSendPacket+0x4c>)
+  22:	f7ff fffe 	bl	0 <fileGetChar>
+  26:	f804 0f01 	strb.w	r0, [r4, #1]!
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:516
+            ucSum += ucBuffer[ i ];
+  2a:	182d      	adds	r5, r5, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:514
+    
+    if( !ucLast ){ // If not resend then make a new packet
+        ucBuffer[ 0 ] = 0x01; // <SOH>
+        ucBuffer[ 1 ] = globalXMCount; // Packet Count
+        ucBuffer[ 2 ] = 0xFF - globalXMCount; // Ones Complement of Count
+        for( ucSum = 0, i = 3; i < 131; i++ ){ // 128 bytes payload
+  2c:	42bc      	cmp	r4, r7
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:516
+            ucBuffer[ i ] = fileGetChar( &pygmyFile );
+            ucSum += ucBuffer[ i ];
+  2e:	b2ed      	uxtb	r5, r5
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:514
+    
+    if( !ucLast ){ // If not resend then make a new packet
+        ucBuffer[ 0 ] = 0x01; // <SOH>
+        ucBuffer[ 1 ] = globalXMCount; // Packet Count
+        ucBuffer[ 2 ] = 0xFF - globalXMCount; // Ones Complement of Count
+        for( ucSum = 0, i = 3; i < 131; i++ ){ // 128 bytes payload
+  30:	d1f6      	bne.n	20 <xmodemSendPacket+0x20>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:518
+            ucBuffer[ i ] = fileGetChar( &pygmyFile );
+            ucSum += ucBuffer[ i ];
+        } // for
+        ucBuffer[ i ] = ucSum; // add the check sum as the final bytes    
+  32:	f886 5085 	strb.w	r5, [r6, #133]	; 0x85
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:521
+    } // if
+    
+    putBufferUSART3( 132, ucBuffer );
+  36:	4906      	ldr	r1, [pc, #24]	; (50 <xmodemSendPacket+0x50>)
+  38:	2084      	movs	r0, #132	; 0x84
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:522
+}
+  3a:	e8bd 41f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:521
+            ucSum += ucBuffer[ i ];
+        } // for
+        ucBuffer[ i ] = ucSum; // add the check sum as the final bytes    
+    } // if
+    
+    putBufferUSART3( 132, ucBuffer );
+  3e:	f7ff bffe 	b.w	0 <xmodemSendPacket>
+  42:	bf00      	nop
+	...
+  50:	00000002 	.word	0x00000002
+
+Disassembly of section .text.SysTick_Handler:
+
+00000000 <SysTick_Handler>:
+SysTick_Handler():
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:526
+}
+
+void SysTick_Handler( void )
+{   
+    PYGMY_WATCHDOG_REFRESH;
+   0:	4b1f      	ldr	r3, [pc, #124]	; (80 <SysTick_Handler+0x80>)
+   2:	f64a 22aa 	movw	r2, #43690	; 0xaaaa
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:525
+    
+    putBufferUSART3( 132, ucBuffer );
+}
+
+void SysTick_Handler( void )
+{   
+   6:	b570      	push	{r4, r5, r6, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:526
+    PYGMY_WATCHDOG_REFRESH;
+   8:	601a      	str	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:527
+    ++globalBootTimeout;
+   a:	4b1e      	ldr	r3, [pc, #120]	; (84 <SysTick_Handler+0x84>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:528
+    if( globalStatus & XMODEM_RECV ){
+   c:	4c1e      	ldr	r4, [pc, #120]	; (88 <SysTick_Handler+0x88>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:527
+}
+
+void SysTick_Handler( void )
+{   
+    PYGMY_WATCHDOG_REFRESH;
+    ++globalBootTimeout;
+   e:	681a      	ldr	r2, [r3, #0]
+  10:	3201      	adds	r2, #1
+  12:	601a      	str	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:528
+    if( globalStatus & XMODEM_RECV ){
+  14:	7823      	ldrb	r3, [r4, #0]
+  16:	f013 0f02 	tst.w	r3, #2
+  1a:	d011      	beq.n	40 <SysTick_Handler+0x40>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:529
+        if( globalXMTimeout )
+  1c:	4d1b      	ldr	r5, [pc, #108]	; (8c <SysTick_Handler+0x8c>)
+  1e:	682b      	ldr	r3, [r5, #0]
+  20:	b9ab      	cbnz	r3, 4e <SysTick_Handler+0x4e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:532
+            --globalXMTimeout;
+        else{
+            putcUSART3( XMODEM_NACK );
+  22:	2015      	movs	r0, #21
+  24:	f7ff fffe 	bl	0 <SysTick_Handler>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:533
+            globalXMTimeout = 1000;
+  28:	f44f 737a 	mov.w	r3, #1000	; 0x3e8
+  2c:	602b      	str	r3, [r5, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:534
+            if( globalTransaction )
+  2e:	4b18      	ldr	r3, [pc, #96]	; (90 <SysTick_Handler+0x90>)
+  30:	681a      	ldr	r2, [r3, #0]
+  32:	b9c2      	cbnz	r2, 66 <SysTick_Handler+0x66>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:537
+                --globalTransaction;
+            else{
+                globalStatus &= ~(XMODEM_RECV|XMODEM_MODE_SOH);
+  34:	7823      	ldrb	r3, [r4, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:538
+                putstr( "XM Timeout\r> " );
+  36:	4817      	ldr	r0, [pc, #92]	; (94 <SysTick_Handler+0x94>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:537
+            putcUSART3( XMODEM_NACK );
+            globalXMTimeout = 1000;
+            if( globalTransaction )
+                --globalTransaction;
+            else{
+                globalStatus &= ~(XMODEM_RECV|XMODEM_MODE_SOH);
+  38:	f003 03f9 	and.w	r3, r3, #249	; 0xf9
+  3c:	7023      	strb	r3, [r4, #0]
+  3e:	e01a      	b.n	76 <SysTick_Handler+0x76>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:541
+                putstr( "XM Timeout\r> " );
+            } // lse
+        } // else
+    } else if( globalStatus & XMODEM_SEND ){
+  40:	7823      	ldrb	r3, [r4, #0]
+  42:	f013 0f08 	tst.w	r3, #8
+  46:	d01a      	beq.n	7e <SysTick_Handler+0x7e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:542
+        if( globalXMTimeout )
+  48:	4d10      	ldr	r5, [pc, #64]	; (8c <SysTick_Handler+0x8c>)
+  4a:	682b      	ldr	r3, [r5, #0]
+  4c:	b113      	cbz	r3, 54 <SysTick_Handler+0x54>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:543
+            --globalXMTimeout;
+  4e:	3b01      	subs	r3, #1
+  50:	602b      	str	r3, [r5, #0]
+  52:	bd70      	pop	{r4, r5, r6, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:549
+        else{
+            //if( globalStatus & XMODEM_SEND_WAIT ){
+            //    xmodemSendPacket( XMODEM_NEXT );
+            //    globalStatus &= ~XMODEM_SEND_WAIT;
+            //} else{
+                xmodemSendPacket( XMODEM_LAST );
+  54:	2001      	movs	r0, #1
+  56:	f7ff fffe 	bl	0 <SysTick_Handler>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:551
+            //} // else
+            globalXMTimeout = 1000;
+  5a:	f44f 737a 	mov.w	r3, #1000	; 0x3e8
+  5e:	602b      	str	r3, [r5, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:552
+            if( globalTransaction )
+  60:	4b0b      	ldr	r3, [pc, #44]	; (90 <SysTick_Handler+0x90>)
+  62:	681a      	ldr	r2, [r3, #0]
+  64:	b112      	cbz	r2, 6c <SysTick_Handler+0x6c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:553
+                --globalTransaction;
+  66:	3a01      	subs	r2, #1
+  68:	601a      	str	r2, [r3, #0]
+  6a:	bd70      	pop	{r4, r5, r6, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:555
+            else{
+                globalStatus &= ~(XMODEM_SEND|XMODEM_SEND_EOT);
+  6c:	7823      	ldrb	r3, [r4, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:556
+                putstr( (u8*)BOOT_ERROR );
+  6e:	480a      	ldr	r0, [pc, #40]	; (98 <SysTick_Handler+0x98>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:555
+            //} // else
+            globalXMTimeout = 1000;
+            if( globalTransaction )
+                --globalTransaction;
+            else{
+                globalStatus &= ~(XMODEM_SEND|XMODEM_SEND_EOT);
+  70:	f003 03d7 	and.w	r3, r3, #215	; 0xd7
+  74:	7023      	strb	r3, [r4, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:561
+                putstr( (u8*)BOOT_ERROR );
+            } // else
+        } // else
+    } // else if
+    
+}
+  76:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:556
+            globalXMTimeout = 1000;
+            if( globalTransaction )
+                --globalTransaction;
+            else{
+                globalStatus &= ~(XMODEM_SEND|XMODEM_SEND_EOT);
+                putstr( (u8*)BOOT_ERROR );
+  7a:	f7ff bffe 	b.w	0 <SysTick_Handler>
+  7e:	bd70      	pop	{r4, r5, r6, pc}
+  80:	40003000 	.word	0x40003000
+	...
+  94:	0000004b 	.word	0x0000004b
+  98:	0000001d 	.word	0x0000001d
+
+Disassembly of section .text.executeCmd:
+
+00000000 <executeCmd>:
+executeCmd():
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:708
+{
+    return( 0 );
+}
+
+u8 executeCmd( u8 *ucBuffer, PYGMYCMD *pygmyCommands )
+{
+   0:	460db5f8 	.word	0x460db5f8
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:712
+    u16 i;
+    u8 *ucCommand;
+    
+    ucCommand = getNextSubString( ucBuffer, WHITESPACE | PUNCT );
+   4:	2103      	movs	r1, #3
+   6:	f7ff fffe 	bl	0 <getNextSubString>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:717
+    //if( !ucCommand ){
+    //    return( 0 );
+	//} // if
+        
+    for( i = 0; 1; i++ ){ 
+   a:	2400      	movs	r4, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:712
+u8 executeCmd( u8 *ucBuffer, PYGMYCMD *pygmyCommands )
+{
+    u16 i;
+    u8 *ucCommand;
+    
+    ucCommand = getNextSubString( ucBuffer, WHITESPACE | PUNCT );
+   c:	4607      	mov	r7, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:718
+    //if( !ucCommand ){
+    //    return( 0 );
+	//} // if
+        
+    for( i = 0; 1; i++ ){ 
+        if( isStringSame( "", pygmyCommands[ i ].Name ) ){
+   e:	480d      	ldr	r0, [pc, #52]	; (44 <executeCmd+0x44>)
+  10:	f855 1034 	ldr.w	r1, [r5, r4, lsl #3]
+  14:	eb05 06c4 	add.w	r6, r5, r4, lsl #3
+  18:	f7ff fffe 	bl	0 <isStringSame>
+  1c:	b978      	cbnz	r0, 3e <executeCmd+0x3e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:721
+            return( 0 );
+        } // if
+        if( isStringSame( ucCommand, pygmyCommands[ i ].Name ) ){
+  1e:	4638      	mov	r0, r7
+  20:	f855 1034 	ldr.w	r1, [r5, r4, lsl #3]
+  24:	f7ff fffe 	bl	0 <isStringSame>
+  28:	b130      	cbz	r0, 38 <executeCmd+0x38>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:722
+            if( pygmyCommands[ i ].Call( "" ) ){
+  2a:	6873      	ldr	r3, [r6, #4]
+  2c:	4805      	ldr	r0, [pc, #20]	; (44 <executeCmd+0x44>)
+  2e:	4798      	blx	r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:719
+    //    return( 0 );
+	//} // if
+        
+    for( i = 0; 1; i++ ){ 
+        if( isStringSame( "", pygmyCommands[ i ].Name ) ){
+            return( 0 );
+  30:	3800      	subs	r0, #0
+  32:	bf18      	it	ne
+  34:	2001      	movne	r0, #1
+  36:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:717
+    ucCommand = getNextSubString( ucBuffer, WHITESPACE | PUNCT );
+    //if( !ucCommand ){
+    //    return( 0 );
+	//} // if
+        
+    for( i = 0; 1; i++ ){ 
+  38:	3401      	adds	r4, #1
+  3a:	b2a4      	uxth	r4, r4
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:728
+                return( 1 );
+            } else{
+                return( 0 );
+            } // else
+        }// if
+    } // for
+  3c:	e7e7      	b.n	e <executeCmd+0xe>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:719
+    //    return( 0 );
+	//} // if
+        
+    for( i = 0; 1; i++ ){ 
+        if( isStringSame( "", pygmyCommands[ i ].Name ) ){
+            return( 0 );
+  3e:	2000      	movs	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:731
+            } // else
+        }// if
+    } // for
+
+    return( 0 );
+}
+  40:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+  42:	bf00      	nop
+  44:	00000000 	.word	0x00000000
+
+Disassembly of section .text.USART3_IRQHandler:
+
+00000000 <USART3_IRQHandler>:
+USART3_IRQHandler():
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:380
+        putcUSART3( *(ucBuffer++) );
+    }
+}
+
+void USART3_IRQHandler( void )
+{
+   0:	b570      	push	{r4, r5, r6, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:385
+    static u8 ucBuffer[ 256 ], ucIndex = 0;
+    //u16 i, uiID;
+    u8 ucByte;//, *ucSubString;//, *ucParam1;
+
+    if( USART3->SR & USART_RXNE ) { 
+   2:	4a75      	ldr	r2, [pc, #468]	; (1d8 <USART3_IRQHandler+0x1d8>)
+   4:	8813      	ldrh	r3, [r2, #0]
+   6:	f013 0f20 	tst.w	r3, #32
+   a:	f000 80e4 	beq.w	1d6 <USART3_IRQHandler+0x1d6>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:386
+        USART3->SR &= ~USART_RXNE;
+   e:	8813      	ldrh	r3, [r2, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:389
+        ucByte = USART3->DR ;
+        
+        if( globalStatus & XMODEM_RECV ){ // RECV      
+  10:	4d72      	ldr	r5, [pc, #456]	; (1dc <USART3_IRQHandler+0x1dc>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:386
+    static u8 ucBuffer[ 256 ], ucIndex = 0;
+    //u16 i, uiID;
+    u8 ucByte;//, *ucSubString;//, *ucParam1;
+
+    if( USART3->SR & USART_RXNE ) { 
+        USART3->SR &= ~USART_RXNE;
+  12:	f023 0320 	bic.w	r3, r3, #32
+  16:	041b      	lsls	r3, r3, #16
+  18:	0c1b      	lsrs	r3, r3, #16
+  1a:	8013      	strh	r3, [r2, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:387
+        ucByte = USART3->DR ;
+  1c:	8896      	ldrh	r6, [r2, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:389
+        
+        if( globalStatus & XMODEM_RECV ){ // RECV      
+  1e:	782b      	ldrb	r3, [r5, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:387
+    //u16 i, uiID;
+    u8 ucByte;//, *ucSubString;//, *ucParam1;
+
+    if( USART3->SR & USART_RXNE ) { 
+        USART3->SR &= ~USART_RXNE;
+        ucByte = USART3->DR ;
+  20:	b2f6      	uxtb	r6, r6
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:389
+        
+        if( globalStatus & XMODEM_RECV ){ // RECV      
+  22:	f013 0302 	ands.w	r3, r3, #2
+  26:	462c      	mov	r4, r5
+  28:	d052      	beq.n	d0 <USART3_IRQHandler+0xd0>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:390
+            if( globalStatus & XMODEM_MODE_SOH ){ // Recieving Payload, after <SOH>
+  2a:	782b      	ldrb	r3, [r5, #0]
+  2c:	f013 0f04 	tst.w	r3, #4
+  30:	d028      	beq.n	84 <USART3_IRQHandler+0x84>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:391
+                ucBuffer[ ucIndex++ ] = ucByte;
+  32:	f895 3086 	ldrb.w	r3, [r5, #134]	; 0x86
+  36:	18ea      	adds	r2, r5, r3
+  38:	3301      	adds	r3, #1
+  3a:	b2db      	uxtb	r3, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:392
+                if( ucIndex == 131 ){
+  3c:	2b83      	cmp	r3, #131	; 0x83
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:391
+        USART3->SR &= ~USART_RXNE;
+        ucByte = USART3->DR ;
+        
+        if( globalStatus & XMODEM_RECV ){ // RECV      
+            if( globalStatus & XMODEM_MODE_SOH ){ // Recieving Payload, after <SOH>
+                ucBuffer[ ucIndex++ ] = ucByte;
+  3e:	f882 6087 	strb.w	r6, [r2, #135]	; 0x87
+  42:	f885 3086 	strb.w	r3, [r5, #134]	; 0x86
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:392
+                if( ucIndex == 131 ){
+  46:	f040 80c6 	bne.w	1d6 <USART3_IRQHandler+0x1d6>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:393
+                    globalStatus &= ~XMODEM_MODE_SOH; // Reset Packet Marker
+  4a:	782b      	ldrb	r3, [r5, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:394
+                    if( globalXMCount == ucBuffer[ 0 ] && 
+  4c:	4c64      	ldr	r4, [pc, #400]	; (1e0 <USART3_IRQHandler+0x1e0>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:393
+        
+        if( globalStatus & XMODEM_RECV ){ // RECV      
+            if( globalStatus & XMODEM_MODE_SOH ){ // Recieving Payload, after <SOH>
+                ucBuffer[ ucIndex++ ] = ucByte;
+                if( ucIndex == 131 ){
+                    globalStatus &= ~XMODEM_MODE_SOH; // Reset Packet Marker
+  4e:	f003 03fb 	and.w	r3, r3, #251	; 0xfb
+  52:	702b      	strb	r3, [r5, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:394
+                    if( globalXMCount == ucBuffer[ 0 ] && 
+  54:	6822      	ldr	r2, [r4, #0]
+  56:	f895 3087 	ldrb.w	r3, [r5, #135]	; 0x87
+  5a:	429a      	cmp	r2, r3
+  5c:	d10d      	bne.n	7a <USART3_IRQHandler+0x7a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:395
+                        xmodemWritePacket( (u8*)(ucBuffer+2) ) ) { // Returns 1 if check sum correct, 0 if not
+  5e:	f105 0089 	add.w	r0, r5, #137	; 0x89
+  62:	f7ff fffe 	bl	0 <USART3_IRQHandler>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:394
+        if( globalStatus & XMODEM_RECV ){ // RECV      
+            if( globalStatus & XMODEM_MODE_SOH ){ // Recieving Payload, after <SOH>
+                ucBuffer[ ucIndex++ ] = ucByte;
+                if( ucIndex == 131 ){
+                    globalStatus &= ~XMODEM_MODE_SOH; // Reset Packet Marker
+                    if( globalXMCount == ucBuffer[ 0 ] && 
+  66:	b140      	cbz	r0, 7a <USART3_IRQHandler+0x7a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:396
+                        xmodemWritePacket( (u8*)(ucBuffer+2) ) ) { // Returns 1 if check sum correct, 0 if not
+                        if( globalXMCount + 1 == 256 ){
+  68:	6823      	ldr	r3, [r4, #0]
+  6a:	2bff      	cmp	r3, #255	; 0xff
+  6c:	d101      	bne.n	72 <USART3_IRQHandler+0x72>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:397
+                            globalXMCount = 0;
+  6e:	3bff      	subs	r3, #255	; 0xff
+  70:	e000      	b.n	74 <USART3_IRQHandler+0x74>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:399
+                        } else{
+                            ++globalXMCount;
+  72:	3301      	adds	r3, #1
+  74:	6023      	str	r3, [r4, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:401
+						} // else
+                        putcUSART3( 0x06 );// Return ACK
+  76:	2006      	movs	r0, #6
+  78:	e000      	b.n	7c <USART3_IRQHandler+0x7c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:403
+                    } else{
+                        putcUSART3( 0x15 );// Return NACK
+  7a:	2015      	movs	r0, #21
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:485
+                ucBuffer[ ucIndex++ ] = ucByte;
+            } // else
+        } // else
+    } // if
+   
+}
+  7c:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:403
+                        } else{
+                            ++globalXMCount;
+						} // else
+                        putcUSART3( 0x06 );// Return ACK
+                    } else{
+                        putcUSART3( 0x15 );// Return NACK
+  80:	f7ff bffe 	b.w	0 <USART3_IRQHandler>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:407
+                    }  
+                } 
+            } else{
+                if( ucByte == 0x01 ){ // This is XModem <SOH>
+  84:	2e01      	cmp	r6, #1
+  86:	d10b      	bne.n	a0 <USART3_IRQHandler+0xa0>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:408
+                    globalStatus |= XMODEM_MODE_SOH; // Set Packet Marker
+  88:	782b      	ldrb	r3, [r5, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:409
+                    globalXMTimeout = 1000;
+  8a:	f44f 727a 	mov.w	r2, #1000	; 0x3e8
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:408
+                        putcUSART3( 0x15 );// Return NACK
+                    }  
+                } 
+            } else{
+                if( ucByte == 0x01 ){ // This is XModem <SOH>
+                    globalStatus |= XMODEM_MODE_SOH; // Set Packet Marker
+  8e:	f043 0304 	orr.w	r3, r3, #4
+  92:	702b      	strb	r3, [r5, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:409
+                    globalXMTimeout = 1000;
+  94:	4b53      	ldr	r3, [pc, #332]	; (1e4 <USART3_IRQHandler+0x1e4>)
+  96:	601a      	str	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:410
+                    globalTransaction = 60;
+  98:	4b53      	ldr	r3, [pc, #332]	; (1e8 <USART3_IRQHandler+0x1e8>)
+  9a:	223c      	movs	r2, #60	; 0x3c
+  9c:	601a      	str	r2, [r3, #0]
+  9e:	e013      	b.n	c8 <USART3_IRQHandler+0xc8>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:411
+                } else if( ucByte == 0x04 || ucByte == XMODEM_CAN ){ // 0x04 Marks End Of Transmission              
+  a0:	2e04      	cmp	r6, #4
+  a2:	d001      	beq.n	a8 <USART3_IRQHandler+0xa8>
+  a4:	2e18      	cmp	r6, #24
+  a6:	d10f      	bne.n	c8 <USART3_IRQHandler+0xc8>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:412
+                    globalStatus = 0;//&= ~( XMODEM_RECV );
+  a8:	2300      	movs	r3, #0
+  aa:	7023      	strb	r3, [r4, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:413
+                    filePutBuffer( &pygmyFile, 128, ucBuffer );
+  ac:	2180      	movs	r1, #128	; 0x80
+  ae:	4a4f      	ldr	r2, [pc, #316]	; (1ec <USART3_IRQHandler+0x1ec>)
+  b0:	484f      	ldr	r0, [pc, #316]	; (1f0 <USART3_IRQHandler+0x1f0>)
+  b2:	f7ff fffe 	bl	0 <filePutBuffer>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:414
+                    fileClose( &pygmyFile );
+  b6:	484e      	ldr	r0, [pc, #312]	; (13c <fileClose+0x13c>)
+  b8:	f7ff fffe 	bl	0 <fileClose>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:415
+                    putcUSART3( 0x06 ); // Send Ack to close connection
+  bc:	2006      	movs	r0, #6
+  be:	f7ff fffe 	bl	0 <USART3_IRQHandler>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:416
+                    putstr( "Done\r> " );
+  c2:	484c      	ldr	r0, [pc, #304]	; (134 <USART3_IRQHandler+0x134>)
+  c4:	f7ff fffe 	bl	0 <USART3_IRQHandler>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:422
+                } /*else if ( ucByte == XMODEM_CAN ){
+                    globalStatus = 0;
+                    putcUSART3( 0x06 );
+                } // else if
+                */
+                ucIndex = 0;
+  c8:	2300      	movs	r3, #0
+  ca:	f884 3086 	strb.w	r3, [r4, #134]	; 0x86
+  ce:	bd70      	pop	{r4, r5, r6, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:424
+            }
+        } else if( globalStatus & XMODEM_SEND ){ // SEND
+  d0:	782a      	ldrb	r2, [r5, #0]
+  d2:	f012 0f08 	tst.w	r2, #8
+  d6:	d040      	beq.n	15a <USART3_IRQHandler+0x15a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:425
+            if( ucByte == XMODEM_ACK ){
+  d8:	2e06      	cmp	r6, #6
+  da:	d11c      	bne.n	116 <USART3_IRQHandler+0x116>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:426
+                if( globalStatus & XMODEM_SEND_EOT ){
+  dc:	7828      	ldrb	r0, [r5, #0]
+  de:	f010 0020 	ands.w	r0, r0, #32
+  e2:	d001      	beq.n	e8 <USART3_IRQHandler+0xe8>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:427
+                    globalStatus = 0;//&= ~( XMODEM_SEND_EOT|XMODEM_SEND);
+  e4:	702b      	strb	r3, [r5, #0]
+  e6:	e036      	b.n	156 <USART3_IRQHandler+0x156>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:432
+                    //putstr( (u8*)BOOT_OK );
+                    putstr( (u8*)BOOT_PROMPT );
+                    return;
+                } // if
+                globalXMTimeout = 1000;
+  e8:	4b3e      	ldr	r3, [pc, #248]	; (1e4 <USART3_IRQHandler+0x1e4>)
+  ea:	f44f 727a 	mov.w	r2, #1000	; 0x3e8
+  ee:	601a      	str	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:433
+                globalTransaction = 10;
+  f0:	4b3d      	ldr	r3, [pc, #244]	; (1e8 <USART3_IRQHandler+0x1e8>)
+  f2:	220a      	movs	r2, #10
+  f4:	601a      	str	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:434
+                if( pygmyFile.Attributes & EOF ){
+  f6:	4b3e      	ldr	r3, [pc, #248]	; (1f0 <USART3_IRQHandler+0x1f0>)
+  f8:	f993 3010 	ldrsb.w	r3, [r3, #16]
+  fc:	2b00      	cmp	r3, #0
+  fe:	da05      	bge.n	10c <USART3_IRQHandler+0x10c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:435
+                    globalStatus |= XMODEM_SEND_EOT;
+ 100:	782b      	ldrb	r3, [r5, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:436
+                    putcUSART3( XMODEM_EOT );
+ 102:	2004      	movs	r0, #4
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:435
+                    return;
+                } // if
+                globalXMTimeout = 1000;
+                globalTransaction = 10;
+                if( pygmyFile.Attributes & EOF ){
+                    globalStatus |= XMODEM_SEND_EOT;
+ 104:	f043 0320 	orr.w	r3, r3, #32
+ 108:	702b      	strb	r3, [r5, #0]
+ 10a:	e7b7      	b.n	7c <USART3_IRQHandler+0x7c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:438
+                    putcUSART3( XMODEM_EOT );
+                } else{
+                    ++globalXMCount;
+ 10c:	4b34      	ldr	r3, [pc, #208]	; (1e0 <USART3_IRQHandler+0x1e0>)
+ 10e:	681a      	ldr	r2, [r3, #0]
+ 110:	3201      	adds	r2, #1
+ 112:	601a      	str	r2, [r3, #0]
+ 114:	e015      	b.n	142 <USART3_IRQHandler+0x142>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:441
+                    xmodemSendPacket( XMODEM_NEXT ); // 0 = next pack
+                } // else
+            } else if( ucByte == XMODEM_NACK ) {//|| ucByte == XMODEM_CAN ){
+ 116:	2e15      	cmp	r6, #21
+ 118:	d117      	bne.n	14a <USART3_IRQHandler+0x14a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:442
+                globalXMTimeout = 1000;
+ 11a:	4a32      	ldr	r2, [pc, #200]	; (1e4 <USART3_IRQHandler+0x1e4>)
+ 11c:	f44f 717a 	mov.w	r1, #1000	; 0x3e8
+ 120:	6011      	str	r1, [r2, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:443
+                globalTransaction = 10;
+ 122:	4a31      	ldr	r2, [pc, #196]	; (1e8 <USART3_IRQHandler+0x1e8>)
+ 124:	210a      	movs	r1, #10
+ 126:	6011      	str	r1, [r2, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:444
+                if( globalStatus & XMODEM_SEND_WAIT ){
+ 128:	782a      	ldrb	r2, [r5, #0]
+ 12a:	f012 0f10 	tst.w	r2, #16
+ 12e:	d007      	beq.n	140 <USART3_IRQHandler+0x140>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:445
+                    xmodemSendPacket( XMODEM_NEXT ); // 1 = next, in this case this is first
+ 130:	4618      	mov	r0, r3
+ 132:	f7ff fffe 	bl	0 <USART3_IRQHandler>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:446
+                    globalStatus &= ~XMODEM_SEND_WAIT;
+ 136:	782b      	ldrb	r3, [r5, #0]
+ 138:	f003 03ef 	and.w	r3, r3, #239	; 0xef
+ 13c:	702b      	strb	r3, [r5, #0]
+ 13e:	bd70      	pop	{r4, r5, r6, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:449
+                //    xmodemSendPacket( XMODEM_LAST ); // 0 = next pack
+                } else{
+                    xmodemSendPacket( XMODEM_LAST ); // 0 = next pack
+ 140:	2001      	movs	r0, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:485
+                ucBuffer[ ucIndex++ ] = ucByte;
+            } // else
+        } // else
+    } // if
+   
+}
+ 142:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:449
+                if( globalStatus & XMODEM_SEND_WAIT ){
+                    xmodemSendPacket( XMODEM_NEXT ); // 1 = next, in this case this is first
+                    globalStatus &= ~XMODEM_SEND_WAIT;
+                //    xmodemSendPacket( XMODEM_LAST ); // 0 = next pack
+                } else{
+                    xmodemSendPacket( XMODEM_LAST ); // 0 = next pack
+ 146:	f7ff bffe 	b.w	0 <USART3_IRQHandler>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:451
+                } // else
+            } else if( ucByte == XMODEM_CAN ){
+ 14a:	2e18      	cmp	r6, #24
+ 14c:	d143      	bne.n	1d6 <USART3_IRQHandler+0x1d6>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:453
+                globalStatus = 0;
+                putcUSART3( 0x06 ); // Send Ack to close connection
+ 14e:	2006      	movs	r0, #6
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:452
+                //    xmodemSendPacket( XMODEM_LAST ); // 0 = next pack
+                } else{
+                    xmodemSendPacket( XMODEM_LAST ); // 0 = next pack
+                } // else
+            } else if( ucByte == XMODEM_CAN ){
+                globalStatus = 0;
+ 150:	702b      	strb	r3, [r5, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:453
+                putcUSART3( 0x06 ); // Send Ack to close connection
+ 152:	f7ff fffe 	bl	0 <USART3_IRQHandler>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:454
+                putstr( (u8*)BOOT_PROMPT );
+ 156:	4828      	ldr	r0, [pc, #160]	; (1f8 <USART3_IRQHandler+0x1f8>)
+ 158:	e022      	b.n	1a0 <USART3_IRQHandler+0x1a0>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:457
+            } // else if
+        
+        } else if( ucByte == '\r' || ( ucByte == '+' && !( globalBootStatus & BOOT_CANCEL ) ) ){
+ 15a:	2e0d      	cmp	r6, #13
+ 15c:	d005      	beq.n	16a <USART3_IRQHandler+0x16a>
+ 15e:	2e2b      	cmp	r6, #43	; 0x2b
+ 160:	d122      	bne.n	1a8 <USART3_IRQHandler+0x1a8>
+ 162:	786b      	ldrb	r3, [r5, #1]
+ 164:	f013 0f80 	tst.w	r3, #128	; 0x80
+ 168:	d11e      	bne.n	1a8 <USART3_IRQHandler+0x1a8>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:459
+            
+            ucBuffer[ ucIndex ] = '\0'; // Add NULL to terminate string
+ 16a:	f894 2086 	ldrb.w	r2, [r4, #134]	; 0x86
+ 16e:	2300      	movs	r3, #0
+ 170:	18a2      	adds	r2, r4, r2
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:461
+            ucIndex = 0;
+            if( ucByte == '+' ){
+ 172:	2e2b      	cmp	r6, #43	; 0x2b
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:459
+                putstr( (u8*)BOOT_PROMPT );
+            } // else if
+        
+        } else if( ucByte == '\r' || ( ucByte == '+' && !( globalBootStatus & BOOT_CANCEL ) ) ){
+            
+            ucBuffer[ ucIndex ] = '\0'; // Add NULL to terminate string
+ 174:	4d19      	ldr	r5, [pc, #100]	; (1dc <USART3_IRQHandler+0x1dc>)
+ 176:	f882 3087 	strb.w	r3, [r2, #135]	; 0x87
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:460
+            ucIndex = 0;
+ 17a:	f884 3086 	strb.w	r3, [r4, #134]	; 0x86
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:461
+            if( ucByte == '+' ){
+ 17e:	d107      	bne.n	190 <USART3_IRQHandler+0x190>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:462
+                putstr( "\rCanceled\r> " );
+ 180:	481e      	ldr	r0, [pc, #120]	; (1fc <USART3_IRQHandler+0x1fc>)
+ 182:	f7ff fffe 	bl	0 <USART3_IRQHandler>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:463
+                globalBootStatus |= BOOT_CANCEL;
+ 186:	786b      	ldrb	r3, [r5, #1]
+ 188:	f043 0380 	orr.w	r3, r3, #128	; 0x80
+ 18c:	706b      	strb	r3, [r5, #1]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:464
+                return;
+ 18e:	bd70      	pop	{r4, r5, r6, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:466
+            } // return
+            if( executeCmd( ucBuffer, (PYGMYCMD *)BOOTCOMMANDS ) ){
+ 190:	f105 0087 	add.w	r0, r5, #135	; 0x87
+ 194:	491a      	ldr	r1, [pc, #104]	; (6c <USART3_IRQHandler+0x6c>)
+ 196:	f7ff fffe 	bl	0 <USART3_IRQHandler>
+ 19a:	2800      	cmp	r0, #0
+ 19c:	d1db      	bne.n	156 <USART3_IRQHandler+0x156>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:470
+                putstr( (u8*)BOOT_PROMPT );
+                //putstr( "\r> " );
+            } else{
+                putstr( (u8*)BOOT_ERROR );
+ 19e:	4819      	ldr	r0, [pc, #100]	; (204 <USART3_IRQHandler+0x204>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:485
+                ucBuffer[ ucIndex++ ] = ucByte;
+            } // else
+        } // else
+    } // if
+   
+}
+ 1a0:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:470
+            } // return
+            if( executeCmd( ucBuffer, (PYGMYCMD *)BOOTCOMMANDS ) ){
+                putstr( (u8*)BOOT_PROMPT );
+                //putstr( "\r> " );
+            } else{
+                putstr( (u8*)BOOT_ERROR );
+ 1a4:	f7ff bffe 	b.w	0 <USART3_IRQHandler>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:473
+                //putstr( "\rERROR\r> " );
+            } // else
+        } else if( globalBootStatus & BOOT_CANCEL ){
+ 1a8:	7863      	ldrb	r3, [r4, #1]
+ 1aa:	4d0c      	ldr	r5, [pc, #48]	; (1dc <USART3_IRQHandler+0x1dc>)
+ 1ac:	f013 0f80 	tst.w	r3, #128	; 0x80
+ 1b0:	d011      	beq.n	1d6 <USART3_IRQHandler+0x1d6>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:474
+            putcUSART3( ucByte );
+ 1b2:	4630      	mov	r0, r6
+ 1b4:	f7ff fffe 	bl	0 <USART3_IRQHandler>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:475
+            if( ucByte == '\b'  ){
+ 1b8:	2e08      	cmp	r6, #8
+ 1ba:	f895 3086 	ldrb.w	r3, [r5, #134]	; 0x86
+ 1be:	d104      	bne.n	1ca <USART3_IRQHandler+0x1ca>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:476
+                if( ucIndex ){
+ 1c0:	b14b      	cbz	r3, 1d6 <USART3_IRQHandler+0x1d6>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:477
+                    --ucIndex;
+ 1c2:	3b01      	subs	r3, #1
+ 1c4:	f885 3086 	strb.w	r3, [r5, #134]	; 0x86
+ 1c8:	bd70      	pop	{r4, r5, r6, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot/main.c:480
+                } // if
+            } else {
+                ucBuffer[ ucIndex++ ] = ucByte;
+ 1ca:	18ea      	adds	r2, r5, r3
+ 1cc:	3301      	adds	r3, #1
+ 1ce:	f882 6087 	strb.w	r6, [r2, #135]	; 0x87
+ 1d2:	f885 3086 	strb.w	r3, [r5, #134]	; 0x86
+ 1d6:	bd70      	pop	{r4, r5, r6, pc}
+ 1d8:	40004800 	.word	0x40004800
+	...
+ 1ec:	00000087 	.word	0x00000087
+ 1f0:	00000000 	.word	0x00000000
+ 1f4:	00000059 	.word	0x00000059
+ 1f8:	00000026 	.word	0x00000026
+ 1fc:	00000061 	.word	0x00000061
+ 200:	0000002c 	.word	0x0000002c
+ 204:	0000001d 	.word	0x0000001d

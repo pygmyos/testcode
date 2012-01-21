@@ -1,0 +1,71 @@
+
+<ApplicationBuild Header="Boot" Extern=".\Boot.rapp" Path=".\Boot.rapp" AsyncBuild="" OutputFile=".\Boot.elf" sate="98" >
+	<NodeC Path=".\main.c" Header="main.c" Marker="-1" AsyncBuild="" OutputFile=".\main.o" sate="0" >
+		<Options/>
+			
+	</NodeC>
+	<NodeC Path="..\..\pygmyos\core\pygmy_file.c" Header="pygmy_file.c" Marker="-1" AsyncBuild="" OutputFile=".\pygmy_file.o" sate="0" />
+	<NodeC Path="..\..\pygmyos\core\pygmy_string.c" Header="pygmy_string.c" Marker="-1" AsyncBuild="" OutputFile=".\pygmy_string.o" sate="0" />
+	<Options>
+		<Config Header="Standard" >
+			<Set Header="ApplicationBuild" >
+				<Section Header="General" >
+					<Property Header="TargetFamily" Value="ARM" />
+																																																													
+				</Section>
+				<Section Header="Directories" >
+					<Property Header="IncDir" Value=".;$(RkitLib)\ARM\include;C:\Users\MightyDubster\Documents\Projects\pygmyos;C:\Users\MightyDubster\Documents\Projects\pygmyos.code\core" Removable="1" />
+							
+				</Section>
+					
+			</Set>
+			<Set Header="Target" >
+				<Section Header="ProcessorARM" >
+					<Property Header="Processor" Value="STM32F100RB" />
+																																																													
+				</Section>
+				<Section Header="ToolSetARM" >
+					<Property Header="BuildToolSetARM" Value="ARM\GNU.config" Removable="1" />
+																																																													
+				</Section>
+																																															
+			</Set>
+			<Set Header="LD" >
+				<Section Header="LIB" >
+					<Property Header="UART0PUTC" Value="0" Removable="1" />
+																																																				
+				</Section>
+				<Section Header="Scripts" >
+					<Property Header="SCRIPTFILES" Value="No" Removable="1" />
+					<Property Header="File" Value="C:\Users\MightyDubster\Ride7\Nebula\boot\STM32F100_64K_8K_FLASH.ld" Removable="1" />
+																																																				
+				</Section>
+				<Section Header="Startup" >
+					<Property Header="DEFAULTSTARTUP" Value="No" Removable="1" />
+					<Property Header="File" Value="C:\Program Files (x86)\Raisonance\Ride\lib\ARM\startup_stm32f10x_hd.o" Removable="1" />
+																																																				
+				</Section>
+																																								
+			</Set>
+			<Set Header="RLINK_CORTEX" >
+				<Section Header="Advanced" >
+					<Property Header="Crystal" Value="12.000" />
+																																																				
+				</Section>
+																																								
+			</Set>
+			<Set Header="GCC" >
+				<Section Header="OPTIMIZE" >
+					<Property Header="Optimize" Value="-Os" Removable="1" />
+																																																				
+				</Section>
+				<Section Header="Defines" >
+					<Property Header="Defines" Value="__PYGMY_BOOT;__FILE_SMALLGETCHAR" Removable="1" />
+																
+				</Section>
+												
+			</Set>
+		</Config>
+	</Options>
+	<NodeC Path="..\..\pygmyos\core\pygmy_fpec.c" Header="pygmy_fpec.c" Marker="-1" AsyncBuild="" OutputFile=".\pygmy_fpec.o" sate="0" />
+</ApplicationBuild>
