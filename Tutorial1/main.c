@@ -1,6 +1,6 @@
 /**************************************************************************
     PygmyOS ( Pygmy Operating System )
-    Copyright (C) 2011  Warren D Greenway
+    Copyright (C) 2011-2012  Warren D Greenway
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -17,43 +17,61 @@
 ***************************************************************************/
 
 #include "pygmy_profile.h"
+#include "icons/busy.h"
+#include "ruby.h"
+#include "emerald.h"
+#include "topaz.h"
+#include "ytopaz.h"
 
-//u8 globalCOM3Buffer[ 128 ];
+PYGMYFILE imgBusy, imgRuby, imgEmerald, imgTopaz, imgYTopaz;
+u16 globalBusyCoords[]      = {48, 48, 0, 0};
+u16 globalRubyCoords[]      = { 0, 0, 16, 0, 32, 0, 48, 0, 64, 0, 80, 0, 96, 0, 112, 0,
+                                0, 16, 16, 16, 32, 16, 48, 16, 64, 16, 80, 16, 96, 16, 112, 16};
+ u16 globalEmeraldCoords[]  = { 0, 32, 16, 32, 32, 32, 48, 32, 64, 32, 80, 32, 96, 32, 112, 32,
+                                0, 48, 16, 48, 32, 48, 48, 48, 64, 48, 80, 48, 96, 48, 112, 48};
+u16 globalTopazCoords[]     = { 0, 64, 16, 64, 32, 64, 48, 64, 64, 64, 80, 64, 96, 64, 112, 64,
+                                0, 80, 16, 80, 32, 80, 48, 80, 64, 80, 80, 80, 96, 80, 112, 80};
+u16 globalYTopazCoords[]    = { 0, 96, 16, 96, 32, 96, 48, 96, 64, 96, 80, 96, 96, 96, 112, 96,
+                                0, 112, 16, 112, 32, 112, 48, 112, 64, 112, 80, 112, 96, 112, 112, 112};
 
-void main( void )
+void main( void )  
 { 
     PYGMYFILE pygmyImage;
-    PYGMYSPIPORT pygmySPI;
-    u16 uiPressure, uiTemp;
+    //PYGMYI2CPORT pygmyI2C;
+    //u16 uiPoly[] = { 16, 32, 32, 16, 64, 32, 32, 64, 16, 32 };
 
     //u32 ulID;
     sysInit();
+   
     streamEnableEcho( COM3 );
     streamEnableBackspace( COM3 );
     streamEnableActionChars( COM3 );
-    /*
     // GSM Shield Test Code
-    comConfig( COM2, 0, 0, 115200 );
-    streamSetGet( COM2, cmdGetsCOM3 );
-    streamSetRXBuffer( COM2, globalCOM3RXBuffer, __PYGMYCOM3BUFFERLEN );
-    streamSetPut( COM2, putsUSART2 );
-    pinConfig( D1, OUT );
-    pinConfig( D0, OUT );
-    pinSet( D1, LOW );
-    pinSet( D0, LOW );
-    pinConfig( T1, OUT );
-    pinSet( T1, HIGH );*/
-
-    /*lcdInit();
-    if( fileOpen( &pygmyImage, "picon128", READ ) ){
-        drawImage( 0, 0, &pygmyImage, 0 );
+    //streamEnableEcho( COM2 );
+    
+    //fileOpenResource( &imgBusy, (u8*)PYGMY_busy );
+    fileOpenResource( &imgRuby, (u8*)PYGMY_ruby );
+    fileOpenResource( &imgEmerald, (u8*)PYGMY_emerald );
+    fileOpenResource( &imgTopaz, (u8*)PYGMY_topaz );
+    fileOpenResource( &imgYTopaz, (u8*)PYGMY_ytopaz );
+    guiInitSprites();
+    //guiCreateSprite( &imgBusy, 1, globalBusyCoords, 2, 100, 0 );
+    guiCreateSprite( &imgRuby, 2, globalRubyCoords, 32, 100, 0 );
+    guiCreateSprite( &imgEmerald, 3, globalEmeraldCoords, 32, 100, 0 );
+    guiCreateSprite( &imgTopaz, 4, globalTopazCoords, 32, 100, 0 );
+    guiCreateSprite( &imgYTopaz, 5, globalYTopazCoords, 32, 100, 0 );
+    //guiCreateSprite( &imgBusy, 56, 56, 10 );
+    //drawPoly( uiPoly, 10, 0 );
+    /*drawLine( 16, 32, 32, 16, 0 );
+    drawLine( 32, 16, 64, 32, 0 );
+    drawLine( 64, 32, 32, 64, 0 );
+    drawLine( 32, 64, 16, 32, 0 );*/
+    /*if( fileOpen( &pygmyImage, "ruby.pbm", READ ) ){
+        drawImage( 100, 0, &pygmyImage, 0 );
     } else{
         print( COM3, "\rImage failed to open!" );
     } // else
     */
-    //delay( 120 );
-    //adcSingleSampleInit();
-    print( COM3, "MCUID: %X\r> ", descriptorGetID( ) );
     
     //print( COM3, "\rChannel4 Voltage: %d",  adcSingleSample( A4 ) );
     //voltShieldInit( );
@@ -61,7 +79,7 @@ void main( void )
     //print( COM3, "\rChannel2 Resistance: %d\r> ", voltShieldGetResistance( 2 ) );
     //print( COM3, "\rChannel3 V%d R%d\r> ", voltShieldGetVoltage( 3 ), voltShieldGetResistance( 3 ) );
     //print( COM3, "\rChannel4 V%d R%d\r> ", voltShieldGetVoltage( 4 ), voltShieldGetResistance( 4 ) );
-  
+    
     //print( COM3, "\rWiper0: %d", voltShieldGetGain( 0 ) );
     //shieldGetPressure();
    

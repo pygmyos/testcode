@@ -1,7 +1,9 @@
 
 <ApplicationBuild Header="Tutorial1" Extern=".\Tutorial1.rapp" Path=".\Tutorial1.rapp" AsyncBuild="" OutputFile=".\Tutorial1.elf" sate="96" >
-	<NodeC Path=".\main.c" Header="main.c" Marker="-1" AsyncBuild="" OutputFile=".\main.o" sate="2" />
+	<NodeC Path=".\main.c" Header="main.c" Marker="-1" AsyncBuild="" OutputFile=".\main.o" sate="0" />
 	<NodeC Path="..\..\pygmyos\core\pygmy_adc.c" Header="pygmy_adc.c" Marker="-1" AsyncBuild="" OutputFile=".\pygmy_adc.o" sate="0" />
+	<NodeC Path="..\..\pygmyos\core\pygmy_audio.c" Header="pygmy_audio.c" Marker="-1" AsyncBuild="" OutputFile=".\pygmy_audio.o" sate="2" />
+	<NodeC Path="..\..\pygmyos\core\pygmy_cmd.c" Header="pygmy_cmd.c" Marker="-1" AsyncBuild="" OutputFile=".\pygmy_cmd.o" sate="0" />
 	<NodeC Path="..\..\pygmyos\core\pygmy_com.c" Header="pygmy_com.c" Marker="-1" AsyncBuild="" OutputFile=".\pygmy_com.o" sate="0" />
 	<NodeC Path="..\..\pygmyos\core\pygmy_debug.c" Header="pygmy_debug.c" Marker="-1" AsyncBuild="" OutputFile=".\pygmy_debug.o" sate="0" />
 	<NodeC Path="..\..\pygmyos\core\pygmy_file.c" Header="pygmy_file.c" Marker="-1" AsyncBuild="" OutputFile=".\pygmy_file.o" sate="0" />
@@ -18,67 +20,65 @@
 			<Set Header="ApplicationBuild" >
 				<Section Header="General" >
 					<Property Header="TargetFamily" Value="ARM" />
-																																																													
+																																																																															
 				</Section>
 				<Section Header="Directories" >
 					<Property Header="IncDir" Value=".;$(RkitLib)\ARM\include;C:\Users\MightyDubster\Documents\Projects\pygmyos\core;C:\Users\MightyDubster\Documents\Projects\pygmyos" Removable="1" />
-																																		
+																																																				
 				</Section>
-																										
+																																								
 			</Set>
 			<Set Header="Target" >
 				<Section Header="ProcessorARM" >
 					<Property Header="Processor" Value="STM32F100R8" />
-																																																													
+																																																																															
 				</Section>
 				<Section Header="ToolSetARM" >
 					<Property Header="BuildToolSetARM" Value="ARM\GNU.config" Removable="1" />
-																																																													
+																																																																															
 				</Section>
-																																															
+																																																													
 			</Set>
 			<Set Header="LD" >
 				<Section Header="Startup" >
 					<Property Header="DEFAULTSTARTUP" Value="No" Removable="1" />
 					<Property Header="File" Value="C:\Program Files (x86)\Raisonance\Ride\lib\ARM\startup_stm32f10x_md.o" Removable="1" />
-																																		
+																																																				
 				</Section>
 				<Section Header="Scripts" >
 					<Property Header="SCRIPTFILES" Value="No" Removable="1" />
-					<Property Header="File" Value="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\core\STM32F100_64K_8K_FLASH_PygmyOS.ld" Removable="1" />
-																																		
+					<Property Header="File" Value="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Tutorial1\STM32F100_64K_8K_FLASH_PygmyOS.ld" Removable="1" />
+																
 				</Section>
 				<Section Header="LIB" >
 					<Property Header="UART0PUTC" Value="0" Removable="1" />
-																																																				
+																																																																						
 				</Section>
 				<Section Header="Linker" >
 					<Property Header="MAPFILE" Value="No" Removable="1" />
-																																											
+																																																													
 				</Section>
-																										
+												
 			</Set>
 			<Set Header="GCC" >
 				<Section Header="OPTIMIZE" >
 					<Property Header="Optimize" Value="-Os" Removable="1" />
-																																																				
+																																																																						
 				</Section>
 				<Section Header="DEBUG" >
 					<Property Header="DEBUGINFO" Value="" Removable="1" />
-																																																				
+																																																																						
 				</Section>
 				<Section Header="WARNINGS" >
 					<Property Header="SHADOWARNINGS" Value="-Wshadow" Removable="1" />
 					<Property Header="UNUSEDWARNINGS" Value="-Wunused" Removable="1" />
-																																											
+																																																													
 				</Section>
-																																	
+																																															
 			</Set>
-															
+					
 		</Config>
-									
+			
 	</Options>
-	<NodeC Path="..\..\pygmyos\core\pygmy_cmd.c" Header="pygmy_cmd.c" Marker="-1" AsyncBuild="" OutputFile=".\pygmy_cmd.o" sate="0" />
 	<NodeC Path="..\..\pygmyos\profiles\lcd\varitronix128x128_parallel.c" Header="varitronix128x128_parallel.c" Marker="-1" AsyncBuild="" OutputFile=".\varitronix128x128_parallel.o" sate="0" />
-	<NodeC Path="..\..\pygmyos\profiles\nebula\shields\voltShield.c" Header="voltShield.c" Marker="-1" AsyncBuild="" OutputFile=".\voltShield.o" sate="0" />
 </ApplicationBuild>

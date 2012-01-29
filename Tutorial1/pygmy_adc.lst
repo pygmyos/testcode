@@ -1,6 +1,6 @@
 
-C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\Tutorial1\pygmy_adc.o:     file format elf32-littlearm
-C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\Tutorial1\pygmy_adc.o
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Tutorial1\pygmy_adc.o:     file format elf32-littlearm
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Tutorial1\pygmy_adc.o
 
 
 Disassembly of section .text.adcGetStatus:
@@ -23,7 +23,7 @@ ADC1_2_IRQHandler():
    6:	f012 0f02 	tst.w	r2, #2
    a:	d004      	beq.n	16 <ADC1_2_IRQHandler+0x16>
    c:	6cda      	ldr	r2, [r3, #76]	; 0x4c
-   e:	2002      	movs	r0, #2
+   e:	2001      	movs	r0, #1
   10:	4904      	ldr	r1, [pc, #16]	; (24 <ADC1_2_IRQHandler+0x24>)
   12:	f7ff fffe 	bl	0 <print>
   16:	4b02      	ldr	r3, [pc, #8]	; (20 <ADC1_2_IRQHandler+0x20>)
@@ -43,12 +43,12 @@ DMAChannel1_IRQHandler():
    4:	681b      	ldr	r3, [r3, #0]
    6:	f013 0f08 	tst.w	r3, #8
    a:	d00d      	beq.n	28 <DMAChannel1_IRQHandler+0x28>
-   c:	2002      	movs	r0, #2
+   c:	2001      	movs	r0, #1
    e:	4908      	ldr	r1, [pc, #32]	; (30 <DMAChannel1_IRQHandler+0x30>)
   10:	f7ff fffe 	bl	0 <print>
   14:	2400      	movs	r4, #0
   16:	4b07      	ldr	r3, [pc, #28]	; (34 <DMAChannel1_IRQHandler+0x34>)
-  18:	2002      	movs	r0, #2
+  18:	2001      	movs	r0, #1
   1a:	5b1a      	ldrh	r2, [r3, r4]
   1c:	4906      	ldr	r1, [pc, #24]	; (38 <DMAChannel1_IRQHandler+0x38>)
   1e:	3402      	adds	r4, #2

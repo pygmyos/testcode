@@ -1,0 +1,86 @@
+
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Tutorial1\mcp443x.o:     file format elf32-littlearm
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Tutorial1\mcp443x.o
+
+
+Disassembly of section .text.digipotIncWiper:
+
+00000000 <digipotIncWiper>:
+digipotIncWiper():
+   0:	2903      	cmp	r1, #3
+   2:	b508      	push	{r3, lr}
+   4:	d809      	bhi.n	1a <digipotIncWiper+0x1a>
+   6:	4b06      	ldr	r3, [pc, #24]	; (20 <digipotIncWiper+0x20>)
+   8:	2200      	movs	r2, #0
+   a:	5c59      	ldrb	r1, [r3, r1]
+   c:	4613      	mov	r3, r2
+   e:	f041 0104 	orr.w	r1, r1, #4
+  12:	f7ff fffe 	bl	0 <i2cWriteBuffer>
+  16:	2001      	movs	r0, #1
+  18:	bd08      	pop	{r3, pc}
+  1a:	2000      	movs	r0, #0
+  1c:	bd08      	pop	{r3, pc}
+  1e:	bf00      	nop
+  20:	00000000 	.word	0x00000000
+
+Disassembly of section .text.digipotDecWiper:
+
+00000000 <digipotDecWiper>:
+digipotDecWiper():
+   0:	2903      	cmp	r1, #3
+   2:	b508      	push	{r3, lr}
+   4:	d809      	bhi.n	1a <digipotDecWiper+0x1a>
+   6:	4b06      	ldr	r3, [pc, #24]	; (20 <digipotDecWiper+0x20>)
+   8:	2200      	movs	r2, #0
+   a:	5c59      	ldrb	r1, [r3, r1]
+   c:	4613      	mov	r3, r2
+   e:	f041 0108 	orr.w	r1, r1, #8
+  12:	f7ff fffe 	bl	0 <i2cWriteBuffer>
+  16:	2001      	movs	r0, #1
+  18:	bd08      	pop	{r3, pc}
+  1a:	2000      	movs	r0, #0
+  1c:	bd08      	pop	{r3, pc}
+  1e:	bf00      	nop
+  20:	00000000 	.word	0x00000000
+
+Disassembly of section .text.digipotSetWiper:
+
+00000000 <digipotSetWiper>:
+digipotSetWiper():
+   0:	2903      	cmp	r1, #3
+   2:	b507      	push	{r0, r1, r2, lr}
+   4:	d80a      	bhi.n	1c <digipotSetWiper+0x1c>
+   6:	4b06      	ldr	r3, [pc, #24]	; (20 <digipotSetWiper+0x20>)
+   8:	5c59      	ldrb	r1, [r3, r1]
+   a:	ab02      	add	r3, sp, #8
+   c:	f803 2d04 	strb.w	r2, [r3, #-4]!
+  10:	461a      	mov	r2, r3
+  12:	2301      	movs	r3, #1
+  14:	f7ff fffe 	bl	0 <i2cWriteBuffer>
+  18:	2001      	movs	r0, #1
+  1a:	e000      	b.n	1e <digipotSetWiper+0x1e>
+  1c:	2000      	movs	r0, #0
+  1e:	bd0e      	pop	{r1, r2, r3, pc}
+  20:	00000000 	.word	0x00000000
+
+Disassembly of section .text.digipotGetWiper:
+
+00000000 <digipotGetWiper>:
+digipotGetWiper():
+   0:	2903      	cmp	r1, #3
+   2:	b507      	push	{r0, r1, r2, lr}
+   4:	d80f      	bhi.n	26 <digipotGetWiper+0x26>
+   6:	4b09      	ldr	r3, [pc, #36]	; (2c <digipotGetWiper+0x2c>)
+   8:	aa01      	add	r2, sp, #4
+   a:	5c59      	ldrb	r1, [r3, r1]
+   c:	2302      	movs	r3, #2
+   e:	f041 010c 	orr.w	r1, r1, #12
+  12:	f7ff fffe 	bl	0 <i2cReadBuffer>
+  16:	f89d 0004 	ldrb.w	r0, [sp, #4]
+  1a:	f89d 3005 	ldrb.w	r3, [sp, #5]
+  1e:	ea43 2040 	orr.w	r0, r3, r0, lsl #9
+  22:	b280      	uxth	r0, r0
+  24:	e001      	b.n	2a <digipotGetWiper+0x2a>
+  26:	f64f 70ff 	movw	r0, #65535	; 0xffff
+  2a:	bd0e      	pop	{r1, r2, r3, pc}
+  2c:	00000000 	.word	0x00000000

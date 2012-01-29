@@ -28,20 +28,28 @@
 
 #define __PYGMYCOMMANDS
 #define __PYGMYFILES
-//#define __PYGMYTASKS
+#define __PYGMYTASKS
+#define __PYGMYSPRITES
 //#define __PYGMYMESSAGES
+
+//#define __PYGMYMODEMSHIELD
+//#define __PYGMYVOLTSHIELD
+//#define __PYGMYWEATHERSHIELD
+//#define __PYGMYMOTIONSHIELD
+//#define __PYGMYIMUSHIELD
+#define __PYGMYLCDSHIELD
 
 //---------------------------------- Stream Setting Defines-----------------------------------
 //--------------------------------------------------------------------------------------------
 #define __PYGMYSTREAMS
     //#define __PYGMYSTREAMCOM1
-    #define __PYGMYSTREAMCOM2
+    //#define __PYGMYSTREAMCOM2
     #define __PYGMYSTREAMCOM3
     //#define __PYGMYSTREAMCOM4
     //#define __PYGMYSTREAMCOM5
     //#define __PYGMYSTREAMLCD
     #define __PYGMYSTREAMFILE
-    #define __PYGMYSTREAMUSER
+    //#define __PYGMYSTREAMUSER
     #define __PYGMY
 //---------------------------------- Stream Setting Defines-----------------------------------
 //--------------------------------------------------------------------------------------------
@@ -70,6 +78,8 @@
 #include "profiles/nebula/pygmy_nebula.h"
 #include "profiles/nebula/shields/lcdVaritronixParallel.h"
 #include "profiles/nebula/shields/voltShield.h"
+#include "profiles/digipots/mcp443x.h"
+#include "profiles/nebula/shields/gsmModem.h"
 
 //-------------------------------------------------------------------------------------
 // Place User Defines Below -----------------------------------------------------------

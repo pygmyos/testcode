@@ -1,6 +1,6 @@
 
-C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\Tutorial1\pygmy_rf.o:     file format elf32-littlearm
-C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\Tutorial1\pygmy_rf.o
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Tutorial1\pygmy_rf.o:     file format elf32-littlearm
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Tutorial1\pygmy_rf.o
 
 
 Disassembly of section .text.rfGetID:
@@ -24,22 +24,22 @@ rfLoadPacket():
    a:	492a      	ldr	r1, [pc, #168]	; (b4 <rfLoadPacket+0xb4>)
    c:	4602      	mov	r2, r0
    e:	6020      	str	r0, [r4, #0]
-  10:	2002      	movs	r0, #2
+  10:	2001      	movs	r0, #1
   12:	f7ff fffe 	bl	0 <print>
   16:	792a      	ldrb	r2, [r5, #4]
-  18:	2002      	movs	r0, #2
+  18:	2001      	movs	r0, #1
   1a:	0952      	lsrs	r2, r2, #5
   1c:	72a2      	strb	r2, [r4, #10]
   1e:	4926      	ldr	r1, [pc, #152]	; (b8 <rfLoadPacket+0xb8>)
   20:	f7ff fffe 	bl	0 <print>
   24:	792a      	ldrb	r2, [r5, #4]
-  26:	2002      	movs	r0, #2
+  26:	2001      	movs	r0, #1
   28:	f002 021f 	and.w	r2, r2, #31
   2c:	72e2      	strb	r2, [r4, #11]
   2e:	4923      	ldr	r1, [pc, #140]	; (bc <rfLoadPacket+0xbc>)
   30:	f7ff fffe 	bl	0 <print>
   34:	796a      	ldrb	r2, [r5, #5]
-  36:	2002      	movs	r0, #2
+  36:	2001      	movs	r0, #1
   38:	7322      	strb	r2, [r4, #12]
   3a:	4921      	ldr	r1, [pc, #132]	; (c0 <rfLoadPacket+0xc0>)
   3c:	f7ff fffe 	bl	0 <print>
@@ -65,7 +65,7 @@ rfLoadPacket():
   6c:	4915      	ldr	r1, [pc, #84]	; (c4 <rfLoadPacket+0xc4>)
   6e:	4603      	mov	r3, r0
   70:	4632      	mov	r2, r6
-  72:	2002      	movs	r0, #2
+  72:	2001      	movs	r0, #1
   74:	f7ff fffe 	bl	0 <print>
   78:	2000      	movs	r0, #0
   7a:	bd70      	pop	{r4, r5, r6, pc}
@@ -77,20 +77,20 @@ rfLoadPacket():
   86:	3201      	adds	r2, #1
   88:	428b      	cmp	r3, r1
   8a:	d3f7      	bcc.n	7c <rfLoadPacket+0x7c>
-  8c:	7aa3      	ldrb	r3, [r4, #10]
-  8e:	2b01      	cmp	r3, #1
+  8c:	7aa5      	ldrb	r5, [r4, #10]
+  8e:	2d01      	cmp	r5, #1
   90:	d10f      	bne.n	b2 <rfLoadPacket+0xb2>
   92:	7ba2      	ldrb	r2, [r4, #14]
   94:	490c      	ldr	r1, [pc, #48]	; (c8 <rfLoadPacket+0xc8>)
   96:	7362      	strb	r2, [r4, #13]
-  98:	2002      	movs	r0, #2
+  98:	4628      	mov	r0, r5
   9a:	f7ff fffe 	bl	0 <print>
   9e:	f104 000f 	add.w	r0, r4, #15
   a2:	f7ff fffe 	bl	0 <convertBufferToU32>
   a6:	4909      	ldr	r1, [pc, #36]	; (cc <rfLoadPacket+0xcc>)
   a8:	4602      	mov	r2, r0
   aa:	6060      	str	r0, [r4, #4]
-  ac:	2002      	movs	r0, #2
+  ac:	4628      	mov	r0, r5
   ae:	f7ff fffe 	bl	0 <print>
   b2:	bd70      	pop	{r4, r5, r6, pc}
   b4:	00000000 	.word	0x00000000
@@ -110,10 +110,10 @@ rfListSockets():
    8:	68a3      	ldr	r3, [r4, #8]
    a:	2b00      	cmp	r3, #0
    c:	d030      	beq.n	70 <rfListSockets+0x70>
-   e:	2002      	movs	r0, #2
+   e:	2001      	movs	r0, #1
   10:	491a      	ldr	r1, [pc, #104]	; (7c <rfListSockets+0x7c>)
   12:	f7ff fffe 	bl	0 <print>
-  16:	2002      	movs	r0, #2
+  16:	2001      	movs	r0, #1
   18:	4919      	ldr	r1, [pc, #100]	; (80 <rfListSockets+0x80>)
   1a:	68a2      	ldr	r2, [r4, #8]
   1c:	f7ff fffe 	bl	0 <print>
@@ -121,35 +121,35 @@ rfListSockets():
   22:	0940      	lsrs	r0, r0, #5
   24:	2804      	cmp	r0, #4
   26:	d102      	bne.n	2e <rfListSockets+0x2e>
-  28:	3802      	subs	r0, #2
+  28:	3803      	subs	r0, #3
   2a:	4916      	ldr	r1, [pc, #88]	; (84 <rfListSockets+0x84>)
   2c:	e00f      	b.n	4e <rfListSockets+0x4e>
   2e:	2801      	cmp	r0, #1
-  30:	d102      	bne.n	38 <rfListSockets+0x38>
-  32:	3001      	adds	r0, #1
-  34:	4914      	ldr	r1, [pc, #80]	; (88 <rfListSockets+0x88>)
-  36:	e00a      	b.n	4e <rfListSockets+0x4e>
-  38:	2802      	cmp	r0, #2
-  3a:	d101      	bne.n	40 <rfListSockets+0x40>
+  30:	d101      	bne.n	36 <rfListSockets+0x36>
+  32:	4915      	ldr	r1, [pc, #84]	; (88 <rfListSockets+0x88>)
+  34:	e00b      	b.n	4e <rfListSockets+0x4e>
+  36:	2802      	cmp	r0, #2
+  38:	d102      	bne.n	40 <rfListSockets+0x40>
+  3a:	3801      	subs	r0, #1
   3c:	4913      	ldr	r1, [pc, #76]	; (8c <rfListSockets+0x8c>)
   3e:	e006      	b.n	4e <rfListSockets+0x4e>
   40:	2803      	cmp	r0, #3
   42:	d102      	bne.n	4a <rfListSockets+0x4a>
-  44:	3801      	subs	r0, #1
+  44:	3802      	subs	r0, #2
   46:	4912      	ldr	r1, [pc, #72]	; (90 <rfListSockets+0x90>)
   48:	e001      	b.n	4e <rfListSockets+0x4e>
   4a:	4912      	ldr	r1, [pc, #72]	; (94 <rfListSockets+0x94>)
-  4c:	2002      	movs	r0, #2
+  4c:	2001      	movs	r0, #1
   4e:	f7ff fffe 	bl	0 <print>
-  52:	2002      	movs	r0, #2
+  52:	2001      	movs	r0, #1
   54:	4910      	ldr	r1, [pc, #64]	; (98 <rfListSockets+0x98>)
   56:	7b62      	ldrb	r2, [r4, #13]
   58:	f7ff fffe 	bl	0 <print>
-  5c:	2002      	movs	r0, #2
+  5c:	2001      	movs	r0, #1
   5e:	490f      	ldr	r1, [pc, #60]	; (9c <rfListSockets+0x9c>)
   60:	7ba2      	ldrb	r2, [r4, #14]
   62:	f7ff fffe 	bl	0 <print>
-  66:	2002      	movs	r0, #2
+  66:	2001      	movs	r0, #1
   68:	490d      	ldr	r1, [pc, #52]	; (a0 <rfListSockets+0xa0>)
   6a:	6822      	ldr	r2, [r4, #0]
   6c:	f7ff fffe 	bl	0 <print>
@@ -537,7 +537,7 @@ rfSendPacket():
   74:	3506      	adds	r5, #6
   76:	b2ed      	uxtb	r5, r5
   78:	462a      	mov	r2, r5
-  7a:	2002      	movs	r0, #2
+  7a:	2001      	movs	r0, #1
   7c:	4916      	ldr	r1, [pc, #88]	; (d8 <rfSendPacket+0xd8>)
   7e:	f7ff fffe 	bl	0 <print>
   82:	4629      	mov	r1, r5
@@ -554,14 +554,14 @@ rfSendPacket():
   9c:	1953      	adds	r3, r2, r5
   9e:	f803 0c20 	strb.w	r0, [r3, #-32]
   a2:	3501      	adds	r5, #1
-  a4:	2002      	movs	r0, #2
+  a4:	2001      	movs	r0, #1
   a6:	490d      	ldr	r1, [pc, #52]	; (dc <rfSendPacket+0xdc>)
   a8:	b2ed      	uxtb	r5, r5
   aa:	f7ff fffe 	bl	0 <print>
   ae:	f10d 36ff 	add.w	r6, sp, #4294967295
   b2:	2400      	movs	r4, #0
   b4:	e007      	b.n	c6 <rfSendPacket+0xc6>
-  b6:	2002      	movs	r0, #2
+  b6:	2001      	movs	r0, #1
   b8:	4909      	ldr	r1, [pc, #36]	; (e0 <rfSendPacket+0xe0>)
   ba:	f816 2f01 	ldrb.w	r2, [r6, #1]!
   be:	f7ff fffe 	bl	0 <print>
@@ -704,14 +704,14 @@ Disassembly of section .text.rfProcessPacket:
 
 00000000 <rfProcessPacket>:
 rfProcessPacket():
-   0:	b500      	push	{lr}
-   2:	b08b      	sub	sp, #44	; 0x2c
+   0:	b510      	push	{r4, lr}
+   2:	b08a      	sub	sp, #40	; 0x28
    4:	4669      	mov	r1, sp
    6:	f7ff fffe 	bl	0 <rfProcessPacket>
-   a:	f89d 300a 	ldrb.w	r3, [sp, #10]
-   e:	2b01      	cmp	r3, #1
+   a:	f89d 400a 	ldrb.w	r4, [sp, #10]
+   e:	2c01      	cmp	r4, #1
   10:	d119      	bne.n	46 <rfProcessPacket+0x46>
-  12:	3302      	adds	r3, #2
+  12:	2303      	movs	r3, #3
   14:	f88d 300a 	strb.w	r3, [sp, #10]
   18:	4b0c      	ldr	r3, [pc, #48]	; (4c <rfProcessPacket+0x4c>)
   1a:	9801      	ldr	r0, [sp, #4]
@@ -722,17 +722,17 @@ rfProcessPacket():
   26:	f7ff fffe 	bl	0 <rfProcessPacket>
   2a:	28ff      	cmp	r0, #255	; 0xff
   2c:	d104      	bne.n	38 <rfProcessPacket+0x38>
-  2e:	38fd      	subs	r0, #253	; 0xfd
+  2e:	4620      	mov	r0, r4
   30:	4907      	ldr	r1, [pc, #28]	; (50 <rfProcessPacket+0x50>)
   32:	f7ff fffe 	bl	0 <print>
   36:	e006      	b.n	46 <rfProcessPacket+0x46>
-  38:	2002      	movs	r0, #2
+  38:	4620      	mov	r0, r4
   3a:	4906      	ldr	r1, [pc, #24]	; (54 <rfProcessPacket+0x54>)
   3c:	f7ff fffe 	bl	0 <print>
   40:	4668      	mov	r0, sp
   42:	f7ff fffe 	bl	0 <rfProcessPacket>
-  46:	b00b      	add	sp, #44	; 0x2c
-  48:	bd00      	pop	{pc}
+  46:	b00a      	add	sp, #40	; 0x28
+  48:	bd10      	pop	{r4, pc}
   4a:	bf00      	nop
   4c:	00000000 	.word	0x00000000
   50:	000000da 	.word	0x000000da

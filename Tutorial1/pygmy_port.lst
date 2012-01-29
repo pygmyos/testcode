@@ -1,6 +1,6 @@
 
-C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\Tutorial1\pygmy_port.o:     file format elf32-littlearm
-C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\Tutorial1\pygmy_port.o
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Tutorial1\pygmy_port.o:     file format elf32-littlearm
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Tutorial1\pygmy_port.o
 
 
 Disassembly of section .text.pinGetIRQPR:
@@ -621,117 +621,92 @@ Disassembly of section .text.pinAddSoftPWM:
 
 00000000 <pinAddSoftPWM>:
 pinAddSoftPWM():
-   0:	e92d 4ff8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, lr}
-   4:	4b46      	ldr	r3, [pc, #280]	; (120 <pinAddSoftPWM+0x120>)
-   6:	4605      	mov	r5, r0
-   8:	681b      	ldr	r3, [r3, #0]
-   a:	460e      	mov	r6, r1
-   c:	4614      	mov	r4, r2
+   0:	4b35      	ldr	r3, [pc, #212]	; (d8 <pinAddSoftPWM+0xd8>)
+   2:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
+   6:	681b      	ldr	r3, [r3, #0]
+   8:	4604      	mov	r4, r0
+   a:	460d      	mov	r5, r1
+   c:	4690      	mov	r8, r2
    e:	b90b      	cbnz	r3, 14 <pinAddSoftPWM+0x14>
   10:	f7ff fffe 	bl	0 <pinAddSoftPWM>
-  14:	4b43      	ldr	r3, [pc, #268]	; (124 <pinAddSoftPWM+0x124>)
+  14:	4b31      	ldr	r3, [pc, #196]	; (dc <pinAddSoftPWM+0xdc>)
   16:	2200      	movs	r2, #0
-  18:	4692      	mov	sl, r2
-  1a:	461f      	mov	r7, r3
+  18:	4617      	mov	r7, r2
+  1a:	4699      	mov	r9, r3
   1c:	7b59      	ldrb	r1, [r3, #13]
   1e:	b111      	cbz	r1, 26 <pinAddSoftPWM+0x26>
   20:	7b19      	ldrb	r1, [r3, #12]
-  22:	42a9      	cmp	r1, r5
-  24:	d10b      	bne.n	3e <pinAddSoftPWM+0x3e>
-  26:	eb07 1202 	add.w	r2, r7, r2, lsl #4
-  2a:	f04f 0900 	mov.w	r9, #0
-  2e:	f1ba 0f08 	cmp.w	sl, #8
-  32:	f8df b0f0 	ldr.w	fp, [pc, #240]	; 124 <pinAddSoftPWM+0x124>
-  36:	f882 900d 	strb.w	r9, [r2, #13]
-  3a:	d10c      	bne.n	56 <pinAddSoftPWM+0x56>
-  3c:	e06d      	b.n	11a <pinAddSoftPWM+0x11a>
-  3e:	f10a 0a01 	add.w	sl, sl, #1
-  42:	fa1f fa8a 	uxth.w	sl, sl
-  46:	3201      	adds	r2, #1
-  48:	3310      	adds	r3, #16
-  4a:	f1ba 0f08 	cmp.w	sl, #8
-  4e:	d1e5      	bne.n	1c <pinAddSoftPWM+0x1c>
-  50:	f04f 0900 	mov.w	r9, #0
-  54:	e061      	b.n	11a <pinAddSoftPWM+0x11a>
-  56:	2c64      	cmp	r4, #100	; 0x64
-  58:	d85f      	bhi.n	11a <pinAddSoftPWM+0x11a>
-  5a:	2e00      	cmp	r6, #0
-  5c:	d05c      	beq.n	118 <pinAddSoftPWM+0x118>
-  5e:	2103      	movs	r1, #3
-  60:	4628      	mov	r0, r5
-  62:	f7ff fffe 	bl	0 <pinAddSoftPWM>
-  66:	ea4f 110a 	mov.w	r1, sl, lsl #4
-  6a:	eb0b 0301 	add.w	r3, fp, r1
-  6e:	f84b 9001 	str.w	r9, [fp, r1]
-  72:	f8c3 9004 	str.w	r9, [r3, #4]
-  76:	f8df 80c8 	ldr.w	r8, [pc, #200]	; 140 <pinAddSoftPWM+0x140>
-  7a:	b914      	cbnz	r4, 82 <pinAddSoftPWM+0x82>
-  7c:	4628      	mov	r0, r5
-  7e:	4621      	mov	r1, r4
-  80:	e003      	b.n	8a <pinAddSoftPWM+0x8a>
-  82:	2c64      	cmp	r4, #100	; 0x64
-  84:	d104      	bne.n	90 <pinAddSoftPWM+0x90>
-  86:	4628      	mov	r0, r5
-  88:	2101      	movs	r1, #1
-  8a:	f7ff fffe 	bl	0 <pinAddSoftPWM>
-  8e:	e01e      	b.n	ce <pinAddSoftPWM+0xce>
-  90:	f04f 0e64 	mov.w	lr, #100	; 0x64
-  94:	fb9e f0f4 	sdiv	r0, lr, r4
-  98:	4370      	muls	r0, r6
-  9a:	f8d8 2000 	ldr.w	r2, [r8]
-  9e:	fbb2 f0f0 	udiv	r0, r2, r0
-  a2:	f84b 0001 	str.w	r0, [fp, r1]
-  a6:	ebc4 010e 	rsb	r1, r4, lr
-  aa:	fb9e fef1 	sdiv	lr, lr, r1
-  ae:	fb06 f60e 	mul.w	r6, r6, lr
-  b2:	fbb2 f6f6 	udiv	r6, r2, r6
-  b6:	1830      	adds	r0, r6, r0
-  b8:	4290      	cmp	r0, r2
-  ba:	605e      	str	r6, [r3, #4]
-  bc:	d904      	bls.n	c8 <pinAddSoftPWM+0xc8>
-  be:	2002      	movs	r0, #2
-  c0:	4919      	ldr	r1, [pc, #100]	; (128 <pinAddSoftPWM+0x128>)
-  c2:	f7ff fffe 	bl	0 <print>
-  c6:	e028      	b.n	11a <pinAddSoftPWM+0x11a>
-  c8:	2201      	movs	r2, #1
-  ca:	735a      	strb	r2, [r3, #13]
-  cc:	731d      	strb	r5, [r3, #12]
-  ce:	ea4f 160a 	mov.w	r6, sl, lsl #4
-  d2:	59bb      	ldr	r3, [r7, r6]
-  d4:	eb07 0906 	add.w	r9, r7, r6
-  d8:	f8c9 3008 	str.w	r3, [r9, #8]
-  dc:	2002      	movs	r0, #2
-  de:	4913      	ldr	r1, [pc, #76]	; (12c <pinAddSoftPWM+0x12c>)
-  e0:	462a      	mov	r2, r5
-  e2:	f7ff fffe 	bl	0 <print>
-  e6:	2002      	movs	r0, #2
-  e8:	4911      	ldr	r1, [pc, #68]	; (130 <pinAddSoftPWM+0x130>)
-  ea:	f8d8 2000 	ldr.w	r2, [r8]
-  ee:	f7ff fffe 	bl	0 <print>
-  f2:	2002      	movs	r0, #2
-  f4:	490f      	ldr	r1, [pc, #60]	; (134 <pinAddSoftPWM+0x134>)
-  f6:	59ba      	ldr	r2, [r7, r6]
-  f8:	f7ff fffe 	bl	0 <print>
-  fc:	f8d9 2004 	ldr.w	r2, [r9, #4]
- 100:	2002      	movs	r0, #2
- 102:	490d      	ldr	r1, [pc, #52]	; (138 <pinAddSoftPWM+0x138>)
- 104:	f7ff fffe 	bl	0 <print>
- 108:	2002      	movs	r0, #2
- 10a:	490c      	ldr	r1, [pc, #48]	; (13c <pinAddSoftPWM+0x13c>)
- 10c:	4622      	mov	r2, r4
- 10e:	f7ff fffe 	bl	0 <print>
- 112:	f04f 0901 	mov.w	r9, #1
- 116:	e000      	b.n	11a <pinAddSoftPWM+0x11a>
- 118:	46b1      	mov	r9, r6
- 11a:	4648      	mov	r0, r9
- 11c:	e8bd 8ff8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}
+  22:	42a1      	cmp	r1, r4
+  24:	d108      	bne.n	38 <pinAddSoftPWM+0x38>
+  26:	2600      	movs	r6, #0
+  28:	eb09 1202 	add.w	r2, r9, r2, lsl #4
+  2c:	2f08      	cmp	r7, #8
+  2e:	f8df a0ac 	ldr.w	sl, [pc, #172]	; dc <pinAddSoftPWM+0xdc>
+  32:	7356      	strb	r6, [r2, #13]
+  34:	d108      	bne.n	48 <pinAddSoftPWM+0x48>
+  36:	e04c      	b.n	d2 <pinAddSoftPWM+0xd2>
+  38:	3701      	adds	r7, #1
+  3a:	b2bf      	uxth	r7, r7
+  3c:	3201      	adds	r2, #1
+  3e:	3310      	adds	r3, #16
+  40:	2f08      	cmp	r7, #8
+  42:	d1eb      	bne.n	1c <pinAddSoftPWM+0x1c>
+  44:	2600      	movs	r6, #0
+  46:	e044      	b.n	d2 <pinAddSoftPWM+0xd2>
+  48:	f1b8 0f64 	cmp.w	r8, #100	; 0x64
+  4c:	d841      	bhi.n	d2 <pinAddSoftPWM+0xd2>
+  4e:	2d00      	cmp	r5, #0
+  50:	d03e      	beq.n	d0 <pinAddSoftPWM+0xd0>
+  52:	2103      	movs	r1, #3
+  54:	4620      	mov	r0, r4
+  56:	f7ff fffe 	bl	0 <pinAddSoftPWM>
+  5a:	0139      	lsls	r1, r7, #4
+  5c:	eb0a 0301 	add.w	r3, sl, r1
+  60:	f84a 6001 	str.w	r6, [sl, r1]
+  64:	605e      	str	r6, [r3, #4]
+  66:	f1b8 0f00 	cmp.w	r8, #0
+  6a:	d102      	bne.n	72 <pinAddSoftPWM+0x72>
+  6c:	4620      	mov	r0, r4
+  6e:	4641      	mov	r1, r8
+  70:	e004      	b.n	7c <pinAddSoftPWM+0x7c>
+  72:	f1b8 0f64 	cmp.w	r8, #100	; 0x64
+  76:	d104      	bne.n	82 <pinAddSoftPWM+0x82>
+  78:	4620      	mov	r0, r4
+  7a:	2101      	movs	r1, #1
+  7c:	f7ff fffe 	bl	0 <pinAddSoftPWM>
+  80:	e01e      	b.n	c0 <pinAddSoftPWM+0xc0>
+  82:	f04f 0c64 	mov.w	ip, #100	; 0x64
+  86:	fb9c f0f8 	sdiv	r0, ip, r8
+  8a:	ebc8 080c 	rsb	r8, r8, ip
+  8e:	fb9c fcf8 	sdiv	ip, ip, r8
+  92:	4368      	muls	r0, r5
+  94:	4a12      	ldr	r2, [pc, #72]	; (e0 <pinAddSoftPWM+0xe0>)
+  96:	fb05 f50c 	mul.w	r5, r5, ip
+  9a:	6812      	ldr	r2, [r2, #0]
+  9c:	fbb2 f0f0 	udiv	r0, r2, r0
+  a0:	fbb2 f5f5 	udiv	r5, r2, r5
+  a4:	f84a 0001 	str.w	r0, [sl, r1]
+  a8:	1828      	adds	r0, r5, r0
+  aa:	4290      	cmp	r0, r2
+  ac:	605d      	str	r5, [r3, #4]
+  ae:	d904      	bls.n	ba <pinAddSoftPWM+0xba>
+  b0:	2001      	movs	r0, #1
+  b2:	490c      	ldr	r1, [pc, #48]	; (e4 <pinAddSoftPWM+0xe4>)
+  b4:	f7ff fffe 	bl	0 <print>
+  b8:	e00b      	b.n	d2 <pinAddSoftPWM+0xd2>
+  ba:	2201      	movs	r2, #1
+  bc:	735a      	strb	r2, [r3, #13]
+  be:	731c      	strb	r4, [r3, #12]
+  c0:	013f      	lsls	r7, r7, #4
+  c2:	f859 2007 	ldr.w	r2, [r9, r7]
+  c6:	eb09 0307 	add.w	r3, r9, r7
+  ca:	609a      	str	r2, [r3, #8]
+  cc:	2601      	movs	r6, #1
+  ce:	e000      	b.n	d2 <pinAddSoftPWM+0xd2>
+  d0:	462e      	mov	r6, r5
+  d2:	4630      	mov	r0, r6
+  d4:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
 	...
- 12c:	00000019 	.word	0x00000019
- 130:	0000002e 	.word	0x0000002e
- 134:	00000046 	.word	0x00000046
- 138:	00000053 	.word	0x00000053
- 13c:	00000062 	.word	0x00000062
- 140:	00000000 	.word	0x00000000
 
 Disassembly of section .text.pinToggle:
 

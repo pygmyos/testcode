@@ -1,6 +1,6 @@
 
-C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\Tutorial1\pygmy_audio.o:     file format elf32-littlearm
-C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\Tutorial1\pygmy_audio.o
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Tutorial1\pygmy_audio.o:     file format elf32-littlearm
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Tutorial1\pygmy_audio.o
 
 
 Disassembly of section .text.DMA1_Channel3_IRQHandler:
@@ -328,159 +328,151 @@ audioPlayWave():
    0:	e92d 4ff7 	stmdb	sp!, {r0, r1, r2, r4, r5, r6, r7, r8, r9, sl, fp, lr}
    4:	4601      	mov	r1, r0
    6:	2201      	movs	r2, #1
-   8:	485a      	ldr	r0, [pc, #360]	; (174 <audioPlayWave+0x174>)
+   8:	4855      	ldr	r0, [pc, #340]	; (160 <audioPlayWave+0x160>)
    a:	f7ff fffe 	bl	0 <fileOpen>
    e:	2800      	cmp	r0, #0
-  10:	f000 80ae 	beq.w	170 <audioPlayWave+0x170>
-  14:	4857      	ldr	r0, [pc, #348]	; (174 <audioPlayWave+0x174>)
+  10:	f000 80a4 	beq.w	15c <audioPlayWave+0x15c>
+  14:	4852      	ldr	r0, [pc, #328]	; (160 <audioPlayWave+0x160>)
   16:	2104      	movs	r1, #4
   18:	466a      	mov	r2, sp
   1a:	f7ff fffe 	bl	0 <fileGetBuffer>
   1e:	2400      	movs	r4, #0
   20:	4668      	mov	r0, sp
-  22:	4955      	ldr	r1, [pc, #340]	; (178 <audioPlayWave+0x178>)
+  22:	4950      	ldr	r1, [pc, #320]	; (164 <audioPlayWave+0x164>)
   24:	f88d 4004 	strb.w	r4, [sp, #4]
   28:	f7ff fffe 	bl	0 <isStringSame>
   2c:	2800      	cmp	r0, #0
-  2e:	f000 809f 	beq.w	170 <audioPlayWave+0x170>
+  2e:	f000 8095 	beq.w	15c <audioPlayWave+0x15c>
   32:	4621      	mov	r1, r4
-  34:	484f      	ldr	r0, [pc, #316]	; (174 <audioPlayWave+0x174>)
+  34:	484a      	ldr	r0, [pc, #296]	; (160 <audioPlayWave+0x160>)
   36:	f7ff fffe 	bl	0 <fileGetLong>
-  3a:	484e      	ldr	r0, [pc, #312]	; (174 <audioPlayWave+0x174>)
+  3a:	4849      	ldr	r0, [pc, #292]	; (160 <audioPlayWave+0x160>)
   3c:	2104      	movs	r1, #4
   3e:	466a      	mov	r2, sp
   40:	f7ff fffe 	bl	0 <fileGetBuffer>
   44:	4668      	mov	r0, sp
-  46:	494d      	ldr	r1, [pc, #308]	; (17c <audioPlayWave+0x17c>)
+  46:	4948      	ldr	r1, [pc, #288]	; (168 <audioPlayWave+0x168>)
   48:	f88d 4004 	strb.w	r4, [sp, #4]
   4c:	f7ff fffe 	bl	0 <isStringSame>
   50:	2800      	cmp	r0, #0
-  52:	f000 808d 	beq.w	170 <audioPlayWave+0x170>
-  56:	4847      	ldr	r0, [pc, #284]	; (174 <audioPlayWave+0x174>)
+  52:	f000 8083 	beq.w	15c <audioPlayWave+0x15c>
+  56:	4842      	ldr	r0, [pc, #264]	; (160 <audioPlayWave+0x160>)
   58:	2104      	movs	r1, #4
   5a:	466a      	mov	r2, sp
   5c:	f7ff fffe 	bl	0 <fileGetBuffer>
   60:	4668      	mov	r0, sp
-  62:	4947      	ldr	r1, [pc, #284]	; (180 <audioPlayWave+0x180>)
+  62:	4942      	ldr	r1, [pc, #264]	; (16c <audioPlayWave+0x16c>)
   64:	f88d 4004 	strb.w	r4, [sp, #4]
   68:	f7ff fffe 	bl	0 <isStringSame>
   6c:	2800      	cmp	r0, #0
-  6e:	d07f      	beq.n	170 <audioPlayWave+0x170>
+  6e:	d075      	beq.n	15c <audioPlayWave+0x15c>
   70:	4621      	mov	r1, r4
-  72:	4840      	ldr	r0, [pc, #256]	; (174 <audioPlayWave+0x174>)
+  72:	483b      	ldr	r0, [pc, #236]	; (160 <audioPlayWave+0x160>)
   74:	f7ff fffe 	bl	0 <fileGetLong>
   78:	4621      	mov	r1, r4
-  7a:	483e      	ldr	r0, [pc, #248]	; (174 <audioPlayWave+0x174>)
+  7a:	4839      	ldr	r0, [pc, #228]	; (160 <audioPlayWave+0x160>)
   7c:	f7ff fffe 	bl	0 <fileGetWord>
   80:	4621      	mov	r1, r4
   82:	4681      	mov	r9, r0
-  84:	483b      	ldr	r0, [pc, #236]	; (174 <audioPlayWave+0x174>)
+  84:	4836      	ldr	r0, [pc, #216]	; (160 <audioPlayWave+0x160>)
   86:	f7ff fffe 	bl	0 <fileGetWord>
   8a:	4621      	mov	r1, r4
   8c:	4680      	mov	r8, r0
-  8e:	4839      	ldr	r0, [pc, #228]	; (174 <audioPlayWave+0x174>)
+  8e:	4834      	ldr	r0, [pc, #208]	; (160 <audioPlayWave+0x160>)
   90:	f7ff fffe 	bl	0 <fileGetLong>
   94:	4621      	mov	r1, r4
   96:	4605      	mov	r5, r0
-  98:	4836      	ldr	r0, [pc, #216]	; (174 <audioPlayWave+0x174>)
+  98:	4831      	ldr	r0, [pc, #196]	; (160 <audioPlayWave+0x160>)
   9a:	f7ff fffe 	bl	0 <fileGetLong>
   9e:	4621      	mov	r1, r4
   a0:	4607      	mov	r7, r0
-  a2:	4834      	ldr	r0, [pc, #208]	; (174 <audioPlayWave+0x174>)
+  a2:	482f      	ldr	r0, [pc, #188]	; (160 <audioPlayWave+0x160>)
   a4:	f7ff fffe 	bl	0 <fileGetWord>
   a8:	4621      	mov	r1, r4
   aa:	4606      	mov	r6, r0
-  ac:	4831      	ldr	r0, [pc, #196]	; (174 <audioPlayWave+0x174>)
+  ac:	482c      	ldr	r0, [pc, #176]	; (160 <audioPlayWave+0x160>)
   ae:	f7ff fffe 	bl	0 <fileGetWord>
   b2:	2104      	movs	r1, #4
   b4:	4682      	mov	sl, r0
   b6:	466a      	mov	r2, sp
-  b8:	482e      	ldr	r0, [pc, #184]	; (174 <audioPlayWave+0x174>)
+  b8:	4829      	ldr	r0, [pc, #164]	; (160 <audioPlayWave+0x160>)
   ba:	f7ff fffe 	bl	0 <fileGetBuffer>
   be:	4668      	mov	r0, sp
-  c0:	4930      	ldr	r1, [pc, #192]	; (184 <audioPlayWave+0x184>)
+  c0:	492b      	ldr	r1, [pc, #172]	; (170 <audioPlayWave+0x170>)
   c2:	f88d 4004 	strb.w	r4, [sp, #4]
   c6:	f7ff fffe 	bl	0 <isStringSame>
   ca:	2800      	cmp	r0, #0
-  cc:	d050      	beq.n	170 <audioPlayWave+0x170>
+  cc:	d046      	beq.n	15c <audioPlayWave+0x15c>
   ce:	4621      	mov	r1, r4
-  d0:	4828      	ldr	r0, [pc, #160]	; (174 <audioPlayWave+0x174>)
+  d0:	4823      	ldr	r0, [pc, #140]	; (160 <audioPlayWave+0x160>)
   d2:	f7ff fffe 	bl	0 <fileGetLong>
-  d6:	492c      	ldr	r1, [pc, #176]	; (188 <audioPlayWave+0x188>)
+  d6:	4927      	ldr	r1, [pc, #156]	; (174 <audioPlayWave+0x174>)
   d8:	4683      	mov	fp, r0
   da:	2001      	movs	r0, #1
   dc:	f7ff fffe 	bl	0 <print>
   e0:	2001      	movs	r0, #1
-  e2:	492a      	ldr	r1, [pc, #168]	; (18c <audioPlayWave+0x18c>)
+  e2:	4925      	ldr	r1, [pc, #148]	; (178 <audioPlayWave+0x178>)
   e4:	464a      	mov	r2, r9
   e6:	f7ff fffe 	bl	0 <print>
   ea:	2001      	movs	r0, #1
-  ec:	4928      	ldr	r1, [pc, #160]	; (190 <audioPlayWave+0x190>)
+  ec:	4923      	ldr	r1, [pc, #140]	; (17c <audioPlayWave+0x17c>)
   ee:	4642      	mov	r2, r8
   f0:	f7ff fffe 	bl	0 <print>
   f4:	2001      	movs	r0, #1
-  f6:	4927      	ldr	r1, [pc, #156]	; (194 <audioPlayWave+0x194>)
+  f6:	4922      	ldr	r1, [pc, #136]	; (180 <audioPlayWave+0x180>)
   f8:	462a      	mov	r2, r5
   fa:	f7ff fffe 	bl	0 <print>
   fe:	2001      	movs	r0, #1
- 100:	4925      	ldr	r1, [pc, #148]	; (198 <audioPlayWave+0x198>)
+ 100:	4920      	ldr	r1, [pc, #128]	; (184 <audioPlayWave+0x184>)
  102:	463a      	mov	r2, r7
  104:	f7ff fffe 	bl	0 <print>
  108:	2001      	movs	r0, #1
- 10a:	4924      	ldr	r1, [pc, #144]	; (19c <audioPlayWave+0x19c>)
+ 10a:	491f      	ldr	r1, [pc, #124]	; (188 <audioPlayWave+0x188>)
  10c:	4632      	mov	r2, r6
  10e:	f7ff fffe 	bl	0 <print>
  112:	2001      	movs	r0, #1
- 114:	4922      	ldr	r1, [pc, #136]	; (1a0 <audioPlayWave+0x1a0>)
+ 114:	491d      	ldr	r1, [pc, #116]	; (18c <audioPlayWave+0x18c>)
  116:	4652      	mov	r2, sl
  118:	f7ff fffe 	bl	0 <print>
  11c:	2001      	movs	r0, #1
- 11e:	4921      	ldr	r1, [pc, #132]	; (1a4 <audioPlayWave+0x1a4>)
+ 11e:	491c      	ldr	r1, [pc, #112]	; (190 <audioPlayWave+0x190>)
  120:	465a      	mov	r2, fp
  122:	f7ff fffe 	bl	0 <print>
  126:	f44f 6180 	mov.w	r1, #1024	; 0x400
- 12a:	4812      	ldr	r0, [pc, #72]	; (174 <audioPlayWave+0x174>)
- 12c:	4a1e      	ldr	r2, [pc, #120]	; (1a8 <audioPlayWave+0x1a8>)
+ 12a:	480d      	ldr	r0, [pc, #52]	; (160 <audioPlayWave+0x160>)
+ 12c:	4a19      	ldr	r2, [pc, #100]	; (194 <audioPlayWave+0x194>)
  12e:	f7ff fffe 	bl	0 <fileGetBuffer>
- 132:	4b1e      	ldr	r3, [pc, #120]	; (1ac <audioPlayWave+0x1ac>)
+ 132:	4b19      	ldr	r3, [pc, #100]	; (198 <audioPlayWave+0x198>)
  134:	200d      	movs	r0, #13
  136:	701c      	strb	r4, [r3, #0]
- 138:	4b1d      	ldr	r3, [pc, #116]	; (1b0 <audioPlayWave+0x1b0>)
+ 138:	4b18      	ldr	r3, [pc, #96]	; (19c <audioPlayWave+0x19c>)
  13a:	681a      	ldr	r2, [r3, #0]
  13c:	f422 2270 	bic.w	r2, r2, #983040	; 0xf0000
  140:	601a      	str	r2, [r3, #0]
  142:	681a      	ldr	r2, [r3, #0]
  144:	f442 2230 	orr.w	r2, r2, #720896	; 0xb0000
  148:	601a      	str	r2, [r3, #0]
- 14a:	681a      	ldr	r2, [r3, #0]
- 14c:	f422 0270 	bic.w	r2, r2, #15728640	; 0xf00000
- 150:	601a      	str	r2, [r3, #0]
- 152:	681a      	ldr	r2, [r3, #0]
- 154:	f442 1240 	orr.w	r2, r2, #3145728	; 0x300000
- 158:	601a      	str	r2, [r3, #0]
- 15a:	2220      	movs	r2, #32
- 15c:	615a      	str	r2, [r3, #20]
- 15e:	f7ff fffe 	bl	0 <interruptEnable>
- 162:	4811      	ldr	r0, [pc, #68]	; (1a8 <audioPlayWave+0x1a8>)
- 164:	f44f 6180 	mov.w	r1, #1024	; 0x400
- 168:	b2aa      	uxth	r2, r5
- 16a:	2301      	movs	r3, #1
- 16c:	f7ff fffe 	bl	0 <audioPlayWave>
- 170:	e8bd 8ffe 	ldmia.w	sp!, {r1, r2, r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}
+ 14a:	f7ff fffe 	bl	0 <interruptEnable>
+ 14e:	4811      	ldr	r0, [pc, #68]	; (194 <audioPlayWave+0x194>)
+ 150:	f44f 6180 	mov.w	r1, #1024	; 0x400
+ 154:	b2aa      	uxth	r2, r5
+ 156:	2301      	movs	r3, #1
+ 158:	f7ff fffe 	bl	0 <audioPlayWave>
+ 15c:	e8bd 8ffe 	ldmia.w	sp!, {r1, r2, r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}
 	...
- 17c:	00000005 	.word	0x00000005
- 180:	0000000a 	.word	0x0000000a
- 184:	0000000f 	.word	0x0000000f
- 188:	00000014 	.word	0x00000014
- 18c:	00000025 	.word	0x00000025
- 190:	00000036 	.word	0x00000036
- 194:	00000044 	.word	0x00000044
- 198:	00000054 	.word	0x00000054
- 19c:	00000062 	.word	0x00000062
- 1a0:	00000072 	.word	0x00000072
- 1a4:	00000085 	.word	0x00000085
+ 168:	00000005 	.word	0x00000005
+ 16c:	0000000a 	.word	0x0000000a
+ 170:	0000000f 	.word	0x0000000f
+ 174:	00000014 	.word	0x00000014
+ 178:	00000025 	.word	0x00000025
+ 17c:	00000036 	.word	0x00000036
+ 180:	00000044 	.word	0x00000044
+ 184:	00000054 	.word	0x00000054
+ 188:	00000062 	.word	0x00000062
+ 18c:	00000072 	.word	0x00000072
+ 190:	00000085 	.word	0x00000085
 	...
- 1b0:	40010800 	.word	0x40010800
+ 19c:	40010800 	.word	0x40010800
 
 Disassembly of section .text.dac2Output:
 

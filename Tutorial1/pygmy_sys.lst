@@ -1,7 +1,13 @@
 
-C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\Tutorial1\pygmy_sys.o:     file format elf32-littlearm
-C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\Tutorial1\pygmy_sys.o
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Tutorial1\pygmy_sys.o:     file format elf32-littlearm
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Tutorial1\pygmy_sys.o
 
+
+Disassembly of section .text.TaskException_Handler:
+
+00000000 <TaskException_Handler>:
+TaskException_Handler():
+   0:	4770      	bx	lr
 
 Disassembly of section .text.putsFILE:
 
@@ -14,45 +20,50 @@ putsFILE():
    a:	bf00      	nop
    c:	00000000 	.word	0x00000000
 
+Disassembly of section .text.sysSetPipe:
+
+00000000 <sysSetPipe>:
+sysSetPipe():
+   0:	2802      	cmp	r0, #2
+   2:	b510      	push	{r4, lr}
+   4:	d80b      	bhi.n	1e <sysSetPipe+0x1e>
+   6:	2902      	cmp	r1, #2
+   8:	d809      	bhi.n	1e <sysSetPipe+0x1e>
+   a:	2001      	movs	r0, #1
+   c:	4904      	ldr	r1, [pc, #16]	; (20 <sysSetPipe+0x20>)
+   e:	f7ff fffe 	bl	0 <streamSetGet>
+  12:	4904      	ldr	r1, [pc, #16]	; (24 <sysSetPipe+0x24>)
+  14:	2001      	movs	r0, #1
+  16:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+  1a:	f7ff bffe 	b.w	0 <streamSetPut>
+  1e:	bd10      	pop	{r4, pc}
+	...
+
 Disassembly of section .text.sysEnableComClock:
 
 00000000 <sysEnableComClock>:
 sysEnableComClock():
    0:	2801      	cmp	r0, #1
-   2:	d105      	bne.n	10 <sysEnableComClock+0x10>
-   4:	4b06      	ldr	r3, [pc, #24]	; (20 <sysEnableComClock+0x20>)
+   2:	d104      	bne.n	e <sysEnableComClock+0xe>
+   4:	4b02      	ldr	r3, [pc, #8]	; (10 <sysEnableComClock+0x10>)
    6:	69da      	ldr	r2, [r3, #28]
-   8:	f442 3200 	orr.w	r2, r2, #131072	; 0x20000
+   8:	f442 2280 	orr.w	r2, r2, #262144	; 0x40000
    c:	61da      	str	r2, [r3, #28]
    e:	4770      	bx	lr
-  10:	2802      	cmp	r0, #2
-  12:	d104      	bne.n	1e <sysEnableComClock+0x1e>
-  14:	4b02      	ldr	r3, [pc, #8]	; (20 <sysEnableComClock+0x20>)
-  16:	69da      	ldr	r2, [r3, #28]
-  18:	f442 2280 	orr.w	r2, r2, #262144	; 0x40000
-  1c:	61da      	str	r2, [r3, #28]
-  1e:	4770      	bx	lr
-  20:	40021000 	.word	0x40021000
+  10:	40021000 	.word	0x40021000
 
 Disassembly of section .text.sysDisableComClock:
 
 00000000 <sysDisableComClock>:
 sysDisableComClock():
    0:	2801      	cmp	r0, #1
-   2:	d105      	bne.n	10 <sysDisableComClock+0x10>
-   4:	4b06      	ldr	r3, [pc, #24]	; (20 <sysDisableComClock+0x20>)
+   2:	d104      	bne.n	e <sysDisableComClock+0xe>
+   4:	4b02      	ldr	r3, [pc, #8]	; (10 <sysDisableComClock+0x10>)
    6:	69da      	ldr	r2, [r3, #28]
-   8:	f442 3200 	orr.w	r2, r2, #131072	; 0x20000
+   8:	f442 2280 	orr.w	r2, r2, #262144	; 0x40000
    c:	61da      	str	r2, [r3, #28]
    e:	4770      	bx	lr
-  10:	2802      	cmp	r0, #2
-  12:	d104      	bne.n	1e <sysDisableComClock+0x1e>
-  14:	4b02      	ldr	r3, [pc, #8]	; (20 <sysDisableComClock+0x20>)
-  16:	69da      	ldr	r2, [r3, #28]
-  18:	f442 2280 	orr.w	r2, r2, #262144	; 0x40000
-  1c:	61da      	str	r2, [r3, #28]
-  1e:	4770      	bx	lr
-  20:	40021000 	.word	0x40021000
+  10:	40021000 	.word	0x40021000
 
 Disassembly of section .text.sysEnableTimerClock:
 
@@ -348,6 +359,61 @@ sysSetXTAL():
    6:	bf00      	nop
    8:	00000000 	.word	0x00000000
 
+Disassembly of section .text.cmdPrint:
+
+00000000 <cmdPrint>:
+cmdPrint():
+   0:	b508      	push	{r3, lr}
+   2:	7803      	ldrb	r3, [r0, #0]
+   4:	2218      	movs	r2, #24
+   6:	fb02 0303 	mla	r3, r2, r3, r0
+   a:	68db      	ldr	r3, [r3, #12]
+   c:	4798      	blx	r3
+   e:	bd08      	pop	{r3, pc}
+
+Disassembly of section .text.cmdGetRetriesRemaining:
+
+00000000 <cmdGetRetriesRemaining>:
+cmdGetRetriesRemaining():
+   0:	7803      	ldrb	r3, [r0, #0]
+   2:	2218      	movs	r2, #24
+   4:	fb02 0303 	mla	r3, r2, r3, r0
+   8:	7958      	ldrb	r0, [r3, #5]
+   a:	4770      	bx	lr
+
+Disassembly of section .text.cmdIsQueued:
+
+00000000 <cmdIsQueued>:
+cmdIsQueued():
+   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+   2:	2400      	movs	r4, #0
+   4:	4607      	mov	r7, r0
+   6:	460e      	mov	r6, r1
+   8:	4625      	mov	r5, r4
+   a:	193b      	adds	r3, r7, r4
+   c:	791a      	ldrb	r2, [r3, #4]
+   e:	b132      	cbz	r2, 1e <cmdIsQueued+0x1e>
+  10:	6898      	ldr	r0, [r3, #8]
+  12:	4631      	mov	r1, r6
+  14:	f7ff fffe 	bl	0 <isStringSame>
+  18:	b108      	cbz	r0, 1e <cmdIsQueued+0x1e>
+  1a:	3501      	adds	r5, #1
+  1c:	b2ed      	uxtb	r5, r5
+  1e:	3418      	adds	r4, #24
+  20:	f5b4 7ff0 	cmp.w	r4, #480	; 0x1e0
+  24:	d1f1      	bne.n	a <cmdIsQueued+0xa>
+  26:	4628      	mov	r0, r5
+  28:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+
+Disassembly of section .text.cmdListQueue:
+
+00000000 <cmdListQueue>:
+cmdListQueue():
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <cmdListQueue+0x8>)
+   2:	f853 0020 	ldr.w	r0, [r3, r0, lsl #2]
+   6:	4770      	bx	lr
+   8:	00000000 	.word	0x00000000
+
 Disassembly of section .text.sysCRC8:
 
 00000000 <sysCRC8>:
@@ -447,7 +513,7 @@ Disassembly of section .text.pdiaPrintString:
 
 00000000 <pdiaPrintString>:
 pdiaPrintString():
-   0:	e92d2a03 	.word	0xe92d2a03
+   0:	e92d2a02 	.word	0xe92d2a02
    4:	41f0      	rors	r0, r6
    6:	4604      	mov	r4, r0
    8:	460d      	mov	r5, r1
@@ -506,11 +572,292 @@ pdiaPrintInteger():
   22:	b006      	add	sp, #24
   24:	bd70      	pop	{r4, r5, r6, pc}
 
-Disassembly of section .text.TaskException_Handler:
+Disassembly of section .text.taskInit:
 
-00000000 <TaskException_Handler>:
-TaskException_Handler():
-   0:	4770      	bx	lr
+00000000 <taskInit>:
+taskInit():
+   0:	4b0d      	ldr	r3, [pc, #52]	; (38 <taskInit+0x38>)
+   2:	f503 71d2 	add.w	r1, r3, #420	; 0x1a4
+   6:	480d      	ldr	r0, [pc, #52]	; (3c <taskInit+0x3c>)
+   8:	2200      	movs	r2, #0
+   a:	f843 2c18 	str.w	r2, [r3, #-24]
+   e:	f823 2c12 	strh.w	r2, [r3, #-18]
+  12:	f843 2c10 	str.w	r2, [r3, #-16]
+  16:	f843 2c0c 	str.w	r2, [r3, #-12]
+  1a:	f843 0c08 	str.w	r0, [r3, #-8]
+  1e:	f843 2c04 	str.w	r2, [r3, #-4]
+  22:	f843 2b1c 	str.w	r2, [r3], #28
+  26:	428b      	cmp	r3, r1
+  28:	d1ed      	bne.n	6 <taskInit+0x6>
+  2a:	4b05      	ldr	r3, [pc, #20]	; (40 <taskInit+0x40>)
+  2c:	68da      	ldr	r2, [r3, #12]
+  2e:	f442 3280 	orr.w	r2, r2, #65536	; 0x10000
+  32:	60da      	str	r2, [r3, #12]
+  34:	4770      	bx	lr
+  36:	bf00      	nop
+  38:	00000018 	.word	0x00000018
+	...
+
+Disassembly of section .text.taskNew:
+
+00000000 <taskNew>:
+taskNew():
+   0:	f5b1 5f80 	cmp.w	r1, #4096	; 0x1000
+   4:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+   8:	4605      	mov	r5, r0
+   a:	460c      	mov	r4, r1
+   c:	4616      	mov	r6, r2
+   e:	4698      	mov	r8, r3
+  10:	d23c      	bcs.n	8c <taskNew+0x8c>
+  12:	2700      	movs	r7, #0
+  14:	b154      	cbz	r4, 2c <taskNew+0x2c>
+  16:	4b20      	ldr	r3, [pc, #128]	; (98 <taskNew+0x98>)
+  18:	18fa      	adds	r2, r7, r3
+  1a:	88d2      	ldrh	r2, [r2, #6]
+  1c:	42a2      	cmp	r2, r4
+  1e:	d035      	beq.n	8c <taskNew+0x8c>
+  20:	4628      	mov	r0, r5
+  22:	58f9      	ldr	r1, [r7, r3]
+  24:	f7ff fffe 	bl	0 <isStringSame>
+  28:	2800      	cmp	r0, #0
+  2a:	d132      	bne.n	92 <taskNew+0x92>
+  2c:	371c      	adds	r7, #28
+  2e:	f5b7 7fd2 	cmp.w	r7, #420	; 0x1a4
+  32:	d1ef      	bne.n	14 <taskNew+0x14>
+  34:	2100      	movs	r1, #0
+  36:	460b      	mov	r3, r1
+  38:	4a17      	ldr	r2, [pc, #92]	; (98 <taskNew+0x98>)
+  3a:	b298      	uxth	r0, r3
+  3c:	188f      	adds	r7, r1, r2
+  3e:	88ff      	ldrh	r7, [r7, #6]
+  40:	bb07      	cbnz	r7, 84 <taskNew+0x84>
+  42:	211c      	movs	r1, #28
+  44:	b11c      	cbz	r4, 4e <taskNew+0x4e>
+  46:	fb01 2103 	mla	r1, r1, r3, r2
+  4a:	80cc      	strh	r4, [r1, #6]
+  4c:	e004      	b.n	58 <taskNew+0x58>
+  4e:	fb01 2103 	mla	r1, r1, r3, r2
+  52:	f440 5000 	orr.w	r0, r0, #8192	; 0x2000
+  56:	80c8      	strh	r0, [r1, #6]
+  58:	211c      	movs	r1, #28
+  5a:	434b      	muls	r3, r1
+  5c:	391c      	subs	r1, #28
+  5e:	18d4      	adds	r4, r2, r3
+  60:	7121      	strb	r1, [r4, #4]
+  62:	50d5      	str	r5, [r2, r3]
+  64:	9b07      	ldr	r3, [sp, #28]
+  66:	60a6      	str	r6, [r4, #8]
+  68:	428e      	cmp	r6, r1
+  6a:	bf14      	ite	ne
+  6c:	4646      	movne	r6, r8
+  6e:	460e      	moveq	r6, r1
+  70:	6123      	str	r3, [r4, #16]
+  72:	60e6      	str	r6, [r4, #12]
+  74:	f7ff fffe 	bl	0 <timeGet>
+  78:	9b06      	ldr	r3, [sp, #24]
+  7a:	6160      	str	r0, [r4, #20]
+  7c:	61a3      	str	r3, [r4, #24]
+  7e:	88e0      	ldrh	r0, [r4, #6]
+  80:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  84:	3301      	adds	r3, #1
+  86:	311c      	adds	r1, #28
+  88:	2b0f      	cmp	r3, #15
+  8a:	d1d5      	bne.n	38 <taskNew+0x38>
+  8c:	2000      	movs	r0, #0
+  8e:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  92:	2000      	movs	r0, #0
+  94:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  98:	00000000 	.word	0x00000000
+
+Disassembly of section .text.taskNewSimple:
+
+00000000 <taskNewSimple>:
+taskNewSimple():
+   0:	b507      	push	{r0, r1, r2, lr}
+   2:	460b      	mov	r3, r1
+   4:	9201      	str	r2, [sp, #4]
+   6:	2100      	movs	r1, #0
+   8:	2202      	movs	r2, #2
+   a:	9100      	str	r1, [sp, #0]
+   c:	f7ff fffe 	bl	0 <taskNewSimple>
+  10:	bd0e      	pop	{r1, r2, r3, pc}
+
+Disassembly of section .text.taskIsRunning:
+
+00000000 <taskIsRunning>:
+taskIsRunning():
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	4606      	mov	r6, r0
+   4:	460d      	mov	r5, r1
+   6:	2400      	movs	r4, #0
+   8:	4b09      	ldr	r3, [pc, #36]	; (30 <taskIsRunning+0x30>)
+   a:	b11d      	cbz	r5, 14 <taskIsRunning+0x14>
+   c:	191a      	adds	r2, r3, r4
+   e:	88d2      	ldrh	r2, [r2, #6]
+  10:	42aa      	cmp	r2, r5
+  12:	d009      	beq.n	28 <taskIsRunning+0x28>
+  14:	5918      	ldr	r0, [r3, r4]
+  16:	4631      	mov	r1, r6
+  18:	f7ff fffe 	bl	0 <isStringSame>
+  1c:	b930      	cbnz	r0, 2c <taskIsRunning+0x2c>
+  1e:	341c      	adds	r4, #28
+  20:	f5b4 7fd2 	cmp.w	r4, #420	; 0x1a4
+  24:	d1f0      	bne.n	8 <taskIsRunning+0x8>
+  26:	bd70      	pop	{r4, r5, r6, pc}
+  28:	2001      	movs	r0, #1
+  2a:	bd70      	pop	{r4, r5, r6, pc}
+  2c:	2001      	movs	r0, #1
+  2e:	bd70      	pop	{r4, r5, r6, pc}
+  30:	00000000 	.word	0x00000000
+
+Disassembly of section .text.taskDelete:
+
+00000000 <taskDelete>:
+taskDelete():
+   0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+   4:	4c11      	ldr	r4, [pc, #68]	; (4c <taskDelete+0x4c>)
+   6:	4680      	mov	r8, r0
+   8:	460e      	mov	r6, r1
+   a:	f504 77d2 	add.w	r7, r4, #420	; 0x1a4
+   e:	2500      	movs	r5, #0
+  10:	b11e      	cbz	r6, 1a <taskDelete+0x1a>
+  12:	f834 3c0a 	ldrh.w	r3, [r4, #-10]
+  16:	42b3      	cmp	r3, r6
+  18:	d005      	beq.n	26 <taskDelete+0x26>
+  1a:	4640      	mov	r0, r8
+  1c:	f854 1c10 	ldr.w	r1, [r4, #-16]
+  20:	f7ff fffe 	bl	0 <isStringSame>
+  24:	b160      	cbz	r0, 40 <taskDelete+0x40>
+  26:	4a0a      	ldr	r2, [pc, #40]	; (50 <taskDelete+0x50>)
+  28:	2300      	movs	r3, #0
+  2a:	f844 3c10 	str.w	r3, [r4, #-16]
+  2e:	f824 3c0a 	strh.w	r3, [r4, #-10]
+  32:	f844 3c08 	str.w	r3, [r4, #-8]
+  36:	f844 3c04 	str.w	r3, [r4, #-4]
+  3a:	6022      	str	r2, [r4, #0]
+  3c:	6063      	str	r3, [r4, #4]
+  3e:	2501      	movs	r5, #1
+  40:	341c      	adds	r4, #28
+  42:	42bc      	cmp	r4, r7
+  44:	d1e4      	bne.n	10 <taskDelete+0x10>
+  46:	4628      	mov	r0, r5
+  48:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  4c:	00000010 	.word	0x00000010
+  50:	00000000 	.word	0x00000000
+
+Disassembly of section .text.taskProcess:
+
+00000000 <taskProcess>:
+taskProcess():
+   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+   2:	f7ff fffe 	bl	0 <timeGet>
+   6:	4c15      	ldr	r4, [pc, #84]	; (5c <taskProcess+0x5c>)
+   8:	4606      	mov	r6, r0
+   a:	f504 75d2 	add.w	r5, r4, #420	; 0x1a4
+   e:	f834 1c0a 	ldrh.w	r1, [r4, #-10]
+  12:	b1e9      	cbz	r1, 50 <taskProcess+0x50>
+  14:	68a3      	ldr	r3, [r4, #8]
+  16:	b12b      	cbz	r3, 24 <taskProcess+0x24>
+  18:	42b3      	cmp	r3, r6
+  1a:	d103      	bne.n	24 <taskProcess+0x24>
+  1c:	4810      	ldr	r0, [pc, #64]	; (60 <taskProcess+0x60>)
+  1e:	f7ff fffe 	bl	0 <taskProcess>
+  22:	e015      	b.n	50 <taskProcess+0x50>
+  24:	f854 3c08 	ldr.w	r3, [r4, #-8]
+  28:	b193      	cbz	r3, 50 <taskProcess+0x50>
+  2a:	2b01      	cmp	r3, #1
+  2c:	d10d      	bne.n	4a <taskProcess+0x4a>
+  2e:	f854 2c04 	ldr.w	r2, [r4, #-4]
+  32:	f814 7c0c 	ldrb.w	r7, [r4, #-12]
+  36:	f844 2c08 	str.w	r2, [r4, #-8]
+  3a:	b94f      	cbnz	r7, 50 <taskProcess+0x50>
+  3c:	f804 3c0c 	strb.w	r3, [r4, #-12]
+  40:	6823      	ldr	r3, [r4, #0]
+  42:	4798      	blx	r3
+  44:	f804 7c0c 	strb.w	r7, [r4, #-12]
+  48:	e002      	b.n	50 <taskProcess+0x50>
+  4a:	3b01      	subs	r3, #1
+  4c:	f844 3c08 	str.w	r3, [r4, #-8]
+  50:	341c      	adds	r4, #28
+  52:	42ac      	cmp	r4, r5
+  54:	d1db      	bne.n	e <taskProcess+0xe>
+  56:	2001      	movs	r0, #1
+  58:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+  5a:	bf00      	nop
+  5c:	00000010 	.word	0x00000010
+  60:	00000000 	.word	0x00000000
+
+Disassembly of section .text.taskGet:
+
+00000000 <taskGet>:
+taskGet():
+   0:	e92d 43f8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
+   4:	2700      	movs	r7, #0
+   6:	4605      	mov	r5, r0
+   8:	460c      	mov	r4, r1
+   a:	4616      	mov	r6, r2
+   c:	46b9      	mov	r9, r7
+   e:	f8df 805c 	ldr.w	r8, [pc, #92]	; 6c <taskGet+0x6c>
+  12:	b124      	cbz	r4, 1e <taskGet+0x1e>
+  14:	eb08 0307 	add.w	r3, r8, r7
+  18:	88db      	ldrh	r3, [r3, #6]
+  1a:	42a3      	cmp	r3, r4
+  1c:	d005      	beq.n	2a <taskGet+0x2a>
+  1e:	4628      	mov	r0, r5
+  20:	f858 1007 	ldr.w	r1, [r8, r7]
+  24:	f7ff fffe 	bl	0 <isStringSame>
+  28:	b1b0      	cbz	r0, 58 <taskGet+0x58>
+  2a:	231c      	movs	r3, #28
+  2c:	fb03 f909 	mul.w	r9, r3, r9
+  30:	f858 2009 	ldr.w	r2, [r8, r9]
+  34:	eb08 0309 	add.w	r3, r8, r9
+  38:	6032      	str	r2, [r6, #0]
+  3a:	88da      	ldrh	r2, [r3, #6]
+  3c:	2001      	movs	r0, #1
+  3e:	80f2      	strh	r2, [r6, #6]
+  40:	689a      	ldr	r2, [r3, #8]
+  42:	60b2      	str	r2, [r6, #8]
+  44:	68da      	ldr	r2, [r3, #12]
+  46:	60f2      	str	r2, [r6, #12]
+  48:	691a      	ldr	r2, [r3, #16]
+  4a:	6132      	str	r2, [r6, #16]
+  4c:	695a      	ldr	r2, [r3, #20]
+  4e:	699b      	ldr	r3, [r3, #24]
+  50:	6172      	str	r2, [r6, #20]
+  52:	61b3      	str	r3, [r6, #24]
+  54:	e8bd 83f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
+  58:	f109 0901 	add.w	r9, r9, #1
+  5c:	fa1f f989 	uxth.w	r9, r9
+  60:	371c      	adds	r7, #28
+  62:	f1b9 0f0f 	cmp.w	r9, #15
+  66:	d1d2      	bne.n	e <taskGet+0xe>
+  68:	e8bd 83f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
+  6c:	00000000 	.word	0x00000000
+
+Disassembly of section .text.taskList:
+
+00000000 <taskList>:
+taskList():
+   0:	434a221c 	.word	0x434a221c
+   4:	4b08      	ldr	r3, [pc, #32]	; (28 <taskList+0x28>)
+   6:	b510      	push	{r4, lr}
+   8:	189c      	adds	r4, r3, r2
+   a:	589b      	ldr	r3, [r3, r2]
+   c:	88e1      	ldrh	r1, [r4, #6]
+   e:	6003      	str	r3, [r0, #0]
+  10:	68a3      	ldr	r3, [r4, #8]
+  12:	80c1      	strh	r1, [r0, #6]
+  14:	6083      	str	r3, [r0, #8]
+  16:	68e3      	ldr	r3, [r4, #12]
+  18:	60c3      	str	r3, [r0, #12]
+  1a:	6923      	ldr	r3, [r4, #16]
+  1c:	6103      	str	r3, [r0, #16]
+  1e:	6963      	ldr	r3, [r4, #20]
+  20:	6143      	str	r3, [r0, #20]
+  22:	69a3      	ldr	r3, [r4, #24]
+  24:	6183      	str	r3, [r0, #24]
+  26:	bd10      	pop	{r4, pc}
+  28:	00000000 	.word	0x00000000
 
 Disassembly of section .text.sysGetIDString:
 
@@ -537,7 +884,7 @@ sysGetIDString():
   28:	00000000 	.word	0x00000000
   2c:	1ffff7f4 	.word	0x1ffff7f4
   30:	0000000c 	.word	0x0000000c
-  34:	00000000 	.word	0x00000000
+  34:	00000001 	.word	0x00000001
   38:	1ffff7e8 	.word	0x1ffff7e8
 
 Disassembly of section .text.sysGetID:
@@ -604,84 +951,84 @@ Disassembly of section .text.sysInit:
 
 00000000 <sysInit>:
 sysInit():
-   0:	b508      	push	{r3, lr}
-   2:	f7ff fffe 	bl	0 <sysInit>
-   6:	4b2f      	ldr	r3, [pc, #188]	; (c4 <sysInit+0xc4>)
-   8:	4a2f      	ldr	r2, [pc, #188]	; (c8 <sysInit+0xc8>)
-   a:	b280      	uxth	r0, r0
-   c:	605a      	str	r2, [r3, #4]
-   e:	f240 4216 	movw	r2, #1046	; 0x416
-  12:	4290      	cmp	r0, r2
-  14:	8218      	strh	r0, [r3, #16]
-  16:	d107      	bne.n	28 <sysInit+0x28>
-  18:	4a2c      	ldr	r2, [pc, #176]	; (cc <sysInit+0xcc>)
-  1a:	605a      	str	r2, [r3, #4]
-  1c:	4a2c      	ldr	r2, [pc, #176]	; (d0 <sysInit+0xd0>)
-  1e:	601a      	str	r2, [r3, #0]
-  20:	220b      	movs	r2, #11
-  22:	74da      	strb	r2, [r3, #19]
-  24:	3a02      	subs	r2, #2
-  26:	e01f      	b.n	68 <sysInit+0x68>
-  28:	f5b0 6f84 	cmp.w	r0, #1056	; 0x420
-  2c:	d002      	beq.n	34 <sysInit+0x34>
-  2e:	f5b0 6f85 	cmp.w	r0, #1064	; 0x428
-  32:	d103      	bne.n	3c <sysInit+0x3c>
-  34:	4a27      	ldr	r2, [pc, #156]	; (d4 <sysInit+0xd4>)
-  36:	601a      	str	r2, [r3, #0]
-  38:	220f      	movs	r2, #15
-  3a:	e005      	b.n	48 <sysInit+0x48>
-  3c:	f5b0 6f86 	cmp.w	r0, #1072	; 0x430
-  40:	4a25      	ldr	r2, [pc, #148]	; (d8 <sysInit+0xd8>)
-  42:	d104      	bne.n	4e <sysInit+0x4e>
-  44:	601a      	str	r2, [r3, #0]
-  46:	2209      	movs	r2, #9
-  48:	74da      	strb	r2, [r3, #19]
-  4a:	3201      	adds	r2, #1
-  4c:	e00c      	b.n	68 <sysInit+0x68>
-  4e:	f240 4114 	movw	r1, #1044	; 0x414
-  52:	4288      	cmp	r0, r1
-  54:	f04f 0101 	mov.w	r1, #1
-  58:	d103      	bne.n	62 <sysInit+0x62>
-  5a:	601a      	str	r2, [r3, #0]
-  5c:	74d9      	strb	r1, [r3, #19]
-  5e:	2208      	movs	r2, #8
-  60:	e002      	b.n	68 <sysInit+0x68>
-  62:	601a      	str	r2, [r3, #0]
-  64:	74d9      	strb	r1, [r3, #19]
-  66:	2200      	movs	r2, #0
-  68:	751a      	strb	r2, [r3, #20]
-  6a:	7cd8      	ldrb	r0, [r3, #19]
-  6c:	f7ff fffe 	bl	0 <sysInit>
-  70:	f7ff fffe 	bl	0 <streamInit>
-  74:	2001      	movs	r0, #1
-  76:	4919      	ldr	r1, [pc, #100]	; (dc <sysInit+0xdc>)
-  78:	f7ff fffe 	bl	0 <streamSetGet>
-  7c:	2280      	movs	r2, #128	; 0x80
-  7e:	2001      	movs	r0, #1
-  80:	4917      	ldr	r1, [pc, #92]	; (e0 <sysInit+0xe0>)
-  82:	f7ff fffe 	bl	0 <streamSetRXBuffer>
-  86:	2001      	movs	r0, #1
-  88:	4916      	ldr	r1, [pc, #88]	; (e4 <sysInit+0xe4>)
-  8a:	f7ff fffe 	bl	0 <streamSetPut>
-  8e:	2002      	movs	r0, #2
-  90:	4915      	ldr	r1, [pc, #84]	; (e8 <sysInit+0xe8>)
-  92:	f7ff fffe 	bl	0 <streamSetGet>
-  96:	2280      	movs	r2, #128	; 0x80
-  98:	2002      	movs	r0, #2
-  9a:	4914      	ldr	r1, [pc, #80]	; (ec <sysInit+0xec>)
-  9c:	f7ff fffe 	bl	0 <streamSetRXBuffer>
-  a0:	2002      	movs	r0, #2
-  a2:	4913      	ldr	r1, [pc, #76]	; (f0 <sysInit+0xf0>)
-  a4:	f7ff fffe 	bl	0 <streamSetPut>
-  a8:	4912      	ldr	r1, [pc, #72]	; (f4 <sysInit+0xf4>)
-  aa:	2003      	movs	r0, #3
-  ac:	f7ff fffe 	bl	0 <streamSetPut>
-  b0:	2002      	movs	r0, #2
-  b2:	f7ff fffe 	bl	0 <streamSetSTDIO>
-  b6:	f7ff fffe 	bl	0 <cmdInit>
-  ba:	f7ff fffe 	bl	0 <fileMountRoot>
-  be:	2000      	movs	r0, #0
-  c0:	bd08      	pop	{r3, pc}
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	4c30      	ldr	r4, [pc, #192]	; (c4 <sysInit+0xc4>)
+   4:	2500      	movs	r5, #0
+   6:	60e5      	str	r5, [r4, #12]
+   8:	f7ff fffe 	bl	0 <sysInit>
+   c:	4b2e      	ldr	r3, [pc, #184]	; (c8 <sysInit+0xc8>)
+   e:	b280      	uxth	r0, r0
+  10:	6063      	str	r3, [r4, #4]
+  12:	f240 4316 	movw	r3, #1046	; 0x416
+  16:	4298      	cmp	r0, r3
+  18:	8220      	strh	r0, [r4, #16]
+  1a:	d107      	bne.n	2c <sysInit+0x2c>
+  1c:	4b2b      	ldr	r3, [pc, #172]	; (cc <sysInit+0xcc>)
+  1e:	6063      	str	r3, [r4, #4]
+  20:	4b2b      	ldr	r3, [pc, #172]	; (d0 <sysInit+0xd0>)
+  22:	6023      	str	r3, [r4, #0]
+  24:	230b      	movs	r3, #11
+  26:	74e3      	strb	r3, [r4, #19]
+  28:	3b02      	subs	r3, #2
+  2a:	e00a      	b.n	42 <sysInit+0x42>
+  2c:	f5b0 6f84 	cmp.w	r0, #1056	; 0x420
+  30:	d002      	beq.n	38 <sysInit+0x38>
+  32:	f5b0 6f85 	cmp.w	r0, #1064	; 0x428
+  36:	d106      	bne.n	46 <sysInit+0x46>
+  38:	4b26      	ldr	r3, [pc, #152]	; (d4 <sysInit+0xd4>)
+  3a:	6023      	str	r3, [r4, #0]
+  3c:	230f      	movs	r3, #15
+  3e:	74e3      	strb	r3, [r4, #19]
+  40:	3301      	adds	r3, #1
+  42:	7523      	strb	r3, [r4, #20]
+  44:	e013      	b.n	6e <sysInit+0x6e>
+  46:	f5b0 6f86 	cmp.w	r0, #1072	; 0x430
+  4a:	4b23      	ldr	r3, [pc, #140]	; (d8 <sysInit+0xd8>)
+  4c:	d102      	bne.n	54 <sysInit+0x54>
+  4e:	6023      	str	r3, [r4, #0]
+  50:	2309      	movs	r3, #9
+  52:	e7f4      	b.n	3e <sysInit+0x3e>
+  54:	f240 4214 	movw	r2, #1044	; 0x414
+  58:	4290      	cmp	r0, r2
+  5a:	f04f 0201 	mov.w	r2, #1
+  5e:	d103      	bne.n	68 <sysInit+0x68>
+  60:	6023      	str	r3, [r4, #0]
+  62:	74e2      	strb	r2, [r4, #19]
+  64:	2308      	movs	r3, #8
+  66:	e7ec      	b.n	42 <sysInit+0x42>
+  68:	6023      	str	r3, [r4, #0]
+  6a:	74e2      	strb	r2, [r4, #19]
+  6c:	7525      	strb	r5, [r4, #20]
+  6e:	7ce0      	ldrb	r0, [r4, #19]
+  70:	f7ff fffe 	bl	0 <sysInit>
+  74:	f7ff fffe 	bl	0 <streamInit>
+  78:	2001      	movs	r0, #1
+  7a:	4918      	ldr	r1, [pc, #96]	; (dc <sysInit+0xdc>)
+  7c:	f7ff fffe 	bl	0 <streamSetGet>
+  80:	2280      	movs	r2, #128	; 0x80
+  82:	2001      	movs	r0, #1
+  84:	4916      	ldr	r1, [pc, #88]	; (e0 <sysInit+0xe0>)
+  86:	f7ff fffe 	bl	0 <streamSetRXBuffer>
+  8a:	2001      	movs	r0, #1
+  8c:	4915      	ldr	r1, [pc, #84]	; (e4 <sysInit+0xe4>)
+  8e:	f7ff fffe 	bl	0 <streamSetPut>
+  92:	4915      	ldr	r1, [pc, #84]	; (e8 <sysInit+0xe8>)
+  94:	2002      	movs	r0, #2
+  96:	f7ff fffe 	bl	0 <streamSetPut>
+  9a:	2001      	movs	r0, #1
+  9c:	f7ff fffe 	bl	0 <streamSetSTDIO>
+  a0:	f7ff fffe 	bl	0 <cmdInit>
+  a4:	f7ff fffe 	bl	0 <timeInit>
+  a8:	f7ff fffe 	bl	0 <fileMountRoot>
+  ac:	f7ff fffe 	bl	0 <sysInit>
+  b0:	f7ff fffe 	bl	0 <lcdInit>
+  b4:	4b0d      	ldr	r3, [pc, #52]	; (ec <sysInit+0xec>)
+  b6:	2000      	movs	r0, #0
+  b8:	6018      	str	r0, [r3, #0]
+  ba:	6058      	str	r0, [r3, #4]
+  bc:	6098      	str	r0, [r3, #8]
+  be:	60d8      	str	r0, [r3, #12]
+  c0:	bd38      	pop	{r3, r4, r5, pc}
   c2:	bf00      	nop
   c4:	00000000 	.word	0x00000000
   c8:	00b71b00 	.word	0x00b71b00
@@ -891,7 +1238,7 @@ print():
  1d4:	b003      	add	sp, #12
  1d6:	4770      	bx	lr
  1d8:	00000000 	.word	0x00000000
- 1dc:	00000003 	.word	0x00000003
+ 1dc:	00000004 	.word	0x00000004
 
 Disassembly of section .text.println:
 
@@ -907,7 +1254,224 @@ println():
   14:	e8bd 4018 	ldmia.w	sp!, {r3, r4, lr}
   18:	b003      	add	sp, #12
   1a:	4770      	bx	lr
-  1c:	0000001b 	.word	0x0000001b
+  1c:	0000001c 	.word	0x0000001c
+
+Disassembly of section .text.cmdDelete:
+
+00000000 <cmdDelete>:
+cmdDelete():
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	2418      	movs	r4, #24
+   4:	fb04 0401 	mla	r4, r4, r1, r0
+   8:	4605      	mov	r5, r0
+   a:	68a2      	ldr	r2, [r4, #8]
+   c:	2000      	movs	r0, #0
+   e:	490a      	ldr	r1, [pc, #40]	; (38 <cmdDelete+0x38>)
+  10:	f7ff fffe 	bl	0 <cmdDelete>
+  14:	2300      	movs	r3, #0
+  16:	7123      	strb	r3, [r4, #4]
+  18:	7163      	strb	r3, [r4, #5]
+  1a:	4a08      	ldr	r2, [pc, #32]	; (3c <cmdDelete+0x3c>)
+  1c:	60a3      	str	r3, [r4, #8]
+  1e:	6163      	str	r3, [r4, #20]
+  20:	61a3      	str	r3, [r4, #24]
+  22:	786b      	ldrb	r3, [r5, #1]
+  24:	6122      	str	r2, [r4, #16]
+  26:	60e2      	str	r2, [r4, #12]
+  28:	b10b      	cbz	r3, 2e <cmdDelete+0x2e>
+  2a:	3b01      	subs	r3, #1
+  2c:	706b      	strb	r3, [r5, #1]
+  2e:	4628      	mov	r0, r5
+  30:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+  34:	f7ff bffe 	b.w	0 <cmdDelete>
+  38:	0000001e 	.word	0x0000001e
+  3c:	00000000 	.word	0x00000000
+
+Disassembly of section .text.cmdProcess:
+
+00000000 <cmdProcess>:
+cmdProcess():
+   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+   2:	4604      	mov	r4, r0
+   4:	7863      	ldrb	r3, [r4, #1]
+   6:	2b00      	cmp	r3, #0
+   8:	d04f      	beq.n	aa <cmdProcess+0xaa>
+   a:	2300      	movs	r3, #0
+   c:	7821      	ldrb	r1, [r4, #0]
+   e:	2218      	movs	r2, #24
+  10:	fb02 4201 	mla	r2, r2, r1, r4
+  14:	7912      	ldrb	r2, [r2, #4]
+  16:	b952      	cbnz	r2, 2e <cmdProcess+0x2e>
+  18:	3101      	adds	r1, #1
+  1a:	3214      	adds	r2, #20
+  1c:	fb91 f0f2 	sdiv	r0, r1, r2
+  20:	fb02 1210 	mls	r2, r2, r0, r1
+  24:	3301      	adds	r3, #1
+  26:	b29b      	uxth	r3, r3
+  28:	2b14      	cmp	r3, #20
+  2a:	7022      	strb	r2, [r4, #0]
+  2c:	d1ee      	bne.n	c <cmdProcess+0xc>
+  2e:	7826      	ldrb	r6, [r4, #0]
+  30:	2318      	movs	r3, #24
+  32:	fb03 4306 	mla	r3, r3, r6, r4
+  36:	791a      	ldrb	r2, [r3, #4]
+  38:	f012 0f02 	tst.w	r2, #2
+  3c:	d118      	bne.n	70 <cmdProcess+0x70>
+  3e:	699a      	ldr	r2, [r3, #24]
+  40:	2a1e      	cmp	r2, #30
+  42:	d901      	bls.n	48 <cmdProcess+0x48>
+  44:	221e      	movs	r2, #30
+  46:	619a      	str	r2, [r3, #24]
+  48:	2518      	movs	r5, #24
+  4a:	fb05 4606 	mla	r6, r5, r6, r4
+  4e:	69b7      	ldr	r7, [r6, #24]
+  50:	f7ff fffe 	bl	0 <timeGet>
+  54:	7823      	ldrb	r3, [r4, #0]
+  56:	19c0      	adds	r0, r0, r7
+  58:	fb05 4303 	mla	r3, r5, r3, r4
+  5c:	61b0      	str	r0, [r6, #24]
+  5e:	68db      	ldr	r3, [r3, #12]
+  60:	4798      	blx	r3
+  62:	7823      	ldrb	r3, [r4, #0]
+  64:	fb05 4503 	mla	r5, r5, r3, r4
+  68:	792b      	ldrb	r3, [r5, #4]
+  6a:	f043 0302 	orr.w	r3, r3, #2
+  6e:	712b      	strb	r3, [r5, #4]
+  70:	7823      	ldrb	r3, [r4, #0]
+  72:	2518      	movs	r5, #24
+  74:	fb05 4303 	mla	r3, r5, r3, r4
+  78:	699e      	ldr	r6, [r3, #24]
+  7a:	f7ff fffe 	bl	0 <timeGet>
+  7e:	4286      	cmp	r6, r0
+  80:	d813      	bhi.n	aa <cmdProcess+0xaa>
+  82:	7821      	ldrb	r1, [r4, #0]
+  84:	fb05 4501 	mla	r5, r5, r1, r4
+  88:	796b      	ldrb	r3, [r5, #5]
+  8a:	b933      	cbnz	r3, 9a <cmdProcess+0x9a>
+  8c:	4620      	mov	r0, r4
+  8e:	f7ff fffe 	bl	0 <cmdProcess>
+  92:	7863      	ldrb	r3, [r4, #1]
+  94:	2b00      	cmp	r3, #0
+  96:	d1b5      	bne.n	4 <cmdProcess+0x4>
+  98:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+  9a:	3b01      	subs	r3, #1
+  9c:	716b      	strb	r3, [r5, #5]
+  9e:	792b      	ldrb	r3, [r5, #4]
+  a0:	f023 0302 	bic.w	r3, r3, #2
+  a4:	f063 037f 	orn	r3, r3, #127	; 0x7f
+  a8:	712b      	strb	r3, [r5, #4]
+  aa:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+
+Disassembly of section .text.cmdReplace:
+
+00000000 <cmdReplace>:
+cmdReplace():
+   0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+   4:	7805      	ldrb	r5, [r0, #0]
+   6:	2718      	movs	r7, #24
+   8:	fb07 0505 	mla	r5, r7, r5, r0
+   c:	2301      	movs	r3, #1
+   e:	712b      	strb	r3, [r5, #4]
+  10:	784b      	ldrb	r3, [r1, #1]
+  12:	4604      	mov	r4, r0
+  14:	716b      	strb	r3, [r5, #5]
+  16:	684b      	ldr	r3, [r1, #4]
+  18:	460e      	mov	r6, r1
+  1a:	60ab      	str	r3, [r5, #8]
+  1c:	68cb      	ldr	r3, [r1, #12]
+  1e:	612b      	str	r3, [r5, #16]
+  20:	688b      	ldr	r3, [r1, #8]
+  22:	60eb      	str	r3, [r5, #12]
+  24:	f7ff fffe 	bl	0 <timeGet>
+  28:	7823      	ldrb	r3, [r4, #0]
+  2a:	6168      	str	r0, [r5, #20]
+  2c:	fb07 4703 	mla	r7, r7, r3, r4
+  30:	6973      	ldr	r3, [r6, #20]
+  32:	4620      	mov	r0, r4
+  34:	61bb      	str	r3, [r7, #24]
+  36:	7863      	ldrb	r3, [r4, #1]
+  38:	3301      	adds	r3, #1
+  3a:	7063      	strb	r3, [r4, #1]
+  3c:	e8bd 41f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, lr}
+  40:	f7ff bffe 	b.w	0 <cmdReplace>
+
+Disassembly of section .text.cmdInitQueue:
+
+00000000 <cmdInitQueue>:
+cmdInitQueue():
+   0:	4a0c      	ldr	r2, [pc, #48]	; (34 <cmdInitQueue+0x34>)
+   2:	b538      	push	{r3, r4, r5, lr}
+   4:	4605      	mov	r5, r0
+   6:	2300      	movs	r3, #0
+   8:	f852 1f04 	ldr.w	r1, [r2, #4]!
+   c:	b919      	cbnz	r1, 16 <cmdInitQueue+0x16>
+   e:	4a0a      	ldr	r2, [pc, #40]	; (38 <cmdInitQueue+0x38>)
+  10:	f842 5023 	str.w	r5, [r2, r3, lsl #2]
+  14:	e002      	b.n	1c <cmdInitQueue+0x1c>
+  16:	3301      	adds	r3, #1
+  18:	2b04      	cmp	r3, #4
+  1a:	d1f5      	bne.n	8 <cmdInitQueue+0x8>
+  1c:	2400      	movs	r4, #0
+  1e:	702c      	strb	r4, [r5, #0]
+  20:	706c      	strb	r4, [r5, #1]
+  22:	4621      	mov	r1, r4
+  24:	3401      	adds	r4, #1
+  26:	4628      	mov	r0, r5
+  28:	b2a4      	uxth	r4, r4
+  2a:	f7ff fffe 	bl	0 <cmdInitQueue>
+  2e:	2c14      	cmp	r4, #20
+  30:	d1f7      	bne.n	22 <cmdInitQueue+0x22>
+  32:	bd38      	pop	{r3, r4, r5, pc}
+  34:	fffffffc 	.word	0xfffffffc
+  38:	00000000 	.word	0x00000000
+
+Disassembly of section .text.cmdQueue:
+
+00000000 <cmdQueue>:
+cmdQueue():
+   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+   2:	7843      	ldrb	r3, [r0, #1]
+   4:	4604      	mov	r4, r0
+   6:	2b12      	cmp	r3, #18
+   8:	460f      	mov	r7, r1
+   a:	dc26      	bgt.n	5a <cmdQueue+0x5a>
+   c:	7802      	ldrb	r2, [r0, #0]
+   e:	2501      	movs	r5, #1
+  10:	18d3      	adds	r3, r2, r3
+  12:	2214      	movs	r2, #20
+  14:	fb93 f6f2 	sdiv	r6, r3, r2
+  18:	fb02 3316 	mls	r3, r2, r6, r3
+  1c:	2618      	movs	r6, #24
+  1e:	b29b      	uxth	r3, r3
+  20:	fb06 0603 	mla	r6, r6, r3, r0
+  24:	784b      	ldrb	r3, [r1, #1]
+  26:	7135      	strb	r5, [r6, #4]
+  28:	7173      	strb	r3, [r6, #5]
+  2a:	684b      	ldr	r3, [r1, #4]
+  2c:	60b3      	str	r3, [r6, #8]
+  2e:	68cb      	ldr	r3, [r1, #12]
+  30:	6133      	str	r3, [r6, #16]
+  32:	688b      	ldr	r3, [r1, #8]
+  34:	60f3      	str	r3, [r6, #12]
+  36:	f7ff fffe 	bl	0 <timeGet>
+  3a:	697b      	ldr	r3, [r7, #20]
+  3c:	6170      	str	r0, [r6, #20]
+  3e:	61b3      	str	r3, [r6, #24]
+  40:	2000      	movs	r0, #0
+  42:	4907      	ldr	r1, [pc, #28]	; (60 <cmdQueue+0x60>)
+  44:	68b2      	ldr	r2, [r6, #8]
+  46:	f7ff fffe 	bl	0 <cmdQueue>
+  4a:	7863      	ldrb	r3, [r4, #1]
+  4c:	4620      	mov	r0, r4
+  4e:	195b      	adds	r3, r3, r5
+  50:	7063      	strb	r3, [r4, #1]
+  52:	f7ff fffe 	bl	0 <cmdQueue>
+  56:	4628      	mov	r0, r5
+  58:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+  5a:	2000      	movs	r0, #0
+  5c:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+  5e:	bf00      	nop
+  60:	0000002c 	.word	0x0000002c
 
 Disassembly of section .text.streamSetPrintFile:
 
@@ -1149,14 +1713,20 @@ Disassembly of section .text.SysTick_Handler:
 
 00000000 <SysTick_Handler>:
 SysTick_Handler():
-   0:	4b04      	ldr	r3, [pc, #16]	; (14 <SysTick_Handler+0x14>)
+   0:	4b09      	ldr	r3, [pc, #36]	; (28 <SysTick_Handler+0x28>)
    2:	f64a 22aa 	movw	r2, #43690	; 0xaaaa
-   6:	601a      	str	r2, [r3, #0]
-   8:	4b03      	ldr	r3, [pc, #12]	; (18 <SysTick_Handler+0x18>)
-   a:	689a      	ldr	r2, [r3, #8]
-   c:	3264      	adds	r2, #100	; 0x64
-   e:	609a      	str	r2, [r3, #8]
-  10:	4770      	bx	lr
-  12:	bf00      	nop
-  14:	40003000 	.word	0x40003000
-  18:	00000000 	.word	0x00000000
+   6:	b510      	push	{r4, lr}
+   8:	601a      	str	r2, [r3, #0]
+   a:	4b08      	ldr	r3, [pc, #32]	; (2c <SysTick_Handler+0x2c>)
+   c:	689a      	ldr	r2, [r3, #8]
+   e:	3264      	adds	r2, #100	; 0x64
+  10:	609a      	str	r2, [r3, #8]
+  12:	68db      	ldr	r3, [r3, #12]
+  14:	f413 3f80 	tst.w	r3, #65536	; 0x10000
+  18:	d001      	beq.n	6 <SysTick_Handler+0x6>
+  1a:	f7ff fffe 	bl	0 <SysTick_Handler>
+  1e:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+  22:	f7ff bffe 	b.w	0 <guiSpriteProcess>
+  26:	bf00      	nop
+  28:	40003000 	.word	0x40003000
+  2c:	00000000 	.word	0x00000000

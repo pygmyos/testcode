@@ -1,7 +1,98 @@
 
-C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\Tutorial1\pygmy_gui.o:     file format elf32-littlearm
-C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\Tutorial1\pygmy_gui.o
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Tutorial1\pygmy_gui.o:     file format elf32-littlearm
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Tutorial1\pygmy_gui.o
 
+
+Disassembly of section .text.guiInitSprites:
+
+00000000 <guiInitSprites>:
+guiInitSprites():
+   0:	4b05      	ldr	r3, [pc, #20]	; (18 <guiInitSprites+0x18>)
+   2:	f503 6208 	add.w	r2, r3, #2176	; 0x880
+   6:	2100      	movs	r1, #0
+   8:	82d9      	strh	r1, [r3, #22]
+   a:	3344      	adds	r3, #68	; 0x44
+   c:	4293      	cmp	r3, r2
+   e:	d1fa      	bne.n	6 <guiInitSprites+0x6>
+  10:	4b02      	ldr	r3, [pc, #8]	; (1c <guiInitSprites+0x1c>)
+  12:	2201      	movs	r2, #1
+  14:	601a      	str	r2, [r3, #0]
+  16:	4770      	bx	lr
+	...
+
+Disassembly of section .text.guiCreateSprite:
+
+00000000 <guiCreateSprite>:
+guiCreateSprite():
+   0:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
+   4:	4614      	mov	r4, r2
+   6:	4698      	mov	r8, r3
+   8:	460d      	mov	r5, r1
+   a:	2900      	cmp	r1, #0
+   c:	d030      	beq.n	70 <guiCreateSprite+0x70>
+   e:	4b1a      	ldr	r3, [pc, #104]	; (78 <guiCreateSprite+0x78>)
+  10:	2600      	movs	r6, #0
+  12:	461f      	mov	r7, r3
+  14:	8ada      	ldrh	r2, [r3, #22]
+  16:	b14a      	cbz	r2, 2c <guiCreateSprite+0x2c>
+  18:	42aa      	cmp	r2, r5
+  1a:	d007      	beq.n	2c <guiCreateSprite+0x2c>
+  1c:	3601      	adds	r6, #1
+  1e:	b2b6      	uxth	r6, r6
+  20:	3344      	adds	r3, #68	; 0x44
+  22:	2e20      	cmp	r6, #32
+  24:	d1f6      	bne.n	14 <guiCreateSprite+0x14>
+  26:	2000      	movs	r0, #0
+  28:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+  2c:	2344      	movs	r3, #68	; 0x44
+  2e:	435e      	muls	r6, r3
+  30:	19b9      	adds	r1, r7, r6
+  32:	311c      	adds	r1, #28
+  34:	eb07 0906 	add.w	r9, r7, r6
+  38:	f7ff fffe 	bl	0 <fileCopyHandle>
+  3c:	2300      	movs	r3, #0
+  3e:	f8a9 3018 	strh.w	r3, [r9, #24]
+  42:	9b08      	ldr	r3, [sp, #32]
+  44:	f04f 0a01 	mov.w	sl, #1
+  48:	f8c9 3004 	str.w	r3, [r9, #4]
+  4c:	f847 a006 	str.w	sl, [r7, r6]
+  50:	f7ff fffe 	bl	0 <timeGet>
+  54:	9b09      	ldr	r3, [sp, #36]	; 0x24
+  56:	f8c9 0008 	str.w	r0, [r9, #8]
+  5a:	f8c9 300c 	str.w	r3, [r9, #12]
+  5e:	f8c9 4010 	str.w	r4, [r9, #16]
+  62:	f8a9 8014 	strh.w	r8, [r9, #20]
+  66:	f8a9 5016 	strh.w	r5, [r9, #22]
+  6a:	4650      	mov	r0, sl
+  6c:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+  70:	4608      	mov	r0, r1
+  72:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+  76:	bf00      	nop
+  78:	00000000 	.word	0x00000000
+
+Disassembly of section .text.guiDeleteSprite:
+
+00000000 <guiDeleteSprite>:
+guiDeleteSprite():
+   0:	4a09b510 	.word	0x4a09b510
+   4:	2300      	movs	r3, #0
+   6:	4611      	mov	r1, r2
+   8:	8ad4      	ldrh	r4, [r2, #22]
+   a:	4284      	cmp	r4, r0
+   c:	d106      	bne.n	1c <guiDeleteSprite+0x1c>
+   e:	2244      	movs	r2, #68	; 0x44
+  10:	fb02 1303 	mla	r3, r2, r3, r1
+  14:	2200      	movs	r2, #0
+  16:	82da      	strh	r2, [r3, #22]
+  18:	2001      	movs	r0, #1
+  1a:	bd10      	pop	{r4, pc}
+  1c:	3301      	adds	r3, #1
+  1e:	3244      	adds	r2, #68	; 0x44
+  20:	2b20      	cmp	r3, #32
+  22:	d1f1      	bne.n	8 <guiDeleteSprite+0x8>
+  24:	2000      	movs	r0, #0
+  26:	bd10      	pop	{r4, pc}
+  28:	00000000 	.word	0x00000000
 
 Disassembly of section .text.guiOutputBMHeader:
 
@@ -233,67 +324,94 @@ drawBitmap():
  15e:	b005      	add	sp, #20
  160:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
 
-Disassembly of section .text.getImage:
+Disassembly of section .text.guiGetHeader:
 
-00000000 <getImage>:
-getImage():
+00000000 <guiGetHeader>:
+guiGetHeader():
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	2101      	movs	r1, #1
+   4:	4604      	mov	r4, r0
+   6:	2200      	movs	r2, #0
+   8:	f7ff fffe 	bl	0 <fileSetPosition>
+   c:	4620      	mov	r0, r4
+   e:	f7ff fffe 	bl	0 <fileGetChar>
+  12:	0200      	lsls	r0, r0, #8
+  14:	b285      	uxth	r5, r0
+  16:	4620      	mov	r0, r4
+  18:	f7ff fffe 	bl	0 <fileGetChar>
+  1c:	ea45 0000 	orr.w	r0, r5, r0
+  20:	b280      	uxth	r0, r0
+  22:	bd38      	pop	{r3, r4, r5, pc}
+
+Disassembly of section .text.guiGetEntries:
+
+00000000 <guiGetEntries>:
+guiGetEntries():
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	4604      	mov	r4, r0
+   4:	f7ff fffe 	bl	0 <guiGetEntries>
+   8:	f410 4070 	ands.w	r0, r0, #61440	; 0xf000
+   c:	d00a      	beq.n	24 <guiGetEntries+0x24>
+   e:	4620      	mov	r0, r4
+  10:	f7ff fffe 	bl	0 <fileGetChar>
+  14:	0200      	lsls	r0, r0, #8
+  16:	b285      	uxth	r5, r0
+  18:	4620      	mov	r0, r4
+  1a:	f7ff fffe 	bl	0 <fileGetChar>
+  1e:	ea45 0000 	orr.w	r0, r5, r0
+  22:	b280      	uxth	r0, r0
+  24:	bd38      	pop	{r3, r4, r5, pc}
+
+Disassembly of section .text.guiGetImage:
+
+00000000 <guiGetImage>:
+guiGetImage():
    0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
    2:	4604      	mov	r4, r0
    4:	460d      	mov	r5, r1
-   6:	f7ff fffe 	bl	0 <fileGetChar>
-   a:	0206      	lsls	r6, r0, #8
+   6:	f7ff fffe 	bl	0 <guiGetImage>
+   a:	4607      	mov	r7, r0
    c:	4620      	mov	r0, r4
-   e:	f7ff fffe 	bl	0 <fileGetChar>
-  12:	b2b6      	uxth	r6, r6
-  14:	4306      	orrs	r6, r0
-  16:	b2b6      	uxth	r6, r6
-  18:	f416 4070 	ands.w	r0, r6, #61440	; 0xf000
-  1c:	d03b      	beq.n	96 <getImage+0x96>
-  1e:	4620      	mov	r0, r4
-  20:	f7ff fffe 	bl	0 <fileGetChar>
-  24:	0200      	lsls	r0, r0, #8
-  26:	b287      	uxth	r7, r0
-  28:	4620      	mov	r0, r4
-  2a:	f7ff fffe 	bl	0 <fileGetChar>
-  2e:	4307      	orrs	r7, r0
-  30:	b2bf      	uxth	r7, r7
-  32:	42bd      	cmp	r5, r7
-  34:	d82e      	bhi.n	94 <getImage+0x94>
-  36:	f416 6f80 	tst.w	r6, #1024	; 0x400
-  3a:	d01b      	beq.n	74 <getImage+0x74>
-  3c:	2102      	movs	r1, #2
-  3e:	fa15 f201 	lsls.w	r2, r5, r1
-  42:	4620      	mov	r0, r4
-  44:	f7ff fffe 	bl	0 <fileSetPosition>
-  48:	4620      	mov	r0, r4
-  4a:	f7ff fffe 	bl	0 <fileGetChar>
-  4e:	0605      	lsls	r5, r0, #24
-  50:	4620      	mov	r0, r4
-  52:	f7ff fffe 	bl	0 <fileGetChar>
-  56:	4607      	mov	r7, r0
-  58:	4620      	mov	r0, r4
-  5a:	f7ff fffe 	bl	0 <fileGetChar>
-  5e:	4606      	mov	r6, r0
-  60:	4620      	mov	r0, r4
-  62:	f7ff fffe 	bl	0 <fileGetChar>
-  66:	ea45 4507 	orr.w	r5, r5, r7, lsl #16
-  6a:	ea45 0000 	orr.w	r0, r5, r0
-  6e:	ea40 2006 	orr.w	r0, r0, r6, lsl #8
-  72:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
-  74:	2101      	movs	r1, #1
-  76:	1caa      	adds	r2, r5, #2
-  78:	408a      	lsls	r2, r1
-  7a:	4620      	mov	r0, r4
-  7c:	f7ff fffe 	bl	0 <fileSetPosition>
-  80:	4620      	mov	r0, r4
-  82:	f7ff fffe 	bl	0 <fileGetChar>
-  86:	0205      	lsls	r5, r0, #8
-  88:	4620      	mov	r0, r4
-  8a:	f7ff fffe 	bl	0 <fileGetChar>
-  8e:	ea45 0000 	orr.w	r0, r5, r0
-  92:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
-  94:	2000      	movs	r0, #0
-  96:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+   e:	f7ff fffe 	bl	0 <guiGetImage>
+  12:	2800      	cmp	r0, #0
+  14:	d031      	beq.n	7a <guiGetImage+0x7a>
+  16:	4285      	cmp	r5, r0
+  18:	d82e      	bhi.n	78 <guiGetImage+0x78>
+  1a:	f417 6f80 	tst.w	r7, #1024	; 0x400
+  1e:	d01b      	beq.n	58 <guiGetImage+0x58>
+  20:	2102      	movs	r1, #2
+  22:	fa15 f201 	lsls.w	r2, r5, r1
+  26:	4620      	mov	r0, r4
+  28:	f7ff fffe 	bl	0 <fileSetPosition>
+  2c:	4620      	mov	r0, r4
+  2e:	f7ff fffe 	bl	0 <fileGetChar>
+  32:	0605      	lsls	r5, r0, #24
+  34:	4620      	mov	r0, r4
+  36:	f7ff fffe 	bl	0 <fileGetChar>
+  3a:	4607      	mov	r7, r0
+  3c:	4620      	mov	r0, r4
+  3e:	f7ff fffe 	bl	0 <fileGetChar>
+  42:	4606      	mov	r6, r0
+  44:	4620      	mov	r0, r4
+  46:	f7ff fffe 	bl	0 <fileGetChar>
+  4a:	ea45 4507 	orr.w	r5, r5, r7, lsl #16
+  4e:	ea45 0000 	orr.w	r0, r5, r0
+  52:	ea40 2006 	orr.w	r0, r0, r6, lsl #8
+  56:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+  58:	2101      	movs	r1, #1
+  5a:	1caa      	adds	r2, r5, #2
+  5c:	408a      	lsls	r2, r1
+  5e:	4620      	mov	r0, r4
+  60:	f7ff fffe 	bl	0 <fileSetPosition>
+  64:	4620      	mov	r0, r4
+  66:	f7ff fffe 	bl	0 <fileGetChar>
+  6a:	0205      	lsls	r5, r0, #8
+  6c:	4620      	mov	r0, r4
+  6e:	f7ff fffe 	bl	0 <fileGetChar>
+  72:	ea45 0000 	orr.w	r0, r5, r0
+  76:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+  78:	2000      	movs	r0, #0
+  7a:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
 
 Disassembly of section .text.drawImage:
 
@@ -523,6 +641,80 @@ drawImage():
  24e:	463a      	mov	r2, r7
  250:	f7ff fffe 	bl	0 <lcdSetColor>
  254:	e7c3      	b.n	1de <drawImage+0x1de>
+
+Disassembly of section .text.drawSprite:
+
+00000000 <drawSprite>:
+drawSprite():
+   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+   2:	f100 061c 	add.w	r6, r0, #28
+   6:	4604      	mov	r4, r0
+   8:	4630      	mov	r0, r6
+   a:	f7ff fffe 	bl	0 <drawSprite>
+   e:	8b23      	ldrh	r3, [r4, #24]
+  10:	3301      	adds	r3, #1
+  12:	b29b      	uxth	r3, r3
+  14:	4283      	cmp	r3, r0
+  16:	8323      	strh	r3, [r4, #24]
+  18:	d101      	bne.n	1e <drawSprite+0x1e>
+  1a:	2300      	movs	r3, #0
+  1c:	8323      	strh	r3, [r4, #24]
+  1e:	2500      	movs	r5, #0
+  20:	e00d      	b.n	3e <drawSprite+0x3e>
+  22:	6923      	ldr	r3, [r4, #16]
+  24:	1c6a      	adds	r2, r5, #1
+  26:	b292      	uxth	r2, r2
+  28:	f833 0015 	ldrh.w	r0, [r3, r5, lsl #1]
+  2c:	f833 1012 	ldrh.w	r1, [r3, r2, lsl #1]
+  30:	4632      	mov	r2, r6
+  32:	8b23      	ldrh	r3, [r4, #24]
+  34:	f7ff fffe 	bl	0 <drawSprite>
+  38:	3502      	adds	r5, #2
+  3a:	b2ad      	uxth	r5, r5
+  3c:	4607      	mov	r7, r0
+  3e:	8aa3      	ldrh	r3, [r4, #20]
+  40:	42ab      	cmp	r3, r5
+  42:	d8ee      	bhi.n	22 <drawSprite+0x22>
+  44:	4638      	mov	r0, r7
+  46:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+
+Disassembly of section .text.guiSpriteProcess:
+
+00000000 <guiSpriteProcess>:
+guiSpriteProcess():
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	f7ff fffe 	bl	0 <timeGet>
+   6:	4c12      	ldr	r4, [pc, #72]	; (50 <guiSpriteProcess+0x50>)
+   8:	4606      	mov	r6, r0
+   a:	2500      	movs	r5, #0
+   c:	8820      	ldrh	r0, [r4, #0]
+   e:	b1d0      	cbz	r0, 46 <guiSpriteProcess+0x46>
+  10:	f854 3c0a 	ldr.w	r3, [r4, #-10]
+  14:	b123      	cbz	r3, 20 <guiSpriteProcess+0x20>
+  16:	42b3      	cmp	r3, r6
+  18:	d102      	bne.n	20 <guiSpriteProcess+0x20>
+  1a:	f7ff fffe 	bl	0 <guiSpriteProcess>
+  1e:	e012      	b.n	46 <guiSpriteProcess+0x46>
+  20:	f854 3c16 	ldr.w	r3, [r4, #-22]
+  24:	b17b      	cbz	r3, 46 <guiSpriteProcess+0x46>
+  26:	2b01      	cmp	r3, #1
+  28:	d10a      	bne.n	40 <guiSpriteProcess+0x40>
+  2a:	f854 3c12 	ldr.w	r3, [r4, #-18]
+  2e:	2044      	movs	r0, #68	; 0x44
+  30:	f844 3c16 	str.w	r3, [r4, #-22]
+  34:	4b07      	ldr	r3, [pc, #28]	; (54 <guiSpriteProcess+0x54>)
+  36:	fb00 3005 	mla	r0, r0, r5, r3
+  3a:	f7ff fffe 	bl	0 <guiSpriteProcess>
+  3e:	e002      	b.n	46 <guiSpriteProcess+0x46>
+  40:	3b01      	subs	r3, #1
+  42:	f844 3c16 	str.w	r3, [r4, #-22]
+  46:	3501      	adds	r5, #1
+  48:	3444      	adds	r4, #68	; 0x44
+  4a:	2d20      	cmp	r5, #32
+  4c:	d1de      	bne.n	c <guiSpriteProcess+0xc>
+  4e:	bd70      	pop	{r4, r5, r6, pc}
+  50:	00000016 	.word	0x00000016
+  54:	00000000 	.word	0x00000000
 
 Disassembly of section .text.drawFill:
 
@@ -853,6 +1045,33 @@ drawLine():
   c6:	45aa      	cmp	sl, r5
   c8:	d1ee      	bne.n	a8 <drawLine+0xa8>
   ca:	e8bd 8ff8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}
+
+Disassembly of section .text.drawPoly:
+
+00000000 <drawPoly>:
+drawPoly():
+   0:	b5f7      	push	{r0, r1, r2, r4, r5, r6, r7, lr}
+   2:	4605      	mov	r5, r0
+   4:	460f      	mov	r7, r1
+   6:	4616      	mov	r6, r2
+   8:	2400      	movs	r4, #0
+   a:	e010      	b.n	2e <drawPoly+0x2e>
+   c:	f835 0014 	ldrh.w	r0, [r5, r4, lsl #1]
+  10:	1c63      	adds	r3, r4, #1
+  12:	3402      	adds	r4, #2
+  14:	b29b      	uxth	r3, r3
+  16:	b2a4      	uxth	r4, r4
+  18:	f935 1013 	ldrsh.w	r1, [r5, r3, lsl #1]
+  1c:	1c63      	adds	r3, r4, #1
+  1e:	f935 2014 	ldrsh.w	r2, [r5, r4, lsl #1]
+  22:	f935 3013 	ldrsh.w	r3, [r5, r3, lsl #1]
+  26:	b200      	sxth	r0, r0
+  28:	9600      	str	r6, [sp, #0]
+  2a:	f7ff fffe 	bl	0 <drawPoly>
+  2e:	1ebb      	subs	r3, r7, #2
+  30:	429c      	cmp	r4, r3
+  32:	dbeb      	blt.n	c <drawPoly+0xc>
+  34:	bdfe      	pop	{r1, r2, r3, r4, r5, r6, r7, pc}
 
 Disassembly of section .text.drawRadius:
 

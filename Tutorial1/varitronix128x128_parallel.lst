@@ -1,6 +1,6 @@
 
-C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\Tutorial1\varitronix128x128_parallel.o:     file format elf32-littlearm
-C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\Tutorial1\varitronix128x128_parallel.o
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Tutorial1\varitronix128x128_parallel.o:     file format elf32-littlearm
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Tutorial1\varitronix128x128_parallel.o
 
 
 Disassembly of section .text.lcdWriteCommand:

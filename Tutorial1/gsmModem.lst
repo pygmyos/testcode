@@ -1,0 +1,2383 @@
+
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Tutorial1\gsmModem.o:     file format elf32-littlearm
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Tutorial1\gsmModem.o
+
+
+Disassembly of section .text.modem_imei:
+
+00000000 <modem_imei>:
+modem_imei():
+   0:	2000      	movs	r0, #0
+   2:	4770      	bx	lr
+
+Disassembly of section .text.pftp_close_handler:
+
+00000000 <pftp_close_handler>:
+pftp_close_handler():
+   0:	4b03      	ldr	r3, [pc, #12]	; (10 <pftp_close_handler+0x10>)
+   2:	2001      	movs	r0, #1
+   4:	681a      	ldr	r2, [r3, #0]
+   6:	f022 0204 	bic.w	r2, r2, #4
+   a:	601a      	str	r2, [r3, #0]
+   c:	4770      	bx	lr
+   e:	bf00      	nop
+  10:	00000000 	.word	0x00000000
+
+Disassembly of section .text.handler_ATSERVINFO:
+
+00000000 <handler_ATSERVINFO>:
+handler_ATSERVINFO():
+   0:	2000      	movs	r0, #0
+   2:	4770      	bx	lr
+
+Disassembly of section .text.print_wait:
+
+00000000 <print_wait>:
+print_wait():
+   0:	4770      	bx	lr
+
+Disassembly of section .text.print_CSAS:
+
+00000000 <print_CSAS>:
+print_CSAS():
+   0:	4901      	ldr	r1, [pc, #4]	; (8 <print_CSAS+0x8>)
+   2:	2001      	movs	r0, #1
+   4:	f7ff bffe 	b.w	0 <print>
+   8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.print_ATESCAPE:
+
+00000000 <print_ATESCAPE>:
+print_ATESCAPE():
+   0:	4901      	ldr	r1, [pc, #4]	; (8 <print_ATESCAPE+0x8>)
+   2:	2001      	movs	r0, #1
+   4:	f7ff bffe 	b.w	0 <print>
+   8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.print_http:
+
+00000000 <print_http>:
+print_http():
+   0:	b510      	push	{r4, lr}
+   2:	4c0a      	ldr	r4, [pc, #40]	; (2c <print_http+0x2c>)
+   4:	2001      	movs	r0, #1
+   6:	4622      	mov	r2, r4
+   8:	4909      	ldr	r1, [pc, #36]	; (30 <print_http+0x30>)
+   a:	f7ff fffe 	bl	0 <print>
+   e:	2001      	movs	r0, #1
+  10:	4623      	mov	r3, r4
+  12:	4908      	ldr	r1, [pc, #32]	; (34 <print_http+0x34>)
+  14:	4a08      	ldr	r2, [pc, #32]	; (38 <print_http+0x38>)
+  16:	f7ff fffe 	bl	0 <print>
+  1a:	4908      	ldr	r1, [pc, #32]	; (3c <print_http+0x3c>)
+  1c:	2001      	movs	r0, #1
+  1e:	4622      	mov	r2, r4
+  20:	4623      	mov	r3, r4
+  22:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+  26:	f7ff bffe 	b.w	0 <print>
+  2a:	bf00      	nop
+  2c:	00000004 	.word	0x00000004
+  30:	00000009 	.word	0x00000009
+  34:	00000015 	.word	0x00000015
+  38:	00000000 	.word	0x00000000
+  3c:	00000020 	.word	0x00000020
+
+Disassembly of section .text.print_pftp_get:
+
+00000000 <print_pftp_get>:
+print_pftp_get():
+   0:	4b0e      	ldr	r3, [pc, #56]	; (3c <print_pftp_get+0x3c>)
+   2:	b510      	push	{r4, lr}
+   4:	681a      	ldr	r2, [r3, #0]
+   6:	4c0e      	ldr	r4, [pc, #56]	; (40 <print_pftp_get+0x40>)
+   8:	f042 0208 	orr.w	r2, r2, #8
+   c:	601a      	str	r2, [r3, #0]
+   e:	2001      	movs	r0, #1
+  10:	4a0c      	ldr	r2, [pc, #48]	; (44 <print_pftp_get+0x44>)
+  12:	490d      	ldr	r1, [pc, #52]	; (48 <print_pftp_get+0x48>)
+  14:	f7ff fffe 	bl	0 <print>
+  18:	8822      	ldrh	r2, [r4, #0]
+  1a:	f5b2 7f80 	cmp.w	r2, #256	; 0x100
+  1e:	d003      	beq.n	28 <print_pftp_get+0x28>
+  20:	2001      	movs	r0, #1
+  22:	490a      	ldr	r1, [pc, #40]	; (4c <print_pftp_get+0x4c>)
+  24:	f7ff fffe 	bl	0 <print>
+  28:	2001      	movs	r0, #1
+  2a:	4909      	ldr	r1, [pc, #36]	; (50 <print_pftp_get+0x50>)
+  2c:	8862      	ldrh	r2, [r4, #2]
+  2e:	f7ff fffe 	bl	0 <print>
+  32:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+  36:	f7ff bffe 	b.w	0 <print_pftp_get>
+  3a:	bf00      	nop
+	...
+  44:	00000020 	.word	0x00000020
+  48:	0000003b 	.word	0x0000003b
+  4c:	00000051 	.word	0x00000051
+  50:	00000058 	.word	0x00000058
+
+Disassembly of section .text.print_QUIT:
+
+00000000 <print_QUIT>:
+print_QUIT():
+   0:	4a04b507 	.word	0x4a04b507
+   4:	2001      	movs	r0, #1
+   6:	4904      	ldr	r1, [pc, #16]	; (18 <print_QUIT+0x18>)
+   8:	4613      	mov	r3, r2
+   a:	9200      	str	r2, [sp, #0]
+   c:	9201      	str	r2, [sp, #4]
+   e:	f7ff fffe 	bl	0 <print>
+  12:	bd0e      	pop	{r1, r2, r3, pc}
+  14:	00000004 	.word	0x00000004
+  18:	00000060 	.word	0x00000060
+
+Disassembly of section .text.print_EMAILBODY:
+
+00000000 <print_EMAILBODY>:
+print_EMAILBODY():
+   0:	b5f7      	push	{r0, r1, r2, r4, r5, r6, r7, lr}
+   2:	4d21      	ldr	r5, [pc, #132]	; (88 <print_EMAILBODY+0x88>)
+   4:	4e21      	ldr	r6, [pc, #132]	; (8c <print_EMAILBODY+0x8c>)
+   6:	1d2c      	adds	r4, r5, #4
+   8:	2001      	movs	r0, #1
+   a:	4631      	mov	r1, r6
+   c:	1dea      	adds	r2, r5, #7
+   e:	4b20      	ldr	r3, [pc, #128]	; (90 <print_EMAILBODY+0x90>)
+  10:	9400      	str	r4, [sp, #0]
+  12:	f7ff fffe 	bl	0 <print>
+  16:	4631      	mov	r1, r6
+  18:	4e1e      	ldr	r6, [pc, #120]	; (94 <print_EMAILBODY+0x94>)
+  1a:	2001      	movs	r0, #1
+  1c:	f105 020d 	add.w	r2, r5, #13
+  20:	4f1d      	ldr	r7, [pc, #116]	; (98 <print_EMAILBODY+0x98>)
+  22:	4b1e      	ldr	r3, [pc, #120]	; (9c <print_EMAILBODY+0x9c>)
+  24:	9400      	str	r4, [sp, #0]
+  26:	f7ff fffe 	bl	0 <print>
+  2a:	2001      	movs	r0, #1
+  2c:	4631      	mov	r1, r6
+  2e:	f105 0211 	add.w	r2, r5, #17
+  32:	4b1b      	ldr	r3, [pc, #108]	; (a0 <print_EMAILBODY+0xa0>)
+  34:	9400      	str	r4, [sp, #0]
+  36:	f7ff fffe 	bl	0 <print>
+  3a:	2001      	movs	r0, #1
+  3c:	4639      	mov	r1, r7
+  3e:	f105 021a 	add.w	r2, r5, #26
+  42:	4623      	mov	r3, r4
+  44:	f7ff fffe 	bl	0 <print>
+  48:	2001      	movs	r0, #1
+  4a:	4631      	mov	r1, r6
+  4c:	f105 022c 	add.w	r2, r5, #44	; 0x2c
+  50:	4b14      	ldr	r3, [pc, #80]	; (a4 <print_EMAILBODY+0xa4>)
+  52:	9400      	str	r4, [sp, #0]
+  54:	f7ff fffe 	bl	0 <print>
+  58:	2001      	movs	r0, #1
+  5a:	4631      	mov	r1, r6
+  5c:	f105 0236 	add.w	r2, r5, #54	; 0x36
+  60:	4b11      	ldr	r3, [pc, #68]	; (a8 <print_EMAILBODY+0xa8>)
+  62:	9400      	str	r4, [sp, #0]
+  64:	f7ff fffe 	bl	0 <print>
+  68:	2001      	movs	r0, #1
+  6a:	4639      	mov	r1, r7
+  6c:	f105 0242 	add.w	r2, r5, #66	; 0x42
+  70:	4623      	mov	r3, r4
+  72:	f7ff fffe 	bl	0 <print>
+  76:	2001      	movs	r0, #1
+  78:	490c      	ldr	r1, [pc, #48]	; (ac <print_EMAILBODY+0xac>)
+  7a:	f105 0271 	add.w	r2, r5, #113	; 0x71
+  7e:	4623      	mov	r3, r4
+  80:	9400      	str	r4, [sp, #0]
+  82:	f7ff fffe 	bl	0 <print>
+  86:	bdfe      	pop	{r1, r2, r3, r4, r5, r6, r7, pc}
+  88:	00000000 	.word	0x00000000
+  8c:	0000006a 	.word	0x0000006a
+  90:	0000007c 	.word	0x0000007c
+  94:	00000074 	.word	0x00000074
+  98:	0000007c 	.word	0x0000007c
+  9c:	00000054 	.word	0x00000054
+  a0:	000000a4 	.word	0x000000a4
+  a4:	0000003c 	.word	0x0000003c
+  a8:	00000048 	.word	0x00000048
+  ac:	00000081 	.word	0x00000081
+
+Disassembly of section .text.print_DATA:
+
+00000000 <print_DATA>:
+print_DATA():
+   0:	49044b03 	.word	0x49044b03
+   4:	f103 0291 	add.w	r2, r3, #145	; 0x91
+   8:	2001      	movs	r0, #1
+   a:	3304      	adds	r3, #4
+   c:	f7ff bffe 	b.w	0 <print>
+  10:	00000000 	.word	0x00000000
+  14:	0000007c 	.word	0x0000007c
+
+Disassembly of section .text.print_RCPT:
+
+00000000 <print_RCPT>:
+print_RCPT():
+   0:	b507      	push	{r0, r1, r2, lr}
+   2:	4a05      	ldr	r2, [pc, #20]	; (18 <print_RCPT+0x18>)
+   4:	2001      	movs	r0, #1
+   6:	1d13      	adds	r3, r2, #4
+   8:	9300      	str	r3, [sp, #0]
+   a:	4904      	ldr	r1, [pc, #16]	; (1c <print_RCPT+0x1c>)
+   c:	3296      	adds	r2, #150	; 0x96
+   e:	4b04      	ldr	r3, [pc, #16]	; (20 <print_RCPT+0x20>)
+  10:	f7ff fffe 	bl	0 <print>
+  14:	bd0e      	pop	{r1, r2, r3, pc}
+  16:	bf00      	nop
+  18:	00000000 	.word	0x00000000
+  1c:	0000006a 	.word	0x0000006a
+  20:	00000054 	.word	0x00000054
+
+Disassembly of section .text.print_MAILFROM:
+
+00000000 <print_MAILFROM>:
+print_MAILFROM():
+   0:	b507      	push	{r0, r1, r2, lr}
+   2:	4a05      	ldr	r2, [pc, #20]	; (18 <print_MAILFROM+0x18>)
+   4:	2001      	movs	r0, #1
+   6:	1d13      	adds	r3, r2, #4
+   8:	9300      	str	r3, [sp, #0]
+   a:	4904      	ldr	r1, [pc, #16]	; (1c <print_MAILFROM+0x1c>)
+   c:	329f      	adds	r2, #159	; 0x9f
+   e:	4b04      	ldr	r3, [pc, #16]	; (20 <print_MAILFROM+0x20>)
+  10:	f7ff fffe 	bl	0 <print>
+  14:	bd0e      	pop	{r1, r2, r3, pc}
+  16:	bf00      	nop
+  18:	00000000 	.word	0x00000000
+  1c:	00000074 	.word	0x00000074
+  20:	0000007c 	.word	0x0000007c
+
+Disassembly of section .text.print_HELO:
+
+00000000 <print_HELO>:
+print_HELO():
+   0:	b507      	push	{r0, r1, r2, lr}
+   2:	4a05      	ldr	r2, [pc, #20]	; (18 <print_HELO+0x18>)
+   4:	2001      	movs	r0, #1
+   6:	1d13      	adds	r3, r2, #4
+   8:	9300      	str	r3, [sp, #0]
+   a:	4904      	ldr	r1, [pc, #16]	; (1c <print_HELO+0x1c>)
+   c:	32aa      	adds	r2, #170	; 0xaa
+   e:	4b04      	ldr	r3, [pc, #16]	; (20 <print_HELO+0x20>)
+  10:	f7ff fffe 	bl	0 <print>
+  14:	bd0e      	pop	{r1, r2, r3, pc}
+  16:	bf00      	nop
+  18:	00000000 	.word	0x00000000
+  1c:	00000074 	.word	0x00000074
+  20:	00000000 	.word	0x00000000
+
+Disassembly of section .text.print_AUTHLOGIN:
+
+00000000 <print_AUTHLOGIN>:
+print_AUTHLOGIN():
+   0:	49044b03 	.word	0x49044b03
+   4:	f103 02af 	add.w	r2, r3, #175	; 0xaf
+   8:	2001      	movs	r0, #1
+   a:	3304      	adds	r3, #4
+   c:	f7ff bffe 	b.w	0 <print>
+  10:	00000000 	.word	0x00000000
+  14:	0000007c 	.word	0x0000007c
+
+Disassembly of section .text.print_CGDCONT:
+
+00000000 <print_CGDCONT>:
+print_CGDCONT():
+   0:	2001      	movs	r0, #1
+   2:	b510      	push	{r4, lr}
+   4:	4904      	ldr	r1, [pc, #16]	; (18 <print_CGDCONT+0x18>)
+   6:	f7ff fffe 	bl	0 <print>
+   a:	4904      	ldr	r1, [pc, #16]	; (1c <print_CGDCONT+0x1c>)
+   c:	2001      	movs	r0, #1
+   e:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+  12:	f7ff bffe 	b.w	0 <print>
+  16:	bf00      	nop
+  18:	00000088 	.word	0x00000088
+  1c:	0000009c 	.word	0x0000009c
+
+Disassembly of section .text.print_SD:
+
+00000000 <print_SD>:
+print_SD():
+   0:	b510      	push	{r4, lr}
+   2:	4c0a      	ldr	r4, [pc, #40]	; (2c <print_SD+0x2c>)
+   4:	2001      	movs	r0, #1
+   6:	490a      	ldr	r1, [pc, #40]	; (30 <print_SD+0x30>)
+   8:	8822      	ldrh	r2, [r4, #0]
+   a:	f7ff fffe 	bl	0 <print>
+   e:	8823      	ldrh	r3, [r4, #0]
+  10:	2b19      	cmp	r3, #25
+  12:	d103      	bne.n	1c <print_SD+0x1c>
+  14:	2001      	movs	r0, #1
+  16:	4907      	ldr	r1, [pc, #28]	; (34 <print_SD+0x34>)
+  18:	4a07      	ldr	r2, [pc, #28]	; (38 <print_SD+0x38>)
+  1a:	e002      	b.n	22 <print_SD+0x22>
+  1c:	4905      	ldr	r1, [pc, #20]	; (34 <print_SD+0x34>)
+  1e:	4a07      	ldr	r2, [pc, #28]	; (3c <print_SD+0x3c>)
+  20:	2001      	movs	r0, #1
+  22:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+  26:	f7ff bffe 	b.w	0 <print>
+  2a:	bf00      	nop
+  2c:	00000000 	.word	0x00000000
+  30:	000000ad 	.word	0x000000ad
+  34:	000000bc 	.word	0x000000bc
+	...
+
+Disassembly of section .text.print_SH:
+
+00000000 <print_SH>:
+print_SH():
+   0:	4a034902 	.word	0x4a034902
+   4:	2001      	movs	r0, #1
+   6:	f7ff bffe 	b.w	0 <print>
+   a:	bf00      	nop
+   c:	000000c1 	.word	0x000000c1
+  10:	000000ba 	.word	0x000000ba
+
+Disassembly of section .text.print_CMGSMessage:
+
+00000000 <print_CMGSMessage>:
+print_CMGSMessage():
+   0:	4902      	ldr	r1, [pc, #8]	; (c <print_CMGSMessage+0xc>)
+   2:	4a03      	ldr	r2, [pc, #12]	; (10 <print_CMGSMessage+0x10>)
+   4:	4b03      	ldr	r3, [pc, #12]	; (14 <print_CMGSMessage+0x14>)
+   6:	2001      	movs	r0, #1
+   8:	f7ff bffe 	b.w	0 <print>
+   c:	0000007c 	.word	0x0000007c
+  10:	00000010 	.word	0x00000010
+  14:	000000ba 	.word	0x000000ba
+
+Disassembly of section .text.print_CMGS:
+
+00000000 <print_CMGS>:
+print_CMGS():
+   0:	4902      	ldr	r1, [pc, #8]	; (c <print_CMGS+0xc>)
+   2:	4a03      	ldr	r2, [pc, #12]	; (10 <print_CMGS+0x10>)
+   4:	2001      	movs	r0, #1
+   6:	f7ff bffe 	b.w	0 <print>
+   a:	bf00      	nop
+   c:	000000cc 	.word	0x000000cc
+  10:	00000000 	.word	0x00000000
+
+Disassembly of section .text.print_EMAILUSER:
+
+00000000 <print_EMAILUSER>:
+print_EMAILUSER():
+   0:	b500      	push	{lr}
+   2:	b091      	sub	sp, #68	; 0x44
+   4:	4669      	mov	r1, sp
+   6:	4805      	ldr	r0, [pc, #20]	; (1c <print_EMAILUSER+0x1c>)
+   8:	f7ff fffe 	bl	0 <convertStringToBase64>
+   c:	2001      	movs	r0, #1
+   e:	4904      	ldr	r1, [pc, #16]	; (20 <print_EMAILUSER+0x20>)
+  10:	466a      	mov	r2, sp
+  12:	4b04      	ldr	r3, [pc, #16]	; (24 <print_EMAILUSER+0x24>)
+  14:	f7ff fffe 	bl	0 <print>
+  18:	b011      	add	sp, #68	; 0x44
+  1a:	bd00      	pop	{pc}
+  1c:	0000007c 	.word	0x0000007c
+  20:	0000007c 	.word	0x0000007c
+  24:	00000004 	.word	0x00000004
+
+Disassembly of section .text.print_EMAILPW:
+
+00000000 <print_EMAILPW>:
+print_EMAILPW():
+   0:	b500      	push	{lr}
+   2:	b08b      	sub	sp, #44	; 0x2c
+   4:	4669      	mov	r1, sp
+   6:	4805      	ldr	r0, [pc, #20]	; (1c <print_EMAILPW+0x1c>)
+   8:	f7ff fffe 	bl	0 <convertStringToBase64>
+   c:	2001      	movs	r0, #1
+   e:	4904      	ldr	r1, [pc, #16]	; (20 <print_EMAILPW+0x20>)
+  10:	466a      	mov	r2, sp
+  12:	4b04      	ldr	r3, [pc, #16]	; (24 <print_EMAILPW+0x24>)
+  14:	f7ff fffe 	bl	0 <print>
+  18:	b00b      	add	sp, #44	; 0x2c
+  1a:	bd00      	pop	{pc}
+  1c:	00000028 	.word	0x00000028
+  20:	0000007c 	.word	0x0000007c
+  24:	00000004 	.word	0x00000004
+
+Disassembly of section .text.print_CSQ:
+
+00000000 <print_CSQ>:
+print_CSQ():
+   0:	20014901 	.word	0x20014901
+   4:	f7ff bffe 	b.w	0 <println>
+   8:	000000d8 	.word	0x000000d8
+
+Disassembly of section .text.print_QSS:
+
+00000000 <print_QSS>:
+print_QSS():
+   0:	4901      	ldr	r1, [pc, #4]	; (8 <print_QSS+0x8>)
+   2:	2001      	movs	r0, #1
+   4:	f7ff bffe 	b.w	0 <println>
+   8:	000000df 	.word	0x000000df
+
+Disassembly of section .text.print_SERVINFO:
+
+00000000 <print_SERVINFO>:
+print_SERVINFO():
+   0:	4901      	ldr	r1, [pc, #4]	; (8 <print_SERVINFO+0x8>)
+   2:	2001      	movs	r0, #1
+   4:	f7ff bffe 	b.w	0 <println>
+   8:	000000e7 	.word	0x000000e7
+
+Disassembly of section .text.print_CCLK:
+
+00000000 <print_CCLK>:
+print_CCLK():
+   0:	4901      	ldr	r1, [pc, #4]	; (8 <print_CCLK+0x8>)
+   2:	2001      	movs	r0, #1
+   4:	f7ff bffe 	b.w	0 <println>
+   8:	000000f3 	.word	0x000000f3
+
+Disassembly of section .text.print_SGACT1:
+
+00000000 <print_SGACT1>:
+print_SGACT1():
+   0:	4901      	ldr	r1, [pc, #4]	; (8 <print_SGACT1+0x8>)
+   2:	2001      	movs	r0, #1
+   4:	f7ff bffe 	b.w	0 <println>
+   8:	000000fc 	.word	0x000000fc
+
+Disassembly of section .text.print_SGACT0:
+
+00000000 <print_SGACT0>:
+print_SGACT0():
+   0:	4901      	ldr	r1, [pc, #4]	; (8 <print_SGACT0+0x8>)
+   2:	2001      	movs	r0, #1
+   4:	f7ff bffe 	b.w	0 <println>
+   8:	00000109 	.word	0x00000109
+
+Disassembly of section .text.print_SGACT:
+
+00000000 <print_SGACT>:
+print_SGACT():
+   0:	4901      	ldr	r1, [pc, #4]	; (8 <print_SGACT+0x8>)
+   2:	2001      	movs	r0, #1
+   4:	f7ff bffe 	b.w	0 <println>
+   8:	00000116 	.word	0x00000116
+
+Disassembly of section .text.handler_ATSH:
+
+00000000 <handler_ATSH>:
+handler_ATSH():
+   0:	b510      	push	{r4, lr}
+   2:	2107      	movs	r1, #7
+   4:	f7ff fffe 	bl	0 <getNextSubString>
+   8:	4907      	ldr	r1, [pc, #28]	; (28 <handler_ATSH+0x28>)
+   a:	4604      	mov	r4, r0
+   c:	f7ff fffe 	bl	0 <isStringSame>
+  10:	b938      	cbnz	r0, 22 <handler_ATSH+0x22>
+  12:	4620      	mov	r0, r4
+  14:	4905      	ldr	r1, [pc, #20]	; (2c <handler_ATSH+0x2c>)
+  16:	f7ff fffe 	bl	0 <isStringSame>
+  1a:	3800      	subs	r0, #0
+  1c:	bf18      	it	ne
+  1e:	2001      	movne	r0, #1
+  20:	bd10      	pop	{r4, pc}
+  22:	2001      	movs	r0, #1
+  24:	bd10      	pop	{r4, pc}
+  26:	bf00      	nop
+  28:	000000bc 	.word	0x000000bc
+  2c:	000000bf 	.word	0x000000bf
+
+Disassembly of section .text.handler_ATSD:
+
+00000000 <handler_ATSD>:
+handler_ATSD():
+   0:	2103b538 	.word	0x2103b538
+   4:	f7ff fffe 	bl	0 <getNextSubString>
+   8:	4906      	ldr	r1, [pc, #24]	; (24 <handler_ATSD+0x24>)
+   a:	4605      	mov	r5, r0
+   c:	f7ff fffe 	bl	0 <isStringSame>
+  10:	4604      	mov	r4, r0
+  12:	b928      	cbnz	r0, 20 <handler_ATSD+0x20>
+  14:	4628      	mov	r0, r5
+  16:	4904      	ldr	r1, [pc, #16]	; (28 <handler_ATSD+0x28>)
+  18:	f7ff fffe 	bl	0 <isStringSame>
+  1c:	4620      	mov	r0, r4
+  1e:	bd38      	pop	{r3, r4, r5, pc}
+  20:	2001      	movs	r0, #1
+  22:	bd38      	pop	{r3, r4, r5, pc}
+  24:	000000c5 	.word	0x000000c5
+  28:	000000bf 	.word	0x000000bf
+
+Disassembly of section .text.handler_ATCGDCONT:
+
+00000000 <handler_ATCGDCONT>:
+handler_ATCGDCONT():
+   0:	2103b508 	.word	0x2103b508
+   4:	f7ff fffe 	bl	0 <getNextSubString>
+   8:	4903      	ldr	r1, [pc, #12]	; (10 <isStringSame+0x10>)
+   a:	f7ff fffe 	bl	0 <isStringSame>
+   e:	3800      	subs	r0, #0
+  10:	bf18      	it	ne
+  12:	2001      	movne	r0, #1
+  14:	bd08      	pop	{r3, pc}
+  16:	bf00      	nop
+  18:	000000bc 	.word	0x000000bc
+
+Disassembly of section .text.handler_ATSGACT:
+
+00000000 <handler_ATSGACT>:
+handler_ATSGACT():
+   0:	b510      	push	{r4, lr}
+   2:	2107      	movs	r1, #7
+   4:	f7ff fffe 	bl	0 <getNextSubString>
+   8:	4907      	ldr	r1, [pc, #28]	; (28 <handler_ATSGACT+0x28>)
+   a:	4604      	mov	r4, r0
+   c:	f7ff fffe 	bl	0 <isStringSame>
+  10:	b938      	cbnz	r0, 22 <handler_ATSGACT+0x22>
+  12:	4620      	mov	r0, r4
+  14:	4905      	ldr	r1, [pc, #20]	; (2c <handler_ATSGACT+0x2c>)
+  16:	f7ff fffe 	bl	0 <isStringSame>
+  1a:	3800      	subs	r0, #0
+  1c:	bf18      	it	ne
+  1e:	2001      	movne	r0, #1
+  20:	bd10      	pop	{r4, pc}
+  22:	2001      	movs	r0, #1
+  24:	bd10      	pop	{r4, pc}
+  26:	bf00      	nop
+  28:	000000cd 	.word	0x000000cd
+  2c:	000000bc 	.word	0x000000bc
+
+Disassembly of section .text.handler_ATCCLK:
+
+00000000 <handler_ATCCLK>:
+handler_ATCCLK():
+   0:	b510      	push	{r4, lr}
+   2:	2102      	movs	r1, #2
+   4:	f7ff fffe 	bl	0 <getNextSubString>
+   8:	2104      	movs	r1, #4
+   a:	4604      	mov	r4, r0
+   c:	2000      	movs	r0, #0
+   e:	f7ff fffe 	bl	0 <getNextSubString>
+  12:	4908      	ldr	r1, [pc, #32]	; (34 <handler_ATCCLK+0x34>)
+  14:	4603      	mov	r3, r0
+  16:	4622      	mov	r2, r4
+  18:	2002      	movs	r0, #2
+  1a:	f7ff fffe 	bl	0 <print>
+  1e:	4620      	mov	r0, r4
+  20:	4905      	ldr	r1, [pc, #20]	; (38 <handler_ATCCLK+0x38>)
+  22:	f7ff fffe 	bl	0 <isStringSame>
+  26:	b120      	cbz	r0, 32 <handler_ATCCLK+0x32>
+  28:	2002      	movs	r0, #2
+  2a:	4904      	ldr	r1, [pc, #16]	; (3c <handler_ATCCLK+0x3c>)
+  2c:	f7ff fffe 	bl	0 <print>
+  30:	2001      	movs	r0, #1
+  32:	bd10      	pop	{r4, pc}
+  34:	00000120 	.word	0x00000120
+  38:	000000d4 	.word	0x000000d4
+  3c:	00000132 	.word	0x00000132
+
+Disassembly of section .text.handler_ATESCAPE:
+
+00000000 <handler_ATESCAPE>:
+handler_ATESCAPE():
+   0:	2103b508 	.word	0x2103b508
+   4:	f7ff fffe 	bl	0 <getNextSubString>
+   8:	4903      	ldr	r1, [pc, #12]	; (10 <isStringSame+0x10>)
+   a:	f7ff fffe 	bl	0 <isStringSame>
+   e:	3800      	subs	r0, #0
+  10:	bf18      	it	ne
+  12:	2001      	movne	r0, #1
+  14:	bd08      	pop	{r3, pc}
+  16:	bf00      	nop
+  18:	000000bc 	.word	0x000000bc
+
+Disassembly of section .text.handler_ATQSS:
+
+00000000 <handler_ATQSS>:
+handler_ATQSS():
+   0:	b51f      	push	{r0, r1, r2, r3, r4, lr}
+   2:	2204      	movs	r2, #4
+   4:	4669      	mov	r1, sp
+   6:	2303      	movs	r3, #3
+   8:	f7ff fffe 	bl	0 <getAllSubStrings>
+   c:	9800      	ldr	r0, [sp, #0]
+   e:	4905      	ldr	r1, [pc, #20]	; (24 <handler_ATQSS+0x24>)
+  10:	f7ff fffe 	bl	0 <isStringSame>
+  14:	b118      	cbz	r0, 1e <handler_ATQSS+0x1e>
+  16:	9802      	ldr	r0, [sp, #8]
+  18:	f7ff fffe 	bl	0 <convertStringToInt>
+  1c:	2001      	movs	r0, #1
+  1e:	b005      	add	sp, #20
+  20:	bd00      	pop	{pc}
+  22:	bf00      	nop
+  24:	000000da 	.word	0x000000da
+
+Disassembly of section .text.handler_ATCSQ:
+
+00000000 <handler_ATCSQ>:
+handler_ATCSQ():
+   0:	2303b507 	.word	0x2303b507
+   4:	4669      	mov	r1, sp
+   6:	2202      	movs	r2, #2
+   8:	f7ff fffe 	bl	0 <getAllSubStrings>
+   c:	9800      	ldr	r0, [sp, #0]
+   e:	4904      	ldr	r1, [pc, #16]	; (20 <handler_ATCSQ+0x20>)
+  10:	f7ff fffe 	bl	0 <isStringSame>
+  14:	b110      	cbz	r0, 1c <handler_ATCSQ+0x1c>
+  16:	9801      	ldr	r0, [sp, #4]
+  18:	f7ff fffe 	bl	0 <convertStringToInt>
+  1c:	2001      	movs	r0, #1
+  1e:	bd0e      	pop	{r1, r2, r3, pc}
+  20:	000000df 	.word	0x000000df
+
+Disassembly of section .text.modem_smsdel:
+
+00000000 <modem_smsdel>:
+modem_smsdel():
+   0:	b513      	push	{r0, r1, r4, lr}
+   2:	2202      	movs	r2, #2
+   4:	2307      	movs	r3, #7
+   6:	4669      	mov	r1, sp
+   8:	f7ff fffe 	bl	0 <getAllSubStrings>
+   c:	b2c0      	uxtb	r0, r0
+   e:	2801      	cmp	r0, #1
+  10:	d90e      	bls.n	30 <modem_smsdel+0x30>
+  12:	9800      	ldr	r0, [sp, #0]
+  14:	f7ff fffe 	bl	0 <convertStringToInt>
+  18:	4604      	mov	r4, r0
+  1a:	9801      	ldr	r0, [sp, #4]
+  1c:	f7ff fffe 	bl	0 <convertStringToInt>
+  20:	4904      	ldr	r1, [pc, #16]	; (34 <modem_smsdel+0x34>)
+  22:	4603      	mov	r3, r0
+  24:	4622      	mov	r2, r4
+  26:	2001      	movs	r0, #1
+  28:	f7ff fffe 	bl	0 <print>
+  2c:	2001      	movs	r0, #1
+  2e:	e000      	b.n	32 <modem_smsdel+0x32>
+  30:	2000      	movs	r0, #0
+  32:	bd1c      	pop	{r2, r3, r4, pc}
+  34:	0000013d 	.word	0x0000013d
+
+Disassembly of section .text.modem_flow:
+
+00000000 <modem_flow>:
+modem_flow():
+   0:	b513      	push	{r0, r1, r4, lr}
+   2:	2202      	movs	r2, #2
+   4:	2307      	movs	r3, #7
+   6:	4669      	mov	r1, sp
+   8:	f7ff fffe 	bl	0 <getAllSubStrings>
+   c:	b2c0      	uxtb	r0, r0
+   e:	2801      	cmp	r0, #1
+  10:	d90e      	bls.n	30 <modem_flow+0x30>
+  12:	9800      	ldr	r0, [sp, #0]
+  14:	f7ff fffe 	bl	0 <convertStringToInt>
+  18:	4604      	mov	r4, r0
+  1a:	9801      	ldr	r0, [sp, #4]
+  1c:	f7ff fffe 	bl	0 <convertStringToInt>
+  20:	4904      	ldr	r1, [pc, #16]	; (34 <modem_flow+0x34>)
+  22:	4603      	mov	r3, r0
+  24:	4622      	mov	r2, r4
+  26:	2001      	movs	r0, #1
+  28:	f7ff fffe 	bl	0 <print>
+  2c:	2001      	movs	r0, #1
+  2e:	e000      	b.n	32 <modem_flow+0x32>
+  30:	2000      	movs	r0, #0
+  32:	bd1c      	pop	{r2, r3, r4, pc}
+  34:	0000014c 	.word	0x0000014c
+
+Disassembly of section .text.handler_ATSMSPROMPT:
+
+00000000 <handler_ATSMSPROMPT>:
+handler_ATSMSPROMPT():
+   0:	2104b510 	.word	0x2104b510
+   4:	f7ff fffe 	bl	0 <getNextSubString>
+   8:	4906      	ldr	r1, [pc, #24]	; (24 <handler_ATSMSPROMPT+0x24>)
+   a:	2220      	movs	r2, #32
+   c:	4604      	mov	r4, r0
+   e:	f7ff fffe 	bl	0 <replaceChars>
+  12:	b120      	cbz	r0, 1e <handler_ATSMSPROMPT+0x1e>
+  14:	2001      	movs	r0, #1
+  16:	4904      	ldr	r1, [pc, #16]	; (28 <handler_ATSMSPROMPT+0x28>)
+  18:	4622      	mov	r2, r4
+  1a:	f7ff fffe 	bl	0 <print>
+  1e:	2001      	movs	r0, #1
+  20:	bd10      	pop	{r4, pc}
+  22:	bf00      	nop
+  24:	0000015a 	.word	0x0000015a
+  28:	0000015c 	.word	0x0000015c
+
+Disassembly of section .text.handler_ATCMGS:
+
+00000000 <handler_ATCMGS>:
+handler_ATCMGS():
+   0:	b510      	push	{r4, lr}
+   2:	2107      	movs	r1, #7
+   4:	f7ff fffe 	bl	0 <getNextSubString>
+   8:	4909      	ldr	r1, [pc, #36]	; (30 <handler_ATCMGS+0x30>)
+   a:	4604      	mov	r4, r0
+   c:	f7ff fffe 	bl	0 <isStringSame>
+  10:	b920      	cbnz	r0, 1c <handler_ATCMGS+0x1c>
+  12:	4620      	mov	r0, r4
+  14:	4907      	ldr	r1, [pc, #28]	; (34 <handler_ATCMGS+0x34>)
+  16:	f7ff fffe 	bl	0 <isStringSame>
+  1a:	b140      	cbz	r0, 2e <handler_ATCMGS+0x2e>
+  1c:	4806      	ldr	r0, [pc, #24]	; (38 <handler_ATCMGS+0x38>)
+  1e:	4904      	ldr	r1, [pc, #16]	; (30 <handler_ATCMGS+0x30>)
+  20:	f7ff fffe 	bl	0 <cmdIsQueued>
+  24:	f1a0 0301 	sub.w	r3, r0, #1
+  28:	4258      	negs	r0, r3
+  2a:	eb40 0003 	adc.w	r0, r0, r3
+  2e:	bd10      	pop	{r4, pc}
+  30:	000000e4 	.word	0x000000e4
+  34:	000000ea 	.word	0x000000ea
+  38:	00000000 	.word	0x00000000
+
+Disassembly of section .text.modem_suspend:
+
+00000000 <modem_suspend>:
+modem_suspend():
+   0:	4b09b510 	.word	0x4b09b510
+   4:	b086      	sub	sp, #24
+   6:	9301      	str	r3, [sp, #4]
+   8:	4b08      	ldr	r3, [pc, #32]	; (2c <modem_suspend+0x2c>)
+   a:	2400      	movs	r4, #0
+   c:	9302      	str	r3, [sp, #8]
+   e:	4b08      	ldr	r3, [pc, #32]	; (30 <modem_suspend+0x30>)
+  10:	4669      	mov	r1, sp
+  12:	9303      	str	r3, [sp, #12]
+  14:	4807      	ldr	r0, [pc, #28]	; (34 <modem_suspend+0x34>)
+  16:	2301      	movs	r3, #1
+  18:	9305      	str	r3, [sp, #20]
+  1a:	f88d 4001 	strb.w	r4, [sp, #1]
+  1e:	f7ff fffe 	bl	0 <cmdQueue>
+  22:	4620      	mov	r0, r4
+  24:	b006      	add	sp, #24
+  26:	bd10      	pop	{r4, pc}
+	...
+
+Disassembly of section .text.modem_portal:
+
+00000000 <modem_portal>:
+modem_portal():
+   0:	b510      	push	{r4, lr}
+   2:	4b09      	ldr	r3, [pc, #36]	; (28 <modem_portal+0x28>)
+   4:	b086      	sub	sp, #24
+   6:	9301      	str	r3, [sp, #4]
+   8:	4b08      	ldr	r3, [pc, #32]	; (2c <modem_portal+0x2c>)
+   a:	2401      	movs	r4, #1
+   c:	9302      	str	r3, [sp, #8]
+   e:	4b08      	ldr	r3, [pc, #32]	; (30 <modem_portal+0x30>)
+  10:	4669      	mov	r1, sp
+  12:	9303      	str	r3, [sp, #12]
+  14:	4807      	ldr	r0, [pc, #28]	; (34 <modem_portal+0x34>)
+  16:	2304      	movs	r3, #4
+  18:	9305      	str	r3, [sp, #20]
+  1a:	f88d 4001 	strb.w	r4, [sp, #1]
+  1e:	f7ff fffe 	bl	0 <cmdQueue>
+  22:	4620      	mov	r0, r4
+  24:	b006      	add	sp, #24
+  26:	bd10      	pop	{r4, pc}
+  28:	000000ef 	.word	0x000000ef
+	...
+
+Disassembly of section .text.modem_detach:
+
+00000000 <modem_detach>:
+modem_detach():
+   0:	b57f      	push	{r0, r1, r2, r3, r4, r5, r6, lr}
+   2:	4b09      	ldr	r3, [pc, #36]	; (28 <modem_detach+0x28>)
+   4:	4669      	mov	r1, sp
+   6:	9301      	str	r3, [sp, #4]
+   8:	4b08      	ldr	r3, [pc, #32]	; (2c <modem_detach+0x2c>)
+   a:	4809      	ldr	r0, [pc, #36]	; (30 <modem_detach+0x30>)
+   c:	9302      	str	r3, [sp, #8]
+   e:	4b09      	ldr	r3, [pc, #36]	; (34 <modem_detach+0x34>)
+  10:	9303      	str	r3, [sp, #12]
+  12:	2302      	movs	r3, #2
+  14:	9305      	str	r3, [sp, #20]
+  16:	18db      	adds	r3, r3, r3
+  18:	f88d 3001 	strb.w	r3, [sp, #1]
+  1c:	f7ff fffe 	bl	0 <cmdQueue>
+  20:	2000      	movs	r0, #0
+  22:	b007      	add	sp, #28
+  24:	bd00      	pop	{pc}
+  26:	bf00      	nop
+  28:	000000cd 	.word	0x000000cd
+	...
+
+Disassembly of section .text.modem_attach:
+
+00000000 <modem_attach>:
+modem_attach():
+   0:	b57f      	push	{r0, r1, r2, r3, r4, r5, r6, lr}
+   2:	4b09      	ldr	r3, [pc, #36]	; (28 <modem_attach+0x28>)
+   4:	4669      	mov	r1, sp
+   6:	9301      	str	r3, [sp, #4]
+   8:	4b08      	ldr	r3, [pc, #32]	; (2c <modem_attach+0x2c>)
+   a:	4809      	ldr	r0, [pc, #36]	; (30 <modem_attach+0x30>)
+   c:	9302      	str	r3, [sp, #8]
+   e:	4b09      	ldr	r3, [pc, #36]	; (34 <modem_attach+0x34>)
+  10:	9303      	str	r3, [sp, #12]
+  12:	2302      	movs	r3, #2
+  14:	9305      	str	r3, [sp, #20]
+  16:	3b01      	subs	r3, #1
+  18:	f88d 3001 	strb.w	r3, [sp, #1]
+  1c:	f7ff fffe 	bl	0 <cmdQueue>
+  20:	2000      	movs	r0, #0
+  22:	b007      	add	sp, #28
+  24:	bd00      	pop	{pc}
+  26:	bf00      	nop
+  28:	000000cd 	.word	0x000000cd
+	...
+
+Disassembly of section .text.modem_time:
+
+00000000 <modem_time>:
+modem_time():
+   0:	4b08b57f 	.word	0x4b08b57f
+   4:	4669      	mov	r1, sp
+   6:	9301      	str	r3, [sp, #4]
+   8:	4b07      	ldr	r3, [pc, #28]	; (28 <modem_time+0x28>)
+   a:	4808      	ldr	r0, [pc, #32]	; (2c <modem_time+0x2c>)
+   c:	9302      	str	r3, [sp, #8]
+   e:	4b08      	ldr	r3, [pc, #32]	; (30 <modem_time+0x30>)
+  10:	9303      	str	r3, [sp, #12]
+  12:	2302      	movs	r3, #2
+  14:	9305      	str	r3, [sp, #20]
+  16:	f88d 3001 	strb.w	r3, [sp, #1]
+  1a:	f7ff fffe 	bl	0 <cmdQueue>
+  1e:	2001      	movs	r0, #1
+  20:	b007      	add	sp, #28
+  22:	bd00      	pop	{pc}
+  24:	000000d4 	.word	0x000000d4
+	...
+
+Disassembly of section .text.modem_carrier:
+
+00000000 <modem_carrier>:
+modem_carrier():
+   0:	b57f      	push	{r0, r1, r2, r3, r4, r5, r6, lr}
+   2:	4b09      	ldr	r3, [pc, #36]	; (28 <modem_carrier+0x28>)
+   4:	4669      	mov	r1, sp
+   6:	9301      	str	r3, [sp, #4]
+   8:	4b08      	ldr	r3, [pc, #32]	; (2c <modem_carrier+0x2c>)
+   a:	4809      	ldr	r0, [pc, #36]	; (30 <modem_carrier+0x30>)
+   c:	9302      	str	r3, [sp, #8]
+   e:	4b09      	ldr	r3, [pc, #36]	; (34 <modem_carrier+0x34>)
+  10:	9303      	str	r3, [sp, #12]
+  12:	2304      	movs	r3, #4
+  14:	9305      	str	r3, [sp, #20]
+  16:	3b02      	subs	r3, #2
+  18:	f88d 3001 	strb.w	r3, [sp, #1]
+  1c:	f7ff fffe 	bl	0 <cmdQueue>
+  20:	2001      	movs	r0, #1
+  22:	b007      	add	sp, #28
+  24:	bd00      	pop	{pc}
+  26:	bf00      	nop
+  28:	000000f8 	.word	0x000000f8
+	...
+
+Disassembly of section .text.modem_http:
+
+00000000 <modem_http>:
+modem_http():
+   0:	b57f      	push	{r0, r1, r2, r3, r4, r5, r6, lr}
+   2:	4b09      	ldr	r3, [pc, #36]	; (28 <modem_http+0x28>)
+   4:	4669      	mov	r1, sp
+   6:	9301      	str	r3, [sp, #4]
+   8:	4b08      	ldr	r3, [pc, #32]	; (2c <modem_http+0x2c>)
+   a:	4809      	ldr	r0, [pc, #36]	; (30 <modem_http+0x30>)
+   c:	9302      	str	r3, [sp, #8]
+   e:	4b09      	ldr	r3, [pc, #36]	; (34 <modem_http+0x34>)
+  10:	9303      	str	r3, [sp, #12]
+  12:	230f      	movs	r3, #15
+  14:	9305      	str	r3, [sp, #20]
+  16:	3b0d      	subs	r3, #13
+  18:	f88d 3001 	strb.w	r3, [sp, #1]
+  1c:	f7ff fffe 	bl	0 <cmdQueue>
+  20:	2000      	movs	r0, #0
+  22:	b007      	add	sp, #28
+  24:	bd00      	pop	{pc}
+  26:	bf00      	nop
+  28:	00000169 	.word	0x00000169
+	...
+
+Disassembly of section .text.modem_simin:
+
+00000000 <modem_simin>:
+modem_simin():
+   0:	4b08b57f 	.word	0x4b08b57f
+   4:	4669      	mov	r1, sp
+   6:	9301      	str	r3, [sp, #4]
+   8:	4b07      	ldr	r3, [pc, #28]	; (28 <modem_simin+0x28>)
+   a:	4808      	ldr	r0, [pc, #32]	; (2c <modem_simin+0x2c>)
+   c:	9302      	str	r3, [sp, #8]
+   e:	4b08      	ldr	r3, [pc, #32]	; (30 <modem_simin+0x30>)
+  10:	9303      	str	r3, [sp, #12]
+  12:	2302      	movs	r3, #2
+  14:	9305      	str	r3, [sp, #20]
+  16:	f88d 3001 	strb.w	r3, [sp, #1]
+  1a:	f7ff fffe 	bl	0 <cmdQueue>
+  1e:	2001      	movs	r0, #1
+  20:	b007      	add	sp, #28
+  22:	bd00      	pop	{pc}
+  24:	000000da 	.word	0x000000da
+	...
+
+Disassembly of section .text.modem_csq:
+
+00000000 <modem_csq>:
+modem_csq():
+   0:	b57f      	push	{r0, r1, r2, r3, r4, r5, r6, lr}
+   2:	4b08      	ldr	r3, [pc, #32]	; (24 <modem_csq+0x24>)
+   4:	4669      	mov	r1, sp
+   6:	9301      	str	r3, [sp, #4]
+   8:	4b07      	ldr	r3, [pc, #28]	; (28 <modem_csq+0x28>)
+   a:	4808      	ldr	r0, [pc, #32]	; (2c <modem_csq+0x2c>)
+   c:	9302      	str	r3, [sp, #8]
+   e:	4b08      	ldr	r3, [pc, #32]	; (30 <modem_csq+0x30>)
+  10:	9303      	str	r3, [sp, #12]
+  12:	2302      	movs	r3, #2
+  14:	9305      	str	r3, [sp, #20]
+  16:	f88d 3001 	strb.w	r3, [sp, #1]
+  1a:	f7ff fffe 	bl	0 <cmdQueue>
+  1e:	2001      	movs	r0, #1
+  20:	b007      	add	sp, #28
+  22:	bd00      	pop	{pc}
+  24:	000000df 	.word	0x000000df
+	...
+
+Disassembly of section .text.modem_close:
+
+00000000 <modem_close>:
+modem_close():
+   0:	b500      	push	{lr}
+   2:	b089      	sub	sp, #36	; 0x24
+   4:	a906      	add	r1, sp, #24
+   6:	2202      	movs	r2, #2
+   8:	2303      	movs	r3, #3
+   a:	f7ff fffe 	bl	0 <getAllSubStrings>
+   e:	9806      	ldr	r0, [sp, #24]
+  10:	490c      	ldr	r1, [pc, #48]	; (44 <modem_close+0x44>)
+  12:	f7ff fffe 	bl	0 <isStringSameIgnoreCase>
+  16:	b118      	cbz	r0, 20 <modem_close+0x20>
+  18:	480b      	ldr	r0, [pc, #44]	; (48 <modem_close+0x48>)
+  1a:	f7ff fffe 	bl	0 <cmdInitQueue>
+  1e:	e00e      	b.n	3e <modem_close+0x3e>
+  20:	4b0a      	ldr	r3, [pc, #40]	; (4c <modem_close+0x4c>)
+  22:	4809      	ldr	r0, [pc, #36]	; (48 <modem_close+0x48>)
+  24:	9301      	str	r3, [sp, #4]
+  26:	4b0a      	ldr	r3, [pc, #40]	; (50 <modem_close+0x50>)
+  28:	4669      	mov	r1, sp
+  2a:	9302      	str	r3, [sp, #8]
+  2c:	4b09      	ldr	r3, [pc, #36]	; (54 <modem_close+0x54>)
+  2e:	9303      	str	r3, [sp, #12]
+  30:	2302      	movs	r3, #2
+  32:	9305      	str	r3, [sp, #20]
+  34:	3b01      	subs	r3, #1
+  36:	f88d 3001 	strb.w	r3, [sp, #1]
+  3a:	f7ff fffe 	bl	0 <cmdQueue>
+  3e:	2001      	movs	r0, #1
+  40:	b009      	add	sp, #36	; 0x24
+  42:	bd00      	pop	{pc}
+  44:	0000016d 	.word	0x0000016d
+  48:	00000000 	.word	0x00000000
+  4c:	00000102 	.word	0x00000102
+	...
+
+Disassembly of section .text.handler_ATGET:
+
+00000000 <handler_ATGET>:
+handler_ATGET():
+   0:	2206b57f 	.word	0x2206b57f
+   4:	230e      	movs	r3, #14
+   6:	4669      	mov	r1, sp
+   8:	f7ff fffe 	bl	0 <getAllSubStrings>
+   c:	4805      	ldr	r0, [pc, #20]	; (18 <handler_ATGET+0x18>)
+   e:	f7ff fffe 	bl	0 <handler_ATGET>
+  12:	4b05      	ldr	r3, [pc, #20]	; (28 <handler_ATGET+0x28>)
+  14:	2000      	movs	r0, #0
+  16:	681a      	ldr	r2, [r3, #0]
+  18:	f022 0204 	bic.w	r2, r2, #4
+  1c:	601a      	str	r2, [r3, #0]
+  1e:	b007      	add	sp, #28
+  20:	bd00      	pop	{pc}
+  22:	bf00      	nop
+  24:	0000016d 	.word	0x0000016d
+  28:	00000000 	.word	0x00000000
+
+Disassembly of section .text.email_get:
+
+00000000 <email_get>:
+email_get():
+   0:	b510      	push	{r4, lr}
+   2:	2103      	movs	r1, #3
+   4:	f7ff fffe 	bl	0 <getNextSubString>
+   8:	4604      	mov	r4, r0
+   a:	2800      	cmp	r0, #0
+   c:	d031      	beq.n	72 <email_get+0x72>
+   e:	491b      	ldr	r1, [pc, #108]	; (7c <email_get+0x7c>)
+  10:	f7ff fffe 	bl	0 <isStringSame>
+  14:	2800      	cmp	r0, #0
+  16:	d12d      	bne.n	74 <email_get+0x74>
+  18:	4620      	mov	r0, r4
+  1a:	4919      	ldr	r1, [pc, #100]	; (80 <email_get+0x80>)
+  1c:	f7ff fffe 	bl	0 <isStringSame>
+  20:	2800      	cmp	r0, #0
+  22:	d127      	bne.n	74 <email_get+0x74>
+  24:	4620      	mov	r0, r4
+  26:	4917      	ldr	r1, [pc, #92]	; (84 <email_get+0x84>)
+  28:	f7ff fffe 	bl	0 <isStringSame>
+  2c:	bb10      	cbnz	r0, 74 <email_get+0x74>
+  2e:	4620      	mov	r0, r4
+  30:	4915      	ldr	r1, [pc, #84]	; (88 <email_get+0x88>)
+  32:	f7ff fffe 	bl	0 <isStringSame>
+  36:	b9e8      	cbnz	r0, 74 <email_get+0x74>
+  38:	4620      	mov	r0, r4
+  3a:	4914      	ldr	r1, [pc, #80]	; (8c <email_get+0x8c>)
+  3c:	f7ff fffe 	bl	0 <isStringSame>
+  40:	b9d0      	cbnz	r0, 78 <email_get+0x78>
+  42:	4620      	mov	r0, r4
+  44:	4912      	ldr	r1, [pc, #72]	; (90 <email_get+0x90>)
+  46:	f7ff fffe 	bl	0 <isStringSame>
+  4a:	b920      	cbnz	r0, 56 <email_get+0x56>
+  4c:	4620      	mov	r0, r4
+  4e:	4911      	ldr	r1, [pc, #68]	; (94 <email_get+0x94>)
+  50:	f7ff fffe 	bl	0 <isStringSame>
+  54:	b120      	cbz	r0, 60 <email_get+0x60>
+  56:	4810      	ldr	r0, [pc, #64]	; (98 <email_get+0x98>)
+  58:	f7ff fffe 	bl	0 <email_get>
+  5c:	2000      	movs	r0, #0
+  5e:	bd10      	pop	{r4, pc}
+  60:	4620      	mov	r0, r4
+  62:	490e      	ldr	r1, [pc, #56]	; (9c <email_get+0x9c>)
+  64:	f7ff fffe 	bl	0 <isStringSame>
+  68:	b138      	cbz	r0, 7a <email_get+0x7a>
+  6a:	480b      	ldr	r0, [pc, #44]	; (98 <email_get+0x98>)
+  6c:	f7ff fffe 	bl	0 <email_get>
+  70:	e000      	b.n	74 <email_get+0x74>
+  72:	bd10      	pop	{r4, pc}
+  74:	2001      	movs	r0, #1
+  76:	bd10      	pop	{r4, pc}
+  78:	2001      	movs	r0, #1
+  7a:	bd10      	pop	{r4, pc}
+  7c:	00000106 	.word	0x00000106
+  80:	0000010a 	.word	0x0000010a
+  84:	0000010e 	.word	0x0000010e
+  88:	00000112 	.word	0x00000112
+  8c:	00000116 	.word	0x00000116
+  90:	00000171 	.word	0x00000171
+  94:	00000175 	.word	0x00000175
+  98:	0000016d 	.word	0x0000016d
+  9c:	0000011a 	.word	0x0000011a
+
+Disassembly of section .text.modem_echo:
+
+00000000 <modem_echo>:
+modem_echo():
+   0:	2103b510 	.word	0x2103b510
+   4:	f7ff fffe 	bl	0 <getNextSubString>
+   8:	4604      	mov	r4, r0
+   a:	480c      	ldr	r0, [pc, #48]	; (3c <modem_echo+0x3c>)
+   c:	f7ff fffe 	bl	0 <modem_echo>
+  10:	4620      	mov	r0, r4
+  12:	490b      	ldr	r1, [pc, #44]	; (40 <modem_echo+0x40>)
+  14:	f7ff fffe 	bl	0 <isStringSame>
+  18:	b128      	cbz	r0, 26 <modem_echo+0x26>
+  1a:	2001      	movs	r0, #1
+  1c:	4909      	ldr	r1, [pc, #36]	; (44 <modem_echo+0x44>)
+  1e:	f7ff fffe 	bl	0 <println>
+  22:	2001      	movs	r0, #1
+  24:	bd10      	pop	{r4, pc}
+  26:	4620      	mov	r0, r4
+  28:	4907      	ldr	r1, [pc, #28]	; (48 <modem_echo+0x48>)
+  2a:	f7ff fffe 	bl	0 <isStringSame>
+  2e:	b120      	cbz	r0, 3a <modem_echo+0x3a>
+  30:	2001      	movs	r0, #1
+  32:	4906      	ldr	r1, [pc, #24]	; (4c <modem_echo+0x4c>)
+  34:	f7ff fffe 	bl	0 <println>
+  38:	2001      	movs	r0, #1
+  3a:	bd10      	pop	{r4, pc}
+  3c:	0000016d 	.word	0x0000016d
+  40:	00000179 	.word	0x00000179
+  44:	0000017c 	.word	0x0000017c
+  48:	00000183 	.word	0x00000183
+  4c:	00000187 	.word	0x00000187
+
+Disassembly of section .text.modem_attachtest:
+
+00000000 <modem_attachtest>:
+modem_attachtest():
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	b08a      	sub	sp, #40	; 0x28
+   4:	2203      	movs	r2, #3
+   6:	2307      	movs	r3, #7
+   8:	a907      	add	r1, sp, #28
+   a:	f7ff fffe 	bl	0 <getAllSubStrings>
+   e:	b2c0      	uxtb	r0, r0
+  10:	2802      	cmp	r0, #2
+  12:	d926      	bls.n	62 <modem_attachtest+0x62>
+  14:	4d14      	ldr	r5, [pc, #80]	; (68 <modem_attachtest+0x68>)
+  16:	9807      	ldr	r0, [sp, #28]
+  18:	4629      	mov	r1, r5
+  1a:	f7ff fffe 	bl	0 <isStringSame>
+  1e:	b308      	cbz	r0, 64 <modem_attachtest+0x64>
+  20:	9808      	ldr	r0, [sp, #32]
+  22:	f7ff fffe 	bl	0 <convertStringToInt>
+  26:	2801      	cmp	r0, #1
+  28:	4604      	mov	r4, r0
+  2a:	d11a      	bne.n	62 <modem_attachtest+0x62>
+  2c:	9809      	ldr	r0, [sp, #36]	; 0x24
+  2e:	f7ff fffe 	bl	0 <convertStringToInt>
+  32:	2801      	cmp	r0, #1
+  34:	4606      	mov	r6, r0
+  36:	d105      	bne.n	44 <modem_attachtest+0x44>
+  38:	2002      	movs	r0, #2
+  3a:	490c      	ldr	r1, [pc, #48]	; (6c <modem_attachtest+0x6c>)
+  3c:	f7ff fffe 	bl	0 <print>
+  40:	4630      	mov	r0, r6
+  42:	e00f      	b.n	64 <modem_attachtest+0x64>
+  44:	4b0a      	ldr	r3, [pc, #40]	; (70 <modem_attachtest+0x70>)
+  46:	480b      	ldr	r0, [pc, #44]	; (74 <modem_attachtest+0x74>)
+  48:	9303      	str	r3, [sp, #12]
+  4a:	4b0b      	ldr	r3, [pc, #44]	; (78 <modem_attachtest+0x78>)
+  4c:	a901      	add	r1, sp, #4
+  4e:	9304      	str	r3, [sp, #16]
+  50:	2305      	movs	r3, #5
+  52:	9502      	str	r5, [sp, #8]
+  54:	9306      	str	r3, [sp, #24]
+  56:	f88d 4005 	strb.w	r4, [sp, #5]
+  5a:	f7ff fffe 	bl	0 <cmdReplace>
+  5e:	4620      	mov	r0, r4
+  60:	e000      	b.n	64 <modem_attachtest+0x64>
+  62:	2000      	movs	r0, #0
+  64:	b00a      	add	sp, #40	; 0x28
+  66:	bd70      	pop	{r4, r5, r6, pc}
+  68:	000000cd 	.word	0x000000cd
+  6c:	0000018e 	.word	0x0000018e
+	...
+
+Disassembly of section .text.modem_sms:
+
+00000000 <modem_sms>:
+modem_sms():
+   0:	2102b510 	.word	0x2102b510
+   4:	b08c      	sub	sp, #48	; 0x30
+   6:	f7ff fffe 	bl	0 <getNextSubString>
+   a:	4915      	ldr	r1, [pc, #84]	; (58 <copyString+0x58>)
+   c:	f7ff fffe 	bl	0 <copyString>
+  10:	2104      	movs	r1, #4
+  12:	2000      	movs	r0, #0
+  14:	f7ff fffe 	bl	0 <getNextSubString>
+  18:	4912      	ldr	r1, [pc, #72]	; (4c <copyString+0x4c>)
+  1a:	f7ff fffe 	bl	0 <copyString>
+  1e:	2200      	movs	r2, #0
+  20:	4b11      	ldr	r3, [pc, #68]	; (68 <modem_sms+0x68>)
+  22:	f88d 2019 	strb.w	r2, [sp, #25]
+  26:	4a11      	ldr	r2, [pc, #68]	; (6c <modem_sms+0x6c>)
+  28:	9307      	str	r3, [sp, #28]
+  2a:	2302      	movs	r3, #2
+  2c:	930b      	str	r3, [sp, #44]	; 0x2c
+  2e:	9209      	str	r2, [sp, #36]	; 0x24
+  30:	9305      	str	r3, [sp, #20]
+  32:	4a0f      	ldr	r2, [pc, #60]	; (70 <modem_sms+0x70>)
+  34:	4b0f      	ldr	r3, [pc, #60]	; (74 <modem_sms+0x74>)
+  36:	9208      	str	r2, [sp, #32]
+  38:	9303      	str	r3, [sp, #12]
+  3a:	4a0f      	ldr	r2, [pc, #60]	; (78 <modem_sms+0x78>)
+  3c:	4b0f      	ldr	r3, [pc, #60]	; (7c <modem_sms+0x7c>)
+  3e:	2401      	movs	r4, #1
+  40:	a906      	add	r1, sp, #24
+  42:	480f      	ldr	r0, [pc, #60]	; (80 <modem_sms+0x80>)
+  44:	9201      	str	r2, [sp, #4]
+  46:	9302      	str	r3, [sp, #8]
+  48:	f88d 4001 	strb.w	r4, [sp, #1]
+  4c:	f7ff fffe 	bl	0 <cmdQueue>
+  50:	4669      	mov	r1, sp
+  52:	480b      	ldr	r0, [pc, #44]	; (80 <modem_sms+0x80>)
+  54:	f7ff fffe 	bl	0 <cmdQueue>
+  58:	4620      	mov	r0, r4
+  5a:	b00c      	add	sp, #48	; 0x30
+  5c:	bd10      	pop	{r4, pc}
+  5e:	bf00      	nop
+  60:	00000000 	.word	0x00000000
+  64:	00000010 	.word	0x00000010
+  68:	0000015a 	.word	0x0000015a
+	...
+  78:	000000e4 	.word	0x000000e4
+	...
+
+Disassembly of section .text.print_pftp_put:
+
+00000000 <print_pftp_put>:
+print_pftp_put():
+   0:	b57f      	push	{r0, r1, r2, r3, r4, r5, r6, lr}
+   2:	4b2e      	ldr	r3, [pc, #184]	; (bc <print_pftp_put+0xbc>)
+   4:	2001      	movs	r0, #1
+   6:	681a      	ldr	r2, [r3, #0]
+   8:	492d      	ldr	r1, [pc, #180]	; (c0 <print_pftp_put+0xc0>)
+   a:	f042 0209 	orr.w	r2, r2, #9
+   e:	601a      	str	r2, [r3, #0]
+  10:	4c2c      	ldr	r4, [pc, #176]	; (c4 <print_pftp_put+0xc4>)
+  12:	f7ff fffe 	bl	0 <print>
+  16:	2001      	movs	r0, #1
+  18:	492b      	ldr	r1, [pc, #172]	; (c8 <print_pftp_put+0xc8>)
+  1a:	f7ff fffe 	bl	0 <print>
+  1e:	8822      	ldrh	r2, [r4, #0]
+  20:	f5b2 7f80 	cmp.w	r2, #256	; 0x100
+  24:	d003      	beq.n	2e <print_pftp_put+0x2e>
+  26:	2001      	movs	r0, #1
+  28:	4928      	ldr	r1, [pc, #160]	; (cc <print_pftp_put+0xcc>)
+  2a:	f7ff fffe 	bl	0 <print>
+  2e:	2001      	movs	r0, #1
+  30:	8862      	ldrh	r2, [r4, #2]
+  32:	4927      	ldr	r1, [pc, #156]	; (d0 <print_pftp_put+0xd0>)
+  34:	f7ff fffe 	bl	0 <print>
+  38:	8863      	ldrh	r3, [r4, #2]
+  3a:	8822      	ldrh	r2, [r4, #0]
+  3c:	3b01      	subs	r3, #1
+  3e:	2101      	movs	r1, #1
+  40:	435a      	muls	r2, r3
+  42:	4824      	ldr	r0, [pc, #144]	; (d4 <print_pftp_put+0xd4>)
+  44:	f7ff fffe 	bl	0 <fileSetPosition>
+  48:	2500      	movs	r5, #0
+  4a:	aa04      	add	r2, sp, #16
+  4c:	f842 5d04 	str.w	r5, [r2, #-4]!
+  50:	4628      	mov	r0, r5
+  52:	2101      	movs	r1, #1
+  54:	f7ff fffe 	bl	0 <pdiaEncode>
+  58:	e012      	b.n	80 <print_pftp_put+0x80>
+  5a:	f990 3018 	ldrsb.w	r3, [r0, #24]
+  5e:	2b00      	cmp	r3, #0
+  60:	db12      	blt.n	88 <print_pftp_put+0x88>
+  62:	3008      	adds	r0, #8
+  64:	f7ff fffe 	bl	0 <fileGetChar>
+  68:	2102      	movs	r1, #2
+  6a:	4606      	mov	r6, r0
+  6c:	aa03      	add	r2, sp, #12
+  6e:	f7ff fffe 	bl	0 <pdiaEncode>
+  72:	2001      	movs	r0, #1
+  74:	4918      	ldr	r1, [pc, #96]	; (d8 <print_pftp_put+0xd8>)
+  76:	4632      	mov	r2, r6
+  78:	f7ff fffe 	bl	0 <print>
+  7c:	3501      	adds	r5, #1
+  7e:	b2ad      	uxth	r5, r5
+  80:	8823      	ldrh	r3, [r4, #0]
+  82:	4810      	ldr	r0, [pc, #64]	; (c4 <print_pftp_put+0xc4>)
+  84:	42ab      	cmp	r3, r5
+  86:	d8e8      	bhi.n	5a <print_pftp_put+0x5a>
+  88:	2104      	movs	r1, #4
+  8a:	aa03      	add	r2, sp, #12
+  8c:	2000      	movs	r0, #0
+  8e:	f7ff fffe 	bl	0 <pdiaEncode>
+  92:	462a      	mov	r2, r5
+  94:	4d11      	ldr	r5, [pc, #68]	; (dc <print_pftp_put+0xdc>)
+  96:	9b03      	ldr	r3, [sp, #12]
+  98:	2001      	movs	r0, #1
+  9a:	4911      	ldr	r1, [pc, #68]	; (e0 <print_pftp_put+0xe0>)
+  9c:	f7ff fffe 	bl	0 <print>
+  a0:	2001      	movs	r0, #1
+  a2:	462a      	mov	r2, r5
+  a4:	490f      	ldr	r1, [pc, #60]	; (e4 <print_pftp_put+0xe4>)
+  a6:	f7ff fffe 	bl	0 <print>
+  aa:	2001      	movs	r0, #1
+  ac:	490e      	ldr	r1, [pc, #56]	; (e8 <print_pftp_put+0xe8>)
+  ae:	6862      	ldr	r2, [r4, #4]
+  b0:	462b      	mov	r3, r5
+  b2:	9500      	str	r5, [sp, #0]
+  b4:	f7ff fffe 	bl	0 <print>
+  b8:	bd7f      	pop	{r0, r1, r2, r3, r4, r5, r6, pc}
+  ba:	bf00      	nop
+  bc:	00000000 	.word	0x00000000
+  c0:	00000198 	.word	0x00000198
+  c4:	00000000 	.word	0x00000000
+  c8:	00000020 	.word	0x00000020
+  cc:	00000051 	.word	0x00000051
+  d0:	000001ae 	.word	0x000001ae
+  d4:	00000008 	.word	0x00000008
+  d8:	000001bc 	.word	0x000001bc
+  dc:	00000004 	.word	0x00000004
+  e0:	000001c0 	.word	0x000001c0
+  e4:	00000009 	.word	0x00000009
+  e8:	000001c9 	.word	0x000001c9
+
+Disassembly of section .text.modem_onoff:
+
+00000000 <modem_onoff>:
+modem_onoff():
+   0:	2015b508 	.word	0x2015b508
+   4:	2101      	movs	r1, #1
+   6:	f7ff fffe 	bl	0 <pinSet>
+   a:	f44f 6196 	mov.w	r1, #1200	; 0x4b0
+   e:	4a03      	ldr	r2, [pc, #12]	; (1c <modem_onoff+0x1c>)
+  10:	4803      	ldr	r0, [pc, #12]	; (20 <modem_onoff+0x20>)
+  12:	f7ff fffe 	bl	0 <taskNewSimple>
+  16:	2001      	movs	r0, #1
+  18:	bd08      	pop	{r3, pc}
+  1a:	bf00      	nop
+  1c:	00000000 	.word	0x00000000
+  20:	000001d6 	.word	0x000001d6
+
+Disassembly of section .text.modem_reset:
+
+00000000 <modem_reset>:
+modem_reset():
+   0:	b508      	push	{r3, lr}
+   2:	2026      	movs	r0, #38	; 0x26
+   4:	2101      	movs	r1, #1
+   6:	f7ff fffe 	bl	0 <pinSet>
+   a:	f640 31b8 	movw	r1, #3000	; 0xbb8
+   e:	4a03      	ldr	r2, [pc, #12]	; (1c <modem_reset+0x1c>)
+  10:	4803      	ldr	r0, [pc, #12]	; (20 <modem_reset+0x20>)
+  12:	f7ff fffe 	bl	0 <taskNewSimple>
+  16:	2001      	movs	r0, #1
+  18:	bd08      	pop	{r3, pc}
+  1a:	bf00      	nop
+  1c:	00000000 	.word	0x00000000
+  20:	000001e1 	.word	0x000001e1
+
+Disassembly of section .text.modemtask_onoff:
+
+00000000 <modemtask_onoff>:
+modemtask_onoff():
+   0:	2015b508 	.word	0x2015b508
+   4:	2100      	movs	r1, #0
+   6:	f7ff fffe 	bl	0 <pinSet>
+   a:	2100      	movs	r1, #0
+   c:	4802      	ldr	r0, [pc, #8]	; (18 <modemtask_onoff+0x18>)
+   e:	f7ff fffe 	bl	0 <taskDelete>
+  12:	2001      	movs	r0, #1
+  14:	bd08      	pop	{r3, pc}
+  16:	bf00      	nop
+  18:	000001d6 	.word	0x000001d6
+
+Disassembly of section .text.modemtask_reset:
+
+00000000 <modemtask_reset>:
+modemtask_reset():
+   0:	b508      	push	{r3, lr}
+   2:	2026      	movs	r0, #38	; 0x26
+   4:	2100      	movs	r1, #0
+   6:	f7ff fffe 	bl	0 <pinSet>
+   a:	2100      	movs	r1, #0
+   c:	4802      	ldr	r0, [pc, #8]	; (18 <modemtask_reset+0x18>)
+   e:	f7ff fffe 	bl	0 <taskDelete>
+  12:	2001      	movs	r0, #1
+  14:	bd08      	pop	{r3, pc}
+  16:	bf00      	nop
+  18:	000001e1 	.word	0x000001e1
+
+Disassembly of section .text.DriverThread_ProcessCommands:
+
+00000000 <DriverThread_ProcessCommands>:
+DriverThread_ProcessCommands():
+   0:	f7ff4801 	.word	0xf7ff4801
+   4:	bffe      	ittt	<und>
+   6:	bf00      	nop<und>
+   8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.blink:
+
+00000000 <blink>:
+blink():
+   0:	b510      	push	{r4, lr}
+   2:	2017      	mov<und>	r0, #23
+   4:	f7ff fffe 	bl<und>	0 <pinGet>
+   8:	b110      	cbz	r0, 10 <blink+0x10>
+   a:	2017      	movs	r0, #23
+   c:	2100      	movs	r1, #0
+   e:	e001      	b.n	14 <blink+0x14>
+  10:	2017      	movs	r0, #23
+  12:	2101      	movs	r1, #1
+  14:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+  18:	f7ff bffe 	b.w	0 <pinSet>
+
+Disassembly of section .text.cmdGetsModem:
+
+00000000 <cmdGetsModem>:
+cmdGetsModem():
+   0:	b530      	push	{r4, r5, lr}
+   2:	4c11      	ldr	r4, [pc, #68]	; (48 <cmdGetsModem+0x48>)
+   4:	b0a1      	sub	sp, #132	; 0x84
+   6:	2001      	movs	r0, #1
+   8:	4669      	mov	r1, sp
+   a:	f7ff fffe 	bl	0 <streamFIFOToString>
+   e:	7863      	ldrb	r3, [r4, #1]
+  10:	b1bb      	cbz	r3, 42 <cmdGetsModem+0x42>
+  12:	7823      	ldrb	r3, [r4, #0]
+  14:	2518      	movs	r5, #24
+  16:	fb05 4303 	mla	r3, r5, r3, r4
+  1a:	791a      	ldrb	r2, [r3, #4]
+  1c:	b18a      	cbz	r2, 42 <cmdGetsModem+0x42>
+  1e:	691b      	ldr	r3, [r3, #16]
+  20:	4668      	mov	r0, sp
+  22:	4798      	blx	r3
+  24:	7821      	ldrb	r1, [r4, #0]
+  26:	b118      	cbz	r0, 30 <cmdGetsModem+0x30>
+  28:	4620      	mov	r0, r4
+  2a:	f7ff fffe 	bl	0 <cmdDelete>
+  2e:	e008      	b.n	42 <cmdGetsModem+0x42>
+  30:	fb05 4501 	mla	r5, r5, r1, r4
+  34:	792b      	ldrb	r3, [r5, #4]
+  36:	4620      	mov	r0, r4
+  38:	f023 0302 	bic.w	r3, r3, #2
+  3c:	712b      	strb	r3, [r5, #4]
+  3e:	f7ff fffe 	bl	0 <cmdProcess>
+  42:	b021      	add	sp, #132	; 0x84
+  44:	bd30      	pop	{r4, r5, pc}
+  46:	bf00      	nop
+  48:	00000000 	.word	0x00000000
+
+Disassembly of section .text.modemInit:
+
+00000000 <modemInit>:
+modemInit():
+   0:	b507      	push	{r0, r1, r2, lr}
+   2:	f44f 4396 	mov.w	r3, #19200	; 0x4b00
+   6:	2203      	movs	r2, #3
+   8:	2100      	movs	r1, #0
+   a:	2001      	movs	r0, #1
+   c:	f7ff fffe 	bl	0 <comConfig>
+  10:	2001      	movs	r0, #1
+  12:	f7ff fffe 	bl	0 <streamEnableActionChars>
+  16:	2001      	movs	r0, #1
+  18:	491d      	ldr	r1, [pc, #116]	; (90 <modemInit+0x90>)
+  1a:	f7ff fffe 	bl	0 <streamSetActionChars>
+  1e:	2001      	movs	r0, #1
+  20:	491c      	ldr	r1, [pc, #112]	; (94 <modemInit+0x94>)
+  22:	f7ff fffe 	bl	0 <streamSetGet>
+  26:	2280      	movs	r2, #128	; 0x80
+  28:	2001      	movs	r0, #1
+  2a:	491b      	ldr	r1, [pc, #108]	; (98 <modemInit+0x98>)
+  2c:	f7ff fffe 	bl	0 <streamSetRXBuffer>
+  30:	2001      	movs	r0, #1
+  32:	491a      	ldr	r1, [pc, #104]	; (9c <modemInit+0x9c>)
+  34:	f7ff fffe 	bl	0 <streamSetPut>
+  38:	2026      	movs	r0, #38	; 0x26
+  3a:	2103      	movs	r1, #3
+  3c:	f7ff fffe 	bl	0 <pinConfig>
+  40:	2015      	movs	r0, #21
+  42:	2103      	movs	r1, #3
+  44:	f7ff fffe 	bl	0 <pinConfig>
+  48:	2026      	movs	r0, #38	; 0x26
+  4a:	2100      	movs	r1, #0
+  4c:	f7ff fffe 	bl	0 <pinSet>
+  50:	2015      	movs	r0, #21
+  52:	2100      	movs	r1, #0
+  54:	f7ff fffe 	bl	0 <pinSet>
+  58:	2028      	movs	r0, #40	; 0x28
+  5a:	2104      	movs	r1, #4
+  5c:	f7ff fffe 	bl	0 <pinConfig>
+  60:	2017      	movs	r0, #23
+  62:	2103      	movs	r1, #3
+  64:	f7ff fffe 	bl	0 <pinConfig>
+  68:	2128      	movs	r1, #40	; 0x28
+  6a:	480d      	ldr	r0, [pc, #52]	; (a0 <modemInit+0xa0>)
+  6c:	2203      	movs	r2, #3
+  6e:	f7ff fffe 	bl	0 <pinInterrupt>
+  72:	480c      	ldr	r0, [pc, #48]	; (34 <cmdInitQueue+0x34>)
+  74:	f7ff fffe 	bl	0 <cmdInitQueue>
+  78:	4b0b      	ldr	r3, [pc, #44]	; (a8 <modemInit+0xa8>)
+  7a:	f44f 72fa 	mov.w	r2, #500	; 0x1f4
+  7e:	2100      	movs	r1, #0
+  80:	9301      	str	r3, [sp, #4]
+  82:	480a      	ldr	r0, [pc, #40]	; (ac <modemInit+0xac>)
+  84:	4613      	mov	r3, r2
+  86:	9100      	str	r1, [sp, #0]
+  88:	f7ff fffe 	bl	0 <taskNew>
+  8c:	bd0e      	pop	{r1, r2, r3, pc}
+  8e:	bf00      	nop
+  90:	0000011e 	.word	0x0000011e
+	...
+  ac:	000001ec 	.word	0x000001ec
+
+Disassembly of section .text.email_HELO:
+
+00000000 <email_HELO>:
+email_HELO():
+   0:	4b08b57f 	.word	0x4b08b57f
+   4:	4669      	mov	r1, sp
+   6:	9301      	str	r3, [sp, #4]
+   8:	4b07      	ldr	r3, [pc, #28]	; (28 <email_HELO+0x28>)
+   a:	4808      	ldr	r0, [pc, #32]	; (2c <email_HELO+0x2c>)
+   c:	9302      	str	r3, [sp, #8]
+   e:	4b08      	ldr	r3, [pc, #32]	; (30 <email_HELO+0x30>)
+  10:	9303      	str	r3, [sp, #12]
+  12:	230a      	movs	r3, #10
+  14:	9305      	str	r3, [sp, #20]
+  16:	3b06      	subs	r3, #6
+  18:	f88d 3001 	strb.w	r3, [sp, #1]
+  1c:	f7ff fffe 	bl	0 <cmdQueue>
+  20:	b007      	add	sp, #28
+  22:	bd00      	pop	{pc}
+  24:	000000aa 	.word	0x000000aa
+	...
+
+Disassembly of section .text.email_pw:
+
+00000000 <email_pw>:
+email_pw():
+   0:	b57f      	push	{r0, r1, r2, r3, r4, r5, r6, lr}
+   2:	4b08      	ldr	r3, [pc, #32]	; (24 <email_pw+0x24>)
+   4:	4669      	mov	r1, sp
+   6:	9301      	str	r3, [sp, #4]
+   8:	4b07      	ldr	r3, [pc, #28]	; (28 <email_pw+0x28>)
+   a:	4808      	ldr	r0, [pc, #32]	; (2c <email_pw+0x2c>)
+   c:	9302      	str	r3, [sp, #8]
+   e:	4b08      	ldr	r3, [pc, #32]	; (30 <email_pw+0x30>)
+  10:	9303      	str	r3, [sp, #12]
+  12:	230f      	movs	r3, #15
+  14:	9305      	str	r3, [sp, #20]
+  16:	3b0f      	subs	r3, #15
+  18:	f88d 3001 	strb.w	r3, [sp, #1]
+  1c:	f7ff fffe 	bl	0 <cmdQueue>
+  20:	b007      	add	sp, #28
+  22:	bd00      	pop	{pc}
+  24:	000001f5 	.word	0x000001f5
+	...
+
+Disassembly of section .text.email_user:
+
+00000000 <email_user>:
+email_user():
+   0:	b57f      	push	{r0, r1, r2, r3, r4, r5, r6, lr}
+   2:	4b08      	ldr	r3, [pc, #32]	; (24 <email_user+0x24>)
+   4:	4669      	mov	r1, sp
+   6:	9301      	str	r3, [sp, #4]
+   8:	4b07      	ldr	r3, [pc, #28]	; (28 <email_user+0x28>)
+   a:	4808      	ldr	r0, [pc, #32]	; (2c <email_user+0x2c>)
+   c:	9302      	str	r3, [sp, #8]
+   e:	4b08      	ldr	r3, [pc, #32]	; (30 <email_user+0x30>)
+  10:	9303      	str	r3, [sp, #12]
+  12:	230f      	movs	r3, #15
+  14:	9305      	str	r3, [sp, #20]
+  16:	3b0f      	subs	r3, #15
+  18:	f88d 3001 	strb.w	r3, [sp, #1]
+  1c:	f7ff fffe 	bl	0 <cmdQueue>
+  20:	b007      	add	sp, #28
+  22:	bd00      	pop	{pc}
+  24:	000001fd 	.word	0x000001fd
+	...
+
+Disassembly of section .text.email_AUTHLOGIN:
+
+00000000 <email_AUTHLOGIN>:
+email_AUTHLOGIN():
+   0:	b57f      	push	{r0, r1, r2, r3, r4, r5, r6, lr}
+   2:	4b08      	ldr	r3, [pc, #32]	; (24 <email_AUTHLOGIN+0x24>)
+   4:	4669      	mov	r1, sp
+   6:	9301      	str	r3, [sp, #4]
+   8:	4b07      	ldr	r3, [pc, #28]	; (28 <email_AUTHLOGIN+0x28>)
+   a:	4808      	ldr	r0, [pc, #32]	; (2c <email_AUTHLOGIN+0x2c>)
+   c:	9302      	str	r3, [sp, #8]
+   e:	4b08      	ldr	r3, [pc, #32]	; (30 <email_AUTHLOGIN+0x30>)
+  10:	9303      	str	r3, [sp, #12]
+  12:	230a      	movs	r3, #10
+  14:	9305      	str	r3, [sp, #20]
+  16:	3b0a      	subs	r3, #10
+  18:	f88d 3001 	strb.w	r3, [sp, #1]
+  1c:	f7ff fffe 	bl	0 <cmdQueue>
+  20:	b007      	add	sp, #28
+  22:	bd00      	pop	{pc}
+  24:	000000af 	.word	0x000000af
+	...
+
+Disassembly of section .text.email_MAILFROM:
+
+00000000 <email_MAILFROM>:
+email_MAILFROM():
+   0:	b57f      	push	{r0, r1, r2, r3, r4, r5, r6, lr}
+   2:	4b08      	ldr	r3, [pc, #32]	; (24 <email_MAILFROM+0x24>)
+   4:	4669      	mov	r1, sp
+   6:	9301      	str	r3, [sp, #4]
+   8:	4b07      	ldr	r3, [pc, #28]	; (28 <email_MAILFROM+0x28>)
+   a:	4808      	ldr	r0, [pc, #32]	; (2c <email_MAILFROM+0x2c>)
+   c:	9302      	str	r3, [sp, #8]
+   e:	4b08      	ldr	r3, [pc, #32]	; (30 <email_MAILFROM+0x30>)
+  10:	9303      	str	r3, [sp, #12]
+  12:	230a      	movs	r3, #10
+  14:	9305      	str	r3, [sp, #20]
+  16:	3b09      	subs	r3, #9
+  18:	f88d 3001 	strb.w	r3, [sp, #1]
+  1c:	f7ff fffe 	bl	0 <cmdQueue>
+  20:	b007      	add	sp, #28
+  22:	bd00      	pop	{pc}
+  24:	0000009f 	.word	0x0000009f
+	...
+
+Disassembly of section .text.email_RCPT:
+
+00000000 <email_RCPT>:
+email_RCPT():
+   0:	b57f      	push	{r0, r1, r2, r3, r4, r5, r6, lr}
+   2:	4b08      	ldr	r3, [pc, #32]	; (24 <email_RCPT+0x24>)
+   4:	4669      	mov	r1, sp
+   6:	9301      	str	r3, [sp, #4]
+   8:	4b07      	ldr	r3, [pc, #28]	; (28 <email_RCPT+0x28>)
+   a:	4808      	ldr	r0, [pc, #32]	; (2c <email_RCPT+0x2c>)
+   c:	9302      	str	r3, [sp, #8]
+   e:	4b08      	ldr	r3, [pc, #32]	; (30 <email_RCPT+0x30>)
+  10:	9303      	str	r3, [sp, #12]
+  12:	230a      	movs	r3, #10
+  14:	9305      	str	r3, [sp, #20]
+  16:	3b09      	subs	r3, #9
+  18:	f88d 3001 	strb.w	r3, [sp, #1]
+  1c:	f7ff fffe 	bl	0 <cmdQueue>
+  20:	b007      	add	sp, #28
+  22:	bd00      	pop	{pc}
+  24:	00000096 	.word	0x00000096
+	...
+
+Disassembly of section .text.email_DATA:
+
+00000000 <email_DATA>:
+email_DATA():
+   0:	b57f      	push	{r0, r1, r2, r3, r4, r5, r6, lr}
+   2:	4b08      	ldr	r3, [pc, #32]	; (24 <email_DATA+0x24>)
+   4:	4669      	mov	r1, sp
+   6:	9301      	str	r3, [sp, #4]
+   8:	4b07      	ldr	r3, [pc, #28]	; (28 <email_DATA+0x28>)
+   a:	4808      	ldr	r0, [pc, #32]	; (2c <email_DATA+0x2c>)
+   c:	9302      	str	r3, [sp, #8]
+   e:	4b08      	ldr	r3, [pc, #32]	; (30 <email_DATA+0x30>)
+  10:	9303      	str	r3, [sp, #12]
+  12:	230f      	movs	r3, #15
+  14:	9305      	str	r3, [sp, #20]
+  16:	3b0f      	subs	r3, #15
+  18:	f88d 3001 	strb.w	r3, [sp, #1]
+  1c:	f7ff fffe 	bl	0 <cmdQueue>
+  20:	b007      	add	sp, #28
+  22:	bd00      	pop	{pc}
+  24:	00000091 	.word	0x00000091
+	...
+
+Disassembly of section .text.email_body:
+
+00000000 <email_body>:
+email_body():
+   0:	b57f      	push	{r0, r1, r2, r3, r4, r5, r6, lr}
+   2:	4b08      	ldr	r3, [pc, #32]	; (24 <email_body+0x24>)
+   4:	4669      	mov	r1, sp
+   6:	9301      	str	r3, [sp, #4]
+   8:	4b07      	ldr	r3, [pc, #28]	; (28 <email_body+0x28>)
+   a:	4808      	ldr	r0, [pc, #32]	; (2c <email_body+0x2c>)
+   c:	9302      	str	r3, [sp, #8]
+   e:	4b08      	ldr	r3, [pc, #32]	; (30 <email_body+0x30>)
+  10:	9303      	str	r3, [sp, #12]
+  12:	230f      	movs	r3, #15
+  14:	9305      	str	r3, [sp, #20]
+  16:	3b0f      	subs	r3, #15
+  18:	f88d 3001 	strb.w	r3, [sp, #1]
+  1c:	f7ff fffe 	bl	0 <cmdQueue>
+  20:	b007      	add	sp, #28
+  22:	bd00      	pop	{pc}
+  24:	00000207 	.word	0x00000207
+	...
+
+Disassembly of section .text.email_quit:
+
+00000000 <email_quit>:
+email_quit():
+   0:	b57f      	push	{r0, r1, r2, r3, r4, r5, r6, lr}
+   2:	4b08      	ldr	r3, [pc, #32]	; (24 <email_quit+0x24>)
+   4:	4669      	mov	r1, sp
+   6:	9301      	str	r3, [sp, #4]
+   8:	4b07      	ldr	r3, [pc, #28]	; (28 <email_quit+0x28>)
+   a:	4808      	ldr	r0, [pc, #32]	; (2c <email_quit+0x2c>)
+   c:	9302      	str	r3, [sp, #8]
+   e:	4b08      	ldr	r3, [pc, #32]	; (30 <email_quit+0x30>)
+  10:	9303      	str	r3, [sp, #12]
+  12:	230f      	movs	r3, #15
+  14:	9305      	str	r3, [sp, #20]
+  16:	3b0c      	subs	r3, #12
+  18:	f88d 3001 	strb.w	r3, [sp, #1]
+  1c:	f7ff fffe 	bl	0 <cmdQueue>
+  20:	b007      	add	sp, #28
+  22:	bd00      	pop	{pc}
+  24:	00000121 	.word	0x00000121
+	...
+
+Disassembly of section .text.email_wait:
+
+00000000 <email_wait>:
+email_wait():
+   0:	b57f      	push	{r0, r1, r2, r3, r4, r5, r6, lr}
+   2:	4b08      	ldr	r3, [pc, #32]	; (24 <email_wait+0x24>)
+   4:	4669      	mov	r1, sp
+   6:	9301      	str	r3, [sp, #4]
+   8:	4b07      	ldr	r3, [pc, #28]	; (28 <email_wait+0x28>)
+   a:	4808      	ldr	r0, [pc, #32]	; (2c <email_wait+0x2c>)
+   c:	9302      	str	r3, [sp, #8]
+   e:	4b08      	ldr	r3, [pc, #32]	; (30 <email_wait+0x30>)
+  10:	9303      	str	r3, [sp, #12]
+  12:	230f      	movs	r3, #15
+  14:	9305      	str	r3, [sp, #20]
+  16:	3b0f      	subs	r3, #15
+  18:	f88d 3001 	strb.w	r3, [sp, #1]
+  1c:	f7ff fffe 	bl	0 <cmdQueue>
+  20:	b007      	add	sp, #28
+  22:	bd00      	pop	{pc}
+  24:	0000020d 	.word	0x0000020d
+	...
+
+Disassembly of section .text.pftp_put:
+
+00000000 <pftp_put>:
+pftp_put():
+   0:	b57f      	push	{r0, r1, r2, r3, r4, r5, r6, lr}
+   2:	4b08      	ldr	r3, [pc, #32]	; (24 <pftp_put+0x24>)
+   4:	4669      	mov	r1, sp
+   6:	9301      	str	r3, [sp, #4]
+   8:	4b07      	ldr	r3, [pc, #28]	; (28 <pftp_put+0x28>)
+   a:	4808      	ldr	r0, [pc, #32]	; (2c <pftp_put+0x2c>)
+   c:	9302      	str	r3, [sp, #8]
+   e:	4b08      	ldr	r3, [pc, #32]	; (30 <pftp_put+0x30>)
+  10:	9303      	str	r3, [sp, #12]
+  12:	2307      	movs	r3, #7
+  14:	9305      	str	r3, [sp, #20]
+  16:	3b04      	subs	r3, #4
+  18:	f88d 3001 	strb.w	r3, [sp, #1]
+  1c:	f7ff fffe 	bl	0 <cmdQueue>
+  20:	b007      	add	sp, #28
+  22:	bd00      	pop	{pc}
+  24:	00000212 	.word	0x00000212
+	...
+
+Disassembly of section .text.pftp_put_handler:
+
+00000000 <pftp_put_handler>:
+pftp_put_handler():
+   0:	b51f      	push	{r0, r1, r2, r3, r4, lr}
+   2:	2203      	movs	r2, #3
+   4:	230a      	movs	r3, #10
+   6:	a901      	add	r1, sp, #4
+   8:	f7ff fffe 	bl	0 <getAllSubStrings>
+   c:	b2c0      	uxtb	r0, r0
+   e:	2802      	cmp	r0, #2
+  10:	d947      	bls.n	a2 <pftp_put_handler+0xa2>
+  12:	9801      	ldr	r0, [sp, #4]
+  14:	4924      	ldr	r1, [pc, #144]	; (a8 <pftp_put_handler+0xa8>)
+  16:	f7ff fffe 	bl	0 <isStringSame>
+  1a:	2800      	cmp	r0, #0
+  1c:	d042      	beq.n	a4 <pftp_put_handler+0xa4>
+  1e:	9802      	ldr	r0, [sp, #8]
+  20:	4922      	ldr	r1, [pc, #136]	; (ac <pftp_put_handler+0xac>)
+  22:	f7ff fffe 	bl	0 <isStringSame>
+  26:	b1c8      	cbz	r0, 5c <pftp_put_handler+0x5c>
+  28:	9803      	ldr	r0, [sp, #12]
+  2a:	4921      	ldr	r1, [pc, #132]	; (b0 <pftp_put_handler+0xb0>)
+  2c:	f7ff fffe 	bl	0 <isStringSame>
+  30:	b928      	cbnz	r0, 3e <pftp_put_handler+0x3e>
+  32:	9803      	ldr	r0, [sp, #12]
+  34:	491f      	ldr	r1, [pc, #124]	; (b4 <pftp_put_handler+0xb4>)
+  36:	f7ff fffe 	bl	0 <isStringSame>
+  3a:	4604      	mov	r4, r0
+  3c:	b120      	cbz	r0, 48 <pftp_put_handler+0x48>
+  3e:	4b1e      	ldr	r3, [pc, #120]	; (b8 <pftp_put_handler+0xb8>)
+  40:	681a      	ldr	r2, [r3, #0]
+  42:	f022 0209 	bic.w	r2, r2, #9
+  46:	e01f      	b.n	88 <pftp_put_handler+0x88>
+  48:	481c      	ldr	r0, [pc, #112]	; (bc <pftp_put_handler+0xbc>)
+  4a:	2101      	movs	r1, #1
+  4c:	8803      	ldrh	r3, [r0, #0]
+  4e:	8842      	ldrh	r2, [r0, #2]
+  50:	3008      	adds	r0, #8
+  52:	435a      	muls	r2, r3
+  54:	f7ff fffe 	bl	0 <fileSetPosition>
+  58:	4620      	mov	r0, r4
+  5a:	e023      	b.n	a4 <pftp_put_handler+0xa4>
+  5c:	9803      	ldr	r0, [sp, #12]
+  5e:	4918      	ldr	r1, [pc, #96]	; (c0 <pftp_put_handler+0xc0>)
+  60:	f7ff fffe 	bl	0 <isStringSame>
+  64:	b1f0      	cbz	r0, a4 <pftp_put_handler+0xa4>
+  66:	2002      	movs	r0, #2
+  68:	4916      	ldr	r1, [pc, #88]	; (c4 <pftp_put_handler+0xc4>)
+  6a:	f7ff fffe 	bl	0 <print>
+  6e:	4b13      	ldr	r3, [pc, #76]	; (bc <pftp_put_handler+0xbc>)
+  70:	f993 2018 	ldrsb.w	r2, [r3, #24]
+  74:	2a00      	cmp	r2, #0
+  76:	da0c      	bge.n	92 <pftp_put_handler+0x92>
+  78:	2002      	movs	r0, #2
+  7a:	4913      	ldr	r1, [pc, #76]	; (c8 <pftp_put_handler+0xc8>)
+  7c:	f7ff fffe 	bl	0 <print>
+  80:	4b0d      	ldr	r3, [pc, #52]	; (b8 <pftp_put_handler+0xb8>)
+  82:	681a      	ldr	r2, [r3, #0]
+  84:	f022 0229 	bic.w	r2, r2, #41	; 0x29
+  88:	601a      	str	r2, [r3, #0]
+  8a:	4810      	ldr	r0, [pc, #64]	; (cc <pftp_put_handler+0xcc>)
+  8c:	f7ff fffe 	bl	0 <pftp_put_handler>
+  90:	e005      	b.n	9e <pftp_put_handler+0x9e>
+  92:	885a      	ldrh	r2, [r3, #2]
+  94:	480e      	ldr	r0, [pc, #56]	; (d0 <pftp_put_handler+0xd0>)
+  96:	3201      	adds	r2, #1
+  98:	805a      	strh	r2, [r3, #2]
+  9a:	f7ff fffe 	bl	0 <pftp_put_handler>
+  9e:	2001      	movs	r0, #1
+  a0:	e000      	b.n	a4 <pftp_put_handler+0xa4>
+  a2:	2000      	movs	r0, #0
+  a4:	b004      	add	sp, #16
+  a6:	bd10      	pop	{r4, pc}
+  a8:	00000217 	.word	0x00000217
+  ac:	000000bf 	.word	0x000000bf
+  b0:	0000021c 	.word	0x0000021c
+  b4:	00000220 	.word	0x00000220
+	...
+  c0:	000000bc 	.word	0x000000bc
+  c4:	00000224 	.word	0x00000224
+  c8:	00000226 	.word	0x00000226
+  cc:	0000016d 	.word	0x0000016d
+  d0:	00000237 	.word	0x00000237
+
+Disassembly of section .text.pftp_get:
+
+00000000 <pftp_get>:
+pftp_get():
+   0:	4b08b57f 	.word	0x4b08b57f
+   4:	4669      	mov	r1, sp
+   6:	9301      	str	r3, [sp, #4]
+   8:	4b07      	ldr	r3, [pc, #28]	; (28 <pftp_get+0x28>)
+   a:	4808      	ldr	r0, [pc, #32]	; (2c <pftp_get+0x2c>)
+   c:	9302      	str	r3, [sp, #8]
+   e:	4b08      	ldr	r3, [pc, #32]	; (30 <pftp_get+0x30>)
+  10:	9303      	str	r3, [sp, #12]
+  12:	2307      	movs	r3, #7
+  14:	9305      	str	r3, [sp, #20]
+  16:	3b04      	subs	r3, #4
+  18:	f88d 3001 	strb.w	r3, [sp, #1]
+  1c:	f7ff fffe 	bl	0 <cmdQueue>
+  20:	b007      	add	sp, #28
+  22:	bd00      	pop	{pc}
+  24:	00000212 	.word	0x00000212
+	...
+
+Disassembly of section .text.pftp_handler:
+
+00000000 <pftp_handler>:
+pftp_handler():
+   0:	e92d 43f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, lr}
+   4:	b087      	sub	sp, #28
+   6:	4669      	mov	r1, sp
+   8:	2205      	movs	r2, #5
+   a:	230b      	movs	r3, #11
+   c:	f7ff fffe 	bl	0 <getAllSubStrings>
+  10:	9800      	ldr	r0, [sp, #0]
+  12:	4942      	ldr	r1, [pc, #264]	; (11c <pftp_handler+0x11c>)
+  14:	f7ff fffe 	bl	0 <isStringSame>
+  18:	2800      	cmp	r0, #0
+  1a:	d07a      	beq.n	112 <pftp_handler+0x112>
+  1c:	9801      	ldr	r0, [sp, #4]
+  1e:	4940      	ldr	r1, [pc, #256]	; (120 <pftp_handler+0x120>)
+  20:	f7ff fffe 	bl	0 <isStringSame>
+  24:	2800      	cmp	r0, #0
+  26:	d16a      	bne.n	fe <pftp_handler+0xfe>
+  28:	2000      	movs	r0, #0
+  2a:	493e      	ldr	r1, [pc, #248]	; (124 <pftp_handler+0x124>)
+  2c:	f7ff fffe 	bl	0 <isStringSame>
+  30:	4604      	mov	r4, r0
+  32:	2800      	cmp	r0, #0
+  34:	d163      	bne.n	fe <pftp_handler+0xfe>
+  36:	9801      	ldr	r0, [sp, #4]
+  38:	f7ff fffe 	bl	0 <convertStringToInt>
+  3c:	f8df 80fc 	ldr.w	r8, [pc, #252]	; 13c <pftp_handler+0x13c>
+  40:	b285      	uxth	r5, r0
+  42:	4939      	ldr	r1, [pc, #228]	; (128 <pftp_handler+0x128>)
+  44:	2002      	movs	r0, #2
+  46:	f8b8 2002 	ldrh.w	r2, [r8, #2]
+  4a:	f7ff fffe 	bl	0 <print>
+  4e:	2002      	movs	r0, #2
+  50:	4936      	ldr	r1, [pc, #216]	; (12c <pftp_handler+0x12c>)
+  52:	462a      	mov	r2, r5
+  54:	f7ff fffe 	bl	0 <print>
+  58:	9802      	ldr	r0, [sp, #8]
+  5a:	f7ff fffe 	bl	0 <convertStringToInt>
+  5e:	9e03      	ldr	r6, [sp, #12]
+  60:	4681      	mov	r9, r0
+  62:	4933      	ldr	r1, [pc, #204]	; (130 <pftp_handler+0x130>)
+  64:	2002      	movs	r0, #2
+  66:	4632      	mov	r2, r6
+  68:	f7ff fffe 	bl	0 <print>
+  6c:	4630      	mov	r0, r6
+  6e:	4631      	mov	r1, r6
+  70:	f7ff fffe 	bl	0 <convertHexEncodedStringToBuffer>
+  74:	fa1f f989 	uxth.w	r9, r9
+  78:	4548      	cmp	r0, r9
+  7a:	4607      	mov	r7, r0
+  7c:	d002      	beq.n	84 <pftp_handler+0x84>
+  7e:	2002      	movs	r0, #2
+  80:	492c      	ldr	r1, [pc, #176]	; (134 <pftp_handler+0x134>)
+  82:	e025      	b.n	d0 <pftp_handler+0xd0>
+  84:	4620      	mov	r0, r4
+  86:	2101      	movs	r1, #1
+  88:	4622      	mov	r2, r4
+  8a:	f7ff fffe 	bl	0 <pdiaEncode>
+  8e:	9405      	str	r4, [sp, #20]
+  90:	e005      	b.n	9e <pftp_handler+0x9e>
+  92:	5d30      	ldrb	r0, [r6, r4]
+  94:	2102      	movs	r1, #2
+  96:	aa05      	add	r2, sp, #20
+  98:	f7ff fffe 	bl	0 <pdiaEncode>
+  9c:	3401      	adds	r4, #1
+  9e:	42bc      	cmp	r4, r7
+  a0:	d3f7      	bcc.n	92 <pftp_handler+0x92>
+  a2:	2104      	movs	r1, #4
+  a4:	aa05      	add	r2, sp, #20
+  a6:	2000      	movs	r0, #0
+  a8:	f7ff fffe 	bl	0 <pdiaEncode>
+  ac:	9804      	ldr	r0, [sp, #16]
+  ae:	f7ff fffe 	bl	0 <len>
+  b2:	9b04      	ldr	r3, [sp, #16]
+  b4:	2268      	movs	r2, #104	; 0x68
+  b6:	541a      	strb	r2, [r3, r0]
+  b8:	9b04      	ldr	r3, [sp, #16]
+  ba:	2400      	movs	r4, #0
+  bc:	1818      	adds	r0, r3, r0
+  be:	7044      	strb	r4, [r0, #1]
+  c0:	9804      	ldr	r0, [sp, #16]
+  c2:	9e05      	ldr	r6, [sp, #20]
+  c4:	f7ff fffe 	bl	0 <convertStringToInt>
+  c8:	4286      	cmp	r6, r0
+  ca:	d004      	beq.n	d6 <pftp_handler+0xd6>
+  cc:	491a      	ldr	r1, [pc, #104]	; (138 <pftp_handler+0x138>)
+  ce:	2002      	movs	r0, #2
+  d0:	f7ff fffe 	bl	0 <print>
+  d4:	e01e      	b.n	114 <pftp_handler+0x114>
+  d6:	f8b8 2002 	ldrh.w	r2, [r8, #2]
+  da:	4b18      	ldr	r3, [pc, #96]	; (13c <pftp_handler+0x13c>)
+  dc:	42aa      	cmp	r2, r5
+  de:	d119      	bne.n	114 <pftp_handler+0x114>
+  e0:	2d01      	cmp	r5, #1
+  e2:	d106      	bne.n	f2 <pftp_handler+0xf2>
+  e4:	2202      	movs	r2, #2
+  e6:	805a      	strh	r2, [r3, #2]
+  e8:	4815      	ldr	r0, [pc, #84]	; (140 <pftp_handler+0x140>)
+  ea:	f7ff fffe 	bl	0 <pftp_handler>
+  ee:	462c      	mov	r4, r5
+  f0:	e010      	b.n	114 <pftp_handler+0x114>
+  f2:	3501      	adds	r5, #1
+  f4:	805d      	strh	r5, [r3, #2]
+  f6:	4812      	ldr	r0, [pc, #72]	; (140 <pftp_handler+0x140>)
+  f8:	f7ff fffe 	bl	0 <pftp_handler>
+  fc:	e007      	b.n	10e <pftp_handler+0x10e>
+  fe:	4b11      	ldr	r3, [pc, #68]	; (144 <pftp_handler+0x144>)
+ 100:	4811      	ldr	r0, [pc, #68]	; (148 <pftp_handler+0x148>)
+ 102:	681a      	ldr	r2, [r3, #0]
+ 104:	f022 0209 	bic.w	r2, r2, #9
+ 108:	601a      	str	r2, [r3, #0]
+ 10a:	f7ff fffe 	bl	0 <pftp_handler>
+ 10e:	2401      	movs	r4, #1
+ 110:	e000      	b.n	114 <pftp_handler+0x114>
+ 112:	4604      	mov	r4, r0
+ 114:	4620      	mov	r0, r4
+ 116:	b007      	add	sp, #28
+ 118:	e8bd 83f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, pc}
+ 11c:	00000217 	.word	0x00000217
+ 120:	000000bf 	.word	0x000000bf
+ 124:	00000238 	.word	0x00000238
+ 128:	0000023c 	.word	0x0000023c
+ 12c:	0000024a 	.word	0x0000024a
+ 130:	00000258 	.word	0x00000258
+ 134:	00000264 	.word	0x00000264
+ 138:	0000026f 	.word	0x0000026f
+ 13c:	00000000 	.word	0x00000000
+ 140:	00000237 	.word	0x00000237
+ 144:	00000000 	.word	0x00000000
+ 148:	0000016d 	.word	0x0000016d
+
+Disassembly of section .text.pftp_close:
+
+00000000 <pftp_close>:
+pftp_close():
+   0:	4b08b57f 	.word	0x4b08b57f
+   4:	4669      	mov	r1, sp
+   6:	9301      	str	r3, [sp, #4]
+   8:	4b07      	ldr	r3, [pc, #28]	; (28 <pftp_close+0x28>)
+   a:	4808      	ldr	r0, [pc, #32]	; (2c <pftp_close+0x2c>)
+   c:	9302      	str	r3, [sp, #8]
+   e:	4b08      	ldr	r3, [pc, #32]	; (30 <pftp_close+0x30>)
+  10:	9303      	str	r3, [sp, #12]
+  12:	2302      	movs	r3, #2
+  14:	9305      	str	r3, [sp, #20]
+  16:	3b01      	subs	r3, #1
+  18:	f88d 3001 	strb.w	r3, [sp, #1]
+  1c:	f7ff fffe 	bl	0 <cmdQueue>
+  20:	b007      	add	sp, #28
+  22:	bd00      	pop	{pc}
+  24:	0000027e 	.word	0x0000027e
+	...
+
+Disassembly of section .text.modem_sd:
+
+00000000 <modem_sd>:
+modem_sd():
+   0:	b57f      	push	{r0, r1, r2, r3, r4, r5, r6, lr}
+   2:	4b09      	ldr	r3, [pc, #36]	; (28 <modem_sd+0x28>)
+   4:	4669      	mov	r1, sp
+   6:	9301      	str	r3, [sp, #4]
+   8:	4b08      	ldr	r3, [pc, #32]	; (2c <modem_sd+0x2c>)
+   a:	4809      	ldr	r0, [pc, #36]	; (30 <modem_sd+0x30>)
+   c:	9302      	str	r3, [sp, #8]
+   e:	4b09      	ldr	r3, [pc, #36]	; (34 <modem_sd+0x34>)
+  10:	9303      	str	r3, [sp, #12]
+  12:	233c      	movs	r3, #60	; 0x3c
+  14:	9305      	str	r3, [sp, #20]
+  16:	3b39      	subs	r3, #57	; 0x39
+  18:	f88d 3001 	strb.w	r3, [sp, #1]
+  1c:	f7ff fffe 	bl	0 <cmdQueue>
+  20:	2001      	movs	r0, #1
+  22:	b007      	add	sp, #28
+  24:	bd00      	pop	{pc}
+  26:	bf00      	nop
+  28:	00000126 	.word	0x00000126
+	...
+
+Disassembly of section .text.modem_pftp:
+
+00000000 <modem_pftp>:
+modem_pftp():
+   0:	b5f0      	push	{r4, r5, r6, r7, lr}
+   2:	b085      	sub	sp, #20
+   4:	a901      	add	r1, sp, #4
+   6:	2203      	movs	r2, #3
+   8:	2306      	movs	r3, #6
+   a:	f7ff fffe 	bl	0 <getAllSubStrings>
+   e:	9e01      	ldr	r6, [sp, #4]
+  10:	9d02      	ldr	r5, [sp, #8]
+  12:	9f03      	ldr	r7, [sp, #12]
+  14:	b16e      	cbz	r6, 32 <modem_pftp+0x32>
+  16:	4630      	mov	r0, r6
+  18:	492b      	ldr	r1, [pc, #172]	; (c8 <modem_pftp+0xc8>)
+  1a:	f7ff fffe 	bl	0 <isStringSame>
+  1e:	b938      	cbnz	r0, 30 <modem_pftp+0x30>
+  20:	4630      	mov	r0, r6
+  22:	492a      	ldr	r1, [pc, #168]	; (cc <modem_pftp+0xcc>)
+  24:	f7ff fffe 	bl	0 <isStringSame>
+  28:	2800      	cmp	r0, #0
+  2a:	d04a      	beq.n	c2 <modem_pftp+0xc2>
+  2c:	2401      	movs	r4, #1
+  2e:	e000      	b.n	32 <modem_pftp+0x32>
+  30:	2400      	movs	r4, #0
+  32:	2d00      	cmp	r5, #0
+  34:	d044      	beq.n	c0 <modem_pftp+0xc0>
+  36:	4628      	mov	r0, r5
+  38:	4925      	ldr	r1, [pc, #148]	; (d0 <modem_pftp+0xd0>)
+  3a:	4e26      	ldr	r6, [pc, #152]	; (d4 <modem_pftp+0xd4>)
+  3c:	f7ff fffe 	bl	0 <copyString>
+  40:	2201      	movs	r2, #1
+  42:	8072      	strh	r2, [r6, #2]
+  44:	b13f      	cbz	r7, 56 <modem_pftp+0x56>
+  46:	4638      	mov	r0, r7
+  48:	f7ff fffe 	bl	0 <convertStringToInt>
+  4c:	b280      	uxth	r0, r0
+  4e:	8070      	strh	r0, [r6, #2]
+  50:	b908      	cbnz	r0, 56 <modem_pftp+0x56>
+  52:	2301      	movs	r3, #1
+  54:	8073      	strh	r3, [r6, #2]
+  56:	4b20      	ldr	r3, [pc, #128]	; (d8 <modem_pftp+0xd8>)
+  58:	4d20      	ldr	r5, [pc, #128]	; (dc <modem_pftp+0xdc>)
+  5a:	2250      	movs	r2, #80	; 0x50
+  5c:	801a      	strh	r2, [r3, #0]
+  5e:	682b      	ldr	r3, [r5, #0]
+  60:	481f      	ldr	r0, [pc, #124]	; (e0 <modem_pftp+0xe0>)
+  62:	f023 031e 	bic.w	r3, r3, #30
+  66:	f043 0301 	orr.w	r3, r3, #1
+  6a:	602b      	str	r3, [r5, #0]
+  6c:	f44f 7380 	mov.w	r3, #256	; 0x100
+  70:	8033      	strh	r3, [r6, #0]
+  72:	f7ff fffe 	bl	0 <modem_pftp>
+  76:	481a      	ldr	r0, [pc, #104]	; (6c <modem_pftp+0x6c>)
+  78:	f7ff fffe 	bl	0 <modem_pftp>
+  7c:	4818      	ldr	r0, [pc, #96]	; (64 <modem_pftp+0x64>)
+  7e:	f7ff fffe 	bl	0 <modem_pftp>
+  82:	4817      	ldr	r0, [pc, #92]	; (60 <modem_pftp+0x60>)
+  84:	f7ff fffe 	bl	0 <modem_pftp>
+  88:	4815      	ldr	r0, [pc, #84]	; (58 <modem_pftp+0x58>)
+  8a:	f7ff fffe 	bl	0 <modem_pftp>
+  8e:	b174      	cbz	r4, ae <modem_pftp+0xae>
+  90:	4814      	ldr	r0, [pc, #80]	; (e4 <modem_pftp+0xe4>)
+  92:	2201      	movs	r2, #1
+  94:	f100 0118 	add.w	r1, r0, #24
+  98:	f7ff fffe 	bl	0 <fileOpen>
+  9c:	b188      	cbz	r0, c2 <modem_pftp+0xc2>
+  9e:	682b      	ldr	r3, [r5, #0]
+  a0:	480f      	ldr	r0, [pc, #60]	; (e0 <modem_pftp+0xe0>)
+  a2:	f043 0320 	orr.w	r3, r3, #32
+  a6:	602b      	str	r3, [r5, #0]
+  a8:	f7ff fffe 	bl	0 <modem_pftp>
+  ac:	e006      	b.n	bc <modem_pftp+0xbc>
+  ae:	682b      	ldr	r3, [r5, #0]
+  b0:	480b      	ldr	r0, [pc, #44]	; (e0 <modem_pftp+0xe0>)
+  b2:	f023 0320 	bic.w	r3, r3, #32
+  b6:	602b      	str	r3, [r5, #0]
+  b8:	f7ff fffe 	bl	0 <modem_pftp>
+  bc:	2001      	movs	r0, #1
+  be:	e000      	b.n	c2 <modem_pftp+0xc2>
+  c0:	4628      	mov	r0, r5
+  c2:	b005      	add	sp, #20
+  c4:	bdf0      	pop	{r4, r5, r6, r7, pc}
+  c6:	bf00      	nop
+  c8:	00000284 	.word	0x00000284
+  cc:	00000288 	.word	0x00000288
+  d0:	00000020 	.word	0x00000020
+	...
+  e0:	00000237 	.word	0x00000237
+  e4:	00000008 	.word	0x00000008
+
+Disassembly of section .text.modem_email:
+
+00000000 <modem_email>:
+modem_email():
+   0:	4c17b510 	.word	0x4c17b510
+   4:	4817      	ldr	r0, [pc, #92]	; (60 <modem_email+0x60>)
+   6:	f7ff fffe 	bl	0 <modem_email>
+   a:	4620      	mov	r0, r4
+   c:	f7ff fffe 	bl	0 <modem_email>
+  10:	4620      	mov	r0, r4
+  12:	f7ff fffe 	bl	0 <modem_email>
+  16:	4620      	mov	r0, r4
+  18:	f7ff fffe 	bl	0 <modem_email>
+  1c:	4b12      	ldr	r3, [pc, #72]	; (68 <modem_email+0x68>)
+  1e:	2219      	movs	r2, #25
+  20:	801a      	strh	r2, [r3, #0]
+  22:	4620      	mov	r0, r4
+  24:	f7ff fffe 	bl	0 <modem_email>
+  28:	f7ff fffe 	bl	0 <modem_email>
+  2c:	f7ff fffe 	bl	0 <modem_email>
+  30:	f7ff fffe 	bl	0 <modem_email>
+  34:	f7ff fffe 	bl	0 <modem_email>
+  38:	f7ff fffe 	bl	0 <modem_email>
+  3c:	f7ff fffe 	bl	0 <modem_email>
+  40:	f7ff fffe 	bl	0 <modem_email>
+  44:	f7ff fffe 	bl	0 <modem_email>
+  48:	f7ff fffe 	bl	0 <modem_email>
+  4c:	f7ff fffe 	bl	0 <modem_email>
+  50:	f7ff fffe 	bl	0 <modem_email>
+  54:	4620      	mov	r0, r4
+  56:	f7ff fffe 	bl	0 <modem_email>
+  5a:	2001      	movs	r0, #1
+  5c:	bd10      	pop	{r4, pc}
+  5e:	bf00      	nop
+  60:	00000237 	.word	0x00000237
+  64:	0000016d 	.word	0x0000016d
+  68:	00000000 	.word	0x00000000
+
+Disassembly of section .text.modem_smssave:
+
+00000000 <modem_smssave>:
+modem_smssave():
+   0:	b508      	push	{r3, lr}
+   2:	f7ff fffe 	bl	0 <modem_smssave>
+   6:	2001      	movs	r0, #1
+   8:	bd08      	pop	{r3, pc}
+
+Disassembly of section .text.handler_ATOK:
+
+00000000 <handler_ATOK>:
+handler_ATOK():
+   0:	b508      	push	{r3, lr}
+   2:	2103      	movs	r1, #3
+   4:	f7ff fffe 	bl	0 <getNextSubString>
+   8:	b130      	cbz	r0, 18 <handler_ATOK+0x18>
+   a:	4904      	ldr	r1, [pc, #16]	; (1c <handler_ATOK+0x1c>)
+   c:	f7ff fffe 	bl	0 <isStringSame>
+  10:	3800      	subs	r0, #0
+  12:	bf18      	it	ne
+  14:	2001      	movne	r0, #1
+  16:	bd08      	pop	{r3, pc}
+  18:	bd08      	pop	{r3, pc}
+  1a:	bf00      	nop
+  1c:	000000bc 	.word	0x000000bc
+
+Disassembly of section .text.handler_HTTP:
+
+00000000 <handler_HTTP>:
+handler_HTTP():
+   0:	2000      	movs	r0, #0
+   2:	4770      	bx	lr
+
+Disassembly of section .text.handler_ATCMGF:
+
+00000000 <handler_ATCMGF>:
+handler_ATCMGF():
+   0:	b508      	push	{r3, lr}
+   2:	210b      	movs	r1, #11
+   4:	f7ff fffe 	bl	0 <getNextSubString>
+   8:	4903      	ldr	r1, [pc, #12]	; (10 <isStringSame+0x10>)
+   a:	f7ff fffe 	bl	0 <isStringSame>
+   e:	3800      	subs	r0, #0
+  10:	bf18      	it	ne
+  12:	2001      	movne	r0, #1
+  14:	bd08      	pop	{r3, pc}
+  16:	bf00      	nop
+  18:	000000bc 	.word	0x000000bc
+
+Disassembly of section .text.handler_ATAT:
+
+00000000 <handler_ATAT>:
+handler_ATAT():
+   0:	b510      	push	{r4, lr}
+   2:	2103      	movs	r1, #3
+   4:	f7ff fffe 	bl	0 <getNextSubString>
+   8:	4604      	mov	r4, r0
+   a:	b1b8      	cbz	r0, 3c <handler_ATAT+0x3c>
+   c:	490c      	ldr	r1, [pc, #48]	; (40 <handler_ATAT+0x40>)
+   e:	f7ff fffe 	bl	0 <isStringSame>
+  12:	b948      	cbnz	r0, 28 <handler_ATAT+0x28>
+  14:	4620      	mov	r0, r4
+  16:	490b      	ldr	r1, [pc, #44]	; (44 <handler_ATAT+0x44>)
+  18:	f7ff fffe 	bl	0 <isStringSame>
+  1c:	b920      	cbnz	r0, 28 <handler_ATAT+0x28>
+  1e:	4620      	mov	r0, r4
+  20:	4909      	ldr	r1, [pc, #36]	; (48 <handler_ATAT+0x48>)
+  22:	f7ff fffe 	bl	0 <isStringSame>
+  26:	b148      	cbz	r0, 3c <handler_ATAT+0x3c>
+  28:	2001      	movs	r0, #1
+  2a:	4908      	ldr	r1, [pc, #32]	; (4c <handler_ATAT+0x4c>)
+  2c:	f7ff fffe 	bl	0 <print>
+  30:	4807      	ldr	r0, [pc, #28]	; (50 <handler_ATAT+0x50>)
+  32:	2100      	movs	r1, #0
+  34:	f7ff fffe 	bl	0 <deleteTask>
+  38:	2001      	movs	r0, #1
+  3a:	bd10      	pop	{r4, pc}
+  3c:	bd10      	pop	{r4, pc}
+  3e:	bf00      	nop
+  40:	000000bc 	.word	0x000000bc
+  44:	000000bf 	.word	0x000000bf
+  48:	0000012a 	.word	0x0000012a
+  4c:	0000028c 	.word	0x0000028c
+  50:	00000297 	.word	0x00000297
+
+Disassembly of section .text.handler_ATATOFF:
+
+00000000 <handler_ATATOFF>:
+handler_ATATOFF():
+   0:	2106      	movs	r1, #6
+   2:	b508      	push	{r3, lr}
+   4:	f7ff fffe 	bl	0 <getNextSubString>
+   8:	3800      	subs	r0, #0
+   a:	bf18      	it	ne
+   c:	2001      	movne	r0, #1
+   e:	bd08      	pop	{r3, pc}
+
+Disassembly of section .text.handler_ATCSDH:
+
+00000000 <handler_ATCSDH>:
+handler_ATCSDH():
+   0:	2001      	movs	r0, #1
+   2:	4770      	bx	lr
+
+Disassembly of section .text.handler_ATCMGR:
+
+00000000 <handler_ATCMGR>:
+handler_ATCMGR():
+   0:	2001      	movs	r0, #1
+   2:	4770      	bx	lr
+
+Disassembly of section .text.handler_ATCMGD:
+
+00000000 <handler_ATCMGD>:
+handler_ATCMGD():
+   0:	2001      	movs	r0, #1
+   2:	4770      	bx	lr
+
+Disassembly of section .text.handler_ATCMGL:
+
+00000000 <handler_ATCMGL>:
+handler_ATCMGL():
+   0:	b508      	push	{r3, lr}
+   2:	2104      	movs	r1, #4
+   4:	f7ff fffe 	bl	0 <getNextSubString>
+   8:	4903      	ldr	r1, [pc, #12]	; (18 <handler_ATCMGL+0x18>)
+   a:	4602      	mov	r2, r0
+   c:	2002      	movs	r0, #2
+   e:	f7ff fffe 	bl	0 <print>
+  12:	2001      	movs	r0, #1
+  14:	bd08      	pop	{r3, pc}
+  16:	bf00      	nop
+  18:	0000029a 	.word	0x0000029a
+
+Disassembly of section .text.print_AT:
+
+00000000 <print_AT>:
+print_AT():
+   0:	20014901 	.word	0x20014901
+   4:	f7ff bffe 	b.w	0 <print>
+   8:	000002a4 	.word	0x000002a4
+
+Disassembly of section .text.print_CMGF:
+
+00000000 <print_CMGF>:
+print_CMGF():
+   0:	4902      	ldr	r1, [pc, #8]	; (c <print_CMGF+0xc>)
+   2:	4a03      	ldr	r2, [pc, #12]	; (10 <print_CMGF+0x10>)
+   4:	2001      	movs	r0, #1
+   6:	f7ff bffe 	b.w	0 <print>
+   a:	bf00      	nop
+   c:	000002ac 	.word	0x000002ac
+  10:	000000ba 	.word	0x000000ba
+
+Disassembly of section .text.print_pftp_getlen:
+
+00000000 <print_pftp_getlen>:
+print_pftp_getlen():
+   0:	b510      	push	{r4, lr}
+   2:	f7ff fffe 	bl	0 <print_pftp_GET>
+   6:	2001      	movs	r0, #1
+   8:	4903      	ldr	r1, [pc, #12]	; (18 <print_pftp_getlen+0x18>)
+   a:	4a04      	ldr	r2, [pc, #16]	; (1c <print_pftp_getlen+0x1c>)
+   c:	f7ff fffe 	bl	0 <print>
+  10:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+  14:	f7ff bffe 	b.w	0 <print_HTTP_GET_secondhalf>
+  18:	000002b9 	.word	0x000002b9
+  1c:	00000020 	.word	0x00000020
+
+Disassembly of section .text.print_ATCMGR:
+
+00000000 <print_ATCMGR>:
+print_ATCMGR():
+   0:	20014901 	.word	0x20014901
+   4:	f7ff bffe 	b.w	0 <print>
+   8:	000002c3 	.word	0x000002c3
+
+Disassembly of section .text.modem_smsread:
+
+00000000 <modem_smsread>:
+modem_smsread():
+   0:	b508      	push	{r3, lr}
+   2:	f7ff fffe 	bl	0 <modem_smsread>
+   6:	2001      	movs	r0, #1
+   8:	bd08      	pop	{r3, pc}
+
+Disassembly of section .text.print_ATCMGD:
+
+00000000 <print_ATCMGD>:
+print_ATCMGD():
+   0:	4901      	ldr	r1, [pc, #4]	; (8 <print_ATCMGD+0x8>)
+   2:	2001      	movs	r0, #1
+   4:	f7ff bffe 	b.w	0 <print>
+   8:	000002ce 	.word	0x000002ce
+
+Disassembly of section .text.print_ATCMGL:
+
+00000000 <print_ATCMGL>:
+print_ATCMGL():
+   0:	4901      	ldr	r1, [pc, #4]	; (8 <print_ATCMGL+0x8>)
+   2:	2001      	movs	r0, #1
+   4:	f7ff bffe 	b.w	0 <print>
+   8:	000002db 	.word	0x000002db
+
+Disassembly of section .text.modem_smslist:
+
+00000000 <modem_smslist>:
+modem_smslist():
+   0:	b508      	push	{r3, lr}
+   2:	f7ff fffe 	bl	0 <modem_smslist>
+   6:	2001      	movs	r0, #1
+   8:	bd08      	pop	{r3, pc}
+
+Disassembly of section .text.print_ATCSDH:
+
+00000000 <print_ATCSDH>:
+print_ATCSDH():
+   0:	4901      	ldr	r1, [pc, #4]	; (8 <print_ATCSDH+0x8>)
+   2:	2001      	movs	r0, #1
+   4:	f7ff bffe 	b.w	0 <print>
+   8:	000002e4 	.word	0x000002e4
