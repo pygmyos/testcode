@@ -25,6 +25,7 @@ INPUT("C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Tutorial1\pygmy_rt
 INPUT("C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Tutorial1\pygmy_string.o")
 INPUT("C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Tutorial1\pygmy_sys.o")
 INPUT("C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Tutorial1\varitronix128x128_parallel.o")
+INPUT("C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Tutorial1\gems.o")
 GROUP(
 "std_sbrk_thumb.lib"
 "smallprintf_thumb.a"

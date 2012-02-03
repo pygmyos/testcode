@@ -80,20 +80,6 @@ lcdBacklightOff():
    6:	4770      	bx	lr
    8:	40010800 	.word	0x40010800
 
-Disassembly of section .text.putsLCD:
-
-00000000 <putsLCD>:
-putsLCD():
-   0:	b510      	push	{r4, lr}
-   2:	4604      	mov	r4, r0
-   4:	e001      	b.n	a <putsLCD+0xa>
-   6:	f7ff fffe 	bl	0 <drawChar>
-   a:	f814 0b01 	ldrb.w	r0, [r4], #1
-   e:	2800      	cmp	r0, #0
-  10:	d1f9      	bne.n	6 <putsLCD+0x6>
-  12:	3001      	adds	r0, #1
-  14:	bd10      	pop	{r4, pc}
-
 Disassembly of section .text.lcdGetWidth:
 
 00000000 <lcdGetWidth>:
@@ -113,7 +99,7 @@ Disassembly of section .text.lcdGetContrast:
 00000000 <lcdGetContrast>:
 lcdGetContrast():
    0:	4b01      	ldr	r3, [pc, #4]	; (8 <lcdGetContrast+0x8>)
-   2:	7c18      	ldrb	r0, [r3, #16]
+   2:	7818      	ldrb	r0, [r3, #0]
    4:	4770      	bx	lr
    6:	bf00      	nop
    8:	00000000 	.word	0x00000000
@@ -124,10 +110,10 @@ Disassembly of section .text.lcdSetContrast:
 lcdSetContrast():
    0:	b510      	push	{r4, lr}
    2:	4c05      	ldr	r4, [pc, #20]	; (18 <lcdSetContrast+0x18>)
-   4:	7420      	strb	r0, [r4, #16]
+   4:	7020      	strb	r0, [r4, #0]
    6:	2025      	movs	r0, #37	; 0x25
    8:	f7ff fffe 	bl	0 <lcdSetContrast>
-   c:	7c20      	ldrb	r0, [r4, #16]
+   c:	7820      	ldrb	r0, [r4, #0]
    e:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
   12:	f7ff bffe 	b.w	0 <lcdSetContrast>
   16:	bf00      	nop
@@ -221,11 +207,11 @@ Disassembly of section .text.lcdDrawPixel:
 lcdDrawPixel():
    0:	287f      	cmp	r0, #127	; 0x7f
    2:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
-   6:	d862      	bhi.n	ce <lcdDrawPixel+0xce>
+   6:	d857      	bhi.n	b8 <lcdDrawPixel+0xb8>
    8:	297f      	cmp	r1, #127	; 0x7f
-   a:	d860      	bhi.n	ce <lcdDrawPixel+0xce>
-   c:	4c31      	ldr	r4, [pc, #196]	; (d4 <lcdDrawPixel+0xd4>)
-   e:	4d32      	ldr	r5, [pc, #200]	; (d8 <lcdDrawPixel+0xd8>)
+   a:	d855      	bhi.n	b8 <lcdDrawPixel+0xb8>
+   c:	4c2b      	ldr	r4, [pc, #172]	; (bc <lcdDrawPixel+0xbc>)
+   e:	4d2c      	ldr	r5, [pc, #176]	; (c0 <lcdDrawPixel+0xc0>)
   10:	2740      	movs	r7, #64	; 0x40
   12:	f44f 7800 	mov.w	r8, #512	; 0x200
   16:	f8c4 8014 	str.w	r8, [r4, #20]
@@ -278,130 +264,27 @@ lcdDrawPixel():
   88:	68eb      	ldr	r3, [r5, #12]
   8a:	f403 437f 	and.w	r3, r3, #65280	; 0xff00
   8e:	60eb      	str	r3, [r5, #12]
-  90:	4b12      	ldr	r3, [pc, #72]	; (dc <lcdDrawPixel+0xdc>)
-  92:	68e8      	ldr	r0, [r5, #12]
-  94:	791a      	ldrb	r2, [r3, #4]
-  96:	78df      	ldrb	r7, [r3, #3]
-  98:	08d1      	lsrs	r1, r2, #3
-  9a:	f001 0107 	and.w	r1, r1, #7
-  9e:	ea41 01c7 	orr.w	r1, r1, r7, lsl #3
-  a2:	b2c9      	uxtb	r1, r1
-  a4:	4301      	orrs	r1, r0
-  a6:	60e9      	str	r1, [r5, #12]
-  a8:	6166      	str	r6, [r4, #20]
-  aa:	6126      	str	r6, [r4, #16]
-  ac:	68e9      	ldr	r1, [r5, #12]
-  ae:	f401 417f 	and.w	r1, r1, #65280	; 0xff00
-  b2:	60e9      	str	r1, [r5, #12]
-  b4:	795b      	ldrb	r3, [r3, #5]
-  b6:	68e9      	ldr	r1, [r5, #12]
-  b8:	f003 031f 	and.w	r3, r3, #31
-  bc:	ea43 1242 	orr.w	r2, r3, r2, lsl #5
-  c0:	b2d2      	uxtb	r2, r2
-  c2:	430a      	orrs	r2, r1
-  c4:	60ea      	str	r2, [r5, #12]
-  c6:	6166      	str	r6, [r4, #20]
-  c8:	6126      	str	r6, [r4, #16]
-  ca:	f8c4 8010 	str.w	r8, [r4, #16]
-  ce:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
-  d2:	bf00      	nop
-  d4:	40010c00 	.word	0x40010c00
-  d8:	40011000 	.word	0x40011000
-  dc:	00000000 	.word	0x00000000
-
-Disassembly of section .text.lcdClearPixel:
-
-00000000 <lcdClearPixel>:
-lcdClearPixel():
-   0:	287f      	cmp	r0, #127	; 0x7f
-   2:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
-   6:	d862      	bhi.n	ce <lcdClearPixel+0xce>
-   8:	297f      	cmp	r1, #127	; 0x7f
-   a:	d860      	bhi.n	ce <lcdClearPixel+0xce>
-   c:	4c31      	ldr	r4, [pc, #196]	; (d4 <lcdClearPixel+0xd4>)
-   e:	4d32      	ldr	r5, [pc, #200]	; (d8 <lcdClearPixel+0xd8>)
-  10:	2740      	movs	r7, #64	; 0x40
-  12:	f44f 7800 	mov.w	r8, #512	; 0x200
-  16:	f8c4 8014 	str.w	r8, [r4, #20]
-  1a:	6167      	str	r7, [r4, #20]
-  1c:	68eb      	ldr	r3, [r5, #12]
-  1e:	2680      	movs	r6, #128	; 0x80
-  20:	f403 437f 	and.w	r3, r3, #65280	; 0xff00
-  24:	60eb      	str	r3, [r5, #12]
-  26:	68eb      	ldr	r3, [r5, #12]
-  28:	f043 032a 	orr.w	r3, r3, #42	; 0x2a
-  2c:	60eb      	str	r3, [r5, #12]
-  2e:	6166      	str	r6, [r4, #20]
-  30:	6126      	str	r6, [r4, #16]
-  32:	6127      	str	r7, [r4, #16]
-  34:	68eb      	ldr	r3, [r5, #12]
-  36:	f403 437f 	and.w	r3, r3, #65280	; 0xff00
-  3a:	60eb      	str	r3, [r5, #12]
-  3c:	68eb      	ldr	r3, [r5, #12]
-  3e:	4318      	orrs	r0, r3
-  40:	60e8      	str	r0, [r5, #12]
-  42:	6166      	str	r6, [r4, #20]
-  44:	6126      	str	r6, [r4, #16]
-  46:	6166      	str	r6, [r4, #20]
-  48:	6126      	str	r6, [r4, #16]
-  4a:	6167      	str	r7, [r4, #20]
-  4c:	68eb      	ldr	r3, [r5, #12]
-  4e:	202c      	movs	r0, #44	; 0x2c
-  50:	f403 437f 	and.w	r3, r3, #65280	; 0xff00
-  54:	60eb      	str	r3, [r5, #12]
-  56:	68eb      	ldr	r3, [r5, #12]
-  58:	f043 032b 	orr.w	r3, r3, #43	; 0x2b
-  5c:	60eb      	str	r3, [r5, #12]
-  5e:	6166      	str	r6, [r4, #20]
-  60:	6126      	str	r6, [r4, #16]
-  62:	6127      	str	r7, [r4, #16]
-  64:	68eb      	ldr	r3, [r5, #12]
-  66:	f403 437f 	and.w	r3, r3, #65280	; 0xff00
-  6a:	60eb      	str	r3, [r5, #12]
-  6c:	68eb      	ldr	r3, [r5, #12]
-  6e:	4319      	orrs	r1, r3
-  70:	60e9      	str	r1, [r5, #12]
-  72:	6166      	str	r6, [r4, #20]
-  74:	6126      	str	r6, [r4, #16]
-  76:	6166      	str	r6, [r4, #20]
-  78:	6126      	str	r6, [r4, #16]
-  7a:	f8c4 8010 	str.w	r8, [r4, #16]
-  7e:	f7ff fffe 	bl	0 <lcdClearPixel>
-  82:	f8c4 8014 	str.w	r8, [r4, #20]
-  86:	6127      	str	r7, [r4, #16]
-  88:	68eb      	ldr	r3, [r5, #12]
-  8a:	f403 437f 	and.w	r3, r3, #65280	; 0xff00
-  8e:	60eb      	str	r3, [r5, #12]
-  90:	4b12      	ldr	r3, [pc, #72]	; (dc <lcdClearPixel+0xdc>)
-  92:	68e8      	ldr	r0, [r5, #12]
-  94:	785a      	ldrb	r2, [r3, #1]
-  96:	781f      	ldrb	r7, [r3, #0]
-  98:	08d1      	lsrs	r1, r2, #3
-  9a:	f001 0107 	and.w	r1, r1, #7
-  9e:	ea41 01c7 	orr.w	r1, r1, r7, lsl #3
-  a2:	b2c9      	uxtb	r1, r1
-  a4:	4301      	orrs	r1, r0
-  a6:	60e9      	str	r1, [r5, #12]
-  a8:	6166      	str	r6, [r4, #20]
-  aa:	6126      	str	r6, [r4, #16]
-  ac:	68e9      	ldr	r1, [r5, #12]
-  ae:	f401 417f 	and.w	r1, r1, #65280	; 0xff00
-  b2:	60e9      	str	r1, [r5, #12]
-  b4:	789b      	ldrb	r3, [r3, #2]
-  b6:	68e9      	ldr	r1, [r5, #12]
-  b8:	f003 031f 	and.w	r3, r3, #31
-  bc:	ea43 1242 	orr.w	r2, r3, r2, lsl #5
-  c0:	b2d2      	uxtb	r2, r2
-  c2:	430a      	orrs	r2, r1
-  c4:	60ea      	str	r2, [r5, #12]
-  c6:	6166      	str	r6, [r4, #20]
-  c8:	6126      	str	r6, [r4, #16]
-  ca:	f8c4 8010 	str.w	r8, [r4, #16]
-  ce:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
-  d2:	bf00      	nop
-  d4:	40010c00 	.word	0x40010c00
-  d8:	40011000 	.word	0x40011000
-  dc:	00000000 	.word	0x00000000
+  90:	4b0c      	ldr	r3, [pc, #48]	; (c4 <lcdDrawPixel+0xc4>)
+  92:	68ea      	ldr	r2, [r5, #12]
+  94:	7819      	ldrb	r1, [r3, #0]
+  96:	ea41 0202 	orr.w	r2, r1, r2
+  9a:	60ea      	str	r2, [r5, #12]
+  9c:	6166      	str	r6, [r4, #20]
+  9e:	6126      	str	r6, [r4, #16]
+  a0:	68ea      	ldr	r2, [r5, #12]
+  a2:	f402 427f 	and.w	r2, r2, #65280	; 0xff00
+  a6:	60ea      	str	r2, [r5, #12]
+  a8:	68ea      	ldr	r2, [r5, #12]
+  aa:	785b      	ldrb	r3, [r3, #1]
+  ac:	4313      	orrs	r3, r2
+  ae:	60eb      	str	r3, [r5, #12]
+  b0:	6166      	str	r6, [r4, #20]
+  b2:	6126      	str	r6, [r4, #16]
+  b4:	f8c4 8010 	str.w	r8, [r4, #16]
+  b8:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  bc:	40010c00 	.word	0x40010c00
+  c0:	40011000 	.word	0x40011000
+  c4:	00000000 	.word	0x00000000
 
 Disassembly of section .text.lcdSetDrawArea:
 
@@ -434,56 +317,6 @@ Disassembly of section .text.lcdWriteScreenBuffer:
 lcdWriteScreenBuffer():
    0:	4770      	bx	lr
 
-Disassembly of section .text.lcdGetFont:
-
-00000000 <lcdGetFont>:
-lcdGetFont():
-   0:	4b01      	ldr	r3, [pc, #4]	; (8 <lcdGetFont+0x8>)
-   2:	68d8      	ldr	r0, [r3, #12]
-   4:	4770      	bx	lr
-   6:	bf00      	nop
-   8:	00000000 	.word	0x00000000
-
-Disassembly of section .text.lcdSetFont:
-
-00000000 <lcdSetFont>:
-lcdSetFont():
-   0:	4b01      	ldr	r3, [pc, #4]	; (8 <lcdSetFont+0x8>)
-   2:	60d8      	str	r0, [r3, #12]
-   4:	4770      	bx	lr
-   6:	bf00      	nop
-   8:	00000000 	.word	0x00000000
-
-Disassembly of section .text.lcdSetCursor:
-
-00000000 <lcdSetCursor>:
-lcdSetCursor():
-   0:	4b01      	ldr	r3, [pc, #4]	; (8 <lcdSetCursor+0x8>)
-   2:	80d8      	strh	r0, [r3, #6]
-   4:	8119      	strh	r1, [r3, #8]
-   6:	4770      	bx	lr
-   8:	00000000 	.word	0x00000000
-
-Disassembly of section .text.lcdGetCursorX:
-
-00000000 <lcdGetCursorX>:
-lcdGetCursorX():
-   0:	4b01      	ldr	r3, [pc, #4]	; (8 <lcdGetCursorX+0x8>)
-   2:	88d8      	ldrh	r0, [r3, #6]
-   4:	4770      	bx	lr
-   6:	bf00      	nop
-   8:	00000000 	.word	0x00000000
-
-Disassembly of section .text.lcdGetCursorY:
-
-00000000 <lcdGetCursorY>:
-lcdGetCursorY():
-   0:	4b01      	ldr	r3, [pc, #4]	; (8 <lcdGetCursorY+0x8>)
-   2:	8918      	ldrh	r0, [r3, #8]
-   4:	4770      	bx	lr
-   6:	bf00      	nop
-   8:	00000000 	.word	0x00000000
-
 Disassembly of section .text.lcdOn:
 
 00000000 <lcdOn>:
@@ -503,64 +336,19 @@ Disassembly of section .text.lcdSetBPP:
 00000000 <lcdSetBPP>:
 lcdSetBPP():
    0:	4b01      	ldr	r3, [pc, #4]	; (8 <lcdSetBPP+0x8>)
-   2:	7458      	strb	r0, [r3, #17]
+   2:	7018      	strb	r0, [r3, #0]
    4:	4770      	bx	lr
    6:	bf00      	nop
    8:	00000000 	.word	0x00000000
-
-Disassembly of section .text.lcdColorToData:
-
-00000000 <lcdColorToData>:
-lcdColorToData():
-   0:	7843      	ldrb	r3, [r0, #1]
-   2:	7801      	ldrb	r1, [r0, #0]
-   4:	08da      	lsrs	r2, r3, #3
-   6:	f002 0207 	and.w	r2, r2, #7
-   a:	ea42 02c1 	orr.w	r2, r2, r1, lsl #3
-   e:	7881      	ldrb	r1, [r0, #2]
-  10:	015b      	lsls	r3, r3, #5
-  12:	f003 03ff 	and.w	r3, r3, #255	; 0xff
-  16:	f001 011f 	and.w	r1, r1, #31
-  1a:	ea43 0001 	orr.w	r0, r3, r1
-  1e:	4310      	orrs	r0, r2
-  20:	4770      	bx	lr
-
-Disassembly of section .text.lcdSetBackColor:
-
-00000000 <lcdSetBackColor>:
-lcdSetBackColor():
-   0:	b510      	push	{r4, lr}
-   2:	4b0b      	ldr	r3, [pc, #44]	; (30 <lcdSetBackColor+0x30>)
-   4:	7c5c      	ldrb	r4, [r3, #17]
-   6:	2c02      	cmp	r4, #2
-   8:	d108      	bne.n	1c <lcdSetBackColor+0x1c>
-   a:	eb00 0040 	add.w	r0, r0, r0, lsl #1
-   e:	0049      	lsls	r1, r1, #1
-  10:	eb02 0242 	add.w	r2, r2, r2, lsl #1
-  14:	b2c0      	uxtb	r0, r0
-  16:	b2c9      	uxtb	r1, r1
-  18:	b2d2      	uxtb	r2, r2
-  1a:	e004      	b.n	26 <lcdSetBackColor+0x26>
-  1c:	2c05      	cmp	r4, #5
-  1e:	d102      	bne.n	26 <lcdSetBackColor+0x26>
-  20:	0900      	lsrs	r0, r0, #4
-  22:	0909      	lsrs	r1, r1, #4
-  24:	0912      	lsrs	r2, r2, #4
-  26:	7018      	strb	r0, [r3, #0]
-  28:	7059      	strb	r1, [r3, #1]
-  2a:	709a      	strb	r2, [r3, #2]
-  2c:	bd10      	pop	{r4, pc}
-  2e:	bf00      	nop
-  30:	00000000 	.word	0x00000000
 
 Disassembly of section .text.lcdSetColor:
 
 00000000 <lcdSetColor>:
 lcdSetColor():
    0:	b510      	push	{r4, lr}
-   2:	4b0b      	ldr	r3, [pc, #44]	; (30 <lcdSetColor+0x30>)
-   4:	7c5c      	ldrb	r4, [r3, #17]
-   6:	2c02      	cmp	r4, #2
+   2:	4b0f      	ldr	r3, [pc, #60]	; (40 <lcdSetColor+0x40>)
+   4:	781b      	ldrb	r3, [r3, #0]
+   6:	2b02      	cmp	r3, #2
    8:	d108      	bne.n	1c <lcdSetColor+0x1c>
    a:	eb00 0040 	add.w	r0, r0, r0, lsl #1
    e:	0049      	lsls	r1, r1, #1
@@ -569,32 +357,21 @@ lcdSetColor():
   16:	b2c9      	uxtb	r1, r1
   18:	b2d2      	uxtb	r2, r2
   1a:	e004      	b.n	26 <lcdSetColor+0x26>
-  1c:	2c05      	cmp	r4, #5
+  1c:	2b05      	cmp	r3, #5
   1e:	d102      	bne.n	26 <lcdSetColor+0x26>
   20:	0900      	lsrs	r0, r0, #4
   22:	0909      	lsrs	r1, r1, #4
   24:	0912      	lsrs	r2, r2, #4
-  26:	70d8      	strb	r0, [r3, #3]
-  28:	7119      	strb	r1, [r3, #4]
-  2a:	715a      	strb	r2, [r3, #5]
-  2c:	bd10      	pop	{r4, pc}
-  2e:	bf00      	nop
-  30:	00000000 	.word	0x00000000
-
-Disassembly of section .text.lcdGetBackColor:
-
-00000000 <lcdGetBackColor>:
-lcdGetBackColor():
-   0:	47704800 	.word	0x47704800
-   4:	00000000 	.word	0x00000000
-
-Disassembly of section .text.lcdGetColor:
-
-00000000 <lcdGetColor>:
-lcdGetColor():
-   0:	4800      	ldr	r0, [pc, #0]	; (4 <lcdGetColor+0x4>)
-   2:	4770      	bx	lr
-   4:	00000003 	.word	0x00000003
+  26:	08cc      	lsrs	r4, r1, #3
+  28:	4b06      	ldr	r3, [pc, #24]	; (44 <lcdSetColor+0x44>)
+  2a:	f004 0407 	and.w	r4, r4, #7
+  2e:	f002 021f 	and.w	r2, r2, #31
+  32:	ea44 00c0 	orr.w	r0, r4, r0, lsl #3
+  36:	ea42 1141 	orr.w	r1, r2, r1, lsl #5
+  3a:	7018      	strb	r0, [r3, #0]
+  3c:	7059      	strb	r1, [r3, #1]
+  3e:	bd10      	pop	{r4, pc}
+	...
 
 Disassembly of section .text.lcdClearArea:
 
@@ -628,129 +405,68 @@ lcdClearArea():
   3e:	f7ff fffe 	bl	0 <lcdClearArea>
   42:	202c      	movs	r0, #44	; 0x2c
   44:	f7ff fffe 	bl	0 <lcdClearArea>
-  48:	4b1e      	ldr	r3, [pc, #120]	; (c4 <lcdClearArea+0xc4>)
+  48:	4b18      	ldr	r3, [pc, #96]	; (ac <lcdClearArea+0xac>)
   4a:	f44f 7200 	mov.w	r2, #512	; 0x200
   4e:	615a      	str	r2, [r3, #20]
-  50:	4b1d      	ldr	r3, [pc, #116]	; (c8 <lcdClearArea+0xc8>)
-  52:	1b7d      	subs	r5, r7, r5
-  54:	785a      	ldrb	r2, [r3, #1]
-  56:	f893 c002 	ldrb.w	ip, [r3, #2]
-  5a:	ea4f 08d2 	mov.w	r8, r2, lsr #3
-  5e:	7819      	ldrb	r1, [r3, #0]
-  60:	f00c 0c1f 	and.w	ip, ip, #31
-  64:	f008 0807 	and.w	r8, r8, #7
-  68:	1b34      	subs	r4, r6, r4
-  6a:	ea48 08c1 	orr.w	r8, r8, r1, lsl #3
-  6e:	ea4c 1242 	orr.w	r2, ip, r2, lsl #5
-  72:	436c      	muls	r4, r5
-  74:	fa5f f888 	uxtb.w	r8, r8
-  78:	fa5f fc82 	uxtb.w	ip, r2
-  7c:	2000      	movs	r0, #0
-  7e:	e019      	b.n	b4 <lcdClearArea+0xb4>
-  80:	2340      	movs	r3, #64	; 0x40
-  82:	6113      	str	r3, [r2, #16]
-  84:	4b11      	ldr	r3, [pc, #68]	; (cc <lcdClearArea+0xcc>)
-  86:	3001      	adds	r0, #1
-  88:	68d9      	ldr	r1, [r3, #12]
-  8a:	b280      	uxth	r0, r0
-  8c:	f401 417f 	and.w	r1, r1, #65280	; 0xff00
-  90:	60d9      	str	r1, [r3, #12]
-  92:	68d9      	ldr	r1, [r3, #12]
-  94:	ea48 0101 	orr.w	r1, r8, r1
-  98:	60d9      	str	r1, [r3, #12]
-  9a:	2180      	movs	r1, #128	; 0x80
-  9c:	6151      	str	r1, [r2, #20]
-  9e:	6111      	str	r1, [r2, #16]
-  a0:	68dd      	ldr	r5, [r3, #12]
-  a2:	f405 457f 	and.w	r5, r5, #65280	; 0xff00
-  a6:	60dd      	str	r5, [r3, #12]
-  a8:	68dd      	ldr	r5, [r3, #12]
-  aa:	ea4c 0505 	orr.w	r5, ip, r5
-  ae:	60dd      	str	r5, [r3, #12]
-  b0:	6151      	str	r1, [r2, #20]
-  b2:	6111      	str	r1, [r2, #16]
-  b4:	42a0      	cmp	r0, r4
-  b6:	4a03      	ldr	r2, [pc, #12]	; (c4 <lcdClearArea+0xc4>)
-  b8:	d3e2      	bcc.n	80 <lcdClearArea+0x80>
-  ba:	f44f 7300 	mov.w	r3, #512	; 0x200
-  be:	6113      	str	r3, [r2, #16]
-  c0:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
-  c4:	40010c00 	.word	0x40010c00
-  c8:	00000000 	.word	0x00000000
-  cc:	40011000 	.word	0x40011000
+  50:	3701      	adds	r7, #1
+  52:	4b17      	ldr	r3, [pc, #92]	; (b0 <lcdClearArea+0xb0>)
+  54:	1b7d      	subs	r5, r7, r5
+  56:	1b34      	subs	r4, r6, r4
+  58:	436c      	muls	r4, r5
+  5a:	f893 8000 	ldrb.w	r8, [r3]
+  5e:	f893 c001 	ldrb.w	ip, [r3, #1]
+  62:	2000      	movs	r0, #0
+  64:	e019      	b.n	9a <lcdClearArea+0x9a>
+  66:	2340      	movs	r3, #64	; 0x40
+  68:	6113      	str	r3, [r2, #16]
+  6a:	4b12      	ldr	r3, [pc, #72]	; (b4 <lcdClearArea+0xb4>)
+  6c:	3001      	adds	r0, #1
+  6e:	68d9      	ldr	r1, [r3, #12]
+  70:	b280      	uxth	r0, r0
+  72:	f401 417f 	and.w	r1, r1, #65280	; 0xff00
+  76:	60d9      	str	r1, [r3, #12]
+  78:	68d9      	ldr	r1, [r3, #12]
+  7a:	ea48 0101 	orr.w	r1, r8, r1
+  7e:	60d9      	str	r1, [r3, #12]
+  80:	2180      	movs	r1, #128	; 0x80
+  82:	6151      	str	r1, [r2, #20]
+  84:	6111      	str	r1, [r2, #16]
+  86:	68dd      	ldr	r5, [r3, #12]
+  88:	f405 457f 	and.w	r5, r5, #65280	; 0xff00
+  8c:	60dd      	str	r5, [r3, #12]
+  8e:	68dd      	ldr	r5, [r3, #12]
+  90:	ea4c 0505 	orr.w	r5, ip, r5
+  94:	60dd      	str	r5, [r3, #12]
+  96:	6151      	str	r1, [r2, #20]
+  98:	6111      	str	r1, [r2, #16]
+  9a:	42a0      	cmp	r0, r4
+  9c:	4a03      	ldr	r2, [pc, #12]	; (ac <lcdClearArea+0xac>)
+  9e:	d3e2      	bcc.n	66 <lcdClearArea+0x66>
+  a0:	f44f 7300 	mov.w	r3, #512	; 0x200
+  a4:	6113      	str	r3, [r2, #16]
+  a6:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  aa:	bf00      	nop
+  ac:	40010c00 	.word	0x40010c00
+  b0:	00000000 	.word	0x00000000
+  b4:	40011000 	.word	0x40011000
 
 Disassembly of section .text.lcdClear:
 
 00000000 <lcdClear>:
 lcdClear():
-   0:	202ab570 	.word	0x202ab570
-   4:	f7ff fffe 	bl	0 <lcdClear>
-   8:	2000      	movs	r0, #0
-   a:	f7ff fffe 	bl	0 <lcdClear>
-   e:	207f      	movs	r0, #127	; 0x7f
-  10:	f7ff fffe 	bl	0 <lcdClear>
-  14:	202b      	movs	r0, #43	; 0x2b
-  16:	f7ff fffe 	bl	0 <lcdClear>
-  1a:	2000      	movs	r0, #0
-  1c:	f7ff fffe 	bl	0 <lcdClear>
-  20:	207f      	movs	r0, #127	; 0x7f
-  22:	f7ff fffe 	bl	0 <lcdClear>
-  26:	202c      	movs	r0, #44	; 0x2c
-  28:	f7ff fffe 	bl	0 <lcdClear>
-  2c:	4b1a      	ldr	r3, [pc, #104]	; (98 <lcdClear+0x98>)
-  2e:	f44f 7200 	mov.w	r2, #512	; 0x200
-  32:	615a      	str	r2, [r3, #20]
-  34:	4b19      	ldr	r3, [pc, #100]	; (9c <lcdClear+0x9c>)
-  36:	f44f 4080 	mov.w	r0, #16384	; 0x4000
-  3a:	785a      	ldrb	r2, [r3, #1]
-  3c:	789c      	ldrb	r4, [r3, #2]
-  3e:	08d5      	lsrs	r5, r2, #3
-  40:	7819      	ldrb	r1, [r3, #0]
-  42:	f004 041f 	and.w	r4, r4, #31
-  46:	f005 0507 	and.w	r5, r5, #7
-  4a:	ea45 05c1 	orr.w	r5, r5, r1, lsl #3
-  4e:	ea44 1242 	orr.w	r2, r4, r2, lsl #5
-  52:	b2ed      	uxtb	r5, r5
-  54:	b2d4      	uxtb	r4, r2
-  56:	4a10      	ldr	r2, [pc, #64]	; (98 <lcdClear+0x98>)
-  58:	2340      	movs	r3, #64	; 0x40
-  5a:	6113      	str	r3, [r2, #16]
-  5c:	4b10      	ldr	r3, [pc, #64]	; (a0 <lcdClear+0xa0>)
-  5e:	3801      	subs	r0, #1
-  60:	68d9      	ldr	r1, [r3, #12]
-  62:	b280      	uxth	r0, r0
-  64:	f401 417f 	and.w	r1, r1, #65280	; 0xff00
-  68:	60d9      	str	r1, [r3, #12]
-  6a:	68d9      	ldr	r1, [r3, #12]
-  6c:	ea45 0101 	orr.w	r1, r5, r1
-  70:	60d9      	str	r1, [r3, #12]
-  72:	2180      	movs	r1, #128	; 0x80
-  74:	6151      	str	r1, [r2, #20]
-  76:	6111      	str	r1, [r2, #16]
-  78:	68de      	ldr	r6, [r3, #12]
-  7a:	f406 467f 	and.w	r6, r6, #65280	; 0xff00
-  7e:	60de      	str	r6, [r3, #12]
-  80:	68de      	ldr	r6, [r3, #12]
-  82:	ea44 0606 	orr.w	r6, r4, r6
-  86:	60de      	str	r6, [r3, #12]
-  88:	6151      	str	r1, [r2, #20]
-  8a:	6111      	str	r1, [r2, #16]
-  8c:	2800      	cmp	r0, #0
-  8e:	d1e2      	bne.n	56 <lcdClear+0x56>
-  90:	f44f 7300 	mov.w	r3, #512	; 0x200
-  94:	6113      	str	r3, [r2, #16]
-  96:	bd70      	pop	{r4, r5, r6, pc}
-  98:	40010c00 	.word	0x40010c00
-  9c:	00000000 	.word	0x00000000
-  a0:	40011000 	.word	0x40011000
+   0:	2000      	movs	r0, #0
+   2:	227f      	movs	r2, #127	; 0x7f
+   4:	4601      	mov	r1, r0
+   6:	4613      	mov	r3, r2
+   8:	f7ff bffe 	b.w	0 <lcdClear>
 
 Disassembly of section .text.lcdInit:
 
 00000000 <lcdInit>:
 lcdInit():
    0:	b570      	push	{r4, r5, r6, lr}
-   2:	4b8e      	ldr	r3, [pc, #568]	; (23c <lcdInit+0x23c>)
-   4:	4c8e      	ldr	r4, [pc, #568]	; (240 <lcdInit+0x240>)
+   2:	4b8c      	ldr	r3, [pc, #560]	; (234 <lcdInit+0x234>)
+   4:	4c8c      	ldr	r4, [pc, #560]	; (238 <lcdInit+0x238>)
    6:	699a      	ldr	r2, [r3, #24]
    8:	2520      	movs	r5, #32
    a:	f042 0204 	orr.w	r2, r2, #4
@@ -794,7 +510,7 @@ lcdInit():
   70:	6063      	str	r3, [r4, #4]
   72:	f44f 7380 	mov.w	r3, #256	; 0x100
   76:	6123      	str	r3, [r4, #16]
-  78:	4b72      	ldr	r3, [pc, #456]	; (244 <lcdInit+0x244>)
+  78:	4b70      	ldr	r3, [pc, #448]	; (23c <lcdInit+0x23c>)
   7a:	6819      	ldr	r1, [r3, #0]
   7c:	f021 4170 	bic.w	r1, r1, #4026531840	; 0xf0000000
   80:	6019      	str	r1, [r3, #0]
@@ -803,7 +519,7 @@ lcdInit():
   88:	6019      	str	r1, [r3, #0]
   8a:	611a      	str	r2, [r3, #16]
   8c:	611a      	str	r2, [r3, #16]
-  8e:	4b6e      	ldr	r3, [pc, #440]	; (248 <lcdInit+0x248>)
+  8e:	4b6c      	ldr	r3, [pc, #432]	; (240 <lcdInit+0x240>)
   90:	f04f 3233 	mov.w	r2, #858993459	; 0x33333333
   94:	601a      	str	r2, [r3, #0]
   96:	6823      	ldr	r3, [r4, #0]
@@ -936,17 +652,14 @@ lcdInit():
  216:	f7ff fffe 	bl	0 <lcdInit>
  21a:	2004      	movs	r0, #4
  21c:	f7ff fffe 	bl	0 <lcdInit>
- 220:	2000      	movs	r0, #0
+ 220:	20ff      	movs	r0, #255	; 0xff
  222:	4601      	mov	r1, r0
  224:	4602      	mov	r2, r0
  226:	f7ff fffe 	bl	0 <lcdInit>
- 22a:	20ff      	movs	r0, #255	; 0xff
- 22c:	4601      	mov	r1, r0
- 22e:	4602      	mov	r2, r0
- 230:	f7ff fffe 	bl	0 <lcdInit>
- 234:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
- 238:	f7ff bffe 	b.w	0 <lcdInit>
- 23c:	40021000 	.word	0x40021000
- 240:	40010c00 	.word	0x40010c00
- 244:	40010800 	.word	0x40010800
- 248:	40011000 	.word	0x40011000
+ 22a:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+ 22e:	f7ff bffe 	b.w	0 <lcdInit>
+ 232:	bf00      	nop
+ 234:	40021000 	.word	0x40021000
+ 238:	40010c00 	.word	0x40010c00
+ 23c:	40010800 	.word	0x40010800
+ 240:	40011000 	.word	0x40011000

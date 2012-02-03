@@ -983,7 +983,7 @@ Disassembly of section .text.streamReset:
 
 00000000 <streamReset>:
 streamReset():
-   0:	2802      	cmp	r0, #2
+   0:	2803      	cmp	r0, #3
    2:	b510      	push	{r4, lr}
    4:	d816      	bhi.n	34 <streamReset+0x34>
    6:	2324      	movs	r3, #36	; 0x24
@@ -1018,13 +1018,14 @@ Disassembly of section .text.streamInit:
 00000000 <streamInit>:
 streamInit():
    0:	b510      	push	{r4, lr}
-   2:	2000      	movs	r0, #0
-   4:	f7ff fffe 	bl	0 <streamInit>
-   8:	2001      	movs	r0, #1
+   2:	2400      	movs	r4, #0
+   4:	4620      	mov	r0, r4
+   6:	3401      	adds	r4, #1
+   8:	b2e4      	uxtb	r4, r4
    a:	f7ff fffe 	bl	0 <streamInit>
-   e:	2002      	movs	r0, #2
-  10:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
-  14:	f7ff bffe 	b.w	0 <streamInit>
+   e:	2c04      	cmp	r4, #4
+  10:	d1f8      	bne.n	4 <streamInit+0x4>
+  12:	bd10      	pop	{r4, pc}
 
 Disassembly of section .text.streamGetSTDIO:
 
@@ -1078,7 +1079,7 @@ Disassembly of section .text.streamResetRX:
 
 00000000 <streamResetRX>:
 streamResetRX():
-   0:	2802      	cmp	r0, #2
+   0:	2803      	cmp	r0, #3
    2:	d806      	bhi.n	12 <streamResetRX+0x12>
    4:	4b03      	ldr	r3, [pc, #12]	; (14 <streamResetRX+0x14>)
    6:	2224      	movs	r2, #36	; 0x24
@@ -1093,7 +1094,7 @@ Disassembly of section .text.streamResetTX:
 
 00000000 <streamResetTX>:
 streamResetTX():
-   0:	2802      	cmp	r0, #2
+   0:	2803      	cmp	r0, #3
    2:	d806      	bhi.n	12 <streamResetTX+0x12>
    4:	4b03      	ldr	r3, [pc, #12]	; (14 <streamResetTX+0x14>)
    6:	2224      	movs	r2, #36	; 0x24
@@ -1108,7 +1109,7 @@ Disassembly of section .text.streamTXChar:
 
 00000000 <streamTXChar>:
 streamTXChar():
-   0:	2802      	cmp	r0, #2
+   0:	2803      	cmp	r0, #3
    2:	d813      	bhi.n	2c <streamTXChar+0x2c>
    4:	4b0d      	ldr	r3, [pc, #52]	; (3c <streamTXChar+0x3c>)
    6:	2224      	movs	r2, #36	; 0x24
@@ -1141,7 +1142,7 @@ Disassembly of section .text.streamEchoChar:
 00000000 <streamEchoChar>:
 streamEchoChar():
    0:	2300b507 	.word	0x2300b507
-   4:	2802      	cmp	r0, #2
+   4:	2803      	cmp	r0, #3
    6:	f88d 1004 	strb.w	r1, [sp, #4]
    a:	f88d 3005 	strb.w	r3, [sp, #5]
    e:	d806      	bhi.n	1e <streamEchoChar+0x1e>
@@ -1158,7 +1159,7 @@ Disassembly of section .text.streamGetChar:
 
 00000000 <streamGetChar>:
 streamGetChar():
-   0:	2802      	cmp	r0, #2
+   0:	2803      	cmp	r0, #3
    2:	b530      	push	{r4, r5, lr}
    4:	d812      	bhi.n	2c <streamGetChar+0x2c>
    6:	2124      	movs	r1, #36	; 0x24
@@ -1186,7 +1187,7 @@ Disassembly of section .text.streamPutChar:
 
 00000000 <streamPutChar>:
 streamPutChar():
-   0:	2802      	cmp	r0, #2
+   0:	2803      	cmp	r0, #3
    2:	b530      	push	{r4, r5, lr}
    4:	d818      	bhi.n	38 <streamPutChar+0x38>
    6:	4b0e      	ldr	r3, [pc, #56]	; (40 <streamPutChar+0x40>)
@@ -1253,7 +1254,7 @@ Disassembly of section .text.streamPopChar:
 
 00000000 <streamPopChar>:
 streamPopChar():
-   0:	2802      	cmp	r0, #2
+   0:	2803      	cmp	r0, #3
    2:	b530      	push	{r4, r5, lr}
    4:	d813      	bhi.n	2e <streamPopChar+0x2e>
    6:	2424      	movs	r4, #36	; 0x24
@@ -1283,7 +1284,7 @@ Disassembly of section .text.streamPeekChar:
 
 00000000 <streamPeekChar>:
 streamPeekChar():
-   0:	b5102802 	.word	0xb5102802
+   0:	b5102803 	.word	0xb5102803
    4:	d811      	bhi.n	2a <streamPeekChar+0x2a>
    6:	2124      	movs	r1, #36	; 0x24
    8:	4341      	muls	r1, r0
@@ -1310,7 +1311,7 @@ Disassembly of section .text.streamPushChar:
 
 00000000 <streamPushChar>:
 streamPushChar():
-   0:	2802      	cmp	r0, #2
+   0:	2803      	cmp	r0, #3
    2:	b530      	push	{r4, r5, lr}
    4:	d812      	bhi.n	2c <streamPushChar+0x2c>
    6:	2324      	movs	r3, #36	; 0x24
@@ -1338,7 +1339,7 @@ Disassembly of section .text.streamSetPut:
 
 00000000 <streamSetPut>:
 streamSetPut():
-   0:	d8062802 	.word	0xd8062802
+   0:	d8062803 	.word	0xd8062803
    4:	4b04      	ldr	r3, [pc, #16]	; (18 <streamSetPut+0x18>)
    6:	2224      	movs	r2, #36	; 0x24
    8:	fb02 3000 	mla	r0, r2, r0, r3
@@ -1354,7 +1355,7 @@ Disassembly of section .text.streamSetGet:
 
 00000000 <streamSetGet>:
 streamSetGet():
-   0:	2802      	cmp	r0, #2
+   0:	2803      	cmp	r0, #3
    2:	d806      	bhi.n	12 <streamSetGet+0x12>
    4:	4b04      	ldr	r3, [pc, #16]	; (18 <streamSetGet+0x18>)
    6:	2224      	movs	r2, #36	; 0x24
@@ -1371,7 +1372,7 @@ Disassembly of section .text.streamSetRXBuffer:
 
 00000000 <streamSetRXBuffer>:
 streamSetRXBuffer():
-   0:	2802      	cmp	r0, #2
+   0:	2803      	cmp	r0, #3
    2:	b510      	push	{r4, lr}
    4:	d807      	bhi.n	16 <streamSetRXBuffer+0x16>
    6:	2424      	movs	r4, #36	; 0x24
@@ -1391,7 +1392,7 @@ Disassembly of section .text.streamSetTXBuffer:
 
 00000000 <streamSetTXBuffer>:
 streamSetTXBuffer():
-   0:	2802      	cmp	r0, #2
+   0:	2803      	cmp	r0, #3
    2:	b510      	push	{r4, lr}
    4:	d807      	bhi.n	16 <streamSetTXBuffer+0x16>
    6:	4b05      	ldr	r3, [pc, #20]	; (1c <streamSetTXBuffer+0x1c>)

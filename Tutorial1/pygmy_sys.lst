@@ -15,7 +15,7 @@ Disassembly of section .text.putsFILE:
 putsFILE():
    0:	4b02      	ldr	r3, [pc, #8]	; (c <putsFILE+0xc>)
    2:	4601      	mov	r1, r0
-   4:	6998      	ldr	r0, [r3, #24]
+   4:	69d8      	ldr	r0, [r3, #28]
    6:	f7ff bffe 	b.w	0 <filePutString>
    a:	bf00      	nop
    c:	00000000 	.word	0x00000000
@@ -24,10 +24,10 @@ Disassembly of section .text.sysSetPipe:
 
 00000000 <sysSetPipe>:
 sysSetPipe():
-   0:	2802      	cmp	r0, #2
+   0:	2803      	cmp	r0, #3
    2:	b510      	push	{r4, lr}
    4:	d80b      	bhi.n	1e <sysSetPipe+0x1e>
-   6:	2902      	cmp	r1, #2
+   6:	2903      	cmp	r1, #3
    8:	d809      	bhi.n	1e <sysSetPipe+0x1e>
    a:	2001      	movs	r0, #1
    c:	4904      	ldr	r1, [pc, #16]	; (20 <sysSetPipe+0x20>)
@@ -52,12 +52,67 @@ sysEnableComClock():
    e:	4770      	bx	lr
   10:	40021000 	.word	0x40021000
 
+Disassembly of section .text.sysRandom:
+
+00000000 <sysRandom>:
+sysRandom():
+   0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+   4:	4e19      	ldr	r6, [pc, #100]	; (6c <sysRandom+0x6c>)
+   6:	460d      	mov	r5, r1
+   8:	6937      	ldr	r7, [r6, #16]
+   a:	4604      	mov	r4, r0
+   c:	f7ff fffe 	bl	0 <timeGet>
+  10:	4b17      	ldr	r3, [pc, #92]	; (70 <sysRandom+0x70>)
+  12:	4a18      	ldr	r2, [pc, #96]	; (74 <sysRandom+0x74>)
+  14:	f8d3 c04c 	ldr.w	ip, [r3, #76]	; 0x4c
+  18:	4b17      	ldr	r3, [pc, #92]	; (78 <sysRandom+0x78>)
+  1a:	f8d3 8008 	ldr.w	r8, [r3, #8]
+  1e:	4b17      	ldr	r3, [pc, #92]	; (7c <sysRandom+0x7c>)
+  20:	44c4      	add	ip, r8
+  22:	689b      	ldr	r3, [r3, #8]
+  24:	6891      	ldr	r1, [r2, #8]
+  26:	4a16      	ldr	r2, [pc, #88]	; (80 <sysRandom+0x80>)
+  28:	4463      	add	r3, ip
+  2a:	6892      	ldr	r2, [r2, #8]
+  2c:	185b      	adds	r3, r3, r1
+  2e:	189b      	adds	r3, r3, r2
+  30:	181b      	adds	r3, r3, r0
+  32:	ea83 0347 	eor.w	r3, r3, r7, lsl #1
+  36:	19df      	adds	r7, r3, r7
+  38:	6137      	str	r7, [r6, #16]
+  3a:	4638      	mov	r0, r7
+  3c:	2320      	movs	r3, #32
+  3e:	0840      	lsrs	r0, r0, #1
+  40:	42a0      	cmp	r0, r4
+  42:	d301      	bcc.n	48 <sysRandom+0x48>
+  44:	42a8      	cmp	r0, r5
+  46:	d90f      	bls.n	68 <sysRandom+0x68>
+  48:	3b01      	subs	r3, #1
+  4a:	d1f8      	bne.n	3e <sysRandom+0x3e>
+  4c:	1b2b      	subs	r3, r5, r4
+  4e:	fbb7 f0f3 	udiv	r0, r7, r3
+  52:	fb03 7710 	mls	r7, r3, r0, r7
+  56:	42af      	cmp	r7, r5
+  58:	d805      	bhi.n	66 <sysRandom+0x66>
+  5a:	42a7      	cmp	r7, r4
+  5c:	bf2c      	ite	cs
+  5e:	4638      	movcs	r0, r7
+  60:	4620      	movcc	r0, r4
+  62:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  66:	4628      	mov	r0, r5
+  68:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  6c:	00000000 	.word	0x00000000
+  70:	40012400 	.word	0x40012400
+  74:	40011400 	.word	0x40011400
+  78:	40010800 	.word	0x40010800
+  7c:	40010c00 	.word	0x40010c00
+  80:	40011000 	.word	0x40011000
+
 Disassembly of section .text.sysDisableComClock:
 
 00000000 <sysDisableComClock>:
 sysDisableComClock():
-   0:	2801      	cmp	r0, #1
-   2:	d104      	bne.n	e <sysDisableComClock+0xe>
+   0:	d1042801 	.word	0xd1042801
    4:	4b02      	ldr	r3, [pc, #8]	; (10 <sysDisableComClock+0x10>)
    6:	69da      	ldr	r2, [r3, #28]
    8:	f442 2280 	orr.w	r2, r2, #262144	; 0x40000
@@ -304,7 +359,7 @@ Disassembly of section .text.sysGetDelayTimer:
 00000000 <sysGetDelayTimer>:
 sysGetDelayTimer():
    0:	4b01      	ldr	r3, [pc, #4]	; (8 <sysGetDelayTimer+0x8>)
-   2:	7cd8      	ldrb	r0, [r3, #19]
+   2:	7dd8      	ldrb	r0, [r3, #23]
    4:	4770      	bx	lr
    6:	bf00      	nop
    8:	00000000 	.word	0x00000000
@@ -314,7 +369,7 @@ Disassembly of section .text.sysGetPWMTimer:
 00000000 <sysGetPWMTimer>:
 sysGetPWMTimer():
    0:	4b01      	ldr	r3, [pc, #4]	; (8 <sysGetPWMTimer+0x8>)
-   2:	7d18      	ldrb	r0, [r3, #20]
+   2:	7e18      	ldrb	r0, [r3, #24]
    4:	4770      	bx	lr
    6:	bf00      	nop
    8:	00000000 	.word	0x00000000
@@ -513,7 +568,7 @@ Disassembly of section .text.pdiaPrintString:
 
 00000000 <pdiaPrintString>:
 pdiaPrintString():
-   0:	e92d2a02 	.word	0xe92d2a02
+   0:	e92d2a03 	.word	0xe92d2a03
    4:	41f0      	rors	r0, r6
    6:	4604      	mov	r4, r0
    8:	460d      	mov	r5, r1
@@ -900,7 +955,7 @@ Disassembly of section .text.sysGetFile:
 sysGetFile():
    0:	4800      	ldr	r0, [pc, #0]	; (4 <sysGetFile+0x4>)
    2:	4770      	bx	lr
-   4:	00000018 	.word	0x00000018
+   4:	0000001c 	.word	0x0000001c
 
 Disassembly of section .text.descriptorGetMainClock:
 
@@ -952,38 +1007,38 @@ Disassembly of section .text.sysInit:
 00000000 <sysInit>:
 sysInit():
    0:	b538      	push	{r3, r4, r5, lr}
-   2:	4c30      	ldr	r4, [pc, #192]	; (c4 <sysInit+0xc4>)
+   2:	4c32      	ldr	r4, [pc, #200]	; (cc <sysInit+0xcc>)
    4:	2500      	movs	r5, #0
    6:	60e5      	str	r5, [r4, #12]
    8:	f7ff fffe 	bl	0 <sysInit>
-   c:	4b2e      	ldr	r3, [pc, #184]	; (c8 <sysInit+0xc8>)
+   c:	4b30      	ldr	r3, [pc, #192]	; (d0 <sysInit+0xd0>)
    e:	b280      	uxth	r0, r0
   10:	6063      	str	r3, [r4, #4]
   12:	f240 4316 	movw	r3, #1046	; 0x416
   16:	4298      	cmp	r0, r3
-  18:	8220      	strh	r0, [r4, #16]
+  18:	82a0      	strh	r0, [r4, #20]
   1a:	d107      	bne.n	2c <sysInit+0x2c>
-  1c:	4b2b      	ldr	r3, [pc, #172]	; (cc <sysInit+0xcc>)
+  1c:	4b2d      	ldr	r3, [pc, #180]	; (d4 <sysInit+0xd4>)
   1e:	6063      	str	r3, [r4, #4]
-  20:	4b2b      	ldr	r3, [pc, #172]	; (d0 <sysInit+0xd0>)
+  20:	4b2d      	ldr	r3, [pc, #180]	; (d8 <sysInit+0xd8>)
   22:	6023      	str	r3, [r4, #0]
   24:	230b      	movs	r3, #11
-  26:	74e3      	strb	r3, [r4, #19]
+  26:	75e3      	strb	r3, [r4, #23]
   28:	3b02      	subs	r3, #2
   2a:	e00a      	b.n	42 <sysInit+0x42>
   2c:	f5b0 6f84 	cmp.w	r0, #1056	; 0x420
   30:	d002      	beq.n	38 <sysInit+0x38>
   32:	f5b0 6f85 	cmp.w	r0, #1064	; 0x428
   36:	d106      	bne.n	46 <sysInit+0x46>
-  38:	4b26      	ldr	r3, [pc, #152]	; (d4 <sysInit+0xd4>)
+  38:	4b28      	ldr	r3, [pc, #160]	; (dc <sysInit+0xdc>)
   3a:	6023      	str	r3, [r4, #0]
   3c:	230f      	movs	r3, #15
-  3e:	74e3      	strb	r3, [r4, #19]
+  3e:	75e3      	strb	r3, [r4, #23]
   40:	3301      	adds	r3, #1
-  42:	7523      	strb	r3, [r4, #20]
+  42:	7623      	strb	r3, [r4, #24]
   44:	e013      	b.n	6e <sysInit+0x6e>
   46:	f5b0 6f86 	cmp.w	r0, #1072	; 0x430
-  4a:	4b23      	ldr	r3, [pc, #140]	; (d8 <sysInit+0xd8>)
+  4a:	4b25      	ldr	r3, [pc, #148]	; (e0 <sysInit+0xe0>)
   4c:	d102      	bne.n	54 <sysInit+0x54>
   4e:	6023      	str	r3, [r4, #0]
   50:	2309      	movs	r3, #9
@@ -993,49 +1048,52 @@ sysInit():
   5a:	f04f 0201 	mov.w	r2, #1
   5e:	d103      	bne.n	68 <sysInit+0x68>
   60:	6023      	str	r3, [r4, #0]
-  62:	74e2      	strb	r2, [r4, #19]
+  62:	75e2      	strb	r2, [r4, #23]
   64:	2308      	movs	r3, #8
   66:	e7ec      	b.n	42 <sysInit+0x42>
   68:	6023      	str	r3, [r4, #0]
-  6a:	74e2      	strb	r2, [r4, #19]
-  6c:	7525      	strb	r5, [r4, #20]
-  6e:	7ce0      	ldrb	r0, [r4, #19]
+  6a:	75e2      	strb	r2, [r4, #23]
+  6c:	7625      	strb	r5, [r4, #24]
+  6e:	7de0      	ldrb	r0, [r4, #23]
   70:	f7ff fffe 	bl	0 <sysInit>
   74:	f7ff fffe 	bl	0 <streamInit>
   78:	2001      	movs	r0, #1
-  7a:	4918      	ldr	r1, [pc, #96]	; (dc <sysInit+0xdc>)
+  7a:	491a      	ldr	r1, [pc, #104]	; (e4 <sysInit+0xe4>)
   7c:	f7ff fffe 	bl	0 <streamSetGet>
   80:	2280      	movs	r2, #128	; 0x80
   82:	2001      	movs	r0, #1
-  84:	4916      	ldr	r1, [pc, #88]	; (e0 <sysInit+0xe0>)
+  84:	4918      	ldr	r1, [pc, #96]	; (e8 <sysInit+0xe8>)
   86:	f7ff fffe 	bl	0 <streamSetRXBuffer>
   8a:	2001      	movs	r0, #1
-  8c:	4915      	ldr	r1, [pc, #84]	; (e4 <sysInit+0xe4>)
+  8c:	4917      	ldr	r1, [pc, #92]	; (ec <sysInit+0xec>)
   8e:	f7ff fffe 	bl	0 <streamSetPut>
-  92:	4915      	ldr	r1, [pc, #84]	; (e8 <sysInit+0xe8>)
-  94:	2002      	movs	r0, #2
+  92:	2002      	movs	r0, #2
+  94:	4916      	ldr	r1, [pc, #88]	; (f0 <sysInit+0xf0>)
   96:	f7ff fffe 	bl	0 <streamSetPut>
-  9a:	2001      	movs	r0, #1
-  9c:	f7ff fffe 	bl	0 <streamSetSTDIO>
-  a0:	f7ff fffe 	bl	0 <cmdInit>
-  a4:	f7ff fffe 	bl	0 <timeInit>
-  a8:	f7ff fffe 	bl	0 <fileMountRoot>
-  ac:	f7ff fffe 	bl	0 <sysInit>
-  b0:	f7ff fffe 	bl	0 <lcdInit>
-  b4:	4b0d      	ldr	r3, [pc, #52]	; (ec <sysInit+0xec>)
-  b6:	2000      	movs	r0, #0
-  b8:	6018      	str	r0, [r3, #0]
-  ba:	6058      	str	r0, [r3, #4]
-  bc:	6098      	str	r0, [r3, #8]
-  be:	60d8      	str	r0, [r3, #12]
-  c0:	bd38      	pop	{r3, r4, r5, pc}
-  c2:	bf00      	nop
-  c4:	00000000 	.word	0x00000000
-  c8:	00b71b00 	.word	0x00b71b00
-  cc:	00f42400 	.word	0x00f42400
-  d0:	01e84800 	.word	0x01e84800
-  d4:	016e3600 	.word	0x016e3600
-  d8:	044aa200 	.word	0x044aa200
+  9a:	4916      	ldr	r1, [pc, #88]	; (f4 <sysInit+0xf4>)
+  9c:	2003      	movs	r0, #3
+  9e:	f7ff fffe 	bl	0 <streamSetPut>
+  a2:	2001      	movs	r0, #1
+  a4:	f7ff fffe 	bl	0 <streamSetSTDIO>
+  a8:	f7ff fffe 	bl	0 <cmdInit>
+  ac:	f7ff fffe 	bl	0 <timeInit>
+  b0:	f7ff fffe 	bl	0 <fileMountRoot>
+  b4:	f7ff fffe 	bl	0 <sysInit>
+  b8:	f7ff fffe 	bl	0 <lcdInit>
+  bc:	4b0e      	ldr	r3, [pc, #56]	; (f8 <sysInit+0xf8>)
+  be:	2000      	movs	r0, #0
+  c0:	6018      	str	r0, [r3, #0]
+  c2:	6058      	str	r0, [r3, #4]
+  c4:	6098      	str	r0, [r3, #8]
+  c6:	60d8      	str	r0, [r3, #12]
+  c8:	bd38      	pop	{r3, r4, r5, pc}
+  ca:	bf00      	nop
+  cc:	00000000 	.word	0x00000000
+  d0:	00b71b00 	.word	0x00b71b00
+  d4:	00f42400 	.word	0x00f42400
+  d8:	01e84800 	.word	0x01e84800
+  dc:	016e3600 	.word	0x016e3600
+  e0:	044aa200 	.word	0x044aa200
 	...
 
 Disassembly of section .text.sysGetIDRevision:
@@ -1477,7 +1535,7 @@ Disassembly of section .text.streamSetPrintFile:
 
 00000000 <streamSetPrintFile>:
 streamSetPrintFile():
-   0:	61984b01 	.word	0x61984b01
+   0:	61d84b01 	.word	0x61d84b01
    4:	4770      	bx	lr
    6:	bf00      	nop
    8:	00000000 	.word	0x00000000
@@ -1548,7 +1606,7 @@ delay():
    0:	b538      	push	{r3, r4, r5, lr}
    2:	4d2b      	ldr	r5, [pc, #172]	; (b0 <delay+0xb0>)
    4:	4604      	mov	r4, r0
-   6:	7ce8      	ldrb	r0, [r5, #19]
+   6:	7de8      	ldrb	r0, [r5, #23]
    8:	2801      	cmp	r0, #1
    a:	d128      	bne.n	5e <delay+0x5e>
    c:	4b29      	ldr	r3, [pc, #164]	; (b4 <delay+0xb4>)

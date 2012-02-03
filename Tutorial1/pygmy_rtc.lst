@@ -18,14 +18,14 @@ Disassembly of section .text.timeInit:
 
 00000000 <timeInit>:
 timeInit():
-   0:	4b27      	ldr	r3, [pc, #156]	; (a0 <timeInit+0xa0>)
+   0:	4b25      	ldr	r3, [pc, #148]	; (98 <timeInit+0x98>)
    2:	69da      	ldr	r2, [r3, #28]
    4:	f042 5280 	orr.w	r2, r2, #268435456	; 0x10000000
    8:	61da      	str	r2, [r3, #28]
    a:	69da      	ldr	r2, [r3, #28]
    c:	f042 6200 	orr.w	r2, r2, #134217728	; 0x8000000
   10:	61da      	str	r2, [r3, #28]
-  12:	4a24      	ldr	r2, [pc, #144]	; (a4 <timeInit+0xa4>)
+  12:	4a22      	ldr	r2, [pc, #136]	; (9c <timeInit+0x9c>)
   14:	6811      	ldr	r1, [r2, #0]
   16:	f441 7180 	orr.w	r1, r1, #256	; 0x100
   1a:	6011      	str	r1, [r2, #0]
@@ -40,7 +40,7 @@ timeInit():
   32:	e001      	b.n	38 <timeInit+0x38>
   34:	3301      	adds	r3, #1
   36:	b29b      	uxth	r3, r3
-  38:	4a19      	ldr	r2, [pc, #100]	; (a0 <timeInit+0xa0>)
+  38:	4a17      	ldr	r2, [pc, #92]	; (98 <timeInit+0x98>)
   3a:	6a12      	ldr	r2, [r2, #32]
   3c:	f012 0202 	ands.w	r2, r2, #2
   40:	d001      	beq.n	46 <timeInit+0x46>
@@ -51,7 +51,7 @@ timeInit():
   4a:	e001      	b.n	50 <timeInit+0x50>
   4c:	3201      	adds	r2, #1
   4e:	b292      	uxth	r2, r2
-  50:	4b15      	ldr	r3, [pc, #84]	; (a8 <timeInit+0xa8>)
+  50:	4b13      	ldr	r3, [pc, #76]	; (a0 <timeInit+0xa0>)
   52:	8899      	ldrh	r1, [r3, #4]
   54:	f011 0f20 	tst.w	r1, #32
   58:	d102      	bne.n	60 <timeInit+0x60>
@@ -74,19 +74,15 @@ timeInit():
   82:	811a      	strh	r2, [r3, #8]
   84:	f647 72ff 	movw	r2, #32767	; 0x7fff
   88:	819a      	strh	r2, [r3, #12]
-  8a:	2200      	movs	r2, #0
-  8c:	831a      	strh	r2, [r3, #24]
-  8e:	839a      	strh	r2, [r3, #28]
-  90:	889a      	ldrh	r2, [r3, #4]
-  92:	f022 0210 	bic.w	r2, r2, #16
-  96:	0412      	lsls	r2, r2, #16
-  98:	0c12      	lsrs	r2, r2, #16
-  9a:	809a      	strh	r2, [r3, #4]
-  9c:	4770      	bx	lr
-  9e:	bf00      	nop
-  a0:	40021000 	.word	0x40021000
-  a4:	40007000 	.word	0x40007000
-  a8:	40002800 	.word	0x40002800
+  8a:	889a      	ldrh	r2, [r3, #4]
+  8c:	f022 0210 	bic.w	r2, r2, #16
+  90:	0412      	lsls	r2, r2, #16
+  92:	0c12      	lsrs	r2, r2, #16
+  94:	809a      	strh	r2, [r3, #4]
+  96:	4770      	bx	lr
+  98:	40021000 	.word	0x40021000
+  9c:	40007000 	.word	0x40007000
+  a0:	40002800 	.word	0x40002800
 
 Disassembly of section .text.rtcClearFlags:
 

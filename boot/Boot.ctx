@@ -22,10 +22,9 @@
 			
 	</Flags>
 	<Views>
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.c" Line="472" Index="0" focus="1" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\pygmy_nebula.h" Line="146" Index="1" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_profile.h" Line="38" Index="2" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="938" Index="3" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\pygmy_nebula.h" Line="145" Index="0" focus="1" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="937" Index="1" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.c" Line="0" Index="2" />
 	</Views>
 	<Grep>
 		<GrepIncludeSub>yes</GrepIncludeSub>

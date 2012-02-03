@@ -17,49 +17,42 @@
 ***************************************************************************/
 
 #include "pygmy_profile.h"
-#include "icons/busy.h"
-#include "ruby.h"
-#include "emerald.h"
-#include "topaz.h"
-#include "ytopaz.h"
-
-PYGMYFILE imgBusy, imgRuby, imgEmerald, imgTopaz, imgYTopaz;
-u16 globalBusyCoords[]      = {48, 48, 0, 0};
-u16 globalRubyCoords[]      = { 0, 0, 16, 0, 32, 0, 48, 0, 64, 0, 80, 0, 96, 0, 112, 0,
-                                0, 16, 16, 16, 32, 16, 48, 16, 64, 16, 80, 16, 96, 16, 112, 16};
- u16 globalEmeraldCoords[]  = { 0, 32, 16, 32, 32, 32, 48, 32, 64, 32, 80, 32, 96, 32, 112, 32,
-                                0, 48, 16, 48, 32, 48, 48, 48, 64, 48, 80, 48, 96, 48, 112, 48};
-u16 globalTopazCoords[]     = { 0, 64, 16, 64, 32, 64, 48, 64, 64, 64, 80, 64, 96, 64, 112, 64,
-                                0, 80, 16, 80, 32, 80, 48, 80, 64, 80, 80, 80, 96, 80, 112, 80};
-u16 globalYTopazCoords[]    = { 0, 96, 16, 96, 32, 96, 48, 96, 64, 96, 80, 96, 96, 96, 112, 96,
-                                0, 112, 16, 112, 32, 112, 48, 112, 64, 112, 80, 112, 96, 112, 112, 112};
+#include "gems.h"
 
 void main( void )  
 { 
-    PYGMYFILE pygmyImage;
-    //PYGMYI2CPORT pygmyI2C;
-    //u16 uiPoly[] = { 16, 32, 32, 16, 64, 32, 32, 64, 16, 32 };
-
-    //u32 ulID;
     sysInit();
-   
+    
+    //
     streamEnableEcho( COM3 );
     streamEnableBackspace( COM3 );
     streamEnableActionChars( COM3 );
+    //fileOpenResource( &fileFont, PYGMY_orbitron18 );
+    //    guiSetFont( &fileFont, &fontOrbitron18 );
+    guiSetColor( 0x00, 0x00, 0xFF );
+    guiSetBackColor( 0xFF, 0xFF, 0xFF );
+    //drawImage( 110, 0, &fileFont, 'A' - 32 );    
+    //guiSetFontColor( 0x00, 0x00, 0xFF );
+    //guiSetFontBackColor( 0xFF, 0xFF, 0xFF );
+    //drawRect( 1, 1, 62, 62, 8, 0 );
+    gemInit( );
+    //gemDrawMenu();
+    //lcdSetCursor( 0, 0 );
+    //print( LCD, "Hello" );
+    //if( fileOpen( &fileFont, "orbitron18", READ ) ){
+    //    guiSetFont( &fileFont, &fontOrbitron18 );
+        
+        //guiSetFontColor( 0xFF, 0 , 0 );
+        //drawImage( 110, 0, &fileFont, 'A' - 32 );
+        
+    //} else{
+    //    print( COM3, "\rFile failed to open" );    
+    //} // else
     // GSM Shield Test Code
     //streamEnableEcho( COM2 );
     
     //fileOpenResource( &imgBusy, (u8*)PYGMY_busy );
-    fileOpenResource( &imgRuby, (u8*)PYGMY_ruby );
-    fileOpenResource( &imgEmerald, (u8*)PYGMY_emerald );
-    fileOpenResource( &imgTopaz, (u8*)PYGMY_topaz );
-    fileOpenResource( &imgYTopaz, (u8*)PYGMY_ytopaz );
-    guiInitSprites();
-    //guiCreateSprite( &imgBusy, 1, globalBusyCoords, 2, 100, 0 );
-    guiCreateSprite( &imgRuby, 2, globalRubyCoords, 32, 100, 0 );
-    guiCreateSprite( &imgEmerald, 3, globalEmeraldCoords, 32, 100, 0 );
-    guiCreateSprite( &imgTopaz, 4, globalTopazCoords, 32, 100, 0 );
-    guiCreateSprite( &imgYTopaz, 5, globalYTopazCoords, 32, 100, 0 );
+    
     //guiCreateSprite( &imgBusy, 56, 56, 10 );
     //drawPoly( uiPoly, 10, 0 );
     /*drawLine( 16, 32, 32, 16, 0 );

@@ -1,6 +1,6 @@
 /**************************************************************************
     PygmyOS ( Pygmy Operating System )
-    Copyright (C) 2011  Warren D Greenway
+    Copyright (C) 2011-2012  Warren D Greenway
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -47,7 +47,7 @@
     #define __PYGMYSTREAMCOM3
     //#define __PYGMYSTREAMCOM4
     //#define __PYGMYSTREAMCOM5
-    //#define __PYGMYSTREAMLCD
+    #define __PYGMYSTREAMLCD
     #define __PYGMYSTREAMFILE
     //#define __PYGMYSTREAMUSER
     #define __PYGMY
@@ -63,7 +63,7 @@
 #include "pygmy_audio.h"
 #include "pygmy_adc.h"
 #include "pygmy_file.h"
-#include "pygmy_lcd.h"
+//#include "pygmy_lcd.h"
 #include "pygmy_gui.h"
 #include "pygmy_nvic.h"
 #include "pygmy_rtc.h"

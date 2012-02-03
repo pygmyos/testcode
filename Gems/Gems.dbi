@@ -1,5 +1,5 @@
 [Application]
-ApplicationPath=C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\Boot.elf
+ApplicationPath=C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\Gems.elf
 CSX=0
 HighBankAddr=400000
 BootMode=0
@@ -8,9 +8,8 @@ CodeOffset=0x0
 LoaderTool=ARM
 Target=ARM
 DebugTool=RLINK_CORTEX
-ApplicationComponents=
 [Device]
-Name=STM32F100RB
+Name=STM32F100R8
 [ARMSigDrv options]
 CXS=0
 [Debug]
@@ -19,8 +18,6 @@ Startup=1
 StartupSymb=main
 ToolName=RLINK_CORTEX
 [SIM-ARM]
-Crystal=12.000
+Crystal=8.000
 [General]
-FreqXTal=12.000
-[SimFile]
-path=C:\Program Files (x86)\Raisonance\Ride\sim\ARM\STM32F100RB.sim
+FreqXTal=8.000
