@@ -1,0 +1,435 @@
+
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater\main.o:     file format elf32-littlearm
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater\main.o
+
+
+Disassembly of section .text.main:
+
+00000000 <main>:
+main():
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:33
+
+u8 bootTest( PYGMYFILE *pygmyFile );
+void boot( void );
+
+void main( void )
+{
+   0:	b530      	push	{r4, r5, lr}
+   2:	b09d      	sub	sp, #116	; 0x74
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:37
+    PYGMYFILE pygmyFile;
+    u8 i, ucStatus, ucBuffer[ 65 ], *ucSubString;
+
+    sysInit();
+   4:	f7ff fffe 	bl	0 <sysInit>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:38
+    print( COM3, "\rUpdating bootloader, cancel boot after completion" );
+   8:	2001      	movs	r0, #1
+   a:	4928      	ldr	r1, [pc, #160]	; (ac <main+0xac>)
+   c:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:39
+    print( COM3, "\rOpening Resource..." );
+  10:	2001      	movs	r0, #1
+  12:	4927      	ldr	r1, [pc, #156]	; (b0 <main+0xb0>)
+  14:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:40
+    if( !fileOpenResource( &pygmyFile, (u8*)PYGMY_boothex ) ){
+  18:	a812      	add	r0, sp, #72	; 0x48
+  1a:	4926      	ldr	r1, [pc, #152]	; (b4 <main+0xb4>)
+  1c:	f7ff fffe 	bl	0 <fileOpenResource>
+  20:	b920      	cbnz	r0, 2c <main+0x2c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:41
+        print( COM3, "\rFile Failed to Open" );
+  22:	3001      	adds	r0, #1
+  24:	4924      	ldr	r1, [pc, #144]	; (b8 <main+0xb8>)
+  26:	f7ff fffe 	bl	0 <print>
+  2a:	e02f      	b.n	8c <main+0x8c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:43
+    } else{
+        print( COM3, "\rErasing..." );
+  2c:	2001      	movs	r0, #1
+  2e:	4923      	ldr	r1, [pc, #140]	; (bc <main+0xbc>)
+  30:	f7ff fffe 	bl	0 <print>
+  34:	2400      	movs	r4, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:45
+        for( i = 0; i < 8; i++ ){
+            fpecErasePage( i );
+  36:	4620      	mov	r0, r4
+  38:	3401      	adds	r4, #1
+  3a:	f7ff fffe 	bl	0 <fpecErasePage>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:44
+    print( COM3, "\rOpening Resource..." );
+    if( !fileOpenResource( &pygmyFile, (u8*)PYGMY_boothex ) ){
+        print( COM3, "\rFile Failed to Open" );
+    } else{
+        print( COM3, "\rErasing..." );
+        for( i = 0; i < 8; i++ ){
+  3e:	2c08      	cmp	r4, #8
+  40:	d1f9      	bne.n	36 <main+0x36>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:47
+            fpecErasePage( i );
+        } // for;
+        print( COM3, "\rFlashing..." );
+  42:	2001      	movs	r0, #1
+  44:	491e      	ldr	r1, [pc, #120]	; (c0 <main+0xc0>)
+  46:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:48
+        for( ucStatus = 0; !( fileIsEOF( &pygmyFile ) ) && ucStatus != 0xFF; ){
+  4a:	2500      	movs	r5, #0
+  4c:	e018      	b.n	80 <main+0x80>
+  4e:	4604      	mov	r4, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:50
+            for( i = 0; i < 64; i++ ){
+                ucBuffer[ i ] = fileGetChar( &pygmyFile );
+  50:	a812      	add	r0, sp, #72	; 0x48
+  52:	f7ff fffe 	bl	0 <fileGetChar>
+  56:	ab01      	add	r3, sp, #4
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:51
+                if( ucBuffer[ i ] == '\r' ){
+  58:	280d      	cmp	r0, #13
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:50
+            fpecErasePage( i );
+        } // for;
+        print( COM3, "\rFlashing..." );
+        for( ucStatus = 0; !( fileIsEOF( &pygmyFile ) ) && ucStatus != 0xFF; ){
+            for( i = 0; i < 64; i++ ){
+                ucBuffer[ i ] = fileGetChar( &pygmyFile );
+  5a:	5518      	strb	r0, [r3, r4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:51
+                if( ucBuffer[ i ] == '\r' ){
+  5c:	d10d      	bne.n	7a <main+0x7a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:52
+                    ucBuffer[ i ] = '\0';
+  5e:	aa1c      	add	r2, sp, #112	; 0x70
+  60:	1914      	adds	r4, r2, r4
+  62:	2200      	movs	r2, #0
+  64:	f804 2c6c 	strb.w	r2, [r4, #-108]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:53
+                    ucSubString = getNextSubString( (u8*)ucBuffer, WHITESPACE|NEWLINE );
+  68:	4618      	mov	r0, r3
+  6a:	2106      	movs	r1, #6
+  6c:	f7ff fffe 	bl	0 <getNextSubString>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:55
+                    // Add 1 to pointer before passing to skip the ':' packet start char
+                    ucStatus = fpecProcessIHEX( (u8*)( ucSubString + 1 ) );
+  70:	3001      	adds	r0, #1
+  72:	f7ff fffe 	bl	0 <fpecProcessIHEX>
+  76:	4605      	mov	r5, r0
+  78:	e002      	b.n	80 <main+0x80>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:56
+                    break; // Time to fetch next IHEX entry
+  7a:	3401      	adds	r4, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:49
+        for( i = 0; i < 8; i++ ){
+            fpecErasePage( i );
+        } // for;
+        print( COM3, "\rFlashing..." );
+        for( ucStatus = 0; !( fileIsEOF( &pygmyFile ) ) && ucStatus != 0xFF; ){
+            for( i = 0; i < 64; i++ ){
+  7c:	2c40      	cmp	r4, #64	; 0x40
+  7e:	d1e7      	bne.n	50 <main+0x50>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:48
+        print( COM3, "\rErasing..." );
+        for( i = 0; i < 8; i++ ){
+            fpecErasePage( i );
+        } // for;
+        print( COM3, "\rFlashing..." );
+        for( ucStatus = 0; !( fileIsEOF( &pygmyFile ) ) && ucStatus != 0xFF; ){
+  80:	a812      	add	r0, sp, #72	; 0x48
+  82:	f7ff fffe 	bl	0 <fileIsEOF>
+  86:	b908      	cbnz	r0, 8c <main+0x8c>
+  88:	2dff      	cmp	r5, #255	; 0xff
+  8a:	d1e0      	bne.n	4e <main+0x4e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:61
+                    break; // Time to fetch next IHEX entry
+                } // if
+            } // for
+        } // for
+    } // else
+    print( COM3, "\rBootloader Updated" );
+  8c:	2001      	movs	r0, #1
+  8e:	490d      	ldr	r1, [pc, #52]	; (c4 <main+0xc4>)
+  90:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:62
+    print( COM3, "\rReseting..." );
+  94:	2001      	movs	r0, #1
+  96:	490c      	ldr	r1, [pc, #48]	; (c8 <main+0xc8>)
+  98:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:63
+    delay( 100 );
+  9c:	2064      	movs	r0, #100	; 0x64
+  9e:	f7ff fffe 	bl	0 <delay>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:64
+    PYGMY_RESET;
+  a2:	4a0a      	ldr	r2, [pc, #40]	; (cc <main+0xcc>)
+  a4:	4b0a      	ldr	r3, [pc, #40]	; (d0 <main+0xd0>)
+  a6:	60da      	str	r2, [r3, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:66
+    //boot();
+}
+  a8:	b01d      	add	sp, #116	; 0x74
+  aa:	bd30      	pop	{r4, r5, pc}
+  ac:	00000000 	.word	0x00000000
+  b0:	00000033 	.word	0x00000033
+  b4:	00000000 	.word	0x00000000
+  b8:	00000048 	.word	0x00000048
+  bc:	0000005d 	.word	0x0000005d
+  c0:	00000069 	.word	0x00000069
+  c4:	00000076 	.word	0x00000076
+  c8:	0000008a 	.word	0x0000008a
+  cc:	05fa0004 	.word	0x05fa0004
+  d0:	e000ed00 	.word	0xe000ed00
+
+Disassembly of section .text.bootTest:
+
+00000000 <bootTest>:
+bootTest():
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:69
+
+u8 bootTest( PYGMYFILE *pygmyFile )
+{
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	4606      	mov	r6, r0
+   4:	b090      	sub	sp, #64	; 0x40
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:74
+    // This function pre-tests every row in firmware file for corruption before erase and program
+    u32 i;
+    u8 ucBuffer[ 64 ], ucCalculatedSum, *ucSubString;
+
+    for( ; !( fileIsEOF( pygmyFile ) ); ){
+   6:	e030      	b.n	6a <bootTest+0x6a>
+   8:	4604      	mov	r4, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:77
+        // Get an IHEX packet
+        for( i = 0; i < 64; i++ ){
+            ucBuffer[ i ] = fileGetChar( pygmyFile );
+   a:	4630      	mov	r0, r6
+   c:	f7ff fffe 	bl	0 <fileGetChar>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:78
+            if( ucBuffer[ i ] == '\r' ){
+  10:	280d      	cmp	r0, #13
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:77
+    u8 ucBuffer[ 64 ], ucCalculatedSum, *ucSubString;
+
+    for( ; !( fileIsEOF( pygmyFile ) ); ){
+        // Get an IHEX packet
+        for( i = 0; i < 64; i++ ){
+            ucBuffer[ i ] = fileGetChar( pygmyFile );
+  12:	f80d 0004 	strb.w	r0, [sp, r4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:78
+            if( ucBuffer[ i ] == '\r' ){
+  16:	d105      	bne.n	24 <bootTest+0x24>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:79
+                ucBuffer[ i ] = '\0';
+  18:	ab10      	add	r3, sp, #64	; 0x40
+  1a:	191c      	adds	r4, r3, r4
+  1c:	2300      	movs	r3, #0
+  1e:	f804 3c40 	strb.w	r3, [r4, #-64]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:80
+                break;
+  22:	e002      	b.n	2a <bootTest+0x2a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:76
+    u32 i;
+    u8 ucBuffer[ 64 ], ucCalculatedSum, *ucSubString;
+
+    for( ; !( fileIsEOF( pygmyFile ) ); ){
+        // Get an IHEX packet
+        for( i = 0; i < 64; i++ ){
+  24:	3401      	adds	r4, #1
+  26:	2c40      	cmp	r4, #64	; 0x40
+  28:	d1ef      	bne.n	a <bootTest+0xa>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:83
+            if( ucBuffer[ i ] == '\r' ){
+                ucBuffer[ i ] = '\0';
+                break;
+            } // if
+        } // for
+        ucSubString = getNextSubString( ucBuffer, WHITESPACE|NEWLINE );
+  2a:	2106      	movs	r1, #6
+  2c:	4668      	mov	r0, sp
+  2e:	f7ff fffe 	bl	0 <getNextSubString>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:85
+        
+        if( *(ucSubString++) != ':' ){
+  32:	7803      	ldrb	r3, [r0, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:83
+            if( ucBuffer[ i ] == '\r' ){
+                ucBuffer[ i ] = '\0';
+                break;
+            } // if
+        } // for
+        ucSubString = getNextSubString( ucBuffer, WHITESPACE|NEWLINE );
+  34:	4605      	mov	r5, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:85
+        
+        if( *(ucSubString++) != ':' ){
+  36:	2b3a      	cmp	r3, #58	; 0x3a
+  38:	d11e      	bne.n	78 <bootTest+0x78>
+  3a:	1c44      	adds	r4, r0, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:89
+            return( 0 );
+        } // if
+        // Following works because the output cannot be longer than the input being converted
+        convertHexEncodedStringToBuffer( ucSubString, ucSubString );
+  3c:	4620      	mov	r0, r4
+  3e:	4621      	mov	r1, r4
+  40:	f7ff fffe 	bl	0 <convertHexEncodedStringToBuffer>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:90
+        if( ucSubString[ 3 ] == IHEX_EOF ){
+  44:	78e0      	ldrb	r0, [r4, #3]
+  46:	2801      	cmp	r0, #1
+  48:	d017      	beq.n	7a <bootTest+0x7a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:93
+            break; // We have reached EOF without error
+        }
+        for( i = 0, ucCalculatedSum = 0; i < ucSubString[ 0 ]+4; i++ ){
+  4a:	7869      	ldrb	r1, [r5, #1]
+  4c:	2300      	movs	r3, #0
+  4e:	3104      	adds	r1, #4
+  50:	461a      	mov	r2, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:94
+            ucCalculatedSum += ucSubString[ i ];
+  52:	f815 0f01 	ldrb.w	r0, [r5, #1]!
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:93
+        // Following works because the output cannot be longer than the input being converted
+        convertHexEncodedStringToBuffer( ucSubString, ucSubString );
+        if( ucSubString[ 3 ] == IHEX_EOF ){
+            break; // We have reached EOF without error
+        }
+        for( i = 0, ucCalculatedSum = 0; i < ucSubString[ 0 ]+4; i++ ){
+  56:	3201      	adds	r2, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:94
+            ucCalculatedSum += ucSubString[ i ];
+  58:	181b      	adds	r3, r3, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:93
+        // Following works because the output cannot be longer than the input being converted
+        convertHexEncodedStringToBuffer( ucSubString, ucSubString );
+        if( ucSubString[ 3 ] == IHEX_EOF ){
+            break; // We have reached EOF without error
+        }
+        for( i = 0, ucCalculatedSum = 0; i < ucSubString[ 0 ]+4; i++ ){
+  5a:	428a      	cmp	r2, r1
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:94
+            ucCalculatedSum += ucSubString[ i ];
+  5c:	b2db      	uxtb	r3, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:93
+        // Following works because the output cannot be longer than the input being converted
+        convertHexEncodedStringToBuffer( ucSubString, ucSubString );
+        if( ucSubString[ 3 ] == IHEX_EOF ){
+            break; // We have reached EOF without error
+        }
+        for( i = 0, ucCalculatedSum = 0; i < ucSubString[ 0 ]+4; i++ ){
+  5e:	d3f8      	bcc.n	52 <bootTest+0x52>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:96
+            ucCalculatedSum += ucSubString[ i ];
+        } // for
+        ucCalculatedSum = 1 + ( 0xFF ^ (u8)ucCalculatedSum ); 
+  60:	425b      	negs	r3, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:97
+        if( (u8)ucCalculatedSum != ucSubString[ i ] ){ // Last short is checksum
+  62:	5c62      	ldrb	r2, [r4, r1]
+  64:	b2db      	uxtb	r3, r3
+  66:	429a      	cmp	r2, r3
+  68:	d106      	bne.n	78 <bootTest+0x78>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:74
+{
+    // This function pre-tests every row in firmware file for corruption before erase and program
+    u32 i;
+    u8 ucBuffer[ 64 ], ucCalculatedSum, *ucSubString;
+
+    for( ; !( fileIsEOF( pygmyFile ) ); ){
+  6a:	4630      	mov	r0, r6
+  6c:	f7ff fffe 	bl	0 <fileIsEOF>
+  70:	2800      	cmp	r0, #0
+  72:	d0c9      	beq.n	8 <bootTest+0x8>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:106
+        //if( ucSubString[ 3 ] == IHEX_DATA && i > 0x2000 ){
+        //    return( 0 );
+        //} // if 
+    } // for
+
+    return( 1 );
+  74:	2001      	movs	r0, #1
+  76:	e000      	b.n	7a <bootTest+0x7a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:98
+        for( i = 0, ucCalculatedSum = 0; i < ucSubString[ 0 ]+4; i++ ){
+            ucCalculatedSum += ucSubString[ i ];
+        } // for
+        ucCalculatedSum = 1 + ( 0xFF ^ (u8)ucCalculatedSum ); 
+        if( (u8)ucCalculatedSum != ucSubString[ i ] ){ // Last short is checksum
+            return( 0 ); // Corrupt HEX Row
+  78:	2000      	movs	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:107
+        //    return( 0 );
+        //} // if 
+    } // for
+
+    return( 1 );
+} 
+  7a:	b010      	add	sp, #64	; 0x40
+  7c:	bd70      	pop	{r4, r5, r6, pc}
+
+Disassembly of section .text.boot:
+
+00000000 <boot>:
+boot():
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:115
+{
+    PYGMYVOIDPTR pygmyBoot;
+    u32 *ulOS;
+    
+    ulOS = (u32*)0x08000004; // Address is start vector table + 4 bytes
+    if ( *ulOS != 0xFFFFFFFF ){
+   0:	4b0a      	ldr	r3, [pc, #40]	; (2c <boot+0x2c>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:110
+
+    return( 1 );
+} 
+
+void boot( void )
+{
+   2:	b510      	push	{r4, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:115
+    PYGMYVOIDPTR pygmyBoot;
+    u32 *ulOS;
+    
+    ulOS = (u32*)0x08000004; // Address is start vector table + 4 bytes
+    if ( *ulOS != 0xFFFFFFFF ){
+   4:	681b      	ldr	r3, [r3, #0]
+   6:	f1b3 3fff 	cmp.w	r3, #4294967295
+   a:	d008      	beq.n	1e <boot+0x1e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:117
+        pygmyBoot = (PYGMYVOIDPTR)*ulOS;
+        RCC->CIR = 0x009F0000;
+   c:	4a08      	ldr	r2, [pc, #32]	; (30 <boot+0x30>)
+   e:	f44f 011f 	mov.w	r1, #10420224	; 0x9f0000
+  12:	6091      	str	r1, [r2, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:118
+        SCB->VTOR = ((u32)0x08000000 & (u32)0x1FFFFF80);
+  14:	4a07      	ldr	r2, [pc, #28]	; (34 <boot+0x34>)
+  16:	f04f 6100 	mov.w	r1, #134217728	; 0x8000000
+  1a:	6091      	str	r1, [r2, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:119
+        pygmyBoot(); // pass control to Pygmy Bootloader
+  1c:	4798      	blx	r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:121
+    } // if
+    print( COM3, "\rBootloader Fail " );
+  1e:	4906      	ldr	r1, [pc, #24]	; (38 <boot+0x38>)
+  20:	2001      	movs	r0, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:122
+} 
+  22:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater/main.c:121
+        pygmyBoot = (PYGMYVOIDPTR)*ulOS;
+        RCC->CIR = 0x009F0000;
+        SCB->VTOR = ((u32)0x08000000 & (u32)0x1FFFFF80);
+        pygmyBoot(); // pass control to Pygmy Bootloader
+    } // if
+    print( COM3, "\rBootloader Fail " );
+  26:	f7ff bffe 	b.w	0 <print>
+  2a:	bf00      	nop
+  2c:	08000004 	.word	0x08000004
+  30:	40021000 	.word	0x40021000
+  34:	e000ed00 	.word	0xe000ed00
+  38:	00000097 	.word	0x00000097

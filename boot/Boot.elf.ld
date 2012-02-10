@@ -6,13 +6,12 @@ It also includes the secondary/main linker script that is specified in the Ride 
 */
 
 SEARCH_DIR(".")
-SEARCH_DIR("C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot")
+SEARCH_DIR("C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot")
 SEARCH_DIR("C:\Program Files (x86)\Raisonance\Ride\Lib\ARM")
 STARTUP("C:\Program Files (x86)\Raisonance\Ride\lib\ARM\startup_stm32f10x_hd.o")
-INPUT("C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o")
-INPUT("C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o")
-INPUT("C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o")
-INPUT("C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_fpec.o")
+INPUT("C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o")
+INPUT("C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o")
+INPUT("C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_fpec.o")
 GROUP(
 "std_sbrk_thumb.lib"
 "smallprintf_thumb.a"
@@ -21,4 +20,4 @@ GROUP(
 
 )
 INCLUDE "C:\Users\MightyDubster\Ride7\Nebula\boot\STM32F100_64K_8K_FLASH.ld"
-OUTPUT("C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\Boot.elf")
+OUTPUT("C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\Boot.elf")

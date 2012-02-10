@@ -1,0 +1,2556 @@
+
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater\pygmy_sys.o:     file format elf32-littlearm
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater\pygmy_sys.o
+
+
+Disassembly of section .text.sysSetPipe:
+
+00000000 <sysSetPipe>:
+sysSetPipe():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:162
+}
+
+void sysSetPipe( u8 ucPortFrom, u8 ucPortTo )
+{
+    // ToDo: Finish stream piping
+    if( ucPortFrom >= MAXCOMPORTS || ucPortTo >= MAXCOMPORTS ){
+   0:	2801      	cmp	r0, #1
+   2:	d805      	bhi.n	10 <sysSetPipe+0x10>
+   4:	2901      	cmp	r1, #1
+   6:	d803      	bhi.n	10 <sysSetPipe+0x10>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:169
+    } // if
+    #ifdef __PYGMYCOMMANDS
+    streamSetGet( COM3, cmdGetsCOM3 );
+    #endif // __PYGMYCOMMANDS
+    
+    streamSetPut( COM3, putsUSART3 );
+   8:	4902      	ldr	r1, [pc, #8]	; (14 <sysSetPipe+0x14>)
+   a:	2001      	movs	r0, #1
+   c:	f7ff bffe 	b.w	0 <streamSetPut>
+  10:	4770      	bx	lr
+  12:	bf00      	nop
+  14:	00000000 	.word	0x00000000
+
+Disassembly of section .text.sysEnableComClock:
+
+00000000 <sysEnableComClock>:
+sysEnableComClock():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:185
+        if( ucPort == COM2 ){
+            PYGMY_RCC_USART2_ENABLE;
+        } // if
+    #endif // __PYGMYSTREAMCOM2
+    #ifdef __PYGMYSTREAMCOM3
+        if( ucPort == COM3 ){
+   0:	d1042801 	.word	0xd1042801
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:186
+            PYGMY_RCC_USART3_ENABLE;
+   4:	4b02      	ldr	r3, [pc, #8]	; (10 <sysEnableComClock+0x10>)
+   6:	69da      	ldr	r2, [r3, #28]
+   8:	f442 2280 	orr.w	r2, r2, #262144	; 0x40000
+   c:	61da      	str	r2, [r3, #28]
+   e:	4770      	bx	lr
+  10:	40021000 	.word	0x40021000
+
+Disassembly of section .text.sysRandom:
+
+00000000 <sysRandom>:
+sysRandom():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:237
+        } // if
+    #endif // __PYGMYSTREAMBUS3
+}
+ 
+u32 sysRandom( u32 ulFrom, u32 ulTo )
+{
+   0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:242
+    u32 ulRand, i;
+
+    //pygmyGlobalData.Random <<= 1;
+    //pygmyGlobalData.Random += timeGet();
+    pygmyGlobalData.Random += ( pygmyGlobalData.Random << 1 ) ^ ( timeGet() + ADC1->DR + GPIOA->IDR + GPIOB->IDR + GPIOD->IDR + GPIOC->IDR );
+   4:	4e19      	ldr	r6, [pc, #100]	; (6c <sysRandom+0x6c>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:237
+        } // if
+    #endif // __PYGMYSTREAMBUS3
+}
+ 
+u32 sysRandom( u32 ulFrom, u32 ulTo )
+{
+   6:	460d      	mov	r5, r1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:242
+    u32 ulRand, i;
+
+    //pygmyGlobalData.Random <<= 1;
+    //pygmyGlobalData.Random += timeGet();
+    pygmyGlobalData.Random += ( pygmyGlobalData.Random << 1 ) ^ ( timeGet() + ADC1->DR + GPIOA->IDR + GPIOB->IDR + GPIOD->IDR + GPIOC->IDR );
+   8:	6937      	ldr	r7, [r6, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:237
+        } // if
+    #endif // __PYGMYSTREAMBUS3
+}
+ 
+u32 sysRandom( u32 ulFrom, u32 ulTo )
+{
+   a:	4604      	mov	r4, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:242
+    u32 ulRand, i;
+
+    //pygmyGlobalData.Random <<= 1;
+    //pygmyGlobalData.Random += timeGet();
+    pygmyGlobalData.Random += ( pygmyGlobalData.Random << 1 ) ^ ( timeGet() + ADC1->DR + GPIOA->IDR + GPIOB->IDR + GPIOD->IDR + GPIOC->IDR );
+   c:	f7ff fffe 	bl	0 <timeGet>
+  10:	4b17      	ldr	r3, [pc, #92]	; (70 <sysRandom+0x70>)
+  12:	4a18      	ldr	r2, [pc, #96]	; (74 <sysRandom+0x74>)
+  14:	f8d3 c04c 	ldr.w	ip, [r3, #76]	; 0x4c
+  18:	4b17      	ldr	r3, [pc, #92]	; (78 <sysRandom+0x78>)
+  1a:	f8d3 8008 	ldr.w	r8, [r3, #8]
+  1e:	4b17      	ldr	r3, [pc, #92]	; (7c <sysRandom+0x7c>)
+  20:	44c4      	add	ip, r8
+  22:	689b      	ldr	r3, [r3, #8]
+  24:	6891      	ldr	r1, [r2, #8]
+  26:	4a16      	ldr	r2, [pc, #88]	; (80 <sysRandom+0x80>)
+  28:	4463      	add	r3, ip
+  2a:	6892      	ldr	r2, [r2, #8]
+  2c:	185b      	adds	r3, r3, r1
+  2e:	189b      	adds	r3, r3, r2
+  30:	181b      	adds	r3, r3, r0
+  32:	ea83 0347 	eor.w	r3, r3, r7, lsl #1
+  36:	19df      	adds	r7, r3, r7
+  38:	6137      	str	r7, [r6, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:243
+    ulRand = pygmyGlobalData.Random;
+  3a:	4638      	mov	r0, r7
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:242
+{
+    u32 ulRand, i;
+
+    //pygmyGlobalData.Random <<= 1;
+    //pygmyGlobalData.Random += timeGet();
+    pygmyGlobalData.Random += ( pygmyGlobalData.Random << 1 ) ^ ( timeGet() + ADC1->DR + GPIOA->IDR + GPIOB->IDR + GPIOD->IDR + GPIOC->IDR );
+  3c:	2320      	movs	r3, #32
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:245
+    ulRand = pygmyGlobalData.Random;
+    for( i = 0; i < 32; i++ ){
+        ulRand >>= 1;
+  3e:	0840      	lsrs	r0, r0, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:246
+        if( ulRand >= ulFrom && ulRand <= ulTo ){
+  40:	42a0      	cmp	r0, r4
+  42:	d301      	bcc.n	48 <sysRandom+0x48>
+  44:	42a8      	cmp	r0, r5
+  46:	d90f      	bls.n	68 <sysRandom+0x68>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:244
+
+    //pygmyGlobalData.Random <<= 1;
+    //pygmyGlobalData.Random += timeGet();
+    pygmyGlobalData.Random += ( pygmyGlobalData.Random << 1 ) ^ ( timeGet() + ADC1->DR + GPIOA->IDR + GPIOB->IDR + GPIOD->IDR + GPIOC->IDR );
+    ulRand = pygmyGlobalData.Random;
+    for( i = 0; i < 32; i++ ){
+  48:	3b01      	subs	r3, #1
+  4a:	d1f8      	bne.n	3e <sysRandom+0x3e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:250
+        ulRand >>= 1;
+        if( ulRand >= ulFrom && ulRand <= ulTo ){
+            return( ulRand );
+        } // if
+    } // for
+    ulRand = pygmyGlobalData.Random % ( ulTo - ulFrom );
+  4c:	1b2b      	subs	r3, r5, r4
+  4e:	fbb7 f0f3 	udiv	r0, r7, r3
+  52:	fb03 7710 	mls	r7, r3, r0, r7
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:251
+    if( ulRand > ulTo ) {
+  56:	42af      	cmp	r7, r5
+  58:	d805      	bhi.n	66 <sysRandom+0x66>
+  5a:	42a7      	cmp	r7, r4
+  5c:	bf2c      	ite	cs
+  5e:	4638      	movcs	r0, r7
+  60:	4620      	movcc	r0, r4
+  62:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  66:	4628      	mov	r0, r5
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:258
+    } else if( ulRand < ulFrom ){
+        ulRand = ulFrom;
+    } // else if
+
+    return( ulRand );
+}
+  68:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  6c:	00000000 	.word	0x00000000
+  70:	40012400 	.word	0x40012400
+  74:	40011400 	.word	0x40011400
+  78:	40010800 	.word	0x40010800
+  7c:	40010c00 	.word	0x40010c00
+  80:	40011000 	.word	0x40011000
+
+Disassembly of section .text.sysDisableComClock:
+
+00000000 <sysDisableComClock>:
+sysDisableComClock():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:273
+        if( ucPort == COM2 ){
+            PYGMY_RCC_USART2_ENABLE;
+        } // if
+    #endif // __PYGMYSTREAMCOM2
+    #ifdef __PYGMYSTREAMCOM3
+        if( ucPort == COM3 ){
+   0:	d1042801 	.word	0xd1042801
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:274
+            PYGMY_RCC_USART3_ENABLE;
+   4:	4b02      	ldr	r3, [pc, #8]	; (10 <sysDisableComClock+0x10>)
+   6:	69da      	ldr	r2, [r3, #28]
+   8:	f442 2280 	orr.w	r2, r2, #262144	; 0x40000
+   c:	61da      	str	r2, [r3, #28]
+   e:	4770      	bx	lr
+  10:	40021000 	.word	0x40021000
+
+Disassembly of section .text.sysEnableTimerClock:
+
+00000000 <sysEnableTimerClock>:
+sysEnableTimerClock():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:326
+    #endif // __PYGMYSTREAMBUS3
+}
+
+void sysEnableTimerClock( u8 ucTimer )
+{
+    if( ucTimer == PYGMY_TIMER1 ){
+   0:	2801      	cmp	r0, #1
+   2:	d104      	bne.n	e <sysEnableTimerClock+0xe>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:327
+        PYGMY_RCC_TIMER1_ENABLE;
+   4:	4b3b      	ldr	r3, [pc, #236]	; (f4 <sysEnableTimerClock+0xf4>)
+   6:	699a      	ldr	r2, [r3, #24]
+   8:	f442 6200 	orr.w	r2, r2, #2048	; 0x800
+   c:	e068      	b.n	e0 <sysEnableTimerClock+0xe0>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:328
+    } else if( ucTimer == PYGMY_TIMER2 ){
+   e:	2802      	cmp	r0, #2
+  10:	d104      	bne.n	1c <sysEnableTimerClock+0x1c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:329
+        PYGMY_RCC_TIMER2_ENABLE;
+  12:	4b38      	ldr	r3, [pc, #224]	; (f4 <sysEnableTimerClock+0xf4>)
+  14:	69da      	ldr	r2, [r3, #28]
+  16:	f042 0201 	orr.w	r2, r2, #1
+  1a:	e052      	b.n	c2 <sysEnableTimerClock+0xc2>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:330
+    } else if( ucTimer == PYGMY_TIMER3 ){
+  1c:	2803      	cmp	r0, #3
+  1e:	d104      	bne.n	2a <sysEnableTimerClock+0x2a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:331
+        PYGMY_RCC_TIMER3_ENABLE;
+  20:	4b34      	ldr	r3, [pc, #208]	; (f4 <sysEnableTimerClock+0xf4>)
+  22:	69da      	ldr	r2, [r3, #28]
+  24:	f042 0202 	orr.w	r2, r2, #2
+  28:	e04b      	b.n	c2 <sysEnableTimerClock+0xc2>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:332
+    } else if( ucTimer == PYGMY_TIMER4 ){
+  2a:	2804      	cmp	r0, #4
+  2c:	d104      	bne.n	38 <sysEnableTimerClock+0x38>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:333
+        PYGMY_RCC_TIMER4_ENABLE;
+  2e:	4b31      	ldr	r3, [pc, #196]	; (f4 <sysEnableTimerClock+0xf4>)
+  30:	69da      	ldr	r2, [r3, #28]
+  32:	f042 0204 	orr.w	r2, r2, #4
+  36:	e044      	b.n	c2 <sysEnableTimerClock+0xc2>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:334
+    } else if( ucTimer == PYGMY_TIMER5 ){
+  38:	2805      	cmp	r0, #5
+  3a:	d104      	bne.n	46 <sysEnableTimerClock+0x46>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:335
+        PYGMY_RCC_TIMER5_ENABLE;
+  3c:	4b2d      	ldr	r3, [pc, #180]	; (f4 <sysEnableTimerClock+0xf4>)
+  3e:	69da      	ldr	r2, [r3, #28]
+  40:	f042 0208 	orr.w	r2, r2, #8
+  44:	e03d      	b.n	c2 <sysEnableTimerClock+0xc2>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:336
+    } else if( ucTimer == PYGMY_TIMER6 ){
+  46:	2806      	cmp	r0, #6
+  48:	d104      	bne.n	54 <sysEnableTimerClock+0x54>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:337
+        PYGMY_RCC_TIMER6_ENABLE;
+  4a:	4b2a      	ldr	r3, [pc, #168]	; (f4 <sysEnableTimerClock+0xf4>)
+  4c:	69da      	ldr	r2, [r3, #28]
+  4e:	f042 0210 	orr.w	r2, r2, #16
+  52:	e036      	b.n	c2 <sysEnableTimerClock+0xc2>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:338
+    } else if( ucTimer == PYGMY_TIMER7 ){
+  54:	2807      	cmp	r0, #7
+  56:	d104      	bne.n	62 <sysEnableTimerClock+0x62>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:339
+        PYGMY_RCC_TIMER7_ENABLE;
+  58:	4b26      	ldr	r3, [pc, #152]	; (f4 <sysEnableTimerClock+0xf4>)
+  5a:	69da      	ldr	r2, [r3, #28]
+  5c:	f042 0220 	orr.w	r2, r2, #32
+  60:	e02f      	b.n	c2 <sysEnableTimerClock+0xc2>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:340
+    } else if( ucTimer == PYGMY_TIMER8 ){
+  62:	2808      	cmp	r0, #8
+  64:	d104      	bne.n	70 <sysEnableTimerClock+0x70>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:341
+        PYGMY_RCC_TIMER8_ENABLE;
+  66:	4b23      	ldr	r3, [pc, #140]	; (f4 <sysEnableTimerClock+0xf4>)
+  68:	699a      	ldr	r2, [r3, #24]
+  6a:	f442 5200 	orr.w	r2, r2, #8192	; 0x2000
+  6e:	e037      	b.n	e0 <sysEnableTimerClock+0xe0>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:342
+    } else if( ucTimer == PYGMY_TIMER9 ){
+  70:	2809      	cmp	r0, #9
+  72:	d104      	bne.n	7e <sysEnableTimerClock+0x7e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:343
+        PYGMY_RCC_TIMER9_ENABLE;
+  74:	4b1f      	ldr	r3, [pc, #124]	; (f4 <sysEnableTimerClock+0xf4>)
+  76:	699a      	ldr	r2, [r3, #24]
+  78:	f442 2200 	orr.w	r2, r2, #524288	; 0x80000
+  7c:	e030      	b.n	e0 <sysEnableTimerClock+0xe0>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:344
+    } else if( ucTimer == PYGMY_TIMER10 ){
+  7e:	280a      	cmp	r0, #10
+  80:	d104      	bne.n	8c <sysEnableTimerClock+0x8c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:345
+        PYGMY_RCC_TIMER10_ENABLE;
+  82:	4b1c      	ldr	r3, [pc, #112]	; (f4 <sysEnableTimerClock+0xf4>)
+  84:	699a      	ldr	r2, [r3, #24]
+  86:	f442 1280 	orr.w	r2, r2, #1048576	; 0x100000
+  8a:	e029      	b.n	e0 <sysEnableTimerClock+0xe0>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:346
+    } else if( ucTimer == PYGMY_TIMER11 ){
+  8c:	280b      	cmp	r0, #11
+  8e:	d104      	bne.n	9a <sysEnableTimerClock+0x9a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:347
+        PYGMY_RCC_TIMER11_ENABLE;
+  90:	4b18      	ldr	r3, [pc, #96]	; (f4 <sysEnableTimerClock+0xf4>)
+  92:	699a      	ldr	r2, [r3, #24]
+  94:	f442 1200 	orr.w	r2, r2, #2097152	; 0x200000
+  98:	e022      	b.n	e0 <sysEnableTimerClock+0xe0>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:348
+    } else if( ucTimer == PYGMY_TIMER12 ){
+  9a:	280c      	cmp	r0, #12
+  9c:	d104      	bne.n	a8 <sysEnableTimerClock+0xa8>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:349
+        PYGMY_RCC_TIMER12_ENABLE;
+  9e:	4b15      	ldr	r3, [pc, #84]	; (f4 <sysEnableTimerClock+0xf4>)
+  a0:	69da      	ldr	r2, [r3, #28]
+  a2:	f042 0240 	orr.w	r2, r2, #64	; 0x40
+  a6:	e00c      	b.n	c2 <sysEnableTimerClock+0xc2>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:350
+    } else if( ucTimer == PYGMY_TIMER13 ){
+  a8:	280d      	cmp	r0, #13
+  aa:	d104      	bne.n	b6 <sysEnableTimerClock+0xb6>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:351
+        PYGMY_RCC_TIMER13_ENABLE;
+  ac:	4b11      	ldr	r3, [pc, #68]	; (f4 <sysEnableTimerClock+0xf4>)
+  ae:	69da      	ldr	r2, [r3, #28]
+  b0:	f042 0280 	orr.w	r2, r2, #128	; 0x80
+  b4:	e005      	b.n	c2 <sysEnableTimerClock+0xc2>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:352
+    } else if( ucTimer == PYGMY_TIMER14 ){
+  b6:	280e      	cmp	r0, #14
+  b8:	d105      	bne.n	c6 <sysEnableTimerClock+0xc6>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:353
+        PYGMY_RCC_TIMER14_ENABLE;
+  ba:	4b0e      	ldr	r3, [pc, #56]	; (f4 <sysEnableTimerClock+0xf4>)
+  bc:	69da      	ldr	r2, [r3, #28]
+  be:	f442 7280 	orr.w	r2, r2, #256	; 0x100
+  c2:	61da      	str	r2, [r3, #28]
+  c4:	4770      	bx	lr
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:354
+    } else if( ucTimer == PYGMY_TIMER15 ){
+  c6:	280f      	cmp	r0, #15
+  c8:	d104      	bne.n	d4 <sysEnableTimerClock+0xd4>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:355
+        PYGMY_RCC_TIMER15_ENABLE;
+  ca:	4b0a      	ldr	r3, [pc, #40]	; (f4 <sysEnableTimerClock+0xf4>)
+  cc:	699a      	ldr	r2, [r3, #24]
+  ce:	f442 3280 	orr.w	r2, r2, #65536	; 0x10000
+  d2:	e005      	b.n	e0 <sysEnableTimerClock+0xe0>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:356
+    } else if( ucTimer == PYGMY_TIMER16 ){
+  d4:	2810      	cmp	r0, #16
+  d6:	d105      	bne.n	e4 <sysEnableTimerClock+0xe4>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:357
+        PYGMY_RCC_TIMER16_ENABLE;
+  d8:	4b06      	ldr	r3, [pc, #24]	; (f4 <sysEnableTimerClock+0xf4>)
+  da:	699a      	ldr	r2, [r3, #24]
+  dc:	f442 3200 	orr.w	r2, r2, #131072	; 0x20000
+  e0:	619a      	str	r2, [r3, #24]
+  e2:	4770      	bx	lr
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:358
+    } else if( ucTimer == PYGMY_TIMER17 ){
+  e4:	2811      	cmp	r0, #17
+  e6:	d104      	bne.n	f2 <sysEnableTimerClock+0xf2>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:359
+        PYGMY_RCC_TIMER17_ENABLE;
+  e8:	4b02      	ldr	r3, [pc, #8]	; (f4 <sysEnableTimerClock+0xf4>)
+  ea:	699a      	ldr	r2, [r3, #24]
+  ec:	f442 2280 	orr.w	r2, r2, #262144	; 0x40000
+  f0:	619a      	str	r2, [r3, #24]
+  f2:	4770      	bx	lr
+  f4:	40021000 	.word	0x40021000
+
+Disassembly of section .text.sysInit:
+
+00000000 <sysInit>:
+sysInit():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:44
+PYGMYCOMMANDQUEUE   *pygmyGlobalQueues[ PYGMY_MAXQUEUES ];
+u8 sysInit( void )
+{
+    u16 i;
+
+    pygmyGlobalData.Status = 0;
+   0:	f44f4b14 	.word	0xf44f4b14
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:45
+    pygmyGlobalData.MCUID = DESC_STM32F103XLD;//descriptorGetID( );
+   4:	6286      	str	r6, [r0, #40]	; 0x28
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:41
+PYGMYMESSAGE        pygmyGlobalMessages[ PYGMY_MAXMESSAGES ];
+PYGMYSYSTEM         pygmyGlobalData;
+
+PYGMYCOMMANDQUEUE   *pygmyGlobalQueues[ PYGMY_MAXQUEUES ];
+u8 sysInit( void )
+{
+   6:	b510      	push	{r4, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:45
+    u16 i;
+
+    pygmyGlobalData.Status = 0;
+    pygmyGlobalData.MCUID = DESC_STM32F103XLD;//descriptorGetID( );
+   8:	829a      	strh	r2, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:46
+    pygmyGlobalData.XTAL = 12000000;
+   a:	4a13      	ldr	r2, [pc, #76]	; (58 <sysInit+0x58>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:44
+PYGMYCOMMANDQUEUE   *pygmyGlobalQueues[ PYGMY_MAXQUEUES ];
+u8 sysInit( void )
+{
+    u16 i;
+
+    pygmyGlobalData.Status = 0;
+   c:	2400      	movs	r4, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:46
+    pygmyGlobalData.MCUID = DESC_STM32F103XLD;//descriptorGetID( );
+    pygmyGlobalData.XTAL = 12000000;
+   e:	605a      	str	r2, [r3, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:58
+    } else if( pygmyGlobalData.MCUID == DESC_STM32F100MD || pygmyGlobalData.MCUID == DESC_STM32F100HD ){
+        pygmyGlobalData.MainClock = 24000000;
+        pygmyGlobalData.DelayTimer = PYGMY_TIMER15;
+        pygmyGlobalData.PWMTimer = PYGMY_TIMER16;
+    } else if( pygmyGlobalData.MCUID == DESC_STM32F103XLD ){
+        pygmyGlobalData.MainClock = 72000000;
+  10:	4a12      	ldr	r2, [pc, #72]	; (5c <sysInit+0x5c>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:59
+        pygmyGlobalData.DelayTimer = PYGMY_TIMER9;
+  12:	2009      	movs	r0, #9
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:58
+    } else if( pygmyGlobalData.MCUID == DESC_STM32F100MD || pygmyGlobalData.MCUID == DESC_STM32F100HD ){
+        pygmyGlobalData.MainClock = 24000000;
+        pygmyGlobalData.DelayTimer = PYGMY_TIMER15;
+        pygmyGlobalData.PWMTimer = PYGMY_TIMER16;
+    } else if( pygmyGlobalData.MCUID == DESC_STM32F103XLD ){
+        pygmyGlobalData.MainClock = 72000000;
+  14:	601a      	str	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:60
+        pygmyGlobalData.DelayTimer = PYGMY_TIMER9;
+        pygmyGlobalData.PWMTimer = PYGMY_TIMER10;
+  16:	220a      	movs	r2, #10
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:44
+PYGMYCOMMANDQUEUE   *pygmyGlobalQueues[ PYGMY_MAXQUEUES ];
+u8 sysInit( void )
+{
+    u16 i;
+
+    pygmyGlobalData.Status = 0;
+  18:	60dc      	str	r4, [r3, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:59
+        pygmyGlobalData.MainClock = 24000000;
+        pygmyGlobalData.DelayTimer = PYGMY_TIMER15;
+        pygmyGlobalData.PWMTimer = PYGMY_TIMER16;
+    } else if( pygmyGlobalData.MCUID == DESC_STM32F103XLD ){
+        pygmyGlobalData.MainClock = 72000000;
+        pygmyGlobalData.DelayTimer = PYGMY_TIMER9;
+  1a:	75d8      	strb	r0, [r3, #23]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:60
+        pygmyGlobalData.PWMTimer = PYGMY_TIMER10;
+  1c:	761a      	strb	r2, [r3, #24]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:71
+        pygmyGlobalData.MainClock = 72000000;
+        pygmyGlobalData.DelayTimer = PYGMY_TIMER1;
+        pygmyGlobalData.PWMTimer = PYGMY_TIMER0;
+    } // else
+    
+    sysEnableTimerClock( pygmyGlobalData.DelayTimer );
+  1e:	f7ff fffe 	bl	0 <sysInit>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:76
+    // The following implements default stream config from the profile
+    // If no defaults are defined, configuration must be done manually
+    
+    #ifdef __PYGMYSTREAMS
+        streamInit();
+  22:	f7ff fffe 	bl	0 <streamInit>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:102
+                streamSetGet( COM3, cmdGetsCOM3 );
+                streamEnableEcho( COM3 );
+                streamEnableBackspace( COM3 );
+                streamEnableActionChars( COM3 );
+            #endif // __PYGMYCOMMANDS
+            streamSetRXBuffer( COM3, globalCOM3RXBuffer, __PYGMYCOM3BUFFERLEN );
+  26:	2280      	movs	r2, #128	; 0x80
+  28:	2001      	movs	r0, #1
+  2a:	490d      	ldr	r1, [pc, #52]	; (60 <sysInit+0x60>)
+  2c:	f7ff fffe 	bl	0 <streamSetRXBuffer>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:103
+            streamSetPut( COM3, putsUSART3 );
+  30:	490c      	ldr	r1, [pc, #48]	; (64 <sysInit+0x64>)
+  32:	2001      	movs	r0, #1
+  34:	f7ff fffe 	bl	0 <streamSetPut>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:129
+        #ifdef __PYGMYSTREAMLCD
+            
+            streamSetPut( LCD, putsLCD );
+        #endif
+        #ifdef __PYGMYNEBULA
+            streamSetSTDIO( COM3 );
+  38:	2001      	movs	r0, #1
+  3a:	f7ff fffe 	bl	0 <streamSetSTDIO>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:135
+        #endif
+        #ifdef __PYGMYCOMMANDS
+            cmdInit();
+        #endif // __PYGMYCOMMANDS
+    #endif
+    timeInit();
+  3e:	f7ff fffe 	bl	0 <timeInit>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:137
+    #ifdef __PYGMYFILES
+        fileMountRoot();
+  42:	f7ff fffe 	bl	0 <fileMountRoot>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:153
+    #endif
+    #ifdef __PYGMYMODEMSHIELD
+        modemInit();
+    #endif
+    for( i = 0; i < PYGMY_MAXQUEUES; i++ ){
+        pygmyGlobalQueues[ i ] = NULL;
+  46:	4b08      	ldr	r3, [pc, #32]	; (68 <sysInit+0x68>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:157
+    } // for
+    
+	return( 0 );
+}
+  48:	4620      	mov	r0, r4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:153
+    #endif
+    #ifdef __PYGMYMODEMSHIELD
+        modemInit();
+    #endif
+    for( i = 0; i < PYGMY_MAXQUEUES; i++ ){
+        pygmyGlobalQueues[ i ] = NULL;
+  4a:	601c      	str	r4, [r3, #0]
+  4c:	605c      	str	r4, [r3, #4]
+  4e:	609c      	str	r4, [r3, #8]
+  50:	60dc      	str	r4, [r3, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:157
+    } // for
+    
+	return( 0 );
+}
+  52:	bd10      	pop	{r4, pc}
+  54:	00000000 	.word	0x00000000
+  58:	00b71b00 	.word	0x00b71b00
+  5c:	044aa200 	.word	0x044aa200
+	...
+
+Disassembly of section .text.sysDisableTimerClock:
+
+00000000 <sysDisableTimerClock>:
+sysDisableTimerClock():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:365
+    } // else if
+}
+
+void sysDisableTimerClock( u8 ucTimer )
+{
+    if( ucTimer == PYGMY_TIMER1 ){
+   0:	2801      	cmp	r0, #1
+   2:	d104      	bne.n	e <sysDisableTimerClock+0xe>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:366
+        PYGMY_RCC_TIMER1_DISABLE;
+   4:	4b3b      	ldr	r3, [pc, #236]	; (f4 <sysDisableTimerClock+0xf4>)
+   6:	699a      	ldr	r2, [r3, #24]
+   8:	f422 6200 	bic.w	r2, r2, #2048	; 0x800
+   c:	e068      	b.n	e0 <sysDisableTimerClock+0xe0>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:367
+    } else if( ucTimer == PYGMY_TIMER2 ){
+   e:	2802      	cmp	r0, #2
+  10:	d104      	bne.n	1c <sysDisableTimerClock+0x1c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:368
+        PYGMY_RCC_TIMER2_DISABLE;
+  12:	4b38      	ldr	r3, [pc, #224]	; (f4 <sysDisableTimerClock+0xf4>)
+  14:	69da      	ldr	r2, [r3, #28]
+  16:	f022 0201 	bic.w	r2, r2, #1
+  1a:	e052      	b.n	c2 <sysDisableTimerClock+0xc2>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:369
+    } else if( ucTimer == PYGMY_TIMER3 ){
+  1c:	2803      	cmp	r0, #3
+  1e:	d104      	bne.n	2a <sysDisableTimerClock+0x2a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:370
+        PYGMY_RCC_TIMER3_DISABLE;
+  20:	4b34      	ldr	r3, [pc, #208]	; (f4 <sysDisableTimerClock+0xf4>)
+  22:	69da      	ldr	r2, [r3, #28]
+  24:	f022 0202 	bic.w	r2, r2, #2
+  28:	e04b      	b.n	c2 <sysDisableTimerClock+0xc2>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:371
+    } else if( ucTimer == PYGMY_TIMER4 ){
+  2a:	2804      	cmp	r0, #4
+  2c:	d104      	bne.n	38 <sysDisableTimerClock+0x38>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:372
+        PYGMY_RCC_TIMER4_DISABLE;
+  2e:	4b31      	ldr	r3, [pc, #196]	; (f4 <sysDisableTimerClock+0xf4>)
+  30:	69da      	ldr	r2, [r3, #28]
+  32:	f022 0204 	bic.w	r2, r2, #4
+  36:	e044      	b.n	c2 <sysDisableTimerClock+0xc2>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:373
+    } else if( ucTimer == PYGMY_TIMER5 ){
+  38:	2805      	cmp	r0, #5
+  3a:	d104      	bne.n	46 <sysDisableTimerClock+0x46>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:374
+        PYGMY_RCC_TIMER5_DISABLE;
+  3c:	4b2d      	ldr	r3, [pc, #180]	; (f4 <sysDisableTimerClock+0xf4>)
+  3e:	69da      	ldr	r2, [r3, #28]
+  40:	f022 0208 	bic.w	r2, r2, #8
+  44:	e03d      	b.n	c2 <sysDisableTimerClock+0xc2>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:375
+    } else if( ucTimer == PYGMY_TIMER6 ){
+  46:	2806      	cmp	r0, #6
+  48:	d104      	bne.n	54 <sysDisableTimerClock+0x54>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:376
+        PYGMY_RCC_TIMER6_DISABLE;
+  4a:	4b2a      	ldr	r3, [pc, #168]	; (f4 <sysDisableTimerClock+0xf4>)
+  4c:	69da      	ldr	r2, [r3, #28]
+  4e:	f022 0210 	bic.w	r2, r2, #16
+  52:	e036      	b.n	c2 <sysDisableTimerClock+0xc2>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:377
+    } else if( ucTimer == PYGMY_TIMER7 ){
+  54:	2807      	cmp	r0, #7
+  56:	d104      	bne.n	62 <sysDisableTimerClock+0x62>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:378
+        PYGMY_RCC_TIMER7_DISABLE;
+  58:	4b26      	ldr	r3, [pc, #152]	; (f4 <sysDisableTimerClock+0xf4>)
+  5a:	69da      	ldr	r2, [r3, #28]
+  5c:	f022 0220 	bic.w	r2, r2, #32
+  60:	e02f      	b.n	c2 <sysDisableTimerClock+0xc2>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:379
+    } else if( ucTimer == PYGMY_TIMER8 ){
+  62:	2808      	cmp	r0, #8
+  64:	d104      	bne.n	70 <sysDisableTimerClock+0x70>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:380
+        PYGMY_RCC_TIMER8_DISABLE;
+  66:	4b23      	ldr	r3, [pc, #140]	; (f4 <sysDisableTimerClock+0xf4>)
+  68:	699a      	ldr	r2, [r3, #24]
+  6a:	f422 5200 	bic.w	r2, r2, #8192	; 0x2000
+  6e:	e037      	b.n	e0 <sysDisableTimerClock+0xe0>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:381
+    } else if( ucTimer == PYGMY_TIMER9 ){
+  70:	2809      	cmp	r0, #9
+  72:	d104      	bne.n	7e <sysDisableTimerClock+0x7e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:382
+        PYGMY_RCC_TIMER9_DISABLE;
+  74:	4b1f      	ldr	r3, [pc, #124]	; (f4 <sysDisableTimerClock+0xf4>)
+  76:	699a      	ldr	r2, [r3, #24]
+  78:	f422 2200 	bic.w	r2, r2, #524288	; 0x80000
+  7c:	e030      	b.n	e0 <sysDisableTimerClock+0xe0>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:383
+    } else if( ucTimer == PYGMY_TIMER10 ){
+  7e:	280a      	cmp	r0, #10
+  80:	d104      	bne.n	8c <sysDisableTimerClock+0x8c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:384
+        PYGMY_RCC_TIMER10_DISABLE;
+  82:	4b1c      	ldr	r3, [pc, #112]	; (f4 <sysDisableTimerClock+0xf4>)
+  84:	699a      	ldr	r2, [r3, #24]
+  86:	f422 1280 	bic.w	r2, r2, #1048576	; 0x100000
+  8a:	e029      	b.n	e0 <sysDisableTimerClock+0xe0>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:385
+    } else if( ucTimer == PYGMY_TIMER11 ){
+  8c:	280b      	cmp	r0, #11
+  8e:	d104      	bne.n	9a <sysDisableTimerClock+0x9a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:386
+        PYGMY_RCC_TIMER11_DISABLE;
+  90:	4b18      	ldr	r3, [pc, #96]	; (f4 <sysDisableTimerClock+0xf4>)
+  92:	699a      	ldr	r2, [r3, #24]
+  94:	f422 1200 	bic.w	r2, r2, #2097152	; 0x200000
+  98:	e022      	b.n	e0 <sysDisableTimerClock+0xe0>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:387
+    } else if( ucTimer == PYGMY_TIMER12 ){
+  9a:	280c      	cmp	r0, #12
+  9c:	d104      	bne.n	a8 <sysDisableTimerClock+0xa8>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:388
+        PYGMY_RCC_TIMER12_DISABLE;
+  9e:	4b15      	ldr	r3, [pc, #84]	; (f4 <sysDisableTimerClock+0xf4>)
+  a0:	69da      	ldr	r2, [r3, #28]
+  a2:	f022 0240 	bic.w	r2, r2, #64	; 0x40
+  a6:	e00c      	b.n	c2 <sysDisableTimerClock+0xc2>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:389
+    } else if( ucTimer == PYGMY_TIMER13 ){
+  a8:	280d      	cmp	r0, #13
+  aa:	d104      	bne.n	b6 <sysDisableTimerClock+0xb6>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:390
+        PYGMY_RCC_TIMER13_DISABLE;
+  ac:	4b11      	ldr	r3, [pc, #68]	; (f4 <sysDisableTimerClock+0xf4>)
+  ae:	69da      	ldr	r2, [r3, #28]
+  b0:	f022 0280 	bic.w	r2, r2, #128	; 0x80
+  b4:	e005      	b.n	c2 <sysDisableTimerClock+0xc2>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:391
+    } else if( ucTimer == PYGMY_TIMER14 ){
+  b6:	280e      	cmp	r0, #14
+  b8:	d105      	bne.n	c6 <sysDisableTimerClock+0xc6>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:392
+        PYGMY_RCC_TIMER14_DISABLE;
+  ba:	4b0e      	ldr	r3, [pc, #56]	; (f4 <sysDisableTimerClock+0xf4>)
+  bc:	69da      	ldr	r2, [r3, #28]
+  be:	f422 7280 	bic.w	r2, r2, #256	; 0x100
+  c2:	61da      	str	r2, [r3, #28]
+  c4:	4770      	bx	lr
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:393
+    } else if( ucTimer == PYGMY_TIMER15 ){
+  c6:	280f      	cmp	r0, #15
+  c8:	d104      	bne.n	d4 <sysDisableTimerClock+0xd4>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:394
+        PYGMY_RCC_TIMER15_DISABLE;
+  ca:	4b0a      	ldr	r3, [pc, #40]	; (f4 <sysDisableTimerClock+0xf4>)
+  cc:	699a      	ldr	r2, [r3, #24]
+  ce:	f422 3280 	bic.w	r2, r2, #65536	; 0x10000
+  d2:	e005      	b.n	e0 <sysDisableTimerClock+0xe0>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:395
+    } else if( ucTimer == PYGMY_TIMER16 ){
+  d4:	2810      	cmp	r0, #16
+  d6:	d105      	bne.n	e4 <sysDisableTimerClock+0xe4>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:396
+        PYGMY_RCC_TIMER16_DISABLE;
+  d8:	4b06      	ldr	r3, [pc, #24]	; (f4 <sysDisableTimerClock+0xf4>)
+  da:	699a      	ldr	r2, [r3, #24]
+  dc:	f422 3200 	bic.w	r2, r2, #131072	; 0x20000
+  e0:	619a      	str	r2, [r3, #24]
+  e2:	4770      	bx	lr
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:397
+    } else if( ucTimer == PYGMY_TIMER17 ){
+  e4:	2811      	cmp	r0, #17
+  e6:	d104      	bne.n	f2 <sysDisableTimerClock+0xf2>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:398
+        PYGMY_RCC_TIMER17_DISABLE;
+  e8:	4b02      	ldr	r3, [pc, #8]	; (f4 <sysDisableTimerClock+0xf4>)
+  ea:	699a      	ldr	r2, [r3, #24]
+  ec:	f422 2280 	bic.w	r2, r2, #262144	; 0x40000
+  f0:	619a      	str	r2, [r3, #24]
+  f2:	4770      	bx	lr
+  f4:	40021000 	.word	0x40021000
+
+Disassembly of section .text.sysEnableTimerInterrupt:
+
+00000000 <sysEnableTimerInterrupt>:
+sysEnableTimerInterrupt():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:403
+    } // else if
+}
+
+u8 sysEnableTimerInterrupt( u8 ucTimer )
+{
+   0:	b508      	push	{r3, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:406
+    u8 ucIRQ;
+    
+    ucIRQ = interruptGetTimerVector( ucTimer );
+   2:	f7ff fffe 	bl	0 <interruptGetTimerVector>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:407
+    if( ucIRQ ){
+   6:	b118      	cbz	r0, a <interruptEnable+0xa>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:408
+        interruptEnable( ucIRQ );
+   8:	f7ff fffe 	bl	0 <interruptEnable>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:409
+        return( 1 );
+   c:	2001      	movs	r0, #1
+   e:	bd08      	pop	{r3, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:413
+    } // if
+    
+    return( 0 ); // Invalid timer selected
+}
+  10:	bd08      	pop	{r3, pc}
+
+Disassembly of section .text.sysGetDelayTimer:
+
+00000000 <sysGetDelayTimer>:
+sysGetDelayTimer():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:418
+
+u8 sysGetDelayTimer( void )
+{
+    return( pygmyGlobalData.DelayTimer );
+}
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <sysGetDelayTimer+0x8>)
+   2:	7dd8      	ldrb	r0, [r3, #23]
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+   8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.sysGetPWMTimer:
+
+00000000 <sysGetPWMTimer>:
+sysGetPWMTimer():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:423
+
+u8 sysGetPWMTimer( void )
+{
+    return( pygmyGlobalData.PWMTimer );
+}
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <sysGetPWMTimer+0x8>)
+   2:	7e18      	ldrb	r0, [r3, #24]
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+   8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.sysGetMainClock:
+
+00000000 <sysGetMainClock>:
+sysGetMainClock():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:428
+
+u32 sysGetMainClock( void )
+{
+    return( pygmyGlobalData.MainClock );
+}
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <sysGetMainClock+0x8>)
+   2:	6818      	ldr	r0, [r3, #0]
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+   8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.sysSetMainClock:
+
+00000000 <sysSetMainClock>:
+sysSetMainClock():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:434
+
+void sysSetMainClock( u32 ulFreq )
+{
+    // ToDo: Add preverification code for clock
+    // ToDo: Add code to apply clock settings to RCC
+    pygmyGlobalData.MainClock = ulFreq;
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <sysSetMainClock+0x8>)
+   2:	6018      	str	r0, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:435
+}
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+   8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.sysGetXTAL:
+
+00000000 <sysGetXTAL>:
+sysGetXTAL():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:440
+
+u32 sysGetXTAL( void )
+{
+    return( pygmyGlobalData.XTAL );
+}
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <sysGetXTAL+0x8>)
+   2:	6858      	ldr	r0, [r3, #4]
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+   8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.sysSetXTAL:
+
+00000000 <sysSetXTAL>:
+sysSetXTAL():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:444
+
+void sysSetXTAL( u32 ulFreq )
+{
+    pygmyGlobalData.XTAL = ulFreq;
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <sysSetXTAL+0x8>)
+   2:	6058      	str	r0, [r3, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:445
+}
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+   8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.sysCRC8:
+
+00000000 <sysCRC8>:
+sysCRC8():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:612
+u8 sysCRC8( u8 *ucBuffer, u16 uiLen )
+{
+    u16 i;
+    u8 ucCRC;
+
+    for( i = 0, ucCRC = 0; i < uiLen - 1; i++ ){
+   0:	2300      	movs	r3, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:608
+//--------------------------------------------------------------------------------------------
+//--------------------------------Pygmy OS Data Integrity Algorithm---------------------------
+
+
+u8 sysCRC8( u8 *ucBuffer, u16 uiLen )
+{
+   2:	b510      	push	{r4, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:612
+    u16 i;
+    u8 ucCRC;
+
+    for( i = 0, ucCRC = 0; i < uiLen - 1; i++ ){
+   4:	461a      	mov	r2, r3
+   6:	e004      	b.n	12 <sysCRC8+0x12>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:613
+        ucCRC += ucBuffer[ i ];
+   8:	5c84      	ldrb	r4, [r0, r2]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:612
+u8 sysCRC8( u8 *ucBuffer, u16 uiLen )
+{
+    u16 i;
+    u8 ucCRC;
+
+    for( i = 0, ucCRC = 0; i < uiLen - 1; i++ ){
+   a:	3201      	adds	r2, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:613
+        ucCRC += ucBuffer[ i ];
+   c:	191b      	adds	r3, r3, r4
+   e:	b2db      	uxtb	r3, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:612
+u8 sysCRC8( u8 *ucBuffer, u16 uiLen )
+{
+    u16 i;
+    u8 ucCRC;
+
+    for( i = 0, ucCRC = 0; i < uiLen - 1; i++ ){
+  10:	b292      	uxth	r2, r2
+  12:	1e4c      	subs	r4, r1, #1
+  14:	42a2      	cmp	r2, r4
+  16:	dbf7      	blt.n	8 <sysCRC8+0x8>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:615
+        ucCRC += ucBuffer[ i ];
+    } // for
+    ucCRC = 1 + ( 0xFF ^ (u8)ucCRC );
+  18:	425b      	negs	r3, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:618
+
+    return( ucCRC );
+}
+  1a:	b2d8      	uxtb	r0, r3
+  1c:	bd10      	pop	{r4, pc}
+
+Disassembly of section .text.sysCRC16:
+
+00000000 <sysCRC16>:
+sysCRC16():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:624
+
+u16 sysCRC16( u8 *ucBuffer, u16 uiLen )
+{
+    u16 i, uiCRC;
+
+    for( i = 0, uiCRC = 0; i < uiLen - 1; i++ ){
+   0:	2300      	movs	r3, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:621
+
+    return( ucCRC );
+}
+
+u16 sysCRC16( u8 *ucBuffer, u16 uiLen )
+{
+   2:	b510      	push	{r4, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:624
+    u16 i, uiCRC;
+
+    for( i = 0, uiCRC = 0; i < uiLen - 1; i++ ){
+   4:	461a      	mov	r2, r3
+   6:	e004      	b.n	12 <sysCRC16+0x12>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:625
+        uiCRC += ucBuffer[ i ];
+   8:	5c84      	ldrb	r4, [r0, r2]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:624
+
+u16 sysCRC16( u8 *ucBuffer, u16 uiLen )
+{
+    u16 i, uiCRC;
+
+    for( i = 0, uiCRC = 0; i < uiLen - 1; i++ ){
+   a:	3201      	adds	r2, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:625
+        uiCRC += ucBuffer[ i ];
+   c:	191b      	adds	r3, r3, r4
+   e:	b29b      	uxth	r3, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:624
+
+u16 sysCRC16( u8 *ucBuffer, u16 uiLen )
+{
+    u16 i, uiCRC;
+
+    for( i = 0, uiCRC = 0; i < uiLen - 1; i++ ){
+  10:	b292      	uxth	r2, r2
+  12:	1e4c      	subs	r4, r1, #1
+  14:	42a2      	cmp	r2, r4
+  16:	dbf7      	blt.n	8 <sysCRC16+0x8>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:627
+        uiCRC += ucBuffer[ i ];
+    } // for
+    uiCRC = 1 + ( 0xFFFF ^ (u16)uiCRC ); 
+  18:	425b      	negs	r3, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:630
+
+    return( uiCRC );
+}
+  1a:	b298      	uxth	r0, r3
+  1c:	bd10      	pop	{r4, pc}
+
+Disassembly of section .text.pdiaEncode:
+
+00000000 <pdiaEncode>:
+pdiaEncode():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:639
+    static u32 ulAccumulator, ulMask, ulIndex;
+    u8 ucFrameComplete;
+    
+    ucFrameComplete = 0;
+    
+    switch( ucMode ){
+   0:	2902      	cmp	r1, #2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:633
+
+    return( uiCRC );
+}
+
+u8 pdiaEncode( u8 ucByte, u8 ucMode, u32 *ulSum )
+{
+   2:	b510      	push	{r4, lr}
+   4:	4603      	mov	r3, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:639
+    static u32 ulAccumulator, ulMask, ulIndex;
+    u8 ucFrameComplete;
+    
+    ucFrameComplete = 0;
+    
+    switch( ucMode ){
+   6:	d00a      	beq.n	1e <pdiaEncode+0x1e>
+   8:	2904      	cmp	r1, #4
+   a:	d02a      	beq.n	62 <pdiaEncode+0x62>
+   c:	2901      	cmp	r1, #1
+   e:	f04f 0000 	mov.w	r0, #0
+  12:	d12d      	bne.n	70 <pdiaEncode+0x70>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:641
+        case PDIA_NEW:
+            ulAccumulator = 1;
+  14:	4b17      	ldr	r3, [pc, #92]	; (74 <pdiaEncode+0x74>)
+  16:	6019      	str	r1, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:642
+            ulMask = 0;
+  18:	6058      	str	r0, [r3, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:643
+            ulIndex = 0;
+  1a:	6098      	str	r0, [r3, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:644
+        break;
+  1c:	bd10      	pop	{r4, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:646
+        case PDIA_ADD:
+            if( ulIndex++ == 16384 ){
+  1e:	4915      	ldr	r1, [pc, #84]	; (74 <pdiaEncode+0x74>)
+  20:	6888      	ldr	r0, [r1, #8]
+  22:	1c44      	adds	r4, r0, #1
+  24:	f5b0 4f80 	cmp.w	r0, #16384	; 0x4000
+  28:	608c      	str	r4, [r1, #8]
+  2a:	d108      	bne.n	3e <pdiaEncode+0x3e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:647
+                *ulSum = (u32)( ( ulMask << 16 ) | ulAccumulator );
+  2c:	684c      	ldr	r4, [r1, #4]
+  2e:	6808      	ldr	r0, [r1, #0]
+  30:	ea40 4004 	orr.w	r0, r0, r4, lsl #16
+  34:	6010      	str	r0, [r2, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:648
+                ulIndex = 0;
+  36:	2200      	movs	r2, #0
+  38:	608a      	str	r2, [r1, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:649
+                ucFrameComplete = 1;
+  3a:	2001      	movs	r0, #1
+  3c:	e000      	b.n	40 <pdiaEncode+0x40>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:637
+u8 pdiaEncode( u8 ucByte, u8 ucMode, u32 *ulSum )
+{
+    static u32 ulAccumulator, ulMask, ulIndex;
+    u8 ucFrameComplete;
+    
+    ucFrameComplete = 0;
+  3e:	2000      	movs	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:651
+            if( ulIndex++ == 16384 ){
+                *ulSum = (u32)( ( ulMask << 16 ) | ulAccumulator );
+                ulIndex = 0;
+                ucFrameComplete = 1;
+            }
+            ulAccumulator = ( ulAccumulator + ucByte ) % 65521;
+  40:	680a      	ldr	r2, [r1, #0]
+  42:	189b      	adds	r3, r3, r2
+  44:	f64f 72f1 	movw	r2, #65521	; 0xfff1
+  48:	fbb3 f4f2 	udiv	r4, r3, r2
+  4c:	fb02 3314 	mls	r3, r2, r4, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:652
+            ulMask = ( ulMask + ulAccumulator ) % 65521;
+  50:	684c      	ldr	r4, [r1, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:651
+            if( ulIndex++ == 16384 ){
+                *ulSum = (u32)( ( ulMask << 16 ) | ulAccumulator );
+                ulIndex = 0;
+                ucFrameComplete = 1;
+            }
+            ulAccumulator = ( ulAccumulator + ucByte ) % 65521;
+  52:	600b      	str	r3, [r1, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:652
+            ulMask = ( ulMask + ulAccumulator ) % 65521;
+  54:	191b      	adds	r3, r3, r4
+  56:	fbb3 f4f2 	udiv	r4, r3, r2
+  5a:	fb02 3214 	mls	r2, r2, r4, r3
+  5e:	604a      	str	r2, [r1, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:654
+            
+        break;
+  60:	bd10      	pop	{r4, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:656
+        case PDIA_END:
+            *ulSum = (u32)( ( ulMask << 16 ) | ulAccumulator );
+  62:	4b04      	ldr	r3, [pc, #16]	; (74 <pdiaEncode+0x74>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:657
+            ucFrameComplete = 1;
+  64:	2001      	movs	r0, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:656
+            ulAccumulator = ( ulAccumulator + ucByte ) % 65521;
+            ulMask = ( ulMask + ulAccumulator ) % 65521;
+            
+        break;
+        case PDIA_END:
+            *ulSum = (u32)( ( ulMask << 16 ) | ulAccumulator );
+  66:	6859      	ldr	r1, [r3, #4]
+  68:	681b      	ldr	r3, [r3, #0]
+  6a:	ea43 4301 	orr.w	r3, r3, r1, lsl #16
+  6e:	6013      	str	r3, [r2, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:662
+            ucFrameComplete = 1;
+        break;
+    }
+    
+    return( ucFrameComplete );
+}
+  70:	bd10      	pop	{r4, pc}
+  72:	bf00      	nop
+  74:	00000000 	.word	0x00000000
+
+Disassembly of section .text.pdiaPrintString:
+
+00000000 <pdiaPrintString>:
+pdiaPrintString():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:678
+{
+    u16 i;
+
+    // Note: !!! This function only complies with PDIA spec to 16384 chars !!!
+    //if(ucStream < PYGMY_SYS_MAXPIPES && pygmyGlobalData.Stream[ ucStream ] ){
+    if( ucStream < MAXCOMPORTS ){//&& pygmyGlobalData.Stream[ ucStream ] ){
+   0:	e92d2a01 	.word	0xe92d2a01
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:673
+    convertIntToString( ulData, ucFormat, ucBuffer );
+    pdiaPrintString( ucMode, ulSum, ucStream, ucBuffer );
+}
+
+void pdiaPrintString( u8 ucMode, u32 *ulSum, u8 ucStream, u8 *ucBuffer )
+{
+   4:	41f0      	rors	r0, r6
+   6:	4604      	mov	r4, r0
+   8:	460d      	mov	r5, r1
+   a:	4616      	mov	r6, r2
+   c:	4698      	mov	r8, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:678
+    u16 i;
+
+    // Note: !!! This function only complies with PDIA spec to 16384 chars !!!
+    //if(ucStream < PYGMY_SYS_MAXPIPES && pygmyGlobalData.Stream[ ucStream ] ){
+    if( ucStream < MAXCOMPORTS ){//&& pygmyGlobalData.Stream[ ucStream ] ){
+   e:	d81f      	bhi.n	50 <pdiaPrintString+0x50>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:680
+        
+        if( ucMode == PDIA_NEW ){
+  10:	2801      	cmp	r0, #1
+  12:	d104      	bne.n	1e <pdiaPrintString+0x1e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:681
+            pdiaEncode( 0, PDIA_NEW, ulSum );
+  14:	2000      	movs	r0, #0
+  16:	4621      	mov	r1, r4
+  18:	462a      	mov	r2, r5
+  1a:	f7ff fffe 	bl	0 <pdiaPrintString>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:673
+    convertIntToString( ulData, ucFormat, ucBuffer );
+    pdiaPrintString( ucMode, ulSum, ucStream, ucBuffer );
+}
+
+void pdiaPrintString( u8 ucMode, u32 *ulSum, u8 ucStream, u8 *ucBuffer )
+{
+  1e:	2700      	movs	r7, #0
+  20:	e005      	b.n	2e <pdiaPrintString+0x2e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:684
+        
+        if( ucMode == PDIA_NEW ){
+            pdiaEncode( 0, PDIA_NEW, ulSum );
+        }
+        for( i = 0; ucBuffer[ i ]; i++ ){
+            pdiaEncode( ucBuffer[ i ], PDIA_ADD, ulSum );
+  22:	2102      	movs	r1, #2
+  24:	462a      	mov	r2, r5
+  26:	f7ff fffe 	bl	0 <pdiaPrintString>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:683
+    if( ucStream < MAXCOMPORTS ){//&& pygmyGlobalData.Stream[ ucStream ] ){
+        
+        if( ucMode == PDIA_NEW ){
+            pdiaEncode( 0, PDIA_NEW, ulSum );
+        }
+        for( i = 0; ucBuffer[ i ]; i++ ){
+  2a:	3701      	adds	r7, #1
+  2c:	b2bf      	uxth	r7, r7
+  2e:	f818 0007 	ldrb.w	r0, [r8, r7]
+  32:	2800      	cmp	r0, #0
+  34:	d1f5      	bne.n	22 <pdiaPrintString+0x22>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:686
+            pdiaEncode( ucBuffer[ i ], PDIA_ADD, ulSum );
+        }
+        if( ucMode == PDIA_END ){
+  36:	2c04      	cmp	r4, #4
+  38:	d103      	bne.n	42 <pdiaPrintString+0x42>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:687
+            pdiaEncode( 0, PDIA_END, ulSum );
+  3a:	4621      	mov	r1, r4
+  3c:	462a      	mov	r2, r5
+  3e:	f7ff fffe 	bl	0 <pdiaPrintString>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:689
+        }
+        globalStreams[ ucStream ].Put( ucBuffer );
+  42:	4b04      	ldr	r3, [pc, #16]	; (54 <pdiaPrintString+0x54>)
+  44:	2224      	movs	r2, #36	; 0x24
+  46:	fb02 3606 	mla	r6, r2, r6, r3
+  4a:	4640      	mov	r0, r8
+  4c:	68f3      	ldr	r3, [r6, #12]
+  4e:	4798      	blx	r3
+  50:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  54:	00000000 	.word	0x00000000
+
+Disassembly of section .text.pdiaPrintInteger:
+
+00000000 <pdiaPrintInteger>:
+pdiaPrintInteger():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:665
+    
+    return( ucFrameComplete );
+}
+
+void pdiaPrintInteger( u8 ucMode, u32 *ulSum, u8 ucStream, u8 *ucFormat, u32 ulData )
+{
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	b086      	sub	sp, #24
+   4:	4606      	mov	r6, r0
+   6:	460d      	mov	r5, r1
+   8:	4614      	mov	r4, r2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:668
+    u8 ucBuffer[ 20 ];
+    
+    convertIntToString( ulData, ucFormat, ucBuffer );
+   a:	2100      	movs	r1, #0
+   c:	461a      	mov	r2, r3
+   e:	980a      	ldr	r0, [sp, #40]	; 0x28
+  10:	ab01      	add	r3, sp, #4
+  12:	f7ff fffe 	bl	0 <convertIntToString>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:669
+    pdiaPrintString( ucMode, ulSum, ucStream, ucBuffer );
+  16:	4630      	mov	r0, r6
+  18:	4629      	mov	r1, r5
+  1a:	4622      	mov	r2, r4
+  1c:	ab01      	add	r3, sp, #4
+  1e:	f7ff fffe 	bl	0 <pdiaPrintInteger>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:670
+}
+  22:	b006      	add	sp, #24
+  24:	bd70      	pop	{r4, r5, r6, pc}
+
+Disassembly of section .text.TaskException_Handler:
+
+00000000 <TaskException_Handler>:
+TaskException_Handler():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:875
+#endif
+
+void TaskException_Handler( void )
+{
+    // ToDo: Add any relevant debug or cleanup code here
+}
+   0:	4770      	bx	lr
+
+Disassembly of section .text.sysGetIDString:
+
+00000000 <sysGetIDString>:
+sysGetIDString():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1034
+u8 *sysGetIDString( void ) // ( u8 *ucBuffer )
+{
+    static u8 ucIDBuffer[ 25 ];
+    u8 i, *ucID;
+
+    ucIDBuffer[ 0 ] = '\0';
+   0:	4b09      	ldr	r3, [pc, #36]	; (28 <sysGetIDString+0x28>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1030
+
+//--------------------------------------------------------------------------------------------
+//----------------------------------------Pygmy OS ID-----------------------------------------
+
+u8 *sysGetIDString( void ) // ( u8 *ucBuffer )
+{
+   2:	b570      	push	{r4, r5, r6, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1034
+    static u8 ucIDBuffer[ 25 ];
+    u8 i, *ucID;
+
+    ucIDBuffer[ 0 ] = '\0';
+   4:	2500      	movs	r5, #0
+   6:	4c09      	ldr	r4, [pc, #36]	; (2c <sysGetIDString+0x2c>)
+   8:	731d      	strb	r5, [r3, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1038
+    ucID = (u8*)0x1FFFF7E8; // Address of 96 bit Unique ID
+    for( i = 0; i < 12; i++ ){
+        //convertIntToString( ucID[ 11 - i ], "2x", (u8*)(ucBuffer + len( ucBuffer ) ) );
+        convertIntToString( ucID[ 11 - i ], "2x", (u8*)( ucIDBuffer + ( i * 2 ) ) );
+   a:	4e09      	ldr	r6, [pc, #36]	; (30 <sysGetIDString+0x30>)
+   c:	f814 0d01 	ldrb.w	r0, [r4, #-1]!
+  10:	1973      	adds	r3, r6, r5
+  12:	2100      	movs	r1, #0
+  14:	4a07      	ldr	r2, [pc, #28]	; (34 <sysGetIDString+0x34>)
+  16:	f7ff fffe 	bl	0 <convertIntToString>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1036
+    static u8 ucIDBuffer[ 25 ];
+    u8 i, *ucID;
+
+    ucIDBuffer[ 0 ] = '\0';
+    ucID = (u8*)0x1FFFF7E8; // Address of 96 bit Unique ID
+    for( i = 0; i < 12; i++ ){
+  1a:	4b07      	ldr	r3, [pc, #28]	; (38 <sysGetIDString+0x38>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1038
+        //convertIntToString( ucID[ 11 - i ], "2x", (u8*)(ucBuffer + len( ucBuffer ) ) );
+        convertIntToString( ucID[ 11 - i ], "2x", (u8*)( ucIDBuffer + ( i * 2 ) ) );
+  1c:	3502      	adds	r5, #2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1036
+    static u8 ucIDBuffer[ 25 ];
+    u8 i, *ucID;
+
+    ucIDBuffer[ 0 ] = '\0';
+    ucID = (u8*)0x1FFFF7E8; // Address of 96 bit Unique ID
+    for( i = 0; i < 12; i++ ){
+  1e:	429c      	cmp	r4, r3
+  20:	d1f3      	bne.n	a <sysGetIDString+0xa>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1042
+        //convertIntToString( ucID[ 11 - i ], "2x", (u8*)(ucBuffer + len( ucBuffer ) ) );
+        convertIntToString( ucID[ 11 - i ], "2x", (u8*)( ucIDBuffer + ( i * 2 ) ) );
+    } // for
+    
+    return( (u8*)ucIDBuffer );
+}
+  22:	4630      	mov	r0, r6
+  24:	bd70      	pop	{r4, r5, r6, pc}
+  26:	bf00      	nop
+  28:	00000000 	.word	0x00000000
+  2c:	1ffff7f4 	.word	0x1ffff7f4
+  30:	0000000c 	.word	0x0000000c
+  34:	00000000 	.word	0x00000000
+  38:	1ffff7e8 	.word	0x1ffff7e8
+
+Disassembly of section .text.sysGetID:
+
+00000000 <sysGetID>:
+sysGetID():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1052
+    u8 *ucID;
+    
+    ucID = (u8*)0x1FFFF7E8; // Address of 96 bit Unique ID
+    
+    return( ucID );
+}
+   0:	47704800 	.word	0x47704800
+   4:	1ffff7e8 	.word	0x1ffff7e8
+
+Disassembly of section .text.sysGetFile:
+
+00000000 <sysGetFile>:
+sysGetFile():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1057
+
+void *sysGetFile( void )
+{
+    return( &pygmyGlobalData.File );
+}
+   0:	4800      	ldr	r0, [pc, #0]	; (4 <sysGetFile+0x4>)
+   2:	4770      	bx	lr
+   4:	0000001c 	.word	0x0000001c
+
+Disassembly of section .text.descriptorGetMainClock:
+
+00000000 <descriptorGetMainClock>:
+descriptorGetMainClock():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1064
+u32 descriptorGetMainClock( void )
+{
+    // Returns the HSE programmed into the descriptor page by bootloader
+    u32 *ulMainClock;
+    
+    ulMainClock = (u32*)(0x08000000 + ( ( SIZEREG->Pages - 2 ) * 1024 ) + 4); 
+   0:	4b03      	ldr	r3, [pc, #12]	; (10 <descriptorGetMainClock+0x10>)
+   2:	881a      	ldrh	r2, [r3, #0]
+   4:	4b03      	ldr	r3, [pc, #12]	; (14 <descriptorGetMainClock+0x14>)
+   6:	b292      	uxth	r2, r2
+   8:	18d3      	adds	r3, r2, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1066
+    
+    return( *ulMainClock );
+   a:	029b      	lsls	r3, r3, #10
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1067
+}
+   c:	6858      	ldr	r0, [r3, #4]
+   e:	4770      	bx	lr
+  10:	1ffff7e0 	.word	0x1ffff7e0
+  14:	0001fffe 	.word	0x0001fffe
+
+Disassembly of section .text.descriptorGetXTAL:
+
+00000000 <descriptorGetXTAL>:
+descriptorGetXTAL():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1074
+u32 descriptorGetXTAL( void )
+{
+    // Returns the HSE programmed into the descriptor page by bootloader
+    u32 *ulXTAL;
+    
+    ulXTAL = (u32*)(0x08000000 + ( ( SIZEREG->Pages - 2 ) * 1024 ) + 2); 
+   0:	4b04      	ldr	r3, [pc, #16]	; (14 <descriptorGetXTAL+0x14>)
+   2:	881a      	ldrh	r2, [r3, #0]
+   4:	4b04      	ldr	r3, [pc, #16]	; (18 <descriptorGetXTAL+0x18>)
+   6:	b292      	uxth	r2, r2
+   8:	18d3      	adds	r3, r2, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1076
+    
+    return( *ulXTAL );
+   a:	029b      	lsls	r3, r3, #10
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1077
+}
+   c:	f8d3 0002 	ldr.w	r0, [r3, #2]
+  10:	4770      	bx	lr
+  12:	bf00      	nop
+  14:	1ffff7e0 	.word	0x1ffff7e0
+  18:	0001fffe 	.word	0x0001fffe
+
+Disassembly of section .text.descriptorGetID:
+
+00000000 <descriptorGetID>:
+descriptorGetID():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1093
+    // Low and medium density value line devices = 0x420
+    // High density value line devices = 0x428
+    
+    u32 *ulID;
+    
+    ulID = (u32*)(0x08000000 + ( ( SIZEREG->Pages - 2 ) * 1024 )); 
+   0:	881a4b03 	.word	0x881a4b03
+   4:	4b03      	ldr	r3, [pc, #12]	; (14 <descriptorGetID+0x14>)
+   6:	b292      	uxth	r2, r2
+   8:	18d3      	adds	r3, r2, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1095
+    //print( COM3, "\rID Address: %8X", ulID );
+    return( *ulID );
+   a:	029b      	lsls	r3, r3, #10
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1096
+}
+   c:	6818      	ldr	r0, [r3, #0]
+   e:	4770      	bx	lr
+  10:	1ffff7e0 	.word	0x1ffff7e0
+  14:	0001fffe 	.word	0x0001fffe
+
+Disassembly of section .text.sysGetIDRevision:
+
+00000000 <sysGetIDRevision>:
+sysGetIDRevision():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1106
+    // ToDo: Add at bootloader level
+    u32 *ulRev;
+    
+    ulRev = (u32*)0xE0042000;
+    
+    return( ( *ulRev & 0xFFFFF000 ) >> 12 );
+   0:	68184b01 	.word	0x68184b01
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1107
+}
+   4:	0b00      	lsrs	r0, r0, #12
+   6:	4770      	bx	lr
+   8:	e0042000 	.word	0xe0042000
+
+Disassembly of section .text.print:
+
+00000000 <print>:
+print():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1123
+    print( ucStream, ucBuffer );
+    print( ucStream, "\r" );
+}
+
+void print( u8 ucStream, u8 *ucBuffer, ... )
+{
+   0:	b40e      	push	{r1, r2, r3}
+   2:	e92d 43f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, lr}
+   6:	b092      	sub	sp, #72	; 0x48
+   8:	ab19      	add	r3, sp, #100	; 0x64
+   a:	f853 5b04 	ldr.w	r5, [r3], #4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1130
+    u8 i, ii, ucValue[ 3 ], *sValue, sFormat[ 13 ], ucIntBuffer[ 20 ];
+    u16 uiLen;
+    va_list ap;
+    
+    
+    ucValue[ 2 ] = 0;
+   e:	2200      	movs	r2, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1123
+    print( ucStream, ucBuffer );
+    print( ucStream, "\r" );
+}
+
+void print( u8 ucStream, u8 *ucBuffer, ... )
+{
+  10:	4604      	mov	r4, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1130
+    u8 i, ii, ucValue[ 3 ], *sValue, sFormat[ 13 ], ucIntBuffer[ 20 ];
+    u16 uiLen;
+    va_list ap;
+    
+    
+    ucValue[ 2 ] = 0;
+  12:	f88d 2046 	strb.w	r2, [sp, #70]	; 0x46
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1131
+    va_start( ap, ucBuffer );
+  16:	9310      	str	r3, [sp, #64]	; 0x40
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1132
+    for( ; *ucBuffer; ucBuffer++ ){
+  18:	e0d5      	b.n	1c6 <print+0x1c6>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1134
+        
+        if( *ucBuffer == '%' ){ // Found format specifier
+  1a:	2b25      	cmp	r3, #37	; 0x25
+  1c:	f04f 0600 	mov.w	r6, #0
+  20:	f040 80c5 	bne.w	1ae <print+0x1ae>
+  24:	462f      	mov	r7, r5
+  26:	f10d 0827 	add.w	r8, sp, #39	; 0x27
+  2a:	e007      	b.n	3c <print+0x3c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1137
+            // first collect precision, if any
+            for( i = 0; i < 12 && ( isNumeric( *(++ucBuffer) ) || *ucBuffer == '-' 
+                || *ucBuffer == '+' ); i++ ){
+  2c:	3601      	adds	r6, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1138
+                sFormat[ i ] = *ucBuffer;
+  2e:	787b      	ldrb	r3, [r7, #1]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1137
+    for( ; *ucBuffer; ucBuffer++ ){
+        
+        if( *ucBuffer == '%' ){ // Found format specifier
+            // first collect precision, if any
+            for( i = 0; i < 12 && ( isNumeric( *(++ucBuffer) ) || *ucBuffer == '-' 
+                || *ucBuffer == '+' ); i++ ){
+  30:	b2f6      	uxtb	r6, r6
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1136
+    va_start( ap, ucBuffer );
+    for( ; *ucBuffer; ucBuffer++ ){
+        
+        if( *ucBuffer == '%' ){ // Found format specifier
+            // first collect precision, if any
+            for( i = 0; i < 12 && ( isNumeric( *(++ucBuffer) ) || *ucBuffer == '-' 
+  32:	2e0c      	cmp	r6, #12
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1138
+                || *ucBuffer == '+' ); i++ ){
+                sFormat[ i ] = *ucBuffer;
+  34:	f808 3f01 	strb.w	r3, [r8, #1]!
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1136
+    va_start( ap, ucBuffer );
+    for( ; *ucBuffer; ucBuffer++ ){
+        
+        if( *ucBuffer == '%' ){ // Found format specifier
+            // first collect precision, if any
+            for( i = 0; i < 12 && ( isNumeric( *(++ucBuffer) ) || *ucBuffer == '-' 
+  38:	d00b      	beq.n	52 <print+0x52>
+  3a:	462f      	mov	r7, r5
+  3c:	7878      	ldrb	r0, [r7, #1]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1122
+{
+    print( ucStream, ucBuffer );
+    print( ucStream, "\r" );
+}
+
+void print( u8 ucStream, u8 *ucBuffer, ... )
+  3e:	3501      	adds	r5, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1136
+    va_start( ap, ucBuffer );
+    for( ; *ucBuffer; ucBuffer++ ){
+        
+        if( *ucBuffer == '%' ){ // Found format specifier
+            // first collect precision, if any
+            for( i = 0; i < 12 && ( isNumeric( *(++ucBuffer) ) || *ucBuffer == '-' 
+  40:	f7ff fffe 	bl	0 <isNumeric>
+  44:	2800      	cmp	r0, #0
+  46:	d1f1      	bne.n	2c <print+0x2c>
+  48:	787b      	ldrb	r3, [r7, #1]
+  4a:	2b2d      	cmp	r3, #45	; 0x2d
+  4c:	d0ee      	beq.n	2c <print+0x2c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1137
+                || *ucBuffer == '+' ); i++ ){
+  4e:	2b2b      	cmp	r3, #43	; 0x2b
+  50:	d0ec      	beq.n	2c <print+0x2c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1140
+                sFormat[ i ] = *ucBuffer;
+            } // for
+            sFormat[ i ] = 0; // Terminate format string
+  52:	a912      	add	r1, sp, #72	; 0x48
+  54:	198b      	adds	r3, r1, r6
+  56:	f04f 0900 	mov.w	r9, #0
+  5a:	f803 9c20 	strb.w	r9, [r3, #-32]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1141
+            if( *ucBuffer == '%' ){ // Format specifer was only escaping '%' char, print
+  5e:	782b      	ldrb	r3, [r5, #0]
+  60:	2b25      	cmp	r3, #37	; 0x25
+  62:	d101      	bne.n	68 <print+0x68>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1142
+                ucValue[ 0 ] = '%';
+  64:	4608      	mov	r0, r1
+  66:	e006      	b.n	76 <print+0x76>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1144
+                globalStreams[ ucStream ].Put( ucValue );
+            } else if( *ucBuffer == 'c' ){ 
+  68:	2b63      	cmp	r3, #99	; 0x63
+  6a:	d10c      	bne.n	86 <print+0x86>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1145
+                ucValue[ 0 ] = (u8)va_arg( ap, int );
+  6c:	9b10      	ldr	r3, [sp, #64]	; 0x40
+  6e:	a812      	add	r0, sp, #72	; 0x48
+  70:	1d1a      	adds	r2, r3, #4
+  72:	681b      	ldr	r3, [r3, #0]
+  74:	9210      	str	r2, [sp, #64]	; 0x40
+  76:	f800 3d04 	strb.w	r3, [r0, #-4]!
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1146
+                 globalStreams[ ucStream ].Put( ucValue );
+  7a:	4b57      	ldr	r3, [pc, #348]	; (1d8 <print+0x1d8>)
+  7c:	2224      	movs	r2, #36	; 0x24
+  7e:	fb02 3304 	mla	r3, r2, r4, r3
+  82:	68db      	ldr	r3, [r3, #12]
+  84:	e09d      	b.n	1c2 <print+0x1c2>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1147
+            } else if( *ucBuffer == 's' ){
+  86:	2b73      	cmp	r3, #115	; 0x73
+  88:	d150      	bne.n	12c <print+0x12c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1148
+                sValue = va_arg( ap, u8 * );
+  8a:	9b10      	ldr	r3, [sp, #64]	; 0x40
+  8c:	4e52      	ldr	r6, [pc, #328]	; (1d8 <print+0x1d8>)
+  8e:	f8d3 8000 	ldr.w	r8, [r3]
+  92:	1d1a      	adds	r2, r3, #4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1149
+                uiLen = len( sValue );
+  94:	4640      	mov	r0, r8
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1148
+                globalStreams[ ucStream ].Put( ucValue );
+            } else if( *ucBuffer == 'c' ){ 
+                ucValue[ 0 ] = (u8)va_arg( ap, int );
+                 globalStreams[ ucStream ].Put( ucValue );
+            } else if( *ucBuffer == 's' ){
+                sValue = va_arg( ap, u8 * );
+  96:	9210      	str	r2, [sp, #64]	; 0x40
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1149
+                uiLen = len( sValue );
+  98:	f7ff fffe 	bl	0 <len>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1151
+                
+                ucValue[ 0 ] = ' ';
+  9c:	2320      	movs	r3, #32
+  9e:	f88d 3044 	strb.w	r3, [sp, #68]	; 0x44
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1152
+                if( sFormat[ 0 ] == '-' ){
+  a2:	f89d 3028 	ldrb.w	r3, [sp, #40]	; 0x28
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1149
+            } else if( *ucBuffer == 'c' ){ 
+                ucValue[ 0 ] = (u8)va_arg( ap, int );
+                 globalStreams[ ucStream ].Put( ucValue );
+            } else if( *ucBuffer == 's' ){
+                sValue = va_arg( ap, u8 * );
+                uiLen = len( sValue );
+  a6:	4607      	mov	r7, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1152
+                
+                ucValue[ 0 ] = ' ';
+                if( sFormat[ 0 ] == '-' ){
+  a8:	2b2d      	cmp	r3, #45	; 0x2d
+  aa:	d120      	bne.n	ee <print+0xee>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1153
+                    globalStreams[ ucStream ].Put( sValue );
+  ac:	3b09      	subs	r3, #9
+  ae:	fb03 6304 	mla	r3, r3, r4, r6
+  b2:	4640      	mov	r0, r8
+  b4:	68db      	ldr	r3, [r3, #12]
+  b6:	4798      	blx	r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1154
+                    ii = convertStringToInt( (u8*)(sFormat+1) );
+  b8:	f10d 0029 	add.w	r0, sp, #41	; 0x29
+  bc:	f7ff fffe 	bl	0 <convertStringToInt>
+  c0:	b2c0      	uxtb	r0, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1155
+                    if( ii > uiLen ){
+  c2:	42b8      	cmp	r0, r7
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1156
+                        ii -= uiLen;
+  c4:	bf84      	itt	hi
+  c6:	ebc7 0900 	rsbhi	r9, r7, r0
+  ca:	fa5f f989 	uxtbhi.w	r9, r9
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1160
+                    } else{
+                        ii = 0;
+                    } // else
+                    for( i = 0; i < ii; i++ ){
+  ce:	f04f 0800 	mov.w	r8, #0
+  d2:	e009      	b.n	e8 <print+0xe8>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1161
+                         globalStreams[ ucStream ].Put( ucValue );
+  d4:	2324      	movs	r3, #36	; 0x24
+  d6:	fb03 6304 	mla	r3, r3, r4, r6
+  da:	a811      	add	r0, sp, #68	; 0x44
+  dc:	68db      	ldr	r3, [r3, #12]
+  de:	4798      	blx	r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1160
+                    if( ii > uiLen ){
+                        ii -= uiLen;
+                    } else{
+                        ii = 0;
+                    } // else
+                    for( i = 0; i < ii; i++ ){
+  e0:	f108 0801 	add.w	r8, r8, #1
+  e4:	fa5f f888 	uxtb.w	r8, r8
+  e8:	45c8      	cmp	r8, r9
+  ea:	d3f3      	bcc.n	d4 <print+0xd4>
+  ec:	e06a      	b.n	1c4 <print+0x1c4>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1164
+                         globalStreams[ ucStream ].Put( ucValue );
+                    } // for
+                } else{
+                    ii = convertStringToInt( sFormat );
+  ee:	a80a      	add	r0, sp, #40	; 0x28
+  f0:	f7ff fffe 	bl	0 <convertStringToInt>
+  f4:	b2c0      	uxtb	r0, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1165
+                    if( ii > uiLen ){
+  f6:	42b8      	cmp	r0, r7
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1166
+                        ii -= uiLen;
+  f8:	bf8a      	itet	hi
+  fa:	ebc7 0700 	rsbhi	r7, r7, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1168
+                    } else{
+                        ii = 0;
+  fe:	464f      	movls	r7, r9
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1166
+                         globalStreams[ ucStream ].Put( ucValue );
+                    } // for
+                } else{
+                    ii = convertStringToInt( sFormat );
+                    if( ii > uiLen ){
+                        ii -= uiLen;
+ 100:	b2ff      	uxtbhi	r7, r7
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1170
+                    } else{
+                        ii = 0;
+                    }
+                    for( i = 0; i < ii; i++ ){
+ 102:	f04f 0900 	mov.w	r9, #0
+ 106:	e008      	b.n	11a <print+0x11a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1171
+                         globalStreams[ ucStream ].Put( ucValue );
+ 108:	fb03 6304 	mla	r3, r3, r4, r6
+ 10c:	a811      	add	r0, sp, #68	; 0x44
+ 10e:	68db      	ldr	r3, [r3, #12]
+ 110:	4798      	blx	r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1170
+                    if( ii > uiLen ){
+                        ii -= uiLen;
+                    } else{
+                        ii = 0;
+                    }
+                    for( i = 0; i < ii; i++ ){
+ 112:	f109 0901 	add.w	r9, r9, #1
+ 116:	fa5f f989 	uxtb.w	r9, r9
+ 11a:	45b9      	cmp	r9, r7
+ 11c:	f04f 0324 	mov.w	r3, #36	; 0x24
+ 120:	d3f2      	bcc.n	108 <print+0x108>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1173
+                         globalStreams[ ucStream ].Put( ucValue );
+                    } // for
+                    globalStreams[ ucStream ].Put( sValue );
+ 122:	fb03 6604 	mla	r6, r3, r4, r6
+ 126:	4640      	mov	r0, r8
+ 128:	68f3      	ldr	r3, [r6, #12]
+ 12a:	e04a      	b.n	1c2 <print+0x1c2>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1175
+                } // else
+            } else if( *ucBuffer == 'i' || *ucBuffer == 'd' ||
+ 12c:	2b69      	cmp	r3, #105	; 0x69
+ 12e:	d007      	beq.n	140 <print+0x140>
+ 130:	2b64      	cmp	r3, #100	; 0x64
+ 132:	d005      	beq.n	140 <print+0x140>
+ 134:	2b78      	cmp	r3, #120	; 0x78
+ 136:	d003      	beq.n	140 <print+0x140>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1176
+                *ucBuffer == 'x' || *ucBuffer == 'X' || *ucBuffer == 'o' ){
+ 138:	2b58      	cmp	r3, #88	; 0x58
+ 13a:	d001      	beq.n	140 <print+0x140>
+ 13c:	2b6f      	cmp	r3, #111	; 0x6f
+ 13e:	d118      	bne.n	172 <print+0x172>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1177
+                sFormat[ i++ ] = *ucBuffer; // PrintInteger requires format char
+ 140:	a912      	add	r1, sp, #72	; 0x48
+ 142:	198a      	adds	r2, r1, r6
+ 144:	3601      	adds	r6, #1
+ 146:	f802 3c20 	strb.w	r3, [r2, #-32]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1178
+                sFormat[ i ] = 0; // terminate at new index
+ 14a:	b2f6      	uxtb	r6, r6
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1179
+                convertIntToString( va_arg( ap, u32 ), sFormat, ucIntBuffer );
+ 14c:	9b10      	ldr	r3, [sp, #64]	; 0x40
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1178
+                    globalStreams[ ucStream ].Put( sValue );
+                } // else
+            } else if( *ucBuffer == 'i' || *ucBuffer == 'd' ||
+                *ucBuffer == 'x' || *ucBuffer == 'X' || *ucBuffer == 'o' ){
+                sFormat[ i++ ] = *ucBuffer; // PrintInteger requires format char
+                sFormat[ i ] = 0; // terminate at new index
+ 14e:	198e      	adds	r6, r1, r6
+ 150:	2100      	movs	r1, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1179
+                convertIntToString( va_arg( ap, u32 ), sFormat, ucIntBuffer );
+ 152:	1d1a      	adds	r2, r3, #4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1178
+                    globalStreams[ ucStream ].Put( sValue );
+                } // else
+            } else if( *ucBuffer == 'i' || *ucBuffer == 'd' ||
+                *ucBuffer == 'x' || *ucBuffer == 'X' || *ucBuffer == 'o' ){
+                sFormat[ i++ ] = *ucBuffer; // PrintInteger requires format char
+                sFormat[ i ] = 0; // terminate at new index
+ 154:	f806 1c20 	strb.w	r1, [r6, #-32]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1179
+                convertIntToString( va_arg( ap, u32 ), sFormat, ucIntBuffer );
+ 158:	9210      	str	r2, [sp, #64]	; 0x40
+ 15a:	6818      	ldr	r0, [r3, #0]
+ 15c:	aa0a      	add	r2, sp, #40	; 0x28
+ 15e:	ab05      	add	r3, sp, #20
+ 160:	f7ff fffe 	bl	0 <convertIntToString>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1180
+                globalStreams[ ucStream ].Put( ucIntBuffer );
+ 164:	4b1c      	ldr	r3, [pc, #112]	; (1d8 <print+0x1d8>)
+ 166:	2224      	movs	r2, #36	; 0x24
+ 168:	fb02 3304 	mla	r3, r2, r4, r3
+ 16c:	a805      	add	r0, sp, #20
+ 16e:	68db      	ldr	r3, [r3, #12]
+ 170:	e027      	b.n	1c2 <print+0x1c2>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1181
+            } else if( *ucBuffer == 't' ){
+ 172:	2b74      	cmp	r3, #116	; 0x74
+ 174:	d126      	bne.n	1c4 <print+0x1c4>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1182
+                convertSecondsToSystemTime( va_arg( ap, s32 ), &pygmyTime );
+ 176:	9b10      	ldr	r3, [sp, #64]	; 0x40
+ 178:	a90e      	add	r1, sp, #56	; 0x38
+ 17a:	1d1a      	adds	r2, r3, #4
+ 17c:	6818      	ldr	r0, [r3, #0]
+ 17e:	9210      	str	r2, [sp, #64]	; 0x40
+ 180:	f7ff fffe 	bl	0 <convertSecondsToSystemTime>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1183
+                print( ucStream, "%4d-%2d-%2d %2d:%2d:%2d", pygmyTime.Year,pygmyTime.Month,pygmyTime.Day,
+ 184:	f89d 103b 	ldrb.w	r1, [sp, #59]	; 0x3b
+ 188:	f8bd 2038 	ldrh.w	r2, [sp, #56]	; 0x38
+ 18c:	9100      	str	r1, [sp, #0]
+ 18e:	f89d 103c 	ldrb.w	r1, [sp, #60]	; 0x3c
+ 192:	f89d 303a 	ldrb.w	r3, [sp, #58]	; 0x3a
+ 196:	9101      	str	r1, [sp, #4]
+ 198:	f89d 103d 	ldrb.w	r1, [sp, #61]	; 0x3d
+ 19c:	4620      	mov	r0, r4
+ 19e:	9102      	str	r1, [sp, #8]
+ 1a0:	f89d 103e 	ldrb.w	r1, [sp, #62]	; 0x3e
+ 1a4:	9103      	str	r1, [sp, #12]
+ 1a6:	490d      	ldr	r1, [pc, #52]	; (1dc <print+0x1dc>)
+ 1a8:	f7ff fffe 	bl	0 <print>
+ 1ac:	e00a      	b.n	1c4 <print+0x1c4>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1187
+                    pygmyTime.Hour,pygmyTime.Minute,pygmyTime.Second );
+            }
+        } else{
+            ucValue[ 0 ] = *ucBuffer;
+ 1ae:	f88d 3044 	strb.w	r3, [sp, #68]	; 0x44
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1189
+            ucValue[ 1 ] = 0;
+            globalStreams[ ucStream ].Put( ucValue );
+ 1b2:	4b09      	ldr	r3, [pc, #36]	; (1d8 <print+0x1d8>)
+ 1b4:	2224      	movs	r2, #36	; 0x24
+ 1b6:	fb02 3304 	mla	r3, r2, r4, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1188
+                print( ucStream, "%4d-%2d-%2d %2d:%2d:%2d", pygmyTime.Year,pygmyTime.Month,pygmyTime.Day,
+                    pygmyTime.Hour,pygmyTime.Minute,pygmyTime.Second );
+            }
+        } else{
+            ucValue[ 0 ] = *ucBuffer;
+            ucValue[ 1 ] = 0;
+ 1ba:	f88d 6045 	strb.w	r6, [sp, #69]	; 0x45
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1189
+            globalStreams[ ucStream ].Put( ucValue );
+ 1be:	68db      	ldr	r3, [r3, #12]
+ 1c0:	a811      	add	r0, sp, #68	; 0x44
+ 1c2:	4798      	blx	r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1132
+    va_list ap;
+    
+    
+    ucValue[ 2 ] = 0;
+    va_start( ap, ucBuffer );
+    for( ; *ucBuffer; ucBuffer++ ){
+ 1c4:	3501      	adds	r5, #1
+ 1c6:	782b      	ldrb	r3, [r5, #0]
+ 1c8:	2b00      	cmp	r3, #0
+ 1ca:	f47f af26 	bne.w	1a <print+0x1a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1193
+            ucValue[ 1 ] = 0;
+            globalStreams[ ucStream ].Put( ucValue );
+        }
+    } // for
+    va_end( ap );
+}
+ 1ce:	b012      	add	sp, #72	; 0x48
+ 1d0:	e8bd 43f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, lr}
+ 1d4:	b003      	add	sp, #12
+ 1d6:	4770      	bx	lr
+ 1d8:	00000000 	.word	0x00000000
+ 1dc:	00000003 	.word	0x00000003
+
+Disassembly of section .text.println:
+
+00000000 <println>:
+println():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1117
+
+//--------------------------------------------------------------------------------------------
+//---------------------------------------Pygmy OS Print---------------------------------------
+
+void println( u8 ucStream, u8 *ucBuffer, ... )
+{
+   0:	b518b40e 	.word	0xb518b40e
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1118
+    print( ucStream, ucBuffer );
+   4:	9903      	ldr	r1, [sp, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1117
+
+//--------------------------------------------------------------------------------------------
+//---------------------------------------Pygmy OS Print---------------------------------------
+
+void println( u8 ucStream, u8 *ucBuffer, ... )
+{
+   6:	4604      	mov	r4, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1118
+    print( ucStream, ucBuffer );
+   8:	f7ff fffe 	bl	0 <println>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1119
+    print( ucStream, "\r" );
+   c:	4620      	mov	r0, r4
+   e:	4903      	ldr	r1, [pc, #12]	; (1c <println+0x1c>)
+  10:	f7ff fffe 	bl	0 <println>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1120
+}
+  14:	e8bd 4018 	ldmia.w	sp!, {r3, r4, lr}
+  18:	b003      	add	sp, #12
+  1a:	4770      	bx	lr
+  1c:	0000001b 	.word	0x0000001b
+
+Disassembly of section .text.streamSetPrintFile:
+
+00000000 <streamSetPrintFile>:
+streamSetPrintFile():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1198
+}
+
+
+void streamSetPrintFile( void *pygmyFile )
+{
+    pygmyGlobalData.File = pygmyFile;
+   0:	61d84b01 	.word	0x61d84b01
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1199
+}
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+   8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.putsFILE:
+
+00000000 <putsFILE>:
+putsFILE():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1203
+
+u8 putsFILE( u8 *ucBuffer )
+{
+    return( filePutString( pygmyGlobalData.File, ucBuffer ) );
+   0:	4b02      	ldr	r3, [pc, #8]	; (c <putsFILE+0xc>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1202
+{
+    pygmyGlobalData.File = pygmyFile;
+}
+
+u8 putsFILE( u8 *ucBuffer )
+{
+   2:	4601      	mov	r1, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1203
+    return( filePutString( pygmyGlobalData.File, ucBuffer ) );
+   4:	69d8      	ldr	r0, [r3, #28]
+   6:	f7ff bffe 	b.w	0 <filePutString>
+   a:	bf00      	nop
+   c:	00000000 	.word	0x00000000
+
+Disassembly of section .text.setMainClock:
+
+00000000 <setMainClock>:
+setMainClock():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1222
+//---------------------------------------Pygmy OS XTAL----------------------------------------
+
+void setMainClock( u32 ulClock )
+{
+    // ToDo: Upgrade this function with selectable prescaler and multiplier  
+    PYGMY_RCC_HSE_ENABLE;
+   0:	4b15      	ldr	r3, [pc, #84]	; (58 <setMainClock+0x58>)
+   2:	681a      	ldr	r2, [r3, #0]
+   4:	f442 3280 	orr.w	r2, r2, #65536	; 0x10000
+   8:	601a      	str	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1223
+    while( !(PYGMY_RCC_HSE_READY) );
+   a:	4b13      	ldr	r3, [pc, #76]	; (58 <setMainClock+0x58>)
+   c:	681a      	ldr	r2, [r3, #0]
+   e:	f412 3f00 	tst.w	r2, #131072	; 0x20000
+  12:	d0fa      	beq.n	a <setMainClock+0xa>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1225
+    // The following PLL Multiplier * XTAL must not exceed 24MHz for 100 Series MCU 
+    RCC->CFGR2 = 0;
+  14:	2200      	movs	r2, #0
+  16:	629a      	str	r2, [r3, #40]	; 0x28
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1226
+    RCC->CFGR = BIT15|BIT14|BIT16|BIT1;//BIT15|BIT14 set ADC prediv to 8
+  18:	4a10      	ldr	r2, [pc, #64]	; (5c <setMainClock+0x5c>)
+  1a:	605a      	str	r2, [r3, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1227
+    PYGMY_RCC_PLL_ENABLE;
+  1c:	681a      	ldr	r2, [r3, #0]
+  1e:	f042 7280 	orr.w	r2, r2, #16777216	; 0x1000000
+  22:	601a      	str	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1228
+    while( !(PYGMY_RCC_PLL_READY) );
+  24:	4b0c      	ldr	r3, [pc, #48]	; (58 <setMainClock+0x58>)
+  26:	681a      	ldr	r2, [r3, #0]
+  28:	f012 7f00 	tst.w	r2, #33554432	; 0x2000000
+  2c:	d0fa      	beq.n	24 <setMainClock+0x24>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1230
+    // HSI Must be ON for Flash Program/Erase Operations
+    PYGMY_RCC_HSI_ENABLE;
+  2e:	685a      	ldr	r2, [r3, #4]
+  30:	f042 0201 	orr.w	r2, r2, #1
+  34:	605a      	str	r2, [r3, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1231
+    PYGMY_RCC_TIMER1_ENABLE;
+  36:	699a      	ldr	r2, [r3, #24]
+  38:	f442 6200 	orr.w	r2, r2, #2048	; 0x800
+  3c:	619a      	str	r2, [r3, #24]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1232
+    SYSTICK->LOAD = ( pygmyGlobalData.MainClock * 2 ) / 1000; // 24000; // Based on  ( 2X the System Clock ) / 1000
+  3e:	4b08      	ldr	r3, [pc, #32]	; (60 <setMainClock+0x60>)
+  40:	681a      	ldr	r2, [r3, #0]
+  42:	f44f 737a 	mov.w	r3, #1000	; 0x3e8
+  46:	0052      	lsls	r2, r2, #1
+  48:	fbb2 f2f3 	udiv	r2, r2, r3
+  4c:	4b05      	ldr	r3, [pc, #20]	; (64 <setMainClock+0x64>)
+  4e:	605a      	str	r2, [r3, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1233
+    SYSTICK->VAL = ( pygmyGlobalData.MainClock * 2 ) / 1000; // 24000;
+  50:	609a      	str	r2, [r3, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1234
+    SYSTICK->CTRL = 0x07;   // Enable system timer  
+  52:	2207      	movs	r2, #7
+  54:	601a      	str	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1235
+}
+  56:	4770      	bx	lr
+  58:	40021000 	.word	0x40021000
+  5c:	0001c002 	.word	0x0001c002
+  60:	00000000 	.word	0x00000000
+  64:	e000e010 	.word	0xe000e010
+
+Disassembly of section .text.sysGetTimer:
+
+00000000 <sysGetTimer>:
+sysGetTimer():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1292
+        while( ( pygmyTimer->CR1 & TIM_CEN ) );         // Wait for count to complete
+    } // else
+}
+
+void *sysGetTimer( u8 ucTimer )
+{
+   0:	b2c03801 	.word	0xb2c03801
+   4:	2810      	cmp	r0, #16
+   6:	bf9a      	itte	ls
+   8:	4b02      	ldrls	r3, [pc, #8]	; (14 <sysGetTimer+0x14>)
+   a:	f853 0020 	ldrls.w	r0, [r3, r0, lsl #2]
+   e:	2000      	movhi	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1333
+        case PYGMY_TIMER17:
+            return( TIM17 );
+        default:
+            return( NULL );
+    } // switch
+}
+  10:	4770      	bx	lr
+  12:	bf00      	nop
+  14:	00000000 	.word	0x00000000
+
+Disassembly of section .text.delay:
+
+00000000 <delay>:
+delay():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1238
+    SYSTICK->VAL = ( pygmyGlobalData.MainClock * 2 ) / 1000; // 24000;
+    SYSTICK->CTRL = 0x07;   // Enable system timer  
+}
+
+void delay( u32 ulDelay )
+{
+   0:	b538      	push	{r3, r4, r5, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1244
+    // This function uses a general purpose timer to provide an accurate microsecond delay
+    // MainClock must be set to 1MHz min, 8MHz or higher recommended
+    
+    TIMER *pygmyTimer;
+    
+    if( pygmyGlobalData.DelayTimer == PYGMY_TIMER1 ){
+   2:	4d2b      	ldr	r5, [pc, #172]	; (b0 <delay+0xb0>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1238
+    SYSTICK->VAL = ( pygmyGlobalData.MainClock * 2 ) / 1000; // 24000;
+    SYSTICK->CTRL = 0x07;   // Enable system timer  
+}
+
+void delay( u32 ulDelay )
+{
+   4:	4604      	mov	r4, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1244
+    // This function uses a general purpose timer to provide an accurate microsecond delay
+    // MainClock must be set to 1MHz min, 8MHz or higher recommended
+    
+    TIMER *pygmyTimer;
+    
+    if( pygmyGlobalData.DelayTimer == PYGMY_TIMER1 ){
+   6:	7de8      	ldrb	r0, [r5, #23]
+   8:	2801      	cmp	r0, #1
+   a:	d128      	bne.n	5e <delay+0x5e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1250
+        // F103LD, F103MD, F103HD
+        // Warning! F103 devies with less than 768KB Flash do not have extra
+        // multipurpose timers and must share Timer1. In this case, Timer1
+        // should not be used for PWM output.
+        //PYGMY_RCC_TIMER1_ENABLE;
+        TIM1->CR1 = 0;                          // Disable before configuring timer
+   c:	4b29      	ldr	r3, [pc, #164]	; (b4 <delay+0xb4>)
+   e:	2200      	movs	r2, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1251
+        if( ulDelay > 0x0000FFFF ){
+  10:	f5b4 3f80 	cmp.w	r4, #65536	; 0x10000
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1250
+        // F103LD, F103MD, F103HD
+        // Warning! F103 devies with less than 768KB Flash do not have extra
+        // multipurpose timers and must share Timer1. In this case, Timer1
+        // should not be used for PWM output.
+        //PYGMY_RCC_TIMER1_ENABLE;
+        TIM1->CR1 = 0;                          // Disable before configuring timer
+  14:	801a      	strh	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1251
+        if( ulDelay > 0x0000FFFF ){
+  16:	d308      	bcc.n	2a <delay+0x2a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1252
+            TIM1->PSC = ( pygmyGlobalData.MainClock / 1000000 ) * ( ulDelay >> 16 );
+  18:	6828      	ldr	r0, [r5, #0]
+  1a:	4a27      	ldr	r2, [pc, #156]	; (b8 <delay+0xb8>)
+  1c:	0c21      	lsrs	r1, r4, #16
+  1e:	fbb0 f2f2 	udiv	r2, r0, r2
+  22:	434a      	muls	r2, r1
+  24:	b292      	uxth	r2, r2
+  26:	851a      	strh	r2, [r3, #40]	; 0x28
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1253
+            ulDelay &= 0x0000FFFF;
+  28:	b2a4      	uxth	r4, r4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1255
+        } // 
+        ulDelay = (( pygmyGlobalData.MainClock / 1000000 ) * ulDelay);
+  2a:	682a      	ldr	r2, [r5, #0]
+  2c:	4b22      	ldr	r3, [pc, #136]	; (b8 <delay+0xb8>)
+  2e:	fbb2 f3f3 	udiv	r3, r2, r3
+  32:	435c      	muls	r4, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1257
+        if( ulDelay < 60 ){
+            ulDelay = 60;
+  34:	2c3b      	cmp	r4, #59	; 0x3b
+  36:	bf98      	it	ls
+  38:	243c      	movls	r4, #60	; 0x3c
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1259
+        } // 
+        TIM1->CR2 = 0;                          //
+  3a:	4b1e      	ldr	r3, [pc, #120]	; (b4 <delay+0xb4>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1263
+        TIM1->SMCR = 0;                         //
+        TIM1->DIER = 0;                         // DMA and interrupt enable register
+        TIM1->CNT = 0;                          // Count Register
+        TIM1->ARR =  ulDelay - 60; // Auto Reload Register
+  3c:	3c3c      	subs	r4, #60	; 0x3c
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1259
+        } // 
+        ulDelay = (( pygmyGlobalData.MainClock / 1000000 ) * ulDelay);
+        if( ulDelay < 60 ){
+            ulDelay = 60;
+        } // 
+        TIM1->CR2 = 0;                          //
+  3e:	2200      	movs	r2, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1263
+        TIM1->SMCR = 0;                         //
+        TIM1->DIER = 0;                         // DMA and interrupt enable register
+        TIM1->CNT = 0;                          // Count Register
+        TIM1->ARR =  ulDelay - 60; // Auto Reload Register
+  40:	b2a4      	uxth	r4, r4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1259
+        } // 
+        ulDelay = (( pygmyGlobalData.MainClock / 1000000 ) * ulDelay);
+        if( ulDelay < 60 ){
+            ulDelay = 60;
+        } // 
+        TIM1->CR2 = 0;                          //
+  42:	809a      	strh	r2, [r3, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1260
+        TIM1->SMCR = 0;                         //
+  44:	811a      	strh	r2, [r3, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1261
+        TIM1->DIER = 0;                         // DMA and interrupt enable register
+  46:	819a      	strh	r2, [r3, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1262
+        TIM1->CNT = 0;                          // Count Register
+  48:	849a      	strh	r2, [r3, #36]	; 0x24
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1263
+        TIM1->ARR =  ulDelay - 60; // Auto Reload Register
+  4a:	859c      	strh	r4, [r3, #44]	; 0x2c
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1264
+        TIM1->SR = 0;
+  4c:	821a      	strh	r2, [r3, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1265
+        TIM1->CR1 = ( TIM_ARPE | TIM_OPM | TIM_CEN );      // Enable single shot count
+  4e:	2289      	movs	r2, #137	; 0x89
+  50:	801a      	strh	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1266
+        while( (TIM1->CR1 & TIM_CEN) );         // Wait for count to complete 
+  52:	4b18      	ldr	r3, [pc, #96]	; (b4 <delay+0xb4>)
+  54:	881b      	ldrh	r3, [r3, #0]
+  56:	f013 0f01 	tst.w	r3, #1
+  5a:	d1fa      	bne.n	52 <delay+0x52>
+  5c:	bd38      	pop	{r3, r4, r5, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1268
+    } else {
+        pygmyTimer = sysGetTimer( pygmyGlobalData.DelayTimer );
+  5e:	f7ff fffe 	bl	0 <delay>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1270
+        
+        pygmyTimer->CR1 = 0;                          // Disable before configuring timer
+  62:	2300      	movs	r3, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1271
+        if( ulDelay > 0x0000FFFF ){
+  64:	f5b4 3f80 	cmp.w	r4, #65536	; 0x10000
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1270
+        TIM1->CR1 = ( TIM_ARPE | TIM_OPM | TIM_CEN );      // Enable single shot count
+        while( (TIM1->CR1 & TIM_CEN) );         // Wait for count to complete 
+    } else {
+        pygmyTimer = sysGetTimer( pygmyGlobalData.DelayTimer );
+        
+        pygmyTimer->CR1 = 0;                          // Disable before configuring timer
+  68:	8003      	strh	r3, [r0, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1271
+        if( ulDelay > 0x0000FFFF ){
+  6a:	d308      	bcc.n	7e <delay+0x7e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1272
+            pygmyTimer->PSC = ( pygmyGlobalData.MainClock / 1000000 ) * ( ulDelay >> 16 );
+  6c:	6829      	ldr	r1, [r5, #0]
+  6e:	4b12      	ldr	r3, [pc, #72]	; (b8 <delay+0xb8>)
+  70:	0c22      	lsrs	r2, r4, #16
+  72:	fbb1 f3f3 	udiv	r3, r1, r3
+  76:	4353      	muls	r3, r2
+  78:	b29b      	uxth	r3, r3
+  7a:	8503      	strh	r3, [r0, #40]	; 0x28
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1273
+            ulDelay &= 0x0000FFFF;
+  7c:	b2a4      	uxth	r4, r4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1275
+        } // 
+        ulDelay *= ( pygmyGlobalData.MainClock / 1000000 );
+  7e:	682a      	ldr	r2, [r5, #0]
+  80:	4b0d      	ldr	r3, [pc, #52]	; (b8 <delay+0xb8>)
+  82:	fbb2 f3f3 	udiv	r3, r2, r3
+  86:	435c      	muls	r4, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1278
+        if( ulDelay < 60 ){ 
+            // Minimum number of cycles supported
+            ulDelay = 60;
+  88:	2c3b      	cmp	r4, #59	; 0x3b
+  8a:	bf98      	it	ls
+  8c:	243c      	movls	r4, #60	; 0x3c
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1284
+        } // 
+        pygmyTimer->CR2 = 0;                          //
+        pygmyTimer->SMCR = 0;                         //
+        pygmyTimer->DIER = 0;                         // DMA and interrupt enable register
+        pygmyTimer->CNT = 0;                          // Count Register
+        pygmyTimer->ARR =  ulDelay - 60; // Auto Reload Register
+  8e:	3c3c      	subs	r4, #60	; 0x3c
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1280
+        ulDelay *= ( pygmyGlobalData.MainClock / 1000000 );
+        if( ulDelay < 60 ){ 
+            // Minimum number of cycles supported
+            ulDelay = 60;
+        } // 
+        pygmyTimer->CR2 = 0;                          //
+  90:	2200      	movs	r2, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1284
+        pygmyTimer->SMCR = 0;                         //
+        pygmyTimer->DIER = 0;                         // DMA and interrupt enable register
+        pygmyTimer->CNT = 0;                          // Count Register
+        pygmyTimer->ARR =  ulDelay - 60; // Auto Reload Register
+  92:	b2a4      	uxth	r4, r4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1286
+        pygmyTimer->SR = 0;
+        pygmyTimer->CR1 = ( TIM_ARPE | TIM_OPM | TIM_CEN );      // Enable single shot count
+  94:	2389      	movs	r3, #137	; 0x89
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1280
+        ulDelay *= ( pygmyGlobalData.MainClock / 1000000 );
+        if( ulDelay < 60 ){ 
+            // Minimum number of cycles supported
+            ulDelay = 60;
+        } // 
+        pygmyTimer->CR2 = 0;                          //
+  96:	8082      	strh	r2, [r0, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1281
+        pygmyTimer->SMCR = 0;                         //
+  98:	8102      	strh	r2, [r0, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1282
+        pygmyTimer->DIER = 0;                         // DMA and interrupt enable register
+  9a:	8182      	strh	r2, [r0, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1283
+        pygmyTimer->CNT = 0;                          // Count Register
+  9c:	8482      	strh	r2, [r0, #36]	; 0x24
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1284
+        pygmyTimer->ARR =  ulDelay - 60; // Auto Reload Register
+  9e:	8584      	strh	r4, [r0, #44]	; 0x2c
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1285
+        pygmyTimer->SR = 0;
+  a0:	8202      	strh	r2, [r0, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1286
+        pygmyTimer->CR1 = ( TIM_ARPE | TIM_OPM | TIM_CEN );      // Enable single shot count
+  a2:	8003      	strh	r3, [r0, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1287
+        while( ( pygmyTimer->CR1 & TIM_CEN ) );         // Wait for count to complete
+  a4:	8803      	ldrh	r3, [r0, #0]
+  a6:	f013 0f01 	tst.w	r3, #1
+  aa:	d1fb      	bne.n	a4 <delay+0xa4>
+  ac:	bd38      	pop	{r3, r4, r5, pc}
+  ae:	bf00      	nop
+  b0:	00000000 	.word	0x00000000
+  b4:	40012c00 	.word	0x40012c00
+  b8:	000f4240 	.word	0x000f4240
+
+Disassembly of section .text.stopwatchStart:
+
+00000000 <stopwatchStart>:
+stopwatchStart():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1361
+}*/
+
+void stopwatchStart( void )
+{
+    //pygmyGlobalData.StopWatch = ( pygmyGlobalData.MainClock * 2 ) - SYSTICK->VAL;
+    pygmyGlobalData.StopWatch = 0;
+   0:	22004b01 	.word	0x22004b01
+   4:	609a      	str	r2, [r3, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1362
+}
+   6:	4770      	bx	lr
+   8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.stopwatchGet:
+
+00000000 <stopwatchGet>:
+stopwatchGet():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1368
+
+u32 stopwatchGet( void )
+{
+    //pygmyGlobalData.StopWatch += ( pygmyGlobalData.MainClock * 2 ) - SYSTICK->VAL;
+    return( pygmyGlobalData.StopWatch );
+}
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <stopwatchGet+0x8>)
+   2:	6898      	ldr	r0, [r3, #8]
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+   8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.mcoEnable:
+
+00000000 <mcoEnable>:
+mcoEnable():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1371
+
+void mcoEnable( u8 ucSource )
+{ 
+   0:	b530      	push	{r4, r5, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1372
+    const u32 PYGMY_MCO[] = { RCC_MCO_SYSCLOCK, RCC_MCO_INTERNALRC, RCC_MCO_EXTCLOCK, RCC_MCO_PLLDIV2 };
+   2:	4b13      	ldr	r3, [pc, #76]	; (50 <mcoEnable+0x50>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1371
+    //pygmyGlobalData.StopWatch += ( pygmyGlobalData.MainClock * 2 ) - SYSTICK->VAL;
+    return( pygmyGlobalData.StopWatch );
+}
+
+void mcoEnable( u8 ucSource )
+{ 
+   4:	4605      	mov	r5, r0
+   6:	b085      	sub	sp, #20
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1372
+    const u32 PYGMY_MCO[] = { RCC_MCO_SYSCLOCK, RCC_MCO_INTERNALRC, RCC_MCO_EXTCLOCK, RCC_MCO_PLLDIV2 };
+   8:	466c      	mov	r4, sp
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1374
+
+    if( ucSource > 3 ){
+   a:	2d03      	cmp	r5, #3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1372
+    return( pygmyGlobalData.StopWatch );
+}
+
+void mcoEnable( u8 ucSource )
+{ 
+    const u32 PYGMY_MCO[] = { RCC_MCO_SYSCLOCK, RCC_MCO_INTERNALRC, RCC_MCO_EXTCLOCK, RCC_MCO_PLLDIV2 };
+   c:	cb0f      	ldmia	r3, {r0, r1, r2, r3}
+   e:	e884 000f 	stmia.w	r4, {r0, r1, r2, r3}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1374
+
+    if( ucSource > 3 ){
+  12:	d81a      	bhi.n	4a <mcoEnable+0x4a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1377
+        return;
+    } // if
+    PYGMY_RCC_GPIOA_ENABLE;
+  14:	4b0f      	ldr	r3, [pc, #60]	; (54 <mcoEnable+0x54>)
+  16:	699a      	ldr	r2, [r3, #24]
+  18:	f042 0204 	orr.w	r2, r2, #4
+  1c:	619a      	str	r2, [r3, #24]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1378
+    GPIOA->CRH &= ~PIN8_CLEAR;
+  1e:	4a0e      	ldr	r2, [pc, #56]	; (58 <mcoEnable+0x58>)
+  20:	6851      	ldr	r1, [r2, #4]
+  22:	f021 010f 	bic.w	r1, r1, #15
+  26:	6051      	str	r1, [r2, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1379
+    GPIOA->CRH |= PIN8_OUT50_ALTPUSHPULL;
+  28:	6851      	ldr	r1, [r2, #4]
+  2a:	f041 010b 	orr.w	r1, r1, #11
+  2e:	6051      	str	r1, [r2, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1380
+    RCC->CFGR &= ~RCC_MCO_CLEAR;
+  30:	685a      	ldr	r2, [r3, #4]
+  32:	f022 62e0 	bic.w	r2, r2, #117440512	; 0x7000000
+  36:	605a      	str	r2, [r3, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1381
+    RCC->CFGR |= PYGMY_MCO[ ucSource ];                 
+  38:	aa04      	add	r2, sp, #16
+  3a:	eb02 0585 	add.w	r5, r2, r5, lsl #2
+  3e:	6859      	ldr	r1, [r3, #4]
+  40:	f855 2c10 	ldr.w	r2, [r5, #-16]
+  44:	ea41 0202 	orr.w	r2, r1, r2
+  48:	605a      	str	r2, [r3, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1382
+}
+  4a:	b005      	add	sp, #20
+  4c:	bd30      	pop	{r4, r5, pc}
+  4e:	bf00      	nop
+  50:	00000044 	.word	0x00000044
+  54:	40021000 	.word	0x40021000
+  58:	40010800 	.word	0x40010800
+
+Disassembly of section .text.mcoDisable:
+
+00000000 <mcoDisable>:
+mcoDisable():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1386
+
+void mcoDisable( void )
+{
+    RCC->CFGR &= ~RCC_MCO_CLEAR;
+   0:	685a4b02 	.word	0x685a4b02
+   4:	f022 62e0 	bic.w	r2, r2, #117440512	; 0x7000000
+   8:	605a      	str	r2, [r3, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1387
+}
+   a:	4770      	bx	lr
+   c:	40021000 	.word	0x40021000
+
+Disassembly of section .text.SysTick_Handler:
+
+00000000 <SysTick_Handler>:
+SysTick_Handler():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1396
+
+//--------------------------------------------------------------------------------------------
+//-----------------------------------Pygmy OS IRQ Handlers------------------------------------
+void SysTick_Handler( void )
+{
+    PYGMY_WATCHDOG_REFRESH; 
+   0:	4b04      	ldr	r3, [pc, #16]	; (14 <SysTick_Handler+0x14>)
+   2:	f64a 22aa 	movw	r2, #43690	; 0xaaaa
+   6:	601a      	str	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1398
+    
+    pygmyGlobalData.StopWatch += 10;
+   8:	4b03      	ldr	r3, [pc, #12]	; (18 <SysTick_Handler+0x18>)
+   a:	689a      	ldr	r2, [r3, #8]
+   c:	320a      	adds	r2, #10
+   e:	609a      	str	r2, [r3, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_sys.c:1414
+        } // if
+    #endif
+    #ifdef __PYGMYSPRITES
+        guiSpriteProcess( );
+    #endif
+}
+  10:	4770      	bx	lr
+  12:	bf00      	nop
+  14:	40003000 	.word	0x40003000
+  18:	00000000 	.word	0x00000000

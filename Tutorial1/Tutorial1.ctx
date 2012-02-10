@@ -22,29 +22,30 @@
 			
 	</Flags>
 	<Views>
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Tutorial1\main.c" Line="19" Index="0" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Tutorial1\gems.c" Line="65" Index="1" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Tutorial1\gems.h" Line="50" Index="2" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" Line="1281" Index="3" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_gui.c" Line="261" Index="4" focus="1" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_gui.h" Line="221" Index="5" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="85" Index="6" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="93" Index="7" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.h" Line="46" Index="8" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="234" Index="9" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Tutorial1\pygmy_profile.h" Line="1" Index="10" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.h" Line="2048" Index="11" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.h" Line="154" Index="12" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.h" Line="243" Index="13" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="165" Index="14" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" Line="829" Index="15" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\icons\busy.h" Line="0" Index="16" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\lcdVaritronixParallel.h" Line="63" Index="17" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.h" Line="595" Index="18" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\lcd\varitronix128x128_parallel.c" Line="101" Index="19" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_lcd.h" Line="49" Index="20" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_rtc.c" Line="19" Index="21" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="70" Index="22" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Tutorial1\main.c" Line="68" Index="0" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Tutorial1\gems.c" Line="68" Index="1" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Tutorial1\gems.h" Line="34" Index="2" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" Line="1279" Index="3" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_gui.c" Line="363" Index="4" focus="1" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_gui.h" Line="219" Index="5" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\lcdVaritronixParallel.h" Line="61" Index="6" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\lcd\varitronix128x128_parallel.c" Line="543" Index="7" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="91" Index="8" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="232" Index="9" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="83" Index="10" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.h" Line="2046" Index="11" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.h" Line="152" Index="12" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.h" Line="241" Index="13" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="163" Index="14" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" Line="827" Index="15" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.h" Line="44" Index="16" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\icons\busy.h" Line="0" Index="17" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.h" Line="593" Index="18" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Tutorial1\pygmy_profile.h" Line="0" Index="19" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_lcd.h" Line="41" Index="20" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_rtc.c" Line="17" Index="21" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="68" Index="22" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="0" Index="23" />
 	</Views>
 	<Grep>
 		<GrepIncludeSub>yes</GrepIncludeSub>

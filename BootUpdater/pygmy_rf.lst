@@ -1,0 +1,2684 @@
+
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater\pygmy_rf.o:     file format elf32-littlearm
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater\pygmy_rf.o
+
+
+Disassembly of section .text.rfGetID:
+
+00000000 <rfGetID>:
+rfGetID():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:40
+u8 globalRFTXPayload[ 32 ];
+
+u32 rfGetID( void )
+{
+    return( pygmyGlobalRFID );
+}
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <rfGetID+0x8>)
+   2:	6818      	ldr	r0, [r3, #0]
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+   8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.rfLoadPacket:
+
+00000000 <rfLoadPacket>:
+rfLoadPacket():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:102
+    } // for
+    rfPutTXBuffer( ucIndex, ucBuffer );
+}
+
+u8 rfLoadPacket( u8 *ucBuffer, PYGMYRFPACKET *pygmyPacket )
+{
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	460c      	mov	r4, r1
+   4:	4605      	mov	r5, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:132
+    // New Socket Response or Ack/Nack Packet
+        // [ DESTID PORT 4B ][ RF_NEXT/RF_LAST 1B ][ 0x00 1B ][ CRC 2B ]
+    u8 i;
+    
+    // Load common sections
+    pygmyPacket->DestID     = convertBufferToU32( ucBuffer );
+   6:	f7ff fffe 	bl	0 <convertBufferToU32>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:133
+    print( COM3, "\rDestID: %X", pygmyPacket->DestID );
+   a:	492a      	ldr	r1, [pc, #168]	; (b4 <rfLoadPacket+0xb4>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:132
+    // New Socket Response or Ack/Nack Packet
+        // [ DESTID PORT 4B ][ RF_NEXT/RF_LAST 1B ][ 0x00 1B ][ CRC 2B ]
+    u8 i;
+    
+    // Load common sections
+    pygmyPacket->DestID     = convertBufferToU32( ucBuffer );
+   c:	4602      	mov	r2, r0
+   e:	6020      	str	r0, [r4, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:133
+    print( COM3, "\rDestID: %X", pygmyPacket->DestID );
+  10:	2001      	movs	r0, #1
+  12:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:134
+    pygmyPacket->Command    = ( ( *( ucBuffer + 4 ) ) & 0xE0 ) >> 5;
+  16:	792a      	ldrb	r2, [r5, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:135
+    print( COM3, "\rCommand: %d", pygmyPacket->Command );
+  18:	2001      	movs	r0, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:134
+    u8 i;
+    
+    // Load common sections
+    pygmyPacket->DestID     = convertBufferToU32( ucBuffer );
+    print( COM3, "\rDestID: %X", pygmyPacket->DestID );
+    pygmyPacket->Command    = ( ( *( ucBuffer + 4 ) ) & 0xE0 ) >> 5;
+  1a:	0952      	lsrs	r2, r2, #5
+  1c:	72a2      	strb	r2, [r4, #10]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:135
+    print( COM3, "\rCommand: %d", pygmyPacket->Command );
+  1e:	4926      	ldr	r1, [pc, #152]	; (b8 <rfLoadPacket+0xb8>)
+  20:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:136
+    pygmyPacket->Len        = ( *(ucBuffer + 4 ) & 0x1F );
+  24:	792a      	ldrb	r2, [r5, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:137
+    print( COM3, "\rPayload Len: %d", pygmyPacket->Len );
+  26:	2001      	movs	r0, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:136
+    // Load common sections
+    pygmyPacket->DestID     = convertBufferToU32( ucBuffer );
+    print( COM3, "\rDestID: %X", pygmyPacket->DestID );
+    pygmyPacket->Command    = ( ( *( ucBuffer + 4 ) ) & 0xE0 ) >> 5;
+    print( COM3, "\rCommand: %d", pygmyPacket->Command );
+    pygmyPacket->Len        = ( *(ucBuffer + 4 ) & 0x1F );
+  28:	f002 021f 	and.w	r2, r2, #31
+  2c:	72e2      	strb	r2, [r4, #11]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:137
+    print( COM3, "\rPayload Len: %d", pygmyPacket->Len );
+  2e:	4923      	ldr	r1, [pc, #140]	; (bc <rfLoadPacket+0xbc>)
+  30:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:138
+    pygmyPacket->Chunk      = *( ucBuffer + 5 );
+  34:	796a      	ldrb	r2, [r5, #5]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:139
+    print( COM3, "\rChunk: %d", pygmyPacket->Chunk );
+  36:	2001      	movs	r0, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:138
+    print( COM3, "\rDestID: %X", pygmyPacket->DestID );
+    pygmyPacket->Command    = ( ( *( ucBuffer + 4 ) ) & 0xE0 ) >> 5;
+    print( COM3, "\rCommand: %d", pygmyPacket->Command );
+    pygmyPacket->Len        = ( *(ucBuffer + 4 ) & 0x1F );
+    print( COM3, "\rPayload Len: %d", pygmyPacket->Len );
+    pygmyPacket->Chunk      = *( ucBuffer + 5 );
+  38:	7322      	strb	r2, [r4, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:139
+    print( COM3, "\rChunk: %d", pygmyPacket->Chunk );
+  3a:	4921      	ldr	r1, [pc, #132]	; (c0 <rfLoadPacket+0xc0>)
+  3c:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:140
+    pygmyPacket->CRC        = convertBufferToU16( ( ucBuffer + 6 + pygmyPacket->Len ) );
+  40:	7ae0      	ldrb	r0, [r4, #11]
+  42:	3006      	adds	r0, #6
+  44:	1828      	adds	r0, r5, r0
+  46:	f7ff fffe 	bl	0 <convertBufferToU16>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:142
+   
+    if( sysCRC16( ucBuffer, pygmyPacket->Len + 6 ) != pygmyPacket->CRC ){
+  4a:	7ae1      	ldrb	r1, [r4, #11]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:140
+    print( COM3, "\rCommand: %d", pygmyPacket->Command );
+    pygmyPacket->Len        = ( *(ucBuffer + 4 ) & 0x1F );
+    print( COM3, "\rPayload Len: %d", pygmyPacket->Len );
+    pygmyPacket->Chunk      = *( ucBuffer + 5 );
+    print( COM3, "\rChunk: %d", pygmyPacket->Chunk );
+    pygmyPacket->CRC        = convertBufferToU16( ( ucBuffer + 6 + pygmyPacket->Len ) );
+  4c:	8120      	strh	r0, [r4, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:142
+   
+    if( sysCRC16( ucBuffer, pygmyPacket->Len + 6 ) != pygmyPacket->CRC ){
+  4e:	3106      	adds	r1, #6
+  50:	4628      	mov	r0, r5
+  52:	f7ff fffe 	bl	0 <sysCRC16>
+  56:	8926      	ldrh	r6, [r4, #8]
+  58:	7ae1      	ldrb	r1, [r4, #11]
+  5a:	42b0      	cmp	r0, r6
+  5c:	d102      	bne.n	64 <rfLoadPacket+0x64>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:146
+        print( COM3, "\rCRC %X does not match %X", pygmyPacket->CRC, sysCRC16( ucBuffer, pygmyPacket->Len + 6 ) ); 
+        return( 0 );
+    } // else
+    for( i = 0; i < pygmyPacket->Len; i++ ){
+  5e:	4622      	mov	r2, r4
+  60:	2300      	movs	r3, #0
+  62:	e00f      	b.n	84 <rfLoadPacket+0x84>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:143
+    pygmyPacket->Chunk      = *( ucBuffer + 5 );
+    print( COM3, "\rChunk: %d", pygmyPacket->Chunk );
+    pygmyPacket->CRC        = convertBufferToU16( ( ucBuffer + 6 + pygmyPacket->Len ) );
+   
+    if( sysCRC16( ucBuffer, pygmyPacket->Len + 6 ) != pygmyPacket->CRC ){
+        print( COM3, "\rCRC %X does not match %X", pygmyPacket->CRC, sysCRC16( ucBuffer, pygmyPacket->Len + 6 ) ); 
+  64:	3106      	adds	r1, #6
+  66:	4628      	mov	r0, r5
+  68:	f7ff fffe 	bl	0 <sysCRC16>
+  6c:	4915      	ldr	r1, [pc, #84]	; (c4 <rfLoadPacket+0xc4>)
+  6e:	4603      	mov	r3, r0
+  70:	4632      	mov	r2, r6
+  72:	2001      	movs	r0, #1
+  74:	f7ff fffe 	bl	0 <print>
+  78:	2000      	movs	r0, #0
+  7a:	bd70      	pop	{r4, r5, r6, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:147
+        return( 0 );
+    } // else
+    for( i = 0; i < pygmyPacket->Len; i++ ){
+        pygmyPacket->Payload[ i ] = ucBuffer[ 6 + i ]; 
+  7c:	7968      	ldrb	r0, [r5, #5]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:146
+   
+    if( sysCRC16( ucBuffer, pygmyPacket->Len + 6 ) != pygmyPacket->CRC ){
+        print( COM3, "\rCRC %X does not match %X", pygmyPacket->CRC, sysCRC16( ucBuffer, pygmyPacket->Len + 6 ) ); 
+        return( 0 );
+    } // else
+    for( i = 0; i < pygmyPacket->Len; i++ ){
+  7e:	3301      	adds	r3, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:147
+        pygmyPacket->Payload[ i ] = ucBuffer[ 6 + i ]; 
+  80:	7350      	strb	r0, [r2, #13]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:146
+   
+    if( sysCRC16( ucBuffer, pygmyPacket->Len + 6 ) != pygmyPacket->CRC ){
+        print( COM3, "\rCRC %X does not match %X", pygmyPacket->CRC, sysCRC16( ucBuffer, pygmyPacket->Len + 6 ) ); 
+        return( 0 );
+    } // else
+    for( i = 0; i < pygmyPacket->Len; i++ ){
+  82:	b2db      	uxtb	r3, r3
+  84:	3501      	adds	r5, #1
+  86:	3201      	adds	r2, #1
+  88:	428b      	cmp	r3, r1
+  8a:	d3f7      	bcc.n	7c <rfLoadPacket+0x7c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:149
+        pygmyPacket->Payload[ i ] = ucBuffer[ 6 + i ]; 
+    } // for
+    if( pygmyPacket->Command == RF_OPEN ){
+  8c:	7aa5      	ldrb	r5, [r4, #10]
+  8e:	2d01      	cmp	r5, #1
+  90:	d10f      	bne.n	b2 <rfLoadPacket+0xb2>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:150
+        pygmyPacket->Type       = pygmyPacket->Payload[ 0 ];
+  92:	7ba2      	ldrb	r2, [r4, #14]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:151
+        print( COM3, "\rType: %d", pygmyPacket->Type );
+  94:	490c      	ldr	r1, [pc, #48]	; (c8 <rfLoadPacket+0xc8>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:150
+    } // else
+    for( i = 0; i < pygmyPacket->Len; i++ ){
+        pygmyPacket->Payload[ i ] = ucBuffer[ 6 + i ]; 
+    } // for
+    if( pygmyPacket->Command == RF_OPEN ){
+        pygmyPacket->Type       = pygmyPacket->Payload[ 0 ];
+  96:	7362      	strb	r2, [r4, #13]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:151
+        print( COM3, "\rType: %d", pygmyPacket->Type );
+  98:	4628      	mov	r0, r5
+  9a:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:152
+        pygmyPacket->SrcID = convertBufferToU32( ( pygmyPacket->Payload + 1 ) );
+  9e:	f104 000f 	add.w	r0, r4, #15
+  a2:	f7ff fffe 	bl	0 <convertBufferToU32>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:153
+        print( COM3, "\rSRCID: %X", pygmyPacket->SrcID );
+  a6:	4909      	ldr	r1, [pc, #36]	; (cc <rfLoadPacket+0xcc>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:152
+        pygmyPacket->Payload[ i ] = ucBuffer[ 6 + i ]; 
+    } // for
+    if( pygmyPacket->Command == RF_OPEN ){
+        pygmyPacket->Type       = pygmyPacket->Payload[ 0 ];
+        print( COM3, "\rType: %d", pygmyPacket->Type );
+        pygmyPacket->SrcID = convertBufferToU32( ( pygmyPacket->Payload + 1 ) );
+  a8:	4602      	mov	r2, r0
+  aa:	6060      	str	r0, [r4, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:153
+        print( COM3, "\rSRCID: %X", pygmyPacket->SrcID );
+  ac:	4628      	mov	r0, r5
+  ae:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:166
+            print( COM3, "\rFilename: %s", pygmyPacket->Payload );
+        } // if
+        */
+    } // if
+
+}
+  b2:	bd70      	pop	{r4, r5, r6, pc}
+  b4:	00000000 	.word	0x00000000
+  b8:	0000000c 	.word	0x0000000c
+  bc:	00000019 	.word	0x00000019
+  c0:	0000002a 	.word	0x0000002a
+  c4:	00000035 	.word	0x00000035
+  c8:	0000004f 	.word	0x0000004f
+  cc:	00000059 	.word	0x00000059
+
+Disassembly of section .text.rfListSockets:
+
+00000000 <rfListSockets>:
+rfListSockets():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:196
+    } // else if
+    
+}
+
+void rfListSockets( void )
+{
+   0:	4c1db538 	.word	0x4c1db538
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:195
+        
+    } // else if
+    
+}
+
+void rfListSockets( void )
+   4:	f504 7500 	add.w	r5, r4, #512	; 0x200
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:200
+{
+    u8 i, ucCmd;
+
+    for( i = 0; i < RF_MAXSOCKETS; i++ ){
+        if( !pygmyGlobalRFSockets[ i ].DestID ){
+   8:	68a3      	ldr	r3, [r4, #8]
+   a:	2b00      	cmp	r3, #0
+   c:	d030      	beq.n	70 <rfListSockets+0x70>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:203
+            continue;
+        } // if
+        print( COM3, "\rDestID\t\tType\tCount\tCR\tStartTime" );
+   e:	2001      	movs	r0, #1
+  10:	491a      	ldr	r1, [pc, #104]	; (7c <rfListSockets+0x7c>)
+  12:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:204
+        print( COM3, "\r%X\t", pygmyGlobalRFSockets[ i ].DestID );
+  16:	2001      	movs	r0, #1
+  18:	4919      	ldr	r1, [pc, #100]	; (80 <rfListSockets+0x80>)
+  1a:	68a2      	ldr	r2, [r4, #8]
+  1c:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:205
+        ucCmd = pygmyGlobalRFSockets[ i ].Type >> 5;
+  20:	7b20      	ldrb	r0, [r4, #12]
+  22:	0940      	lsrs	r0, r0, #5
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:206
+        if( ucCmd == RF_CONTROL ){
+  24:	2804      	cmp	r0, #4
+  26:	d102      	bne.n	2e <rfListSockets+0x2e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:207
+            print( COM3, "control" );
+  28:	3803      	subs	r0, #3
+  2a:	4916      	ldr	r1, [pc, #88]	; (84 <rfListSockets+0x84>)
+  2c:	e00f      	b.n	4e <rfListSockets+0x4e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:208
+        } else if( ucCmd == RF_COMLINK ){
+  2e:	2801      	cmp	r0, #1
+  30:	d101      	bne.n	36 <rfListSockets+0x36>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:209
+            print( COM3, "comlink" );
+  32:	4915      	ldr	r1, [pc, #84]	; (88 <rfListSockets+0x88>)
+  34:	e00b      	b.n	4e <rfListSockets+0x4e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:210
+        } else if( ucCmd == RF_FILE ){
+  36:	2802      	cmp	r0, #2
+  38:	d102      	bne.n	40 <rfListSockets+0x40>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:211
+            print( COM3, "file" );
+  3a:	3801      	subs	r0, #1
+  3c:	4913      	ldr	r1, [pc, #76]	; (8c <rfListSockets+0x8c>)
+  3e:	e006      	b.n	4e <rfListSockets+0x4e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:212
+        } else if( ucCmd == RF_AVSTREAM ){
+  40:	2803      	cmp	r0, #3
+  42:	d102      	bne.n	4a <rfListSockets+0x4a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:213
+            print( COM3, "avstream" );
+  44:	3802      	subs	r0, #2
+  46:	4912      	ldr	r1, [pc, #72]	; (90 <rfListSockets+0x90>)
+  48:	e001      	b.n	4e <rfListSockets+0x4e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:215
+        } else{
+            print( COM3, "blank" );
+  4a:	4912      	ldr	r1, [pc, #72]	; (94 <rfListSockets+0x94>)
+  4c:	2001      	movs	r0, #1
+  4e:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:217
+        } // else
+        print( COM3, "\t%d", pygmyGlobalRFSockets[ i ].Chunk );
+  52:	2001      	movs	r0, #1
+  54:	4910      	ldr	r1, [pc, #64]	; (98 <rfListSockets+0x98>)
+  56:	7b62      	ldrb	r2, [r4, #13]
+  58:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:218
+        print( COM3, "\t%2X", pygmyGlobalRFSockets[ i ].CR );
+  5c:	2001      	movs	r0, #1
+  5e:	490f      	ldr	r1, [pc, #60]	; (9c <rfListSockets+0x9c>)
+  60:	7ba2      	ldrb	r2, [r4, #14]
+  62:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:219
+        print( COM3, "\t%t", pygmyGlobalRFSockets[ i ].StartTime);
+  66:	2001      	movs	r0, #1
+  68:	490d      	ldr	r1, [pc, #52]	; (a0 <rfListSockets+0xa0>)
+  6a:	6822      	ldr	r2, [r4, #0]
+  6c:	f7ff fffe 	bl	0 <print>
+  70:	3410      	adds	r4, #16
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:199
+
+void rfListSockets( void )
+{
+    u8 i, ucCmd;
+
+    for( i = 0; i < RF_MAXSOCKETS; i++ ){
+  72:	42ac      	cmp	r4, r5
+  74:	d1c8      	bne.n	8 <rfListSockets+0x8>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:221
+        } // else
+        print( COM3, "\t%d", pygmyGlobalRFSockets[ i ].Chunk );
+        print( COM3, "\t%2X", pygmyGlobalRFSockets[ i ].CR );
+        print( COM3, "\t%t", pygmyGlobalRFSockets[ i ].StartTime);
+    } // for
+}
+  76:	bd38      	pop	{r3, r4, r5, pc}
+  78:	00000000 	.word	0x00000000
+  7c:	00000064 	.word	0x00000064
+  80:	00000085 	.word	0x00000085
+  84:	0000008a 	.word	0x0000008a
+  88:	00000092 	.word	0x00000092
+  8c:	0000009a 	.word	0x0000009a
+  90:	0000009f 	.word	0x0000009f
+  94:	000000a8 	.word	0x000000a8
+  98:	000000ae 	.word	0x000000ae
+  9c:	000000b2 	.word	0x000000b2
+  a0:	000000b7 	.word	0x000000b7
+
+Disassembly of section .text.rfCloseSocket:
+
+00000000 <rfCloseSocket>:
+rfCloseSocket():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:234
+    } // for
+}
+
+void rfCloseSocket( u8 ucSocket )
+{
+    pygmyGlobalRFSockets[ ucSocket ].DestID         = 0;
+   0:	01004b05 	.word	0x01004b05
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:233
+        rfCloseSocket( i );
+    } // for
+}
+
+void rfCloseSocket( u8 ucSocket )
+{
+   4:	b510      	push	{r4, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:234
+    pygmyGlobalRFSockets[ ucSocket ].DestID         = 0;
+   6:	2200      	movs	r2, #0
+   8:	181c      	adds	r4, r3, r0
+   a:	60a2      	str	r2, [r4, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:235
+    pygmyGlobalRFSockets[ ucSocket ].Type           = 0;
+   c:	7322      	strb	r2, [r4, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:236
+    pygmyGlobalRFSockets[ ucSocket ].Chunk          = 0;
+   e:	7362      	strb	r2, [r4, #13]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:237
+    pygmyGlobalRFSockets[ ucSocket ].CR             = 0;
+  10:	73a2      	strb	r2, [r4, #14]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:238
+    pygmyGlobalRFSockets[ ucSocket ].StartTime      = 0;
+  12:	501a      	str	r2, [r3, r0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:239
+}
+  14:	bd10      	pop	{r4, pc}
+  16:	bf00      	nop
+  18:	00000000 	.word	0x00000000
+
+Disassembly of section .text.rfInitSockets:
+
+00000000 <rfInitSockets>:
+rfInitSockets():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:224
+        print( COM3, "\t%t", pygmyGlobalRFSockets[ i ].StartTime);
+    } // for
+}
+
+void rfInitSockets( void )
+{
+   0:	b510      	push	{r4, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:227
+    u8 i;
+    
+    for( i = 0; i < RF_MAXSOCKETS; i++ ){
+   2:	2400      	movs	r4, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:228
+        rfCloseSocket( i );
+   4:	4620      	mov	r0, r4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:227
+
+void rfInitSockets( void )
+{
+    u8 i;
+    
+    for( i = 0; i < RF_MAXSOCKETS; i++ ){
+   6:	3401      	adds	r4, #1
+   8:	b2e4      	uxtb	r4, r4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:228
+        rfCloseSocket( i );
+   a:	f7ff fffe 	bl	0 <rfInitSockets>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:227
+
+void rfInitSockets( void )
+{
+    u8 i;
+    
+    for( i = 0; i < RF_MAXSOCKETS; i++ ){
+   e:	2c20      	cmp	r4, #32
+  10:	d1f8      	bne.n	4 <rfInitSockets+0x4>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:230
+        rfCloseSocket( i );
+    } // for
+}
+  12:	bd10      	pop	{r4, pc}
+
+Disassembly of section .text.rfFindSocket:
+
+00000000 <rfFindSocket>:
+rfFindSocket():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:242
+    pygmyGlobalRFSockets[ ucSocket ].CR             = 0;
+    pygmyGlobalRFSockets[ ucSocket ].StartTime      = 0;
+}
+
+u8 rfFindSocket( u32 ulDest )
+{
+   0:	b510      	push	{r4, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:251
+        if( ( pygmyGlobalRFSockets[ i ].DestID & 0xFFFFFF00 ) == ( ulDest & 0xFFFFFF00 ) ){
+            return( i );
+        } // if
+    } // for
+    
+    return( 0xFF );
+   2:	4b08      	ldr	r3, [pc, #32]	; (24 <rfFindSocket+0x24>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:242
+    pygmyGlobalRFSockets[ ucSocket ].CR             = 0;
+    pygmyGlobalRFSockets[ ucSocket ].StartTime      = 0;
+}
+
+u8 rfFindSocket( u32 ulDest )
+{
+   4:	4602      	mov	r2, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:245
+    u8 i;
+    
+    for( i = 0; i < RF_MAXSOCKETS; i++ ){
+   6:	2000      	movs	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:246
+        if( ( pygmyGlobalRFSockets[ i ].DestID & 0xFFFFFF00 ) == ( ulDest & 0xFFFFFF00 ) ){
+   8:	6899      	ldr	r1, [r3, #8]
+   a:	ea82 0101 	eor.w	r1, r2, r1
+   e:	f031 04ff 	bics.w	r4, r1, #255	; 0xff
+  12:	d005      	beq.n	20 <rfFindSocket+0x20>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:245
+
+u8 rfFindSocket( u32 ulDest )
+{
+    u8 i;
+    
+    for( i = 0; i < RF_MAXSOCKETS; i++ ){
+  14:	3001      	adds	r0, #1
+  16:	b2c0      	uxtb	r0, r0
+  18:	3310      	adds	r3, #16
+  1a:	2820      	cmp	r0, #32
+  1c:	d1f4      	bne.n	8 <rfFindSocket+0x8>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:251
+        if( ( pygmyGlobalRFSockets[ i ].DestID & 0xFFFFFF00 ) == ( ulDest & 0xFFFFFF00 ) ){
+            return( i );
+        } // if
+    } // for
+    
+    return( 0xFF );
+  1e:	30df      	adds	r0, #223	; 0xdf
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:252
+}
+  20:	bd10      	pop	{r4, pc}
+  22:	bf00      	nop
+  24:	00000000 	.word	0x00000000
+
+Disassembly of section .text.rfOpenSocket:
+
+00000000 <rfOpenSocket>:
+rfOpenSocket():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:255
+
+u8 rfOpenSocket( u32 ulDest, u8 ucType )
+{
+   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:270
+            pygmyGlobalRFSockets[ i ].StartTime     = timeGet();
+            //rfSendOpenSocket( ulDest, ucType );
+            return( i );
+        } // if
+    } // for
+    return( 0xFF );
+   2:	4b0d      	ldr	r3, [pc, #52]	; (38 <rfOpenSocket+0x38>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:255
+    
+    return( 0xFF );
+}
+
+u8 rfOpenSocket( u32 ulDest, u8 ucType )
+{
+   4:	2500      	movs	r5, #0
+   6:	461e      	mov	r6, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:259
+    u8 i;
+
+    for( i = 0; i < RF_MAXSOCKETS; i++ ){
+        if( !pygmyGlobalRFSockets[ i ].DestID ){
+   8:	689a      	ldr	r2, [r3, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:270
+            pygmyGlobalRFSockets[ i ].StartTime     = timeGet();
+            //rfSendOpenSocket( ulDest, ucType );
+            return( i );
+        } // if
+    } // for
+    return( 0xFF );
+   a:	b2ec      	uxtb	r4, r5
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:259
+u8 rfOpenSocket( u32 ulDest, u8 ucType )
+{
+    u8 i;
+
+    for( i = 0; i < RF_MAXSOCKETS; i++ ){
+        if( !pygmyGlobalRFSockets[ i ].DestID ){
+   c:	b962      	cbnz	r2, 28 <rfOpenSocket+0x28>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:260
+            pygmyGlobalRFSockets[ i ].DestID        = ulDest & 0xFFFFFF00;
+   e:	012d      	lsls	r5, r5, #4
+  10:	1977      	adds	r7, r6, r5
+  12:	f020 00ff 	bic.w	r0, r0, #255	; 0xff
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:263
+            //pygmyGlobalRFSockets[ i ].SrcID         = pygmyGlobalRFID | i; // i is socket, LSB nibble
+            pygmyGlobalRFSockets[ i ].Type          = ucType;
+            pygmyGlobalRFSockets[ i ].Chunk         = 0;
+  16:	737a      	strb	r2, [r7, #13]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:264
+            pygmyGlobalRFSockets[ i ].CR            = RF_CR_OPEN|RF_CR_PENDING;
+  18:	3209      	adds	r2, #9
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:260
+{
+    u8 i;
+
+    for( i = 0; i < RF_MAXSOCKETS; i++ ){
+        if( !pygmyGlobalRFSockets[ i ].DestID ){
+            pygmyGlobalRFSockets[ i ].DestID        = ulDest & 0xFFFFFF00;
+  1a:	60b8      	str	r0, [r7, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:262
+            //pygmyGlobalRFSockets[ i ].SrcID         = pygmyGlobalRFID | i; // i is socket, LSB nibble
+            pygmyGlobalRFSockets[ i ].Type          = ucType;
+  1c:	7339      	strb	r1, [r7, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:264
+            pygmyGlobalRFSockets[ i ].Chunk         = 0;
+            pygmyGlobalRFSockets[ i ].CR            = RF_CR_OPEN|RF_CR_PENDING;
+  1e:	73ba      	strb	r2, [r7, #14]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:265
+            pygmyGlobalRFSockets[ i ].StartTime     = timeGet();
+  20:	f7ff fffe 	bl	0 <timeGet>
+  24:	5170      	str	r0, [r6, r5]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:267
+            //rfSendOpenSocket( ulDest, ucType );
+            return( i );
+  26:	e004      	b.n	32 <rfOpenSocket+0x32>
+  28:	3501      	adds	r5, #1
+  2a:	3310      	adds	r3, #16
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:258
+
+u8 rfOpenSocket( u32 ulDest, u8 ucType )
+{
+    u8 i;
+
+    for( i = 0; i < RF_MAXSOCKETS; i++ ){
+  2c:	2d20      	cmp	r5, #32
+  2e:	d1eb      	bne.n	8 <rfOpenSocket+0x8>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:270
+            pygmyGlobalRFSockets[ i ].StartTime     = timeGet();
+            //rfSendOpenSocket( ulDest, ucType );
+            return( i );
+        } // if
+    } // for
+    return( 0xFF );
+  30:	24ff      	movs	r4, #255	; 0xff
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:271
+}
+  32:	4620      	mov	r0, r4
+  34:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+  36:	bf00      	nop
+  38:	00000000 	.word	0x00000000
+
+Disassembly of section .text.rfGetTX:
+
+00000000 <rfGetTX>:
+rfGetTX():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:433
+    return( ucSignalQuality );
+}
+
+u8 rfGetTX( void )
+{
+    return( globalRFConfig & BIT0 );
+   0:	68184b02 	.word	0x68184b02
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:434
+}
+   4:	f000 0001 	and.w	r0, r0, #1
+   8:	4770      	bx	lr
+   a:	bf00      	nop
+   c:	00000000 	.word	0x00000000
+
+Disassembly of section .text.rfFlushTX:
+
+00000000 <rfFlushTX>:
+rfFlushTX():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:461
+    rfClearStatus( );
+    RF_EN_HIGH;
+}
+
+void rfFlushTX( void )
+{
+   0:	b538      	push	{r3, r4, r5, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:462
+    RF_CS_LOW;
+   2:	4c05      	ldr	r4, [pc, #20]	; (18 <rfFlushTX+0x18>)
+   4:	f44f 6500 	mov.w	r5, #2048	; 0x800
+   8:	6165      	str	r5, [r4, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:463
+    spiWriteByte( &pygmyRFSPI, RF_TX_FLUSH );
+   a:	4804      	ldr	r0, [pc, #16]	; (1c <rfFlushTX+0x1c>)
+   c:	21e1      	movs	r1, #225	; 0xe1
+   e:	f7ff fffe 	bl	0 <spiWriteByte>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:464
+    RF_CS_HIGH;
+  12:	6125      	str	r5, [r4, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:465
+}
+  14:	bd38      	pop	{r3, r4, r5, pc}
+  16:	bf00      	nop
+  18:	40011000 	.word	0x40011000
+  1c:	00000000 	.word	0x00000000
+
+Disassembly of section .text.rfFlushRX:
+
+00000000 <rfFlushRX>:
+rfFlushRX():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:468
+
+void rfFlushRX( void )
+{
+   0:	b538      	push	{r3, r4, r5, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:469
+    RF_CS_LOW;
+   2:	4c05      	ldr	r4, [pc, #20]	; (18 <rfFlushRX+0x18>)
+   4:	f44f 6500 	mov.w	r5, #2048	; 0x800
+   8:	6165      	str	r5, [r4, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:470
+    spiWriteByte( &pygmyRFSPI, RF_RX_FLUSH );
+   a:	4804      	ldr	r0, [pc, #16]	; (1c <rfFlushRX+0x1c>)
+   c:	21e2      	movs	r1, #226	; 0xe2
+   e:	f7ff fffe 	bl	0 <spiWriteByte>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:471
+    RF_CS_HIGH;
+  12:	6125      	str	r5, [r4, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:472
+}
+  14:	bd38      	pop	{r3, r4, r5, pc}
+  16:	bf00      	nop
+  18:	40011000 	.word	0x40011000
+  1c:	00000000 	.word	0x00000000
+
+Disassembly of section .text.rfSocketPutString:
+
+00000000 <rfSocketPutString>:
+rfSocketPutString():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:502
+}
+
+void rfSocketPutString( u8 ucSocket, u8 *ucString )
+{
+
+}
+   0:	4770      	bx	lr
+
+Disassembly of section .text.rfGetStatus:
+
+00000000 <rfGetStatus>:
+rfGetStatus():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:529
+    rfClearStatus();
+    rfSetRX();
+}
+
+u8 rfGetStatus( void )
+{
+   0:	b538      	push	{r3, r4, r5, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:532
+    u8 ucStatus;
+
+    RF_CS_LOW;
+   2:	4c04      	ldr	r4, [pc, #16]	; (14 <rfGetStatus+0x14>)
+   4:	f44f 6500 	mov.w	r5, #2048	; 0x800
+   8:	6165      	str	r5, [r4, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:533
+    ucStatus = spiReadByte( &pygmyRFSPI );
+   a:	4803      	ldr	r0, [pc, #12]	; (18 <rfGetStatus+0x18>)
+   c:	f7ff fffe 	bl	0 <spiReadByte>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:534
+    RF_CS_HIGH;
+  10:	6125      	str	r5, [r4, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:537
+
+    return( ucStatus );
+}
+  12:	bd38      	pop	{r3, r4, r5, pc}
+  14:	40011000 	.word	0x40011000
+  18:	00000000 	.word	0x00000000
+
+Disassembly of section .text.rfGetRXPayloadLen:
+
+00000000 <rfGetRXPayloadLen>:
+rfGetRXPayloadLen():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:540
+
+u8 rfGetRXPayloadLen( void )
+{
+   0:	b538      	push	{r3, r4, r5, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:543
+    u8 ucByte;
+
+    RF_CS_LOW;
+   2:	4c06      	ldr	r4, [pc, #24]	; (1c <rfGetRXPayloadLen+0x1c>)
+   4:	f44f 6500 	mov.w	r5, #2048	; 0x800
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:544
+    spiWriteByte( &pygmyRFSPI, RF_RX_LEN );
+   8:	2160      	movs	r1, #96	; 0x60
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:543
+
+u8 rfGetRXPayloadLen( void )
+{
+    u8 ucByte;
+
+    RF_CS_LOW;
+   a:	6165      	str	r5, [r4, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:544
+    spiWriteByte( &pygmyRFSPI, RF_RX_LEN );
+   c:	4804      	ldr	r0, [pc, #16]	; (20 <rfGetRXPayloadLen+0x20>)
+   e:	f7ff fffe 	bl	0 <spiWriteByte>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:545
+    ucByte = spiReadByte( &pygmyRFSPI  );
+  12:	4803      	ldr	r0, [pc, #12]	; (10 <spiReadByte+0x10>)
+  14:	f7ff fffe 	bl	0 <spiReadByte>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:546
+    RF_CS_HIGH;
+  18:	6125      	str	r5, [r4, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:549
+    
+    return( ucByte ); 
+}
+  1a:	bd38      	pop	{r3, r4, r5, pc}
+  1c:	40011000 	.word	0x40011000
+  20:	00000000 	.word	0x00000000
+
+Disassembly of section .text.rfIsRXFIFOEmpty:
+
+00000000 <rfIsRXFIFOEmpty>:
+rfIsRXFIFOEmpty():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:552
+
+u8 rfIsRXFIFOEmpty( void )
+{
+   0:	b538      	push	{r3, r4, r5, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:555
+    u8 ucStatus;
+
+    RF_CS_LOW;
+   2:	4c07      	ldr	r4, [pc, #28]	; (20 <rfIsRXFIFOEmpty+0x20>)
+   4:	f44f 6500 	mov.w	r5, #2048	; 0x800
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:556
+    spiWriteByte( &pygmyRFSPI, RF_REG_FIFOSTATUS );
+   8:	2117      	movs	r1, #23
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:555
+
+u8 rfIsRXFIFOEmpty( void )
+{
+    u8 ucStatus;
+
+    RF_CS_LOW;
+   a:	6165      	str	r5, [r4, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:556
+    spiWriteByte( &pygmyRFSPI, RF_REG_FIFOSTATUS );
+   c:	4805      	ldr	r0, [pc, #20]	; (24 <rfIsRXFIFOEmpty+0x24>)
+   e:	f7ff fffe 	bl	0 <spiWriteByte>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:557
+    ucStatus = spiReadByte( &pygmyRFSPI ) & BIT0;
+  12:	4804      	ldr	r0, [pc, #16]	; (14 <spiReadByte+0x14>)
+  14:	f7ff fffe 	bl	0 <spiReadByte>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:558
+    RF_CS_HIGH;
+  18:	6125      	str	r5, [r4, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:561
+
+    return( ucStatus );
+}
+  1a:	f000 0001 	and.w	r0, r0, #1
+  1e:	bd38      	pop	{r3, r4, r5, pc}
+  20:	40011000 	.word	0x40011000
+  24:	00000000 	.word	0x00000000
+
+Disassembly of section .text.rfClearStatus:
+
+00000000 <rfClearStatus>:
+rfClearStatus():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:607
+    spiWriteByte( &pygmyRFSPI, RF_REG_FEATURE_EN_DPL|RF_REG_FEATURE_EN_ACK_PAY );
+    RF_CS_HIGH;
+}*/
+
+void rfClearStatus( void )
+{
+   0:	b538      	push	{r3, r4, r5, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:608
+    RF_CS_LOW;
+   2:	4c07      	ldr	r4, [pc, #28]	; (20 <rfClearStatus+0x20>)
+   4:	f44f 6500 	mov.w	r5, #2048	; 0x800
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:609
+    spiWriteByte( &pygmyRFSPI, RF_WRITE|RF_REG_STATUS );
+   8:	4806      	ldr	r0, [pc, #24]	; (24 <rfClearStatus+0x24>)
+   a:	2127      	movs	r1, #39	; 0x27
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:608
+    RF_CS_HIGH;
+}*/
+
+void rfClearStatus( void )
+{
+    RF_CS_LOW;
+   c:	6165      	str	r5, [r4, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:609
+    spiWriteByte( &pygmyRFSPI, RF_WRITE|RF_REG_STATUS );
+   e:	f7ff fffe 	bl	0 <spiWriteByte>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:610
+    spiWriteByte( &pygmyRFSPI, BIT6|BIT5|BIT4 ); 
+  12:	4804      	ldr	r0, [pc, #16]	; (24 <rfClearStatus+0x24>)
+  14:	2170      	movs	r1, #112	; 0x70
+  16:	f7ff fffe 	bl	0 <spiWriteByte>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:611
+    RF_CS_HIGH;
+  1a:	6125      	str	r5, [r4, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:612
+}
+  1c:	bd38      	pop	{r3, r4, r5, pc}
+  1e:	bf00      	nop
+  20:	40011000 	.word	0x40011000
+  24:	00000000 	.word	0x00000000
+
+Disassembly of section .text.rfSetRX:
+
+00000000 <rfSetRX>:
+rfSetRX():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:450
+    RF_EN_HIGH;
+}
+
+u8 rfSetRX( void )
+{
+    globalRFConfig &= ~BIT0;
+   0:	4b0c      	ldr	r3, [pc, #48]	; (34 <rfSetRX+0x34>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:449
+    rfClearStatus( );
+    RF_EN_HIGH;
+}
+
+u8 rfSetRX( void )
+{
+   2:	b570      	push	{r4, r5, r6, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:450
+    globalRFConfig &= ~BIT0;
+   4:	681a      	ldr	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:451
+    RF_EN_LOW;
+   6:	4c0c      	ldr	r4, [pc, #48]	; (38 <rfSetRX+0x38>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:450
+    RF_EN_HIGH;
+}
+
+u8 rfSetRX( void )
+{
+    globalRFConfig &= ~BIT0;
+   8:	f022 0201 	bic.w	r2, r2, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:451
+    RF_EN_LOW;
+   c:	f44f 6580 	mov.w	r5, #1024	; 0x400
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:452
+    RF_CS_LOW;
+  10:	f44f 6600 	mov.w	r6, #2048	; 0x800
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:450
+    RF_EN_HIGH;
+}
+
+u8 rfSetRX( void )
+{
+    globalRFConfig &= ~BIT0;
+  14:	601a      	str	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:453
+    RF_EN_LOW;
+    RF_CS_LOW;
+    spiWriteByte( &pygmyRFSPI, RF_WRITE|RF_REG_CONFIG );
+  16:	2120      	movs	r1, #32
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:451
+}
+
+u8 rfSetRX( void )
+{
+    globalRFConfig &= ~BIT0;
+    RF_EN_LOW;
+  18:	6165      	str	r5, [r4, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:453
+    RF_CS_LOW;
+    spiWriteByte( &pygmyRFSPI, RF_WRITE|RF_REG_CONFIG );
+  1a:	4808      	ldr	r0, [pc, #32]	; (3c <rfSetRX+0x3c>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:452
+
+u8 rfSetRX( void )
+{
+    globalRFConfig &= ~BIT0;
+    RF_EN_LOW;
+    RF_CS_LOW;
+  1c:	6166      	str	r6, [r4, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:453
+    spiWriteByte( &pygmyRFSPI, RF_WRITE|RF_REG_CONFIG );
+  1e:	f7ff fffe 	bl	0 <spiWriteByte>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:454
+    spiWriteByte( &pygmyRFSPI, BIT5|BIT4|RF_REG_CONFIG_PWR_UP|RF_REG_CONFIG_PRIM_RX|RF_REG_CONFIG_EN_CRC ); 
+  22:	4806      	ldr	r0, [pc, #24]	; (3c <rfSetRX+0x3c>)
+  24:	213b      	movs	r1, #59	; 0x3b
+  26:	f7ff fffe 	bl	0 <spiWriteByte>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:455
+    RF_CS_HIGH;
+  2a:	6126      	str	r6, [r4, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:456
+    rfClearStatus( );
+  2c:	f7ff fffe 	bl	0 <rfSetRX>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:457
+    RF_EN_HIGH;
+  30:	6125      	str	r5, [r4, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:458
+}
+  32:	bd70      	pop	{r4, r5, r6, pc}
+  34:	00000000 	.word	0x00000000
+  38:	40011000 	.word	0x40011000
+  3c:	00000000 	.word	0x00000000
+
+Disassembly of section .text.rfSetTX:
+
+00000000 <rfSetTX>:
+rfSetTX():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:438
+    return( globalRFConfig & BIT0 );
+}
+
+u8 rfSetTX( void )
+{
+    globalRFConfig |= BIT0;
+   0:	4b0c      	ldr	r3, [pc, #48]	; (34 <rfSetTX+0x34>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:437
+{
+    return( globalRFConfig & BIT0 );
+}
+
+u8 rfSetTX( void )
+{
+   2:	b570      	push	{r4, r5, r6, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:438
+    globalRFConfig |= BIT0;
+   4:	681a      	ldr	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:439
+    RF_EN_LOW;
+   6:	4c0c      	ldr	r4, [pc, #48]	; (38 <rfSetTX+0x38>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:438
+    return( globalRFConfig & BIT0 );
+}
+
+u8 rfSetTX( void )
+{
+    globalRFConfig |= BIT0;
+   8:	f042 0201 	orr.w	r2, r2, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:439
+    RF_EN_LOW;
+   c:	f44f 6580 	mov.w	r5, #1024	; 0x400
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:440
+    RF_CS_LOW;
+  10:	f44f 6600 	mov.w	r6, #2048	; 0x800
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:438
+    return( globalRFConfig & BIT0 );
+}
+
+u8 rfSetTX( void )
+{
+    globalRFConfig |= BIT0;
+  14:	601a      	str	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:441
+    RF_EN_LOW;
+    RF_CS_LOW;
+    spiWriteByte( &pygmyRFSPI, RF_WRITE|RF_REG_CONFIG );
+  16:	2120      	movs	r1, #32
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:439
+}
+
+u8 rfSetTX( void )
+{
+    globalRFConfig |= BIT0;
+    RF_EN_LOW;
+  18:	6165      	str	r5, [r4, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:441
+    RF_CS_LOW;
+    spiWriteByte( &pygmyRFSPI, RF_WRITE|RF_REG_CONFIG );
+  1a:	4808      	ldr	r0, [pc, #32]	; (3c <rfSetTX+0x3c>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:440
+
+u8 rfSetTX( void )
+{
+    globalRFConfig |= BIT0;
+    RF_EN_LOW;
+    RF_CS_LOW;
+  1c:	6166      	str	r6, [r4, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:441
+    spiWriteByte( &pygmyRFSPI, RF_WRITE|RF_REG_CONFIG );
+  1e:	f7ff fffe 	bl	0 <spiWriteByte>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:442
+    spiWriteByte( &pygmyRFSPI, BIT5|BIT4|RF_REG_CONFIG_PWR_UP|RF_REG_CONFIG_EN_CRC ); 
+  22:	4806      	ldr	r0, [pc, #24]	; (3c <rfSetTX+0x3c>)
+  24:	213a      	movs	r1, #58	; 0x3a
+  26:	f7ff fffe 	bl	0 <spiWriteByte>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:443
+    RF_CS_HIGH;
+  2a:	6126      	str	r6, [r4, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:444
+    rfClearStatus( );
+  2c:	f7ff fffe 	bl	0 <rfSetTX>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:445
+    RF_EN_HIGH;
+  30:	6125      	str	r5, [r4, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:446
+}
+  32:	bd70      	pop	{r4, r5, r6, pc}
+  34:	00000000 	.word	0x00000000
+  38:	40011000 	.word	0x40011000
+  3c:	00000000 	.word	0x00000000
+
+Disassembly of section .text.rfPutTXBuffer:
+
+00000000 <rfPutTXBuffer>:
+rfPutTXBuffer():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:505
+{
+
+}
+
+void rfPutTXBuffer( u16 uiLen, u8 *ucBuffer )
+{
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	460e      	mov	r6, r1
+   4:	4605      	mov	r5, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:508
+    u8 i;
+    
+    rfSetTX();
+   6:	f7ff fffe 	bl	0 <rfPutTXBuffer>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:509
+    RF_CS_LOW;
+   a:	4b1c      	ldr	r3, [pc, #112]	; (7c <rfPutTXBuffer+0x7c>)
+   c:	f44f 6200 	mov.w	r2, #2048	; 0x800
+  10:	615a      	str	r2, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:510
+    spiWriteByte( &pygmyRFSPI, RF_TX_PAYLOAD );
+  12:	481b      	ldr	r0, [pc, #108]	; (80 <rfPutTXBuffer+0x80>)
+  14:	21a0      	movs	r1, #160	; 0xa0
+  16:	f7ff fffe 	bl	0 <spiWriteByte>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:511
+    for( i = 0; i < uiLen; i++ ){
+  1a:	2400      	movs	r4, #0
+  1c:	e01c      	b.n	58 <rfPutTXBuffer+0x58>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:512
+        if( i == 32 ){
+  1e:	2c20      	cmp	r4, #32
+  20:	d114      	bne.n	4c <rfPutTXBuffer+0x4c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:513
+            RF_CS_HIGH;
+  22:	4b16      	ldr	r3, [pc, #88]	; (7c <rfPutTXBuffer+0x7c>)
+  24:	f44f 6200 	mov.w	r2, #2048	; 0x800
+  28:	611a      	str	r2, [r3, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:514
+            while( !( rfGetStatus() & BIT5 ) ){;}
+  2a:	f7ff fffe 	bl	0 <rfPutTXBuffer>
+  2e:	f010 0f20 	tst.w	r0, #32
+  32:	d0fa      	beq.n	fffffff8 <rfGetID+0xfffffff8>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:515
+            rfClearStatus();
+  34:	f7ff fffe 	bl	0 <rfPutTXBuffer>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:517
+            uiLen -= 32;
+            RF_CS_LOW;
+  38:	4b10      	ldr	r3, [pc, #64]	; (7c <rfPutTXBuffer+0x7c>)
+  3a:	f44f 6200 	mov.w	r2, #2048	; 0x800
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:516
+    for( i = 0; i < uiLen; i++ ){
+        if( i == 32 ){
+            RF_CS_HIGH;
+            while( !( rfGetStatus() & BIT5 ) ){;}
+            rfClearStatus();
+            uiLen -= 32;
+  3e:	3d20      	subs	r5, #32
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:517
+            RF_CS_LOW;
+  40:	615a      	str	r2, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:518
+            spiWriteByte( &pygmyRFSPI, RF_TX_PAYLOAD );
+  42:	480f      	ldr	r0, [pc, #60]	; (80 <rfPutTXBuffer+0x80>)
+  44:	21a0      	movs	r1, #160	; 0xa0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:516
+    for( i = 0; i < uiLen; i++ ){
+        if( i == 32 ){
+            RF_CS_HIGH;
+            while( !( rfGetStatus() & BIT5 ) ){;}
+            rfClearStatus();
+            uiLen -= 32;
+  46:	b2ad      	uxth	r5, r5
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:518
+            RF_CS_LOW;
+            spiWriteByte( &pygmyRFSPI, RF_TX_PAYLOAD );
+  48:	f7ff fffe 	bl	0 <spiWriteByte>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:520
+        } // if
+        spiWriteByte( &pygmyRFSPI, ucBuffer[ i ] ); 
+  4c:	5d31      	ldrb	r1, [r6, r4]
+  4e:	480c      	ldr	r0, [pc, #48]	; (80 <rfPutTXBuffer+0x80>)
+  50:	f7ff fffe 	bl	0 <spiWriteByte>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:511
+    u8 i;
+    
+    rfSetTX();
+    RF_CS_LOW;
+    spiWriteByte( &pygmyRFSPI, RF_TX_PAYLOAD );
+    for( i = 0; i < uiLen; i++ ){
+  54:	3401      	adds	r4, #1
+  56:	b2e4      	uxtb	r4, r4
+  58:	42ac      	cmp	r4, r5
+  5a:	d3e0      	bcc.n	1e <rfPutTXBuffer+0x1e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:522
+            RF_CS_LOW;
+            spiWriteByte( &pygmyRFSPI, RF_TX_PAYLOAD );
+        } // if
+        spiWriteByte( &pygmyRFSPI, ucBuffer[ i ] ); 
+    } // for
+    RF_CS_HIGH;
+  5c:	4b07      	ldr	r3, [pc, #28]	; (7c <rfPutTXBuffer+0x7c>)
+  5e:	f44f 6200 	mov.w	r2, #2048	; 0x800
+  62:	611a      	str	r2, [r3, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:523
+    while( !( rfGetStatus() & BIT5 ) ){;}
+  64:	f7ff fffe 	bl	0 <rfPutTXBuffer>
+  68:	f010 0f20 	tst.w	r0, #32
+  6c:	d0fa      	beq.n	fffffff8 <rfGetID+0xfffffff8>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:524
+    rfClearStatus();
+  6e:	f7ff fffe 	bl	0 <rfPutTXBuffer>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:526
+    rfSetRX();
+}
+  72:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:525
+        spiWriteByte( &pygmyRFSPI, ucBuffer[ i ] ); 
+    } // for
+    RF_CS_HIGH;
+    while( !( rfGetStatus() & BIT5 ) ){;}
+    rfClearStatus();
+    rfSetRX();
+  76:	f7ff bffe 	b.w	0 <rfPutTXBuffer>
+  7a:	bf00      	nop
+  7c:	40011000 	.word	0x40011000
+  80:	00000000 	.word	0x00000000
+
+Disassembly of section .text.rfSendPacket:
+
+00000000 <rfSendPacket>:
+rfSendPacket():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:67
+    } // while
+    rfClearStatus();
+}
+
+void rfSendPacket( PYGMYRFPACKET *pygmyPacket )
+{
+   0:	b570      	push	{r4, r5, r6, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:71
+    u8 i, ucIndex, ucBuffer[ 32 ];
+
+    ucIndex = 0;
+    ucBuffer[ ucIndex++ ] = (u8)( pygmyPacket->DestID >> 24 );
+   2:	6803      	ldr	r3, [r0, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:67
+    } // while
+    rfClearStatus();
+}
+
+void rfSendPacket( PYGMYRFPACKET *pygmyPacket )
+{
+   4:	b088      	sub	sp, #32
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:71
+    u8 i, ucIndex, ucBuffer[ 32 ];
+
+    ucIndex = 0;
+    ucBuffer[ ucIndex++ ] = (u8)( pygmyPacket->DestID >> 24 );
+   6:	0e1a      	lsrs	r2, r3, #24
+   8:	f88d 2000 	strb.w	r2, [sp]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:72
+    ucBuffer[ ucIndex++ ] = (u8)( pygmyPacket->DestID >> 16 );
+   c:	0c1a      	lsrs	r2, r3, #16
+   e:	f88d 2001 	strb.w	r2, [sp, #1]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:73
+    ucBuffer[ ucIndex++ ] = (u8)( pygmyPacket->DestID >> 8 );
+  12:	0a1a      	lsrs	r2, r3, #8
+  14:	f88d 2002 	strb.w	r2, [sp, #2]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:74
+    ucBuffer[ ucIndex++ ] = (u8)( pygmyPacket->DestID ); 
+  18:	f88d 3003 	strb.w	r3, [sp, #3]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:75
+    ucBuffer[ ucIndex++ ] = (u8) ( ( pygmyPacket->Command << 5 ) | pygmyPacket->Len );
+  1c:	7ac5      	ldrb	r5, [r0, #11]
+  1e:	7a83      	ldrb	r3, [r0, #10]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:67
+    } // while
+    rfClearStatus();
+}
+
+void rfSendPacket( PYGMYRFPACKET *pygmyPacket )
+{
+  20:	4604      	mov	r4, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:75
+    ucIndex = 0;
+    ucBuffer[ ucIndex++ ] = (u8)( pygmyPacket->DestID >> 24 );
+    ucBuffer[ ucIndex++ ] = (u8)( pygmyPacket->DestID >> 16 );
+    ucBuffer[ ucIndex++ ] = (u8)( pygmyPacket->DestID >> 8 );
+    ucBuffer[ ucIndex++ ] = (u8)( pygmyPacket->DestID ); 
+    ucBuffer[ ucIndex++ ] = (u8) ( ( pygmyPacket->Command << 5 ) | pygmyPacket->Len );
+  22:	ea45 1343 	orr.w	r3, r5, r3, lsl #5
+  26:	f88d 3004 	strb.w	r3, [sp, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:76
+    ucBuffer[ ucIndex++ ] = (u8) pygmyPacket->Chunk;
+  2a:	7b03      	ldrb	r3, [r0, #12]
+  2c:	f88d 3005 	strb.w	r3, [sp, #5]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:77
+    if( pygmyPacket->Type == RF_OPEN ){
+  30:	7b43      	ldrb	r3, [r0, #13]
+  32:	2b01      	cmp	r3, #1
+  34:	d002      	beq.n	3c <rfSendPacket+0x3c>
+  36:	4602      	mov	r2, r0
+  38:	2300      	movs	r3, #0
+  3a:	e016      	b.n	6a <rfSendPacket+0x6a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:78
+        ucBuffer[ ucIndex++ ] = (u8) pygmyPacket->Type;
+  3c:	f88d 3006 	strb.w	r3, [sp, #6]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:79
+        ucBuffer[ ucIndex++ ] = (u8)( pygmyPacket->SrcID >> 24 );
+  40:	6843      	ldr	r3, [r0, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:82
+        ucBuffer[ ucIndex++ ] = (u8)( pygmyPacket->SrcID >> 16 );
+        ucBuffer[ ucIndex++ ] = (u8)( pygmyPacket->SrcID >> 8 );
+        ucBuffer[ ucIndex++ ] = (u8)( pygmyPacket->SrcID );
+  42:	250b      	movs	r5, #11
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:79
+    ucBuffer[ ucIndex++ ] = (u8)( pygmyPacket->DestID ); 
+    ucBuffer[ ucIndex++ ] = (u8) ( ( pygmyPacket->Command << 5 ) | pygmyPacket->Len );
+    ucBuffer[ ucIndex++ ] = (u8) pygmyPacket->Chunk;
+    if( pygmyPacket->Type == RF_OPEN ){
+        ucBuffer[ ucIndex++ ] = (u8) pygmyPacket->Type;
+        ucBuffer[ ucIndex++ ] = (u8)( pygmyPacket->SrcID >> 24 );
+  44:	0e1a      	lsrs	r2, r3, #24
+  46:	f88d 2007 	strb.w	r2, [sp, #7]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:80
+        ucBuffer[ ucIndex++ ] = (u8)( pygmyPacket->SrcID >> 16 );
+  4a:	0c1a      	lsrs	r2, r3, #16
+  4c:	f88d 2008 	strb.w	r2, [sp, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:81
+        ucBuffer[ ucIndex++ ] = (u8)( pygmyPacket->SrcID >> 8 );
+  50:	0a1a      	lsrs	r2, r3, #8
+  52:	f88d 2009 	strb.w	r2, [sp, #9]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:82
+        ucBuffer[ ucIndex++ ] = (u8)( pygmyPacket->SrcID );
+  56:	f88d 300a 	strb.w	r3, [sp, #10]
+  5a:	e00d      	b.n	78 <rfSendPacket+0x78>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:86
+        
+    } else{
+        for( i = 0; i < pygmyPacket->Len; i++ ){
+            ucBuffer[ ucIndex++ ] = (u8)pygmyPacket->Payload[ i ];
+  5c:	a808      	add	r0, sp, #32
+  5e:	1841      	adds	r1, r0, r1
+  60:	7b50      	ldrb	r0, [r2, #13]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:85
+        ucBuffer[ ucIndex++ ] = (u8)( pygmyPacket->SrcID >> 16 );
+        ucBuffer[ ucIndex++ ] = (u8)( pygmyPacket->SrcID >> 8 );
+        ucBuffer[ ucIndex++ ] = (u8)( pygmyPacket->SrcID );
+        
+    } else{
+        for( i = 0; i < pygmyPacket->Len; i++ ){
+  62:	3301      	adds	r3, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:86
+            ucBuffer[ ucIndex++ ] = (u8)pygmyPacket->Payload[ i ];
+  64:	f801 0c20 	strb.w	r0, [r1, #-32]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:85
+        ucBuffer[ ucIndex++ ] = (u8)( pygmyPacket->SrcID >> 16 );
+        ucBuffer[ ucIndex++ ] = (u8)( pygmyPacket->SrcID >> 8 );
+        ucBuffer[ ucIndex++ ] = (u8)( pygmyPacket->SrcID );
+        
+    } else{
+        for( i = 0; i < pygmyPacket->Len; i++ ){
+  68:	b2db      	uxtb	r3, r3
+  6a:	1d99      	adds	r1, r3, #6
+  6c:	3201      	adds	r2, #1
+  6e:	42ab      	cmp	r3, r5
+  70:	b2c9      	uxtb	r1, r1
+  72:	d3f3      	bcc.n	5c <rfSendPacket+0x5c>
+  74:	3506      	adds	r5, #6
+  76:	b2ed      	uxtb	r5, r5
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:90
+            ucBuffer[ ucIndex++ ] = (u8)pygmyPacket->Payload[ i ];
+        } // for
+    } // else
+    
+    print( COM3, "\rucIndex: %d", ucIndex );
+  78:	462a      	mov	r2, r5
+  7a:	2001      	movs	r0, #1
+  7c:	4916      	ldr	r1, [pc, #88]	; (d8 <rfSendPacket+0xd8>)
+  7e:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:91
+    pygmyPacket->CRC = sysCRC16( ucBuffer, ucIndex );
+  82:	4629      	mov	r1, r5
+  84:	4668      	mov	r0, sp
+  86:	f7ff fffe 	bl	0 <sysCRC16>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:92
+    ucBuffer[ ucIndex++ ] = (u8)(pygmyPacket->CRC >> 8);
+  8a:	aa08      	add	r2, sp, #32
+  8c:	1953      	adds	r3, r2, r5
+  8e:	0a02      	lsrs	r2, r0, #8
+  90:	3501      	adds	r5, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:91
+            ucBuffer[ ucIndex++ ] = (u8)pygmyPacket->Payload[ i ];
+        } // for
+    } // else
+    
+    print( COM3, "\rucIndex: %d", ucIndex );
+    pygmyPacket->CRC = sysCRC16( ucBuffer, ucIndex );
+  92:	8120      	strh	r0, [r4, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:92
+    ucBuffer[ ucIndex++ ] = (u8)(pygmyPacket->CRC >> 8);
+  94:	b2ed      	uxtb	r5, r5
+  96:	f803 2c20 	strb.w	r2, [r3, #-32]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:93
+    ucBuffer[ ucIndex++ ] = (u8)pygmyPacket->CRC;
+  9a:	aa08      	add	r2, sp, #32
+  9c:	1953      	adds	r3, r2, r5
+  9e:	f803 0c20 	strb.w	r0, [r3, #-32]
+  a2:	3501      	adds	r5, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:94
+    print( COM3, "\rSending:" );
+  a4:	2001      	movs	r0, #1
+  a6:	490d      	ldr	r1, [pc, #52]	; (dc <rfSendPacket+0xdc>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:93
+    } // else
+    
+    print( COM3, "\rucIndex: %d", ucIndex );
+    pygmyPacket->CRC = sysCRC16( ucBuffer, ucIndex );
+    ucBuffer[ ucIndex++ ] = (u8)(pygmyPacket->CRC >> 8);
+    ucBuffer[ ucIndex++ ] = (u8)pygmyPacket->CRC;
+  a8:	b2ed      	uxtb	r5, r5
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:94
+    print( COM3, "\rSending:" );
+  aa:	f7ff fffe 	bl	0 <print>
+  ae:	f10d 36ff 	add.w	r6, sp, #4294967295
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:95
+    for( i = 0; i < ucIndex; i++ ){
+  b2:	2400      	movs	r4, #0
+  b4:	e007      	b.n	c6 <rfSendPacket+0xc6>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:96
+        print( COM3, " ( %X )", ucBuffer[ i ] );
+  b6:	2001      	movs	r0, #1
+  b8:	4909      	ldr	r1, [pc, #36]	; (e0 <rfSendPacket+0xe0>)
+  ba:	f816 2f01 	ldrb.w	r2, [r6, #1]!
+  be:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:95
+    print( COM3, "\rucIndex: %d", ucIndex );
+    pygmyPacket->CRC = sysCRC16( ucBuffer, ucIndex );
+    ucBuffer[ ucIndex++ ] = (u8)(pygmyPacket->CRC >> 8);
+    ucBuffer[ ucIndex++ ] = (u8)pygmyPacket->CRC;
+    print( COM3, "\rSending:" );
+    for( i = 0; i < ucIndex; i++ ){
+  c2:	3401      	adds	r4, #1
+  c4:	b2e4      	uxtb	r4, r4
+  c6:	42ac      	cmp	r4, r5
+  c8:	d3f5      	bcc.n	b6 <rfSendPacket+0xb6>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:98
+        print( COM3, " ( %X )", ucBuffer[ i ] );
+    } // for
+    rfPutTXBuffer( ucIndex, ucBuffer );
+  ca:	4628      	mov	r0, r5
+  cc:	4669      	mov	r1, sp
+  ce:	f7ff fffe 	bl	0 <rfSendPacket>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:99
+}
+  d2:	b008      	add	sp, #32
+  d4:	bd70      	pop	{r4, r5, r6, pc}
+  d6:	bf00      	nop
+  d8:	000000bb 	.word	0x000000bb
+  dc:	000000c8 	.word	0x000000c8
+  e0:	000000d2 	.word	0x000000d2
+
+Disassembly of section .text.rfSendOpenSocket:
+
+00000000 <rfSendOpenSocket>:
+rfSendOpenSocket():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:326
+    
+    rfSendPacket( &pygmyPacket );
+}
+
+void rfSendOpenSocket( u32 ulDest, u8 ucType  )
+{
+   0:	4b09b500 	.word	0x4b09b500
+   4:	b08b      	sub	sp, #44	; 0x2c
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:331
+    PYGMYRFPACKET pygmyPacket;
+    
+    pygmyPacket.DestID      = ulDest;
+    pygmyPacket.Type        = ucType;
+    pygmyPacket.SrcID       = pygmyGlobalRFID;
+   6:	681b      	ldr	r3, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:329
+
+void rfSendOpenSocket( u32 ulDest, u8 ucType  )
+{
+    PYGMYRFPACKET pygmyPacket;
+    
+    pygmyPacket.DestID      = ulDest;
+   8:	9000      	str	r0, [sp, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:331
+    pygmyPacket.Type        = ucType;
+    pygmyPacket.SrcID       = pygmyGlobalRFID;
+   a:	9301      	str	r3, [sp, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:332
+    pygmyPacket.Len         = 5;
+   c:	2305      	movs	r3, #5
+   e:	f88d 300b 	strb.w	r3, [sp, #11]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:335
+    pygmyPacket.Command     = RF_OPEN;
+    
+    rfSendPacket( &pygmyPacket );
+  12:	4668      	mov	r0, sp
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:333
+    
+    pygmyPacket.DestID      = ulDest;
+    pygmyPacket.Type        = ucType;
+    pygmyPacket.SrcID       = pygmyGlobalRFID;
+    pygmyPacket.Len         = 5;
+    pygmyPacket.Command     = RF_OPEN;
+  14:	3b04      	subs	r3, #4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:330
+void rfSendOpenSocket( u32 ulDest, u8 ucType  )
+{
+    PYGMYRFPACKET pygmyPacket;
+    
+    pygmyPacket.DestID      = ulDest;
+    pygmyPacket.Type        = ucType;
+  16:	f88d 100d 	strb.w	r1, [sp, #13]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:333
+    pygmyPacket.SrcID       = pygmyGlobalRFID;
+    pygmyPacket.Len         = 5;
+    pygmyPacket.Command     = RF_OPEN;
+  1a:	f88d 300a 	strb.w	r3, [sp, #10]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:335
+    
+    rfSendPacket( &pygmyPacket );
+  1e:	f7ff fffe 	bl	0 <rfSendOpenSocket>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:357
+        uiCRC = sysCRC16( ucBuffer, 6 );
+        ucBuffer[ 6 ] = (u8)uiCRC >> 8;
+        ucBuffer[ 7 ] = (u8)uiCRC;
+    } // else if
+    rfPutTXBuffer( 8, ucBuffer );*/
+}
+  22:	b00b      	add	sp, #44	; 0x2c
+  24:	bd00      	pop	{pc}
+  26:	bf00      	nop
+  28:	00000000 	.word	0x00000000
+
+Disassembly of section .text.rfSendLastCommand:
+
+00000000 <rfSendLastCommand>:
+rfSendLastCommand():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:313
+    
+    rfSendPacket( &pygmyPacket );
+}
+
+void rfSendLastCommand( u8 ucSocket )
+{
+   0:	b500      	push	{lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:316
+    PYGMYRFPACKET pygmyPacket;
+    
+    pygmyPacket.DestID      = pygmyGlobalRFSockets[ ucSocket ].DestID;
+   2:	4b0b      	ldr	r3, [pc, #44]	; (30 <rfSendLastCommand+0x30>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:313
+    
+    rfSendPacket( &pygmyPacket );
+}
+
+void rfSendLastCommand( u8 ucSocket )
+{
+   4:	b08b      	sub	sp, #44	; 0x2c
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:316
+    PYGMYRFPACKET pygmyPacket;
+    
+    pygmyPacket.DestID      = pygmyGlobalRFSockets[ ucSocket ].DestID;
+   6:	eb03 1300 	add.w	r3, r3, r0, lsl #4
+   a:	689a      	ldr	r2, [r3, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:317
+    pygmyPacket.Type        = pygmyGlobalRFSockets[ ucSocket ].Type;
+   c:	7b1b      	ldrb	r3, [r3, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:322
+    pygmyPacket.SrcID       = pygmyGlobalRFID;
+    pygmyPacket.Len         = 5;
+    pygmyPacket.Command     = RF_LAST;
+    
+    rfSendPacket( &pygmyPacket );
+   e:	4668      	mov	r0, sp
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:317
+void rfSendLastCommand( u8 ucSocket )
+{
+    PYGMYRFPACKET pygmyPacket;
+    
+    pygmyPacket.DestID      = pygmyGlobalRFSockets[ ucSocket ].DestID;
+    pygmyPacket.Type        = pygmyGlobalRFSockets[ ucSocket ].Type;
+  10:	f88d 300d 	strb.w	r3, [sp, #13]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:318
+    pygmyPacket.SrcID       = pygmyGlobalRFID;
+  14:	4b07      	ldr	r3, [pc, #28]	; (34 <rfSendLastCommand+0x34>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:316
+
+void rfSendLastCommand( u8 ucSocket )
+{
+    PYGMYRFPACKET pygmyPacket;
+    
+    pygmyPacket.DestID      = pygmyGlobalRFSockets[ ucSocket ].DestID;
+  16:	9200      	str	r2, [sp, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:318
+    pygmyPacket.Type        = pygmyGlobalRFSockets[ ucSocket ].Type;
+    pygmyPacket.SrcID       = pygmyGlobalRFID;
+  18:	681b      	ldr	r3, [r3, #0]
+  1a:	9301      	str	r3, [sp, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:319
+    pygmyPacket.Len         = 5;
+  1c:	2305      	movs	r3, #5
+  1e:	f88d 300b 	strb.w	r3, [sp, #11]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:320
+    pygmyPacket.Command     = RF_LAST;
+  22:	3b01      	subs	r3, #1
+  24:	f88d 300a 	strb.w	r3, [sp, #10]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:322
+    
+    rfSendPacket( &pygmyPacket );
+  28:	f7ff fffe 	bl	0 <rfSendLastCommand>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:323
+}
+  2c:	b00b      	add	sp, #44	; 0x2c
+  2e:	bd00      	pop	{pc}
+	...
+
+Disassembly of section .text.rfSendNextCommand:
+
+00000000 <rfSendNextCommand>:
+rfSendNextCommand():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:300
+    
+    rfSendPacket( &pygmyPacket );
+}
+
+void rfSendNextCommand( u8 ucSocket )
+{
+   0:	b500      	push	{lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:303
+    PYGMYRFPACKET pygmyPacket;
+    
+    pygmyPacket.DestID      = pygmyGlobalRFSockets[ ucSocket ].DestID;
+   2:	4b0b      	ldr	r3, [pc, #44]	; (30 <rfSendNextCommand+0x30>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:300
+    
+    rfSendPacket( &pygmyPacket );
+}
+
+void rfSendNextCommand( u8 ucSocket )
+{
+   4:	b08b      	sub	sp, #44	; 0x2c
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:303
+    PYGMYRFPACKET pygmyPacket;
+    
+    pygmyPacket.DestID      = pygmyGlobalRFSockets[ ucSocket ].DestID;
+   6:	eb03 1300 	add.w	r3, r3, r0, lsl #4
+   a:	689a      	ldr	r2, [r3, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:304
+    pygmyPacket.Type        = pygmyGlobalRFSockets[ ucSocket ].Type;
+   c:	7b1b      	ldrb	r3, [r3, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:309
+    pygmyPacket.SrcID       = pygmyGlobalRFID;
+    pygmyPacket.Len         = 5;
+    pygmyPacket.Command     = RF_NEXT;
+    
+    rfSendPacket( &pygmyPacket );
+   e:	4668      	mov	r0, sp
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:304
+void rfSendNextCommand( u8 ucSocket )
+{
+    PYGMYRFPACKET pygmyPacket;
+    
+    pygmyPacket.DestID      = pygmyGlobalRFSockets[ ucSocket ].DestID;
+    pygmyPacket.Type        = pygmyGlobalRFSockets[ ucSocket ].Type;
+  10:	f88d 300d 	strb.w	r3, [sp, #13]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:305
+    pygmyPacket.SrcID       = pygmyGlobalRFID;
+  14:	4b07      	ldr	r3, [pc, #28]	; (34 <rfSendNextCommand+0x34>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:303
+
+void rfSendNextCommand( u8 ucSocket )
+{
+    PYGMYRFPACKET pygmyPacket;
+    
+    pygmyPacket.DestID      = pygmyGlobalRFSockets[ ucSocket ].DestID;
+  16:	9200      	str	r2, [sp, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:305
+    pygmyPacket.Type        = pygmyGlobalRFSockets[ ucSocket ].Type;
+    pygmyPacket.SrcID       = pygmyGlobalRFID;
+  18:	681b      	ldr	r3, [r3, #0]
+  1a:	9301      	str	r3, [sp, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:306
+    pygmyPacket.Len         = 5;
+  1c:	2305      	movs	r3, #5
+  1e:	f88d 300b 	strb.w	r3, [sp, #11]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:307
+    pygmyPacket.Command     = RF_NEXT;
+  22:	3b02      	subs	r3, #2
+  24:	f88d 300a 	strb.w	r3, [sp, #10]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:309
+    
+    rfSendPacket( &pygmyPacket );
+  28:	f7ff fffe 	bl	0 <rfSendNextCommand>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:310
+}
+  2c:	b00b      	add	sp, #44	; 0x2c
+  2e:	bd00      	pop	{pc}
+	...
+
+Disassembly of section .text.rfSendCloseCommand:
+
+00000000 <rfSendCloseCommand>:
+rfSendCloseCommand():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:287
+    
+    rfSendPacket( &pygmyPacket );
+}
+
+void rfSendCloseCommand( u8 ucSocket )
+{
+   0:	b500      	push	{lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:290
+    PYGMYRFPACKET pygmyPacket;
+    
+    pygmyPacket.DestID      = pygmyGlobalRFSockets[ ucSocket ].DestID;
+   2:	4b0b      	ldr	r3, [pc, #44]	; (30 <rfSendCloseCommand+0x30>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:287
+    
+    rfSendPacket( &pygmyPacket );
+}
+
+void rfSendCloseCommand( u8 ucSocket )
+{
+   4:	b08b      	sub	sp, #44	; 0x2c
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:290
+    PYGMYRFPACKET pygmyPacket;
+    
+    pygmyPacket.DestID      = pygmyGlobalRFSockets[ ucSocket ].DestID;
+   6:	eb03 1300 	add.w	r3, r3, r0, lsl #4
+   a:	689a      	ldr	r2, [r3, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:291
+    pygmyPacket.Type        = pygmyGlobalRFSockets[ ucSocket ].Type;
+   c:	7b1b      	ldrb	r3, [r3, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:296
+    pygmyPacket.SrcID       = pygmyGlobalRFID;
+    pygmyPacket.Len         = 5;
+    pygmyPacket.Command     = RF_CLOSE;
+    
+    rfSendPacket( &pygmyPacket );
+   e:	4668      	mov	r0, sp
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:291
+void rfSendCloseCommand( u8 ucSocket )
+{
+    PYGMYRFPACKET pygmyPacket;
+    
+    pygmyPacket.DestID      = pygmyGlobalRFSockets[ ucSocket ].DestID;
+    pygmyPacket.Type        = pygmyGlobalRFSockets[ ucSocket ].Type;
+  10:	f88d 300d 	strb.w	r3, [sp, #13]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:292
+    pygmyPacket.SrcID       = pygmyGlobalRFID;
+  14:	4b07      	ldr	r3, [pc, #28]	; (34 <rfSendCloseCommand+0x34>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:290
+
+void rfSendCloseCommand( u8 ucSocket )
+{
+    PYGMYRFPACKET pygmyPacket;
+    
+    pygmyPacket.DestID      = pygmyGlobalRFSockets[ ucSocket ].DestID;
+  16:	9200      	str	r2, [sp, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:292
+    pygmyPacket.Type        = pygmyGlobalRFSockets[ ucSocket ].Type;
+    pygmyPacket.SrcID       = pygmyGlobalRFID;
+  18:	681b      	ldr	r3, [r3, #0]
+  1a:	9301      	str	r3, [sp, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:293
+    pygmyPacket.Len         = 5;
+  1c:	2305      	movs	r3, #5
+  1e:	f88d 300b 	strb.w	r3, [sp, #11]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:294
+    pygmyPacket.Command     = RF_CLOSE;
+  22:	3b03      	subs	r3, #3
+  24:	f88d 300a 	strb.w	r3, [sp, #10]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:296
+    
+    rfSendPacket( &pygmyPacket );
+  28:	f7ff fffe 	bl	0 <rfSendCloseCommand>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:297
+}
+  2c:	b00b      	add	sp, #44	; 0x2c
+  2e:	bd00      	pop	{pc}
+	...
+
+Disassembly of section .text.rfSendOpenCommand:
+
+00000000 <rfSendOpenCommand>:
+rfSendOpenCommand():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:274
+    } // for
+    return( 0xFF );
+}
+
+void rfSendOpenCommand( u8 ucSocket )
+{
+   0:	b500      	push	{lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:277
+    PYGMYRFPACKET pygmyPacket;
+    
+    pygmyPacket.DestID      = pygmyGlobalRFSockets[ ucSocket ].DestID;
+   2:	4b0b      	ldr	r3, [pc, #44]	; (30 <rfSendOpenCommand+0x30>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:274
+    } // for
+    return( 0xFF );
+}
+
+void rfSendOpenCommand( u8 ucSocket )
+{
+   4:	b08b      	sub	sp, #44	; 0x2c
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:277
+    PYGMYRFPACKET pygmyPacket;
+    
+    pygmyPacket.DestID      = pygmyGlobalRFSockets[ ucSocket ].DestID;
+   6:	eb03 1300 	add.w	r3, r3, r0, lsl #4
+   a:	689a      	ldr	r2, [r3, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:278
+    pygmyPacket.Type        = pygmyGlobalRFSockets[ ucSocket ].Type;
+   c:	7b1b      	ldrb	r3, [r3, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:283
+    pygmyPacket.SrcID       = pygmyGlobalRFID;
+    pygmyPacket.Len         = 5;
+    pygmyPacket.Command     = RF_OPEN;
+    
+    rfSendPacket( &pygmyPacket );
+   e:	4668      	mov	r0, sp
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:278
+void rfSendOpenCommand( u8 ucSocket )
+{
+    PYGMYRFPACKET pygmyPacket;
+    
+    pygmyPacket.DestID      = pygmyGlobalRFSockets[ ucSocket ].DestID;
+    pygmyPacket.Type        = pygmyGlobalRFSockets[ ucSocket ].Type;
+  10:	f88d 300d 	strb.w	r3, [sp, #13]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:279
+    pygmyPacket.SrcID       = pygmyGlobalRFID;
+  14:	4b07      	ldr	r3, [pc, #28]	; (34 <rfSendOpenCommand+0x34>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:277
+
+void rfSendOpenCommand( u8 ucSocket )
+{
+    PYGMYRFPACKET pygmyPacket;
+    
+    pygmyPacket.DestID      = pygmyGlobalRFSockets[ ucSocket ].DestID;
+  16:	9200      	str	r2, [sp, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:279
+    pygmyPacket.Type        = pygmyGlobalRFSockets[ ucSocket ].Type;
+    pygmyPacket.SrcID       = pygmyGlobalRFID;
+  18:	681b      	ldr	r3, [r3, #0]
+  1a:	9301      	str	r3, [sp, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:280
+    pygmyPacket.Len         = 5;
+  1c:	2305      	movs	r3, #5
+  1e:	f88d 300b 	strb.w	r3, [sp, #11]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:281
+    pygmyPacket.Command     = RF_OPEN;
+  22:	3b04      	subs	r3, #4
+  24:	f88d 300a 	strb.w	r3, [sp, #10]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:283
+    
+    rfSendPacket( &pygmyPacket );
+  28:	f7ff fffe 	bl	0 <rfSendOpenCommand>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:284
+}
+  2c:	b00b      	add	sp, #44	; 0x2c
+  2e:	bd00      	pop	{pc}
+	...
+
+Disassembly of section .text.rfProcessPacket:
+
+00000000 <rfProcessPacket>:
+rfProcessPacket():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:169
+    } // if
+
+}
+
+void rfProcessPacket( u8 *ucBuffer, u8 ucLen )
+{    
+   0:	b510      	push	{r4, lr}
+   2:	b08a      	sub	sp, #40	; 0x28
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:172
+    PYGMYRFPACKET pygmyPacket;
+
+    rfLoadPacket( ucBuffer, &pygmyPacket );
+   4:	4669      	mov	r1, sp
+   6:	f7ff fffe 	bl	0 <rfProcessPacket>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:173
+    if( pygmyPacket.Command == RF_OPEN ){
+   a:	f89d 400a 	ldrb.w	r4, [sp, #10]
+   e:	2c01      	cmp	r4, #1
+  10:	d119      	bne.n	46 <rfProcessPacket+0x46>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:174
+        pygmyPacket.Command = RF_NEXT;
+  12:	2303      	movs	r3, #3
+  14:	f88d 300a 	strb.w	r3, [sp, #10]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:176
+        pygmyPacket.DestID = pygmyPacket.SrcID;
+        pygmyPacket.SrcID = pygmyGlobalRFID;
+  18:	4b0c      	ldr	r3, [pc, #48]	; (4c <rfProcessPacket+0x4c>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:175
+    PYGMYRFPACKET pygmyPacket;
+
+    rfLoadPacket( ucBuffer, &pygmyPacket );
+    if( pygmyPacket.Command == RF_OPEN ){
+        pygmyPacket.Command = RF_NEXT;
+        pygmyPacket.DestID = pygmyPacket.SrcID;
+  1a:	9801      	ldr	r0, [sp, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:176
+        pygmyPacket.SrcID = pygmyGlobalRFID;
+  1c:	681b      	ldr	r3, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:177
+        if( rfOpenSocket( pygmyPacket.DestID, pygmyPacket.Type ) == 0xFF ) {
+  1e:	f89d 100d 	ldrb.w	r1, [sp, #13]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:175
+    PYGMYRFPACKET pygmyPacket;
+
+    rfLoadPacket( ucBuffer, &pygmyPacket );
+    if( pygmyPacket.Command == RF_OPEN ){
+        pygmyPacket.Command = RF_NEXT;
+        pygmyPacket.DestID = pygmyPacket.SrcID;
+  22:	9000      	str	r0, [sp, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:176
+        pygmyPacket.SrcID = pygmyGlobalRFID;
+  24:	9301      	str	r3, [sp, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:177
+        if( rfOpenSocket( pygmyPacket.DestID, pygmyPacket.Type ) == 0xFF ) {
+  26:	f7ff fffe 	bl	0 <rfProcessPacket>
+  2a:	28ff      	cmp	r0, #255	; 0xff
+  2c:	d104      	bne.n	38 <rfProcessPacket+0x38>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:178
+            print( COM3, "\rSockets Full" );
+  2e:	4620      	mov	r0, r4
+  30:	4907      	ldr	r1, [pc, #28]	; (50 <rfProcessPacket+0x50>)
+  32:	f7ff fffe 	bl	0 <print>
+  36:	e006      	b.n	46 <rfProcessPacket+0x46>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:180
+        } else{
+            print( COM3, "\rSocket Open" );
+  38:	4620      	mov	r0, r4
+  3a:	4906      	ldr	r1, [pc, #24]	; (54 <rfProcessPacket+0x54>)
+  3c:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:181
+            rfSendPacket( &pygmyPacket );
+  40:	4668      	mov	r0, sp
+  42:	f7ff fffe 	bl	0 <rfProcessPacket>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:193
+        
+    } else if( pygmyPacket.Command == RF_SCAN ){
+        
+    } // else if
+    
+}
+  46:	b00a      	add	sp, #40	; 0x28
+  48:	bd10      	pop	{r4, pc}
+  4a:	bf00      	nop
+  4c:	00000000 	.word	0x00000000
+  50:	000000da 	.word	0x000000da
+  54:	000000e8 	.word	0x000000e8
+
+Disassembly of section .text.rfPutString:
+
+00000000 <rfPutString>:
+rfPutString():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:475
+    spiWriteByte( &pygmyRFSPI, RF_RX_FLUSH );
+    RF_CS_HIGH;
+}
+
+void rfPutString( u8 *ucBuffer )
+{
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	4605      	mov	r5, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:478
+    u8 i;
+
+    rfSetTX();
+   4:	f7ff fffe 	bl	0 <rfPutString>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:479
+    RF_CS_LOW;
+   8:	4b1c      	ldr	r3, [pc, #112]	; (7c <rfPutString+0x7c>)
+   a:	f44f 6200 	mov.w	r2, #2048	; 0x800
+   e:	615a      	str	r2, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:480
+    spiWriteByte( &pygmyRFSPI, RF_TX_PAYLOAD );
+  10:	481b      	ldr	r0, [pc, #108]	; (80 <rfPutString+0x80>)
+  12:	21a0      	movs	r1, #160	; 0xa0
+  14:	f7ff fffe 	bl	0 <spiWriteByte>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:481
+    for( i = 0; *ucBuffer; i++ ){
+  18:	2400      	movs	r4, #0
+  1a:	e01c      	b.n	56 <rfPutString+0x56>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:482
+        if( i == 32 ){
+  1c:	2c20      	cmp	r4, #32
+  1e:	d113      	bne.n	48 <rfPutString+0x48>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:483
+            RF_CS_HIGH;
+  20:	4b16      	ldr	r3, [pc, #88]	; (7c <rfPutString+0x7c>)
+  22:	f44f 6200 	mov.w	r2, #2048	; 0x800
+  26:	611a      	str	r2, [r3, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:484
+            while( !( rfGetStatus() & BIT5 ) ){;}
+  28:	f7ff fffe 	bl	0 <rfPutString>
+  2c:	f010 0f20 	tst.w	r0, #32
+  30:	d0fa      	beq.n	fffffff8 <rfGetID+0xfffffff8>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:485
+            rfClearStatus();
+  32:	f7ff fffe 	bl	0 <rfPutString>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:487
+            i = 0;
+            RF_CS_LOW;
+  36:	4b11      	ldr	r3, [pc, #68]	; (7c <rfPutString+0x7c>)
+  38:	f44f 6200 	mov.w	r2, #2048	; 0x800
+  3c:	615a      	str	r2, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:488
+            spiWriteByte( &pygmyRFSPI, RF_TX_PAYLOAD );
+  3e:	4810      	ldr	r0, [pc, #64]	; (80 <rfPutString+0x80>)
+  40:	21a0      	movs	r1, #160	; 0xa0
+  42:	f7ff fffe 	bl	0 <spiWriteByte>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:486
+    for( i = 0; *ucBuffer; i++ ){
+        if( i == 32 ){
+            RF_CS_HIGH;
+            while( !( rfGetStatus() & BIT5 ) ){;}
+            rfClearStatus();
+            i = 0;
+  46:	2400      	movs	r4, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:490
+            RF_CS_LOW;
+            spiWriteByte( &pygmyRFSPI, RF_TX_PAYLOAD );
+        } // if
+        spiWriteByte( &pygmyRFSPI, *(ucBuffer++) ); 
+  48:	480d      	ldr	r0, [pc, #52]	; (80 <rfPutString+0x80>)
+  4a:	f815 1c01 	ldrb.w	r1, [r5, #-1]
+  4e:	f7ff fffe 	bl	0 <spiWriteByte>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:481
+    u8 i;
+
+    rfSetTX();
+    RF_CS_LOW;
+    spiWriteByte( &pygmyRFSPI, RF_TX_PAYLOAD );
+    for( i = 0; *ucBuffer; i++ ){
+  52:	3401      	adds	r4, #1
+  54:	b2e4      	uxtb	r4, r4
+  56:	f815 3b01 	ldrb.w	r3, [r5], #1
+  5a:	2b00      	cmp	r3, #0
+  5c:	d1de      	bne.n	1c <rfPutString+0x1c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:492
+            RF_CS_LOW;
+            spiWriteByte( &pygmyRFSPI, RF_TX_PAYLOAD );
+        } // if
+        spiWriteByte( &pygmyRFSPI, *(ucBuffer++) ); 
+    } // for
+    RF_CS_HIGH;
+  5e:	4b07      	ldr	r3, [pc, #28]	; (7c <rfPutString+0x7c>)
+  60:	f44f 6200 	mov.w	r2, #2048	; 0x800
+  64:	611a      	str	r2, [r3, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:493
+    while( !( rfGetStatus() & BIT5 ) ){;}
+  66:	f7ff fffe 	bl	0 <rfPutString>
+  6a:	f010 0f20 	tst.w	r0, #32
+  6e:	d0fa      	beq.n	fffffff8 <rfGetID+0xfffffff8>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:495
+    //rfFlushTX();
+    rfClearStatus();
+  70:	f7ff fffe 	bl	0 <rfPutString>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:497
+    rfSetRX();
+}
+  74:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:496
+    } // for
+    RF_CS_HIGH;
+    while( !( rfGetStatus() & BIT5 ) ){;}
+    //rfFlushTX();
+    rfClearStatus();
+    rfSetRX();
+  78:	f7ff bffe 	b.w	0 <rfPutString>
+  7c:	40011000 	.word	0x40011000
+  80:	00000000 	.word	0x00000000
+
+Disassembly of section .text.rfGetSignalQuality:
+
+00000000 <rfGetSignalQuality>:
+rfGetSignalQuality():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:418
+    rfWriteAddress( RF_REG_RXADDR_P0, (u8*)ucAddrP0 );
+    rfSetRX();
+}
+
+u8 rfGetSignalQuality( void )
+{
+   0:	4c09b570 	.word	0x4c09b570
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:421
+    u8 ucSignalQuality;
+
+    RF_CS_LOW;
+   4:	f44f 6500 	mov.w	r5, #2048	; 0x800
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:422
+    spiWriteByte( &pygmyRFSPI, RF_READ|RF_REG_OBSERVETX );
+   8:	2108      	movs	r1, #8
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:421
+
+u8 rfGetSignalQuality( void )
+{
+    u8 ucSignalQuality;
+
+    RF_CS_LOW;
+   a:	6165      	str	r5, [r4, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:422
+    spiWriteByte( &pygmyRFSPI, RF_READ|RF_REG_OBSERVETX );
+   c:	4807      	ldr	r0, [pc, #28]	; (2c <rfGetSignalQuality+0x2c>)
+   e:	f7ff fffe 	bl	0 <spiWriteByte>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:423
+    ucSignalQuality = 15 - ( RF_REG_OBSERVETX_ARCCNT & spiReadByte( &pygmyRFSPI ) ); 
+  12:	4806      	ldr	r0, [pc, #24]	; (1c <spiReadByte+0x1c>)
+  14:	f7ff fffe 	bl	0 <spiReadByte>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:424
+    RF_CS_HIGH;
+  18:	6125      	str	r5, [r4, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:423
+{
+    u8 ucSignalQuality;
+
+    RF_CS_LOW;
+    spiWriteByte( &pygmyRFSPI, RF_READ|RF_REG_OBSERVETX );
+    ucSignalQuality = 15 - ( RF_REG_OBSERVETX_ARCCNT & spiReadByte( &pygmyRFSPI ) ); 
+  1a:	4606      	mov	r6, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:426
+    RF_CS_HIGH;
+    
+    rfClearStatus();
+  1c:	f7ff fffe 	bl	0 <rfGetSignalQuality>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:423
+{
+    u8 ucSignalQuality;
+
+    RF_CS_LOW;
+    spiWriteByte( &pygmyRFSPI, RF_READ|RF_REG_OBSERVETX );
+    ucSignalQuality = 15 - ( RF_REG_OBSERVETX_ARCCNT & spiReadByte( &pygmyRFSPI ) ); 
+  20:	43f0      	mvns	r0, r6
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:429
+    RF_CS_HIGH;
+    
+    rfClearStatus();
+    
+    return( ucSignalQuality );
+}
+  22:	f000 000f 	and.w	r0, r0, #15
+  26:	bd70      	pop	{r4, r5, r6, pc}
+  28:	40011000 	.word	0x40011000
+  2c:	00000000 	.word	0x00000000
+
+Disassembly of section .text.rfGetRXPayload:
+
+00000000 <rfGetRXPayload>:
+rfGetRXPayload():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:43
+{
+    return( pygmyGlobalRFID );
+}
+
+void rfGetRXPayload( u8 *ucBuffer )
+{
+   0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+   4:	4604      	mov	r4, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:46
+    u8 i, ii, ucPipe, ucLen;
+    
+    ucPipe = rfGetStatus() & (BIT3|BIT2|BIT1) >> 1;
+   6:	f7ff fffe 	bl	0 <rfGetRXPayload>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:47
+    if( ucPipe == 7 ){
+   a:	f000 0007 	and.w	r0, r0, #7
+   e:	2807      	cmp	r0, #7
+  10:	d121      	bne.n	56 <rfGetRXPayload+0x56>
+  12:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:52
+        return;
+    } // if
+    
+    while( !rfIsRXFIFOEmpty() ){
+        ucLen = rfGetRXPayloadLen( );
+  16:	f7ff fffe 	bl	0 <rfGetRXPayload>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:53
+        RF_CS_LOW;
+  1a:	4b13      	ldr	r3, [pc, #76]	; (68 <rfGetRXPayload+0x68>)
+  1c:	f44f 6200 	mov.w	r2, #2048	; 0x800
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:52
+    if( ucPipe == 7 ){
+        return;
+    } // if
+    
+    while( !rfIsRXFIFOEmpty() ){
+        ucLen = rfGetRXPayloadLen( );
+  20:	4605      	mov	r5, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:53
+        RF_CS_LOW;
+  22:	615a      	str	r2, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:54
+        spiWriteByte( &pygmyRFSPI, RF_RX_PAYLOAD );
+  24:	4811      	ldr	r0, [pc, #68]	; (6c <rfGetRXPayload+0x6c>)
+  26:	2161      	movs	r1, #97	; 0x61
+  28:	f7ff fffe 	bl	0 <spiWriteByte>
+  2c:	4627      	mov	r7, r4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:55
+        for( i = 0; i < ucLen; i++ ){
+  2e:	e006      	b.n	3e <rfGetRXPayload+0x3e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:56
+            ucBuffer[ i ] = spiReadByte( &pygmyRFSPI );
+  30:	480e      	ldr	r0, [pc, #56]	; (6c <rfGetRXPayload+0x6c>)
+  32:	f7ff fffe 	bl	0 <spiReadByte>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:55
+    
+    while( !rfIsRXFIFOEmpty() ){
+        ucLen = rfGetRXPayloadLen( );
+        RF_CS_LOW;
+        spiWriteByte( &pygmyRFSPI, RF_RX_PAYLOAD );
+        for( i = 0; i < ucLen; i++ ){
+  36:	3601      	adds	r6, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:56
+            ucBuffer[ i ] = spiReadByte( &pygmyRFSPI );
+  38:	f807 0b01 	strb.w	r0, [r7], #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:55
+    
+    while( !rfIsRXFIFOEmpty() ){
+        ucLen = rfGetRXPayloadLen( );
+        RF_CS_LOW;
+        spiWriteByte( &pygmyRFSPI, RF_RX_PAYLOAD );
+        for( i = 0; i < ucLen; i++ ){
+  3c:	b2f6      	uxtb	r6, r6
+  3e:	42ae      	cmp	r6, r5
+  40:	d3f6      	bcc.n	30 <rfGetRXPayload+0x30>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:58
+            ucBuffer[ i ] = spiReadByte( &pygmyRFSPI );
+        } // if
+        ucBuffer[ i ] = '\0';
+  42:	2300      	movs	r3, #0
+  44:	5563      	strb	r3, [r4, r5]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:59
+        RF_CS_HIGH;
+  46:	4b08      	ldr	r3, [pc, #32]	; (68 <rfGetRXPayload+0x68>)
+  48:	f44f 6200 	mov.w	r2, #2048	; 0x800
+  4c:	611a      	str	r2, [r3, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:61
+        //print( COM3, ucBuffer );
+        rfProcessPacket( ucBuffer, ucLen );
+  4e:	4620      	mov	r0, r4
+  50:	4629      	mov	r1, r5
+  52:	f7ff fffe 	bl	0 <rfGetRXPayload>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:51
+    ucPipe = rfGetStatus() & (BIT3|BIT2|BIT1) >> 1;
+    if( ucPipe == 7 ){
+        return;
+    } // if
+    
+    while( !rfIsRXFIFOEmpty() ){
+  56:	f7ff fffe 	bl	0 <rfGetRXPayload>
+  5a:	4606      	mov	r6, r0
+  5c:	2800      	cmp	r0, #0
+  5e:	d0da      	beq.n	16 <rfGetRXPayload+0x16>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:64
+        RF_CS_HIGH;
+        //print( COM3, ucBuffer );
+        rfProcessPacket( ucBuffer, ucLen );
+    } // while
+    rfClearStatus();
+}
+  60:	e8bd 41f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:63
+        ucBuffer[ i ] = '\0';
+        RF_CS_HIGH;
+        //print( COM3, ucBuffer );
+        rfProcessPacket( ucBuffer, ucLen );
+    } // while
+    rfClearStatus();
+  64:	f7ff bffe 	b.w	0 <rfGetRXPayload>
+  68:	40011000 	.word	0x40011000
+  6c:	00000000 	.word	0x00000000
+
+Disassembly of section .text.rfRX:
+
+00000000 <rfRX>:
+rfRX():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:365
+{
+    pygmyGlobalRFSockets[ ucSocket ].DestID = 0;
+}*/
+
+void rfRX( void )
+{
+   0:	b510      	push	{r4, lr}
+   2:	b08a      	sub	sp, #40	; 0x28
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:368
+    u8 ucStatus, ucBuffer[ 40 ];
+    
+    ucStatus = rfGetStatus();
+   4:	f7ff fffe 	bl	0 <rfRX>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:370
+    
+    if( ucStatus & BIT6 ){
+   8:	f010 0f40 	tst.w	r0, #64	; 0x40
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:368
+
+void rfRX( void )
+{
+    u8 ucStatus, ucBuffer[ 40 ];
+    
+    ucStatus = rfGetStatus();
+   c:	4604      	mov	r4, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:370
+    
+    if( ucStatus & BIT6 ){
+   e:	d002      	beq.n	16 <rfRX+0x16>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:371
+        rfGetRXPayload( ucBuffer );
+  10:	4668      	mov	r0, sp
+  12:	f7ff fffe 	bl	0 <rfRX>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:373
+    } //if
+    if( ucStatus & BIT5 ){
+  16:	f014 0f20 	tst.w	r4, #32
+  1a:	d001      	beq.n	6 <rfRX+0x6>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:374
+        rfSetRX();
+  1c:	f7ff fffe 	bl	0 <rfRX>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:376
+    } // if 
+}
+  20:	b00a      	add	sp, #40	; 0x28
+  22:	bd10      	pop	{r4, pc}
+
+Disassembly of section .text.rfWriteAddress:
+
+00000000 <rfWriteAddress>:
+rfWriteAddress():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:615
+    spiWriteByte( &pygmyRFSPI, BIT6|BIT5|BIT4 ); 
+    RF_CS_HIGH;
+}
+
+void rfWriteAddress( u8 ucReg, u8 *ucAddress )
+{
+   0:	b538      	push	{r3, r4, r5, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:620
+    //const u8 ucAddrP0[] = {0xB3,0xB4,0xB5,0xB6,0x05};
+    u8 i;
+
+    // ucAddress is presumed to be default 5 byte mode
+    RF_CS_LOW;
+   2:	4b0b      	ldr	r3, [pc, #44]	; (30 <rfWriteAddress+0x30>)
+   4:	f44f 6200 	mov.w	r2, #2048	; 0x800
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:615
+    spiWriteByte( &pygmyRFSPI, BIT6|BIT5|BIT4 ); 
+    RF_CS_HIGH;
+}
+
+void rfWriteAddress( u8 ucReg, u8 *ucAddress )
+{
+   8:	460d      	mov	r5, r1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:620
+    //const u8 ucAddrP0[] = {0xB3,0xB4,0xB5,0xB6,0x05};
+    u8 i;
+
+    // ucAddress is presumed to be default 5 byte mode
+    RF_CS_LOW;
+   a:	615a      	str	r2, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:622
+    
+    spiWriteByte( &pygmyRFSPI, RF_WRITE|ucReg );
+   c:	f040 0120 	orr.w	r1, r0, #32
+  10:	4808      	ldr	r0, [pc, #32]	; (24 <spiWriteByte+0x24>)
+  12:	f7ff fffe 	bl	0 <spiWriteByte>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:614
+    spiWriteByte( &pygmyRFSPI, RF_WRITE|RF_REG_STATUS );
+    spiWriteByte( &pygmyRFSPI, BIT6|BIT5|BIT4 ); 
+    RF_CS_HIGH;
+}
+
+void rfWriteAddress( u8 ucReg, u8 *ucAddress )
+  16:	1d6c      	adds	r4, r5, #5
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:624
+    // ucAddress is presumed to be default 5 byte mode
+    RF_CS_LOW;
+    
+    spiWriteByte( &pygmyRFSPI, RF_WRITE|ucReg );
+    for( i = 0; i < 5; i++ ){
+        spiWriteByte( &pygmyRFSPI, ucAddress[ 4 - i ] ); // byte order must be inverted
+  18:	f814 1d01 	ldrb.w	r1, [r4, #-1]!
+  1c:	4805      	ldr	r0, [pc, #20]	; (18 <spiWriteByte+0x18>)
+  1e:	f7ff fffe 	bl	0 <spiWriteByte>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:623
+
+    // ucAddress is presumed to be default 5 byte mode
+    RF_CS_LOW;
+    
+    spiWriteByte( &pygmyRFSPI, RF_WRITE|ucReg );
+    for( i = 0; i < 5; i++ ){
+  22:	42ac      	cmp	r4, r5
+  24:	d1f8      	bne.n	18 <rfWriteAddress+0x18>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:626
+        spiWriteByte( &pygmyRFSPI, ucAddress[ 4 - i ] ); // byte order must be inverted
+    }
+    RF_CS_HIGH;
+  26:	4b02      	ldr	r3, [pc, #8]	; (30 <rfWriteAddress+0x30>)
+  28:	f44f 6200 	mov.w	r2, #2048	; 0x800
+  2c:	611a      	str	r2, [r3, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:627
+}
+  2e:	bd38      	pop	{r3, r4, r5, pc}
+  30:	40011000 	.word	0x40011000
+  34:	00000000 	.word	0x00000000
+
+Disassembly of section .text.rfInit:
+
+00000000 <rfInit>:
+rfInit():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:379
+        rfSetRX();
+    } // if 
+}
+
+void rfInit( void )
+{
+   0:	b537      	push	{r0, r1, r2, r4, r5, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:382
+    u8 i, *strID;
+
+    strID = sysGetID( );
+   2:	f7ff fffe 	bl	0 <sysGetID>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:383
+    pdiaEncode( 0, PDIA_NEW, &pygmyGlobalRFID );
+   6:	2101      	movs	r1, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:382
+
+void rfInit( void )
+{
+    u8 i, *strID;
+
+    strID = sysGetID( );
+   8:	4605      	mov	r5, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:383
+    pdiaEncode( 0, PDIA_NEW, &pygmyGlobalRFID );
+   a:	4a33      	ldr	r2, [pc, #204]	; (d8 <rfInit+0xd8>)
+   c:	2000      	movs	r0, #0
+   e:	f7ff fffe 	bl	0 <pdiaEncode>
+  12:	2400      	movs	r4, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:385
+    for( i = 0; i < 12; i++ ){
+        pdiaEncode( strID[ i ], PDIA_ADD, &pygmyGlobalRFID );
+  14:	5d28      	ldrb	r0, [r5, r4]
+  16:	2102      	movs	r1, #2
+  18:	4a2f      	ldr	r2, [pc, #188]	; (d8 <rfInit+0xd8>)
+  1a:	3401      	adds	r4, #1
+  1c:	f7ff fffe 	bl	0 <pdiaEncode>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:384
+{
+    u8 i, *strID;
+
+    strID = sysGetID( );
+    pdiaEncode( 0, PDIA_NEW, &pygmyGlobalRFID );
+    for( i = 0; i < 12; i++ ){
+  20:	2c0c      	cmp	r4, #12
+  22:	d1f7      	bne.n	14 <rfInit+0x14>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:387
+        pdiaEncode( strID[ i ], PDIA_ADD, &pygmyGlobalRFID );
+    }
+    pdiaEncode( 0, PDIA_END, &pygmyGlobalRFID );
+  24:	2104      	movs	r1, #4
+  26:	2000      	movs	r0, #0
+  28:	4a2b      	ldr	r2, [pc, #172]	; (d8 <rfInit+0xd8>)
+  2a:	f7ff fffe 	bl	0 <pdiaEncode>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:388
+    spiConfig( &pygmyRFSPI, RF_CS, RF_SCK, RF_MISO, RF_MOSI );
+  2e:	2312      	movs	r3, #18
+  30:	222c      	movs	r2, #44	; 0x2c
+  32:	9300      	str	r3, [sp, #0]
+  34:	212b      	movs	r1, #43	; 0x2b
+  36:	3b01      	subs	r3, #1
+  38:	4828      	ldr	r0, [pc, #160]	; (dc <rfInit+0xdc>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:390
+    pinConfig( RF_EN, OUT );
+    RF_EN_LOW;
+  3a:	4c29      	ldr	r4, [pc, #164]	; (e0 <rfInit+0xe0>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:388
+    pdiaEncode( 0, PDIA_NEW, &pygmyGlobalRFID );
+    for( i = 0; i < 12; i++ ){
+        pdiaEncode( strID[ i ], PDIA_ADD, &pygmyGlobalRFID );
+    }
+    pdiaEncode( 0, PDIA_END, &pygmyGlobalRFID );
+    spiConfig( &pygmyRFSPI, RF_CS, RF_SCK, RF_MISO, RF_MOSI );
+  3c:	f7ff fffe 	bl	0 <spiConfig>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:389
+    pinConfig( RF_EN, OUT );
+  40:	202a      	movs	r0, #42	; 0x2a
+  42:	2103      	movs	r1, #3
+  44:	f7ff fffe 	bl	0 <pinConfig>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:390
+    RF_EN_LOW;
+  48:	f44f 6380 	mov.w	r3, #1024	; 0x400
+  4c:	6163      	str	r3, [r4, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:391
+    pinConfig( RF_IRQ, PULLUP );
+  4e:	2029      	movs	r0, #41	; 0x29
+  50:	2118      	movs	r1, #24
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:394
+    pinInterrupt( rfRX, RF_IRQ, TRIGGER_FALLING );
+
+    RF_CS_LOW;
+  52:	f44f 6500 	mov.w	r5, #2048	; 0x800
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:391
+    }
+    pdiaEncode( 0, PDIA_END, &pygmyGlobalRFID );
+    spiConfig( &pygmyRFSPI, RF_CS, RF_SCK, RF_MISO, RF_MOSI );
+    pinConfig( RF_EN, OUT );
+    RF_EN_LOW;
+    pinConfig( RF_IRQ, PULLUP );
+  56:	f7ff fffe 	bl	0 <pinConfig>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:392
+    pinInterrupt( rfRX, RF_IRQ, TRIGGER_FALLING );
+  5a:	2201      	movs	r2, #1
+  5c:	2129      	movs	r1, #41	; 0x29
+  5e:	4821      	ldr	r0, [pc, #132]	; (e4 <rfInit+0xe4>)
+  60:	f7ff fffe 	bl	0 <pinInterrupt>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:395
+
+    RF_CS_LOW;
+    spiWriteByte( &pygmyRFSPI, RF_WRITE|RF_REG_ENRXADDR );
+  64:	2122      	movs	r1, #34	; 0x22
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:394
+    pinConfig( RF_EN, OUT );
+    RF_EN_LOW;
+    pinConfig( RF_IRQ, PULLUP );
+    pinInterrupt( rfRX, RF_IRQ, TRIGGER_FALLING );
+
+    RF_CS_LOW;
+  66:	6165      	str	r5, [r4, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:395
+    spiWriteByte( &pygmyRFSPI, RF_WRITE|RF_REG_ENRXADDR );
+  68:	481c      	ldr	r0, [pc, #112]	; (dc <rfInit+0xdc>)
+  6a:	f7ff fffe 	bl	0 <spiWriteByte>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:396
+    spiWriteByte( &pygmyRFSPI, BIT0 );
+  6e:	2101      	movs	r1, #1
+  70:	481a      	ldr	r0, [pc, #104]	; (dc <rfInit+0xdc>)
+  72:	f7ff fffe 	bl	0 <spiWriteByte>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:397
+    RF_CS_HIGH;
+  76:	6125      	str	r5, [r4, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:399
+    RF_CS_LOW;
+    spiWriteByte( &pygmyRFSPI, RF_WRITE|RF_REG_DYNPD );
+  78:	213c      	movs	r1, #60	; 0x3c
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:398
+
+    RF_CS_LOW;
+    spiWriteByte( &pygmyRFSPI, RF_WRITE|RF_REG_ENRXADDR );
+    spiWriteByte( &pygmyRFSPI, BIT0 );
+    RF_CS_HIGH;
+    RF_CS_LOW;
+  7a:	6165      	str	r5, [r4, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:399
+    spiWriteByte( &pygmyRFSPI, RF_WRITE|RF_REG_DYNPD );
+  7c:	4817      	ldr	r0, [pc, #92]	; (dc <rfInit+0xdc>)
+  7e:	f7ff fffe 	bl	0 <spiWriteByte>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:400
+    spiWriteByte( &pygmyRFSPI, BIT0 );
+  82:	2101      	movs	r1, #1
+  84:	4815      	ldr	r0, [pc, #84]	; (dc <rfInit+0xdc>)
+  86:	f7ff fffe 	bl	0 <spiWriteByte>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:401
+    RF_CS_HIGH;
+  8a:	6125      	str	r5, [r4, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:403
+    RF_CS_LOW;
+    spiWriteByte( &pygmyRFSPI, RF_WRITE|RF_REG_FEATURE );
+  8c:	213d      	movs	r1, #61	; 0x3d
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:402
+    RF_CS_HIGH;
+    RF_CS_LOW;
+    spiWriteByte( &pygmyRFSPI, RF_WRITE|RF_REG_DYNPD );
+    spiWriteByte( &pygmyRFSPI, BIT0 );
+    RF_CS_HIGH;
+    RF_CS_LOW;
+  8e:	6165      	str	r5, [r4, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:403
+    spiWriteByte( &pygmyRFSPI, RF_WRITE|RF_REG_FEATURE );
+  90:	4812      	ldr	r0, [pc, #72]	; (dc <rfInit+0xdc>)
+  92:	f7ff fffe 	bl	0 <spiWriteByte>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:404
+    spiWriteByte( &pygmyRFSPI, RF_REG_FEATURE_EN_DPL );
+  96:	2104      	movs	r1, #4
+  98:	4810      	ldr	r0, [pc, #64]	; (dc <rfInit+0xdc>)
+  9a:	f7ff fffe 	bl	0 <spiWriteByte>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:405
+    RF_CS_HIGH;
+  9e:	6125      	str	r5, [r4, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:407
+    RF_CS_LOW;
+    spiWriteByte( &pygmyRFSPI, RF_WRITE|RF_REG_ENAA );
+  a0:	2121      	movs	r1, #33	; 0x21
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:406
+    RF_CS_HIGH;
+    RF_CS_LOW;
+    spiWriteByte( &pygmyRFSPI, RF_WRITE|RF_REG_FEATURE );
+    spiWriteByte( &pygmyRFSPI, RF_REG_FEATURE_EN_DPL );
+    RF_CS_HIGH;
+    RF_CS_LOW;
+  a2:	6165      	str	r5, [r4, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:407
+    spiWriteByte( &pygmyRFSPI, RF_WRITE|RF_REG_ENAA );
+  a4:	480d      	ldr	r0, [pc, #52]	; (dc <rfInit+0xdc>)
+  a6:	f7ff fffe 	bl	0 <spiWriteByte>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:408
+    spiWriteByte( &pygmyRFSPI, BIT0 );
+  aa:	480c      	ldr	r0, [pc, #48]	; (dc <rfInit+0xdc>)
+  ac:	2101      	movs	r1, #1
+  ae:	f7ff fffe 	bl	0 <spiWriteByte>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:409
+    RF_CS_HIGH;
+  b2:	6125      	str	r5, [r4, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:410
+    rfFlushTX();
+  b4:	f7ff fffe 	bl	0 <rfInit>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:411
+    rfFlushRX();
+  b8:	f7ff fffe 	bl	0 <rfInit>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:412
+    rfWriteAddress( RF_REG_TXADDR, (u8*)ucAddrP0 );
+  bc:	2010      	movs	r0, #16
+  be:	490a      	ldr	r1, [pc, #40]	; (e8 <rfInit+0xe8>)
+  c0:	f7ff fffe 	bl	0 <rfInit>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:413
+    rfWriteAddress( RF_REG_RXADDR_P0, (u8*)ucAddrP0 );
+  c4:	200a      	movs	r0, #10
+  c6:	4908      	ldr	r1, [pc, #32]	; (e8 <rfInit+0xe8>)
+  c8:	f7ff fffe 	bl	0 <rfInit>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:415
+    rfSetRX();
+}
+  cc:	b003      	add	sp, #12
+  ce:	e8bd 4030 	ldmia.w	sp!, {r4, r5, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rf.c:414
+    RF_CS_HIGH;
+    rfFlushTX();
+    rfFlushRX();
+    rfWriteAddress( RF_REG_TXADDR, (u8*)ucAddrP0 );
+    rfWriteAddress( RF_REG_RXADDR_P0, (u8*)ucAddrP0 );
+    rfSetRX();
+  d2:	f7ff bffe 	b.w	0 <rfInit>
+  d6:	bf00      	nop
+	...
+  e0:	40011000 	.word	0x40011000
+	...

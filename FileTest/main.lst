@@ -1,0 +1,161 @@
+
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\FileTest\main.o:     file format elf32-littlearm
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\FileTest\main.o
+
+
+Disassembly of section .text.main:
+
+00000000 <main>:
+main():
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\FileTest/main.c:28
+***************************************************************************/
+
+#include "pygmy_profile.h"
+
+void main( void )
+{
+   0:	b530      	push	{r4, r5, lr}
+   2:	b08f      	sub	sp, #60	; 0x3c
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\FileTest/main.c:34
+    PYGMYFILE pygmyFile;
+    u32 i, ii;
+    u8 ucStat, ucName[13];
+
+   // print( COM3, "\rInit System..." );
+    sysInit();
+   4:	f7ff fffe 	bl	0 <sysInit>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\FileTest/main.c:36
+
+    print( COM3, "\rMCU ID: 0x%X", pygmyGlobalData.MCUID );
+   8:	4b23      	ldr	r3, [pc, #140]	; (98 <main+0x98>)
+   a:	4924      	ldr	r1, [pc, #144]	; (9c <main+0x9c>)
+   c:	8a9a      	ldrh	r2, [r3, #20]
+   e:	2001      	movs	r0, #1
+  10:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\FileTest/main.c:37
+    fileFormat( "" );
+  14:	4822      	ldr	r0, [pc, #136]	; (8c <fileFormat+0x8c>)
+  16:	f7ff fffe 	bl	0 <fileFormat>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\FileTest/main.c:41
+    //filePrintDebug( COM3 );
+    //if( fileOpen( &pygmyFile, "test1", WRITE ) ){
+        
+        print( COM3, "\rCreating Files" );
+  1a:	2001      	movs	r0, #1
+  1c:	4921      	ldr	r1, [pc, #132]	; (a4 <main+0xa4>)
+  1e:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\FileTest/main.c:42
+        copyString( "test", ucName );
+  22:	4821      	ldr	r0, [pc, #132]	; (a8 <main+0xa8>)
+  24:	a90a      	add	r1, sp, #40	; 0x28
+  26:	f7ff fffe 	bl	0 <copyString>
+  2a:	2564      	movs	r5, #100	; 0x64
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\FileTest/main.c:43
+        for( i = 0; i < 100; i++ ){
+  2c:	2400      	movs	r4, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\FileTest/main.c:44
+            convertIntToString( i, "%04d", ucName + 4 );
+  2e:	2100      	movs	r1, #0
+  30:	4a1e      	ldr	r2, [pc, #120]	; (ac <main+0xac>)
+  32:	4620      	mov	r0, r4
+  34:	ab0b      	add	r3, sp, #44	; 0x2c
+  36:	f7ff fffe 	bl	0 <convertIntToString>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\FileTest/main.c:45
+            if( !fileOpen( &pygmyFile, ucName, WRITE ) ){
+  3a:	4668      	mov	r0, sp
+  3c:	a90a      	add	r1, sp, #40	; 0x28
+  3e:	2202      	movs	r2, #2
+  40:	f7ff fffe 	bl	0 <fileOpen>
+  44:	b918      	cbnz	r0, 4e <main+0x4e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\FileTest/main.c:43
+    //filePrintDebug( COM3 );
+    //if( fileOpen( &pygmyFile, "test1", WRITE ) ){
+        
+        print( COM3, "\rCreating Files" );
+        copyString( "test", ucName );
+        for( i = 0; i < 100; i++ ){
+  46:	f44f 65fa 	mov.w	r5, #2000	; 0x7d0
+  4a:	2400      	movs	r4, #0
+  4c:	e00a      	b.n	64 <main+0x64>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\FileTest/main.c:49
+            convertIntToString( i, "%04d", ucName + 4 );
+            if( !fileOpen( &pygmyFile, ucName, WRITE ) ){
+                break;
+            } // if
+            //fileOpen( &pygmyFile, "test", WRITE );
+            filePutString( &pygmyFile, "Test" );
+  4e:	4918      	ldr	r1, [pc, #96]	; (b0 <main+0xb0>)
+  50:	4668      	mov	r0, sp
+  52:	f7ff fffe 	bl	0 <filePutString>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\FileTest/main.c:51
+            //fileClose( &pygmyFile );
+            fileDelete( ucName );
+  56:	a80a      	add	r0, sp, #40	; 0x28
+  58:	f7ff fffe 	bl	0 <fileDelete>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\FileTest/main.c:43
+    //filePrintDebug( COM3 );
+    //if( fileOpen( &pygmyFile, "test1", WRITE ) ){
+        
+        print( COM3, "\rCreating Files" );
+        copyString( "test", ucName );
+        for( i = 0; i < 100; i++ ){
+  5c:	3401      	adds	r4, #1
+  5e:	3d01      	subs	r5, #1
+  60:	d1e5      	bne.n	2e <main+0x2e>
+  62:	e7f0      	b.n	46 <main+0x46>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\FileTest/main.c:55
+            //fileClose( &pygmyFile );
+            fileDelete( ucName );
+        } // for
+        
+        for( i = 0; i < 2000; i++ ){
+            convertIntToString( i, "%04d", ucName + 4 );
+  64:	2100      	movs	r1, #0
+  66:	4a11      	ldr	r2, [pc, #68]	; (ac <main+0xac>)
+  68:	4620      	mov	r0, r4
+  6a:	ab0b      	add	r3, sp, #44	; 0x2c
+  6c:	f7ff fffe 	bl	0 <convertIntToString>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\FileTest/main.c:56
+            if( !fileOpen( &pygmyFile, ucName, WRITE ) ){
+  70:	4668      	mov	r0, sp
+  72:	a90a      	add	r1, sp, #40	; 0x28
+  74:	2202      	movs	r2, #2
+  76:	f7ff fffe 	bl	0 <fileOpen>
+  7a:	b148      	cbz	r0, 90 <main+0x90>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\FileTest/main.c:59
+                break;
+            } // if
+            filePutString( &pygmyFile, "Test" );
+  7c:	490c      	ldr	r1, [pc, #48]	; (b0 <main+0xb0>)
+  7e:	4668      	mov	r0, sp
+  80:	f7ff fffe 	bl	0 <filePutString>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\FileTest/main.c:60
+            fileClose( &pygmyFile );
+  84:	4668      	mov	r0, sp
+  86:	f7ff fffe 	bl	0 <fileClose>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\FileTest/main.c:54
+            filePutString( &pygmyFile, "Test" );
+            //fileClose( &pygmyFile );
+            fileDelete( ucName );
+        } // for
+        
+        for( i = 0; i < 2000; i++ ){
+  8a:	3401      	adds	r4, #1
+  8c:	3d01      	subs	r5, #1
+  8e:	d1e9      	bne.n	64 <main+0x64>
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\FileTest/main.c:75
+            } // if
+        } // for
+        fileClose( &pygmyFile );*/
+        
+        //print( COM3, "\rFile system full\r%d Bytes Written in %d milliseconds", i, stopwatchGet() );
+        filePrintDebug( COM3 );
+  90:	2001      	movs	r0, #1
+  92:	f7ff fffe 	bl	0 <filePrintDebug>
+  96:	e7fe      	b.n	0 <pygmyGlobalData>
+	...
+  a0:	0000000e 	.word	0x0000000e
+  a4:	0000000f 	.word	0x0000000f
+  a8:	0000001f 	.word	0x0000001f
+  ac:	00000024 	.word	0x00000024
+  b0:	00000029 	.word	0x00000029

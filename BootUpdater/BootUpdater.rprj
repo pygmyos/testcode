@@ -1,0 +1,4 @@
+
+<Project Header="Project 'BootUpdater'" Path=".\BootUpdater.rprj" Project="Yes" AsyncBuild="" OutputFile="" sate="96" ActiveApp="BootUpdater" >
+	<ApplicationBuild Header="BootUpdater" Extern=".\BootUpdater.rapp" Path=".\BootUpdater.rapp" AsyncBuild="" OutputFile=".\BootUpdater.elf" sate="98" />
+</Project>

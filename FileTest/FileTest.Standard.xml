@@ -1,0 +1,2157 @@
+<!-- DWF2XML 2.00.01 - Raisonance Dwarf information extractor -->
+<aoffile Filename="FileTest" dwarf="1">
+ <modulelist>
+  <module Name="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\FileTest\main.c" >
+   <type Family="Base" Name="long long int" ID="37"/>
+   <type Family="Base" Name="long int" ID="44"/>
+   <type Family="Base" Name="short int" ID="51"/>
+   <type Family="Base" Name="signed char" ID="58"/>
+   <type Family="Base" Name="long long unsigned int" ID="65"/>
+   <type Family="Base" Name="long unsigned int" ID="83"/>
+   <type Family="typedef" Name="u32" Line="49" ID="72" toTI="83"/>
+   <type Family="Base" Name="short unsigned int" ID="101"/>
+   <type Family="typedef" Name="u16" Line="50" ID="90" toTI="101"/>
+   <type Family="Base" Name="unsigned char" ID="118"/>
+   <type Family="typedef" Name="u8" Line="51" ID="108" toTI="118"/>
+   <type Family="Pointer" TI="125" toTI="108"/>
+   <type Family="Base" Name="unsigned int" ID="131"/>
+   <type Family="ComponentList" Line="305" ID="138">
+    <Component Name="MainClock" TI="147" Line="306" Offs="0"/>
+    <Component Name="XTAL" TI="162" Line="307" Offs="4"/>
+    <Component Name="StopWatch" TI="177" Line="308" Offs="8"/>
+    <Component Name="Status" TI="192" Line="309" Offs="12"/>
+    <Component Name="Random" TI="207" Line="310" Offs="16"/>
+    <Component Name="MCUID" TI="222" Line="311" Offs="20"/>
+    <Component Name="CursorState" TI="237" Line="314" Offs="22"/>
+    <Component Name="DelayTimer" TI="252" Line="315" Offs="23"/>
+    <Component Name="PWMTimer" TI="267" Line="316" Offs="24"/>
+   <type Family="Pointer" TI="298" toTI="0"/>
+    <Component Name="File" TI="282" Line="320" Offs="28"/>
+   </type>
+   <type Family="typedef" Name="PYGMYSYSTEM" Line="321" ID="300" toTI="138"/>
+   <type Family="array" ID="346" toTI="108"/>
+   <type Family="ComponentList" Name="PYGMYFILE_TYPEDEF" Line="139" ID="362">
+    <Component Name="Sector" TI="374" Line="140" Offs="0"/>
+    <Component Name="Length" TI="388" Line="141" Offs="4"/>
+    <Component Name="Index" TI="402" Line="142" Offs="8"/>
+    <Component Name="ID_Sector" TI="416" Line="143" Offs="12"/>
+    <Component Name="ID_File" TI="430" Line="144" Offs="14"/>
+    <Component Name="Attributes" TI="444" Line="145" Offs="16"/>
+    <Component Name="Resource" TI="458" Line="146" Offs="20"/>
+    <Component Name="Name" TI="472" Line="147" Offs="24"/>
+   </type>
+   <type Family="typedef" Name="PYGMYFILE" Line="148" ID="487" toTI="362"/>
+   <function Name="main" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\FileTest\main.c" Line="27">
+    <variable Name="pygmyFile" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\FileTest\main.c" Line="29" Addr="0x34000000" TI="487"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\FileTest\main.c" Line="30" Addr="0x34000048" TI="72"/>
+    <variable Name="ucName" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\FileTest\main.c" Line="31" Addr="0x34000028" TI="346"/>
+   </function >
+  </module>
+  <module Name="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_adc.c" >
+   <type Family="Base" Name="long long int" ID="653"/>
+   <type Family="Base" Name="long int" ID="660"/>
+   <type Family="Base" Name="short int" ID="667"/>
+   <type Family="Base" Name="signed char" ID="674"/>
+   <type Family="Base" Name="long long unsigned int" ID="681"/>
+   <type Family="Base" Name="long unsigned int" ID="699"/>
+   <type Family="typedef" Name="u32" Line="49" ID="688" toTI="699"/>
+   <type Family="Base" Name="short unsigned int" ID="717"/>
+   <type Family="typedef" Name="u16" Line="50" ID="706" toTI="717"/>
+   <type Family="Base" Name="unsigned char" ID="734"/>
+   <type Family="typedef" Name="u8" Line="51" ID="724" toTI="734"/>
+   <type Family="Base" Name="unsigned int" ID="746"/>
+   <type Family="ComponentList" Line="389" ID="753">
+    <Component Name="CR" TI="762" Line="391" Offs="0"/>
+    <Component Name="CFGR" TI="776" Line="392" Offs="4"/>
+    <Component Name="CIR" TI="791" Line="393" Offs="8"/>
+    <Component Name="APB2RSTR" TI="806" Line="394" Offs="12"/>
+    <Component Name="APB1RSTR" TI="821" Line="395" Offs="16"/>
+    <Component Name="AHBENR" TI="836" Line="396" Offs="20"/>
+    <Component Name="APB2ENR" TI="851" Line="397" Offs="24"/>
+    <Component Name="APB1ENR" TI="866" Line="398" Offs="28"/>
+    <Component Name="BDCR" TI="881" Line="399" Offs="32"/>
+    <Component Name="CSR" TI="896" Line="400" Offs="36"/>
+    <Component Name="CFGR2" TI="911" Line="401" Offs="40"/>
+   </type>
+   <type Family="typedef" Name="RCC_TYPEDEF" Line="402" ID="927" toTI="753"/>
+   <type Family="ComponentList" Line="669" ID="939">
+    <Component Name="CCR" TI="948" Line="671" Offs="0"/>
+    <Component Name="CNDTR" TI="963" Line="672" Offs="4"/>
+    <Component Name="CPAR" TI="978" Line="673" Offs="8"/>
+    <Component Name="CMAR" TI="993" Line="674" Offs="12"/>
+   </type>
+   <type Family="typedef" Name="DMA_CHANNEL_TYPEDEF" Line="675" ID="1009" toTI="939"/>
+   <type Family="ComponentList" Line="677" ID="1021">
+    <Component Name="ISR" TI="1030" Line="679" Offs="0"/>
+    <Component Name="IFCR" TI="1045" Line="680" Offs="4"/>
+   </type>
+   <type Family="typedef" Name="DMA_TYPEDEF" Line="681" ID="1061" toTI="1021"/>
+   <type Family="ComponentList" Line="78" ID="1744">
+    <Component Name="SR" TI="1752" Line="79" Offs="0"/>
+    <Component Name="CR1" TI="1765" Line="80" Offs="4"/>
+    <Component Name="CR2" TI="1779" Line="81" Offs="8"/>
+    <Component Name="SMPR1" TI="1793" Line="82" Offs="12"/>
+    <Component Name="SMPR2" TI="1807" Line="83" Offs="16"/>
+    <Component Name="JOFR1" TI="1821" Line="84" Offs="20"/>
+    <Component Name="JOFR2" TI="1835" Line="85" Offs="24"/>
+    <Component Name="JOFR3" TI="1849" Line="86" Offs="28"/>
+    <Component Name="JOFR4" TI="1863" Line="87" Offs="32"/>
+    <Component Name="HTR" TI="1877" Line="88" Offs="36"/>
+    <Component Name="LTR" TI="1891" Line="89" Offs="40"/>
+    <Component Name="SQR1" TI="1905" Line="90" Offs="44"/>
+    <Component Name="SQR2" TI="1919" Line="91" Offs="48"/>
+    <Component Name="SQR3" TI="1933" Line="92" Offs="52"/>
+    <Component Name="JSQR" TI="1947" Line="93" Offs="56"/>
+    <Component Name="JDR1" TI="1961" Line="94" Offs="60"/>
+    <Component Name="JDR2" TI="1975" Line="95" Offs="64"/>
+    <Component Name="JDR3" TI="1989" Line="96" Offs="68"/>
+    <Component Name="JDR4" TI="2003" Line="97" Offs="72"/>
+    <Component Name="DR" TI="2017" Line="98" Offs="76"/>
+   </type>
+   <type Family="typedef" Name="PYGMYADC" Line="99" ID="2031" toTI="1744"/>
+   <function Name="adcGetStatus" TI="706" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_adc.c" Line="26">
+   </function >
+   <function Name="ADC1_2_IRQHandler" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_adc.c" Line="31">
+   </function >
+   <function Name="adcSingleSampleInit" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_adc.c" Line="165">
+   </function >
+   <function Name="adcGetChannelFromPin" TI="724" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_adc.c" Line="199">
+    <parameter Name="ucPin" TI="724" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_adc.c" Line="199" Addr="0x0" Param="Yes"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_adc.c" Line="201" Addr="0x0" TI="724"/>
+   </function >
+   <function Name="adcSingleSample" TI="706" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_adc.c" Line="187">
+    <parameter Name="ucPin" TI="724" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_adc.c" Line="187" Addr="0x0" Param="Yes"/>
+    <variable Name="uiADC" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_adc.c" Line="189" Addr="0x0" TI="706"/>
+   </function >
+   <type Family="array" ID="2662" toTI="724"/>
+   <type Family="array" ID="2696" toTI="706"/>
+   <variable Name="PYGMY_ADC_CHANNELS" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_adc.c" Line="23" Addr="0x8006748" TI="2756"/>
+   <variable Name="uiGlobalADC1Channel" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_adc.c" Line="24" Addr="0x0" TI="706"/>
+   <variable Name="uiGlobalADC1" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_adc.c" Line="24" Addr="0x0" TI="2696"/>
+   <variable Name="globalADCStatus" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_adc.c" Line="24" Addr="0x20000000" TI="706"/>
+  </module>
+  <module Name="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_audio.c" >
+   <type Family="Base" Name="signed char" ID="2853"/>
+   <type Family="Base" Name="unsigned char" ID="2860"/>
+   <type Family="Base" Name="short int" ID="2867"/>
+   <type Family="Base" Name="short unsigned int" ID="2874"/>
+   <type Family="Base" Name="int" ID="2881"/>
+   <type Family="Base" Name="unsigned int" ID="2888"/>
+   <type Family="Base" Name="long long int" ID="2895"/>
+   <type Family="Base" Name="long long unsigned int" ID="2902"/>
+   <type Family="Base" Name="long int" ID="2909"/>
+   <type Family="Pointer" TI="2916" toTI="0"/>
+   <type Family="Base" Name="long unsigned int" ID="2918"/>
+   <type Family="Base" Name="char" ID="2925"/>
+   <type Family="Base" Name="double" ID="2932"/>
+   <type Family="Base" Name="float" ID="2939"/>
+   <type Family="Base" Name="long double" ID="2946"/>
+   <type Family="typedef" Name="u32" Line="49" ID="2953" toTI="2918"/>
+   <type Family="typedef" Name="u16" Line="50" ID="2964" toTI="2874"/>
+   <type Family="typedef" Name="u8" Line="51" ID="2975" toTI="2860"/>
+   <type Family="Pointer" TI="2995" toTI="2975"/>
+   <type Family="ComponentList" Line="305" ID="3001">
+    <Component Name="MainClock" TI="3010" Line="306" Offs="0"/>
+    <Component Name="XTAL" TI="3025" Line="307" Offs="4"/>
+    <Component Name="StopWatch" TI="3040" Line="308" Offs="8"/>
+    <Component Name="Status" TI="3055" Line="309" Offs="12"/>
+    <Component Name="Random" TI="3070" Line="310" Offs="16"/>
+    <Component Name="MCUID" TI="3085" Line="311" Offs="20"/>
+    <Component Name="CursorState" TI="3100" Line="314" Offs="22"/>
+    <Component Name="DelayTimer" TI="3115" Line="315" Offs="23"/>
+    <Component Name="PWMTimer" TI="3130" Line="316" Offs="24"/>
+    <Component Name="File" TI="3145" Line="320" Offs="28"/>
+   </type>
+   <type Family="typedef" Name="PYGMYSYSTEM" Line="321" ID="3161" toTI="3001"/>
+   <type Family="ComponentList" Line="552" ID="3173">
+    <Component Name="CR" TI="3182" Line="553" Offs="0"/>
+    <Component Name="SWTRIGR" TI="3196" Line="554" Offs="4"/>
+    <Component Name="DHR12R1" TI="3211" Line="555" Offs="8"/>
+    <Component Name="DHR12L1" TI="3226" Line="556" Offs="12"/>
+    <Component Name="DHR8R1" TI="3241" Line="557" Offs="16"/>
+    <Component Name="DHR12R2" TI="3256" Line="558" Offs="20"/>
+    <Component Name="DHR12L2" TI="3271" Line="559" Offs="24"/>
+    <Component Name="DHR8R2" TI="3286" Line="560" Offs="28"/>
+    <Component Name="DHR12RD" TI="3301" Line="561" Offs="32"/>
+    <Component Name="DHR12LD" TI="3316" Line="562" Offs="36"/>
+    <Component Name="DHR8RD" TI="3331" Line="563" Offs="40"/>
+    <Component Name="DOR1" TI="3346" Line="564" Offs="44"/>
+    <Component Name="DOR2" TI="3361" Line="565" Offs="48"/>
+   </type>
+   <type Family="typedef" Name="DAC_TYPEDEF" Line="566" ID="3377" toTI="3173"/>
+   <type Family="ComponentList" Line="669" ID="3389">
+    <Component Name="CCR" TI="3398" Line="671" Offs="0"/>
+    <Component Name="CNDTR" TI="3413" Line="672" Offs="4"/>
+    <Component Name="CPAR" TI="3428" Line="673" Offs="8"/>
+    <Component Name="CMAR" TI="3443" Line="674" Offs="12"/>
+   </type>
+   <type Family="typedef" Name="DMA_CHANNEL_TYPEDEF" Line="675" ID="3459" toTI="3389"/>
+   <type Family="ComponentList" Line="677" ID="3471">
+    <Component Name="ISR" TI="3480" Line="679" Offs="0"/>
+    <Component Name="IFCR" TI="3495" Line="680" Offs="4"/>
+   </type>
+   <type Family="typedef" Name="DMA_TYPEDEF" Line="681" ID="3511" toTI="3471"/>
+   <type Family="ComponentList" Line="377" ID="3523">
+    <Component Name="CR1" TI="3532" Line="378" Offs="0"/>
+    <Component Name="RESERVED0" TI="3547" Line="379" Offs="2"/>
+    <Component Name="CR2" TI="3562" Line="380" Offs="4"/>
+    <Component Name="RESERVED1" TI="3577" Line="381" Offs="6"/>
+    <Component Name="SMCR" TI="3592" Line="382" Offs="8"/>
+    <Component Name="RESERVED2" TI="3607" Line="383" Offs="10"/>
+    <Component Name="DIER" TI="3622" Line="384" Offs="12"/>
+    <Component Name="RESERVED3" TI="3637" Line="385" Offs="14"/>
+    <Component Name="SR" TI="3652" Line="386" Offs="16"/>
+    <Component Name="RESERVED4" TI="3666" Line="387" Offs="18"/>
+    <Component Name="EGR" TI="3681" Line="388" Offs="20"/>
+    <Component Name="RESERVED5" TI="3696" Line="389" Offs="22"/>
+    <Component Name="CCMR1" TI="3711" Line="390" Offs="24"/>
+    <Component Name="RESERVED6" TI="3726" Line="391" Offs="26"/>
+    <Component Name="CCMR2" TI="3741" Line="392" Offs="28"/>
+    <Component Name="RESERVED7" TI="3756" Line="393" Offs="30"/>
+    <Component Name="CCER" TI="3771" Line="394" Offs="32"/>
+    <Component Name="RESERVED8" TI="3786" Line="395" Offs="34"/>
+    <Component Name="CNT" TI="3801" Line="396" Offs="36"/>
+    <Component Name="RESERVED9" TI="3816" Line="397" Offs="38"/>
+    <Component Name="PSC" TI="3831" Line="398" Offs="40"/>
+    <Component Name="RESERVED10" TI="3846" Line="399" Offs="42"/>
+    <Component Name="ARR" TI="3861" Line="400" Offs="44"/>
+   <type Family="array" ID="4072" toTI="2964"/>
+    <Component Name="RESERVED11" TI="3876" Line="401" Offs="46"/>
+    <Component Name="CCR1" TI="3891" Line="402" Offs="52"/>
+    <Component Name="RESERVED12" TI="3906" Line="403" Offs="54"/>
+    <Component Name="CCR2" TI="3921" Line="404" Offs="56"/>
+    <Component Name="RESERVED13" TI="3936" Line="405" Offs="58"/>
+    <Component Name="CCR3" TI="3951" Line="406" Offs="60"/>
+    <Component Name="RESERVED14" TI="3966" Line="407" Offs="62"/>
+    <Component Name="CCR4" TI="3981" Line="408" Offs="64"/>
+    <Component Name="RESERVED15" TI="3996" Line="409" Offs="66"/>
+    <Component Name="DCR" TI="4011" Line="410" Offs="72"/>
+    <Component Name="RESERVED16" TI="4026" Line="411" Offs="74"/>
+    <Component Name="DMAR" TI="4041" Line="412" Offs="76"/>
+    <Component Name="RESERVED17" TI="4056" Line="413" Offs="78"/>
+   </type>
+   <type Family="typedef" Name="TIM_TYPEDEF" Line="414" ID="4088" toTI="3523"/>
+   <type Family="ComponentList" Line="419" ID="4100">
+    <Component Name="CRL" TI="4109" Line="420" Offs="0"/>
+    <Component Name="CRH" TI="4124" Line="421" Offs="4"/>
+    <Component Name="IDR" TI="4139" Line="422" Offs="8"/>
+    <Component Name="ODR" TI="4154" Line="423" Offs="12"/>
+    <Component Name="BSRR" TI="4169" Line="424" Offs="16"/>
+    <Component Name="BRR" TI="4184" Line="425" Offs="20"/>
+    <Component Name="LCKR" TI="4199" Line="426" Offs="24"/>
+   </type>
+   <type Family="typedef" Name="GPIO" Line="427" ID="4215" toTI="4100"/>
+   <type Family="array" ID="4261" toTI="2975"/>
+   <type Family="ComponentList" Name="PYGMYFILE_TYPEDEF" Line="139" ID="4277">
+    <Component Name="Sector" TI="4289" Line="140" Offs="0"/>
+    <Component Name="Length" TI="4303" Line="141" Offs="4"/>
+    <Component Name="Index" TI="4317" Line="142" Offs="8"/>
+    <Component Name="ID_Sector" TI="4331" Line="143" Offs="12"/>
+    <Component Name="ID_File" TI="4345" Line="144" Offs="14"/>
+    <Component Name="Attributes" TI="4359" Line="145" Offs="16"/>
+    <Component Name="Resource" TI="4373" Line="146" Offs="20"/>
+    <Component Name="Name" TI="4387" Line="147" Offs="24"/>
+   </type>
+   <type Family="typedef" Name="PYGMYFILE" Line="148" ID="4402" toTI="4277"/>
+   <function Name="DMA1_Channel3_IRQHandler" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_audio.c" Line="86">
+   </function >
+   <type Family="array" ID="5486" toTI="2975"/>
+   <type Family="array" ID="5613" toTI="2975"/>
+   <variable Name="pygmyAudioFile" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_audio.c" Line="24" Addr="0x200004A0" TI="4402"/>
+   <variable Name="globalAudioBuffer" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_audio.c" Line="25" Addr="0x2000009D" TI="5613"/>
+   <variable Name="globalAudioPage" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_audio.c" Line="25" Addr="0x2000009C" TI="2975"/>
+  </module>
+  <module Name="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" >
+   <type Family="Base" Name="long long int" ID="5762"/>
+   <type Family="Base" Name="long int" ID="5769"/>
+   <type Family="Base" Name="short int" ID="5776"/>
+   <type Family="Base" Name="signed char" ID="5783"/>
+   <type Family="Base" Name="long long unsigned int" ID="5790"/>
+   <type Family="Base" Name="long unsigned int" ID="5808"/>
+   <type Family="typedef" Name="u32" Line="49" ID="5797" toTI="5808"/>
+   <type Family="Base" Name="short unsigned int" ID="5826"/>
+   <type Family="typedef" Name="u16" Line="50" ID="5815" toTI="5826"/>
+   <type Family="Base" Name="unsigned char" ID="5843"/>
+   <type Family="typedef" Name="u8" Line="51" ID="5833" toTI="5843"/>
+   <type Family="Pointer" TI="5866" toTI="5872"/>
+   <type Family="typedef" Name="PYGMYFUNCPTR" Line="223" ID="5855" toTI="5866"/>
+   <type Family="Pointer" TI="5889" toTI="5895"/>
+   <type Family="typedef" Name="PYGMYVOIDPTR" Line="224" ID="5878" toTI="5889"/>
+   <type Family="Pointer" TI="5908" toTI="5914"/>
+   <type Family="typedef" Name="PYGMYCMDPTR" Line="225" ID="5897" toTI="5908"/>
+   <type Family="Pointer" TI="5930" toTI="5833"/>
+   <type Family="ComponentList" Line="237" ID="5936">
+    <Component Name="Name" TI="5944" Line="238" Offs="0"/>
+    <Component Name="Call" TI="5958" Line="239" Offs="4"/>
+   </type>
+   <type Family="typedef" Name="PYGMYCMD" Line="240" ID="5973" toTI="5936"/>
+   <type Family="ComponentList" Line="242" ID="5984">
+    <Component Name="Status" TI="5992" Line="243" Offs="0"/>
+    <Component Name="Retry" TI="6006" Line="244" Offs="1"/>
+    <Component Name="Name" TI="6020" Line="245" Offs="4"/>
+    <Component Name="PrintHandler" TI="6034" Line="246" Offs="8"/>
+    <Component Name="EventHandler" TI="6048" Line="247" Offs="12"/>
+    <Component Name="TimeStamp" TI="6062" Line="249" Offs="16"/>
+    <Component Name="Expire" TI="6076" Line="250" Offs="20"/>
+   </type>
+   <type Family="typedef" Name="PYGMYCOMMAND" Line="251" ID="6091" toTI="5984"/>
+   <type Family="ComponentList" Line="255" ID="6102">
+    <Component Name="Index" TI="6111" Line="256" Offs="0"/>
+    <Component Name="Count" TI="6126" Line="257" Offs="1"/>
+   <type Family="array" ID="6157" toTI="6091"/>
+    <Component Name="Commands" TI="6141" Line="258" Offs="4"/>
+   </type>
+   <type Family="Base" Name="unsigned int" ID="6173"/>
+   <type Family="typedef" Name="PYGMYCOMMANDQUEUE" Line="259" ID="6180" toTI="6102"/>
+   <type Family="ComponentList" Line="272" ID="6192">
+    <Component Name="Name" TI="6201" Line="273" Offs="0"/>
+    <Component Name="Busy" TI="6216" Line="274" Offs="4"/>
+    <Component Name="ID" TI="6231" Line="275" Offs="6"/>
+    <Component Name="Timer" TI="6245" Line="276" Offs="8"/>
+    <Component Name="Reload" TI="6260" Line="277" Offs="12"/>
+    <Component Name="EventHandler" TI="6275" Line="278" Offs="16"/>
+    <Component Name="TimeStamp" TI="6290" Line="279" Offs="20"/>
+    <Component Name="Expire" TI="6305" Line="280" Offs="24"/>
+   </type>
+   <type Family="typedef" Name="PYGMYTASK" Line="281" ID="6321" toTI="6192"/>
+   <type Family="ComponentList" Line="419" ID="6338">
+    <Component Name="CRL" TI="6347" Line="420" Offs="0"/>
+    <Component Name="CRH" TI="6362" Line="421" Offs="4"/>
+    <Component Name="IDR" TI="6377" Line="422" Offs="8"/>
+    <Component Name="ODR" TI="6392" Line="423" Offs="12"/>
+    <Component Name="BSRR" TI="6407" Line="424" Offs="16"/>
+    <Component Name="BRR" TI="6422" Line="425" Offs="20"/>
+    <Component Name="LCKR" TI="6437" Line="426" Offs="24"/>
+   </type>
+   <type Family="typedef" Name="GPIO" Line="427" ID="6453" toTI="6338"/>
+   <type Family="ComponentList" Line="455" ID="7131">
+    <Component Name="SCL" TI="7140" Line="456" Offs="0"/>
+    <Component Name="SDA" TI="7155" Line="457" Offs="1"/>
+    <Component Name="Address" TI="7170" Line="458" Offs="2"/>
+   <type Family="Pointer" TI="7275" toTI="6453"/>
+    <Component Name="PortSCL" TI="7185" Line="459" Offs="4"/>
+    <Component Name="PortSDA" TI="7200" Line="460" Offs="8"/>
+    <Component Name="PinSCL" TI="7215" Line="461" Offs="12"/>
+    <Component Name="PinSDA" TI="7230" Line="462" Offs="14"/>
+    <Component Name="Speed" TI="7245" Line="463" Offs="16"/>
+    <Component Name="CR" TI="7260" Line="464" Offs="18"/>
+   </type>
+   <type Family="typedef" Name="PYGMYI2CPORT" Line="466" ID="7281" toTI="7131"/>
+   <type Family="ComponentList" Line="468" ID="7293">
+    <Component Name="PortCS" TI="7302" Line="469" Offs="0"/>
+    <Component Name="PortSCK" TI="7317" Line="470" Offs="4"/>
+    <Component Name="PortMOSI" TI="7332" Line="471" Offs="8"/>
+    <Component Name="PortMISO" TI="7347" Line="472" Offs="12"/>
+    <Component Name="PinCS" TI="7362" Line="473" Offs="16"/>
+    <Component Name="PinSCK" TI="7377" Line="474" Offs="18"/>
+    <Component Name="PinMOSI" TI="7392" Line="475" Offs="20"/>
+    <Component Name="PinMISO" TI="7407" Line="476" Offs="22"/>
+    <Component Name="CR" TI="7422" Line="477" Offs="24"/>
+   </type>
+   <type Family="typedef" Name="PYGMYSPIPORT" Line="478" ID="7437" toTI="7293"/>
+   <type Family="ComponentList" Line="494" ID="7449">
+    <Component Name="SPI" TI="7458" Line="495" Offs="0"/>
+    <Component Name="I2C" TI="7473" Line="496" Offs="1"/>
+   </type>
+   <type Family="typedef" Name="PYGMYPORTINDEX" Line="498" ID="7489" toTI="7449"/>
+   <type Family="array" ID="7501" toTI="5833"/>
+   <type Family="ComponentList" Name="PYGMYFILE_TYPEDEF" Line="139" ID="7517">
+    <Component Name="Sector" TI="7529" Line="140" Offs="0"/>
+    <Component Name="Length" TI="7543" Line="141" Offs="4"/>
+    <Component Name="Index" TI="7557" Line="142" Offs="8"/>
+    <Component Name="ID_Sector" TI="7571" Line="143" Offs="12"/>
+    <Component Name="ID_File" TI="7585" Line="144" Offs="14"/>
+    <Component Name="Attributes" TI="7599" Line="145" Offs="16"/>
+    <Component Name="Resource" TI="7613" Line="146" Offs="20"/>
+    <Component Name="Name" TI="7627" Line="147" Offs="24"/>
+   </type>
+   <type Family="typedef" Name="PYGMYFILE" Line="148" ID="7642" toTI="7517"/>
+   <type Family="Pointer" TI="7653" toTI="7642"/>
+   <type Family="ComponentList" Line="69" ID="7664">
+    <Component Name="CPUID" TI="7672" Line="71" Offs="0"/>
+    <Component Name="ICSR" TI="7686" Line="72" Offs="4"/>
+    <Component Name="VTOR" TI="7700" Line="73" Offs="8"/>
+    <Component Name="AIRCR" TI="7714" Line="74" Offs="12"/>
+    <Component Name="SCR" TI="7728" Line="75" Offs="16"/>
+    <Component Name="CCR" TI="7742" Line="76" Offs="20"/>
+   <type Family="array" ID="7869" toTI="5797"/>
+    <Component Name="SHPR" TI="7756" Line="77" Offs="24"/>
+    <Component Name="SHCSR" TI="7770" Line="78" Offs="36"/>
+    <Component Name="CFSR" TI="7784" Line="79" Offs="40"/>
+    <Component Name="HFSR" TI="7798" Line="80" Offs="44"/>
+    <Component Name="DFSR" TI="7812" Line="81" Offs="48"/>
+    <Component Name="MMFAR" TI="7826" Line="82" Offs="52"/>
+    <Component Name="BFAR" TI="7840" Line="83" Offs="56"/>
+    <Component Name="AFSR" TI="7854" Line="84" Offs="60"/>
+   </type>
+   <type Family="typedef" Name="SCB_TYPEDEF" Line="85" ID="7890" toTI="7664"/>
+   <type Family="array" ID="7901" toTI="5833"/>
+   <function Name="cmdNull" TI="5833" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="263">
+    <parameter Name="ucBuffer" TI="5930" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="263" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="cmd_reset" TI="5833" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="268">
+    <parameter Name="ucBuffer" TI="5930" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="268" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="cmd_peek" TI="5833" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="275">
+    <parameter Name="ucBuffer" TI="5930" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="275" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="cmd_poke" TI="5833" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="281">
+    <parameter Name="ucBuffer" TI="5930" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="281" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="cmd_rfsend" TI="5833" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="836">
+    <parameter Name="ucBuffer" TI="5930" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="836" Addr="0x0" Param="Yes"/>
+    <variable Name="ucParam" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="838" Addr="0x0" TI="5930"/>
+   </function >
+   <function Name="cmd_rfopen" TI="5833" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="817">
+    <parameter Name="ucBuffer" TI="5930" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="817" Addr="0x0" Param="Yes"/>
+    <variable Name="ulID" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="819" Addr="0x0" TI="5797"/>
+    <variable Name="ucSocket" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="820" Addr="0x0" TI="5833"/>
+   </function >
+   <function Name="cmd_write" TI="5833" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="512">
+    <parameter Name="ucBuffer" TI="5930" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="512" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="cmd_pinconfig" TI="5833" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="435">
+    <parameter Name="ucBuffer" TI="5930" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="435" Addr="0x0" Param="Yes"/>
+   <type Family="array" ID="8384" toTI="5930"/>
+    <variable Name="ucParams" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="437" Addr="0x34000000" TI="8384"/>
+    <variable Name="ucPin" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="437" Addr="0x0" TI="5833"/>
+    <variable Name="ucMode" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="437" Addr="0x1" TI="5833"/>
+   </function >
+   <function Name="cmd_cp" TI="5833" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="611">
+    <parameter Name="ucBuffer" TI="5930" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="611" Addr="0x0" Param="Yes"/>
+    <variable Name="ucParams" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="613" Addr="0x34000000" TI="8384"/>
+   </function >
+   <type Family="Base" Name="int" ID="8478"/>
+   <function Name="cmd_mv" TI="5833" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="602">
+    <parameter Name="ucBuffer" TI="5930" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="602" Addr="0x0" Param="Yes"/>
+    <variable Name="ucParams" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="604" Addr="0x34000000" TI="8384"/>
+   </function >
+   <function Name="cmd_open" TI="5833" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="580">
+    <parameter Name="ucBuffer" TI="5930" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="580" Addr="0x0" Param="Yes"/>
+    <variable Name="ucParams" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="583" Addr="0x34000000" TI="8384"/>
+    <variable Name="ucMode" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="583" Addr="0x4" TI="5833"/>
+   </function >
+   <function Name="cmd_close" TI="5833" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="570">
+    <parameter Name="ucBuffer" TI="5930" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="570" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="cmd_rm" TI="5833" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="565">
+    <parameter Name="ucBuffer" TI="5930" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="565" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="cmd_ls" TI="5833" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="543">
+    <parameter Name="ucBuffer" TI="5930" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="543" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="cmd_read" TI="5833" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="482">
+    <parameter Name="ucBuffer" TI="5930" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="482" Addr="0x0" Param="Yes"/>
+    <variable Name="pygmyFile" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="484" Addr="0x34000000" TI="7642"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="485" Addr="0x4" TI="5815"/>
+    <variable Name="ucParam" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="486" Addr="0x0" TI="5930"/>
+    <variable Name="ucChar" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="486" Addr="0x0" TI="5833"/>
+   </function >
+   <function Name="cmd_format" TI="5833" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="472">
+    <parameter Name="ucBuffer" TI="5930" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="472" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="cmd_mnt" TI="5833" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="465">
+    <parameter Name="ucBuffer" TI="5930" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="465" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="cmd_pinpwm" TI="5833" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="422">
+    <parameter Name="ucBuffer" TI="5930" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="422" Addr="0x0" Param="Yes"/>
+   <type Family="array" ID="9124" toTI="5930"/>
+    <variable Name="ucParams" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="424" Addr="0x34000004" TI="9124"/>
+    <variable Name="ucPin" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="424" Addr="0x0" TI="5833"/>
+    <variable Name="ucDutyCycle" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="424" Addr="0x0" TI="5833"/>
+    <variable Name="ucFreq" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="424" Addr="0x0" TI="5833"/>
+   </function >
+   <function Name="cmd_pinanalog" TI="5833" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="412">
+    <parameter Name="ucBuffer" TI="5930" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="412" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="cmd_pinget" TI="5833" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="405">
+    <parameter Name="ucBuffer" TI="5930" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="405" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="cmd_pinset" TI="5833" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="385">
+    <parameter Name="ucBuffer" TI="5930" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="385" Addr="0x0" Param="Yes"/>
+    <variable Name="ucParams" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="387" Addr="0x34000000" TI="8384"/>
+   </function >
+   <function Name="cmd_pinevent" TI="5833" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="369">
+    <parameter Name="ucBuffer" TI="5930" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="369" Addr="0x0" Param="Yes"/>
+    <variable Name="ucParams" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="371" Addr="0x34000000" TI="8384"/>
+    <variable Name="ucLen" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="371" Addr="0x0" TI="5833"/>
+    <variable Name="ucPin" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="371" Addr="0x0" TI="5833"/>
+   </function >
+   <function Name="cmdPinEvent" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="351">
+    <variable Name="uiPR" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="353" Addr="0x5" TI="5815"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="354" Addr="0x0" TI="5833"/>
+    <variable Name="ucPin" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="354" Addr="0x0" TI="5833"/>
+   </function >
+   <function Name="cmdInit" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="152">
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="154" Addr="0x0" TI="5833"/>
+   </function >
+   <function Name="cmdExecute" TI="5833" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="175">
+    <parameter Name="ucBuffer" TI="5930" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="175" Addr="0x0" Param="Yes"/>
+   <type Family="Pointer" TI="9602" toTI="5973"/>
+    <parameter Name="pygmyCmds" TI="9602" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="175" Addr="0x1" Param="Yes"/>
+    <variable Name="ii" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="177" Addr="0x4" TI="5815"/>
+    <variable Name="ucCommand" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="178" Addr="0x0" TI="5930"/>
+   </function >
+   <function Name="cmdGetsCOM3" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="114">
+    <variable Name="pygmySTDIO" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="116" Addr="0x0" TI="5833"/>
+    <variable Name="ucBuffer" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="116" Addr="0x34000000" TI="7901"/>
+   </function >
+   <type Family="array" ID="9768" toTI="5930"/>
+   <type Family="Pointer" TI="9979" toTI="6180"/>
+   <function Name="cmdOpenPort" TI="5833" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="625">
+    <parameter Name="ucProtocol" TI="5833" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="625" Addr="0x0" Param="Yes"/>
+    <parameter Name="ucPin0" TI="5833" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="625" Addr="0x1" Param="Yes"/>
+    <parameter Name="ucPin1" TI="5833" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="625" Addr="0x2" Param="Yes"/>
+    <parameter Name="ucPin2" TI="5833" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="625" Addr="0x3" Param="Yes"/>
+    <parameter Name="ucPin3" TI="5833" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="625" Addr="0x34000030" Param="Yes"/>
+    <parameter Name="ucAddress" TI="5833" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="625" Addr="0x34000034" Param="Yes"/>
+    <variable Name="ii" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="627" Addr="0x0" TI="5833"/>
+   </function >
+   <function Name="cmdWritePort" TI="5833" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="661">
+    <parameter Name="ucCOM" TI="5833" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="661" Addr="0x4" Param="Yes"/>
+    <parameter Name="ulAddress" TI="5797" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="661" Addr="0x1" Param="Yes"/>
+    <parameter Name="ucBuffer" TI="5930" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="661" Addr="0x2" Param="Yes"/>
+    <parameter Name="uiLen" TI="5815" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="661" Addr="0x3" Param="Yes"/>
+   </function >
+   <function Name="cmdReadPort" TI="5833" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="675">
+    <parameter Name="ucCOM" TI="5833" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="675" Addr="0x4" Param="Yes"/>
+    <parameter Name="ulAddress" TI="5797" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="675" Addr="0x1" Param="Yes"/>
+    <parameter Name="ucBuffer" TI="5930" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="675" Addr="0x2" Param="Yes"/>
+    <parameter Name="uiLen" TI="5815" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="675" Addr="0x3" Param="Yes"/>
+   </function >
+   <function Name="cmd_port" TI="5833" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="689">
+    <parameter Name="ucBuffer" TI="5930" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="689" Addr="0x0" Param="Yes"/>
+   <type Family="array" ID="10707" toTI="5833"/>
+    <variable Name="ucData" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="691" Addr="0x34000114" TI="10707"/>
+    <variable Name="ucAddress" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="691" Addr="0x3400000C" TI="5833"/>
+    <variable Name="ucCOM" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="691" Addr="0x0" TI="5833"/>
+    <variable Name="ucProtocol" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="691" Addr="0x0" TI="5833"/>
+    <variable Name="ucPin0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="691" Addr="0x0" TI="5833"/>
+    <variable Name="ucPin1" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="691" Addr="0x0" TI="5833"/>
+    <variable Name="ucPin2" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="691" Addr="0x0" TI="5833"/>
+    <variable Name="ucPin3" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="691" Addr="0x0" TI="5833"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="692" Addr="0x0" TI="5815"/>
+    <variable Name="uiLen" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="692" Addr="0x0" TI="5815"/>
+   <type Family="array" ID="10723" toTI="5930"/>
+    <variable Name="ucStrings" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="693" Addr="0x34000014" TI="10723"/>
+   </function >
+   <type Family="array" ID="10925" toTI="5973"/>
+   <type Family="array" ID="10993" toTI="7437"/>
+   <type Family="array" ID="11022" toTI="7281"/>
+   <type Family="array" ID="11051" toTI="7489"/>
+   <type Family="array" ID="11080" toTI="5973"/>
+   <variable Name="globalCMDPrompt" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="23" Addr="0x20000538" TI="5930"/>
+   <variable Name="globalCMDError" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="23" Addr="0x200004D4" TI="5930"/>
+   <variable Name="globalCMDUnsupported" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="23" Addr="0x200004D0" TI="5930"/>
+   <variable Name="globalSPIPorts" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="33" Addr="0x200004D8" TI="10993"/>
+   <variable Name="globalI2CPorts" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="34" Addr="0x20000510" TI="11022"/>
+   <variable Name="globalCMDPorts" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="35" Addr="0x200004C8" TI="11051"/>
+   <variable Name="PYGMYSTDCOMMANDS" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="37" Addr="0x800675C" TI="11258"/>
+  </module>
+  <module Name="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" >
+   <type Family="Base" Name="long long int" ID="11301"/>
+   <type Family="Base" Name="long int" ID="11319"/>
+   <type Family="typedef" Name="s32" Line="29" ID="11308" toTI="11319"/>
+   <type Family="Base" Name="short int" ID="11326"/>
+   <type Family="Base" Name="signed char" ID="11333"/>
+   <type Family="Base" Name="long long unsigned int" ID="11340"/>
+   <type Family="Base" Name="long unsigned int" ID="11358"/>
+   <type Family="typedef" Name="u32" Line="49" ID="11347" toTI="11358"/>
+   <type Family="Base" Name="short unsigned int" ID="11376"/>
+   <type Family="typedef" Name="u16" Line="50" ID="11365" toTI="11376"/>
+   <type Family="Base" Name="unsigned char" ID="11393"/>
+   <type Family="typedef" Name="u8" Line="51" ID="11383" toTI="11393"/>
+   <type Family="Pointer" TI="11405" toTI="11383"/>
+   <type Family="Base" Name="unsigned int" ID="11411"/>
+   <type Family="ComponentList" Line="1028" ID="11418">
+    <Component Name="KR" TI="11427" Line="1030" Offs="0"/>
+    <Component Name="PR" TI="11441" Line="1031" Offs="4"/>
+    <Component Name="RLR" TI="11455" Line="1032" Offs="8"/>
+    <Component Name="SR" TI="11470" Line="1033" Offs="12"/>
+   </type>
+   <type Family="typedef" Name="IWDG_TYPEDEF" Line="1034" ID="11490" toTI="11418"/>
+   <type Family="ComponentList" Line="419" ID="11502">
+    <Component Name="CRL" TI="11511" Line="420" Offs="0"/>
+    <Component Name="CRH" TI="11526" Line="421" Offs="4"/>
+    <Component Name="IDR" TI="11541" Line="422" Offs="8"/>
+    <Component Name="ODR" TI="11556" Line="423" Offs="12"/>
+    <Component Name="BSRR" TI="11571" Line="424" Offs="16"/>
+    <Component Name="BRR" TI="11586" Line="425" Offs="20"/>
+    <Component Name="LCKR" TI="11601" Line="426" Offs="24"/>
+   </type>
+   <type Family="typedef" Name="GPIO" Line="427" ID="11617" toTI="11502"/>
+   <type Family="Pointer" TI="12261" toTI="11617"/>
+   <type Family="ComponentList" Line="468" ID="12267">
+    <Component Name="PortCS" TI="12276" Line="469" Offs="0"/>
+    <Component Name="PortSCK" TI="12291" Line="470" Offs="4"/>
+    <Component Name="PortMOSI" TI="12306" Line="471" Offs="8"/>
+    <Component Name="PortMISO" TI="12321" Line="472" Offs="12"/>
+    <Component Name="PinCS" TI="12336" Line="473" Offs="16"/>
+    <Component Name="PinSCK" TI="12351" Line="474" Offs="18"/>
+    <Component Name="PinMOSI" TI="12366" Line="475" Offs="20"/>
+    <Component Name="PinMISO" TI="12381" Line="476" Offs="22"/>
+    <Component Name="CR" TI="12396" Line="477" Offs="24"/>
+   </type>
+   <type Family="typedef" Name="PYGMYSPIPORT" Line="478" ID="12411" toTI="12267"/>
+   <type Family="ComponentList" Name="PYGMYFILEVOLUME_TYPEDEF" Line="120" ID="12423">
+   <type Family="array" ID="12646" toTI="11383"/>
+    <Component Name="Name" TI="12435" Line="121" Offs="0"/>
+    <Component Name="Attributes" TI="12449" Line="122" Offs="13"/>
+    <Component Name="ActiveFiles" TI="12463" Line="123" Offs="16"/>
+    <Component Name="ActiveFAT" TI="12477" Line="124" Offs="20"/>
+    <Component Name="Sectors" TI="12491" Line="125" Offs="24"/>
+    <Component Name="SectorSize" TI="12505" Line="126" Offs="26"/>
+    <Component Name="MaxFiles" TI="12519" Line="127" Offs="28"/>
+    <Component Name="MediaSize" TI="12533" Line="128" Offs="32"/>
+    <Component Name="EntriesPerFAT" TI="12547" Line="129" Offs="36"/>
+    <Component Name="FilesSectors" TI="12561" Line="130" Offs="38"/>
+    <Component Name="FATSectors" TI="12575" Line="131" Offs="40"/>
+    <Component Name="FirstFileSector" TI="12589" Line="132" Offs="44"/>
+    <Component Name="Files_B" TI="12603" Line="134" Offs="48"/>
+    <Component Name="FAT_A" TI="12617" Line="135" Offs="52"/>
+    <Component Name="FAT_B" TI="12631" Line="136" Offs="56"/>
+   </type>
+   <type Family="typedef" Name="PYGMYFILEVOLUME" Line="137" ID="12662" toTI="12423"/>
+   <type Family="ComponentList" Name="PYGMYFILE_TYPEDEF" Line="139" ID="12673">
+    <Component Name="Sector" TI="12685" Line="140" Offs="0"/>
+    <Component Name="Length" TI="12699" Line="141" Offs="4"/>
+    <Component Name="Index" TI="12713" Line="142" Offs="8"/>
+    <Component Name="ID_Sector" TI="12727" Line="143" Offs="12"/>
+    <Component Name="ID_File" TI="12741" Line="144" Offs="14"/>
+    <Component Name="Attributes" TI="12755" Line="145" Offs="16"/>
+    <Component Name="Resource" TI="12769" Line="146" Offs="20"/>
+    <Component Name="Name" TI="12783" Line="147" Offs="24"/>
+   </type>
+   <type Family="typedef" Name="PYGMYFILE" Line="148" ID="12798" toTI="12673"/>
+   <type Family="Pointer" TI="12809" toTI="12798"/>
+   <type Family="array" ID="12815" toTI="11383"/>
+   <type Family="array" ID="12831" toTI="11383"/>
+   <function Name="fileIsEOF" TI="11383" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="230">
+    <parameter Name="pygmyFile" TI="12809" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="230" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="fileIsValidName" TI="11383" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="274">
+    <parameter Name="ucName" TI="11405" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="274" Addr="0x0" Param="Yes"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="276" Addr="0x0" TI="11383"/>
+   </function >
+   <function Name="flashReadWord" TI="11365" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1226">
+    <parameter Name="ulAddress" TI="11347" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1226" Addr="0x10" Param="Yes"/>
+    <variable Name="uiWord" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1228" Addr="0x6" TI="11365"/>
+   </function >
+   <function Name="fileGetFAT" TI="11365" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="427">
+    <parameter Name="uiID" TI="11365" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="427" Addr="0x0" Param="Yes"/>
+    <parameter Name="uiIndex" TI="11365" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="427" Addr="0x1" Param="Yes"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="430" Addr="0x0" TI="11365"/>
+    <variable Name="uiTmpID" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="430" Addr="0x0" TI="11365"/>
+    <variable Name="uiID_Sector" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="430" Addr="0x20" TI="11365"/>
+   </function >
+   <function Name="fileGetChar" TI="11383" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="915">
+    <parameter Name="pygmyFile" TI="12809" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="915" Addr="0x0" Param="Yes"/>
+    <variable Name="pygmyFilePtr" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="918" Addr="0x20000004" TI="12809"/>
+    <variable Name="ulIndex" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="919" Addr="0x20000008" TI="11347"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="920" Addr="0x0" TI="11347"/>
+    <variable Name="ulAddress" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="920" Addr="0x4000018" TI="11347"/>
+    <variable Name="ucIndex" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="921" Addr="0x2000000C" TI="11383"/>
+    <variable Name="ucChar" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="921" Addr="0x2000000D" TI="11383"/>
+    <variable Name="ucBuffer" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="921" Addr="0x2000000E" TI="12831"/>
+   </function >
+   <function Name="fileGetBuffer" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="843">
+    <parameter Name="pygmyFile" TI="12809" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="843" Addr="0x0" Param="Yes"/>
+    <parameter Name="uiLen" TI="11365" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="843" Addr="0x1" Param="Yes"/>
+    <parameter Name="ucBuffer" TI="11405" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="843" Addr="0x2" Param="Yes"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="845" Addr="0x0" TI="11365"/>
+   </function >
+   <function Name="flashReadLong" TI="11347" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1240">
+    <parameter Name="ulAddress" TI="11347" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1240" Addr="0x18" Param="Yes"/>
+    <variable Name="ulLong" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1242" Addr="0x7" TI="11347"/>
+   </function >
+   <function Name="fileGetLength" TI="11347" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="741">
+    <parameter Name="ulID_File" TI="11347" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="741" Addr="0x0" Param="Yes"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="743" Addr="0x10000014" TI="11347"/>
+    <variable Name="ulLen" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="743" Addr="0x0" TI="11347"/>
+    <variable Name="ulAddress" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="743" Addr="0x0" TI="11347"/>
+   </function >
+   <function Name="flashReadByte" TI="11383" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1256">
+    <parameter Name="ulAddress" TI="11347" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1256" Addr="0x10" Param="Yes"/>
+   </function >
+   <function Name="fileGetActiveFiles" TI="11347" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="528">
+   </function >
+   <function Name="fileGetFreeSpace" TI="11347" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="255">
+    <variable Name="ulFreeSpace" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="257" Addr="0x0" TI="11347"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="258" Addr="0x0" TI="11365"/>
+    <variable Name="ucByte" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="259" Addr="0x10" TI="11383"/>
+   </function >
+   <function Name="flashReadBuffer" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1269">
+    <parameter Name="ulAddress" TI="11347" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1269" Addr="0x10" Param="Yes"/>
+    <parameter Name="ucBuffer" TI="11405" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1269" Addr="0x1" Param="Yes"/>
+    <parameter Name="uiLen" TI="11365" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1269" Addr="0x2" Param="Yes"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1271" Addr="0x0" TI="11365"/>
+   </function >
+   <function Name="filePrintDebug" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1029">
+    <parameter Name="ucStream" TI="11383" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1029" Addr="0x0" Param="Yes"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1031" Addr="0x0" TI="11347"/>
+    <variable Name="ulA" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1031" Addr="0x0" TI="11347"/>
+    <variable Name="ulB" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1031" Addr="0x0" TI="11347"/>
+    <variable Name="ucBuffer1" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1032" Addr="0x34000014" TI="12815"/>
+    <variable Name="ucBuffer2" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1032" Addr="0x34000004" TI="12815"/>
+   <type Family="array" ID="14453" toTI="11383"/>
+    <variable Name="ucTerm" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1032" Addr="0x34000024" TI="14453"/>
+   </function >
+   <function Name="filePrintList" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1005">
+    <parameter Name="ucStream" TI="11383" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1005" Addr="0x0" Param="Yes"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1007" Addr="0x0" TI="11365"/>
+    <variable Name="uiID" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1007" Addr="0x3400000E" TI="11365"/>
+    <variable Name="ucName" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1008" Addr="0x34000000" TI="12815"/>
+   </function >
+   <function Name="fileSeekName" TI="11365" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="651">
+    <parameter Name="ucName" TI="11405" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="651" Addr="0x0" Param="Yes"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="653" Addr="0x0" TI="11347"/>
+    <variable Name="ucBuffer" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="654" Addr="0x10000000" TI="12646"/>
+   </function >
+   <function Name="flashReadStatus" TI="11383" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1282">
+   </function >
+   <function Name="flashReadID" TI="11383" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1294">
+   </function >
+   <function Name="flashWaitForBusy" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1334">
+   </function >
+   <function Name="flashChipErase" TI="11383" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1321">
+   </function >
+   <function Name="flashSectorErase" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1309">
+    <parameter Name="ulSector" TI="11347" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1309" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="flashWriteByte" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1376">
+    <parameter Name="ulAddress" TI="11347" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1376" Addr="0x0" Param="Yes"/>
+    <parameter Name="ucByte" TI="11383" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1376" Addr="0x1" Param="Yes"/>
+   </function >
+   <function Name="flashWriteBuffer" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1365">
+    <parameter Name="ulAddress" TI="11347" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1365" Addr="0x0" Param="Yes"/>
+    <parameter Name="uiLen" TI="11365" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1365" Addr="0x1" Param="Yes"/>
+    <parameter Name="ucBuffer" TI="11405" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1365" Addr="0x2" Param="Yes"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1368" Addr="0x0" TI="11347"/>
+   </function >
+   <function Name="flashWriteString" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1354">
+    <parameter Name="ulAddress" TI="11347" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1354" Addr="0x0" Param="Yes"/>
+    <parameter Name="ucTerminate" TI="11383" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1354" Addr="0x1" Param="Yes"/>
+    <parameter Name="ucBuffer" TI="11405" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1354" Addr="0x2" Param="Yes"/>
+   </function >
+   <function Name="flashWriteLong" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1345">
+    <parameter Name="ulAddress" TI="11347" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1345" Addr="0x0" Param="Yes"/>
+    <parameter Name="ulLong" TI="11347" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1345" Addr="0x1" Param="Yes"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1347" Addr="0x0" TI="11383"/>
+   </function >
+   <function Name="fileWriteLength" TI="11383" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="717">
+    <parameter Name="pygmyFile" TI="12809" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="717" Addr="0x0" Param="Yes"/>
+    <parameter Name="ulLength" TI="11347" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="717" Addr="0x1" Param="Yes"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="719" Addr="0x4" TI="11347"/>
+    <variable Name="ulTmp" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="719" Addr="0x0" TI="11347"/>
+    <variable Name="ulAddress" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="719" Addr="0x6" TI="11347"/>
+   </function >
+   <function Name="flashWriteWord" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1339">
+    <parameter Name="ulAddress" TI="11347" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1339" Addr="0x0" Param="Yes"/>
+    <parameter Name="uiWord" TI="11365" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1339" Addr="0x1" Param="Yes"/>
+   </function >
+   <function Name="fileDeleteFATEntry" TI="11383" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="543">
+    <parameter Name="uiID_File" TI="11365" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="543" Addr="0x0" Param="Yes"/>
+    <parameter Name="uiID_Sector" TI="11365" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="543" Addr="0x1" Param="Yes"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="545" Addr="0x0" TI="11347"/>
+    <variable Name="ii" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="545" Addr="0x8" TI="11347"/>
+    <variable Name="uiTmpID" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="546" Addr="0xB" TI="11365"/>
+    <variable Name="uiDeleted" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="546" Addr="0x0" TI="11365"/>
+    <variable Name="uiSector" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="546" Addr="0x28" TI="11365"/>
+   </function >
+   <function Name="fileGetActiveFAT" TI="11347" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="509">
+   </function >
+   <function Name="fileGetFreeFATEntry" TI="11365" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="449">
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="451" Addr="0x0" TI="11347"/>
+    <variable Name="ii" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="451" Addr="0x0" TI="11347"/>
+    <variable Name="ulFAT" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="451" Addr="0x0" TI="11347"/>
+    <variable Name="ulAddress" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="451" Addr="0x5" TI="11347"/>
+    <variable Name="ulEntry" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="451" Addr="0x0" TI="11347"/>
+    <variable Name="ucErased" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="452" Addr="0x0" TI="11383"/>
+   </function >
+   <function Name="fileAllocateFAT" TI="11365" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="574">
+    <parameter Name="uiID_File" TI="11365" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="574" Addr="0x0" Param="Yes"/>
+    <parameter Name="uiID_Sector" TI="11365" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="574" Addr="0x1" Param="Yes"/>
+    <variable Name="ulFAT" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="576" Addr="0x0" TI="11347"/>
+    <variable Name="ulAddress" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="576" Addr="0x6" TI="11347"/>
+   </function >
+   <function Name="filePutChar" TI="11383" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="787">
+    <parameter Name="pygmyFile" TI="12809" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="787" Addr="0x0" Param="Yes"/>
+    <parameter Name="ucChar" TI="11383" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="787" Addr="0x1" Param="Yes"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="789" Addr="0x0" TI="11347"/>
+    <variable Name="ulAddress" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="789" Addr="0x0" TI="11347"/>
+   </function >
+   <function Name="filePutString" TI="11383" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="776">
+    <parameter Name="pygmyFile" TI="12809" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="776" Addr="0x0" Param="Yes"/>
+    <parameter Name="ucString" TI="11405" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="776" Addr="0x1" Param="Yes"/>
+   </function >
+   <function Name="fileClose" TI="11383" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="674">
+    <parameter Name="pygmyFile" TI="12809" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="674" Addr="0x0" Param="Yes"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="682" Addr="0x0" TI="11347"/>
+    <variable Name="ulAddress" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="682" Addr="0x7" TI="11347"/>
+    <variable Name="ulAddress2" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="682" Addr="0x0" TI="11347"/>
+    <variable Name="ucByte" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="683" Addr="0x0" TI="11383"/>
+   </function >
+   <function Name="fileGetFreeFileEntry" TI="11365" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="360">
+    <variable Name="ulAddress" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="362" Addr="0x4" TI="11347"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="363" Addr="0x1" TI="11347"/>
+    <variable Name="ii" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="363" Addr="0x0" TI="11347"/>
+    <variable Name="iii" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="363" Addr="0x8" TI="11347"/>
+    <variable Name="uiErased" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="363" Addr="0x5" TI="11347"/>
+   </function >
+   <function Name="fileRename" TI="11383" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="315">
+    <parameter Name="ucCurrentName" TI="11405" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="315" Addr="0x0" Param="Yes"/>
+    <parameter Name="ucName" TI="11405" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="315" Addr="0x1" Param="Yes"/>
+    <variable Name="ulFileEntry" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="317" Addr="0x0" TI="11347"/>
+    <variable Name="ulFileID" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="317" Addr="0x20" TI="11347"/>
+   </function >
+   <function Name="flashWriteEnable" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1390">
+   </function >
+   <function Name="fileFormat" TI="11347" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1088">
+    <parameter Name="ucName" TI="11405" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1088" Addr="0x0" Param="Yes"/>
+    <variable Name="ulCapacity" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1090" Addr="0x0" TI="11347"/>
+    <variable Name="ulFATBase" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1090" Addr="0x4" TI="11347"/>
+    <variable Name="uiSectorSize" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1091" Addr="0x0" TI="11365"/>
+    <variable Name="uiSectors" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1091" Addr="0x5" TI="11365"/>
+    <variable Name="uiSecPerFAT" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1091" Addr="0x0" TI="11365"/>
+    <variable Name="ucAttribs" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1092" Addr="0x0" TI="11383"/>
+   </function >
+   <function Name="fileMountRoot" TI="11383" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="968">
+    <variable Name="ulTableOffset" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="970" Addr="0x0" TI="11347"/>
+   </function >
+   <function Name="fileDelete" TI="11383" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="175">
+    <parameter Name="ucName" TI="11405" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="175" Addr="0x0" Param="Yes"/>
+    <variable Name="uiFileEntry" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="177" Addr="0x0" TI="11365"/>
+   </function >
+   <function Name="fileOpen" TI="11383" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="83">
+    <parameter Name="pygmyFile" TI="12809" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="83" Addr="0x0" Param="Yes"/>
+    <parameter Name="ucName" TI="11405" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="83" Addr="0x1" Param="Yes"/>
+    <parameter Name="ucAttrib" TI="11383" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="83" Addr="0x2" Param="Yes"/>
+    <variable Name="ulFileEntry" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="85" Addr="0x0" TI="11347"/>
+    <variable Name="ulEntryAddress" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="86" Addr="0x14000018" TI="11347"/>
+    <variable Name="ulNameMatch" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="86" Addr="0x0" TI="11347"/>
+   </function >
+   <function Name="fileCopy" TI="11383" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="291">
+    <parameter Name="ucCurrentName" TI="11405" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="291" Addr="0x0" Param="Yes"/>
+    <parameter Name="ucName" TI="11405" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="291" Addr="0x1" Param="Yes"/>
+    <variable Name="pygmyFileTo" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="293" Addr="0x34000028" TI="12798"/>
+    <variable Name="pygmyFileFrom" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="293" Addr="0x34000000" TI="12798"/>
+    <variable Name="ucByte" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="294" Addr="0x0" TI="11383"/>
+   </function >
+   <variable Name="pygmyRootVolume" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="80" Addr="0x2000053C" TI="12662"/>
+   <variable Name="pygmyFlashSPI" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="81" Addr="0x20000578" TI="12411"/>
+  </module>
+  <module Name="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.c" >
+   <type Family="Base" Name="long long int" ID="17132"/>
+   <type Family="Base" Name="long int" ID="17139"/>
+   <type Family="Base" Name="short int" ID="17146"/>
+   <type Family="Base" Name="signed char" ID="17153"/>
+   <type Family="Base" Name="long long unsigned int" ID="17160"/>
+   <type Family="Base" Name="long unsigned int" ID="17178"/>
+   <type Family="typedef" Name="u32" Line="49" ID="17167" toTI="17178"/>
+   <type Family="Base" Name="short unsigned int" ID="17196"/>
+   <type Family="typedef" Name="u16" Line="50" ID="17185" toTI="17196"/>
+   <type Family="Base" Name="unsigned char" ID="17213"/>
+   <type Family="typedef" Name="u8" Line="51" ID="17203" toTI="17213"/>
+   <type Family="Pointer" TI="17220" toTI="17203"/>
+   <type Family="Base" Name="unsigned int" ID="17226"/>
+   <type Family="ComponentList" Line="1028" ID="17233">
+    <Component Name="KR" TI="17242" Line="1030" Offs="0"/>
+    <Component Name="PR" TI="17256" Line="1031" Offs="4"/>
+    <Component Name="RLR" TI="17270" Line="1032" Offs="8"/>
+    <Component Name="SR" TI="17285" Line="1033" Offs="12"/>
+   </type>
+   <type Family="typedef" Name="IWDG_TYPEDEF" Line="1034" ID="17305" toTI="17233"/>
+   <type Family="ComponentList" Line="25" ID="17317">
+    <Component Name="ACR" TI="17325" Line="26" Offs="0"/>
+    <Component Name="KEYR" TI="17339" Line="27" Offs="4"/>
+    <Component Name="OPTKEYR" TI="17353" Line="28" Offs="8"/>
+    <Component Name="SR" TI="17367" Line="29" Offs="12"/>
+    <Component Name="CR" TI="17380" Line="30" Offs="16"/>
+    <Component Name="AR" TI="17393" Line="31" Offs="20"/>
+    <Component Name="RESERVED" TI="17406" Line="32" Offs="24"/>
+    <Component Name="OBR" TI="17420" Line="33" Offs="28"/>
+    <Component Name="WRPR" TI="17434" Line="34" Offs="32"/>
+   <type Family="array" ID="17533" toTI="17167"/>
+    <Component Name="RESERVED2" TI="17448" Line="35" Offs="36"/>
+    <Component Name="KEYR2" TI="17462" Line="36" Offs="68"/>
+    <Component Name="RESERVED3" TI="17476" Line="37" Offs="72"/>
+    <Component Name="SR2" TI="17490" Line="38" Offs="76"/>
+    <Component Name="CR2" TI="17504" Line="39" Offs="80"/>
+    <Component Name="AR2" TI="17518" Line="40" Offs="84"/>
+   </type>
+   <type Family="typedef" Name="FPEC_TYPEDEF" Line="41" ID="17554" toTI="17317"/>
+   <type Family="ComponentList" Line="54" ID="17570">
+    <Component Name="Pages" TI="17578" Line="55" Offs="0"/>
+   </type>
+   <type Family="typedef" Name="SIZEREG_TYPEDEF" Line="56" ID="17593" toTI="17570"/>
+   <type Family="Pointer" TI="17604" toTI="17185"/>
+   <type Family="Pointer" TI="17654" toTI="17167"/>
+   <type Family="array" ID="18015" toTI="17203"/>
+   <variable Name="globalBaseAddress" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.c" Line="23" Addr="0x0" TI="17604"/>
+  </module>
+  <module Name="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_nvic.c" >
+   <type Family="Base" Name="long long int" ID="18333"/>
+   <type Family="Base" Name="long int" ID="18340"/>
+   <type Family="Base" Name="short int" ID="18347"/>
+   <type Family="Base" Name="signed char" ID="18354"/>
+   <type Family="Base" Name="long long unsigned int" ID="18361"/>
+   <type Family="Base" Name="long unsigned int" ID="18379"/>
+   <type Family="typedef" Name="u32" Line="49" ID="18368" toTI="18379"/>
+   <type Family="Base" Name="short unsigned int" ID="18386"/>
+   <type Family="Base" Name="unsigned char" ID="18403"/>
+   <type Family="typedef" Name="u8" Line="51" ID="18393" toTI="18403"/>
+   <type Family="Base" Name="unsigned int" ID="18410"/>
+   <type Family="array" ID="18422" toTI="18368"/>
+   <type Family="ComponentList" Line="29" ID="18438">
+    <Component Name="ISER" TI="18447" Line="31" Offs="0"/>
+   <type Family="array" ID="18616" toTI="18368"/>
+    <Component Name="RESERVED0" TI="18461" Line="32" Offs="8"/>
+    <Component Name="ICER" TI="18475" Line="33" Offs="128"/>
+    <Component Name="RESERVED1" TI="18490" Line="34" Offs="136"/>
+    <Component Name="ISPR" TI="18505" Line="35" Offs="256"/>
+    <Component Name="RESERVED2" TI="18520" Line="36" Offs="264"/>
+    <Component Name="ICPR" TI="18535" Line="37" Offs="384"/>
+    <Component Name="RESERVED3" TI="18550" Line="38" Offs="392"/>
+    <Component Name="IABR" TI="18565" Line="39" Offs="512"/>
+   <type Family="array" ID="18652" toTI="18368"/>
+    <Component Name="RESERVED4" TI="18580" Line="40" Offs="520"/>
+   <type Family="array" ID="18668" toTI="18368"/>
+    <Component Name="IPR" TI="18595" Line="41" Offs="768"/>
+   </type>
+   <type Family="typedef" Name="NVIC_TYPEDEF" Line="42" ID="18689" toTI="18438"/>
+   <type Family="ComponentList" Line="69" ID="18705">
+    <Component Name="CPUID" TI="18713" Line="71" Offs="0"/>
+    <Component Name="ICSR" TI="18727" Line="72" Offs="4"/>
+    <Component Name="VTOR" TI="18741" Line="73" Offs="8"/>
+    <Component Name="AIRCR" TI="18755" Line="74" Offs="12"/>
+    <Component Name="SCR" TI="18769" Line="75" Offs="16"/>
+    <Component Name="CCR" TI="18783" Line="76" Offs="20"/>
+   <type Family="array" ID="18910" toTI="18368"/>
+    <Component Name="SHPR" TI="18797" Line="77" Offs="24"/>
+    <Component Name="SHCSR" TI="18811" Line="78" Offs="36"/>
+    <Component Name="CFSR" TI="18825" Line="79" Offs="40"/>
+    <Component Name="HFSR" TI="18839" Line="80" Offs="44"/>
+    <Component Name="DFSR" TI="18853" Line="81" Offs="48"/>
+    <Component Name="MMFAR" TI="18867" Line="82" Offs="52"/>
+    <Component Name="BFAR" TI="18881" Line="83" Offs="56"/>
+    <Component Name="AFSR" TI="18895" Line="84" Offs="60"/>
+   </type>
+   <type Family="typedef" Name="SCB_TYPEDEF" Line="85" ID="18931" toTI="18705"/>
+   <function Name="interruptGetTimerVector" TI="18393" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_nvic.c" Line="35">
+    <parameter Name="ucTimer" TI="18393" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_nvic.c" Line="35" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="interruptEnable" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_nvic.c" Line="46">
+    <parameter Name="ulVector" TI="18368" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_nvic.c" Line="46" Addr="0x0" Param="Yes"/>
+   </function >
+   <type Family="array" ID="19123" toTI="18393"/>
+   <variable Name="PYGMY_TIMERVECTORS" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_nvic.c" Line="23" Addr="0x8006826" TI="19195"/>
+   <variable Name="PYGMY_TIMERVECTORS_L15X" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_nvic.c" Line="29" Addr="0x8006814" TI="19218"/>
+  </module>
+  <module Name="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" >
+   <type Family="Base" Name="long long int" ID="19261"/>
+   <type Family="Base" Name="long int" ID="19268"/>
+   <type Family="Base" Name="short int" ID="19275"/>
+   <type Family="Base" Name="signed char" ID="19282"/>
+   <type Family="Base" Name="long long unsigned int" ID="19289"/>
+   <type Family="Base" Name="long unsigned int" ID="19307"/>
+   <type Family="typedef" Name="u32" Line="49" ID="19296" toTI="19307"/>
+   <type Family="Base" Name="short unsigned int" ID="19325"/>
+   <type Family="typedef" Name="u16" Line="50" ID="19314" toTI="19325"/>
+   <type Family="Base" Name="unsigned char" ID="19342"/>
+   <type Family="typedef" Name="u8" Line="51" ID="19332" toTI="19342"/>
+   <type Family="Pointer" TI="19370" toTI="19376"/>
+   <type Family="typedef" Name="PYGMYVOIDPTR" Line="224" ID="19359" toTI="19370"/>
+   <type Family="Pointer" TI="19378" toTI="19332"/>
+   <type Family="Base" Name="unsigned int" ID="19384"/>
+   <type Family="Pointer" TI="19509" toTI="0"/>
+   <type Family="ComponentList" Line="389" ID="19511">
+    <Component Name="CR" TI="19520" Line="391" Offs="0"/>
+    <Component Name="CFGR" TI="19534" Line="392" Offs="4"/>
+    <Component Name="CIR" TI="19549" Line="393" Offs="8"/>
+    <Component Name="APB2RSTR" TI="19564" Line="394" Offs="12"/>
+    <Component Name="APB1RSTR" TI="19579" Line="395" Offs="16"/>
+    <Component Name="AHBENR" TI="19594" Line="396" Offs="20"/>
+    <Component Name="APB2ENR" TI="19609" Line="397" Offs="24"/>
+    <Component Name="APB1ENR" TI="19624" Line="398" Offs="28"/>
+    <Component Name="BDCR" TI="19639" Line="399" Offs="32"/>
+    <Component Name="CSR" TI="19654" Line="400" Offs="36"/>
+    <Component Name="CFGR2" TI="19669" Line="401" Offs="40"/>
+   </type>
+   <type Family="typedef" Name="RCC_TYPEDEF" Line="402" ID="19685" toTI="19511"/>
+   <type Family="ComponentList" Line="334" ID="19702">
+    <Component Name="CR1" TI="19711" Line="335" Offs="0"/>
+    <Component Name="RESERVED0" TI="19726" Line="336" Offs="2"/>
+    <Component Name="CR2" TI="19741" Line="337" Offs="4"/>
+    <Component Name="RESERVED1" TI="19756" Line="338" Offs="6"/>
+    <Component Name="SMCR" TI="19771" Line="339" Offs="8"/>
+    <Component Name="RESERVED2" TI="19786" Line="340" Offs="10"/>
+    <Component Name="DIER" TI="19801" Line="341" Offs="12"/>
+    <Component Name="RESERVED3" TI="19816" Line="342" Offs="14"/>
+    <Component Name="SR" TI="19831" Line="343" Offs="16"/>
+    <Component Name="RESERVED4" TI="19845" Line="344" Offs="18"/>
+    <Component Name="EGR" TI="19860" Line="345" Offs="20"/>
+    <Component Name="RESERVED5" TI="19875" Line="346" Offs="22"/>
+    <Component Name="CCMR1" TI="19890" Line="347" Offs="24"/>
+    <Component Name="RESERVED6" TI="19905" Line="348" Offs="26"/>
+    <Component Name="CCMR2" TI="19920" Line="349" Offs="28"/>
+    <Component Name="RESERVED7" TI="19935" Line="350" Offs="30"/>
+    <Component Name="CCER" TI="19950" Line="351" Offs="32"/>
+    <Component Name="RESERVED8" TI="19965" Line="352" Offs="34"/>
+    <Component Name="CNT" TI="19980" Line="353" Offs="36"/>
+    <Component Name="RESERVED9" TI="19995" Line="354" Offs="38"/>
+    <Component Name="PSC" TI="20010" Line="355" Offs="40"/>
+    <Component Name="RESERVED10" TI="20025" Line="356" Offs="42"/>
+    <Component Name="ARR" TI="20040" Line="357" Offs="44"/>
+    <Component Name="RESERVED11" TI="20055" Line="358" Offs="46"/>
+    <Component Name="RCR" TI="20070" Line="359" Offs="48"/>
+    <Component Name="RESERVED12" TI="20085" Line="360" Offs="50"/>
+    <Component Name="CCR1" TI="20100" Line="361" Offs="52"/>
+    <Component Name="RESERVED13" TI="20115" Line="362" Offs="54"/>
+    <Component Name="CCR2" TI="20130" Line="363" Offs="56"/>
+    <Component Name="RESERVED14" TI="20145" Line="364" Offs="58"/>
+    <Component Name="CCR3" TI="20160" Line="365" Offs="60"/>
+    <Component Name="RESERVED15" TI="20175" Line="366" Offs="62"/>
+    <Component Name="CCR4" TI="20190" Line="367" Offs="64"/>
+    <Component Name="RESERVED16" TI="20205" Line="368" Offs="66"/>
+    <Component Name="BDTR" TI="20220" Line="369" Offs="68"/>
+    <Component Name="RESERVED17" TI="20235" Line="370" Offs="70"/>
+    <Component Name="DCR" TI="20250" Line="371" Offs="72"/>
+    <Component Name="RESERVED18" TI="20265" Line="372" Offs="74"/>
+    <Component Name="DMAR" TI="20280" Line="373" Offs="76"/>
+    <Component Name="RESERVED19" TI="20295" Line="374" Offs="78"/>
+   </type>
+   <type Family="typedef" Name="TIM1_TYPEDEF" Line="375" ID="20311" toTI="19702"/>
+   <type Family="ComponentList" Line="377" ID="20323">
+    <Component Name="CR1" TI="20332" Line="378" Offs="0"/>
+    <Component Name="RESERVED0" TI="20347" Line="379" Offs="2"/>
+    <Component Name="CR2" TI="20362" Line="380" Offs="4"/>
+    <Component Name="RESERVED1" TI="20377" Line="381" Offs="6"/>
+    <Component Name="SMCR" TI="20392" Line="382" Offs="8"/>
+    <Component Name="RESERVED2" TI="20407" Line="383" Offs="10"/>
+    <Component Name="DIER" TI="20422" Line="384" Offs="12"/>
+    <Component Name="RESERVED3" TI="20437" Line="385" Offs="14"/>
+    <Component Name="SR" TI="20452" Line="386" Offs="16"/>
+    <Component Name="RESERVED4" TI="20466" Line="387" Offs="18"/>
+    <Component Name="EGR" TI="20481" Line="388" Offs="20"/>
+    <Component Name="RESERVED5" TI="20496" Line="389" Offs="22"/>
+    <Component Name="CCMR1" TI="20511" Line="390" Offs="24"/>
+    <Component Name="RESERVED6" TI="20526" Line="391" Offs="26"/>
+    <Component Name="CCMR2" TI="20541" Line="392" Offs="28"/>
+    <Component Name="RESERVED7" TI="20556" Line="393" Offs="30"/>
+    <Component Name="CCER" TI="20571" Line="394" Offs="32"/>
+    <Component Name="RESERVED8" TI="20586" Line="395" Offs="34"/>
+    <Component Name="CNT" TI="20601" Line="396" Offs="36"/>
+    <Component Name="RESERVED9" TI="20616" Line="397" Offs="38"/>
+    <Component Name="PSC" TI="20631" Line="398" Offs="40"/>
+    <Component Name="RESERVED10" TI="20646" Line="399" Offs="42"/>
+    <Component Name="ARR" TI="20661" Line="400" Offs="44"/>
+   <type Family="array" ID="20872" toTI="19314"/>
+    <Component Name="RESERVED11" TI="20676" Line="401" Offs="46"/>
+    <Component Name="CCR1" TI="20691" Line="402" Offs="52"/>
+    <Component Name="RESERVED12" TI="20706" Line="403" Offs="54"/>
+    <Component Name="CCR2" TI="20721" Line="404" Offs="56"/>
+    <Component Name="RESERVED13" TI="20736" Line="405" Offs="58"/>
+    <Component Name="CCR3" TI="20751" Line="406" Offs="60"/>
+    <Component Name="RESERVED14" TI="20766" Line="407" Offs="62"/>
+    <Component Name="CCR4" TI="20781" Line="408" Offs="64"/>
+    <Component Name="RESERVED15" TI="20796" Line="409" Offs="66"/>
+    <Component Name="DCR" TI="20811" Line="410" Offs="72"/>
+    <Component Name="RESERVED16" TI="20826" Line="411" Offs="74"/>
+    <Component Name="DMAR" TI="20841" Line="412" Offs="76"/>
+    <Component Name="RESERVED17" TI="20856" Line="413" Offs="78"/>
+   </type>
+   <type Family="typedef" Name="TIM_TYPEDEF" Line="414" ID="20888" toTI="20323"/>
+   <type Family="ComponentList" Line="419" ID="20900">
+    <Component Name="CRL" TI="20909" Line="420" Offs="0"/>
+    <Component Name="CRH" TI="20924" Line="421" Offs="4"/>
+    <Component Name="IDR" TI="20939" Line="422" Offs="8"/>
+    <Component Name="ODR" TI="20954" Line="423" Offs="12"/>
+    <Component Name="BSRR" TI="20969" Line="424" Offs="16"/>
+    <Component Name="BRR" TI="20984" Line="425" Offs="20"/>
+    <Component Name="LCKR" TI="20999" Line="426" Offs="24"/>
+   </type>
+   <type Family="typedef" Name="GPIO" Line="427" ID="21015" toTI="20900"/>
+   <type Family="ComponentList" Line="2035" ID="21659">
+    <Component Name="UpCount" TI="21668" Line="2036" Offs="0"/>
+    <Component Name="DownCount" TI="21683" Line="2037" Offs="4"/>
+    <Component Name="Count" TI="21698" Line="2038" Offs="8"/>
+    <Component Name="Pin" TI="21713" Line="2039" Offs="12"/>
+    <Component Name="CR" TI="21728" Line="2040" Offs="13"/>
+   </type>
+   <type Family="typedef" Name="PYGMYPWM" Line="2041" ID="21743" toTI="21659"/>
+   <type Family="Pointer" TI="21789" toTI="21015"/>
+   <type Family="ComponentList" Line="44" ID="21795">
+    <Component Name="EVCR" TI="21803" Line="46" Offs="0"/>
+    <Component Name="MAPR" TI="21817" Line="47" Offs="4"/>
+   <type Family="array" ID="21846" toTI="19296"/>
+    <Component Name="EXTICR" TI="21831" Line="48" Offs="8"/>
+   </type>
+   <type Family="typedef" Name="AFIO_TYPEDEF" Line="49" ID="21867" toTI="21795"/>
+   <type Family="ComponentList" Line="51" ID="21878">
+    <Component Name="IMR" TI="21886" Line="53" Offs="0"/>
+    <Component Name="EMR" TI="21900" Line="54" Offs="4"/>
+    <Component Name="RTSR" TI="21914" Line="55" Offs="8"/>
+    <Component Name="FTSR" TI="21928" Line="56" Offs="12"/>
+    <Component Name="SWIER" TI="21942" Line="57" Offs="16"/>
+    <Component Name="PR" TI="21956" Line="58" Offs="20"/>
+   </type>
+   <type Family="typedef" Name="EXTI_TYPEDEF" Line="59" ID="21970" toTI="21878"/>
+   <type Family="array" ID="21981" toTI="19332"/>
+   <function Name="pinGetIRQPR" TI="19314" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="45">
+   </function >
+   <function Name="pinGetIRQPin" TI="19332" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="50">
+    <parameter Name="ucPin" TI="19332" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="50" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="pinInterrupt" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="95">
+    <parameter Name="pygmyFunc" TI="19359" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="95" Addr="0x0" Param="Yes"/>
+    <parameter Name="ucPin" TI="19332" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="95" Addr="0x1" Param="Yes"/>
+    <parameter Name="uiMode" TI="19314" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="95" Addr="0x2" Param="Yes"/>
+    <variable Name="uiMask" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="102" Addr="0x3" TI="19314"/>
+    <variable Name="uiPort" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="102" Addr="0x6" TI="19314"/>
+    <variable Name="uiPin" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="102" Addr="0x4" TI="19314"/>
+   </function >
+   <function Name="pinEnablePortClock" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="161">
+    <parameter Name="ucPin" TI="19332" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="161" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="pinGetPort" TI="21789" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="178">
+    <parameter Name="ucPin" TI="19332" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="178" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="pinSet" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="198">
+    <parameter Name="ucPin" TI="19332" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="198" Addr="0x0" Param="Yes"/>
+    <parameter Name="ucState" TI="19332" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="198" Addr="0x1" Param="Yes"/>
+    <variable Name="uiPinMask" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="200" Addr="0x3" TI="19314"/>
+    <variable Name="uiPinState" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="200" Addr="0x0" TI="19314"/>
+   </function >
+   <function Name="pinConfig" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="64">
+    <parameter Name="ucPin" TI="19332" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="64" Addr="0x0" Param="Yes"/>
+    <parameter Name="ucMode" TI="19332" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="64" Addr="0x1" Param="Yes"/>
+    <variable Name="uiPortMode" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="66" Addr="0x3" TI="19296"/>
+    <variable Name="uiPortClear" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="66" Addr="0x2" TI="19296"/>
+    <variable Name="pygmyPort" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="68" Addr="0x0" TI="21789"/>
+   </function >
+   <function Name="pinGet" TI="19332" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="231">
+    <parameter Name="ucPin" TI="19332" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="231" Addr="0x0" Param="Yes"/>
+    <variable Name="uiPinMask" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="233" Addr="0x3" TI="19314"/>
+   </function >
+   <function Name="pinGetTimer" TI="19509" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="260">
+    <parameter Name="ucPin" TI="19332" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="260" Addr="0x0" Param="Yes"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="262" Addr="0x0" TI="19314"/>
+    <variable Name="ii" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="262" Addr="0x0" TI="19314"/>
+    <variable Name="ucTimerPins" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="263" Addr="0x8006838" TI="19378"/>
+   </function >
+   <function Name="pinGetChannel" TI="19332" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="285">
+    <parameter Name="ucPin" TI="19332" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="285" Addr="0x0" Param="Yes"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="287" Addr="0x0" TI="19332"/>
+    <variable Name="ii" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="287" Addr="0x2" TI="19332"/>
+    <variable Name="ucTimerPins" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="287" Addr="0x8006838" TI="19378"/>
+   </function >
+   <function Name="pinInitSoftPWM" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="486">
+   <type Family="Pointer" TI="22936" toTI="20888"/>
+    <variable Name="pygmyTimer" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="488" Addr="0x0" TI="22936"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="489" Addr="0x0" TI="19314"/>
+    <variable Name="ucTimer" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="490" Addr="0x0" TI="19332"/>
+   </function >
+   <function Name="pinAddSoftPWM" TI="19332" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="536">
+    <parameter Name="ucPin" TI="19332" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="536" Addr="0x0" Param="Yes"/>
+    <parameter Name="ulFreq" TI="19296" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="536" Addr="0x1" Param="Yes"/>
+    <parameter Name="ucDutyCycle" TI="19332" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="536" Addr="0x2" Param="Yes"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="538" Addr="0x0" TI="19314"/>
+   </function >
+   <function Name="pinPWM" TI="19332" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="306">
+    <parameter Name="ucPin" TI="19332" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="306" Addr="0x0" Param="Yes"/>
+    <parameter Name="ulFreq" TI="19296" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="306" Addr="0x1" Param="Yes"/>
+    <parameter Name="ucDutyCycle" TI="19332" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="306" Addr="0x2" Param="Yes"/>
+    <variable Name="pygmyTimer" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="308" Addr="0x0" TI="22936"/>
+   <type Family="Pointer" TI="23499" toTI="20311"/>
+    <variable Name="pygmyTimer1" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="309" Addr="0x0" TI="23499"/>
+    <variable Name="ulDuty" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="310" Addr="0x7" TI="19296"/>
+    <variable Name="ulMainClock" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="310" Addr="0x0" TI="19296"/>
+    <variable Name="ucChannel" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="311" Addr="0x0" TI="19332"/>
+   </function >
+   <function Name="pinProcessSoftPWM" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="592">
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="594" Addr="0x0" TI="19314"/>
+   </function >
+   <function Name="TIM1_UP_IRQHandler" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="615">
+   </function >
+   <function Name="EXTI0_IRQHandler" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="621">
+   </function >
+   <function Name="EXTI1_IRQHandler" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="629">
+   </function >
+   <function Name="EXTI2_IRQHandler" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="637">
+   </function >
+   <function Name="EXTI3_IRQHandler" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="645">
+   </function >
+   <function Name="EXTI4_IRQHandler" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="653">
+   </function >
+   <function Name="EXTI9_5_IRQHandler" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="661">
+   </function >
+   <function Name="EXTI15_10_IRQHandler" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="696">
+   </function >
+   <type Family="array" ID="23721" toTI="19359"/>
+   <type Family="array" ID="23794" toTI="21743"/>
+   <type Family="Pointer" TI="23865" toTI="23871"/>
+   <type Family="array" ID="23849" toTI="23865"/>
+   <variable Name="PYGMY_TIMERS" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="30" Addr="0x0" TI="23849"/>
+   <variable Name="globalIRQHandlers" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="27" Addr="0x200005A8" TI="23721"/>
+   <variable Name="globalIRQPR" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="28" Addr="0x200005A4" TI="19314"/>
+   <variable Name="globalIRQPins" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="29" Addr="0x20000594" TI="21981"/>
+   <variable Name="PYGMY_TIMERPINS" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="34" Addr="0x8006838" TI="23966"/>
+   <variable Name="globalPygmyPWM" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="42" Addr="0x200005E8" TI="23794"/>
+   <variable Name="globalPygmyPWMFreq" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="43" Addr="0x20000668" TI="19296"/>
+   <variable Name="globalPygmyPWMCR" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="43" Addr="0x20000090" TI="19296"/>
+  </module>
+  <module Name="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_rf.c" >
+   <type Family="Base" Name="long long int" ID="24063"/>
+   <type Family="Base" Name="long int" ID="24070"/>
+   <type Family="Base" Name="short int" ID="24077"/>
+   <type Family="Base" Name="signed char" ID="24084"/>
+   <type Family="Base" Name="long long unsigned int" ID="24091"/>
+   <type Family="Base" Name="long unsigned int" ID="24109"/>
+   <type Family="typedef" Name="u32" Line="49" ID="24098" toTI="24109"/>
+   <type Family="Base" Name="short unsigned int" ID="24127"/>
+   <type Family="typedef" Name="u16" Line="50" ID="24116" toTI="24127"/>
+   <type Family="Base" Name="unsigned char" ID="24144"/>
+   <type Family="typedef" Name="u8" Line="51" ID="24134" toTI="24144"/>
+   <type Family="Pointer" TI="24156" toTI="24134"/>
+   <type Family="Base" Name="unsigned int" ID="24162"/>
+   <type Family="ComponentList" Line="419" ID="24169">
+    <Component Name="CRL" TI="24178" Line="420" Offs="0"/>
+    <Component Name="CRH" TI="24193" Line="421" Offs="4"/>
+    <Component Name="IDR" TI="24208" Line="422" Offs="8"/>
+    <Component Name="ODR" TI="24223" Line="423" Offs="12"/>
+    <Component Name="BSRR" TI="24238" Line="424" Offs="16"/>
+    <Component Name="BRR" TI="24253" Line="425" Offs="20"/>
+    <Component Name="LCKR" TI="24268" Line="426" Offs="24"/>
+   </type>
+   <type Family="typedef" Name="GPIO" Line="427" ID="24284" toTI="24169"/>
+   <type Family="Pointer" TI="24962" toTI="24284"/>
+   <type Family="ComponentList" Line="468" ID="24968">
+    <Component Name="PortCS" TI="24977" Line="469" Offs="0"/>
+    <Component Name="PortSCK" TI="24992" Line="470" Offs="4"/>
+    <Component Name="PortMOSI" TI="25007" Line="471" Offs="8"/>
+    <Component Name="PortMISO" TI="25022" Line="472" Offs="12"/>
+    <Component Name="PinCS" TI="25037" Line="473" Offs="16"/>
+    <Component Name="PinSCK" TI="25052" Line="474" Offs="18"/>
+    <Component Name="PinMOSI" TI="25067" Line="475" Offs="20"/>
+    <Component Name="PinMISO" TI="25082" Line="476" Offs="22"/>
+    <Component Name="CR" TI="25097" Line="477" Offs="24"/>
+   </type>
+   <type Family="typedef" Name="PYGMYSPIPORT" Line="478" ID="25112" toTI="24968"/>
+   <type Family="ComponentList" Line="199" ID="25124">
+    <Component Name="StartTime" TI="25132" Line="200" Offs="0"/>
+    <Component Name="LastActive" TI="25146" Line="201" Offs="4"/>
+    <Component Name="DestID" TI="25160" Line="202" Offs="8"/>
+    <Component Name="Type" TI="25174" Line="203" Offs="12"/>
+    <Component Name="Chunk" TI="25188" Line="204" Offs="13"/>
+    <Component Name="CR" TI="25202" Line="205" Offs="14"/>
+   </type>
+   <type Family="typedef" Name="PYGMYRFSOCKET" Line="206" ID="25216" toTI="25124"/>
+   <type Family="ComponentList" Line="208" ID="25227">
+    <Component Name="DestID" TI="25235" Line="209" Offs="0"/>
+    <Component Name="SrcID" TI="25249" Line="210" Offs="4"/>
+    <Component Name="CRC" TI="25263" Line="211" Offs="8"/>
+    <Component Name="Command" TI="25277" Line="212" Offs="10"/>
+    <Component Name="Len" TI="25291" Line="213" Offs="11"/>
+    <Component Name="Chunk" TI="25305" Line="214" Offs="12"/>
+    <Component Name="Type" TI="25319" Line="215" Offs="13"/>
+   <type Family="array" ID="25348" toTI="24134"/>
+    <Component Name="Payload" TI="25333" Line="216" Offs="14"/>
+   </type>
+   <type Family="typedef" Name="PYGMYRFPACKET" Line="217" ID="25364" toTI="25227"/>
+   <type Family="array" ID="25375" toTI="24134"/>
+   <function Name="rfGetID" TI="24098" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_rf.c" Line="37">
+   </function >
+   <type Family="Pointer" TI="25488" toTI="25364"/>
+   <function Name="rfOpenSocket" TI="24134" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_rf.c" Line="254">
+    <parameter Name="ulDest" TI="24098" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_rf.c" Line="254" Addr="0x0" Param="Yes"/>
+    <parameter Name="ucType" TI="24134" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_rf.c" Line="254" Addr="0x1" Param="Yes"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_rf.c" Line="256" Addr="0x0" TI="24134"/>
+   </function >
+   <type Family="Base" Name="int" ID="25786"/>
+   <function Name="rfGetStatus" TI="24134" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_rf.c" Line="528">
+   </function >
+   <function Name="rfClearStatus" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_rf.c" Line="606">
+   </function >
+   <function Name="rfSetRX" TI="24134" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_rf.c" Line="448">
+   </function >
+   <function Name="rfSetTX" TI="24134" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_rf.c" Line="436">
+   </function >
+   <function Name="rfPutTXBuffer" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_rf.c" Line="504">
+    <parameter Name="uiLen" TI="24116" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_rf.c" Line="504" Addr="0x0" Param="Yes"/>
+    <parameter Name="ucBuffer" TI="24156" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_rf.c" Line="504" Addr="0x1" Param="Yes"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_rf.c" Line="506" Addr="0x0" TI="24134"/>
+   </function >
+   <function Name="rfSendPacket" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_rf.c" Line="66">
+    <parameter Name="pygmyPacket" TI="25488" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_rf.c" Line="66" Addr="0x0" Param="Yes"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_rf.c" Line="68" Addr="0x3" TI="24134"/>
+    <variable Name="ucIndex" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_rf.c" Line="68" Addr="0x0" TI="24134"/>
+   <type Family="array" ID="26279" toTI="24134"/>
+    <variable Name="ucBuffer" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_rf.c" Line="68" Addr="0x34000000" TI="26279"/>
+   </function >
+   <function Name="rfSendOpenCommand" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_rf.c" Line="273">
+    <parameter Name="ucSocket" TI="24134" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_rf.c" Line="273" Addr="0x0" Param="Yes"/>
+    <variable Name="pygmyPacket" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_rf.c" Line="275" Addr="0x34000000" TI="25364"/>
+   </function >
+   <function Name="rfPutString" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_rf.c" Line="474">
+    <parameter Name="ucBuffer" TI="24156" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_rf.c" Line="474" Addr="0x0" Param="Yes"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_rf.c" Line="476" Addr="0x0" TI="24134"/>
+   </function >
+   <type Family="array" ID="27057" toTI="25216"/>
+   <type Family="array" ID="27112" toTI="24134"/>
+   <variable Name="pygmyGlobalRFSockets" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_rf.c" Line="30" Addr="0x20000670" TI="27057"/>
+   <variable Name="globalRFConfig" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_rf.c" Line="31" Addr="0x200008AC" TI="24098"/>
+   <variable Name="pygmyRFSPI" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_rf.c" Line="32" Addr="0x20000870" TI="25112"/>
+   <variable Name="ucAddrP0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_rf.c" Line="33" Addr="0x0" TI="27231"/>
+   <variable Name="pygmyGlobalRFID" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_rf.c" Line="34" Addr="0x2000066C" TI="24098"/>
+   <variable Name="globalRFTXPayload" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_rf.c" Line="35" Addr="0x2000088C" TI="26279"/>
+  </module>
+  <module Name="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_rtc.c" >
+   <type Family="Base" Name="long long int" ID="27310"/>
+   <type Family="Base" Name="long int" ID="27317"/>
+   <type Family="Base" Name="short int" ID="27324"/>
+   <type Family="Base" Name="signed char" ID="27331"/>
+   <type Family="Base" Name="long long unsigned int" ID="27338"/>
+   <type Family="Base" Name="long unsigned int" ID="27356"/>
+   <type Family="typedef" Name="u32" Line="49" ID="27345" toTI="27356"/>
+   <type Family="Base" Name="short unsigned int" ID="27374"/>
+   <type Family="typedef" Name="u16" Line="50" ID="27363" toTI="27374"/>
+   <type Family="Base" Name="unsigned char" ID="27391"/>
+   <type Family="typedef" Name="u8" Line="51" ID="27381" toTI="27391"/>
+   <type Family="ComponentList" Line="227" ID="27403">
+    <Component Name="Year" TI="27411" Line="228" Offs="0"/>
+    <Component Name="Month" TI="27425" Line="229" Offs="2"/>
+    <Component Name="Day" TI="27439" Line="230" Offs="3"/>
+    <Component Name="Hour" TI="27453" Line="231" Offs="4"/>
+    <Component Name="Minute" TI="27467" Line="232" Offs="5"/>
+    <Component Name="Second" TI="27481" Line="233" Offs="6"/>
+   </type>
+   <type Family="typedef" Name="PYGMYTIME" Line="235" ID="27496" toTI="27403"/>
+   <type Family="Base" Name="unsigned int" ID="27507"/>
+   <type Family="ComponentList" Line="370" ID="27514">
+    <Component Name="CR" TI="27523" Line="372" Offs="0"/>
+    <Component Name="CSR" TI="27537" Line="373" Offs="4"/>
+   </type>
+   <type Family="typedef" Name="PWR_TYPEDEF" Line="374" ID="27553" toTI="27514"/>
+   <type Family="ComponentList" Line="389" ID="27565">
+    <Component Name="CR" TI="27574" Line="391" Offs="0"/>
+    <Component Name="CFGR" TI="27588" Line="392" Offs="4"/>
+    <Component Name="CIR" TI="27603" Line="393" Offs="8"/>
+    <Component Name="APB2RSTR" TI="27618" Line="394" Offs="12"/>
+    <Component Name="APB1RSTR" TI="27633" Line="395" Offs="16"/>
+    <Component Name="AHBENR" TI="27648" Line="396" Offs="20"/>
+    <Component Name="APB2ENR" TI="27663" Line="397" Offs="24"/>
+    <Component Name="APB1ENR" TI="27678" Line="398" Offs="28"/>
+    <Component Name="BDCR" TI="27693" Line="399" Offs="32"/>
+    <Component Name="CSR" TI="27708" Line="400" Offs="36"/>
+    <Component Name="CFGR2" TI="27723" Line="401" Offs="40"/>
+   </type>
+   <type Family="typedef" Name="RCC_TYPEDEF" Line="402" ID="27739" toTI="27565"/>
+   <type Family="ComponentList" Line="61" ID="27761">
+    <Component Name="CTRL" TI="27769" Line="63" Offs="0"/>
+    <Component Name="LOAD" TI="27783" Line="64" Offs="4"/>
+    <Component Name="VAL" TI="27797" Line="65" Offs="8"/>
+    <Component Name="CALIB" TI="27811" Line="66" Offs="12"/>
+   </type>
+   <type Family="typedef" Name="SYSTICK_TYPEDEF" Line="67" ID="27831" toTI="27761"/>
+   <type Family="ComponentList" Line="38" ID="27842">
+    <Component Name="CRH" TI="27850" Line="40" Offs="0"/>
+    <Component Name="RESERVED0" TI="27864" Line="41" Offs="2"/>
+    <Component Name="CRL" TI="27878" Line="42" Offs="4"/>
+    <Component Name="RESERVED1" TI="27892" Line="43" Offs="6"/>
+    <Component Name="PRLH" TI="27906" Line="44" Offs="8"/>
+    <Component Name="RESERVED2" TI="27920" Line="45" Offs="10"/>
+    <Component Name="PRLL" TI="27934" Line="46" Offs="12"/>
+    <Component Name="RESERVED3" TI="27948" Line="47" Offs="14"/>
+    <Component Name="DIVH" TI="27962" Line="48" Offs="16"/>
+    <Component Name="RESERVED4" TI="27976" Line="49" Offs="18"/>
+    <Component Name="DIVL" TI="27990" Line="50" Offs="20"/>
+    <Component Name="RESERVED5" TI="28004" Line="51" Offs="22"/>
+    <Component Name="CNTH" TI="28018" Line="52" Offs="24"/>
+    <Component Name="RESERVED6" TI="28032" Line="53" Offs="26"/>
+    <Component Name="CNTL" TI="28046" Line="54" Offs="28"/>
+    <Component Name="RESERVED7" TI="28060" Line="55" Offs="30"/>
+    <Component Name="ALRH" TI="28074" Line="56" Offs="32"/>
+    <Component Name="RESERVED8" TI="28088" Line="57" Offs="34"/>
+    <Component Name="ALRL" TI="28102" Line="58" Offs="36"/>
+    <Component Name="RESERVED9" TI="28116" Line="59" Offs="38"/>
+   </type>
+   <type Family="typedef" Name="RTC_TypeDef" Line="60" ID="28131" toTI="27842"/>
+   <function Name="timeInit" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_rtc.c" Line="31">
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_rtc.c" Line="33" Addr="0x0" TI="27363"/>
+   </function >
+   <function Name="timeGet" TI="27345" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_rtc.c" Line="82">
+    <variable Name="ulTime" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_rtc.c" Line="85" Addr="0x0" TI="27345"/>
+   </function >
+   <type Family="Pointer" TI="28408" toTI="27496"/>
+   <function Name="convertSecondsToSystemTime" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_rtc.c" Line="121">
+    <parameter Name="ulSeconds" TI="27345" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_rtc.c" Line="121" Addr="0x0" Param="Yes"/>
+    <parameter Name="pygmyTime" TI="28408" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_rtc.c" Line="121" Addr="0x1" Param="Yes"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_rtc.c" Line="123" Addr="0x2" TI="27345"/>
+   </function >
+   <type Family="array" ID="28574" toTI="27381"/>
+  </module>
+  <module Name="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" >
+   <type Family="Base" Name="long long int" ID="28672"/>
+   <type Family="typedef" Name="s64" Line="28" ID="28661" toTI="28672"/>
+   <type Family="Base" Name="long int" ID="28690"/>
+   <type Family="typedef" Name="s32" Line="29" ID="28679" toTI="28690"/>
+   <type Family="Base" Name="short int" ID="28697"/>
+   <type Family="Base" Name="signed char" ID="28714"/>
+   <type Family="typedef" Name="s8" Line="31" ID="28704" toTI="28714"/>
+   <type Family="Base" Name="long long unsigned int" ID="28721"/>
+   <type Family="Base" Name="long unsigned int" ID="28739"/>
+   <type Family="typedef" Name="u32" Line="49" ID="28728" toTI="28739"/>
+   <type Family="Base" Name="short unsigned int" ID="28757"/>
+   <type Family="typedef" Name="u16" Line="50" ID="28746" toTI="28757"/>
+   <type Family="Base" Name="unsigned char" ID="28774"/>
+   <type Family="typedef" Name="u8" Line="51" ID="28764" toTI="28774"/>
+   <type Family="Pointer" TI="28781" toTI="28764"/>
+   <type Family="Base" Name="unsigned int" ID="28787"/>
+   <type Family="ComponentList" Line="290" ID="28794">
+    <Component Name="String" TI="28803" Line="291" Offs="0"/>
+    <Component Name="Value" TI="28818" Line="292" Offs="4"/>
+   </type>
+   <type Family="typedef" Name="PYGMYPAIR" Line="293" ID="28834" toTI="28794"/>
+   <type Family="array" ID="29478" toTI="28764"/>
+   <function Name="convertPinToString" TI="28781" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="59">
+    <parameter Name="ucPin" TI="28764" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="59" Addr="0x0" Param="Yes"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="61" Addr="0x0" TI="28764"/>
+   </function >
+   <function Name="isCharInString" TI="28704" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="129">
+    <parameter Name="ucChar" TI="28764" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="129" Addr="0x0" Param="Yes"/>
+    <parameter Name="ucChars" TI="28781" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="129" Addr="0x1" Param="Yes"/>
+   </function >
+   <function Name="isAlpha" TI="28704" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="140">
+    <parameter Name="ucChar" TI="28764" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="140" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="isNumeric" TI="28704" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="149">
+    <parameter Name="ucChar" TI="28764" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="149" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="isAlphaOrNumeric" TI="28704" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="158">
+    <parameter Name="ucChar" TI="28764" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="158" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="isNewline" TI="28704" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="195">
+    <parameter Name="ucChar" TI="28764" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="195" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="isWhitespace" TI="28704" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="204">
+    <parameter Name="ucChar" TI="28764" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="204" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="isQuote" TI="28704" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="213">
+    <parameter Name="ucChar" TI="28764" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="213" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="isSeparator" TI="28704" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="232">
+    <parameter Name="ucChar" TI="28764" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="232" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="isPunctuation" TI="28704" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="241">
+    <parameter Name="ucChar" TI="28764" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="241" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="len" TI="28746" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="250">
+    <parameter Name="ucString" TI="28781" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="250" Addr="0x0" Param="Yes"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="252" Addr="0x0" TI="28746"/>
+   </function >
+   <function Name="convertCharToUpper" TI="28764" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="263">
+    <parameter Name="ucChar" TI="28764" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="263" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="isCharSameIgnoreCase" TI="28764" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="281">
+    <parameter Name="ucChar1" TI="28764" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="281" Addr="0x0" Param="Yes"/>
+    <parameter Name="ucChar2" TI="28764" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="281" Addr="0x1" Param="Yes"/>
+   </function >
+   <function Name="isStringSameIgnoreCase" TI="28764" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="290">
+    <parameter Name="ucString1" TI="28781" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="290" Addr="0x0" Param="Yes"/>
+    <parameter Name="ucString2" TI="28781" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="290" Addr="0x1" Param="Yes"/>
+   </function >
+   <function Name="isStringSame" TI="28704" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="304">
+    <parameter Name="ucBuffer" TI="28781" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="304" Addr="0x0" Param="Yes"/>
+    <parameter Name="ucString" TI="28781" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="304" Addr="0x1" Param="Yes"/>
+   </function >
+   <function Name="getNextSubString" TI="28781" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="336">
+    <parameter Name="ucBuffer" TI="28781" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="336" Addr="0x0" Param="Yes"/>
+    <parameter Name="ucMode" TI="28764" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="336" Addr="0x1" Param="Yes"/>
+    <variable Name="ucIndex" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="338" Addr="0x20000094" TI="28781"/>
+   </function >
+   <function Name="getAllSubStrings" TI="28746" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="318">
+    <parameter Name="ucBuffer" TI="28781" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="318" Addr="0x0" Param="Yes"/>
+   <type Family="Pointer" TI="30813" toTI="28781"/>
+    <parameter Name="ucStrings" TI="30813" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="318" Addr="0x1" Param="Yes"/>
+    <parameter Name="uiLen" TI="28746" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="318" Addr="0x2" Param="Yes"/>
+    <parameter Name="ucMode" TI="28764" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="318" Addr="0x3" Param="Yes"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="320" Addr="0x0" TI="28746"/>
+    <variable Name="ucSub" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="321" Addr="0x0" TI="28781"/>
+   </function >
+   <function Name="replaceChars" TI="28764" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="381">
+    <parameter Name="ucBuffer" TI="28781" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="381" Addr="0x0" Param="Yes"/>
+    <parameter Name="ucChars" TI="28781" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="381" Addr="0x1" Param="Yes"/>
+    <parameter Name="ucChar" TI="28764" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="381" Addr="0x2" Param="Yes"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="383" Addr="0x4" TI="28746"/>
+    <variable Name="uiReplaced" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="383" Addr="0x0" TI="28746"/>
+   </function >
+   <function Name="convertCharToInt" TI="28764" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="399">
+    <parameter Name="ucChar" TI="28764" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="399" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="copyString" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="524">
+    <parameter Name="ucFrom" TI="28781" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="524" Addr="0x0" Param="Yes"/>
+    <parameter Name="ucTo" TI="28781" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="524" Addr="0x1" Param="Yes"/>
+   </function >
+   <function Name="convertStringToInt" TI="28679" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="532">
+    <parameter Name="ucBuffer" TI="28781" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="532" Addr="0x0" Param="Yes"/>
+   <type Family="array" ID="31498" toTI="28764"/>
+    <variable Name="ucScratch" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="534" Addr="0x34000004" TI="31498"/>
+    <variable Name="iValue" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="535" Addr="0x34000040" TI="28679"/>
+    <variable Name="iType" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="535" Addr="0x34000040" TI="28679"/>
+    <variable Name="iSign" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="535" Addr="0x4" TI="28679"/>
+   </function >
+   <function Name="convertIntToString" TI="28764" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="455">
+    <parameter Name="lData" TI="28661" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="455" Addr="0x0" Param="Yes"/>
+    <parameter Name="ucFormat" TI="28781" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="455" Addr="0x2" Param="Yes"/>
+    <parameter Name="ucBuffer" TI="28781" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="455" Addr="0x3" Param="Yes"/>
+   <type Family="array" ID="31705" toTI="28764"/>
+    <variable Name="ucTmpFormat" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="457" Addr="0x3400000C" TI="31705"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="458" Addr="0x34000040" TI="28661"/>
+    <variable Name="iType" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="458" Addr="0xA" TI="28661"/>
+    <variable Name="iLen" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="458" Addr="0x0" TI="28661"/>
+    <variable Name="iMagnitude" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="458" Addr="0x0" TI="28661"/>
+    <variable Name="iValue" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="458" Addr="0x0" TI="28661"/>
+    <variable Name="ucPadding" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="459" Addr="0x10000040" TI="28764"/>
+   </function >
+   <function Name="convertStringToPin" TI="28764" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="72">
+    <parameter Name="ucBuffer" TI="28781" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="72" Addr="0x0" Param="Yes"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="75" Addr="0x0" TI="28764"/>
+    <variable Name="ucPin" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="75" Addr="0x5" TI="28764"/>
+   </function >
+   <type Family="array" ID="32365" toTI="28834"/>
+   <type Family="array" ID="32399" toTI="28764"/>
+   <variable Name="PYGMYHEXCHARS" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="23" Addr="0x8006928" TI="32451"/>
+   <variable Name="PYGMYNEBULAPINS" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="28" Addr="0x8006848" TI="32474"/>
+   <variable Name="PYGMYBASE64CHARS" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="24" Addr="0x8006938" TI="32497"/>
+  </module>
+  <module Name="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" >
+   <type Family="ComponentList" Name="__va_list" Line="0" ID="32555">
+   <type Family="Pointer" TI="32581" toTI="0"/>
+    <Component Name="__ap" TI="32567" Line="0" Offs="0"/>
+   </type>
+   <type Family="typedef" Name="__gnuc_va_list" Line="40" ID="32544" toTI="32555"/>
+   <type Family="typedef" Name="va_list" Line="102" ID="32583" toTI="32544"/>
+   <type Family="Base" Name="long long int" ID="32594"/>
+   <type Family="Base" Name="long int" ID="32601"/>
+   <type Family="Base" Name="short int" ID="32608"/>
+   <type Family="Base" Name="signed char" ID="32615"/>
+   <type Family="Base" Name="long long unsigned int" ID="32622"/>
+   <type Family="Base" Name="long unsigned int" ID="32640"/>
+   <type Family="typedef" Name="u32" Line="49" ID="32629" toTI="32640"/>
+   <type Family="Base" Name="short unsigned int" ID="32658"/>
+   <type Family="typedef" Name="u16" Line="50" ID="32647" toTI="32658"/>
+   <type Family="Base" Name="unsigned char" ID="32675"/>
+   <type Family="typedef" Name="u8" Line="51" ID="32665" toTI="32675"/>
+   <type Family="Pointer" TI="32703" toTI="32709"/>
+   <type Family="typedef" Name="PYGMYFUNCPTR" Line="223" ID="32692" toTI="32703"/>
+   <type Family="Pointer" TI="32726" toTI="32732"/>
+   <type Family="typedef" Name="PYGMYVOIDPTR" Line="224" ID="32715" toTI="32726"/>
+   <type Family="Pointer" TI="32745" toTI="32751"/>
+   <type Family="typedef" Name="PYGMYCMDPTR" Line="225" ID="32734" toTI="32745"/>
+   <type Family="Pointer" TI="32767" toTI="32665"/>
+   <type Family="ComponentList" Line="227" ID="32773">
+    <Component Name="Year" TI="32781" Line="228" Offs="0"/>
+    <Component Name="Month" TI="32795" Line="229" Offs="2"/>
+    <Component Name="Day" TI="32809" Line="230" Offs="3"/>
+    <Component Name="Hour" TI="32823" Line="231" Offs="4"/>
+    <Component Name="Minute" TI="32837" Line="232" Offs="5"/>
+    <Component Name="Second" TI="32851" Line="233" Offs="6"/>
+   </type>
+   <type Family="typedef" Name="PYGMYTIME" Line="235" ID="32866" toTI="32773"/>
+   <type Family="ComponentList" Line="242" ID="32877">
+    <Component Name="Status" TI="32885" Line="243" Offs="0"/>
+    <Component Name="Retry" TI="32899" Line="244" Offs="1"/>
+    <Component Name="Name" TI="32913" Line="245" Offs="4"/>
+    <Component Name="PrintHandler" TI="32927" Line="246" Offs="8"/>
+    <Component Name="EventHandler" TI="32941" Line="247" Offs="12"/>
+    <Component Name="TimeStamp" TI="32955" Line="249" Offs="16"/>
+    <Component Name="Expire" TI="32969" Line="250" Offs="20"/>
+   </type>
+   <type Family="typedef" Name="PYGMYCOMMAND" Line="251" ID="32984" toTI="32877"/>
+   <type Family="ComponentList" Line="255" ID="32995">
+    <Component Name="Index" TI="33004" Line="256" Offs="0"/>
+    <Component Name="Count" TI="33019" Line="257" Offs="1"/>
+   <type Family="array" ID="33050" toTI="32984"/>
+    <Component Name="Commands" TI="33034" Line="258" Offs="4"/>
+   </type>
+   <type Family="Base" Name="unsigned int" ID="33066"/>
+   <type Family="typedef" Name="PYGMYCOMMANDQUEUE" Line="259" ID="33073" toTI="32995"/>
+   <type Family="ComponentList" Line="261" ID="33085">
+    <Component Name="DestID" TI="33094" Line="262" Offs="0"/>
+    <Component Name="DestName" TI="33109" Line="264" Offs="4"/>
+    <Component Name="Message" TI="33124" Line="266" Offs="8"/>
+    <Component Name="Value" TI="33139" Line="267" Offs="12"/>
+    <Component Name="TimeStamp" TI="33154" Line="268" Offs="16"/>
+   </type>
+   <type Family="typedef" Name="PYGMYMESSAGE" Line="270" ID="33170" toTI="33085"/>
+   <type Family="ComponentList" Line="272" ID="33182">
+    <Component Name="Name" TI="33191" Line="273" Offs="0"/>
+    <Component Name="Busy" TI="33206" Line="274" Offs="4"/>
+    <Component Name="ID" TI="33221" Line="275" Offs="6"/>
+    <Component Name="Timer" TI="33235" Line="276" Offs="8"/>
+    <Component Name="Reload" TI="33250" Line="277" Offs="12"/>
+    <Component Name="EventHandler" TI="33265" Line="278" Offs="16"/>
+    <Component Name="TimeStamp" TI="33280" Line="279" Offs="20"/>
+    <Component Name="Expire" TI="33295" Line="280" Offs="24"/>
+   </type>
+   <type Family="typedef" Name="PYGMYTASK" Line="281" ID="33311" toTI="33182"/>
+   <type Family="ComponentList" Line="305" ID="33441">
+    <Component Name="MainClock" TI="33450" Line="306" Offs="0"/>
+    <Component Name="XTAL" TI="33465" Line="307" Offs="4"/>
+    <Component Name="StopWatch" TI="33480" Line="308" Offs="8"/>
+    <Component Name="Status" TI="33495" Line="309" Offs="12"/>
+    <Component Name="Random" TI="33510" Line="310" Offs="16"/>
+    <Component Name="MCUID" TI="33525" Line="311" Offs="20"/>
+    <Component Name="CursorState" TI="33540" Line="314" Offs="22"/>
+    <Component Name="DelayTimer" TI="33555" Line="315" Offs="23"/>
+    <Component Name="PWMTimer" TI="33570" Line="316" Offs="24"/>
+    <Component Name="File" TI="33585" Line="320" Offs="28"/>
+   </type>
+   <type Family="typedef" Name="PYGMYSYSTEM" Line="321" ID="33601" toTI="33441"/>
+   <type Family="ComponentList" Line="389" ID="33613">
+    <Component Name="CR" TI="33622" Line="391" Offs="0"/>
+    <Component Name="CFGR" TI="33636" Line="392" Offs="4"/>
+    <Component Name="CIR" TI="33651" Line="393" Offs="8"/>
+    <Component Name="APB2RSTR" TI="33666" Line="394" Offs="12"/>
+    <Component Name="APB1RSTR" TI="33681" Line="395" Offs="16"/>
+    <Component Name="AHBENR" TI="33696" Line="396" Offs="20"/>
+    <Component Name="APB2ENR" TI="33711" Line="397" Offs="24"/>
+    <Component Name="APB1ENR" TI="33726" Line="398" Offs="28"/>
+    <Component Name="BDCR" TI="33741" Line="399" Offs="32"/>
+    <Component Name="CSR" TI="33756" Line="400" Offs="36"/>
+    <Component Name="CFGR2" TI="33771" Line="401" Offs="40"/>
+   </type>
+   <type Family="typedef" Name="RCC_TYPEDEF" Line="402" ID="33787" toTI="33613"/>
+   <type Family="ComponentList" Line="1028" ID="33799">
+    <Component Name="KR" TI="33808" Line="1030" Offs="0"/>
+    <Component Name="PR" TI="33822" Line="1031" Offs="4"/>
+    <Component Name="RLR" TI="33836" Line="1032" Offs="8"/>
+    <Component Name="SR" TI="33851" Line="1033" Offs="12"/>
+   </type>
+   <type Family="typedef" Name="IWDG_TYPEDEF" Line="1034" ID="33871" toTI="33799"/>
+   <type Family="ComponentList" Line="54" ID="33888">
+    <Component Name="Pages" TI="33896" Line="55" Offs="0"/>
+   </type>
+   <type Family="typedef" Name="SIZEREG_TYPEDEF" Line="56" ID="33911" toTI="33888"/>
+   <type Family="ComponentList" Line="334" ID="33922">
+    <Component Name="CR1" TI="33931" Line="335" Offs="0"/>
+    <Component Name="RESERVED0" TI="33946" Line="336" Offs="2"/>
+    <Component Name="CR2" TI="33961" Line="337" Offs="4"/>
+    <Component Name="RESERVED1" TI="33976" Line="338" Offs="6"/>
+    <Component Name="SMCR" TI="33991" Line="339" Offs="8"/>
+    <Component Name="RESERVED2" TI="34006" Line="340" Offs="10"/>
+    <Component Name="DIER" TI="34021" Line="341" Offs="12"/>
+    <Component Name="RESERVED3" TI="34036" Line="342" Offs="14"/>
+    <Component Name="SR" TI="34051" Line="343" Offs="16"/>
+    <Component Name="RESERVED4" TI="34065" Line="344" Offs="18"/>
+    <Component Name="EGR" TI="34080" Line="345" Offs="20"/>
+    <Component Name="RESERVED5" TI="34095" Line="346" Offs="22"/>
+    <Component Name="CCMR1" TI="34110" Line="347" Offs="24"/>
+    <Component Name="RESERVED6" TI="34125" Line="348" Offs="26"/>
+    <Component Name="CCMR2" TI="34140" Line="349" Offs="28"/>
+    <Component Name="RESERVED7" TI="34155" Line="350" Offs="30"/>
+    <Component Name="CCER" TI="34170" Line="351" Offs="32"/>
+    <Component Name="RESERVED8" TI="34185" Line="352" Offs="34"/>
+    <Component Name="CNT" TI="34200" Line="353" Offs="36"/>
+    <Component Name="RESERVED9" TI="34215" Line="354" Offs="38"/>
+    <Component Name="PSC" TI="34230" Line="355" Offs="40"/>
+    <Component Name="RESERVED10" TI="34245" Line="356" Offs="42"/>
+    <Component Name="ARR" TI="34260" Line="357" Offs="44"/>
+    <Component Name="RESERVED11" TI="34275" Line="358" Offs="46"/>
+    <Component Name="RCR" TI="34290" Line="359" Offs="48"/>
+    <Component Name="RESERVED12" TI="34305" Line="360" Offs="50"/>
+    <Component Name="CCR1" TI="34320" Line="361" Offs="52"/>
+    <Component Name="RESERVED13" TI="34335" Line="362" Offs="54"/>
+    <Component Name="CCR2" TI="34350" Line="363" Offs="56"/>
+    <Component Name="RESERVED14" TI="34365" Line="364" Offs="58"/>
+    <Component Name="CCR3" TI="34380" Line="365" Offs="60"/>
+    <Component Name="RESERVED15" TI="34395" Line="366" Offs="62"/>
+    <Component Name="CCR4" TI="34410" Line="367" Offs="64"/>
+    <Component Name="RESERVED16" TI="34425" Line="368" Offs="66"/>
+    <Component Name="BDTR" TI="34440" Line="369" Offs="68"/>
+    <Component Name="RESERVED17" TI="34455" Line="370" Offs="70"/>
+    <Component Name="DCR" TI="34470" Line="371" Offs="72"/>
+    <Component Name="RESERVED18" TI="34485" Line="372" Offs="74"/>
+    <Component Name="DMAR" TI="34500" Line="373" Offs="76"/>
+    <Component Name="RESERVED19" TI="34515" Line="374" Offs="78"/>
+   </type>
+   <type Family="typedef" Name="TIM1_TYPEDEF" Line="375" ID="34531" toTI="33922"/>
+   <type Family="ComponentList" Line="377" ID="34543">
+    <Component Name="CR1" TI="34552" Line="378" Offs="0"/>
+    <Component Name="RESERVED0" TI="34567" Line="379" Offs="2"/>
+    <Component Name="CR2" TI="34582" Line="380" Offs="4"/>
+    <Component Name="RESERVED1" TI="34597" Line="381" Offs="6"/>
+    <Component Name="SMCR" TI="34612" Line="382" Offs="8"/>
+    <Component Name="RESERVED2" TI="34627" Line="383" Offs="10"/>
+    <Component Name="DIER" TI="34642" Line="384" Offs="12"/>
+    <Component Name="RESERVED3" TI="34657" Line="385" Offs="14"/>
+    <Component Name="SR" TI="34672" Line="386" Offs="16"/>
+    <Component Name="RESERVED4" TI="34686" Line="387" Offs="18"/>
+    <Component Name="EGR" TI="34701" Line="388" Offs="20"/>
+    <Component Name="RESERVED5" TI="34716" Line="389" Offs="22"/>
+    <Component Name="CCMR1" TI="34731" Line="390" Offs="24"/>
+    <Component Name="RESERVED6" TI="34746" Line="391" Offs="26"/>
+    <Component Name="CCMR2" TI="34761" Line="392" Offs="28"/>
+    <Component Name="RESERVED7" TI="34776" Line="393" Offs="30"/>
+    <Component Name="CCER" TI="34791" Line="394" Offs="32"/>
+    <Component Name="RESERVED8" TI="34806" Line="395" Offs="34"/>
+    <Component Name="CNT" TI="34821" Line="396" Offs="36"/>
+    <Component Name="RESERVED9" TI="34836" Line="397" Offs="38"/>
+    <Component Name="PSC" TI="34851" Line="398" Offs="40"/>
+    <Component Name="RESERVED10" TI="34866" Line="399" Offs="42"/>
+    <Component Name="ARR" TI="34881" Line="400" Offs="44"/>
+   <type Family="array" ID="35092" toTI="32647"/>
+    <Component Name="RESERVED11" TI="34896" Line="401" Offs="46"/>
+    <Component Name="CCR1" TI="34911" Line="402" Offs="52"/>
+    <Component Name="RESERVED12" TI="34926" Line="403" Offs="54"/>
+    <Component Name="CCR2" TI="34941" Line="404" Offs="56"/>
+    <Component Name="RESERVED13" TI="34956" Line="405" Offs="58"/>
+    <Component Name="CCR3" TI="34971" Line="406" Offs="60"/>
+    <Component Name="RESERVED14" TI="34986" Line="407" Offs="62"/>
+    <Component Name="CCR4" TI="35001" Line="408" Offs="64"/>
+    <Component Name="RESERVED15" TI="35016" Line="409" Offs="66"/>
+    <Component Name="DCR" TI="35031" Line="410" Offs="72"/>
+    <Component Name="RESERVED16" TI="35046" Line="411" Offs="74"/>
+    <Component Name="DMAR" TI="35061" Line="412" Offs="76"/>
+    <Component Name="RESERVED17" TI="35076" Line="413" Offs="78"/>
+   </type>
+   <type Family="typedef" Name="TIM_TYPEDEF" Line="414" ID="35108" toTI="34543"/>
+   <type Family="ComponentList" Line="419" ID="35120">
+    <Component Name="CRL" TI="35129" Line="420" Offs="0"/>
+    <Component Name="CRH" TI="35144" Line="421" Offs="4"/>
+    <Component Name="IDR" TI="35159" Line="422" Offs="8"/>
+    <Component Name="ODR" TI="35174" Line="423" Offs="12"/>
+    <Component Name="BSRR" TI="35189" Line="424" Offs="16"/>
+    <Component Name="BRR" TI="35204" Line="425" Offs="20"/>
+    <Component Name="LCKR" TI="35219" Line="426" Offs="24"/>
+   </type>
+   <type Family="typedef" Name="GPIO" Line="427" ID="35235" toTI="35120"/>
+   <type Family="ComponentList" Line="359" ID="35247">
+    <Component Name="RXBufferLen" TI="35256" Line="360" Offs="0"/>
+    <Component Name="RXIndex" TI="35271" Line="361" Offs="2"/>
+    <Component Name="RXLen" TI="35286" Line="362" Offs="4"/>
+    <Component Name="TXBufferLen" TI="35301" Line="363" Offs="6"/>
+    <Component Name="TXIndex" TI="35316" Line="364" Offs="8"/>
+    <Component Name="TXLen" TI="35331" Line="365" Offs="10"/>
+    <Component Name="Put" TI="35346" Line="366" Offs="12"/>
+    <Component Name="Get" TI="35361" Line="367" Offs="16"/>
+    <Component Name="RXBuffer" TI="35376" Line="368" Offs="20"/>
+    <Component Name="TXBuffer" TI="35391" Line="369" Offs="24"/>
+    <Component Name="ActionChars" TI="35406" Line="370" Offs="28"/>
+    <Component Name="CR" TI="35421" Line="371" Offs="32"/>
+   </type>
+   <type Family="typedef" Name="PYGMYFIFO" Line="372" ID="35436" toTI="35247"/>
+   <type Family="ComponentList" Line="78" ID="35482">
+    <Component Name="SR" TI="35490" Line="79" Offs="0"/>
+    <Component Name="CR1" TI="35503" Line="80" Offs="4"/>
+    <Component Name="CR2" TI="35517" Line="81" Offs="8"/>
+    <Component Name="SMPR1" TI="35531" Line="82" Offs="12"/>
+    <Component Name="SMPR2" TI="35545" Line="83" Offs="16"/>
+    <Component Name="JOFR1" TI="35559" Line="84" Offs="20"/>
+    <Component Name="JOFR2" TI="35573" Line="85" Offs="24"/>
+    <Component Name="JOFR3" TI="35587" Line="86" Offs="28"/>
+    <Component Name="JOFR4" TI="35601" Line="87" Offs="32"/>
+    <Component Name="HTR" TI="35615" Line="88" Offs="36"/>
+    <Component Name="LTR" TI="35629" Line="89" Offs="40"/>
+    <Component Name="SQR1" TI="35643" Line="90" Offs="44"/>
+    <Component Name="SQR2" TI="35657" Line="91" Offs="48"/>
+    <Component Name="SQR3" TI="35671" Line="92" Offs="52"/>
+    <Component Name="JSQR" TI="35685" Line="93" Offs="56"/>
+    <Component Name="JDR1" TI="35699" Line="94" Offs="60"/>
+    <Component Name="JDR2" TI="35713" Line="95" Offs="64"/>
+    <Component Name="JDR3" TI="35727" Line="96" Offs="68"/>
+    <Component Name="JDR4" TI="35741" Line="97" Offs="72"/>
+    <Component Name="DR" TI="35755" Line="98" Offs="76"/>
+   </type>
+   <type Family="typedef" Name="PYGMYADC" Line="99" ID="35769" toTI="35482"/>
+   <type Family="array" ID="35780" toTI="32665"/>
+   <type Family="array" ID="35796" toTI="32629"/>
+   <type Family="ComponentList" Line="61" ID="35812">
+    <Component Name="CTRL" TI="35820" Line="63" Offs="0"/>
+    <Component Name="LOAD" TI="35834" Line="64" Offs="4"/>
+    <Component Name="VAL" TI="35848" Line="65" Offs="8"/>
+    <Component Name="CALIB" TI="35862" Line="66" Offs="12"/>
+   </type>
+   <type Family="typedef" Name="SYSTICK_TYPEDEF" Line="67" ID="35882" toTI="35812"/>
+   <type Family="array" ID="35893" toTI="32665"/>
+   <type Family="array" ID="35909" toTI="32665"/>
+   <type Family="array" ID="35925" toTI="32665"/>
+   <function Name="TaskException_Handler" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="872">
+   </function >
+   <function Name="putsFILE" TI="32665" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="1201">
+    <parameter Name="ucBuffer" TI="32767" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="1201" Addr="0x0" Param="Yes"/>
+   </function >
+   <type Family="Base" Name="int" ID="36205"/>
+   <function Name="sysEnableTimerClock" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="324">
+    <parameter Name="ucTimer" TI="32665" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="324" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="sysInit" TI="32665" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="40">
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="42" Addr="0x0" TI="32647"/>
+   </function >
+   <function Name="sysEnableTimerInterrupt" TI="32665" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="402">
+    <parameter Name="ucTimer" TI="32665" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="402" Addr="0x0" Param="Yes"/>
+    <variable Name="ucIRQ" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="404" Addr="0x0" TI="32665"/>
+   </function >
+   <function Name="sysGetDelayTimer" TI="32665" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="415">
+   </function >
+   <function Name="sysGetPWMTimer" TI="32665" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="420">
+   </function >
+   <function Name="sysGetMainClock" TI="32629" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="425">
+   </function >
+   <type Family="Pointer" TI="36676" toTI="33073"/>
+   <function Name="sysCRC16" TI="32647" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="620">
+    <parameter Name="ucBuffer" TI="32767" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="620" Addr="0x0" Param="Yes"/>
+    <parameter Name="uiLen" TI="32647" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="620" Addr="0x1" Param="Yes"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="622" Addr="0x0" TI="32647"/>
+    <variable Name="uiCRC" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="622" Addr="0x0" TI="32647"/>
+   </function >
+   <type Family="Pointer" TI="37198" toTI="32629"/>
+   <function Name="sysGetFile" TI="32581" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="1054">
+   </function >
+   <function Name="descriptorGetID" TI="32629" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="1079">
+    <variable Name="ulID" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="1091" Addr="0x8000000" TI="37198"/>
+   </function >
+   <function Name="print" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="1122">
+    <parameter Name="ucStream" TI="32665" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="1122" Addr="0x0" Param="Yes"/>
+    <parameter Name="ucBuffer" TI="32767" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="1122" Addr="0x34000064" Param="Yes"/>
+    <variable Name="pygmyTime" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="1124" Addr="0x34000038" TI="32866"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="1125" Addr="0x6" TI="32665"/>
+    <variable Name="ii" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="1125" Addr="0x0" TI="32665"/>
+   <type Family="array" ID="37964" toTI="32665"/>
+    <variable Name="ucValue" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="1125" Addr="0x34000044" TI="37964"/>
+    <variable Name="sValue" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="1125" Addr="0x34000028" TI="32767"/>
+    <variable Name="sFormat" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="1125" Addr="0x34000028" TI="35780"/>
+    <variable Name="ucIntBuffer" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="1125" Addr="0x34000014" TI="35909"/>
+    <variable Name="uiLen" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="1126" Addr="0x0" TI="32647"/>
+    <variable Name="ap" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="1127" Addr="0x34000040" TI="32583"/>
+   </function >
+   <type Family="Pointer" TI="38283" toTI="32984"/>
+   <function Name="sysGetTimer" TI="32581" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="1291">
+    <parameter Name="ucTimer" TI="32665" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="1291" Addr="0x0" Param="Yes"/>
+   </function >
+   <type Family="Pointer" TI="38629" toTI="35108"/>
+   <function Name="SysTick_Handler" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="1394">
+   </function >
+   <type Family="array" ID="38800" toTI="35436"/>
+   <type Family="array" ID="38825" toTI="32665"/>
+   <type Family="array" ID="38850" toTI="36676"/>
+   <type Family="array" ID="38879" toTI="32665"/>
+   <variable Name="PYGSYS_INVBITS" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="26" Addr="0x80069D0" TI="38913"/>
+   <variable Name="PYGMY_DAYSINMONTH" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="27" Addr="0x80069D8" TI="38936"/>
+   <type Family="array" ID="38941" toTI="32629"/>
+   <variable Name="PYGMY_BITMASKS" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="28" Addr="0x80069E4" TI="38975"/>
+   <variable Name="PYGMY_INVBITMASKS" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="30" Addr="0x8006A64" TI="38998"/>
+   <variable Name="pygmyGlobalData" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="37" Addr="0x20000A40" TI="33601"/>
+   <type Family="array" ID="39049" toTI="33311"/>
+   <variable Name="pygmyGlobalTasks" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="35" Addr="0x20000A60" TI="39049"/>
+   <type Family="array" ID="39083" toTI="33170"/>
+   <variable Name="pygmyGlobalMessages" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="36" Addr="0x200008B0" TI="39083"/>
+   <variable Name="pygmyGlobalQueues" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="39" Addr="0x20000C04" TI="38850"/>
+  </module>
+  <module Name="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" >
+   <type Family="Base" Name="long long int" ID="39173"/>
+   <type Family="Base" Name="long int" ID="39180"/>
+   <type Family="Base" Name="short int" ID="39187"/>
+   <type Family="Base" Name="signed char" ID="39194"/>
+   <type Family="Base" Name="long long unsigned int" ID="39201"/>
+   <type Family="Base" Name="long unsigned int" ID="39219"/>
+   <type Family="typedef" Name="u32" Line="49" ID="39208" toTI="39219"/>
+   <type Family="Base" Name="short unsigned int" ID="39237"/>
+   <type Family="typedef" Name="u16" Line="50" ID="39226" toTI="39237"/>
+   <type Family="Base" Name="unsigned char" ID="39254"/>
+   <type Family="typedef" Name="u8" Line="51" ID="39244" toTI="39254"/>
+   <type Family="Pointer" TI="39282" toTI="39288"/>
+   <type Family="typedef" Name="PYGMYVOIDPTR" Line="224" ID="39271" toTI="39282"/>
+   <type Family="Pointer" TI="39301" toTI="39307"/>
+   <type Family="typedef" Name="PYGMYCMDPTR" Line="225" ID="39290" toTI="39301"/>
+   <type Family="Pointer" TI="39323" toTI="39244"/>
+   <type Family="Base" Name="unsigned int" ID="39329"/>
+   <type Family="Pointer" TI="39336" toTI="0"/>
+   <type Family="ComponentList" Line="389" ID="39338">
+    <Component Name="CR" TI="39347" Line="391" Offs="0"/>
+    <Component Name="CFGR" TI="39361" Line="392" Offs="4"/>
+    <Component Name="CIR" TI="39376" Line="393" Offs="8"/>
+    <Component Name="APB2RSTR" TI="39391" Line="394" Offs="12"/>
+    <Component Name="APB1RSTR" TI="39406" Line="395" Offs="16"/>
+    <Component Name="AHBENR" TI="39421" Line="396" Offs="20"/>
+    <Component Name="APB2ENR" TI="39436" Line="397" Offs="24"/>
+    <Component Name="APB1ENR" TI="39451" Line="398" Offs="28"/>
+    <Component Name="BDCR" TI="39466" Line="399" Offs="32"/>
+    <Component Name="CSR" TI="39481" Line="400" Offs="36"/>
+    <Component Name="CFGR2" TI="39496" Line="401" Offs="40"/>
+   </type>
+   <type Family="typedef" Name="RCC_TYPEDEF" Line="402" ID="39512" toTI="39338"/>
+   <type Family="ComponentList" Line="419" ID="39524">
+    <Component Name="CRL" TI="39533" Line="420" Offs="0"/>
+    <Component Name="CRH" TI="39548" Line="421" Offs="4"/>
+    <Component Name="IDR" TI="39563" Line="422" Offs="8"/>
+    <Component Name="ODR" TI="39578" Line="423" Offs="12"/>
+    <Component Name="BSRR" TI="39593" Line="424" Offs="16"/>
+    <Component Name="BRR" TI="39608" Line="425" Offs="20"/>
+    <Component Name="LCKR" TI="39623" Line="426" Offs="24"/>
+   </type>
+   <type Family="typedef" Name="GPIO" Line="427" ID="39639" toTI="39524"/>
+   <type Family="ComponentList" Line="28" ID="39651">
+    <Component Name="CR1" TI="39659" Line="30" Offs="0"/>
+    <Component Name="RESERVED0" TI="39673" Line="31" Offs="2"/>
+    <Component Name="CR2" TI="39687" Line="32" Offs="4"/>
+    <Component Name="RESERVED1" TI="39701" Line="33" Offs="6"/>
+    <Component Name="OAR1" TI="39715" Line="34" Offs="8"/>
+    <Component Name="RESERVED2" TI="39729" Line="35" Offs="10"/>
+    <Component Name="OAR2" TI="39743" Line="36" Offs="12"/>
+    <Component Name="RESERVED3" TI="39757" Line="37" Offs="14"/>
+    <Component Name="DR" TI="39771" Line="38" Offs="16"/>
+    <Component Name="RESERVED4" TI="39784" Line="39" Offs="18"/>
+    <Component Name="SR1" TI="39798" Line="40" Offs="20"/>
+    <Component Name="RESERVED5" TI="39812" Line="41" Offs="22"/>
+    <Component Name="SR2" TI="39826" Line="42" Offs="24"/>
+    <Component Name="RESERVED6" TI="39840" Line="43" Offs="26"/>
+    <Component Name="CCR" TI="39854" Line="44" Offs="28"/>
+    <Component Name="RESERVED7" TI="39868" Line="45" Offs="30"/>
+    <Component Name="TRISE" TI="39882" Line="46" Offs="32"/>
+    <Component Name="RESERVED8" TI="39896" Line="47" Offs="34"/>
+   </type>
+   <type Family="typedef" Name="I2C_TYPEDEF" Line="48" ID="39911" toTI="39651"/>
+   <type Family="ComponentList" Line="241" ID="39922">
+    <Component Name="SR" TI="39930" Line="243" Offs="0"/>
+    <Component Name="RESERVED0" TI="39943" Line="244" Offs="2"/>
+    <Component Name="DR" TI="39957" Line="245" Offs="4"/>
+    <Component Name="RESERVED1" TI="39970" Line="246" Offs="6"/>
+    <Component Name="BRR" TI="39984" Line="247" Offs="8"/>
+    <Component Name="RESERVED2" TI="39998" Line="248" Offs="10"/>
+    <Component Name="CR1" TI="40012" Line="249" Offs="12"/>
+    <Component Name="RESERVED3" TI="40026" Line="250" Offs="14"/>
+    <Component Name="CR2" TI="40040" Line="251" Offs="16"/>
+    <Component Name="RESERVED4" TI="40054" Line="252" Offs="18"/>
+    <Component Name="CR3" TI="40068" Line="253" Offs="20"/>
+    <Component Name="RESERVED5" TI="40082" Line="254" Offs="22"/>
+    <Component Name="GTPR" TI="40096" Line="255" Offs="24"/>
+    <Component Name="RESERVED6" TI="40110" Line="256" Offs="26"/>
+   </type>
+   <type Family="typedef" Name="USART_TYPEDEF" Line="257" ID="40126" toTI="39922"/>
+   <type Family="ComponentList" Line="359" ID="40138">
+    <Component Name="RXBufferLen" TI="40147" Line="360" Offs="0"/>
+    <Component Name="RXIndex" TI="40162" Line="361" Offs="2"/>
+    <Component Name="RXLen" TI="40177" Line="362" Offs="4"/>
+    <Component Name="TXBufferLen" TI="40192" Line="363" Offs="6"/>
+    <Component Name="TXIndex" TI="40207" Line="364" Offs="8"/>
+    <Component Name="TXLen" TI="40222" Line="365" Offs="10"/>
+    <Component Name="Put" TI="40237" Line="366" Offs="12"/>
+    <Component Name="Get" TI="40252" Line="367" Offs="16"/>
+    <Component Name="RXBuffer" TI="40267" Line="368" Offs="20"/>
+    <Component Name="TXBuffer" TI="40282" Line="369" Offs="24"/>
+    <Component Name="ActionChars" TI="40297" Line="370" Offs="28"/>
+    <Component Name="CR" TI="40312" Line="371" Offs="32"/>
+   </type>
+   <type Family="typedef" Name="PYGMYFIFO" Line="372" ID="40327" toTI="40138"/>
+   <type Family="ComponentList" Line="455" ID="40373">
+    <Component Name="SCL" TI="40382" Line="456" Offs="0"/>
+    <Component Name="SDA" TI="40397" Line="457" Offs="1"/>
+    <Component Name="Address" TI="40412" Line="458" Offs="2"/>
+   <type Family="Pointer" TI="40517" toTI="39639"/>
+    <Component Name="PortSCL" TI="40427" Line="459" Offs="4"/>
+    <Component Name="PortSDA" TI="40442" Line="460" Offs="8"/>
+    <Component Name="PinSCL" TI="40457" Line="461" Offs="12"/>
+    <Component Name="PinSDA" TI="40472" Line="462" Offs="14"/>
+    <Component Name="Speed" TI="40487" Line="463" Offs="16"/>
+    <Component Name="CR" TI="40502" Line="464" Offs="18"/>
+   </type>
+   <type Family="typedef" Name="PYGMYI2CPORT" Line="466" ID="40523" toTI="40373"/>
+   <type Family="ComponentList" Line="468" ID="40535">
+    <Component Name="PortCS" TI="40544" Line="469" Offs="0"/>
+    <Component Name="PortSCK" TI="40559" Line="470" Offs="4"/>
+    <Component Name="PortMOSI" TI="40574" Line="471" Offs="8"/>
+    <Component Name="PortMISO" TI="40589" Line="472" Offs="12"/>
+    <Component Name="PinCS" TI="40604" Line="473" Offs="16"/>
+    <Component Name="PinSCK" TI="40619" Line="474" Offs="18"/>
+    <Component Name="PinMOSI" TI="40634" Line="475" Offs="20"/>
+    <Component Name="PinMISO" TI="40649" Line="476" Offs="22"/>
+    <Component Name="CR" TI="40664" Line="477" Offs="24"/>
+   </type>
+   <type Family="typedef" Name="PYGMYSPIPORT" Line="478" ID="40679" toTI="40535"/>
+   <type Family="ComponentList" Line="480" ID="40691">
+    <Component Name="PortCS" TI="40700" Line="481" Offs="0"/>
+    <Component Name="PortA0" TI="40715" Line="482" Offs="4"/>
+    <Component Name="PortWR" TI="40730" Line="483" Offs="8"/>
+    <Component Name="PortRD" TI="40745" Line="484" Offs="12"/>
+    <Component Name="PortDATA" TI="40760" Line="485" Offs="16"/>
+    <Component Name="PinCS" TI="40775" Line="486" Offs="20"/>
+    <Component Name="PinA0" TI="40790" Line="487" Offs="22"/>
+    <Component Name="PinWR" TI="40805" Line="488" Offs="24"/>
+    <Component Name="PinRD" TI="40820" Line="489" Offs="26"/>
+    <Component Name="PinD0" TI="40835" Line="490" Offs="28"/>
+    <Component Name="Mask" TI="40850" Line="491" Offs="30"/>
+    <Component Name="Width" TI="40865" Line="492" Offs="32"/>
+   </type>
+   <type Family="typedef" Name="PYGMYPARALLELPORT" Line="493" ID="40881" toTI="40691"/>
+   <type Family="array" ID="40893" toTI="39244"/>
+   <type Family="Pointer" TI="40949" toTI="40523"/>
+   <type Family="Pointer" TI="41023" toTI="39911"/>
+   <type Family="Pointer" TI="41277" toTI="40126"/>
+   <type Family="Pointer" TI="41425" toTI="40881"/>
+   <function Name="spiWriteByte" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="275">
+   <type Family="Pointer" TI="41645" toTI="40679"/>
+    <parameter Name="pygmySPI" TI="41645" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="275" Addr="0x0" Param="Yes"/>
+    <parameter Name="ucByte" TI="39244" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="275" Addr="0x1" Param="Yes"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="278" Addr="0x0" TI="39226"/>
+   </function >
+   <function Name="spiWriteLong" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="311">
+    <parameter Name="pygmySPI" TI="41645" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="311" Addr="0x0" Param="Yes"/>
+    <parameter Name="ulLong" TI="39208" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="311" Addr="0x1" Param="Yes"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="314" Addr="0x0" TI="39226"/>
+   </function >
+   <function Name="spiReadByte" TI="39244" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="329">
+    <parameter Name="pygmySPI" TI="41645" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="329" Addr="0x0" Param="Yes"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="332" Addr="0x0" TI="39226"/>
+    <variable Name="ucByte" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="333" Addr="0x0" TI="39244"/>
+   </function >
+   <function Name="spiReadBuffer" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="348">
+    <parameter Name="pygmySPI" TI="41645" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="348" Addr="0x0" Param="Yes"/>
+    <parameter Name="ucBuffer" TI="39323" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="348" Addr="0x1" Param="Yes"/>
+    <parameter Name="uiLen" TI="39226" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="348" Addr="0x2" Param="Yes"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="350" Addr="0x0" TI="39226"/>
+   </function >
+   <function Name="spiWriteBuffer" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="359">
+    <parameter Name="pygmySPI" TI="41645" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="359" Addr="0x0" Param="Yes"/>
+    <parameter Name="ucBuffer" TI="39323" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="359" Addr="0x1" Param="Yes"/>
+    <parameter Name="uiLen" TI="39226" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="359" Addr="0x2" Param="Yes"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="361" Addr="0x0" TI="39226"/>
+   </function >
+   <function Name="spiConfig" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="370">
+    <parameter Name="pygmySPI" TI="41645" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="370" Addr="0x0" Param="Yes"/>
+    <parameter Name="ucCS" TI="39244" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="370" Addr="0x1" Param="Yes"/>
+    <parameter Name="ucSCK" TI="39244" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="370" Addr="0x2" Param="Yes"/>
+    <parameter Name="ucMISO" TI="39244" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="370" Addr="0x3" Param="Yes"/>
+    <parameter Name="ucMOSI" TI="39244" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="370" Addr="0x34000020" Param="Yes"/>
+   </function >
+   <type Family="Base" Name="int" ID="42219"/>
+   <function Name="I2C1_ER_IRQHandler" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="465">
+   </function >
+   <function Name="I2C2_EV_IRQHandler" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="470">
+   </function >
+   <function Name="I2C2_ER_IRQHandler" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="475">
+   </function >
+   <function Name="i2cConfig" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="496">
+    <parameter Name="pygmyI2C" TI="40949" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="496" Addr="0x0" Param="Yes"/>
+    <parameter Name="ucSCL" TI="39244" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="496" Addr="0x1" Param="Yes"/>
+    <parameter Name="ucSDA" TI="39244" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="496" Addr="0x2" Param="Yes"/>
+    <parameter Name="ucAddress" TI="39244" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="496" Addr="0x3" Param="Yes"/>
+    <parameter Name="uiCR" TI="39226" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="496" Addr="0x34000018" Param="Yes"/>
+   </function >
+   <function Name="i2cStart" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="527">
+    <parameter Name="pygmyI2C" TI="40949" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="527" Addr="0x0" Param="Yes"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="529" Addr="0x0" TI="39226"/>
+   </function >
+   <function Name="i2cStop" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="558">
+    <parameter Name="pygmyI2C" TI="40949" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="558" Addr="0x0" Param="Yes"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="560" Addr="0x0" TI="39226"/>
+   </function >
+   <function Name="i2cWriteBit" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="582">
+    <parameter Name="pygmyI2C" TI="40949" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="582" Addr="0x0" Param="Yes"/>
+    <parameter Name="ucBit" TI="39244" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="582" Addr="0x1" Param="Yes"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="585" Addr="0x0" TI="39226"/>
+   </function >
+   <function Name="i2cReadBit" TI="39244" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="616">
+    <parameter Name="pygmyI2C" TI="40949" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="616" Addr="0x0" Param="Yes"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="619" Addr="0x0" TI="39226"/>
+   </function >
+   <function Name="i2cWriteByte" TI="39244" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="675">
+    <parameter Name="pygmyI2C" TI="40949" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="675" Addr="0x0" Param="Yes"/>
+    <parameter Name="ucByte" TI="39244" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="675" Addr="0x1" Param="Yes"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="678" Addr="0x0" TI="39244"/>
+   </function >
+   <function Name="i2cWriteBuffer" TI="39244" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="645">
+    <parameter Name="pygmyI2C" TI="40949" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="645" Addr="0x0" Param="Yes"/>
+    <parameter Name="uiAddress" TI="39226" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="645" Addr="0x1" Param="Yes"/>
+    <parameter Name="ucBuffer" TI="39323" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="645" Addr="0x2" Param="Yes"/>
+    <parameter Name="uiLen" TI="39226" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="645" Addr="0x3" Param="Yes"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="647" Addr="0x0" TI="39226"/>
+   </function >
+   <function Name="i2cReadByte" TI="39244" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="696">
+    <parameter Name="pygmyI2C" TI="40949" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="696" Addr="0x0" Param="Yes"/>
+    <variable Name="ucByte" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="699" Addr="0x0" TI="39244"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="700" Addr="0x0" TI="39244"/>
+   </function >
+   <function Name="i2cReadBuffer" TI="39244" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="661">
+    <parameter Name="pygmyI2C" TI="40949" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="661" Addr="0x0" Param="Yes"/>
+    <parameter Name="uiAddress" TI="39226" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="661" Addr="0x1" Param="Yes"/>
+    <parameter Name="ucBuffer" TI="39323" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="661" Addr="0x2" Param="Yes"/>
+    <parameter Name="uiLen" TI="39226" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="661" Addr="0x3" Param="Yes"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="663" Addr="0x0" TI="39226"/>
+   </function >
+   <function Name="streamReset" TI="39244" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="732">
+    <parameter Name="ucStream" TI="39244" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="732" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="streamInit" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="722">
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="724" Addr="0x0" TI="39244"/>
+   </function >
+   <function Name="streamGetSTDIO" TI="39244" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="753">
+   </function >
+   <function Name="streamSetSTDIO" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="758">
+    <parameter Name="ucStream" TI="39244" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="758" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="streamEchoChar" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="806">
+    <parameter Name="ucStream" TI="39244" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="806" Addr="0x0" Param="Yes"/>
+    <parameter Name="ucChar" TI="39244" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="806" Addr="0x1" Param="Yes"/>
+   <type Family="array" ID="43565" toTI="39244"/>
+    <variable Name="ucString" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="808" Addr="0x34000004" TI="43565"/>
+   </function >
+   <function Name="streamGetChar" TI="39244" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="815">
+    <parameter Name="ucStream" TI="39244" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="815" Addr="0x0" Param="Yes"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="817" Addr="0x2" TI="39226"/>
+   </function >
+   <function Name="streamFIFOToString" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="846">
+    <parameter Name="ucStream" TI="39244" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="846" Addr="0x0" Param="Yes"/>
+    <parameter Name="ucBuffer" TI="39323" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="846" Addr="0x1" Param="Yes"/>
+   </function >
+   <function Name="streamPopChar" TI="39244" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="863">
+    <parameter Name="ucStream" TI="39244" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="863" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="streamPushChar" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="890">
+    <parameter Name="ucStream" TI="39244" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="890" Addr="0x0" Param="Yes"/>
+    <parameter Name="ucChar" TI="39244" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="890" Addr="0x1" Param="Yes"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="893" Addr="0x0" TI="39226"/>
+   </function >
+   <function Name="streamSetPut" TI="39244" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="902">
+    <parameter Name="ucStream" TI="39244" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="902" Addr="0x0" Param="Yes"/>
+    <parameter Name="ptrFunc" TI="39336" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="902" Addr="0x1" Param="Yes"/>
+   </function >
+   <function Name="streamSetGet" TI="39244" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="913">
+    <parameter Name="ucStream" TI="39244" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="913" Addr="0x0" Param="Yes"/>
+    <parameter Name="ptrFunc" TI="39336" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="913" Addr="0x1" Param="Yes"/>
+   </function >
+   <function Name="streamSetRXBuffer" TI="39244" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="924">
+    <parameter Name="ucStream" TI="39244" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="924" Addr="0x0" Param="Yes"/>
+    <parameter Name="ucBuffer" TI="39323" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="924" Addr="0x1" Param="Yes"/>
+    <parameter Name="uiLen" TI="39226" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="924" Addr="0x2" Param="Yes"/>
+   </function >
+   <function Name="streamEnableEcho" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="957">
+    <parameter Name="ucStream" TI="39244" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="957" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="streamEnableActionChars" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="968">
+    <parameter Name="ucStream" TI="39244" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="968" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="streamEnableBackspace" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="978">
+    <parameter Name="ucStream" TI="39244" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="978" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="streamHandler" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="988">
+    <parameter Name="ucPort" TI="39244" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="988" Addr="0x0" Param="Yes"/>
+    <parameter Name="ucChar" TI="39244" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="988" Addr="0x1" Param="Yes"/>
+    <variable Name="ucAction" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="990" Addr="0x6" TI="39244"/>
+   </function >
+   <function Name="USART3_IRQHandler" TI="0" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="1134">
+   </function >
+   <function Name="putsUSART3" TI="39244" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="1148">
+    <parameter Name="ucBuffer" TI="39323" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="1148" Addr="0x0" Param="Yes"/>
+   </function >
+   <type Family="array" ID="44834" toTI="39208"/>
+   <type Family="array" ID="44883" toTI="40327"/>
+   <variable Name="globalStreams" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="24" Addr="0x20000C94" TI="44883"/>
+   <variable Name="globalCOM3RXBuffer" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="35" Addr="0x20000C14" TI="40893"/>
+   <type Family="array" ID="45000" toTI="39244"/>
+   <variable Name="globalStreamEcho" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="25" Addr="0x20000D00" TI="45000"/>
+   <variable Name="globalSTDIO" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="26" Addr="0x20000098" TI="39244"/>
+  </module>
+ </modulelist>
+</aoffile>
+

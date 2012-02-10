@@ -18,7 +18,7 @@
 
 #include "pygmy_profile.h"
 
-#define BOOT_BUILDVERSION   1200 // 1.0 = 1000, 1.1 = 1100
+#define BOOT_BUILDVERSION   1300 // 1.0 = 1000, 1.1 = 1100
 
 #define VECT_TAB_OFFSET  0x1000
 //#define FLASH_BASE       ((u32)0x08000000)
@@ -45,6 +45,7 @@ u8 bootTest( void );
 u8 bootTestAndLoad( void );
 void bootBootOS( void );
 u32 getIDCode( void );
+u8 executeCmd( u8 *ucBuffer, PYGMYCMD *pygmyCommands );
 
 void putBufferUSART3( u16 uiLen, u8 *ucBuffer );
 void putcUSART3( u8 ucChar );
@@ -52,6 +53,9 @@ void putstr( u8 *ucBuffer );
 void putIntUSART3( u32 ulData );
 u8 xmodemWritePacket( u8 *ucBuffer );
 void xmodemSendPacket( u8 ucLast );
+
+s8 isQuote( u8 ucChar );
+s8 isNewline( u8 ucChar );
 
 u8 cmdHandler( u8 ucByte );
 u8 cmdErase( u8 *ucParams );
@@ -76,7 +80,6 @@ const u8 BOOT_OK[] = "\rOK\r";
 const u8 BOOT_ERROR[] = "\rERROR\r>";
 const u8 BOOT_PROMPT[] = "\r> ";
 const u8 BOOT_filename[] = "boot.hex";
-//const u8 BOOT_greeting[] = "\r\rPygmyOS Loader V1\r+ cancels boot\r\r> ";
 
 const PYGMYCMD BOOTCOMMANDS[] = {   {(u8*)"erase", cmdErase},
                                     {(u8*)"format", cmdFormat},
@@ -87,10 +90,10 @@ const PYGMYCMD BOOTCOMMANDS[] = {   {(u8*)"erase", cmdErase},
                                     {(u8*)"ls", cmdLs},
                                     {(u8*)"mv", cmdMv},
                                     {(u8*)"boot", cmdBoot},
-                                    {(u8*)"flash", cmdFlash},
-                                    {(u8*)"verify", cmdVerify},
+                                    //{(u8*)"flash", cmdFlash},
+                                    //{(u8*)"verify", cmdVerify},
                                     {(u8*)"reset", cmdReset},
-                                    {(u8*)"", cmdNull} // No Commands after NULL
+                                    {(u8*)"", NULL }//cmdNull} // No Commands after NULL
                                     }; 
 
 PYGMYFILE pygmyFile;
@@ -102,19 +105,14 @@ volatile u8 *globalStrID;
                                 
 int main( void )
 {    
-    u32 *ulID, ulClock;
+    u32 ulClock;
     
     // First test the descriptor page ( last page in FLASH )
     // if configuration exists, use programmed ID, else query
     // Degub registers for ID. This is a workaround for silicon
     // issues in the F103 STM32s
-    globalBaseAddress = 0x08000000 + ( ( SIZEREG->Pages - 2 ) * 1024 );
-    ulID = (u32*)globalBaseAddress;
-    if( *ulID == 0xFFFFFFFF ){
-        ulID = (u32*)0xE0042000; // Address of 32bit ID and revision code in DBG regs
-    } // if    
-    globalID = *ulID & 0x00000FFF;
     
+    globalID = fpecGetID( );
     globalPLL = BIT16|BIT1;
     // First Init the Clocks
     if( globalID == 0x0416 ){
@@ -122,20 +120,24 @@ int main( void )
         globalStrID = (u8*)STRID_L15X;  
 		globalXTAL = 16000000;  
         globalFreq = 32000000;
+        ulClock = globalFreq;
         FPEC->ACR = FPEC_ACR_PRFTBE | FPEC_ACR_LATENCY1;
     } else if( globalID == 0x0420 || globalID == 0x0428 ){
         // F100 
         globalStrID = (u8*)STRID_F100;
         globalXTAL = 12000000;
         globalFreq = 24000000;
+        ulClock = globalFreq;
     } else{
         // F103
         globalStrID = (u8*)STRID_F103;
         globalXTAL = 8000000;
-        globalFreq = 72022900;
+        globalFreq = 72000000; //72022900;
+        ulClock = 36000000;
         globalPLL = RCC_PLL_X9|BIT16|BIT15|BIT14|BIT1;//BIT10|BIT1;
         FPEC->ACR = FPEC_ACR_PRFTBE | FPEC_ACR_LATENCY2;
     } // else
+    //PYGMY_RCC_HSI_ENABLE;
     PYGMY_RCC_HSE_ENABLE;
     while( !PYGMY_RCC_HSE_READY );
     RCC->CFGR2 = 0;
@@ -143,7 +145,6 @@ int main( void )
     PYGMY_RCC_PLL_ENABLE;
     while( !PYGMY_RCC_PLL_READY );
     // HSI Must be ON for Flash Program/Erase Operations
-    //PYGMY_RCC_HSI_ENABLE;
     // End Clock Init 
 
     // Configure Interrupts
@@ -155,8 +156,8 @@ int main( void )
     // Do not read from NVIC LOAD or VAL!!!
     // Reading from Write only registers causes unpredictable behavior!!!
     NVIC->ISER[ 1 ] = 0x00000001 <<  7 ;
-    SYSTICK->VAL = ( globalFreq * 2 ) / 1000;
-    SYSTICK->LOAD = ( globalFreq * 2 ) / 1000; // Based on  ( 2X the System Clock ) / 1000
+    SYSTICK->VAL = globalFreq / 500;
+    SYSTICK->LOAD = globalFreq / 500; // Based on  ( 2X the System Clock ) / 1000
     SYSTICK->CTRL = 0x07;   // Enable system timer
     // End Configure Interrupts
 
@@ -169,19 +170,20 @@ int main( void )
 	// USART3 Init, PB10 TXD, PB11 RXD
     GPIOB->CRH &= ~( PIN10_CLEAR | PIN11_CLEAR );
     GPIOB->CRH |= ( PIN10_OUT50_ALTPUSHPULL | PIN11_IN_FLOAT );
-    ulClock = globalFreq;
+    /*ulClock = globalFreq;
     if( ulClock > 70000000 ){
         ulClock /= 2;
     } // if
+    */
     USART3->BRR = ( ( (ulClock >> 3 ) / BOOT_BAUDRATE ) << 4 ) + ( ( ( ulClock / BOOT_BAUDRATE ) ) & 0x0007 );
-    USART3->CR3 |= USART_ONEBITE;
+    USART3->CR3 = USART_ONEBITE;
     USART3->CR1 = ( USART_OVER8 | USART_UE | USART_RXNEIE | USART_TE | USART_RE  );
     // End USART3 Init
         
     // Note: SST FLASH ICs must have write-protection removed by formatting before use
     
     
-    putstr( "\rPygmy Boot V1.2\rMCU " );
+    putstr( "\rPygmy Boot V1.3\rMCU " );
     putstr( (u8*)globalStrID );
     putstr( "\rFLASH " );
     putIntUSART3( SIZEREG->Pages );
@@ -200,40 +202,6 @@ int main( void )
         // Wait for commands
     }
 }
-/*
-u32 getIDCode( void )
-{
-    // Returns the device ID containing type/family
-    // Low Power devices = 0x0416
-    // Low density devices = 0x412
-    // Mediumdensity devices = 0x410
-    // High density devices = 0x414
-    // XL density devices = 0x430
-    // Connectivity devices = 0x418
-    // Low and medium density value line devices = 0x420
-    // High density value line devices = 0x428
-    u32 *ulID;
-    
-    ulID = (u32*)0xE0042000; // Address of 32bit ID and revision code in DBG regs
-    
-    return( *ulID & 0x00000FFF );
-}
-*/
-/*
-u16 generateBootBaud( void )
-{
-    // USARTDIV = DIV_Mantissa + (DIV_Fraction / 8 × (2 – OVER8))
-    u32 ulClock;
-	u16 uiBRR;
-	
-	ulClock = globalFreq;
-	if( ulClock == 72000000 ){
-		ulClock /= 4;
-	} // if
-    uiBRR = ( ( (ulClock >> 3 ) / BOOT_BAUDRATE ) << 4 ) + ( ( ( ulClock / BOOT_BAUDRATE ) ) & 0x0007 );
-
-    return( (u16)uiBRR ); 
-}*/
 
 u8 bootTest( void )
 {
@@ -284,19 +252,18 @@ u8 bootTest( void )
 u8 bootTestAndLoad( void )
 {
     u32 i;
-    u16 *uiAddress;
+    //u16 *uiAddress;
     u8 ucBuffer[ 64 ], ucStatus, *ucSubString;
 
-    putstr( "\rFlashing..." );
+    putstr( "\rFlashing" );
     
     if( !fileOpen( &pygmyFile, (u8*)BOOT_filename, READ ) ){ // If file boot.hex exists then load
         return( 0 );
     } // if
-    fpecUnlock();
-    if ( !fpecEraseProgramMemory( 8, SIZEREG->Pages - 2 ) ){ // Always erase all pages before attempting a write
-        return( 0 );
-    } // if
-
+    
+    fpecEraseProgramMemory();
+    putstr( "..." );
+  
     for( ucStatus = 0; !( pygmyFile.Attributes & EOF ) && ucStatus != 0xFF; ){
         for( i = 0; i < 64; i++ ){
             ucBuffer[ i ] = fileGetChar( &pygmyFile );
@@ -311,12 +278,15 @@ u8 bootTestAndLoad( void )
     } // for
 
     // Write Device Descriptor to last page of FLASH
-    uiAddress = (u16*)globalBaseAddress; //(u16*)0x08000000 + ( ( SIZEREG->Pages - 2 ) * 1024 ); // start of last page
-    fpecWriteLong( uiAddress, globalID );
-    fpecWriteLong( uiAddress + 2, globalXTAL );
-    fpecWriteLong( uiAddress + 4, globalFreq );
-    fpecWriteLong( uiAddress + 6, BOOT_BUILDVERSION );
-     
+    //fpecWriteLong( uiAddress, globalID );
+    //fpecWriteLong( uiAddress + 2, globalXTAL );
+    //fpecWriteLong( uiAddress + 4, globalFreq );
+    //fpecWriteLong( uiAddress + 6, BOOT_BUILDVERSION );
+    //PYGMY_WATCHDOG_REFRESH;
+    fpecWriteDescriptor( 0, globalID );
+    fpecWriteDescriptor( 1, globalXTAL );
+    fpecWriteDescriptor( 2, globalFreq );
+    fpecWriteDescriptor( 3, BOOT_BUILDVERSION );
 
     return( 1 );
 }
@@ -407,25 +377,20 @@ void USART3_IRQHandler( void )
                 if( ucByte == 0x01 ){ // This is XModem <SOH>
                     globalStatus |= XMODEM_MODE_SOH; // Set Packet Marker
                     globalXMTimeout = 1000;
-                    globalTransaction = 60;
+                    globalTransaction = 10;
                 } else if( ucByte == 0x04 || ucByte == XMODEM_CAN ){ // 0x04 Marks End Of Transmission              
                     globalStatus = 0;//&= ~( XMODEM_RECV );
                     filePutBuffer( &pygmyFile, 128, ucBuffer );
                     fileClose( &pygmyFile );
                     putcUSART3( 0x06 ); // Send Ack to close connection
                     putstr( "Done\r> " );
-                } /*else if ( ucByte == XMODEM_CAN ){
-                    globalStatus = 0;
-                    putcUSART3( 0x06 );
                 } // else if
-                */
                 ucIndex = 0;
             }
         } else if( globalStatus & XMODEM_SEND ){ // SEND
             if( ucByte == XMODEM_ACK ){
                 if( globalStatus & XMODEM_SEND_EOT ){
-                    globalStatus = 0;//&= ~( XMODEM_SEND_EOT|XMODEM_SEND);
-                    //putstr( (u8*)BOOT_OK );
+                    globalStatus = 0;
                     putstr( (u8*)BOOT_PROMPT );
                     return;
                 } // if
@@ -459,7 +424,7 @@ void USART3_IRQHandler( void )
             ucBuffer[ ucIndex ] = '\0'; // Add NULL to terminate string
             ucIndex = 0;
             if( ucByte == '+' ){
-                putstr( "\rCanceled\r> " );
+                putstr( (u8*)BOOT_ERROR );
                 globalBootStatus |= BOOT_CANCEL;
                 return;
             } // return
@@ -526,28 +491,23 @@ void SysTick_Handler( void )
     PYGMY_WATCHDOG_REFRESH;
     ++globalBootTimeout;
     if( globalStatus & XMODEM_RECV ){
-        if( globalXMTimeout )
+        if( globalXMTimeout ){
             --globalXMTimeout;
-        else{
+        } else{
             putcUSART3( XMODEM_NACK );
             globalXMTimeout = 1000;
-            if( globalTransaction )
+            if( globalTransaction ){
                 --globalTransaction;
-            else{
+            } else{
                 globalStatus &= ~(XMODEM_RECV|XMODEM_MODE_SOH);
-                putstr( "XM Timeout\r> " );
+                putstr( "Timeout\r> " );
             } // lse
         } // else
     } else if( globalStatus & XMODEM_SEND ){
         if( globalXMTimeout )
             --globalXMTimeout;
         else{
-            //if( globalStatus & XMODEM_SEND_WAIT ){
-            //    xmodemSendPacket( XMODEM_NEXT );
-            //    globalStatus &= ~XMODEM_SEND_WAIT;
-            //} else{
-                xmodemSendPacket( XMODEM_LAST );
-            //} // else
+            xmodemSendPacket( XMODEM_LAST );
             globalXMTimeout = 1000;
             if( globalTransaction )
                 --globalTransaction;
@@ -562,8 +522,7 @@ void SysTick_Handler( void )
 
 u8 cmdErase( u8 *ucParams )
 {
-    fpecUnlock();
-    fpecEraseProgramMemory( 8, SIZEREG->Pages - 2 );
+    fpecEraseProgramMemory( );// 8, SIZEREG->Pages - 2 );
     globalStatus |= BIT0; // Mark main memory as erased
 
     return( 1 );
@@ -572,6 +531,7 @@ u8 cmdErase( u8 *ucParams )
 u8 cmdFormat( u8 *ucParams )
 {
     fileFormat( "" );
+    //fileMountRoot();
 
     return( 1 );
 }
@@ -651,7 +611,7 @@ u8 cmdLs( u8 *ucParams )
 {
     u16 i, uiID;
   
-    for( i = 0; i < pygmyRootVolume.MaxFiles; i++ ){
+    for( i = 4; i < pygmyRootVolume.MaxFiles+4; i++ ){
         uiID = fileGetName( i, pygmyFile.Name );
         if( uiID ){
             putcUSART3( '\r' );
@@ -663,7 +623,7 @@ u8 cmdLs( u8 *ucParams )
     putstr( "\rFree:\t\t" );
     putIntUSART3( fileGetFreeSpace() );
     putcUSART3( '\r' );
-
+    
     return( 1 );
 }
 
@@ -686,7 +646,7 @@ u8 cmdBoot( u8 *ucParams )
     
     // No return after reset
 }
-
+/*
 u8 cmdFlash( u8 *ucParams )
 {
     return( bootTestAndLoad() );
@@ -694,15 +654,10 @@ u8 cmdFlash( u8 *ucParams )
     //return( 1 );
 }
 
-u8 cmdVerify( u8 *ucParams )
-{
-    return( bootTest() );
-}
-
 u8 cmdNull( u8 *ucParams )
 {
     return( 0 );
-}
+}*/
 
 u8 executeCmd( u8 *ucBuffer, PYGMYCMD *pygmyCommands )
 {
@@ -710,9 +665,6 @@ u8 executeCmd( u8 *ucBuffer, PYGMYCMD *pygmyCommands )
     u8 *ucCommand;
     
     ucCommand = getNextSubString( ucBuffer, WHITESPACE | PUNCT );
-    //if( !ucCommand ){
-    //    return( 0 );
-	//} // if
         
     for( i = 0; 1; i++ ){ 
         if( isStringSame( "", pygmyCommands[ i ].Name ) ){
@@ -729,4 +681,193 @@ u8 executeCmd( u8 *ucBuffer, PYGMYCMD *pygmyCommands )
 
     return( 0 );
 }
+
+u16 convertHexEncodedStringToBuffer( u8 *ucString, u8 *ucBuffer )
+{
+    // HEX Encoded ASCII string to binary eqivalent
+    // Use: ( "01020A", ptr ) , ptr[ 0 ] = 1, ptr[ 1 ] = 2, ptr[ 3 ] = 10
+    // Note that input buffer may be used as output buffer since input is always
+    //  twice the length of the output
+    u16 uiLen;
+    u8 ucByte;
+
+    for( uiLen = 0; *ucString; ){
+        ucByte = convertHexCharToInteger( *(ucString++) ) * 16;
+        ucByte += convertHexCharToInteger( *(ucString++) );
+        ucBuffer[ uiLen++ ] = ucByte;
+    } // for
+        
+    return( uiLen );
+}
+
+
+
+u16 convertHexCharToInteger( u8 ucChar )
+{
+    const u8 PYGMYHEXCHARS[] = { '0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F' };
+    u16 i;
+
+    for( i = 0; i < 16; i++ ){ 
+        if( ucChar == PYGMYHEXCHARS[ i ] ){
+            break;
+        } // if
+    } // for
+
+    return( i );
+}
+void copyString( u8 *ucFrom, u8 *ucTo )
+{
+    for( ; *ucFrom; ){
+        *(ucTo++) = *(ucFrom++); 
+    } // for
+    *ucTo = '\0';
+}
+
+u8 *getNextSubString( u8 *ucBuffer, u8 ucMode )
+{
+    static u8 *ucIndex = NULL;
+    
+    if( *ucBuffer ){
+        ucIndex = ucBuffer;
+    } // if
+    if( ucIndex == NULL ){
+        return( NULL );
+    } // if
+    
+    for( ; *ucIndex;  ){
+        if( ( isWhitespace( *ucIndex ) ) || 
+            ( (ucMode & PUNCT) && isPunctuation( *ucIndex ) ) ){
+            //( (ucMode & SEPARATORS) && isSeparator( *ucIndex ) ) ||
+            //( (ucMode & QUOTES) && isQuote( *ucIndex ) ) ||
+            //( (ucMode & COMMA) && *ucIndex == ',' ) ){
+            ++ucIndex;
+            continue;
+            } // if
+        ucBuffer = ucIndex;
+        for( ; *ucIndex ; ){
+            if( ( (ucMode & WHITESPACE) && isWhitespace( *ucIndex ) ) || 
+                ( (ucMode & PUNCT) && isPunctuation( *ucIndex ) ) ||
+                //( (ucMode & SEPARATORS) && isSeparator( *ucIndex ) ) ||
+                //( (ucMode & QUOTES) && isQuote( *ucIndex ) ) ||
+                ( (ucMode & NEWLINE) && isNewline( *ucIndex ) ) ){
+                //( (ucMode & COMMA) && *ucIndex == ',' ) ){
+                break;
+            } // if
+            ++ucIndex;
+        } // for
+        if( *ucIndex ){
+            *(ucIndex++) = '\0';
+        } else{
+            ucIndex = NULL;
+        } // else
+    
+        return( ucBuffer );
+    } // for
+    
+    return( NULL );
+}
+
+s8 isStringSame( u8 *ucBuffer, u8 *ucString )
+{
+    if( len( ucBuffer ) != len( ucString ) ){
+        return ( 0 );
+    } // if
+
+    for( ; *ucBuffer; ){
+        if( *(ucBuffer++) != *(ucString++) ){
+            return( 0 );
+        } // if
+    } // for
+    
+    return( 1 );
+}
+
+u16 len( u8 *ucString )
+{
+    u16 i;
+    
+    for( i = 0; *(ucString++) ; i++ ){
+        if( i == 0xFFFF ){
+            break;
+        } // if
+    } // for
+    
+    return( i );
+}
+
+s8 isAlpha( u8 ucChar )
+{
+    if( ( ucChar > 64 && ucChar < 91 ) || ( ucChar > 96 && ucChar < 123 ) ){
+        return( 1 );
+    } // if
+    
+    return( 0 );
+}
+
+s8 isNumeric( u8 ucChar )
+{
+    if( ucChar > 47 && ucChar < 58 ){
+        return( 1 );
+    } // if
+        
+    return( 0 );
+}
+
+s8 isNewline( u8 ucChar )
+{
+    if( ucChar == 10 || ucChar == 12 || ucChar == 13 ){
+        return( 1 );
+    } // if
+        
+    return( 0 );
+}
+
+s8 isWhitespace( u8 ucChar )
+{
+    if( ( ucChar > 7 && ucChar < 33 ) ){
+        return( 1 );
+    } // if
+        
+    return( 0 );
+}
+
+s8 isQuote( u8 ucChar )
+{
+    if( ( ucChar == 34 ) || ( ucChar == 39 ) ){
+        return( 1 );
+    } // if
+    
+    return( 0 );
+    
+}
+
+s8 isSeparator( u8 ucChar )
+{
+    if( isCharInString( ucChar, "/\\{}[]-_+=@`|<>'\"" ) ){
+        return( 1 );
+    } // if
+    
+    return( 0 );
+}
+
+s8 isPunctuation( u8 ucChar )
+{
+    if( isCharInString( ucChar, "!?,.:;" ) ){
+        return( 1 );
+    } // if
+        
+    return( 0 );
+}
+
+s8 isCharInString( u8 ucChar, u8 *ucChars )
+{
+    for( ; *ucChars; ) {
+        if( ucChar == *(ucChars++) ){
+            return( 1 );
+        } // if
+    } // for
+    
+    return( 0 );
+}
+
 

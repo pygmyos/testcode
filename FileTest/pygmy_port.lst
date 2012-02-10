@@ -1,0 +1,3209 @@
+
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\FileTest\pygmy_port.o:     file format elf32-littlearm
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\FileTest\pygmy_port.o
+
+
+Disassembly of section .text.pinGetIRQPR:
+
+00000000 <pinGetIRQPR>:
+pinGetIRQPR():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:48
+u32 globalPygmyPWMFreq, globalPygmyPWMCR = 0;
+
+u16 pinGetIRQPR( void )
+{
+    return( globalIRQPR );
+}
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <pinGetIRQPR+0x8>)
+   2:	8818      	ldrh	r0, [r3, #0]
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+   8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.pinGetIRQPin:
+
+00000000 <pinGetIRQPin>:
+pinGetIRQPin():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:53
+
+u8 pinGetIRQPin( u8 ucPin )
+{
+    return( globalIRQPins[ ucPin ] );
+}
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <pinGetIRQPin+0x8>)
+   2:	5c18      	ldrb	r0, [r3, r0]
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+   8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.pinAnalog:
+
+00000000 <pinAnalog>:
+pinAnalog():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:56
+
+u16 pinAnalog( u8 ucPin )
+{
+   0:	b510      	push	{r4, lr}
+   2:	4604      	mov	r4, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:57
+    if( !adcGetStatus( ) ){
+   4:	f7ff fffe 	bl	0 <adcGetStatus>
+   8:	b908      	cbnz	r0, 6 <adcSingleSampleInit+0x6>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:58
+        adcSingleSampleInit();
+   a:	f7ff fffe 	bl	0 <adcSingleSampleInit>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:61
+    } // if
+
+    return( adcSingleSample( ucPin ) );
+   e:	4620      	mov	r0, r4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:62
+}
+  10:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:61
+{
+    if( !adcGetStatus( ) ){
+        adcSingleSampleInit();
+    } // if
+
+    return( adcSingleSample( ucPin ) );
+  14:	f7ff bffe 	b.w	0 <adcSingleSample>
+
+Disassembly of section .text.pinInterrupt:
+
+00000000 <pinInterrupt>:
+pinInterrupt():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:96
+    } // else if
+}
+
+
+void pinInterrupt( PYGMYVOIDPTR pygmyFunc, u8 ucPin, u16 uiMode )
+{
+   0:	b570      	push	{r4, r5, r6, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:104
+    // in the NVIC. EXTI0 is for Pin0 on all Ports, EXTI1 for Pin1, etc.
+    
+
+    u16 uiMask, uiPort, uiPin;
+    
+    PYGMY_RCC_AFIO_ENABLE;
+   2:	4b30      	ldr	r3, [pc, #192]	; (c4 <pinInterrupt+0xc4>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:96
+    } // else if
+}
+
+
+void pinInterrupt( PYGMYVOIDPTR pygmyFunc, u8 ucPin, u16 uiMode )
+{
+   4:	4615      	mov	r5, r2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:104
+    // in the NVIC. EXTI0 is for Pin0 on all Ports, EXTI1 for Pin1, etc.
+    
+
+    u16 uiMask, uiPort, uiPin;
+    
+    PYGMY_RCC_AFIO_ENABLE;
+   6:	699a      	ldr	r2, [r3, #24]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:106
+    uiPort = ucPin / 16;
+    uiPin = ucPin % 16;
+   8:	f001 040f 	and.w	r4, r1, #15
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:104
+    // in the NVIC. EXTI0 is for Pin0 on all Ports, EXTI1 for Pin1, etc.
+    
+
+    u16 uiMask, uiPort, uiPin;
+    
+    PYGMY_RCC_AFIO_ENABLE;
+   c:	f042 0201 	orr.w	r2, r2, #1
+  10:	619a      	str	r2, [r3, #24]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:107
+    uiPort = ucPin / 16;
+    uiPin = ucPin % 16;
+    globalIRQHandlers[ uiPin ] = pygmyFunc;
+  12:	4b2d      	ldr	r3, [pc, #180]	; (c8 <pinInterrupt+0xc8>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:105
+    
+
+    u16 uiMask, uiPort, uiPin;
+    
+    PYGMY_RCC_AFIO_ENABLE;
+    uiPort = ucPin / 16;
+  14:	090e      	lsrs	r6, r1, #4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:107
+    uiPin = ucPin % 16;
+    globalIRQHandlers[ uiPin ] = pygmyFunc;
+  16:	f843 0024 	str.w	r0, [r3, r4, lsl #2]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:108
+    globalIRQPins[ uiPin ] = ucPin;
+  1a:	4b2c      	ldr	r3, [pc, #176]	; (cc <pinInterrupt+0xcc>)
+  1c:	5519      	strb	r1, [r3, r4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:109
+    switch( uiPin ){
+  1e:	1e63      	subs	r3, r4, #1
+  20:	2b0e      	cmp	r3, #14
+  22:	d809      	bhi.n	38 <pinInterrupt+0x38>
+  24:	e8df f003 	tbb	[pc, r3]
+  28:	100e0c0a 	.word	0x100e0c0a
+  2c:	12121212 	.word	0x12121212
+  30:	14141412 	.word	0x14141412
+  34:	1414      	.short	0x1414
+  36:	14          	.byte	0x14
+  37:	00          	.byte	0x00
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:111
+        case 0:
+            interruptEnable( EXTI0_IRQ );
+  38:	2006      	movs	r0, #6
+  3a:	e00a      	b.n	52 <pinInterrupt+0x52>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:114
+            break;
+        case 1:
+            interruptEnable( EXTI1_IRQ );
+  3c:	2007      	movs	r0, #7
+  3e:	e008      	b.n	52 <pinInterrupt+0x52>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:117
+            break;
+        case 2:
+            interruptEnable( EXTI2_IRQ );
+  40:	2008      	movs	r0, #8
+  42:	e006      	b.n	52 <pinInterrupt+0x52>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:120
+            break;
+        case 3:
+            interruptEnable( EXTI3_IRQ );
+  44:	2009      	movs	r0, #9
+  46:	e004      	b.n	52 <pinInterrupt+0x52>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:123
+            break;
+        case 4:
+            interruptEnable( EXTI4_IRQ );
+  48:	200a      	movs	r0, #10
+  4a:	e002      	b.n	52 <pinInterrupt+0x52>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:130
+        case 5:
+        case 6:
+        case 7:
+        case 8:
+        case 9:
+            interruptEnable( EXTI9_5_IRQ );
+  4c:	2017      	movs	r0, #23
+  4e:	e000      	b.n	52 <pinInterrupt+0x52>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:138
+        case 11:
+        case 12:
+        case 13:
+        case 14:
+        case 15:
+            interruptEnable( EXTI15_10_IRQ );
+  50:	2028      	movs	r0, #40	; 0x28
+  52:	f7ff fffe 	bl	0 <interruptEnable>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:141
+            break;
+    } // switch
+    uiMask = ( 0x0001 << uiPin );
+  56:	2301      	movs	r3, #1
+  58:	40a3      	lsls	r3, r4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:142
+    AFIO->EXTICR[ uiPin / 4 ] |= ( uiPort << ( ( uiPin % 4 ) * 4 ) );   // Select Port for EXTI Line applicable to Pin
+  5a:	08a1      	lsrs	r1, r4, #2
+  5c:	f004 0403 	and.w	r4, r4, #3
+  60:	00a4      	lsls	r4, r4, #2
+  62:	40a6      	lsls	r6, r4
+  64:	4a1a      	ldr	r2, [pc, #104]	; (d0 <pinInterrupt+0xd0>)
+  66:	3102      	adds	r1, #2
+  68:	f852 0021 	ldr.w	r0, [r2, r1, lsl #2]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:141
+        case 14:
+        case 15:
+            interruptEnable( EXTI15_10_IRQ );
+            break;
+    } // switch
+    uiMask = ( 0x0001 << uiPin );
+  6c:	b29b      	uxth	r3, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:142
+    AFIO->EXTICR[ uiPin / 4 ] |= ( uiPort << ( ( uiPin % 4 ) * 4 ) );   // Select Port for EXTI Line applicable to Pin
+  6e:	4306      	orrs	r6, r0
+  70:	f842 6021 	str.w	r6, [r2, r1, lsl #2]
+  74:	4a17      	ldr	r2, [pc, #92]	; (d4 <pinInterrupt+0xd4>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:143
+    if( uiMode ){
+  76:	b11d      	cbz	r5, 80 <pinInterrupt+0x80>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:144
+        EXTI->IMR |= uiMask;                                            // Enable Interrupt for Pin
+  78:	6811      	ldr	r1, [r2, #0]
+  7a:	ea43 0101 	orr.w	r1, r3, r1
+  7e:	e002      	b.n	86 <pinInterrupt+0x86>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:146
+    } else{
+        EXTI->IMR &= ~uiMask;
+  80:	6811      	ldr	r1, [r2, #0]
+  82:	ea21 0103 	bic.w	r1, r1, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:148
+    } // else
+    if( uiMode & TRIGGER_FALLING ){                                     // Enable Falling Edge Trigger
+  86:	f015 0f01 	tst.w	r5, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:146
+    uiMask = ( 0x0001 << uiPin );
+    AFIO->EXTICR[ uiPin / 4 ] |= ( uiPort << ( ( uiPin % 4 ) * 4 ) );   // Select Port for EXTI Line applicable to Pin
+    if( uiMode ){
+        EXTI->IMR |= uiMask;                                            // Enable Interrupt for Pin
+    } else{
+        EXTI->IMR &= ~uiMask;
+  8a:	6011      	str	r1, [r2, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:148
+    } // else
+    if( uiMode & TRIGGER_FALLING ){                                     // Enable Falling Edge Trigger
+  8c:	d004      	beq.n	98 <pinInterrupt+0x98>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:149
+        EXTI->FTSR |= uiMask;
+  8e:	4a11      	ldr	r2, [pc, #68]	; (d4 <pinInterrupt+0xd4>)
+  90:	68d1      	ldr	r1, [r2, #12]
+  92:	ea43 0101 	orr.w	r1, r3, r1
+  96:	60d1      	str	r1, [r2, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:151
+    } // if
+    if( uiMode & TRIGGER_RISING ){                                      // Enable Rising Edge Trigger
+  98:	f015 0f02 	tst.w	r5, #2
+  9c:	d004      	beq.n	a8 <pinInterrupt+0xa8>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:152
+        EXTI->RTSR |= uiMask;                                           // Both triggers may be enabled 
+  9e:	4a0d      	ldr	r2, [pc, #52]	; (d4 <pinInterrupt+0xd4>)
+  a0:	6891      	ldr	r1, [r2, #8]
+  a2:	ea43 0101 	orr.w	r1, r3, r1
+  a6:	6091      	str	r1, [r2, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:154
+    } // if
+    if( uiMode & TRIGGER_WAKE ){                                        // Enable Wake Events
+  a8:	f015 0f04 	tst.w	r5, #4
+  ac:	d003      	beq.n	b6 <pinInterrupt+0xb6>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:155
+        EXTI->EMR |= uiMask;
+  ae:	4a09      	ldr	r2, [pc, #36]	; (d4 <pinInterrupt+0xd4>)
+  b0:	6851      	ldr	r1, [r2, #4]
+  b2:	430b      	orrs	r3, r1
+  b4:	6053      	str	r3, [r2, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:157
+    } // if
+    EXTI->PR = 0xFFFFFFFF;
+  b6:	4b07      	ldr	r3, [pc, #28]	; (d4 <pinInterrupt+0xd4>)
+  b8:	f04f 32ff 	mov.w	r2, #4294967295
+  bc:	615a      	str	r2, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:158
+    EXTI->SWIER = 0x00000000;
+  be:	3201      	adds	r2, #1
+  c0:	611a      	str	r2, [r3, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:159
+}
+  c2:	bd70      	pop	{r4, r5, r6, pc}
+  c4:	40021000 	.word	0x40021000
+	...
+  d0:	40010000 	.word	0x40010000
+  d4:	40010400 	.word	0x40010400
+
+Disassembly of section .text.pinEnablePortClock:
+
+00000000 <pinEnablePortClock>:
+pinEnablePortClock():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:163
+
+void pinEnablePortClock( u8 ucPin )
+{
+    if( ucPin < 16 ){
+   0:	d804280f 	.word	0xd804280f
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:164
+        PYGMY_RCC_GPIOA_ENABLE;
+   4:	4b14      	ldr	r3, [pc, #80]	; (58 <pinEnablePortClock+0x58>)
+   6:	699a      	ldr	r2, [r3, #24]
+   8:	f042 0204 	orr.w	r2, r2, #4
+   c:	e01a      	b.n	44 <pinEnablePortClock+0x44>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:165
+    } else if( ucPin < 32 ){
+   e:	281f      	cmp	r0, #31
+  10:	d804      	bhi.n	1c <pinEnablePortClock+0x1c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:166
+        PYGMY_RCC_GPIOB_ENABLE;
+  12:	4b11      	ldr	r3, [pc, #68]	; (58 <pinEnablePortClock+0x58>)
+  14:	699a      	ldr	r2, [r3, #24]
+  16:	f042 0208 	orr.w	r2, r2, #8
+  1a:	e013      	b.n	44 <pinEnablePortClock+0x44>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:167
+    } else if( ucPin < 48 ){
+  1c:	282f      	cmp	r0, #47	; 0x2f
+  1e:	d804      	bhi.n	2a <pinEnablePortClock+0x2a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:168
+        PYGMY_RCC_GPIOC_ENABLE;
+  20:	4b0d      	ldr	r3, [pc, #52]	; (58 <pinEnablePortClock+0x58>)
+  22:	699a      	ldr	r2, [r3, #24]
+  24:	f042 0210 	orr.w	r2, r2, #16
+  28:	e00c      	b.n	44 <pinEnablePortClock+0x44>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:169
+    } else if( ucPin < 64 ){
+  2a:	283f      	cmp	r0, #63	; 0x3f
+  2c:	d804      	bhi.n	38 <pinEnablePortClock+0x38>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:170
+        PYGMY_RCC_GPIOD_ENABLE;
+  2e:	4b0a      	ldr	r3, [pc, #40]	; (58 <pinEnablePortClock+0x58>)
+  30:	699a      	ldr	r2, [r3, #24]
+  32:	f042 0220 	orr.w	r2, r2, #32
+  36:	e005      	b.n	44 <pinEnablePortClock+0x44>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:171
+    } else if( ucPin < 80 ){
+  38:	284f      	cmp	r0, #79	; 0x4f
+  3a:	d805      	bhi.n	48 <pinEnablePortClock+0x48>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:172
+        PYGMY_RCC_GPIOE_ENABLE;
+  3c:	4b06      	ldr	r3, [pc, #24]	; (58 <pinEnablePortClock+0x58>)
+  3e:	699a      	ldr	r2, [r3, #24]
+  40:	f042 0240 	orr.w	r2, r2, #64	; 0x40
+  44:	619a      	str	r2, [r3, #24]
+  46:	4770      	bx	lr
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:173
+    } else if( ucPin < 96 ){
+  48:	285f      	cmp	r0, #95	; 0x5f
+  4a:	d804      	bhi.n	56 <pinEnablePortClock+0x56>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:174
+        PYGMY_RCC_GPIOF_ENABLE;
+  4c:	4b02      	ldr	r3, [pc, #8]	; (58 <pinEnablePortClock+0x58>)
+  4e:	699a      	ldr	r2, [r3, #24]
+  50:	f042 0280 	orr.w	r2, r2, #128	; 0x80
+  54:	619a      	str	r2, [r3, #24]
+  56:	4770      	bx	lr
+  58:	40021000 	.word	0x40021000
+
+Disassembly of section .text.pinGetPort:
+
+00000000 <pinGetPort>:
+pinGetPort():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:180
+    }
+}
+
+GPIO *pinGetPort( u8 ucPin )
+{
+    if( ucPin < 16 ){
+   0:	d90b280f 	.word	0xd90b280f
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:182
+        return( GPIOA );
+    } else if( ucPin < 32 ){
+   4:	281f      	cmp	r0, #31
+   6:	d90b      	bls.n	20 <pinGetPort+0x20>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:184
+        return( GPIOB );
+    } else if( ucPin < 48 ){
+   8:	282f      	cmp	r0, #47	; 0x2f
+   a:	d90b      	bls.n	24 <pinGetPort+0x24>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:186
+        return( GPIOC );
+    } else if( ucPin < 64 ){
+   c:	283f      	cmp	r0, #63	; 0x3f
+   e:	d90b      	bls.n	28 <pinGetPort+0x28>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:189
+        return( GPIOD );
+    } else if( ucPin < 80 ){
+        return( GPIOE );
+  10:	4b06      	ldr	r3, [pc, #24]	; (2c <pinGetPort+0x2c>)
+  12:	284f      	cmp	r0, #79	; 0x4f
+  14:	bf94      	ite	ls
+  16:	4618      	movls	r0, r3
+  18:	2000      	movhi	r0, #0
+  1a:	4770      	bx	lr
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:181
+}
+
+GPIO *pinGetPort( u8 ucPin )
+{
+    if( ucPin < 16 ){
+        return( GPIOA );
+  1c:	4804      	ldr	r0, [pc, #16]	; (30 <pinGetPort+0x30>)
+  1e:	4770      	bx	lr
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:183
+    } else if( ucPin < 32 ){
+        return( GPIOB );
+  20:	4804      	ldr	r0, [pc, #16]	; (34 <pinGetPort+0x34>)
+  22:	4770      	bx	lr
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:185
+    } else if( ucPin < 48 ){
+        return( GPIOC );
+  24:	4804      	ldr	r0, [pc, #16]	; (38 <pinGetPort+0x38>)
+  26:	4770      	bx	lr
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:187
+    } else if( ucPin < 64 ){
+        return( GPIOD );
+  28:	4804      	ldr	r0, [pc, #16]	; (3c <pinGetPort+0x3c>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:196
+        
+    #ifdef GPIOF
+        return( GPIOF );
+    #endif
+    return( NULL );
+}
+  2a:	4770      	bx	lr
+  2c:	40011800 	.word	0x40011800
+  30:	40010800 	.word	0x40010800
+  34:	40010c00 	.word	0x40010c00
+  38:	40011000 	.word	0x40011000
+  3c:	40011400 	.word	0x40011400
+
+Disassembly of section .text.pinSet:
+
+00000000 <pinSet>:
+pinSet():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:202
+
+void pinSet( u8 ucPin, u8 ucState )
+{
+    u16 uiPinMask, uiPinState;
+
+    uiPinMask = BIT0 << ( ucPin % 16 );
+   0:	2201      	movs	r2, #1
+   2:	f000 030f 	and.w	r3, r0, #15
+   6:	fa12 f303 	lsls.w	r3, r2, r3
+   a:	b29b      	uxth	r3, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:203
+    uiPinState = 0;
+   c:	2900      	cmp	r1, #0
+   e:	bf14      	ite	ne
+  10:	4619      	movne	r1, r3
+  12:	2100      	moveq	r1, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:207
+    if( ucState ){
+        uiPinState = uiPinMask;
+    } // if
+    if( ucPin < 16 ){
+  14:	280f      	cmp	r0, #15
+  16:	d801      	bhi.n	1c <pinSet+0x1c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:208
+        GPIOA->ODR &= ~uiPinMask;
+  18:	4a0f      	ldr	r2, [pc, #60]	; (58 <pinSet+0x58>)
+  1a:	e00a      	b.n	32 <pinSet+0x32>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:210
+        GPIOA->ODR |= uiPinState;
+    } else if( ucPin < 32 ){
+  1c:	281f      	cmp	r0, #31
+  1e:	d801      	bhi.n	24 <pinSet+0x24>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:211
+        GPIOB->ODR &= ~uiPinMask;
+  20:	4a0e      	ldr	r2, [pc, #56]	; (5c <pinSet+0x5c>)
+  22:	e006      	b.n	32 <pinSet+0x32>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:213
+        GPIOB->ODR |= uiPinState; 
+    } else if( ucPin < 48 ){
+  24:	282f      	cmp	r0, #47	; 0x2f
+  26:	d801      	bhi.n	2c <pinSet+0x2c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:214
+        GPIOC->ODR &= ~uiPinMask;
+  28:	4a0d      	ldr	r2, [pc, #52]	; (60 <pinSet+0x60>)
+  2a:	e002      	b.n	32 <pinSet+0x32>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:216
+        GPIOC->ODR |= uiPinState;
+    } else if( ucPin < 64 ){
+  2c:	283f      	cmp	r0, #63	; 0x3f
+  2e:	d808      	bhi.n	42 <pinSet+0x42>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:217
+        GPIOD->ODR &= ~uiPinMask;
+  30:	4a0c      	ldr	r2, [pc, #48]	; (64 <pinSet+0x64>)
+  32:	68d0      	ldr	r0, [r2, #12]
+  34:	ea20 0303 	bic.w	r3, r0, r3
+  38:	60d3      	str	r3, [r2, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:218
+        GPIOD->ODR |= uiPinState;
+  3a:	68d3      	ldr	r3, [r2, #12]
+  3c:	4319      	orrs	r1, r3
+  3e:	60d1      	str	r1, [r2, #12]
+  40:	4770      	bx	lr
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:219
+    } else if( ucPin < 80 ){
+  42:	284f      	cmp	r0, #79	; 0x4f
+  44:	d807      	bhi.n	56 <pinSet+0x56>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:220
+        GPIOE->ODR &= ~uiPinMask;
+  46:	4a08      	ldr	r2, [pc, #32]	; (68 <pinSet+0x68>)
+  48:	68d0      	ldr	r0, [r2, #12]
+  4a:	ea20 0303 	bic.w	r3, r0, r3
+  4e:	60d3      	str	r3, [r2, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:221
+        GPIOE->ODR |= uiPinState;
+  50:	68d3      	ldr	r3, [r2, #12]
+  52:	4319      	orrs	r1, r3
+  54:	60d1      	str	r1, [r2, #12]
+  56:	4770      	bx	lr
+  58:	40010800 	.word	0x40010800
+  5c:	40010c00 	.word	0x40010c00
+  60:	40011000 	.word	0x40011000
+  64:	40011400 	.word	0x40011400
+  68:	40011800 	.word	0x40011800
+
+Disassembly of section .text.pinConfig:
+
+00000000 <pinConfig>:
+pinConfig():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:65
+
+    return( adcSingleSample( ucPin ) );
+}
+
+void pinConfig( u8 ucPin, u8 ucMode )
+{
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	4604      	mov	r4, r0
+   4:	460d      	mov	r5, r1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:74
+
+    // Port registers are broken into 8 pins each in the STM32
+    // CRL contains the config bits for 0-7
+    // CRH contains the config bits for 8-15
+    // each bit is configured with 4 bits
+    pinEnablePortClock( ucPin ); // Enable clock BEFORE accessing registers
+   6:	f7ff fffe 	bl	0 <pinConfig>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:75
+    pygmyPort = pinGetPort( ucPin );
+   a:	4620      	mov	r0, r4
+   c:	f7ff fffe 	bl	0 <pinConfig>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:76
+    uiPortMode = ( PIN_CLEAR & ucMode) << ( ( ucPin % 8 ) * 4 );
+  10:	f004 0207 	and.w	r2, r4, #7
+  14:	0092      	lsls	r2, r2, #2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:77
+    uiPortClear = ~( PIN_CLEAR << ( ( ucPin % 8 ) * 4 ) ); // Clear before setting bits
+  16:	210f      	movs	r1, #15
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:76
+    // CRL contains the config bits for 0-7
+    // CRH contains the config bits for 8-15
+    // each bit is configured with 4 bits
+    pinEnablePortClock( ucPin ); // Enable clock BEFORE accessing registers
+    pygmyPort = pinGetPort( ucPin );
+    uiPortMode = ( PIN_CLEAR & ucMode) << ( ( ucPin % 8 ) * 4 );
+  18:	f005 030f 	and.w	r3, r5, #15
+  1c:	4093      	lsls	r3, r2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:77
+    uiPortClear = ~( PIN_CLEAR << ( ( ucPin % 8 ) * 4 ) ); // Clear before setting bits
+  1e:	fa11 f202 	lsls.w	r2, r1, r2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:79
+    uiPin = ucPin % 16;
+    if( uiPin < 8 ){
+  22:	ea04 0101 	and.w	r1, r4, r1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:77
+    // CRH contains the config bits for 8-15
+    // each bit is configured with 4 bits
+    pinEnablePortClock( ucPin ); // Enable clock BEFORE accessing registers
+    pygmyPort = pinGetPort( ucPin );
+    uiPortMode = ( PIN_CLEAR & ucMode) << ( ( ucPin % 8 ) * 4 );
+    uiPortClear = ~( PIN_CLEAR << ( ( ucPin % 8 ) * 4 ) ); // Clear before setting bits
+  26:	43d2      	mvns	r2, r2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:79
+    uiPin = ucPin % 16;
+    if( uiPin < 8 ){
+  28:	2907      	cmp	r1, #7
+  2a:	d806      	bhi.n	3a <pinConfig+0x3a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:80
+        pygmyPort->CRL &= uiPortClear;
+  2c:	6801      	ldr	r1, [r0, #0]
+  2e:	400a      	ands	r2, r1
+  30:	6002      	str	r2, [r0, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:81
+        pygmyPort->CRL |= uiPortMode;
+  32:	6802      	ldr	r2, [r0, #0]
+  34:	4313      	orrs	r3, r2
+  36:	6003      	str	r3, [r0, #0]
+  38:	e005      	b.n	46 <pinConfig+0x46>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:83
+    } else{
+        pygmyPort->CRH &= uiPortClear;
+  3a:	6841      	ldr	r1, [r0, #4]
+  3c:	400a      	ands	r2, r1
+  3e:	6042      	str	r2, [r0, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:84
+        pygmyPort->CRH |= uiPortMode;
+  40:	6842      	ldr	r2, [r0, #4]
+  42:	4313      	orrs	r3, r2
+  44:	6043      	str	r3, [r0, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:87
+    } // else
+    
+    if( ucMode & PULLUP ){
+  46:	f015 0118 	ands.w	r1, r5, #24
+  4a:	d002      	beq.n	52 <pinConfig+0x52>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:88
+        pinSet( ucPin, HIGH );
+  4c:	4620      	mov	r0, r4
+  4e:	2101      	movs	r1, #1
+  50:	e003      	b.n	5a <pinConfig+0x5a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:89
+    } else if( ucMode & PULLDOWN ){
+  52:	f015 0f28 	tst.w	r5, #40	; 0x28
+  56:	d004      	beq.n	62 <pinConfig+0x62>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:90
+        pinSet( ucPin, LOW );
+  58:	4620      	mov	r0, r4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:92
+    } // else if
+}
+  5a:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:90
+    } // else
+    
+    if( ucMode & PULLUP ){
+        pinSet( ucPin, HIGH );
+    } else if( ucMode & PULLDOWN ){
+        pinSet( ucPin, LOW );
+  5e:	f7ff bffe 	b.w	0 <pinConfig>
+  62:	bd70      	pop	{r4, r5, r6, pc}
+
+Disassembly of section .text.pinGet:
+
+00000000 <pinGet>:
+pinGet():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:235
+
+u8 pinGet( u8 ucPin )
+{
+    u16 uiPinMask;
+    
+    uiPinMask = BIT0 << ( ucPin % 16 );
+   0:	2201      	movs	r2, #1
+   2:	f000 030f 	and.w	r3, r0, #15
+   6:	fa12 f303 	lsls.w	r3, r2, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:236
+    if( ucPin < 16 ){
+   a:	280f      	cmp	r0, #15
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:235
+
+u8 pinGet( u8 ucPin )
+{
+    u16 uiPinMask;
+    
+    uiPinMask = BIT0 << ( ucPin % 16 );
+   c:	b29b      	uxth	r3, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:236
+    if( ucPin < 16 ){
+   e:	d801      	bhi.n	14 <pinGet+0x14>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:237
+        uiPinMask &= GPIOA->IDR;
+  10:	4a0b      	ldr	r2, [pc, #44]	; (40 <pinGet+0x40>)
+  12:	e00e      	b.n	32 <pinGet+0x32>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:238
+    } else if( ucPin < 32 ){
+  14:	281f      	cmp	r0, #31
+  16:	d801      	bhi.n	1c <pinGet+0x1c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:239
+        uiPinMask &= GPIOB->IDR;
+  18:	4a0a      	ldr	r2, [pc, #40]	; (44 <pinGet+0x44>)
+  1a:	e00a      	b.n	32 <pinGet+0x32>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:240
+    } else if( ucPin < 48 ){
+  1c:	282f      	cmp	r0, #47	; 0x2f
+  1e:	d801      	bhi.n	24 <pinGet+0x24>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:241
+        uiPinMask &= GPIOC->IDR;
+  20:	4a09      	ldr	r2, [pc, #36]	; (48 <pinGet+0x48>)
+  22:	e006      	b.n	32 <pinGet+0x32>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:242
+    } else if( ucPin < 64 ){
+  24:	283f      	cmp	r0, #63	; 0x3f
+  26:	d801      	bhi.n	2c <pinGet+0x2c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:243
+        uiPinMask &= GPIOD->IDR;
+  28:	4a08      	ldr	r2, [pc, #32]	; (4c <pinGet+0x4c>)
+  2a:	e002      	b.n	32 <pinGet+0x32>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:244
+    } else if( ucPin < 80 ){
+  2c:	284f      	cmp	r0, #79	; 0x4f
+  2e:	d802      	bhi.n	36 <pinGet+0x36>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:245
+        uiPinMask &= GPIOE->IDR;
+  30:	4a07      	ldr	r2, [pc, #28]	; (50 <pinGet+0x50>)
+  32:	6892      	ldr	r2, [r2, #8]
+  34:	4013      	ands	r3, r2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:258
+    if( uiPinMask ){
+        return( HIGH );
+    } else{
+        return( LOW );
+    } // else
+}
+  36:	1e18      	subs	r0, r3, #0
+  38:	bf18      	it	ne
+  3a:	2001      	movne	r0, #1
+  3c:	4770      	bx	lr
+  3e:	bf00      	nop
+  40:	40010800 	.word	0x40010800
+  44:	40010c00 	.word	0x40010c00
+  48:	40011000 	.word	0x40011000
+  4c:	40011400 	.word	0x40011400
+  50:	40011800 	.word	0x40011800
+
+Disassembly of section .text.pinGetTimer:
+
+00000000 <pinGetTimer>:
+pinGetTimer():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:261
+
+void *pinGetTimer( u8 ucPin )
+{
+   0:	b510      	push	{r4, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:278
+                } else if( i == 2 ){
+                    return( TIM3 );
+                } else if( i == 3 ){
+                    return( TIM4 );
+                } else{
+                    return( NULL );
+   2:	4912      	ldr	r1, [pc, #72]	; (4c <pinGetTimer+0x4c>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:266
+{
+    u16 i, ii;
+    u8 *ucTimerPins;
+    
+    ucTimerPins = (u8*)PYGMY_TIMERPINS;
+    for( i = 0; i < 4; i++ ){
+   4:	2300      	movs	r3, #0
+   6:	e015      	b.n	34 <pinGetTimer+0x34>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:268
+        for( ii = 0; ii < 4; ii ++ ){
+            if( *(ucTimerPins + ( i * 4 ) + ii ) == ucPin ){
+   8:	5c8c      	ldrb	r4, [r1, r2]
+   a:	4284      	cmp	r4, r0
+   c:	d10a      	bne.n	24 <pinGetTimer+0x24>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:269
+                if( i == 0 ){
+   e:	b1a3      	cbz	r3, 3a <pinGetTimer+0x3a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:271
+                    return( TIM1 );
+                } else if( i == 1 ){
+  10:	2b01      	cmp	r3, #1
+  12:	d014      	beq.n	3e <pinGetTimer+0x3e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:273
+                    return( TIM2 );
+                } else if( i == 2 ){
+  14:	2b02      	cmp	r3, #2
+  16:	d015      	beq.n	44 <pinGetTimer+0x44>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:276
+                    return( TIM3 );
+                } else if( i == 3 ){
+                    return( TIM4 );
+  18:	4a0d      	ldr	r2, [pc, #52]	; (50 <pinGetTimer+0x50>)
+  1a:	2b03      	cmp	r3, #3
+  1c:	bf0c      	ite	eq
+  1e:	4613      	moveq	r3, r2
+  20:	2300      	movne	r3, #0
+  22:	e010      	b.n	46 <pinGetTimer+0x46>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:275
+                    return( TIM1 );
+                } else if( i == 1 ){
+                    return( TIM2 );
+                } else if( i == 2 ){
+                    return( TIM3 );
+                } else if( i == 3 ){
+  24:	3201      	adds	r2, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:267
+    u16 i, ii;
+    u8 *ucTimerPins;
+    
+    ucTimerPins = (u8*)PYGMY_TIMERPINS;
+    for( i = 0; i < 4; i++ ){
+        for( ii = 0; ii < 4; ii ++ ){
+  26:	2a04      	cmp	r2, #4
+  28:	d1ee      	bne.n	8 <pinGetTimer+0x8>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:266
+{
+    u16 i, ii;
+    u8 *ucTimerPins;
+    
+    ucTimerPins = (u8*)PYGMY_TIMERPINS;
+    for( i = 0; i < 4; i++ ){
+  2a:	3301      	adds	r3, #1
+  2c:	b29b      	uxth	r3, r3
+  2e:	3104      	adds	r1, #4
+  30:	2b04      	cmp	r3, #4
+  32:	d001      	beq.n	38 <pinGetTimer+0x38>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:261
+        return( LOW );
+    } // else
+}
+
+void *pinGetTimer( u8 ucPin )
+{
+  34:	2200      	movs	r2, #0
+  36:	e7e7      	b.n	8 <pinGetTimer+0x8>
+  38:	bd10      	pop	{r4, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:270
+    ucTimerPins = (u8*)PYGMY_TIMERPINS;
+    for( i = 0; i < 4; i++ ){
+        for( ii = 0; ii < 4; ii ++ ){
+            if( *(ucTimerPins + ( i * 4 ) + ii ) == ucPin ){
+                if( i == 0 ){
+                    return( TIM1 );
+  3a:	4b06      	ldr	r3, [pc, #24]	; (54 <pinGetTimer+0x54>)
+  3c:	e003      	b.n	46 <pinGetTimer+0x46>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:272
+                } else if( i == 1 ){
+                    return( TIM2 );
+  3e:	f04f 4380 	mov.w	r3, #1073741824	; 0x40000000
+  42:	e000      	b.n	46 <pinGetTimer+0x46>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:274
+                } else if( i == 2 ){
+                    return( TIM3 );
+  44:	4b04      	ldr	r3, [pc, #16]	; (58 <pinGetTimer+0x58>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:283
+                    return( NULL );
+                }
+            } // if
+        } // for
+    } // for
+}
+  46:	4618      	mov	r0, r3
+  48:	bd10      	pop	{r4, pc}
+  4a:	bf00      	nop
+  4c:	00000000 	.word	0x00000000
+  50:	40000800 	.word	0x40000800
+  54:	40012c00 	.word	0x40012c00
+  58:	40000400 	.word	0x40000400
+
+Disassembly of section .text.pinGetChannel:
+
+00000000 <pinGetChannel>:
+pinGetChannel():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:286
+
+u8 pinGetChannel( u8 ucPin )
+{
+   0:	f04fb510 	.word	0xf04fb510
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:285
+            } // if
+        } // for
+    } // for
+}
+
+u8 pinGetChannel( u8 ucPin )
+   4:	33ff      	adds	r3, #255	; 0xff
+   6:	e00c      	b.n	22 <pinGetChannel+0x22>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:292
+    u8 i, ii, *ucTimerPins;
+    
+    ucTimerPins = (u8*)PYGMY_TIMERPINS;
+    for( i = 0; i < 4; i++ ){
+        for( ii = 0; ii < 4; ii ++ ){
+            if( *(ucTimerPins + ( i * 4 ) + ii ) == ucPin ){
+   8:	f811 4f01 	ldrb.w	r4, [r1, #1]!
+   c:	3201      	adds	r2, #1
+   e:	4284      	cmp	r4, r0
+  10:	d101      	bne.n	16 <pinGetChannel+0x16>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:293
+                return( 1 + ii );
+  12:	b2d0      	uxtb	r0, r2
+  14:	bd10      	pop	{r4, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:291
+{
+    u8 i, ii, *ucTimerPins;
+    
+    ucTimerPins = (u8*)PYGMY_TIMERPINS;
+    for( i = 0; i < 4; i++ ){
+        for( ii = 0; ii < 4; ii ++ ){
+  16:	b2d2      	uxtb	r2, r2
+  18:	2a04      	cmp	r2, #4
+  1a:	d1f5      	bne.n	8 <pinGetChannel+0x8>
+  1c:	3304      	adds	r3, #4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:290
+u8 pinGetChannel( u8 ucPin )
+{
+    u8 i, ii, *ucTimerPins;
+    
+    ucTimerPins = (u8*)PYGMY_TIMERPINS;
+    for( i = 0; i < 4; i++ ){
+  1e:	2b0f      	cmp	r3, #15
+  20:	d003      	beq.n	2a <pinGetChannel+0x2a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:285
+            } // if
+        } // for
+    } // for
+}
+
+u8 pinGetChannel( u8 ucPin )
+  22:	4903      	ldr	r1, [pc, #12]	; (30 <pinGetChannel+0x30>)
+  24:	2200      	movs	r2, #0
+  26:	18c9      	adds	r1, r1, r3
+  28:	e7ee      	b.n	8 <pinGetChannel+0x8>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:298
+                return( 1 + ii );
+            } // if
+        } // for
+    } // for
+    
+    return( 0 ); // 0 is an invalid channel
+  2a:	2000      	movs	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:299
+}
+  2c:	bd10      	pop	{r4, pc}
+  2e:	bf00      	nop
+  30:	00000000 	.word	0x00000000
+
+Disassembly of section .text.pinCounter:
+
+00000000 <pinCounter>:
+pinCounter():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:304
+
+u8 pinCounter( u8 ucPin )
+{
+    
+}
+   0:	4770      	bx	lr
+
+Disassembly of section .text.pinSetSoftPWMFreq:
+
+00000000 <pinSetSoftPWMFreq>:
+pinSetSoftPWMFreq():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:478
+    return( 1 );
+}
+
+void pinSetSoftPWMFreq( u32 ulFreq )
+{
+    globalPygmyPWMFreq = ulFreq;
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <pinSetSoftPWMFreq+0x8>)
+   2:	6018      	str	r0, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:479
+}
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+   8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.pinGetSoftPWMFreq:
+
+00000000 <pinGetSoftPWMFreq>:
+pinGetSoftPWMFreq():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:484
+
+u32 pinGetSoftPWMFreq( void )
+{
+    return( globalPygmyPWMFreq );
+}
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <pinGetSoftPWMFreq+0x8>)
+   2:	6818      	ldr	r0, [r3, #0]
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+   8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.pinInitSoftPWM:
+
+00000000 <pinInitSoftPWM>:
+pinInitSoftPWM():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:487
+
+void pinInitSoftPWM( void )
+{
+   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:495
+    u8 ucTimer;
+    
+    #ifdef __PYGMYSOFTPWMFREQ
+        globalPygmyPWMFreq = __PYGMYSOFTPWMFREQ;
+    #else
+        globalPygmyPWMFreq = 8000;
+   2:	4f1a      	ldr	r7, [pc, #104]	; (6c <pinInitSoftPWM+0x6c>)
+   4:	f44f 53fa 	mov.w	r3, #8000	; 0x1f40
+   8:	603b      	str	r3, [r7, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:498
+    #endif
+    for( i = 0; i < PYGMY_PWMCHANNELS; i++ ){
+        globalPygmyPWM[ i ].CR = 0;
+   a:	4b19      	ldr	r3, [pc, #100]	; (70 <pinInitSoftPWM+0x70>)
+   c:	2400      	movs	r4, #0
+   e:	735c      	strb	r4, [r3, #13]
+  10:	775c      	strb	r4, [r3, #29]
+  12:	f883 402d 	strb.w	r4, [r3, #45]	; 0x2d
+  16:	f883 403d 	strb.w	r4, [r3, #61]	; 0x3d
+  1a:	f883 404d 	strb.w	r4, [r3, #77]	; 0x4d
+  1e:	f883 405d 	strb.w	r4, [r3, #93]	; 0x5d
+  22:	f883 406d 	strb.w	r4, [r3, #109]	; 0x6d
+  26:	f883 407d 	strb.w	r4, [r3, #125]	; 0x7d
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:500
+    } // for
+    ucTimer = sysGetPWMTimer();
+  2a:	f7ff fffe 	bl	0 <sysGetPWMTimer>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:501
+    if( ucTimer < 2 ){
+  2e:	2801      	cmp	r0, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:500
+        globalPygmyPWMFreq = 8000;
+    #endif
+    for( i = 0; i < PYGMY_PWMCHANNELS; i++ ){
+        globalPygmyPWM[ i ].CR = 0;
+    } // for
+    ucTimer = sysGetPWMTimer();
+  30:	4606      	mov	r6, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:501
+    if( ucTimer < 2 ){
+  32:	d919      	bls.n	68 <pinInitSoftPWM+0x68>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:505
+        return; // Timer1 cannot be used for SoftPWM
+    } // if
+    
+    pygmyTimer = sysGetTimer( ucTimer );
+  34:	f7ff fffe 	bl	0 <sysGetTimer>
+  38:	4605      	mov	r5, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:507
+    
+    sysEnableTimerClock( ucTimer );
+  3a:	4630      	mov	r0, r6
+  3c:	f7ff fffe 	bl	0 <sysEnableTimerClock>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:508
+    sysEnableTimerInterrupt( ucTimer );
+  40:	4630      	mov	r0, r6
+  42:	f7ff fffe 	bl	0 <sysEnableTimerInterrupt>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:516
+    pygmyTimer->CR1     = 0;                            // Disable before configuring timer
+    pygmyTimer->CR2     = 0;                            //
+    pygmyTimer->SMCR    = 0;                            //
+    pygmyTimer->PSC     = 0;                            // 
+    pygmyTimer->CNT     = 0;                            // Count Register
+    pygmyTimer->DIER    = TIM_UIE;                      // DMA and interrupt enable register
+  46:	2301      	movs	r3, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:511
+    
+    sysEnableTimerClock( ucTimer );
+    sysEnableTimerInterrupt( ucTimer );
+    //PYGMY_RCC_TIMER16_ENABLE;
+    //interruptEnable( TIM16_IRQ );
+    pygmyTimer->CR1     = 0;                            // Disable before configuring timer
+  48:	802c      	strh	r4, [r5, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:512
+    pygmyTimer->CR2     = 0;                            //
+  4a:	80ac      	strh	r4, [r5, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:513
+    pygmyTimer->SMCR    = 0;                            //
+  4c:	812c      	strh	r4, [r5, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:514
+    pygmyTimer->PSC     = 0;                            // 
+  4e:	852c      	strh	r4, [r5, #40]	; 0x28
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:515
+    pygmyTimer->CNT     = 0;                            // Count Register
+  50:	84ac      	strh	r4, [r5, #36]	; 0x24
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:516
+    pygmyTimer->DIER    = TIM_UIE;                      // DMA and interrupt enable register
+  52:	81ab      	strh	r3, [r5, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:517
+    pygmyTimer->ARR     = ( sysGetMainClock() / globalPygmyPWMFreq ) & 0x0000FFFF;  // Auto Reload Register
+  54:	f7ff fffe 	bl	0 <sysGetMainClock>
+  58:	683b      	ldr	r3, [r7, #0]
+  5a:	fbb0 f3f3 	udiv	r3, r0, r3
+  5e:	b29b      	uxth	r3, r3
+  60:	85ab      	strh	r3, [r5, #44]	; 0x2c
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:519
+    pygmyTimer->SR      = 0;                            //
+    pygmyTimer->CR1     = ( TIM_ARPE | TIM_CEN );       // Enable Auto Reload and Counter
+  62:	2381      	movs	r3, #129	; 0x81
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:518
+    pygmyTimer->SMCR    = 0;                            //
+    pygmyTimer->PSC     = 0;                            // 
+    pygmyTimer->CNT     = 0;                            // Count Register
+    pygmyTimer->DIER    = TIM_UIE;                      // DMA and interrupt enable register
+    pygmyTimer->ARR     = ( sysGetMainClock() / globalPygmyPWMFreq ) & 0x0000FFFF;  // Auto Reload Register
+    pygmyTimer->SR      = 0;                            //
+  64:	822c      	strh	r4, [r5, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:519
+    pygmyTimer->CR1     = ( TIM_ARPE | TIM_CEN );       // Enable Auto Reload and Counter
+  66:	802b      	strh	r3, [r5, #0]
+  68:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+  6a:	bf00      	nop
+	...
+
+Disassembly of section .text.pinPulseLow:
+
+00000000 <pinPulseLow>:
+pinPulseLow():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:451
+    u16 i;
+    
+    // This function's timing is based on SoftPWM Frequency
+    // If frequency is set to 10000, then count is decremented 10000 per second
+    // First find empty PWM register slot
+    if( globalPygmyPWMCR == 0 ){
+   0:	4b1c      	ldr	r3, [pc, #112]	; (74 <pinPulseLow+0x74>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:445
+    // Max toggle speed is PWM frequency / 2
+    return( pinAddSoftPWM( ucPin, ulFreq, 50 ) );
+}
+
+u8 pinPulseLow( u8 ucPin, u32 ulDeadTime, u32 ulPulse )
+{
+   2:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:451
+    u16 i;
+    
+    // This function's timing is based on SoftPWM Frequency
+    // If frequency is set to 10000, then count is decremented 10000 per second
+    // First find empty PWM register slot
+    if( globalPygmyPWMCR == 0 ){
+   6:	681b      	ldr	r3, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:445
+    // Max toggle speed is PWM frequency / 2
+    return( pinAddSoftPWM( ucPin, ulFreq, 50 ) );
+}
+
+u8 pinPulseLow( u8 ucPin, u32 ulDeadTime, u32 ulPulse )
+{
+   8:	4604      	mov	r4, r0
+   a:	460d      	mov	r5, r1
+   c:	4617      	mov	r7, r2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:451
+    u16 i;
+    
+    // This function's timing is based on SoftPWM Frequency
+    // If frequency is set to 10000, then count is decremented 10000 per second
+    // First find empty PWM register slot
+    if( globalPygmyPWMCR == 0 ){
+   e:	b90b      	cbnz	r3, 14 <pinPulseLow+0x14>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:452
+        pinInitSoftPWM( );
+  10:	f7ff fffe 	bl	0 <pinPulseLow>
+  14:	4b18      	ldr	r3, [pc, #96]	; (78 <pinPulseLow+0x78>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:445
+    // Max toggle speed is PWM frequency / 2
+    return( pinAddSoftPWM( ucPin, ulFreq, 50 ) );
+}
+
+u8 pinPulseLow( u8 ucPin, u32 ulDeadTime, u32 ulPulse )
+{
+  16:	2200      	movs	r2, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:454
+    // If frequency is set to 10000, then count is decremented 10000 per second
+    // First find empty PWM register slot
+    if( globalPygmyPWMCR == 0 ){
+        pinInitSoftPWM( );
+    } // if
+    for( i = 0; i < PYGMY_PWMCHANNELS; i++ ){
+  18:	4616      	mov	r6, r2
+  1a:	4619      	mov	r1, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:455
+        if( globalPygmyPWM[ i ].CR == 0 || globalPygmyPWM[ i ].Pin == ucPin ){
+  1c:	7b58      	ldrb	r0, [r3, #13]
+  1e:	b110      	cbz	r0, 26 <pinPulseLow+0x26>
+  20:	7b18      	ldrb	r0, [r3, #12]
+  22:	42a0      	cmp	r0, r4
+  24:	d109      	bne.n	3a <pinPulseLow+0x3a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:456
+            globalPygmyPWM[ i ].CR = 0; // if pin already exists, CR must be cleared 
+  26:	2000      	movs	r0, #0
+  28:	eb01 1202 	add.w	r2, r1, r2, lsl #4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:460
+            break;
+        } // if 
+    } // for
+    if( i == PYGMY_PWMCHANNELS ){
+  2c:	2e08      	cmp	r6, #8
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:456
+    if( globalPygmyPWMCR == 0 ){
+        pinInitSoftPWM( );
+    } // if
+    for( i = 0; i < PYGMY_PWMCHANNELS; i++ ){
+        if( globalPygmyPWM[ i ].CR == 0 || globalPygmyPWM[ i ].Pin == ucPin ){
+            globalPygmyPWM[ i ].CR = 0; // if pin already exists, CR must be cleared 
+  2e:	f8df 8048 	ldr.w	r8, [pc, #72]	; 78 <pinPulseLow+0x78>
+  32:	7350      	strb	r0, [r2, #13]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:460
+            break;
+        } // if 
+    } // for
+    if( i == PYGMY_PWMCHANNELS ){
+  34:	d10a      	bne.n	4c <pinPulseLow+0x4c>
+  36:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:454
+    // If frequency is set to 10000, then count is decremented 10000 per second
+    // First find empty PWM register slot
+    if( globalPygmyPWMCR == 0 ){
+        pinInitSoftPWM( );
+    } // if
+    for( i = 0; i < PYGMY_PWMCHANNELS; i++ ){
+  3a:	3601      	adds	r6, #1
+  3c:	b2b6      	uxth	r6, r6
+  3e:	3201      	adds	r2, #1
+  40:	3310      	adds	r3, #16
+  42:	2e08      	cmp	r6, #8
+  44:	d1ea      	bne.n	1c <pinPulseLow+0x1c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:462
+            break;
+        } // if 
+    } // for
+    if( i == PYGMY_PWMCHANNELS ){
+        // No open slots
+        return( 0 );
+  46:	2000      	movs	r0, #0
+  48:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:465
+    } // if
+
+    pinConfig( ucPin, OUT );
+  4c:	4620      	mov	r0, r4
+  4e:	2103      	movs	r1, #3
+  50:	f7ff fffe 	bl	0 <pinPulseLow>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:467
+    pinSet( ucPin, HIGH );
+    globalPygmyPWM[ i ].UpCount = ulPulse;
+  54:	0136      	lsls	r6, r6, #4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:466
+        // No open slots
+        return( 0 );
+    } // if
+
+    pinConfig( ucPin, OUT );
+    pinSet( ucPin, HIGH );
+  56:	4620      	mov	r0, r4
+  58:	2101      	movs	r1, #1
+  5a:	f7ff fffe 	bl	0 <pinPulseLow>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:467
+    globalPygmyPWM[ i ].UpCount = ulPulse;
+  5e:	eb08 0306 	add.w	r3, r8, r6
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:471
+    globalPygmyPWM[ i ].DownCount = ulDeadTime;
+    globalPygmyPWM[ i ].Count = globalPygmyPWM[ i ].UpCount; 
+    globalPygmyPWM[ i ].Pin = ucPin;
+    globalPygmyPWM[ i ].CR = PYGMY_PWM_EN;
+  62:	2001      	movs	r0, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:467
+        return( 0 );
+    } // if
+
+    pinConfig( ucPin, OUT );
+    pinSet( ucPin, HIGH );
+    globalPygmyPWM[ i ].UpCount = ulPulse;
+  64:	f848 7006 	str.w	r7, [r8, r6]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:468
+    globalPygmyPWM[ i ].DownCount = ulDeadTime;
+  68:	605d      	str	r5, [r3, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:469
+    globalPygmyPWM[ i ].Count = globalPygmyPWM[ i ].UpCount; 
+  6a:	609f      	str	r7, [r3, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:470
+    globalPygmyPWM[ i ].Pin = ucPin;
+  6c:	731c      	strb	r4, [r3, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:471
+    globalPygmyPWM[ i ].CR = PYGMY_PWM_EN;
+  6e:	7358      	strb	r0, [r3, #13]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:474
+    
+    return( 1 );
+}
+  70:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+	...
+
+Disassembly of section .text.pinPulseHigh:
+
+00000000 <pinPulseHigh>:
+pinPulseHigh():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:406
+    
+    return( 1 );
+}
+
+u8 pinPulseHigh( u8 ucPin, u32 ulDeadTime, u32 ulPulse )
+{
+   0:	e92d 43f8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:412
+    u16 i;
+    
+    // This function's timing is based on SoftPWM Frequency
+    // If frequency is set to 10000, then count is decremented 10000 per second
+    // First find empty PWM register slot
+    if( globalPygmyPWMCR == 0 ){
+   4:	4b1e      	ldr	r3, [pc, #120]	; (80 <pinPulseHigh+0x80>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:406
+    
+    return( 1 );
+}
+
+u8 pinPulseHigh( u8 ucPin, u32 ulDeadTime, u32 ulPulse )
+{
+   6:	4604      	mov	r4, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:412
+    u16 i;
+    
+    // This function's timing is based on SoftPWM Frequency
+    // If frequency is set to 10000, then count is decremented 10000 per second
+    // First find empty PWM register slot
+    if( globalPygmyPWMCR == 0 ){
+   8:	681b      	ldr	r3, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:406
+    
+    return( 1 );
+}
+
+u8 pinPulseHigh( u8 ucPin, u32 ulDeadTime, u32 ulPulse )
+{
+   a:	460d      	mov	r5, r1
+   c:	4691      	mov	r9, r2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:412
+    u16 i;
+    
+    // This function's timing is based on SoftPWM Frequency
+    // If frequency is set to 10000, then count is decremented 10000 per second
+    // First find empty PWM register slot
+    if( globalPygmyPWMCR == 0 ){
+   e:	b90b      	cbnz	r3, 14 <pinPulseHigh+0x14>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:413
+        pinInitSoftPWM( );
+  10:	f7ff fffe 	bl	0 <pinPulseHigh>
+  14:	4b1b      	ldr	r3, [pc, #108]	; (84 <pinPulseHigh+0x84>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:406
+    
+    return( 1 );
+}
+
+u8 pinPulseHigh( u8 ucPin, u32 ulDeadTime, u32 ulPulse )
+{
+  16:	2200      	movs	r2, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:415
+    // If frequency is set to 10000, then count is decremented 10000 per second
+    // First find empty PWM register slot
+    if( globalPygmyPWMCR == 0 ){
+        pinInitSoftPWM( );
+    } // if
+    for( i = 0; i < PYGMY_PWMCHANNELS; i++ ){
+  18:	4616      	mov	r6, r2
+  1a:	4619      	mov	r1, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:416
+        if( globalPygmyPWM[ i ].CR == 0 || globalPygmyPWM[ i ].Pin == ucPin ){
+  1c:	7b58      	ldrb	r0, [r3, #13]
+  1e:	b110      	cbz	r0, 26 <pinPulseHigh+0x26>
+  20:	7b18      	ldrb	r0, [r3, #12]
+  22:	42a0      	cmp	r0, r4
+  24:	d108      	bne.n	38 <pinPulseHigh+0x38>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:417
+            globalPygmyPWM[ i ].CR = 0; // if pin already exists, CR must be cleared 
+  26:	2700      	movs	r7, #0
+  28:	eb01 1202 	add.w	r2, r1, r2, lsl #4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:421
+            break;
+        } // if 
+    } // for
+    if( i == PYGMY_PWMCHANNELS ){
+  2c:	2e08      	cmp	r6, #8
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:417
+    if( globalPygmyPWMCR == 0 ){
+        pinInitSoftPWM( );
+    } // if
+    for( i = 0; i < PYGMY_PWMCHANNELS; i++ ){
+        if( globalPygmyPWM[ i ].CR == 0 || globalPygmyPWM[ i ].Pin == ucPin ){
+            globalPygmyPWM[ i ].CR = 0; // if pin already exists, CR must be cleared 
+  2e:	f8df 8054 	ldr.w	r8, [pc, #84]	; 84 <pinPulseHigh+0x84>
+  32:	7357      	strb	r7, [r2, #13]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:421
+            break;
+        } // if 
+    } // for
+    if( i == PYGMY_PWMCHANNELS ){
+  34:	d109      	bne.n	4a <pinPulseHigh+0x4a>
+  36:	e01f      	b.n	78 <pinPulseHigh+0x78>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:415
+    // If frequency is set to 10000, then count is decremented 10000 per second
+    // First find empty PWM register slot
+    if( globalPygmyPWMCR == 0 ){
+        pinInitSoftPWM( );
+    } // if
+    for( i = 0; i < PYGMY_PWMCHANNELS; i++ ){
+  38:	3601      	adds	r6, #1
+  3a:	b2b6      	uxth	r6, r6
+  3c:	3201      	adds	r2, #1
+  3e:	3310      	adds	r3, #16
+  40:	2e08      	cmp	r6, #8
+  42:	d1eb      	bne.n	1c <pinPulseHigh+0x1c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:423
+            break;
+        } // if 
+    } // for
+    if( i == PYGMY_PWMCHANNELS ){
+        // No open slots
+        return( 0 );
+  44:	2000      	movs	r0, #0
+  46:	e8bd 83f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:426
+    } // if
+
+    pinConfig( ucPin, OUT );
+  4a:	4620      	mov	r0, r4
+  4c:	2103      	movs	r1, #3
+  4e:	f7ff fffe 	bl	0 <pinPulseHigh>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:428
+    pinSet( ucPin, LOW );
+    globalPygmyPWM[ i ].UpCount = ulPulse;
+  52:	0136      	lsls	r6, r6, #4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:427
+        // No open slots
+        return( 0 );
+    } // if
+
+    pinConfig( ucPin, OUT );
+    pinSet( ucPin, LOW );
+  54:	4620      	mov	r0, r4
+  56:	4639      	mov	r1, r7
+  58:	f7ff fffe 	bl	0 <pinPulseHigh>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:428
+    globalPygmyPWM[ i ].UpCount = ulPulse;
+  5c:	eb08 0306 	add.w	r3, r8, r6
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:430
+    globalPygmyPWM[ i ].DownCount = ulDeadTime;
+    globalPygmyPWM[ i ].Count = globalPygmyPWM[ i ].DownCount; 
+  60:	f103 0208 	add.w	r2, r3, #8
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:429
+    } // if
+
+    pinConfig( ucPin, OUT );
+    pinSet( ucPin, LOW );
+    globalPygmyPWM[ i ].UpCount = ulPulse;
+    globalPygmyPWM[ i ].DownCount = ulDeadTime;
+  64:	605d      	str	r5, [r3, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:430
+    globalPygmyPWM[ i ].Count = globalPygmyPWM[ i ].DownCount; 
+  66:	609d      	str	r5, [r3, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:431
+    globalPygmyPWM[ i ].Pin = ucPin;
+  68:	731c      	strb	r4, [r3, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:432
+    globalPygmyPWM[ i ].CR = ( PYGMY_PWM_DIR | PYGMY_PWM_EN );
+  6a:	2303      	movs	r3, #3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:428
+        return( 0 );
+    } // if
+
+    pinConfig( ucPin, OUT );
+    pinSet( ucPin, LOW );
+    globalPygmyPWM[ i ].UpCount = ulPulse;
+  6c:	f848 9006 	str.w	r9, [r8, r6]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:432
+    globalPygmyPWM[ i ].DownCount = ulDeadTime;
+    globalPygmyPWM[ i ].Count = globalPygmyPWM[ i ].DownCount; 
+    globalPygmyPWM[ i ].Pin = ucPin;
+    globalPygmyPWM[ i ].CR = ( PYGMY_PWM_DIR | PYGMY_PWM_EN );
+  70:	7153      	strb	r3, [r2, #5]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:434
+    
+    return( 1 );
+  72:	2001      	movs	r0, #1
+  74:	e8bd 83f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:423
+            break;
+        } // if 
+    } // for
+    if( i == PYGMY_PWMCHANNELS ){
+        // No open slots
+        return( 0 );
+  78:	4638      	mov	r0, r7
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:435
+    globalPygmyPWM[ i ].Count = globalPygmyPWM[ i ].DownCount; 
+    globalPygmyPWM[ i ].Pin = ucPin;
+    globalPygmyPWM[ i ].CR = ( PYGMY_PWM_DIR | PYGMY_PWM_EN );
+    
+    return( 1 );
+}
+  7a:	e8bd 83f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
+  7e:	bf00      	nop
+	...
+
+Disassembly of section .text.pinRemoveSoftPWM:
+
+00000000 <pinRemoveSoftPWM>:
+pinRemoveSoftPWM():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:523
+    pygmyTimer->SR      = 0;                            //
+    pygmyTimer->CR1     = ( TIM_ARPE | TIM_CEN );       // Enable Auto Reload and Counter
+}
+
+u8 pinRemoveSoftPWM( u8 ucPin )
+{
+   0:	b510      	push	{r4, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:533
+            globalPygmyPWM[ i ].CR = 0;
+            return( 1 );
+        } // if
+    } // for  
+
+    return( 0 );
+   2:	4a09      	ldr	r2, [pc, #36]	; (28 <pinRemoveSoftPWM+0x28>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:523
+    pygmyTimer->SR      = 0;                            //
+    pygmyTimer->CR1     = ( TIM_ARPE | TIM_CEN );       // Enable Auto Reload and Counter
+}
+
+u8 pinRemoveSoftPWM( u8 ucPin )
+{
+   4:	2300      	movs	r3, #0
+   6:	4611      	mov	r1, r2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:527
+    u16 i;
+
+    for( i = 0; i < PYGMY_PWMCHANNELS; i++ ){
+        if( globalPygmyPWM[ i ].Pin == ucPin ){
+   8:	7b14      	ldrb	r4, [r2, #12]
+   a:	4284      	cmp	r4, r0
+   c:	d105      	bne.n	1a <pinRemoveSoftPWM+0x1a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:528
+            globalPygmyPWM[ i ].CR = 0;
+   e:	eb01 1303 	add.w	r3, r1, r3, lsl #4
+  12:	2200      	movs	r2, #0
+  14:	735a      	strb	r2, [r3, #13]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:529
+            return( 1 );
+  16:	2001      	movs	r0, #1
+  18:	bd10      	pop	{r4, pc}
+  1a:	3301      	adds	r3, #1
+  1c:	3210      	adds	r2, #16
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:526
+
+u8 pinRemoveSoftPWM( u8 ucPin )
+{
+    u16 i;
+
+    for( i = 0; i < PYGMY_PWMCHANNELS; i++ ){
+  1e:	2b08      	cmp	r3, #8
+  20:	d1f2      	bne.n	8 <pinRemoveSoftPWM+0x8>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:533
+            globalPygmyPWM[ i ].CR = 0;
+            return( 1 );
+        } // if
+    } // for  
+
+    return( 0 );
+  22:	2000      	movs	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:534
+}
+  24:	bd10      	pop	{r4, pc}
+  26:	bf00      	nop
+  28:	00000000 	.word	0x00000000
+
+Disassembly of section .text.pinAddSoftPWM:
+
+00000000 <pinAddSoftPWM>:
+pinAddSoftPWM():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:541
+u8 pinAddSoftPWM( u8 ucPin, u32 ulFreq, u8 ucDutyCycle )
+{
+    u16 i;
+
+    // First find empty PWM register slot
+    if( globalPygmyPWMCR == 0 ){
+   0:	4b35      	ldr	r3, [pc, #212]	; (d8 <pinAddSoftPWM+0xd8>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:537
+
+    return( 0 );
+}
+
+u8 pinAddSoftPWM( u8 ucPin, u32 ulFreq, u8 ucDutyCycle )
+{
+   2:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:541
+    u16 i;
+
+    // First find empty PWM register slot
+    if( globalPygmyPWMCR == 0 ){
+   6:	681b      	ldr	r3, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:537
+
+    return( 0 );
+}
+
+u8 pinAddSoftPWM( u8 ucPin, u32 ulFreq, u8 ucDutyCycle )
+{
+   8:	4604      	mov	r4, r0
+   a:	460d      	mov	r5, r1
+   c:	4690      	mov	r8, r2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:541
+    u16 i;
+
+    // First find empty PWM register slot
+    if( globalPygmyPWMCR == 0 ){
+   e:	b90b      	cbnz	r3, 14 <pinAddSoftPWM+0x14>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:542
+        pinInitSoftPWM( );
+  10:	f7ff fffe 	bl	0 <pinAddSoftPWM>
+  14:	4b31      	ldr	r3, [pc, #196]	; (dc <pinAddSoftPWM+0xdc>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:537
+
+    return( 0 );
+}
+
+u8 pinAddSoftPWM( u8 ucPin, u32 ulFreq, u8 ucDutyCycle )
+{
+  16:	2200      	movs	r2, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:544
+
+    // First find empty PWM register slot
+    if( globalPygmyPWMCR == 0 ){
+        pinInitSoftPWM( );
+    } // if
+    for( i = 0; i < PYGMY_PWMCHANNELS; i++ ){
+  18:	4617      	mov	r7, r2
+  1a:	4699      	mov	r9, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:545
+        if( globalPygmyPWM[ i ].CR == 0 || globalPygmyPWM[ i ].Pin == ucPin ){
+  1c:	7b59      	ldrb	r1, [r3, #13]
+  1e:	b111      	cbz	r1, 26 <pinAddSoftPWM+0x26>
+  20:	7b19      	ldrb	r1, [r3, #12]
+  22:	42a1      	cmp	r1, r4
+  24:	d108      	bne.n	38 <pinAddSoftPWM+0x38>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:546
+            globalPygmyPWM[ i ].CR = 0; // if pin already exists, CR must be cleared 
+  26:	2600      	movs	r6, #0
+  28:	eb09 1202 	add.w	r2, r9, r2, lsl #4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:550
+            break;
+        } // if 
+    } // for
+    if( i == PYGMY_PWMCHANNELS ){
+  2c:	2f08      	cmp	r7, #8
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:546
+    if( globalPygmyPWMCR == 0 ){
+        pinInitSoftPWM( );
+    } // if
+    for( i = 0; i < PYGMY_PWMCHANNELS; i++ ){
+        if( globalPygmyPWM[ i ].CR == 0 || globalPygmyPWM[ i ].Pin == ucPin ){
+            globalPygmyPWM[ i ].CR = 0; // if pin already exists, CR must be cleared 
+  2e:	f8df a0ac 	ldr.w	sl, [pc, #172]	; dc <pinAddSoftPWM+0xdc>
+  32:	7356      	strb	r6, [r2, #13]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:550
+            break;
+        } // if 
+    } // for
+    if( i == PYGMY_PWMCHANNELS ){
+  34:	d108      	bne.n	48 <pinAddSoftPWM+0x48>
+  36:	e04c      	b.n	d2 <pinAddSoftPWM+0xd2>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:544
+
+    // First find empty PWM register slot
+    if( globalPygmyPWMCR == 0 ){
+        pinInitSoftPWM( );
+    } // if
+    for( i = 0; i < PYGMY_PWMCHANNELS; i++ ){
+  38:	3701      	adds	r7, #1
+  3a:	b2bf      	uxth	r7, r7
+  3c:	3201      	adds	r2, #1
+  3e:	3310      	adds	r3, #16
+  40:	2f08      	cmp	r7, #8
+  42:	d1eb      	bne.n	1c <pinAddSoftPWM+0x1c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:552
+            break;
+        } // if 
+    } // for
+    if( i == PYGMY_PWMCHANNELS ){
+        // No open slots
+        return( 0 );
+  44:	2600      	movs	r6, #0
+  46:	e044      	b.n	d2 <pinAddSoftPWM+0xd2>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:554
+    } // if
+    if ( ucDutyCycle > 100 || !ulFreq ){ 
+  48:	f1b8 0f64 	cmp.w	r8, #100	; 0x64
+  4c:	d841      	bhi.n	d2 <pinAddSoftPWM+0xd2>
+  4e:	2d00      	cmp	r5, #0
+  50:	d03e      	beq.n	d0 <pinAddSoftPWM+0xd0>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:559
+        // Out of Range
+        return( 0 );
+    } // if
+
+    pinConfig( ucPin, OUT );
+  52:	2103      	movs	r1, #3
+  54:	4620      	mov	r0, r4
+  56:	f7ff fffe 	bl	0 <pinAddSoftPWM>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:560
+    globalPygmyPWM[ i ].UpCount = 0;
+  5a:	0139      	lsls	r1, r7, #4
+  5c:	eb0a 0301 	add.w	r3, sl, r1
+  60:	f84a 6001 	str.w	r6, [sl, r1]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:561
+    globalPygmyPWM[ i ].DownCount = 0;
+  64:	605e      	str	r6, [r3, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:562
+    if( ucDutyCycle == 0 ){
+  66:	f1b8 0f00 	cmp.w	r8, #0
+  6a:	d102      	bne.n	72 <pinAddSoftPWM+0x72>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:564
+        // 0% duty cycle is always LOW, no need to use counters
+        pinSet( ucPin, LOW );
+  6c:	4620      	mov	r0, r4
+  6e:	4641      	mov	r1, r8
+  70:	e004      	b.n	7c <pinAddSoftPWM+0x7c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:565
+    } else if( ucDutyCycle == 100 ){
+  72:	f1b8 0f64 	cmp.w	r8, #100	; 0x64
+  76:	d104      	bne.n	82 <pinAddSoftPWM+0x82>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:567
+        // 100% duty cycle is always HIGH, no need to use counters
+        pinSet( ucPin, HIGH );
+  78:	4620      	mov	r0, r4
+  7a:	2101      	movs	r1, #1
+  7c:	f7ff fffe 	bl	0 <pinAddSoftPWM>
+  80:	e01e      	b.n	c0 <pinAddSoftPWM+0xc0>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:569
+    } else{
+        globalPygmyPWM[ i ].UpCount = globalPygmyPWMFreq / ( ulFreq * ( 100 / ucDutyCycle ) );
+  82:	f04f 0c64 	mov.w	ip, #100	; 0x64
+  86:	fb9c f0f8 	sdiv	r0, ip, r8
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:570
+        globalPygmyPWM[ i ].DownCount = globalPygmyPWMFreq / ( ulFreq * ( 100 / ( 100 - ucDutyCycle ) ) );
+  8a:	ebc8 080c 	rsb	r8, r8, ip
+  8e:	fb9c fcf8 	sdiv	ip, ip, r8
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:569
+        pinSet( ucPin, LOW );
+    } else if( ucDutyCycle == 100 ){
+        // 100% duty cycle is always HIGH, no need to use counters
+        pinSet( ucPin, HIGH );
+    } else{
+        globalPygmyPWM[ i ].UpCount = globalPygmyPWMFreq / ( ulFreq * ( 100 / ucDutyCycle ) );
+  92:	4368      	muls	r0, r5
+  94:	4a12      	ldr	r2, [pc, #72]	; (e0 <pinAddSoftPWM+0xe0>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:570
+        globalPygmyPWM[ i ].DownCount = globalPygmyPWMFreq / ( ulFreq * ( 100 / ( 100 - ucDutyCycle ) ) );
+  96:	fb05 f50c 	mul.w	r5, r5, ip
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:569
+        pinSet( ucPin, LOW );
+    } else if( ucDutyCycle == 100 ){
+        // 100% duty cycle is always HIGH, no need to use counters
+        pinSet( ucPin, HIGH );
+    } else{
+        globalPygmyPWM[ i ].UpCount = globalPygmyPWMFreq / ( ulFreq * ( 100 / ucDutyCycle ) );
+  9a:	6812      	ldr	r2, [r2, #0]
+  9c:	fbb2 f0f0 	udiv	r0, r2, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:570
+        globalPygmyPWM[ i ].DownCount = globalPygmyPWMFreq / ( ulFreq * ( 100 / ( 100 - ucDutyCycle ) ) );
+  a0:	fbb2 f5f5 	udiv	r5, r2, r5
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:569
+        pinSet( ucPin, LOW );
+    } else if( ucDutyCycle == 100 ){
+        // 100% duty cycle is always HIGH, no need to use counters
+        pinSet( ucPin, HIGH );
+    } else{
+        globalPygmyPWM[ i ].UpCount = globalPygmyPWMFreq / ( ulFreq * ( 100 / ucDutyCycle ) );
+  a4:	f84a 0001 	str.w	r0, [sl, r1]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:571
+        globalPygmyPWM[ i ].DownCount = globalPygmyPWMFreq / ( ulFreq * ( 100 / ( 100 - ucDutyCycle ) ) );
+        if( ( globalPygmyPWM[ i ].UpCount + globalPygmyPWM[ i ].DownCount ) > globalPygmyPWMFreq ){
+  a8:	1828      	adds	r0, r5, r0
+  aa:	4290      	cmp	r0, r2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:570
+    } else if( ucDutyCycle == 100 ){
+        // 100% duty cycle is always HIGH, no need to use counters
+        pinSet( ucPin, HIGH );
+    } else{
+        globalPygmyPWM[ i ].UpCount = globalPygmyPWMFreq / ( ulFreq * ( 100 / ucDutyCycle ) );
+        globalPygmyPWM[ i ].DownCount = globalPygmyPWMFreq / ( ulFreq * ( 100 / ( 100 - ucDutyCycle ) ) );
+  ac:	605d      	str	r5, [r3, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:571
+        if( ( globalPygmyPWM[ i ].UpCount + globalPygmyPWM[ i ].DownCount ) > globalPygmyPWMFreq ){
+  ae:	d904      	bls.n	ba <pinAddSoftPWM+0xba>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:573
+            // main counter has insufficient resolution
+            print( COM3, "\rInsufficient resolution" );
+  b0:	2001      	movs	r0, #1
+  b2:	490c      	ldr	r1, [pc, #48]	; (e4 <pinAddSoftPWM+0xe4>)
+  b4:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:574
+            return( 0 );
+  b8:	e00b      	b.n	d2 <pinAddSoftPWM+0xd2>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:576
+        } // if
+        globalPygmyPWM[ i ].CR = PYGMY_PWM_EN;
+  ba:	2201      	movs	r2, #1
+  bc:	735a      	strb	r2, [r3, #13]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:577
+        globalPygmyPWM[ i ].Pin = ucPin; 
+  be:	731c      	strb	r4, [r3, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:580
+    } // else
+    
+    globalPygmyPWM[ i ].Count = globalPygmyPWM[ i ].UpCount;
+  c0:	013f      	lsls	r7, r7, #4
+  c2:	f859 2007 	ldr.w	r2, [r9, r7]
+  c6:	eb09 0307 	add.w	r3, r9, r7
+  ca:	609a      	str	r2, [r3, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:589
+    print( COM3, "\rUpCount: %d", globalPygmyPWM[ i ].UpCount );   
+    print( COM3, "\rDownCount: %d", globalPygmyPWM[ i ].DownCount );
+    print( COM3, "\rucDutyCycle: %d", ucDutyCycle );
+    */
+
+    return( 1 );
+  cc:	2601      	movs	r6, #1
+  ce:	e000      	b.n	d2 <pinAddSoftPWM+0xd2>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:556
+        // No open slots
+        return( 0 );
+    } // if
+    if ( ucDutyCycle > 100 || !ulFreq ){ 
+        // Out of Range
+        return( 0 );
+  d0:	462e      	mov	r6, r5
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:590
+    print( COM3, "\rDownCount: %d", globalPygmyPWM[ i ].DownCount );
+    print( COM3, "\rucDutyCycle: %d", ucDutyCycle );
+    */
+
+    return( 1 );
+}
+  d2:	4630      	mov	r0, r6
+  d4:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+	...
+
+Disassembly of section .text.pinToggle:
+
+00000000 <pinToggle>:
+pinToggle():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:441
+
+u8 pinToggle( u8 ucPin, u32 ulFreq )
+{
+    // This function uses the PWM time base frequency
+    // Max toggle speed is PWM frequency / 2
+    return( pinAddSoftPWM( ucPin, ulFreq, 50 ) );
+   0:	2232      	movs	r2, #50	; 0x32
+   2:	f7ff bffe 	b.w	0 <pinToggle>
+
+Disassembly of section .text.pinPWM:
+
+00000000 <pinPWM>:
+pinPWM():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:314
+    TIMER1 *pygmyTimer1;
+    u32 ulDuty, ulMainClock;
+    u8 ucChannel;
+
+    // ToDo: Add clock frequency to pygmyGlobalData and use to set frequency here
+    if( ucDutyCycle > 100 || sysGetPWMTimer() == PYGMY_TIMER0 ){
+   0:	2a64      	cmp	r2, #100	; 0x64
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:307
+{
+    
+}
+
+u8 pinPWM( u8 ucPin, u32 ulFreq, u8 ucDutyCycle )
+{
+   2:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
+   6:	4604      	mov	r4, r0
+   8:	4688      	mov	r8, r1
+   a:	4691      	mov	r9, r2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:314
+    TIMER1 *pygmyTimer1;
+    u32 ulDuty, ulMainClock;
+    u8 ucChannel;
+
+    // ToDo: Add clock frequency to pygmyGlobalData and use to set frequency here
+    if( ucDutyCycle > 100 || sysGetPWMTimer() == PYGMY_TIMER0 ){
+   c:	f200 8116 	bhi.w	23c <pinPWM+0x23c>
+  10:	f7ff fffe 	bl	0 <sysGetPWMTimer>
+  14:	2800      	cmp	r0, #0
+  16:	f000 8115 	beq.w	244 <pinPWM+0x244>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:317
+        return( 0 );
+    } // if
+    pygmyTimer = pinGetTimer( ucPin );
+  1a:	4620      	mov	r0, r4
+  1c:	f7ff fffe 	bl	0 <pinPWM>
+  20:	4605      	mov	r5, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:319
+    pygmyTimer1 = pinGetTimer( ucPin );
+    ucChannel = pinGetChannel( ucPin );
+  22:	4620      	mov	r0, r4
+  24:	f7ff fffe 	bl	0 <pinPWM>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:320
+    if( !ucChannel || !pygmyTimer || sysGetDelayTimer() == PYGMY_TIMER1 ){
+  28:	4606      	mov	r6, r0
+  2a:	b120      	cbz	r0, 36 <pinPWM+0x36>
+  2c:	b11d      	cbz	r5, 36 <pinPWM+0x36>
+  2e:	f7ff fffe 	bl	0 <sysGetDelayTimer>
+  32:	2801      	cmp	r0, #1
+  34:	d106      	bne.n	44 <pinPWM+0x44>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:323
+        // Timer1 is unavailable for hardware PWM on all F103s except the F103XLD
+        // pin selected isn't a timer pin, call softPWM
+        return( pinAddSoftPWM( ucPin, ulFreq, ucDutyCycle ) );
+  36:	4620      	mov	r0, r4
+  38:	4641      	mov	r1, r8
+  3a:	464a      	mov	r2, r9
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:403
+        pygmyTimer->EGR |= TIM_UG;
+        pygmyTimer->CR1 = TIM_ARPE|TIM_CEN;
+    } // else
+    
+    return( 1 );
+}
+  3c:	e8bd 47f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:323
+    pygmyTimer1 = pinGetTimer( ucPin );
+    ucChannel = pinGetChannel( ucPin );
+    if( !ucChannel || !pygmyTimer || sysGetDelayTimer() == PYGMY_TIMER1 ){
+        // Timer1 is unavailable for hardware PWM on all F103s except the F103XLD
+        // pin selected isn't a timer pin, call softPWM
+        return( pinAddSoftPWM( ucPin, ulFreq, ucDutyCycle ) );
+  40:	f7ff bffe 	b.w	0 <pinPWM>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:328
+    } // if
+    if( ulFreq == 0 ){
+        ulFreq = 1;
+    } // if
+    ulMainClock = sysGetMainClock();
+  44:	f7ff fffe 	bl	0 <sysGetMainClock>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:326
+        // Timer1 is unavailable for hardware PWM on all F103s except the F103XLD
+        // pin selected isn't a timer pin, call softPWM
+        return( pinAddSoftPWM( ucPin, ulFreq, ucDutyCycle ) );
+    } // if
+    if( ulFreq == 0 ){
+        ulFreq = 1;
+  48:	f1b8 0f00 	cmp.w	r8, #0
+  4c:	bf08      	it	eq
+  4e:	f04f 0801 	moveq.w	r8, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:329
+    } // if
+    ulMainClock = sysGetMainClock();
+    if( ulFreq > ulMainClock ){
+  52:	4580      	cmp	r8, r0
+  54:	f200 80f5 	bhi.w	242 <pinPWM+0x242>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:332
+        return( 0 );
+    } // if
+    ulFreq = ulMainClock / ulFreq;
+  58:	fbb0 f8f8 	udiv	r8, r0, r8
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:335
+    ulDuty = ( ulFreq / 100 ) * ucDutyCycle;
+       
+    pinConfig( ucPin, ALT );
+  5c:	210b      	movs	r1, #11
+  5e:	4620      	mov	r0, r4
+  60:	f7ff fffe 	bl	0 <pinPWM>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:336
+    if( pygmyTimer1 == TIM1 ){
+  64:	4b78      	ldr	r3, [pc, #480]	; (248 <pinPWM+0x248>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:333
+    ulMainClock = sysGetMainClock();
+    if( ulFreq > ulMainClock ){
+        return( 0 );
+    } // if
+    ulFreq = ulMainClock / ulFreq;
+    ulDuty = ( ulFreq / 100 ) * ucDutyCycle;
+  66:	2764      	movs	r7, #100	; 0x64
+  68:	fbb8 f7f7 	udiv	r7, r8, r7
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:336
+       
+    pinConfig( ucPin, ALT );
+    if( pygmyTimer1 == TIM1 ){
+  6c:	429d      	cmp	r5, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:333
+    ulMainClock = sysGetMainClock();
+    if( ulFreq > ulMainClock ){
+        return( 0 );
+    } // if
+    ulFreq = ulMainClock / ulFreq;
+    ulDuty = ( ulFreq / 100 ) * ucDutyCycle;
+  6e:	fb09 f707 	mul.w	r7, r9, r7
+  72:	4b76      	ldr	r3, [pc, #472]	; (24c <pinPWM+0x24c>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:336
+       
+    pinConfig( ucPin, ALT );
+    if( pygmyTimer1 == TIM1 ){
+  74:	d172      	bne.n	15c <pinPWM+0x15c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:337
+        PYGMY_RCC_TIMER1_ENABLE;
+  76:	699a      	ldr	r2, [r3, #24]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:338
+        interruptEnable( TIM1_UP_IRQ );
+  78:	2019      	movs	r0, #25
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:337
+    ulFreq = ulMainClock / ulFreq;
+    ulDuty = ( ulFreq / 100 ) * ucDutyCycle;
+       
+    pinConfig( ucPin, ALT );
+    if( pygmyTimer1 == TIM1 ){
+        PYGMY_RCC_TIMER1_ENABLE;
+  7a:	f442 6200 	orr.w	r2, r2, #2048	; 0x800
+  7e:	619a      	str	r2, [r3, #24]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:338
+        interruptEnable( TIM1_UP_IRQ );
+  80:	f7ff fffe 	bl	0 <interruptEnable>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:339
+        pygmyTimer1->CR1 = 0;            // Disable before configuring timer
+  84:	2200      	movs	r2, #0
+  86:	802a      	strh	r2, [r5, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:340
+        pygmyTimer1->CR2 = 0;                        //
+  88:	80aa      	strh	r2, [r5, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:341
+        pygmyTimer1->BDTR |= (TIM_MOE|TIM_AOE);
+  8a:	f8b5 3044 	ldrh.w	r3, [r5, #68]	; 0x44
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:343
+        pygmyTimer1->CNT = 0;                        // Count Register
+        pygmyTimer1->ARR = ulFreq;                   // Auto Reload Register
+  8e:	fa1f f888 	uxth.w	r8, r8
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:341
+    if( pygmyTimer1 == TIM1 ){
+        PYGMY_RCC_TIMER1_ENABLE;
+        interruptEnable( TIM1_UP_IRQ );
+        pygmyTimer1->CR1 = 0;            // Disable before configuring timer
+        pygmyTimer1->CR2 = 0;                        //
+        pygmyTimer1->BDTR |= (TIM_MOE|TIM_AOE);
+  92:	ea6f 4383 	mvn.w	r3, r3, lsl #18
+  96:	ea6f 4393 	mvn.w	r3, r3, lsr #18
+  9a:	b29b      	uxth	r3, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:345
+        pygmyTimer1->CNT = 0;                        // Count Register
+        pygmyTimer1->ARR = ulFreq;                   // Auto Reload Register
+        pygmyTimer1->PSC = 0;                        // Prescaler
+        if( ucChannel == 1 ){   
+  9c:	2e01      	cmp	r6, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:341
+    if( pygmyTimer1 == TIM1 ){
+        PYGMY_RCC_TIMER1_ENABLE;
+        interruptEnable( TIM1_UP_IRQ );
+        pygmyTimer1->CR1 = 0;            // Disable before configuring timer
+        pygmyTimer1->CR2 = 0;                        //
+        pygmyTimer1->BDTR |= (TIM_MOE|TIM_AOE);
+  9e:	f8a5 3044 	strh.w	r3, [r5, #68]	; 0x44
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:342
+        pygmyTimer1->CNT = 0;                        // Count Register
+  a2:	84aa      	strh	r2, [r5, #36]	; 0x24
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:343
+        pygmyTimer1->ARR = ulFreq;                   // Auto Reload Register
+  a4:	f8a5 802c 	strh.w	r8, [r5, #44]	; 0x2c
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:344
+        pygmyTimer1->PSC = 0;                        // Prescaler
+  a8:	852a      	strh	r2, [r5, #40]	; 0x28
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:345
+        if( ucChannel == 1 ){   
+  aa:	d111      	bne.n	d0 <pinPWM+0xd0>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:346
+            pygmyTimer1->CCR1 = ulDuty;              // Capture Compare for PWM in output, sets duty cycle
+  ac:	b2bf      	uxth	r7, r7
+  ae:	86af      	strh	r7, [r5, #52]	; 0x34
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:347
+            pygmyTimer1->CCMR1 &= ~(TIM_OC1M_CLEAR|TIM_OC1PE);
+  b0:	8b2b      	ldrh	r3, [r5, #24]
+  b2:	f023 0378 	bic.w	r3, r3, #120	; 0x78
+  b6:	041b      	lsls	r3, r3, #16
+  b8:	0c1b      	lsrs	r3, r3, #16
+  ba:	832b      	strh	r3, [r5, #24]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:348
+            pygmyTimer1->CCMR1 |= (TIM_OC1M_PWM1|TIM_OC1PE);          // 
+  bc:	8b2b      	ldrh	r3, [r5, #24]
+  be:	b29b      	uxth	r3, r3
+  c0:	f043 0368 	orr.w	r3, r3, #104	; 0x68
+  c4:	832b      	strh	r3, [r5, #24]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:349
+            pygmyTimer1->CCER |= TIM_CC1E;
+  c6:	8c2b      	ldrh	r3, [r5, #32]
+  c8:	b29b      	uxth	r3, r3
+  ca:	f043 0301 	orr.w	r3, r3, #1
+  ce:	e03b      	b.n	148 <pinPWM+0x148>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:350
+        } else if( ucChannel == 2 ){
+  d0:	2e02      	cmp	r6, #2
+  d2:	d111      	bne.n	f8 <pinPWM+0xf8>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:351
+            pygmyTimer1->CCR2 = ulDuty;              // Capture Compare for PWM in output, sets duty cycle
+  d4:	b2bf      	uxth	r7, r7
+  d6:	872f      	strh	r7, [r5, #56]	; 0x38
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:352
+            pygmyTimer1->CCMR1 &= ~(TIM_OC2M_CLEAR|TIM_OC2PE);
+  d8:	8b2b      	ldrh	r3, [r5, #24]
+  da:	f423 43f0 	bic.w	r3, r3, #30720	; 0x7800
+  de:	041b      	lsls	r3, r3, #16
+  e0:	0c1b      	lsrs	r3, r3, #16
+  e2:	832b      	strh	r3, [r5, #24]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:353
+            pygmyTimer1->CCMR1 |= (TIM_OC2M_PWM1|TIM_OC2PE);          // 
+  e4:	8b2b      	ldrh	r3, [r5, #24]
+  e6:	b29b      	uxth	r3, r3
+  e8:	f443 43d0 	orr.w	r3, r3, #26624	; 0x6800
+  ec:	832b      	strh	r3, [r5, #24]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:354
+            pygmyTimer1->CCER |= TIM_CC2E;
+  ee:	8c2b      	ldrh	r3, [r5, #32]
+  f0:	b29b      	uxth	r3, r3
+  f2:	f043 0310 	orr.w	r3, r3, #16
+  f6:	e027      	b.n	148 <pinPWM+0x148>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:355
+        } else if( ucChannel == 3 ){
+  f8:	2e03      	cmp	r6, #3
+  fa:	d111      	bne.n	120 <pinPWM+0x120>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:356
+            pygmyTimer1->CCR3 = ulDuty;              // Capture Compare for PWM in output, sets duty cycle
+  fc:	b2bf      	uxth	r7, r7
+  fe:	87af      	strh	r7, [r5, #60]	; 0x3c
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:357
+            pygmyTimer1->CCMR2 &= ~(TIM_OC3M_CLEAR|TIM_OC3PE);
+ 100:	8bab      	ldrh	r3, [r5, #28]
+ 102:	f023 0378 	bic.w	r3, r3, #120	; 0x78
+ 106:	041b      	lsls	r3, r3, #16
+ 108:	0c1b      	lsrs	r3, r3, #16
+ 10a:	83ab      	strh	r3, [r5, #28]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:358
+            pygmyTimer1->CCMR2 |= (TIM_OC3M_PWM1|TIM_OC3PE);          // 
+ 10c:	8bab      	ldrh	r3, [r5, #28]
+ 10e:	b29b      	uxth	r3, r3
+ 110:	f043 0368 	orr.w	r3, r3, #104	; 0x68
+ 114:	83ab      	strh	r3, [r5, #28]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:359
+            pygmyTimer1->CCER |= TIM_CC3E;
+ 116:	8c2b      	ldrh	r3, [r5, #32]
+ 118:	b29b      	uxth	r3, r3
+ 11a:	f443 7380 	orr.w	r3, r3, #256	; 0x100
+ 11e:	e013      	b.n	148 <pinPWM+0x148>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:360
+        } else if( ucChannel == 4 ){
+ 120:	2e04      	cmp	r6, #4
+ 122:	d112      	bne.n	14a <pinPWM+0x14a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:361
+            pygmyTimer1->CCR4 = ulDuty;              // Capture Compare for PWM in output, sets duty cycle
+ 124:	b2bf      	uxth	r7, r7
+ 126:	f8a5 7040 	strh.w	r7, [r5, #64]	; 0x40
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:362
+            pygmyTimer1->CCMR2 &= ~(TIM_OC4M_CLEAR|TIM_OC4PE);
+ 12a:	8bab      	ldrh	r3, [r5, #28]
+ 12c:	f423 43f0 	bic.w	r3, r3, #30720	; 0x7800
+ 130:	041b      	lsls	r3, r3, #16
+ 132:	0c1b      	lsrs	r3, r3, #16
+ 134:	83ab      	strh	r3, [r5, #28]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:363
+            pygmyTimer1->CCMR2 |= (TIM_OC4M_PWM1|TIM_OC4PE);          // 
+ 136:	8bab      	ldrh	r3, [r5, #28]
+ 138:	b29b      	uxth	r3, r3
+ 13a:	f443 43d0 	orr.w	r3, r3, #26624	; 0x6800
+ 13e:	83ab      	strh	r3, [r5, #28]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:364
+            pygmyTimer1->CCER |= TIM_CC4E;
+ 140:	8c2b      	ldrh	r3, [r5, #32]
+ 142:	b29b      	uxth	r3, r3
+ 144:	f443 5380 	orr.w	r3, r3, #4096	; 0x1000
+ 148:	842b      	strh	r3, [r5, #32]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:366
+        } // else if
+        pygmyTimer1->EGR |= TIM_UG;
+ 14a:	4b3f      	ldr	r3, [pc, #252]	; (248 <pinPWM+0x248>)
+ 14c:	8a9a      	ldrh	r2, [r3, #20]
+ 14e:	b292      	uxth	r2, r2
+ 150:	f042 0201 	orr.w	r2, r2, #1
+ 154:	829a      	strh	r2, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:367
+        pygmyTimer1->CR1 = TIM_ARPE|TIM_CEN;
+ 156:	2281      	movs	r2, #129	; 0x81
+ 158:	801a      	strh	r2, [r3, #0]
+ 15a:	e06c      	b.n	236 <pinPWM+0x236>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:369
+    } else{
+        PYGMY_RCC_TIMER2_ENABLE;
+ 15c:	69da      	ldr	r2, [r3, #28]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:375
+        PYGMY_RCC_TIMER3_ENABLE;
+        PYGMY_RCC_TIMER4_ENABLE;
+        pygmyTimer->CR1 = 0;//&= ~( TIM_CEN );            // Disable before configuring timer
+        pygmyTimer->CR2 = 0;                        //
+        pygmyTimer->CNT = 0;                        // Count Register
+        pygmyTimer->ARR = ulFreq;                   // Auto Reload Register
+ 15e:	fa1f f888 	uxth.w	r8, r8
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:369
+            pygmyTimer1->CCER |= TIM_CC4E;
+        } // else if
+        pygmyTimer1->EGR |= TIM_UG;
+        pygmyTimer1->CR1 = TIM_ARPE|TIM_CEN;
+    } else{
+        PYGMY_RCC_TIMER2_ENABLE;
+ 162:	f042 0201 	orr.w	r2, r2, #1
+ 166:	61da      	str	r2, [r3, #28]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:370
+        PYGMY_RCC_TIMER3_ENABLE;
+ 168:	69da      	ldr	r2, [r3, #28]
+ 16a:	f042 0202 	orr.w	r2, r2, #2
+ 16e:	61da      	str	r2, [r3, #28]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:371
+        PYGMY_RCC_TIMER4_ENABLE;
+ 170:	69da      	ldr	r2, [r3, #28]
+ 172:	f042 0204 	orr.w	r2, r2, #4
+ 176:	61da      	str	r2, [r3, #28]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:372
+        pygmyTimer->CR1 = 0;//&= ~( TIM_CEN );            // Disable before configuring timer
+ 178:	2300      	movs	r3, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:377
+        pygmyTimer->CR2 = 0;                        //
+        pygmyTimer->CNT = 0;                        // Count Register
+        pygmyTimer->ARR = ulFreq;                   // Auto Reload Register
+        pygmyTimer->PSC = 0;                        // Prescaler
+        if( ucChannel == 1 ){
+ 17a:	2e01      	cmp	r6, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:372
+        pygmyTimer1->CR1 = TIM_ARPE|TIM_CEN;
+    } else{
+        PYGMY_RCC_TIMER2_ENABLE;
+        PYGMY_RCC_TIMER3_ENABLE;
+        PYGMY_RCC_TIMER4_ENABLE;
+        pygmyTimer->CR1 = 0;//&= ~( TIM_CEN );            // Disable before configuring timer
+ 17c:	802b      	strh	r3, [r5, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:373
+        pygmyTimer->CR2 = 0;                        //
+ 17e:	80ab      	strh	r3, [r5, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:374
+        pygmyTimer->CNT = 0;                        // Count Register
+ 180:	84ab      	strh	r3, [r5, #36]	; 0x24
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:375
+        pygmyTimer->ARR = ulFreq;                   // Auto Reload Register
+ 182:	f8a5 802c 	strh.w	r8, [r5, #44]	; 0x2c
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:376
+        pygmyTimer->PSC = 0;                        // Prescaler
+ 186:	852b      	strh	r3, [r5, #40]	; 0x28
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:377
+        if( ucChannel == 1 ){
+ 188:	d111      	bne.n	1ae <pinPWM+0x1ae>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:378
+            pygmyTimer->CCR1 = ulDuty;              // Capture Compare for PWM in output, sets duty cycle
+ 18a:	b2bf      	uxth	r7, r7
+ 18c:	86af      	strh	r7, [r5, #52]	; 0x34
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:379
+            pygmyTimer->CCMR1 &= ~(TIM_OC1M_CLEAR|TIM_OC1PE);
+ 18e:	8b2b      	ldrh	r3, [r5, #24]
+ 190:	f023 0378 	bic.w	r3, r3, #120	; 0x78
+ 194:	041b      	lsls	r3, r3, #16
+ 196:	0c1b      	lsrs	r3, r3, #16
+ 198:	832b      	strh	r3, [r5, #24]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:380
+            pygmyTimer->CCMR1 |= (TIM_OC1M_PWM1|TIM_OC1PE);          // 
+ 19a:	8b2b      	ldrh	r3, [r5, #24]
+ 19c:	b29b      	uxth	r3, r3
+ 19e:	f043 0368 	orr.w	r3, r3, #104	; 0x68
+ 1a2:	832b      	strh	r3, [r5, #24]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:381
+            pygmyTimer->CCER |= TIM_CC1E;
+ 1a4:	8c2b      	ldrh	r3, [r5, #32]
+ 1a6:	b29b      	uxth	r3, r3
+ 1a8:	f043 0301 	orr.w	r3, r3, #1
+ 1ac:	e03b      	b.n	226 <pinPWM+0x226>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:382
+        } else if( ucChannel == 2 ){
+ 1ae:	2e02      	cmp	r6, #2
+ 1b0:	d111      	bne.n	1d6 <pinPWM+0x1d6>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:383
+            pygmyTimer->CCR2 = ulDuty;              // Capture Compare for PWM in output, sets duty cycle
+ 1b2:	b2bf      	uxth	r7, r7
+ 1b4:	872f      	strh	r7, [r5, #56]	; 0x38
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:384
+            pygmyTimer->CCMR1 &= ~(TIM_OC2M_CLEAR|TIM_OC2PE);
+ 1b6:	8b2b      	ldrh	r3, [r5, #24]
+ 1b8:	f423 43f0 	bic.w	r3, r3, #30720	; 0x7800
+ 1bc:	041b      	lsls	r3, r3, #16
+ 1be:	0c1b      	lsrs	r3, r3, #16
+ 1c0:	832b      	strh	r3, [r5, #24]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:385
+            pygmyTimer->CCMR1 |= (TIM_OC2M_PWM1|TIM_OC2PE);          // 
+ 1c2:	8b2b      	ldrh	r3, [r5, #24]
+ 1c4:	b29b      	uxth	r3, r3
+ 1c6:	f443 43d0 	orr.w	r3, r3, #26624	; 0x6800
+ 1ca:	832b      	strh	r3, [r5, #24]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:386
+            pygmyTimer->CCER |= TIM_CC2E;
+ 1cc:	8c2b      	ldrh	r3, [r5, #32]
+ 1ce:	b29b      	uxth	r3, r3
+ 1d0:	f043 0310 	orr.w	r3, r3, #16
+ 1d4:	e027      	b.n	226 <pinPWM+0x226>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:387
+        } else if( ucChannel == 3 ){
+ 1d6:	2e03      	cmp	r6, #3
+ 1d8:	d111      	bne.n	1fe <pinPWM+0x1fe>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:388
+            pygmyTimer->CCR3 = ulDuty;      // Capture Compare for PWM in output, sets duty cycle
+ 1da:	b2bf      	uxth	r7, r7
+ 1dc:	87af      	strh	r7, [r5, #60]	; 0x3c
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:389
+            pygmyTimer->CCMR2 &= ~(TIM_OC3M_CLEAR|TIM_OC3PE);          // 
+ 1de:	8bab      	ldrh	r3, [r5, #28]
+ 1e0:	f023 0378 	bic.w	r3, r3, #120	; 0x78
+ 1e4:	041b      	lsls	r3, r3, #16
+ 1e6:	0c1b      	lsrs	r3, r3, #16
+ 1e8:	83ab      	strh	r3, [r5, #28]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:390
+            pygmyTimer->CCMR2 |= (TIM_OC3M_PWM1|TIM_OC3PE);
+ 1ea:	8bab      	ldrh	r3, [r5, #28]
+ 1ec:	b29b      	uxth	r3, r3
+ 1ee:	f043 0368 	orr.w	r3, r3, #104	; 0x68
+ 1f2:	83ab      	strh	r3, [r5, #28]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:391
+            pygmyTimer->CCER |= TIM_CC3E;
+ 1f4:	8c2b      	ldrh	r3, [r5, #32]
+ 1f6:	b29b      	uxth	r3, r3
+ 1f8:	f443 7380 	orr.w	r3, r3, #256	; 0x100
+ 1fc:	e013      	b.n	226 <pinPWM+0x226>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:392
+        } else if( ucChannel == 4 ){
+ 1fe:	2e04      	cmp	r6, #4
+ 200:	d112      	bne.n	228 <pinPWM+0x228>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:393
+            pygmyTimer->CCR4 = ulDuty;      // Capture Compare for PWM in output, sets duty cycle
+ 202:	b2bf      	uxth	r7, r7
+ 204:	f8a5 7040 	strh.w	r7, [r5, #64]	; 0x40
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:394
+            pygmyTimer->CCMR2 &= ~(TIM_OC4M_CLEAR|TIM_OC4PE);          // 
+ 208:	8bab      	ldrh	r3, [r5, #28]
+ 20a:	f423 43f0 	bic.w	r3, r3, #30720	; 0x7800
+ 20e:	041b      	lsls	r3, r3, #16
+ 210:	0c1b      	lsrs	r3, r3, #16
+ 212:	83ab      	strh	r3, [r5, #28]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:395
+            pygmyTimer->CCMR2 |= (TIM_OC4M_PWM1|TIM_OC4PE);
+ 214:	8bab      	ldrh	r3, [r5, #28]
+ 216:	b29b      	uxth	r3, r3
+ 218:	f443 43d0 	orr.w	r3, r3, #26624	; 0x6800
+ 21c:	83ab      	strh	r3, [r5, #28]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:396
+            pygmyTimer->CCER |= TIM_CC4E;
+ 21e:	8c2b      	ldrh	r3, [r5, #32]
+ 220:	b29b      	uxth	r3, r3
+ 222:	f443 5380 	orr.w	r3, r3, #4096	; 0x1000
+ 226:	842b      	strh	r3, [r5, #32]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:398
+        } // else if
+        pygmyTimer->EGR |= TIM_UG;
+ 228:	8aab      	ldrh	r3, [r5, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:399
+        pygmyTimer->CR1 = TIM_ARPE|TIM_CEN;
+ 22a:	2281      	movs	r2, #129	; 0x81
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:398
+            pygmyTimer->CCR4 = ulDuty;      // Capture Compare for PWM in output, sets duty cycle
+            pygmyTimer->CCMR2 &= ~(TIM_OC4M_CLEAR|TIM_OC4PE);          // 
+            pygmyTimer->CCMR2 |= (TIM_OC4M_PWM1|TIM_OC4PE);
+            pygmyTimer->CCER |= TIM_CC4E;
+        } // else if
+        pygmyTimer->EGR |= TIM_UG;
+ 22c:	b29b      	uxth	r3, r3
+ 22e:	f043 0301 	orr.w	r3, r3, #1
+ 232:	82ab      	strh	r3, [r5, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:399
+        pygmyTimer->CR1 = TIM_ARPE|TIM_CEN;
+ 234:	802a      	strh	r2, [r5, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:402
+    } // else
+    
+    return( 1 );
+ 236:	2001      	movs	r0, #1
+ 238:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:315
+    u32 ulDuty, ulMainClock;
+    u8 ucChannel;
+
+    // ToDo: Add clock frequency to pygmyGlobalData and use to set frequency here
+    if( ucDutyCycle > 100 || sysGetPWMTimer() == PYGMY_TIMER0 ){
+        return( 0 );
+ 23c:	2000      	movs	r0, #0
+ 23e:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:330
+    if( ulFreq == 0 ){
+        ulFreq = 1;
+    } // if
+    ulMainClock = sysGetMainClock();
+    if( ulFreq > ulMainClock ){
+        return( 0 );
+ 242:	2000      	movs	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:403
+        pygmyTimer->EGR |= TIM_UG;
+        pygmyTimer->CR1 = TIM_ARPE|TIM_CEN;
+    } // else
+    
+    return( 1 );
+}
+ 244:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+ 248:	40012c00 	.word	0x40012c00
+ 24c:	40021000 	.word	0x40021000
+
+Disassembly of section .text.pinProcessSoftPWM:
+
+00000000 <pinProcessSoftPWM>:
+pinProcessSoftPWM():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:593
+
+    return( 1 );
+}
+
+void pinProcessSoftPWM( void )
+{
+   0:	4c11b538 	.word	0x4c11b538
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:592
+    */
+
+    return( 1 );
+}
+
+void pinProcessSoftPWM( void )
+   4:	f104 0580 	add.w	r5, r4, #128	; 0x80
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:597
+{
+    u16 i;
+
+    for( i = 0; i < PYGMY_PWMCHANNELS; i++ ){
+        if( globalPygmyPWM[ i ].CR & PYGMY_PWM_EN ){
+   8:	7b63      	ldrb	r3, [r4, #13]
+   a:	f013 0f01 	tst.w	r3, #1
+   e:	d017      	beq.n	40 <pinProcessSoftPWM+0x40>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:598
+            if( globalPygmyPWM[ i ].Count ){
+  10:	68a1      	ldr	r1, [r4, #8]
+  12:	b111      	cbz	r1, 1a <pinProcessSoftPWM+0x1a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:599
+                --globalPygmyPWM[ i ].Count;
+  14:	3901      	subs	r1, #1
+  16:	60a1      	str	r1, [r4, #8]
+  18:	e012      	b.n	40 <pinProcessSoftPWM+0x40>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:601
+            } else{
+                if( globalPygmyPWM[ i ].CR & PYGMY_PWM_DIR ){
+  1a:	f013 0f02 	tst.w	r3, #2
+  1e:	d006      	beq.n	2e <pinProcessSoftPWM+0x2e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:602
+                    globalPygmyPWM[ i ].Count = globalPygmyPWM[ i ].DownCount;
+  20:	6862      	ldr	r2, [r4, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:603
+                    globalPygmyPWM[ i ].CR &= ~PYGMY_PWM_DIR;
+  22:	f023 0302 	bic.w	r3, r3, #2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:602
+        if( globalPygmyPWM[ i ].CR & PYGMY_PWM_EN ){
+            if( globalPygmyPWM[ i ].Count ){
+                --globalPygmyPWM[ i ].Count;
+            } else{
+                if( globalPygmyPWM[ i ].CR & PYGMY_PWM_DIR ){
+                    globalPygmyPWM[ i ].Count = globalPygmyPWM[ i ].DownCount;
+  26:	60a2      	str	r2, [r4, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:603
+                    globalPygmyPWM[ i ].CR &= ~PYGMY_PWM_DIR;
+  28:	7363      	strb	r3, [r4, #13]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:604
+                    pinSet( globalPygmyPWM[ i ].Pin, LOW );
+  2a:	7b20      	ldrb	r0, [r4, #12]
+  2c:	e006      	b.n	3c <pinProcessSoftPWM+0x3c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:606
+                } else{
+                    globalPygmyPWM[ i ].Count = globalPygmyPWM[ i ].UpCount;
+  2e:	6822      	ldr	r2, [r4, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:607
+                    globalPygmyPWM[ i ].CR |= PYGMY_PWM_DIR;
+  30:	f043 0302 	orr.w	r3, r3, #2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:608
+                    pinSet( globalPygmyPWM[ i ].Pin, HIGH );
+  34:	7b20      	ldrb	r0, [r4, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:606
+                if( globalPygmyPWM[ i ].CR & PYGMY_PWM_DIR ){
+                    globalPygmyPWM[ i ].Count = globalPygmyPWM[ i ].DownCount;
+                    globalPygmyPWM[ i ].CR &= ~PYGMY_PWM_DIR;
+                    pinSet( globalPygmyPWM[ i ].Pin, LOW );
+                } else{
+                    globalPygmyPWM[ i ].Count = globalPygmyPWM[ i ].UpCount;
+  36:	60a2      	str	r2, [r4, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:607
+                    globalPygmyPWM[ i ].CR |= PYGMY_PWM_DIR;
+  38:	7363      	strb	r3, [r4, #13]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:608
+                    pinSet( globalPygmyPWM[ i ].Pin, HIGH );
+  3a:	2101      	movs	r1, #1
+  3c:	f7ff fffe 	bl	0 <pinProcessSoftPWM>
+  40:	3410      	adds	r4, #16
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:596
+
+void pinProcessSoftPWM( void )
+{
+    u16 i;
+
+    for( i = 0; i < PYGMY_PWMCHANNELS; i++ ){
+  42:	42ac      	cmp	r4, r5
+  44:	d1e0      	bne.n	8 <pinProcessSoftPWM+0x8>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:613
+                    pinSet( globalPygmyPWM[ i ].Pin, HIGH );
+                } // else
+            } // else
+        } // if
+    } // for
+}
+  46:	bd38      	pop	{r3, r4, r5, pc}
+  48:	00000000 	.word	0x00000000
+
+Disassembly of section .text.TIM1_UP_IRQHandler:
+
+00000000 <TIM1_UP_IRQHandler>:
+TIM1_UP_IRQHandler():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:617
+
+void TIM1_UP_IRQHandler (void) // TIM16 // TIM11 // TIM9
+{
+    TIM16->SR = 0;
+   0:	22004b02 	.word	0x22004b02
+   4:	821a      	strh	r2, [r3, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:618
+    pinProcessSoftPWM();
+   6:	f7ff bffe 	b.w	0 <TIM1_UP_IRQHandler>
+   a:	bf00      	nop
+   c:	40014400 	.word	0x40014400
+
+Disassembly of section .text.EXTI0_IRQHandler:
+
+00000000 <EXTI0_IRQHandler>:
+EXTI0_IRQHandler():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:622
+}
+
+void EXTI0_IRQHandler( void ) 
+{
+   0:	b510      	push	{r4, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:623
+    EXTI->PR |= BIT0;      // Clear pending bits to prevent recursive access
+   2:	4b09      	ldr	r3, [pc, #36]	; (28 <EXTI0_IRQHandler+0x28>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:624
+    globalIRQPR |= BIT0;
+   4:	4c09      	ldr	r4, [pc, #36]	; (2c <EXTI0_IRQHandler+0x2c>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:623
+    pinProcessSoftPWM();
+}
+
+void EXTI0_IRQHandler( void ) 
+{
+    EXTI->PR |= BIT0;      // Clear pending bits to prevent recursive access
+   6:	695a      	ldr	r2, [r3, #20]
+   8:	f042 0201 	orr.w	r2, r2, #1
+   c:	615a      	str	r2, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:624
+    globalIRQPR |= BIT0;
+   e:	8823      	ldrh	r3, [r4, #0]
+  10:	f043 0301 	orr.w	r3, r3, #1
+  14:	8023      	strh	r3, [r4, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:625
+    ( globalIRQHandlers[ 0 ] )();
+  16:	4b06      	ldr	r3, [pc, #24]	; (30 <EXTI0_IRQHandler+0x30>)
+  18:	681b      	ldr	r3, [r3, #0]
+  1a:	4798      	blx	r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:626
+    globalIRQPR &= ~BIT0;
+  1c:	8823      	ldrh	r3, [r4, #0]
+  1e:	f023 0301 	bic.w	r3, r3, #1
+  22:	8023      	strh	r3, [r4, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:627
+}
+  24:	bd10      	pop	{r4, pc}
+  26:	bf00      	nop
+  28:	40010400 	.word	0x40010400
+	...
+
+Disassembly of section .text.EXTI1_IRQHandler:
+
+00000000 <EXTI1_IRQHandler>:
+EXTI1_IRQHandler():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:630
+
+void EXTI1_IRQHandler( void ) 
+{
+   0:	b510      	push	{r4, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:631
+    EXTI->PR |= BIT1;      // Clear pending bits to prevent recursive access
+   2:	4b09      	ldr	r3, [pc, #36]	; (28 <EXTI1_IRQHandler+0x28>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:632
+    globalIRQPR |= BIT1;
+   4:	4c09      	ldr	r4, [pc, #36]	; (2c <EXTI1_IRQHandler+0x2c>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:631
+    globalIRQPR &= ~BIT0;
+}
+
+void EXTI1_IRQHandler( void ) 
+{
+    EXTI->PR |= BIT1;      // Clear pending bits to prevent recursive access
+   6:	695a      	ldr	r2, [r3, #20]
+   8:	f042 0202 	orr.w	r2, r2, #2
+   c:	615a      	str	r2, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:632
+    globalIRQPR |= BIT1;
+   e:	8823      	ldrh	r3, [r4, #0]
+  10:	f043 0302 	orr.w	r3, r3, #2
+  14:	8023      	strh	r3, [r4, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:633
+    ( globalIRQHandlers[ 1 ] )();
+  16:	4b06      	ldr	r3, [pc, #24]	; (30 <EXTI1_IRQHandler+0x30>)
+  18:	685b      	ldr	r3, [r3, #4]
+  1a:	4798      	blx	r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:634
+    globalIRQPR &= ~BIT1;
+  1c:	8823      	ldrh	r3, [r4, #0]
+  1e:	f023 0302 	bic.w	r3, r3, #2
+  22:	8023      	strh	r3, [r4, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:635
+}
+  24:	bd10      	pop	{r4, pc}
+  26:	bf00      	nop
+  28:	40010400 	.word	0x40010400
+	...
+
+Disassembly of section .text.EXTI2_IRQHandler:
+
+00000000 <EXTI2_IRQHandler>:
+EXTI2_IRQHandler():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:638
+
+void EXTI2_IRQHandler( void ) 
+{
+   0:	b510      	push	{r4, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:639
+    EXTI->PR |= BIT2;      // Clear pending bits to prevent recursive access
+   2:	4b09      	ldr	r3, [pc, #36]	; (28 <EXTI2_IRQHandler+0x28>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:640
+    globalIRQPR |= BIT2;
+   4:	4c09      	ldr	r4, [pc, #36]	; (2c <EXTI2_IRQHandler+0x2c>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:639
+    globalIRQPR &= ~BIT1;
+}
+
+void EXTI2_IRQHandler( void ) 
+{
+    EXTI->PR |= BIT2;      // Clear pending bits to prevent recursive access
+   6:	695a      	ldr	r2, [r3, #20]
+   8:	f042 0204 	orr.w	r2, r2, #4
+   c:	615a      	str	r2, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:640
+    globalIRQPR |= BIT2;
+   e:	8823      	ldrh	r3, [r4, #0]
+  10:	f043 0304 	orr.w	r3, r3, #4
+  14:	8023      	strh	r3, [r4, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:641
+    ( globalIRQHandlers[ 2 ] )();
+  16:	4b06      	ldr	r3, [pc, #24]	; (30 <EXTI2_IRQHandler+0x30>)
+  18:	689b      	ldr	r3, [r3, #8]
+  1a:	4798      	blx	r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:642
+    globalIRQPR &= ~BIT2;
+  1c:	8823      	ldrh	r3, [r4, #0]
+  1e:	f023 0304 	bic.w	r3, r3, #4
+  22:	8023      	strh	r3, [r4, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:643
+}
+  24:	bd10      	pop	{r4, pc}
+  26:	bf00      	nop
+  28:	40010400 	.word	0x40010400
+	...
+
+Disassembly of section .text.EXTI3_IRQHandler:
+
+00000000 <EXTI3_IRQHandler>:
+EXTI3_IRQHandler():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:646
+
+void EXTI3_IRQHandler( void ) 
+{
+   0:	b510      	push	{r4, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:647
+    EXTI->PR |= BIT3;      // Clear pending bits to prevent recursive access
+   2:	4b09      	ldr	r3, [pc, #36]	; (28 <EXTI3_IRQHandler+0x28>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:648
+    globalIRQPR |= BIT3;
+   4:	4c09      	ldr	r4, [pc, #36]	; (2c <EXTI3_IRQHandler+0x2c>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:647
+    globalIRQPR &= ~BIT2;
+}
+
+void EXTI3_IRQHandler( void ) 
+{
+    EXTI->PR |= BIT3;      // Clear pending bits to prevent recursive access
+   6:	695a      	ldr	r2, [r3, #20]
+   8:	f042 0208 	orr.w	r2, r2, #8
+   c:	615a      	str	r2, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:648
+    globalIRQPR |= BIT3;
+   e:	8823      	ldrh	r3, [r4, #0]
+  10:	f043 0308 	orr.w	r3, r3, #8
+  14:	8023      	strh	r3, [r4, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:649
+    ( globalIRQHandlers[ 3 ] )();
+  16:	4b06      	ldr	r3, [pc, #24]	; (30 <EXTI3_IRQHandler+0x30>)
+  18:	68db      	ldr	r3, [r3, #12]
+  1a:	4798      	blx	r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:650
+    globalIRQPR &= ~BIT3;
+  1c:	8823      	ldrh	r3, [r4, #0]
+  1e:	f023 0308 	bic.w	r3, r3, #8
+  22:	8023      	strh	r3, [r4, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:651
+}
+  24:	bd10      	pop	{r4, pc}
+  26:	bf00      	nop
+  28:	40010400 	.word	0x40010400
+	...
+
+Disassembly of section .text.EXTI4_IRQHandler:
+
+00000000 <EXTI4_IRQHandler>:
+EXTI4_IRQHandler():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:654
+
+void EXTI4_IRQHandler( void ) 
+{
+   0:	b510      	push	{r4, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:655
+    EXTI->PR |= BIT4;      // Clear pending bits to prevent recursive access
+   2:	4b09      	ldr	r3, [pc, #36]	; (28 <EXTI4_IRQHandler+0x28>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:656
+    globalIRQPR |= BIT4;
+   4:	4c09      	ldr	r4, [pc, #36]	; (2c <EXTI4_IRQHandler+0x2c>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:655
+    globalIRQPR &= ~BIT3;
+}
+
+void EXTI4_IRQHandler( void ) 
+{
+    EXTI->PR |= BIT4;      // Clear pending bits to prevent recursive access
+   6:	695a      	ldr	r2, [r3, #20]
+   8:	f042 0210 	orr.w	r2, r2, #16
+   c:	615a      	str	r2, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:656
+    globalIRQPR |= BIT4;
+   e:	8823      	ldrh	r3, [r4, #0]
+  10:	f043 0310 	orr.w	r3, r3, #16
+  14:	8023      	strh	r3, [r4, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:657
+    ( globalIRQHandlers[ 4 ] )();
+  16:	4b06      	ldr	r3, [pc, #24]	; (30 <EXTI4_IRQHandler+0x30>)
+  18:	691b      	ldr	r3, [r3, #16]
+  1a:	4798      	blx	r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:658
+    globalIRQPR &= ~BIT4;
+  1c:	8823      	ldrh	r3, [r4, #0]
+  1e:	f023 0310 	bic.w	r3, r3, #16
+  22:	8023      	strh	r3, [r4, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:659
+}
+  24:	bd10      	pop	{r4, pc}
+  26:	bf00      	nop
+  28:	40010400 	.word	0x40010400
+	...
+
+Disassembly of section .text.EXTI9_5_IRQHandler:
+
+00000000 <EXTI9_5_IRQHandler>:
+EXTI9_5_IRQHandler():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:662
+
+void EXTI9_5_IRQHandler( void ) 
+{
+   0:	b510      	push	{r4, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:663
+    if( EXTI->PR & BIT5 ){
+   2:	4b35      	ldr	r3, [pc, #212]	; (d8 <EXTI9_5_IRQHandler+0xd8>)
+   4:	695a      	ldr	r2, [r3, #20]
+   6:	f012 0f20 	tst.w	r2, #32
+   a:	d00f      	beq.n	2c <EXTI9_5_IRQHandler+0x2c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:664
+        EXTI->PR |= BIT5;      // Clear pending bits to prevent recursive access
+   c:	695a      	ldr	r2, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:665
+        globalIRQPR |= BIT5;
+   e:	4c33      	ldr	r4, [pc, #204]	; (dc <EXTI9_5_IRQHandler+0xdc>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:664
+}
+
+void EXTI9_5_IRQHandler( void ) 
+{
+    if( EXTI->PR & BIT5 ){
+        EXTI->PR |= BIT5;      // Clear pending bits to prevent recursive access
+  10:	f042 0220 	orr.w	r2, r2, #32
+  14:	615a      	str	r2, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:665
+        globalIRQPR |= BIT5;
+  16:	8823      	ldrh	r3, [r4, #0]
+  18:	f043 0320 	orr.w	r3, r3, #32
+  1c:	8023      	strh	r3, [r4, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:666
+        ( globalIRQHandlers[ 5 ] )();
+  1e:	4b30      	ldr	r3, [pc, #192]	; (e0 <EXTI9_5_IRQHandler+0xe0>)
+  20:	695b      	ldr	r3, [r3, #20]
+  22:	4798      	blx	r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:667
+        globalIRQPR &= ~BIT5;
+  24:	8823      	ldrh	r3, [r4, #0]
+  26:	f023 0320 	bic.w	r3, r3, #32
+  2a:	8023      	strh	r3, [r4, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:669
+    } // if
+    if( EXTI->PR & BIT6 ){
+  2c:	4b2a      	ldr	r3, [pc, #168]	; (d8 <EXTI9_5_IRQHandler+0xd8>)
+  2e:	695a      	ldr	r2, [r3, #20]
+  30:	f012 0f40 	tst.w	r2, #64	; 0x40
+  34:	d00f      	beq.n	56 <EXTI9_5_IRQHandler+0x56>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:670
+        EXTI->PR |= BIT6;
+  36:	695a      	ldr	r2, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:671
+        globalIRQPR |= BIT6;
+  38:	4c28      	ldr	r4, [pc, #160]	; (dc <EXTI9_5_IRQHandler+0xdc>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:670
+        globalIRQPR |= BIT5;
+        ( globalIRQHandlers[ 5 ] )();
+        globalIRQPR &= ~BIT5;
+    } // if
+    if( EXTI->PR & BIT6 ){
+        EXTI->PR |= BIT6;
+  3a:	f042 0240 	orr.w	r2, r2, #64	; 0x40
+  3e:	615a      	str	r2, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:671
+        globalIRQPR |= BIT6;
+  40:	8823      	ldrh	r3, [r4, #0]
+  42:	f043 0340 	orr.w	r3, r3, #64	; 0x40
+  46:	8023      	strh	r3, [r4, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:672
+        ( globalIRQHandlers[ 6 ] )();
+  48:	4b25      	ldr	r3, [pc, #148]	; (e0 <EXTI9_5_IRQHandler+0xe0>)
+  4a:	699b      	ldr	r3, [r3, #24]
+  4c:	4798      	blx	r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:673
+        globalIRQPR &= ~BIT6;
+  4e:	8823      	ldrh	r3, [r4, #0]
+  50:	f023 0340 	bic.w	r3, r3, #64	; 0x40
+  54:	8023      	strh	r3, [r4, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:675
+    } // if 
+    if( EXTI->PR & BIT7 ){
+  56:	4b20      	ldr	r3, [pc, #128]	; (d8 <EXTI9_5_IRQHandler+0xd8>)
+  58:	695a      	ldr	r2, [r3, #20]
+  5a:	f012 0f80 	tst.w	r2, #128	; 0x80
+  5e:	d00f      	beq.n	80 <EXTI9_5_IRQHandler+0x80>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:676
+        EXTI->PR |= BIT7;
+  60:	695a      	ldr	r2, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:677
+        globalIRQPR |= BIT7;
+  62:	4c1e      	ldr	r4, [pc, #120]	; (dc <EXTI9_5_IRQHandler+0xdc>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:676
+        globalIRQPR |= BIT6;
+        ( globalIRQHandlers[ 6 ] )();
+        globalIRQPR &= ~BIT6;
+    } // if 
+    if( EXTI->PR & BIT7 ){
+        EXTI->PR |= BIT7;
+  64:	f042 0280 	orr.w	r2, r2, #128	; 0x80
+  68:	615a      	str	r2, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:677
+        globalIRQPR |= BIT7;
+  6a:	8823      	ldrh	r3, [r4, #0]
+  6c:	f043 0380 	orr.w	r3, r3, #128	; 0x80
+  70:	8023      	strh	r3, [r4, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:678
+        ( globalIRQHandlers[ 7 ] )();
+  72:	4b1b      	ldr	r3, [pc, #108]	; (e0 <EXTI9_5_IRQHandler+0xe0>)
+  74:	69db      	ldr	r3, [r3, #28]
+  76:	4798      	blx	r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:679
+        globalIRQPR &= ~BIT7;
+  78:	8823      	ldrh	r3, [r4, #0]
+  7a:	f023 0380 	bic.w	r3, r3, #128	; 0x80
+  7e:	8023      	strh	r3, [r4, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:681
+    } // if
+    if( EXTI->PR & BIT8 ){
+  80:	4b15      	ldr	r3, [pc, #84]	; (d8 <EXTI9_5_IRQHandler+0xd8>)
+  82:	695a      	ldr	r2, [r3, #20]
+  84:	f412 7f80 	tst.w	r2, #256	; 0x100
+  88:	d00f      	beq.n	aa <EXTI9_5_IRQHandler+0xaa>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:682
+        EXTI->PR |= BIT8;
+  8a:	695a      	ldr	r2, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:683
+        globalIRQPR |= BIT8;
+  8c:	4c13      	ldr	r4, [pc, #76]	; (dc <EXTI9_5_IRQHandler+0xdc>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:682
+        globalIRQPR |= BIT7;
+        ( globalIRQHandlers[ 7 ] )();
+        globalIRQPR &= ~BIT7;
+    } // if
+    if( EXTI->PR & BIT8 ){
+        EXTI->PR |= BIT8;
+  8e:	f442 7280 	orr.w	r2, r2, #256	; 0x100
+  92:	615a      	str	r2, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:683
+        globalIRQPR |= BIT8;
+  94:	8823      	ldrh	r3, [r4, #0]
+  96:	f443 7380 	orr.w	r3, r3, #256	; 0x100
+  9a:	8023      	strh	r3, [r4, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:684
+        ( globalIRQHandlers[ 8 ] )();
+  9c:	4b10      	ldr	r3, [pc, #64]	; (e0 <EXTI9_5_IRQHandler+0xe0>)
+  9e:	6a1b      	ldr	r3, [r3, #32]
+  a0:	4798      	blx	r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:685
+        globalIRQPR &= ~BIT8;
+  a2:	8823      	ldrh	r3, [r4, #0]
+  a4:	f423 7380 	bic.w	r3, r3, #256	; 0x100
+  a8:	8023      	strh	r3, [r4, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:687
+    } // if
+    if( EXTI->PR & BIT9 ){
+  aa:	4b0b      	ldr	r3, [pc, #44]	; (d8 <EXTI9_5_IRQHandler+0xd8>)
+  ac:	695a      	ldr	r2, [r3, #20]
+  ae:	f412 7f00 	tst.w	r2, #512	; 0x200
+  b2:	d00f      	beq.n	d4 <EXTI9_5_IRQHandler+0xd4>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:688
+        EXTI->PR |= BIT9;
+  b4:	695a      	ldr	r2, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:689
+        globalIRQPR |= BIT9;
+  b6:	4c09      	ldr	r4, [pc, #36]	; (dc <EXTI9_5_IRQHandler+0xdc>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:688
+        globalIRQPR |= BIT8;
+        ( globalIRQHandlers[ 8 ] )();
+        globalIRQPR &= ~BIT8;
+    } // if
+    if( EXTI->PR & BIT9 ){
+        EXTI->PR |= BIT9;
+  b8:	f442 7200 	orr.w	r2, r2, #512	; 0x200
+  bc:	615a      	str	r2, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:689
+        globalIRQPR |= BIT9;
+  be:	8823      	ldrh	r3, [r4, #0]
+  c0:	f443 7300 	orr.w	r3, r3, #512	; 0x200
+  c4:	8023      	strh	r3, [r4, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:690
+        ( globalIRQHandlers[ 9 ] )();
+  c6:	4b06      	ldr	r3, [pc, #24]	; (e0 <EXTI9_5_IRQHandler+0xe0>)
+  c8:	6a5b      	ldr	r3, [r3, #36]	; 0x24
+  ca:	4798      	blx	r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:691
+        globalIRQPR &= ~BIT9;
+  cc:	8823      	ldrh	r3, [r4, #0]
+  ce:	f423 7300 	bic.w	r3, r3, #512	; 0x200
+  d2:	8023      	strh	r3, [r4, #0]
+  d4:	bd10      	pop	{r4, pc}
+  d6:	bf00      	nop
+  d8:	40010400 	.word	0x40010400
+	...
+
+Disassembly of section .text.EXTI15_10_IRQHandler:
+
+00000000 <EXTI15_10_IRQHandler>:
+EXTI15_10_IRQHandler():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:697
+    } // if
+    
+}
+
+void EXTI15_10_IRQHandler( void ) 
+{
+   0:	b510      	push	{r4, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:698
+    if( EXTI->PR & BIT10 ){
+   2:	4b40      	ldr	r3, [pc, #256]	; (104 <EXTI15_10_IRQHandler+0x104>)
+   4:	695a      	ldr	r2, [r3, #20]
+   6:	f412 6f80 	tst.w	r2, #1024	; 0x400
+   a:	d00f      	beq.n	2c <EXTI15_10_IRQHandler+0x2c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:699
+        EXTI->PR |= BIT10;
+   c:	695a      	ldr	r2, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:700
+        globalIRQPR |= BIT10;
+   e:	4c3e      	ldr	r4, [pc, #248]	; (108 <EXTI15_10_IRQHandler+0x108>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:699
+}
+
+void EXTI15_10_IRQHandler( void ) 
+{
+    if( EXTI->PR & BIT10 ){
+        EXTI->PR |= BIT10;
+  10:	f442 6280 	orr.w	r2, r2, #1024	; 0x400
+  14:	615a      	str	r2, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:700
+        globalIRQPR |= BIT10;
+  16:	8823      	ldrh	r3, [r4, #0]
+  18:	f443 6380 	orr.w	r3, r3, #1024	; 0x400
+  1c:	8023      	strh	r3, [r4, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:701
+        ( globalIRQHandlers[ 10 ] )();
+  1e:	4b3b      	ldr	r3, [pc, #236]	; (10c <EXTI15_10_IRQHandler+0x10c>)
+  20:	6a9b      	ldr	r3, [r3, #40]	; 0x28
+  22:	4798      	blx	r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:702
+        globalIRQPR &= ~BIT10;
+  24:	8823      	ldrh	r3, [r4, #0]
+  26:	f423 6380 	bic.w	r3, r3, #1024	; 0x400
+  2a:	8023      	strh	r3, [r4, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:704
+    } // if
+    if( EXTI->PR & BIT11 ){
+  2c:	4b35      	ldr	r3, [pc, #212]	; (104 <EXTI15_10_IRQHandler+0x104>)
+  2e:	695a      	ldr	r2, [r3, #20]
+  30:	f412 6f00 	tst.w	r2, #2048	; 0x800
+  34:	d00f      	beq.n	56 <EXTI15_10_IRQHandler+0x56>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:705
+        EXTI->PR |= BIT11;
+  36:	695a      	ldr	r2, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:706
+        globalIRQPR |= BIT11;
+  38:	4c33      	ldr	r4, [pc, #204]	; (108 <EXTI15_10_IRQHandler+0x108>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:705
+        globalIRQPR |= BIT10;
+        ( globalIRQHandlers[ 10 ] )();
+        globalIRQPR &= ~BIT10;
+    } // if
+    if( EXTI->PR & BIT11 ){
+        EXTI->PR |= BIT11;
+  3a:	f442 6200 	orr.w	r2, r2, #2048	; 0x800
+  3e:	615a      	str	r2, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:706
+        globalIRQPR |= BIT11;
+  40:	8823      	ldrh	r3, [r4, #0]
+  42:	f443 6300 	orr.w	r3, r3, #2048	; 0x800
+  46:	8023      	strh	r3, [r4, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:707
+        ( globalIRQHandlers[ 11 ] )();
+  48:	4b30      	ldr	r3, [pc, #192]	; (10c <EXTI15_10_IRQHandler+0x10c>)
+  4a:	6adb      	ldr	r3, [r3, #44]	; 0x2c
+  4c:	4798      	blx	r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:708
+        globalIRQPR &= ~BIT11;
+  4e:	8823      	ldrh	r3, [r4, #0]
+  50:	f423 6300 	bic.w	r3, r3, #2048	; 0x800
+  54:	8023      	strh	r3, [r4, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:710
+    } //if 
+    if( EXTI->PR & BIT12 ){
+  56:	4b2b      	ldr	r3, [pc, #172]	; (104 <EXTI15_10_IRQHandler+0x104>)
+  58:	695a      	ldr	r2, [r3, #20]
+  5a:	f412 5f80 	tst.w	r2, #4096	; 0x1000
+  5e:	d00f      	beq.n	80 <EXTI15_10_IRQHandler+0x80>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:711
+        EXTI->PR |= BIT12;
+  60:	695a      	ldr	r2, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:712
+        globalIRQPR |= BIT12;
+  62:	4c29      	ldr	r4, [pc, #164]	; (108 <EXTI15_10_IRQHandler+0x108>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:711
+        globalIRQPR |= BIT11;
+        ( globalIRQHandlers[ 11 ] )();
+        globalIRQPR &= ~BIT11;
+    } //if 
+    if( EXTI->PR & BIT12 ){
+        EXTI->PR |= BIT12;
+  64:	f442 5280 	orr.w	r2, r2, #4096	; 0x1000
+  68:	615a      	str	r2, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:712
+        globalIRQPR |= BIT12;
+  6a:	8823      	ldrh	r3, [r4, #0]
+  6c:	f443 5380 	orr.w	r3, r3, #4096	; 0x1000
+  70:	8023      	strh	r3, [r4, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:713
+        ( globalIRQHandlers[ 12 ] )();
+  72:	4b26      	ldr	r3, [pc, #152]	; (10c <EXTI15_10_IRQHandler+0x10c>)
+  74:	6b1b      	ldr	r3, [r3, #48]	; 0x30
+  76:	4798      	blx	r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:714
+        globalIRQPR &= ~BIT12;
+  78:	8823      	ldrh	r3, [r4, #0]
+  7a:	f423 5380 	bic.w	r3, r3, #4096	; 0x1000
+  7e:	8023      	strh	r3, [r4, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:716
+    } // if
+    if( EXTI->PR & BIT13 ){
+  80:	4b20      	ldr	r3, [pc, #128]	; (104 <EXTI15_10_IRQHandler+0x104>)
+  82:	695a      	ldr	r2, [r3, #20]
+  84:	f412 5f00 	tst.w	r2, #8192	; 0x2000
+  88:	d00f      	beq.n	aa <EXTI15_10_IRQHandler+0xaa>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:717
+        EXTI->PR |= BIT13;
+  8a:	695a      	ldr	r2, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:718
+        globalIRQPR |= BIT13;
+  8c:	4c1e      	ldr	r4, [pc, #120]	; (108 <EXTI15_10_IRQHandler+0x108>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:717
+        globalIRQPR |= BIT12;
+        ( globalIRQHandlers[ 12 ] )();
+        globalIRQPR &= ~BIT12;
+    } // if
+    if( EXTI->PR & BIT13 ){
+        EXTI->PR |= BIT13;
+  8e:	f442 5200 	orr.w	r2, r2, #8192	; 0x2000
+  92:	615a      	str	r2, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:718
+        globalIRQPR |= BIT13;
+  94:	8823      	ldrh	r3, [r4, #0]
+  96:	f443 5300 	orr.w	r3, r3, #8192	; 0x2000
+  9a:	8023      	strh	r3, [r4, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:719
+        ( globalIRQHandlers[ 13 ] )();
+  9c:	4b1b      	ldr	r3, [pc, #108]	; (10c <EXTI15_10_IRQHandler+0x10c>)
+  9e:	6b5b      	ldr	r3, [r3, #52]	; 0x34
+  a0:	4798      	blx	r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:720
+        globalIRQPR &= ~BIT13;
+  a2:	8823      	ldrh	r3, [r4, #0]
+  a4:	f423 5300 	bic.w	r3, r3, #8192	; 0x2000
+  a8:	8023      	strh	r3, [r4, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:722
+    } // if
+    if( EXTI->PR & BIT14 ){
+  aa:	4b16      	ldr	r3, [pc, #88]	; (104 <EXTI15_10_IRQHandler+0x104>)
+  ac:	695a      	ldr	r2, [r3, #20]
+  ae:	f412 4f80 	tst.w	r2, #16384	; 0x4000
+  b2:	d00f      	beq.n	d4 <EXTI15_10_IRQHandler+0xd4>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:723
+        EXTI->PR |= BIT14;
+  b4:	695a      	ldr	r2, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:724
+        globalIRQPR |= BIT14;
+  b6:	4c14      	ldr	r4, [pc, #80]	; (108 <EXTI15_10_IRQHandler+0x108>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:723
+        globalIRQPR |= BIT13;
+        ( globalIRQHandlers[ 13 ] )();
+        globalIRQPR &= ~BIT13;
+    } // if
+    if( EXTI->PR & BIT14 ){
+        EXTI->PR |= BIT14;
+  b8:	f442 4280 	orr.w	r2, r2, #16384	; 0x4000
+  bc:	615a      	str	r2, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:724
+        globalIRQPR |= BIT14;
+  be:	8823      	ldrh	r3, [r4, #0]
+  c0:	f443 4380 	orr.w	r3, r3, #16384	; 0x4000
+  c4:	8023      	strh	r3, [r4, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:725
+        ( globalIRQHandlers[ 14 ] )();
+  c6:	4b11      	ldr	r3, [pc, #68]	; (10c <EXTI15_10_IRQHandler+0x10c>)
+  c8:	6b9b      	ldr	r3, [r3, #56]	; 0x38
+  ca:	4798      	blx	r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:726
+        globalIRQPR &= ~BIT14;
+  cc:	8823      	ldrh	r3, [r4, #0]
+  ce:	f423 4380 	bic.w	r3, r3, #16384	; 0x4000
+  d2:	8023      	strh	r3, [r4, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:728
+    } // if
+    if( EXTI->PR & BIT15 ){
+  d4:	4b0b      	ldr	r3, [pc, #44]	; (104 <EXTI15_10_IRQHandler+0x104>)
+  d6:	695a      	ldr	r2, [r3, #20]
+  d8:	f412 4f00 	tst.w	r2, #32768	; 0x8000
+  dc:	d011      	beq.n	102 <EXTI15_10_IRQHandler+0x102>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:729
+        EXTI->PR |= BIT15;
+  de:	695a      	ldr	r2, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:730
+        globalIRQPR |= BIT15;
+  e0:	4c09      	ldr	r4, [pc, #36]	; (108 <EXTI15_10_IRQHandler+0x108>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:729
+        globalIRQPR |= BIT14;
+        ( globalIRQHandlers[ 14 ] )();
+        globalIRQPR &= ~BIT14;
+    } // if
+    if( EXTI->PR & BIT15 ){
+        EXTI->PR |= BIT15;
+  e2:	f442 4200 	orr.w	r2, r2, #32768	; 0x8000
+  e6:	615a      	str	r2, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:730
+        globalIRQPR |= BIT15;
+  e8:	8823      	ldrh	r3, [r4, #0]
+  ea:	ea6f 4343 	mvn.w	r3, r3, lsl #17
+  ee:	ea6f 4353 	mvn.w	r3, r3, lsr #17
+  f2:	8023      	strh	r3, [r4, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:731
+        ( globalIRQHandlers[ 15 ] )();
+  f4:	4b05      	ldr	r3, [pc, #20]	; (10c <EXTI15_10_IRQHandler+0x10c>)
+  f6:	6bdb      	ldr	r3, [r3, #60]	; 0x3c
+  f8:	4798      	blx	r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_port.c:732
+        globalIRQPR &= ~BIT15;
+  fa:	8823      	ldrh	r3, [r4, #0]
+  fc:	045b      	lsls	r3, r3, #17
+  fe:	0c5b      	lsrs	r3, r3, #17
+ 100:	8023      	strh	r3, [r4, #0]
+ 102:	bd10      	pop	{r4, pc}
+ 104:	40010400 	.word	0x40010400
+	...

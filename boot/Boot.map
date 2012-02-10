@@ -1,167 +1,86 @@
 Archive member included because of file (symbol)
 
-c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_aeabi_ldivmod.o)
-                              C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o (__aeabi_ldivmod)
-c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(bpabi.o)
-                              c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_aeabi_ldivmod.o) (__gnu_ldivmod_helper)
-c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_dvmd_tls.o)
-                              c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_aeabi_ldivmod.o) (__aeabi_ldiv0)
-c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_divdi3.o)
-                              c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(bpabi.o) (__divdi3)
-c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_udivdi3.o)
-                              c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(bpabi.o) (__udivdi3)
-c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_udivsi3.o)
-                              c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_divdi3.o) (__aeabi_uidiv)
+c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-memcpy.o)
+                              C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o (memcpy)
 
 Allocating common symbols
 Common symbol       size              file
 
-globalXMTimeout     0x4               C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
-globalID            0x4               C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
-globalFileLen       0x4               C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
-globalBootTimeout   0x4               C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
-globalXTAL          0x4               C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
-pygmyFile           0x28              C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
-globalFreq          0x4               C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
-pygmyRootVolume     0x44              C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
-globalStrID         0x4               C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
-globalTransaction   0x4               C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
-globalPLL           0x4               C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
-pygmyFlashSPI       0x18              C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
-globalBaseAddress   0x4               C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
-globalXMCount       0x4               C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
+globalXMTimeout     0x4               C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+globalID            0x4               C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+globalFileLen       0x4               C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+globalBootTimeout   0x4               C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+globalXTAL          0x4               C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+pygmyFile           0x28              C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+globalFreq          0x4               C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+pygmyRootVolume     0x3c              C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+globalStrID         0x4               C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+globalTransaction   0x4               C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+globalPLL           0x4               C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+pygmyFlashSPI       0x1c              C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+globalBaseAddress   0x4               C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+globalXMCount       0x4               C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
 
 Discarded input sections
 
  .text          0x00000000       0x14 C:\Program Files (x86)\Raisonance\Ride\lib\ARM\startup_stm32f10x_hd.o
  .data          0x00000000        0x0 C:\Program Files (x86)\Raisonance\Ride\lib\ARM\startup_stm32f10x_hd.o
  .bss           0x00000000        0x0 C:\Program Files (x86)\Raisonance\Ride\lib\ARM\startup_stm32f10x_hd.o
- .text          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
- .data          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
- .text          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
- .data          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
- .bss           0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
- .text.fileOpenResource
-                0x00000000       0x28 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
- .text.fileGetPosition
-                0x00000000        0x4 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
- .text.fileSetPosition
-                0x00000000       0x3e C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
- .text.fileIsEOF
-                0x00000000        0x8 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
- .text.fileGetMaxFiles
-                0x00000000        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
- .text.spiWriteWord
-                0x00000000       0x30 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
- .text.fileGetLong
-                0x00000000       0x5a C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
- .text.fileGetWord
-                0x00000000       0x32 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
- .text.fileGetBuffer
-                0x00000000       0x20 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
- .text.fileGetVolumeName
-                0x00000000       0x24 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
- .text.flashReadBuffer
-                0x00000000       0x40 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
- .text.flashWriteString
-                0x00000000       0x24 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
- .text.fileAllocateContiguousFATEntries
-                0x00000000       0x58 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
- .text.filePreAllocate
-                0x00000000       0x60 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
- .text.filePutLong
-                0x00000000       0x50 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
- .text.filePutWord
-                0x00000000       0x2c C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
- .text.filePutString
-                0x00000000       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
- .text.fileCopy
-                0x00000000       0x98 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
- .text          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
- .data          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
- .text.bufferToU16
-                0x00000000        0xa C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
- .text.bufferToU32
-                0x00000000       0x18 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
+ .text          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+ .data          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
  .text.isNumeric
-                0x00000000        0xe C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
- .text.isAlphaOrNumeric
-                0x00000000       0x2a C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
- .text.isHex    0x00000000       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
- .text.isBinary
-                0x00000000        0xe C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
- .text.isOctal  0x00000000        0xe C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
- .text.isMath   0x00000000       0x14 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
- .text.replaceChars
-                0x00000000       0x2c C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
- .text.convertCharToInt
-                0x00000000       0x30 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
- .text.convertIntToChar
-                0x00000000        0x2 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
- .text.seekChar
-                0x00000000        0x4 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
- .text.seekString
-                0x00000000       0x60 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
- .text.seekStringInBuffer
-                0x00000000        0x4 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
- .text.appendString
-                0x00000000       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
- .text.convertStringToInt
-                0x00000000       0xb4 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
- .text.convertIntToString
-                0x00000000      0x1ac C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
- .text.convertStringToPin
-                0x00000000       0xc8 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
- .text.convertBase64ToCode
-                0x00000000       0x46 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
- .text.convertBase64ToBuffer
-                0x00000000       0x7c C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
- .text.convertBase64ToString
-                0x00000000       0x74 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
- .text.convertStringToBase64
-                0x00000000       0x88 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
- .text          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_fpec.o
- .data          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_fpec.o
+                0x00000000        0xe C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+ .text.isQuote  0x00000000       0x14 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+ .text.bootTest
+                0x00000000       0xac C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+ .text.isSeparator
+                0x00000000       0x14 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+ .text          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+ .data          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+ .bss           0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+ .text.fileOpenResource
+                0x00000000       0x2e C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+ .text.fileCopyHandle
+                0x00000000       0x24 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+ .text.fileGetPosition
+                0x00000000        0x4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+ .text.fileSetPosition
+                0x00000000       0x3e C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+ .text.fileIsEOF
+                0x00000000        0x8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+ .text.fileIsRootFull
+                0x00000000       0x10 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+ .text.fileGetMaxFiles
+                0x00000000        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+ .text.spiWriteWord
+                0x00000000       0x30 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+ .text.fileGetLong
+                0x00000000       0x5a C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+ .text.fileGetWord
+                0x00000000       0x32 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+ .text.fileGetBuffer
+                0x00000000       0x20 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+ .text.fileGetVolumeName
+                0x00000000       0x24 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+ .text.flashWriteString
+                0x00000000       0x24 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+ .text.filePutLong
+                0x00000000       0x50 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+ .text.filePutWord
+                0x00000000       0x2c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+ .text.filePutString
+                0x00000000       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+ .text.fileCopy
+                0x00000000       0x4c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+ .text          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_fpec.o
+ .data          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_fpec.o
  .text.fpecLock
-                0x00000000       0x10 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_fpec.o
- .text          0x00000000       0x38 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_aeabi_ldivmod.o)
- .data          0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_aeabi_ldivmod.o)
- .bss           0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_aeabi_ldivmod.o)
+                0x00000000       0x10 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_fpec.o
+ .data          0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-memcpy.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-memcpy.o)
  .ARM.attributes
-                0x00000000       0x1b c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_aeabi_ldivmod.o)
- .text          0x00000000       0x60 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(bpabi.o)
- .data          0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(bpabi.o)
- .bss           0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(bpabi.o)
- .ARM.attributes
-                0x00000000       0x29 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(bpabi.o)
- .debug_frame   0x00000000       0x50 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(bpabi.o)
- .text          0x00000000        0x4 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_dvmd_tls.o)
- .data          0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_dvmd_tls.o)
- .bss           0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_dvmd_tls.o)
- .ARM.attributes
-                0x00000000       0x1b c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_dvmd_tls.o)
- .text          0x00000000      0x364 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_divdi3.o)
- .data          0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_divdi3.o)
- .bss           0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_divdi3.o)
- .ARM.extab     0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_divdi3.o)
- .ARM.exidx     0x00000000        0x8 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_divdi3.o)
- .ARM.attributes
-                0x00000000       0x29 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_divdi3.o)
- .debug_frame   0x00000000       0x3c c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_divdi3.o)
- .text          0x00000000      0x314 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_udivdi3.o)
- .data          0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_udivdi3.o)
- .bss           0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_udivdi3.o)
- .ARM.extab     0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_udivdi3.o)
- .ARM.exidx     0x00000000        0x8 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_udivdi3.o)
- .ARM.attributes
-                0x00000000       0x29 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_udivdi3.o)
- .debug_frame   0x00000000       0x3c c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_udivdi3.o)
- .text          0x00000000      0x278 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_udivsi3.o)
- .data          0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_udivsi3.o)
- .bss           0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_udivsi3.o)
- .debug_frame   0x00000000       0x20 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_udivsi3.o)
- .ARM.attributes
-                0x00000000       0x1b c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_udivsi3.o)
+                0x00000000       0x29 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-memcpy.o)
+ .debug_frame   0x00000000       0x30 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-memcpy.o)
 
 Memory Configuration
 
@@ -183,10 +102,9 @@ EXTMEMB3         0x00000000         0x00000000         xr
 Linker script and memory map
 
 LOAD C:\Program Files (x86)\Raisonance\Ride\lib\ARM\startup_stm32f10x_hd.o
-LOAD C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
-LOAD C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
-LOAD C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
-LOAD C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_fpec.o
+LOAD C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+LOAD C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+LOAD C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_fpec.o
 START GROUP
 LOAD C:\Program Files (x86)\Raisonance\Ride\Lib\ARM\std_sbrk_thumb.lib
 LOAD C:\Program Files (x86)\Raisonance\Ride\Lib\ARM\smallprintf_thumb.a
@@ -367,362 +285,350 @@ END GROUP
  *(.flashtext)
                 0x080001e4                . = ALIGN (0x4)
 
-.text           0x080001e4     0x1d24
+.text           0x080001e4     0x1dc0
                 0x080001e4                . = ALIGN (0x4)
  *(.text)
+ .text          0x080001e4      0x150 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-memcpy.o)
+                0x080001e4                memcpy
  *(.text.*)
  .text.Reset_Handler
-                0x080001e4       0x50 C:\Program Files (x86)\Raisonance\Ride\lib\ARM\startup_stm32f10x_hd.o
-                0x080001e4                Reset_Handler
+                0x08000334       0x50 C:\Program Files (x86)\Raisonance\Ride\lib\ARM\startup_stm32f10x_hd.o
+                0x08000334                Reset_Handler
  .text.SystemInit_ExtMemCtl_Dummy
-                0x08000234        0x2 C:\Program Files (x86)\Raisonance\Ride\lib\ARM\startup_stm32f10x_hd.o
-                0x08000234                SystemInit_ExtMemCtl
-                0x08000234                SystemInit_ExtMemCtl_Dummy
+                0x08000384        0x2 C:\Program Files (x86)\Raisonance\Ride\lib\ARM\startup_stm32f10x_hd.o
+                0x08000384                SystemInit_ExtMemCtl
+                0x08000384                SystemInit_ExtMemCtl_Dummy
  .text.Default_Handler
-                0x08000236        0x2 C:\Program Files (x86)\Raisonance\Ride\lib\ARM\startup_stm32f10x_hd.o
-                0x08000236                EXTI2_IRQHandler
-                0x08000236                TIM8_TRG_COM_IRQHandler
-                0x08000236                TIM8_CC_IRQHandler
-                0x08000236                DebugMon_Handler
-                0x08000236                TIM1_CC_IRQHandler
-                0x08000236                HardFault_Handler
-                0x08000236                TIM6_IRQHandler
-                0x08000236                PVD_IRQHandler
-                0x08000236                SDIO_IRQHandler
-                0x08000236                PendSV_Handler
-                0x08000236                NMI_Handler
-                0x08000236                EXTI3_IRQHandler
-                0x08000236                EXTI0_IRQHandler
-                0x08000236                I2C2_EV_IRQHandler
-                0x08000236                UsageFault_Handler
-                0x08000236                ADC1_2_IRQHandler
-                0x08000236                SPI1_IRQHandler
-                0x08000236                TAMPER_IRQHandler
-                0x08000236                TIM8_UP_IRQHandler
-                0x08000236                DMA2_Channel2_IRQHandler
-                0x08000236                DMA1_Channel4_IRQHandler
-                0x08000236                RTC_IRQHandler
-                0x08000236                DMA1_Channel7_IRQHandler
-                0x08000236                CAN1_RX1_IRQHandler
-                0x08000236                UART5_IRQHandler
-                0x08000236                ADC3_IRQHandler
-                0x08000236                TIM4_IRQHandler
-                0x08000236                DMA2_Channel1_IRQHandler
-                0x08000236                I2C1_EV_IRQHandler
-                0x08000236                DMA1_Channel6_IRQHandler
-                0x08000236                UART4_IRQHandler
-                0x08000236                TIM3_IRQHandler
-                0x08000236                RCC_IRQHandler
-                0x08000236                TIM1_TRG_COM_IRQHandler
-                0x08000236                DMA1_Channel1_IRQHandler
-                0x08000236                Default_Handler
-                0x08000236                EXTI15_10_IRQHandler
-                0x08000236                TIM7_IRQHandler
-                0x08000236                TIM5_IRQHandler
-                0x08000236                EXTI9_5_IRQHandler
-                0x08000236                SPI2_IRQHandler
-                0x08000236                MemManage_Handler
-                0x08000236                SVC_Handler
-                0x08000236                DMA1_Channel5_IRQHandler
-                0x08000236                EXTI4_IRQHandler
-                0x08000236                USB_LP_CAN1_RX0_IRQHandler
-                0x08000236                USB_HP_CAN1_TX_IRQHandler
-                0x08000236                DMA1_Channel3_IRQHandler
-                0x08000236                FSMC_IRQHandler
-                0x08000236                TIM1_UP_IRQHandler
-                0x08000236                WWDG_IRQHandler
-                0x08000236                TIM2_IRQHandler
-                0x08000236                TIM1_BRK_IRQHandler
-                0x08000236                EXTI1_IRQHandler
-                0x08000236                RTCAlarm_IRQHandler
-                0x08000236                DMA2_Channel4_5_IRQHandler
-                0x08000236                USART2_IRQHandler
-                0x08000236                I2C2_ER_IRQHandler
-                0x08000236                DMA1_Channel2_IRQHandler
-                0x08000236                TIM8_BRK_IRQHandler
-                0x08000236                CAN1_SCE_IRQHandler
-                0x08000236                FLASH_IRQHandler
-                0x08000236                BusFault_Handler
-                0x08000236                USART1_IRQHandler
-                0x08000236                SPI3_IRQHandler
-                0x08000236                I2C1_ER_IRQHandler
-                0x08000236                USBWakeUp_IRQHandler
-                0x08000236                DMA2_Channel3_IRQHandler
+                0x08000386        0x2 C:\Program Files (x86)\Raisonance\Ride\lib\ARM\startup_stm32f10x_hd.o
+                0x08000386                EXTI2_IRQHandler
+                0x08000386                TIM8_TRG_COM_IRQHandler
+                0x08000386                TIM8_CC_IRQHandler
+                0x08000386                DebugMon_Handler
+                0x08000386                TIM1_CC_IRQHandler
+                0x08000386                HardFault_Handler
+                0x08000386                TIM6_IRQHandler
+                0x08000386                PVD_IRQHandler
+                0x08000386                SDIO_IRQHandler
+                0x08000386                PendSV_Handler
+                0x08000386                NMI_Handler
+                0x08000386                EXTI3_IRQHandler
+                0x08000386                EXTI0_IRQHandler
+                0x08000386                I2C2_EV_IRQHandler
+                0x08000386                UsageFault_Handler
+                0x08000386                ADC1_2_IRQHandler
+                0x08000386                SPI1_IRQHandler
+                0x08000386                TAMPER_IRQHandler
+                0x08000386                TIM8_UP_IRQHandler
+                0x08000386                DMA2_Channel2_IRQHandler
+                0x08000386                DMA1_Channel4_IRQHandler
+                0x08000386                RTC_IRQHandler
+                0x08000386                DMA1_Channel7_IRQHandler
+                0x08000386                CAN1_RX1_IRQHandler
+                0x08000386                UART5_IRQHandler
+                0x08000386                ADC3_IRQHandler
+                0x08000386                TIM4_IRQHandler
+                0x08000386                DMA2_Channel1_IRQHandler
+                0x08000386                I2C1_EV_IRQHandler
+                0x08000386                DMA1_Channel6_IRQHandler
+                0x08000386                UART4_IRQHandler
+                0x08000386                TIM3_IRQHandler
+                0x08000386                RCC_IRQHandler
+                0x08000386                TIM1_TRG_COM_IRQHandler
+                0x08000386                DMA1_Channel1_IRQHandler
+                0x08000386                Default_Handler
+                0x08000386                EXTI15_10_IRQHandler
+                0x08000386                TIM7_IRQHandler
+                0x08000386                TIM5_IRQHandler
+                0x08000386                EXTI9_5_IRQHandler
+                0x08000386                SPI2_IRQHandler
+                0x08000386                MemManage_Handler
+                0x08000386                SVC_Handler
+                0x08000386                DMA1_Channel5_IRQHandler
+                0x08000386                EXTI4_IRQHandler
+                0x08000386                USB_LP_CAN1_RX0_IRQHandler
+                0x08000386                USB_HP_CAN1_TX_IRQHandler
+                0x08000386                DMA1_Channel3_IRQHandler
+                0x08000386                FSMC_IRQHandler
+                0x08000386                TIM1_UP_IRQHandler
+                0x08000386                WWDG_IRQHandler
+                0x08000386                TIM2_IRQHandler
+                0x08000386                TIM1_BRK_IRQHandler
+                0x08000386                EXTI1_IRQHandler
+                0x08000386                RTCAlarm_IRQHandler
+                0x08000386                DMA2_Channel4_5_IRQHandler
+                0x08000386                USART2_IRQHandler
+                0x08000386                I2C2_ER_IRQHandler
+                0x08000386                DMA1_Channel2_IRQHandler
+                0x08000386                TIM8_BRK_IRQHandler
+                0x08000386                CAN1_SCE_IRQHandler
+                0x08000386                FLASH_IRQHandler
+                0x08000386                BusFault_Handler
+                0x08000386                USART1_IRQHandler
+                0x08000386                SPI3_IRQHandler
+                0x08000386                I2C1_ER_IRQHandler
+                0x08000386                USBWakeUp_IRQHandler
+                0x08000386                DMA2_Channel3_IRQHandler
  .text.cmdReset
-                0x08000238       0x10 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
-                0x08000238                cmdReset
- .text.cmdNull  0x08000248        0x4 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
-                0x08000248                cmdNull
- .text.cmdMv    0x0800024c       0x24 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
-                0x0800024c                cmdMv
- .text.cmdRm    0x08000270       0x10 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
-                0x08000270                cmdRm
- .text.cmdSend  0x08000280       0x44 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
-                0x08000280                cmdSend
- .text.cmdRecv  0x080002c4       0x48 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
-                0x080002c4                cmdRecv
+                0x08000388       0x10 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+                0x08000388                cmdReset
  .text.cmdFormat
-                0x0800030c       0x10 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
-                0x0800030c                cmdFormat
+                0x08000398       0x10 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+                0x08000398                cmdFormat
  .text.cmdErase
-                0x0800031c       0x2c C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
-                0x0800031c                cmdErase
+                0x080003a8       0x18 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+                0x080003a8                cmdErase
  .text.putcUSART3
-                0x08000348       0x14 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
-                0x08000348                putcUSART3
+                0x080003c0       0x14 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+                0x080003c0                putcUSART3
  .text.putIntUSART3
-                0x0800035c       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
-                0x0800035c                putIntUSART3
- .text.cmdRead  0x08000390       0x84 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
-                0x08000390                cmdRead
+                0x080003d4       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+                0x080003d4                putIntUSART3
  .text.putBufferUSART3
-                0x08000414       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
-                0x08000414                putBufferUSART3
- .text.putstr   0x08000430       0x14 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
-                0x08000430                putstr
- .text.cmdLs    0x08000444       0x60 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
-                0x08000444                cmdLs
+                0x08000408       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+                0x08000408                putBufferUSART3
+ .text.putstr   0x08000424       0x14 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+                0x08000424                putstr
+ .text.cmdLs    0x08000438       0x60 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+                0x08000438                cmdLs
  .text.bootBootOS
-                0x080004a4       0x50 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
-                0x080004a4                bootBootOS
- .text.bootTestAndLoad
-                0x080004f4       0xc8 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
-                0x080004f4                bootTestAndLoad
- .text.cmdFlash
-                0x080005bc        0x4 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
-                0x080005bc                cmdFlash
- .text.cmdBoot  0x080005c0       0x18 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
-                0x080005c0                cmdBoot
- .text.bootTest
-                0x080005d8       0xac C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
-                0x080005d8                bootTest
- .text.cmdVerify
-                0x08000684        0x4 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
-                0x08000684                cmdVerify
- .text.main     0x08000688      0x210 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
-                0x08000688                main
+                0x08000498       0x50 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+                0x08000498                bootBootOS
+ .text.main     0x080004e8      0x1dc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+                0x080004e8                main
  .text.xmodemWritePacket
-                0x08000898       0x30 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
-                0x08000898                xmodemWritePacket
+                0x080006c4       0x30 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+                0x080006c4                xmodemWritePacket
  .text.xmodemSendPacket
-                0x080008c8       0x54 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
-                0x080008c8                xmodemSendPacket
+                0x080006f4       0x54 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+                0x080006f4                xmodemSendPacket
  .text.SysTick_Handler
-                0x0800091c       0x9c C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
-                0x0800091c                SysTick_Handler
- .text.executeCmd
-                0x080009b8       0x48 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
-                0x080009b8                executeCmd
- .text.USART3_IRQHandler
-                0x08000a00      0x208 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
-                0x08000a00                USART3_IRQHandler
- .text.fileIsValidName
-                0x08000c08       0x4c C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
-                0x08000c08                fileIsValidName
- .text.spiWriteByte
-                0x08000c54       0x30 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
-                0x08000c54                spiWriteByte
- .text.spiWriteLong
-                0x08000c84       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
-                0x08000c84                spiWriteLong
- .text.spiReadByte
-                0x08000cb8       0x3c C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
-                0x08000cb8                spiReadByte
- .text.flashReadWord
-                0x08000cf4       0x38 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
-                0x08000cf4                flashReadWord
- .text.flashReadLong
-                0x08000d2c       0x50 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
-                0x08000d2c                flashReadLong
- .text.flashReadByte
-                0x08000d7c       0x28 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
-                0x08000d7c                flashReadByte
- .text.fileGetActiveFiles
-                0x08000da4       0x28 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
-                0x08000da4                fileGetActiveFiles
- .text.fileGetFAT
-                0x08000dcc       0x58 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
-                0x08000dcc                fileGetFAT
- .text.fileGetLength
-                0x08000e24       0x44 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
-                0x08000e24                fileGetLength
- .text.fileGetChar
-                0x08000e68       0x7c C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
-                0x08000e68                fileGetChar
- .text.fileSeekName
-                0x08000ee4       0x64 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
-                0x08000ee4                fileSeekName
- .text.fileGetName
-                0x08000f48       0x50 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
-                0x08000f48                fileGetName
- .text.fileGetFreeSpace
-                0x08000f98       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
-                0x08000f98                fileGetFreeSpace
- .text.flashReadStatus
-                0x08000fcc       0x24 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
-                0x08000fcc                flashReadStatus
- .text.flashReadID
-                0x08000ff0       0x30 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
-                0x08000ff0                flashReadID
- .text.flashWaitForBusy
-                0x08001020        0xe C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
-                0x08001020                flashWaitForBusy
- *fill*         0x0800102e        0x2 00
- .text.flashChipErase
-                0x08001030       0x30 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
-                0x08001030                flashChipErase
- .text.flashSectorErase
-                0x08001060       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
-                0x08001060                flashSectorErase
- .text.flashWriteByte
-                0x08001094       0x40 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
-                0x08001094                flashWriteByte
- .text.flashWriteBuffer
-                0x080010d4       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
-                0x080010d4                flashWriteBuffer
- .text.flashWriteLong
-                0x080010f0       0x20 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
-                0x080010f0                flashWriteLong
- .text.fileWriteLength
-                0x08001110       0x54 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
-                0x08001110                fileWriteLength
- .text.flashWriteWord
-                0x08001164       0x18 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
-                0x08001164                flashWriteWord
- .text.fileDeleteFATEntry
-                0x0800117c       0x8c C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
-                0x0800117c                fileDeleteFATEntry
- .text.fileGetActiveFAT
-                0x08001208       0x4c C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
-                0x08001208                fileGetActiveFAT
- .text.fileGetFreeFATEntry
-                0x08001254       0xb0 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
-                0x08001254                fileGetFreeFATEntry
- .text.fileGetFreeFileEntry
-                0x08001304       0xec C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
-                0x08001304                fileGetFreeFileEntry
- .text.fileAllocateFAT
-                0x080013f0       0x54 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
-                0x080013f0                fileAllocateFAT
- .text.filePutChar
-                0x08001444       0x74 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
-                0x08001444                filePutChar
- .text.filePutBuffer
-                0x080014b8       0x22 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
-                0x080014b8                filePutBuffer
- *fill*         0x080014da        0x2 00
- .text.fileClose
-                0x080014dc       0xa0 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
-                0x080014dc                fileClose
- .text.fileRename
-                0x0800157c       0xa0 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
-                0x0800157c                fileRename
- .text.flashWriteEnable
-                0x0800161c       0x74 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
-                0x0800161c                flashWriteEnable
- .text.fileFormat
-                0x08001690       0xce C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
-                0x08001690                fileFormat
- *fill*         0x0800175e        0x2 00
- .text.fileMountRoot
-                0x08001760       0xb8 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
-                0x08001760                fileMountRoot
- .text.fileDelete
-                0x08001818       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
-                0x08001818                fileDelete
- .text.fileOpen
-                0x0800184c       0xfc C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
-                0x0800184c                fileOpen
- .text.isCharInString
-                0x08001948       0x1a C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
-                0x08001948                isCharInString
- .text.isAlpha  0x08001962       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
-                0x08001962                isAlpha
- .text.isNewline
-                0x0800197e       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
-                0x0800197e                isNewline
- .text.isWhitespace
-                0x0800199a        0xe C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
-                0x0800199a                isWhitespace
- .text.isQuote  0x080019a8       0x14 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
-                0x080019a8                isQuote
- .text.isSeparator
-                0x080019bc       0x14 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
-                0x080019bc                isSeparator
- .text.isPunctuation
-                0x080019d0       0x14 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
-                0x080019d0                isPunctuation
- .text.len      0x080019e4       0x20 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
-                0x080019e4                len
- .text.isStringSame
-                0x08001a04       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
-                0x08001a04                isStringSame
- .text.getNextSubString
-                0x08001a38       0xe0 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
-                0x08001a38                getNextSubString
- .text.copyString
-                0x08001b18       0x12 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
-                0x08001b18                copyString
- *fill*         0x08001b2a        0x2 00
+                0x08000748       0x9c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+                0x08000748                SysTick_Handler
  .text.convertHexCharToInteger
-                0x08001b2c       0x20 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
-                0x08001b2c                convertHexCharToInteger
+                0x080007e4       0x2c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+                0x080007e4                convertHexCharToInteger
  .text.convertHexEncodedStringToBuffer
-                0x08001b4c       0x2c C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
-                0x08001b4c                convertHexEncodedStringToBuffer
+                0x08000810       0x2c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+                0x08000810                convertHexEncodedStringToBuffer
+ .text.copyString
+                0x0800083c       0x12 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+                0x0800083c                copyString
+ .text.len      0x0800084e       0x20 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+                0x0800084e                len
+ .text.isStringSame
+                0x0800086e       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+                0x0800086e                isStringSame
+ .text.isAlpha  0x080008a2       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+                0x080008a2                isAlpha
+ .text.isNewline
+                0x080008be       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+                0x080008be                isNewline
+ .text.isWhitespace
+                0x080008da        0xe C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+                0x080008da                isWhitespace
+ .text.isCharInString
+                0x080008e8       0x16 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+                0x080008e8                isCharInString
+ *fill*         0x080008fe        0x2 00
+ .text.isPunctuation
+                0x08000900       0x14 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+                0x08000900                isPunctuation
+ .text.getNextSubString
+                0x08000914       0xa8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+                0x08000914                getNextSubString
+ .text.executeCmd
+                0x080009bc       0x4c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+                0x080009bc                executeCmd
+ .text.USART3_IRQHandler
+                0x08000a08      0x204 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+                0x08000a08                USART3_IRQHandler
+ .text.cmdMv    0x08000c0c       0x24 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+                0x08000c0c                cmdMv
+ .text.cmdRm    0x08000c30       0x10 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+                0x08000c30                cmdRm
+ .text.cmdRead  0x08000c40       0x84 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+                0x08000c40                cmdRead
+ .text.cmdSend  0x08000cc4       0x44 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+                0x08000cc4                cmdSend
+ .text.cmdRecv  0x08000d08       0x48 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+                0x08000d08                cmdRecv
+ .text.bootTestAndLoad
+                0x08000d50       0xb0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+                0x08000d50                bootTestAndLoad
+ .text.cmdBoot  0x08000e00       0x18 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+                0x08000e00                cmdBoot
+ .text.fileIsValidName
+                0x08000e18       0x4c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+                0x08000e18                fileIsValidName
+ .text.spiWriteByte
+                0x08000e64       0x30 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+                0x08000e64                spiWriteByte
+ .text.spiWriteLong
+                0x08000e94       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+                0x08000e94                spiWriteLong
+ .text.spiReadByte
+                0x08000ec8       0x3c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+                0x08000ec8                spiReadByte
+ .text.flashReadWord
+                0x08000f04       0x38 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+                0x08000f04                flashReadWord
+ .text.fileGetFAT
+                0x08000f3c       0x54 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+                0x08000f3c                fileGetFAT
+ .text.flashReadLong
+                0x08000f90       0x50 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+                0x08000f90                flashReadLong
+ .text.fileGetLength
+                0x08000fe0       0x40 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+                0x08000fe0                fileGetLength
+ .text.flashReadByte
+                0x08001020       0x28 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+                0x08001020                flashReadByte
+ .text.fileGetChar
+                0x08001048       0x7c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+                0x08001048                fileGetChar
+ .text.fileGetActiveFiles
+                0x080010c4       0x28 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+                0x080010c4                fileGetActiveFiles
+ .text.fileGetFreeSpace
+                0x080010ec       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+                0x080010ec                fileGetFreeSpace
+ .text.flashReadBuffer
+                0x08001120       0x40 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+                0x08001120                flashReadBuffer
+ .text.fileSeekName
+                0x08001160       0x3c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+                0x08001160                fileSeekName
+ .text.fileGetName
+                0x0800119c       0x58 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+                0x0800119c                fileGetName
+ .text.flashReadStatus
+                0x080011f4       0x24 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+                0x080011f4                flashReadStatus
+ .text.flashReadID
+                0x08001218       0x30 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+                0x08001218                flashReadID
+ .text.flashWaitForBusy
+                0x08001248        0xe C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+                0x08001248                flashWaitForBusy
+ *fill*         0x08001256        0x2 00
+ .text.flashChipErase
+                0x08001258       0x30 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+                0x08001258                flashChipErase
+ .text.flashSectorErase
+                0x08001288       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+                0x08001288                flashSectorErase
+ .text.flashWriteByte
+                0x080012bc       0x40 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+                0x080012bc                flashWriteByte
+ .text.flashWriteBuffer
+                0x080012fc       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+                0x080012fc                flashWriteBuffer
+ .text.flashWriteLong
+                0x08001318       0x20 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+                0x08001318                flashWriteLong
+ .text.fileWriteLength
+                0x08001338       0x54 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+                0x08001338                fileWriteLength
+ .text.flashWriteWord
+                0x0800138c       0x18 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+                0x0800138c                flashWriteWord
+ .text.fileDeleteFATEntry
+                0x080013a4       0x98 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+                0x080013a4                fileDeleteFATEntry
+ .text.fileGetActiveFAT
+                0x0800143c       0x4c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+                0x0800143c                fileGetActiveFAT
+ .text.fileGetFreeFATEntry
+                0x08001488       0xbc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+                0x08001488                fileGetFreeFATEntry
+ .text.fileAllocateFAT
+                0x08001544       0x58 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+                0x08001544                fileAllocateFAT
+ .text.filePutChar
+                0x0800159c       0x90 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+                0x0800159c                filePutChar
+ .text.filePutBuffer
+                0x0800162c       0x22 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+                0x0800162c                filePutBuffer
+ *fill*         0x0800164e        0x2 00
+ .text.fileClose
+                0x08001650       0xa0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+                0x08001650                fileClose
+ .text.fileGetFreeFileEntry
+                0x080016f0       0xf4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+                0x080016f0                fileGetFreeFileEntry
+ .text.fileRename
+                0x080017e4       0x88 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+                0x080017e4                fileRename
+ .text.flashWriteEnable
+                0x0800186c       0x74 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+                0x0800186c                flashWriteEnable
+ .text.fileFormat
+                0x080018e0       0xcc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+                0x080018e0                fileFormat
+ .text.fileMountRoot
+                0x080019ac       0xb4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+                0x080019ac                fileMountRoot
+ .text.fileDelete
+                0x08001a60       0x3c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+                0x08001a60                fileDelete
+ .text.fileOpen
+                0x08001a9c      0x104 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+                0x08001a9c                fileOpen
+ .text.fpecGetID
+                0x08001ba0       0x48 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_fpec.o
+                0x08001ba0                fpecGetID
  .text.fpecUnlock
-                0x08001b78       0x18 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_fpec.o
-                0x08001b78                fpecUnlock
+                0x08001be8       0x20 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_fpec.o
+                0x08001be8                fpecUnlock
  .text.fpecWriteWord
-                0x08001b90       0x30 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_fpec.o
-                0x08001b90                fpecWriteWord
+                0x08001c08       0x6c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_fpec.o
+                0x08001c08                fpecWriteWord
  .text.fpecWriteLong
-                0x08001bc0       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_fpec.o
-                0x08001bc0                fpecWriteLong
+                0x08001c74       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_fpec.o
+                0x08001c74                fpecWriteLong
  .text.fpecProcessIHEX
-                0x08001bdc       0xac C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_fpec.o
-                0x08001bdc                fpecProcessIHEX
+                0x08001c90       0xac C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_fpec.o
+                0x08001c90                fpecProcessIHEX
+ .text.fpecWriteDescriptor
+                0x08001d3c       0x20 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_fpec.o
+                0x08001d3c                fpecWriteDescriptor
  .text.fpecErasePage
-                0x08001c88       0x44 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_fpec.o
-                0x08001c88                fpecErasePage
+                0x08001d5c       0xb8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_fpec.o
+                0x08001d5c                fpecErasePage
  .text.fpecEraseProgramMemory
-                0x08001ccc       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_fpec.o
-                0x08001ccc                fpecEraseProgramMemory
+                0x08001e14       0x58 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_fpec.o
+                0x08001e14                fpecEraseProgramMemory
  *(.rodata)
- .rodata        0x08001d00       0x94 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
-                0x08001d00                BOOT_filename
-                0x08001d09                BOOT_OK
-                0x08001d0e                STRID_L15X
-                0x08001d13                STRID_F100
-                0x08001d18                STRID_F103
-                0x08001d1d                BOOT_ERROR
-                0x08001d26                BOOT_PROMPT
-                0x08001d2c                BOOTCOMMANDS
- .rodata        0x08001d94       0x52 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
-                0x08001d94                PYGMYHEXCHARS
-                0x08001da4                PYGMYBASE64CHARS
+ .rodata        0x08001e6c       0x94 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+                0x08001e6c                STRID_L15X
+                0x08001e71                STRID_F100
+                0x08001e76                STRID_F103
+                0x08001e7b                BOOT_ERROR
+                0x08001e94                BOOT_PROMPT
+                0x08001e98                BOOTCOMMANDS
+                0x08001ef0                BOOT_filename
+                0x08001ef9                BOOT_OK
  *(.rodata*)
  .rodata.str1.1
-                0x08001de6       0xaa C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
-                                 0xab (size before relaxing)
+                0x08001f00       0xa3 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+                                 0xa8 (size before relaxing)
  .rodata.str1.1
-                0x08001e90       0x2a C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
-                                 0x2b (size before relaxing)
- .rodata.str1.1
-                0x08001eba       0x4c C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
+                0x00000000        0x1 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
  *(.glue_7)
  .glue_7        0x00000000        0x0 linker stubs
  *(.glue_7t)
  .glue_7t       0x00000000        0x0 linker stubs
-                0x08001f08                . = ALIGN (0x4)
- *fill*         0x08001f06        0x2 00
-                0x08001f08                _etext = .
-                0x08001f08                _sidata = _etext
+                0x08001fa4                . = ALIGN (0x4)
+ *fill*         0x08001fa3        0x1 00
+                0x08001fa4                _etext = .
+                0x08001fa4                _sidata = _etext
 
-.vfp11_veneer   0x08001f08        0x0
+.vfp11_veneer   0x08001fa4        0x0
  .vfp11_veneer  0x00000000        0x0 linker stubs
 
-.v4_bx          0x08001f08        0x0
+.v4_bx          0x08001fa4        0x0
  .v4_bx         0x00000000        0x0 linker stubs
 
 .flashpatch     0x00000000        0x0
@@ -736,7 +642,7 @@ END GROUP
                 0x00000000                . = ALIGN (0x4)
                 0x00000000                _e_endflash = .
 
-.data           0x20000000        0x0 load address 0x08001f08
+.data           0x20000000        0x0 load address 0x08001fa4
                 0x20000000                . = ALIGN (0x4)
                 0x20000000                _sdata = .
                 0x20000000                _data = .
@@ -745,7 +651,7 @@ END GROUP
  *(.RAMtext)
                 0x20000000                . = ALIGN (0x4)
                 0x20000000                _edata = .
-                0x08001f08                _eidata = ((_sidata + _edata) - _sdata)
+                0x08001fa4                _eidata = ((_sidata + _edata) - _sdata)
                 0x08010000                _lastdataromaddress = 0x8010000
                 0x00000000                toobig = (_eidata > _lastdataromaddress)?!!!!!!!!! FLASH IS FULL !!!!!!!!!:0x0
 
@@ -754,29 +660,27 @@ END GROUP
                 0x20000000                _sbss = .
                 0x20000000                _bss = .
  *(.bss)
- .bss           0x20000000      0x187 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
+ .bss           0x20000000      0x190 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
                 0x20000000                globalStatus
                 0x20000001                globalBootStatus
- *fill*         0x20000187        0x1 00
- .bss           0x20000188        0x4 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
- .bss           0x2000018c        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_fpec.o
+ .bss           0x20000190        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_fpec.o
  *(COMMON)
- COMMON         0x20000198       0x54 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
-                0x20000198                globalXMTimeout
-                0x2000019c                globalID
-                0x200001a0                globalFileLen
-                0x200001a4                globalBootTimeout
-                0x200001a8                globalXTAL
-                0x200001ac                pygmyFile
-                0x200001d4                globalFreq
-                0x200001d8                globalStrID
-                0x200001dc                globalTransaction
-                0x200001e0                globalPLL
-                0x200001e4                globalBaseAddress
-                0x200001e8                globalXMCount
- COMMON         0x200001ec       0x5c C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
-                0x200001ec                pygmyRootVolume
-                0x20000230                pygmyFlashSPI
+ COMMON         0x2000019c       0x54 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+                0x2000019c                globalXMTimeout
+                0x200001a0                globalID
+                0x200001a4                globalFileLen
+                0x200001a8                globalBootTimeout
+                0x200001ac                globalXTAL
+                0x200001b0                pygmyFile
+                0x200001d8                globalFreq
+                0x200001dc                globalStrID
+                0x200001e0                globalTransaction
+                0x200001e4                globalPLL
+                0x200001e8                globalBaseAddress
+                0x200001ec                globalXMCount
+ COMMON         0x200001f0       0x58 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+                0x200001f0                pygmyRootVolume
+                0x2000022c                pygmyFlashSPI
                 0x20000248                . = ALIGN (0x4)
                 0x20000248                _ebss = .
                 0x20000248                PROVIDE (end, _ebss)
@@ -845,21 +749,18 @@ END GROUP
  .ARM.attributes
                 0x00000000       0x21 C:\Program Files (x86)\Raisonance\Ride\lib\ARM\startup_stm32f10x_hd.o
  .ARM.attributes
-                0x00000021       0x31 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
+                0x00000021       0x31 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
  .ARM.attributes
-                0x00000052       0x31 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
+                0x00000052       0x31 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
  .ARM.attributes
-                0x00000083       0x31 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
- .ARM.attributes
-                0x000000b4       0x31 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_fpec.o
+                0x00000083       0x31 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_fpec.o
 
 .comment        0x00000000       0x2a
  *(.comment)
- .comment       0x00000000       0x2a C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
+ .comment       0x00000000       0x2a C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
                                  0x2b (size before relaxing)
- .comment       0x00000000       0x2b C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
- .comment       0x00000000       0x2b C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
- .comment       0x00000000       0x2b C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_fpec.o
+ .comment       0x00000000       0x2b C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+ .comment       0x00000000       0x2b C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_fpec.o
 
 .debug
  *(.debug)
@@ -873,74 +774,63 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x440
+.debug_aranges  0x00000000      0x378
  *(.debug_aranges)
  .debug_aranges
-                0x00000000       0xe8 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
+                0x00000000      0x140 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
  .debug_aranges
-                0x000000e8      0x1d8 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
+                0x00000140      0x1d8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
  .debug_aranges
-                0x000002c0      0x130 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
- .debug_aranges
-                0x000003f0       0x50 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_fpec.o
+                0x00000318       0x60 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_fpec.o
 
 .debug_pubnames
-                0x00000000      0xa9d
+                0x00000000      0x8d9
  *(.debug_pubnames)
  .debug_pubnames
-                0x00000000      0x2fd C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
+                0x00000000      0x3cd C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
  .debug_pubnames
-                0x000002fd      0x450 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
+                0x000003cd      0x43d C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
  .debug_pubnames
-                0x0000074d      0x2bd C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
- .debug_pubnames
-                0x00000a0a       0x93 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_fpec.o
+                0x0000080a       0xcf C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_fpec.o
 
-.debug_info     0x00000000     0x3455
+.debug_info     0x00000000     0x2d4a
  *(.debug_info .gnu.linkonce.wi.*)
- .debug_info    0x00000000     0x11fc C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
- .debug_info    0x000011fc     0x146d C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
- .debug_info    0x00002669      0xac6 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
- .debug_info    0x0000312f      0x326 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_fpec.o
+ .debug_info    0x00000000     0x14f1 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+ .debug_info    0x000014f1     0x13a8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+ .debug_info    0x00002899      0x4b1 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_fpec.o
 
-.debug_abbrev   0x00000000      0x7a4
+.debug_abbrev   0x00000000      0x640
  *(.debug_abbrev)
- .debug_abbrev  0x00000000      0x23c C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
- .debug_abbrev  0x0000023c      0x293 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
- .debug_abbrev  0x000004cf      0x1b3 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
- .debug_abbrev  0x00000682      0x122 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_fpec.o
+ .debug_abbrev  0x00000000      0x255 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+ .debug_abbrev  0x00000255      0x295 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+ .debug_abbrev  0x000004ea      0x156 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_fpec.o
 
-.debug_line     0x00000000     0x1613
+.debug_line     0x00000000     0x113c
  *(.debug_line)
- .debug_line    0x00000000      0x541 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
- .debug_line    0x00000541      0x908 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
- .debug_line    0x00000e49      0x626 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
- .debug_line    0x0000146f      0x1a4 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_fpec.o
+ .debug_line    0x00000000      0x695 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+ .debug_line    0x00000695      0x8cd C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+ .debug_line    0x00000f62      0x1da C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_fpec.o
 
-.debug_frame    0x00000000      0xc90
+.debug_frame    0x00000000      0xa7c
  *(.debug_frame)
- .debug_frame   0x00000000      0x294 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
- .debug_frame   0x00000294      0x61c C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
- .debug_frame   0x000008b0      0x324 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
- .debug_frame   0x00000bd4       0xbc C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_fpec.o
+ .debug_frame   0x00000000      0x394 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+ .debug_frame   0x00000394      0x600 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+ .debug_frame   0x00000994       0xe8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_fpec.o
 
-.debug_str      0x00000000      0xfce
+.debug_str      0x00000000      0xd63
  *(.debug_str)
- .debug_str     0x00000000      0x5f1 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
-                                0x690 (size before relaxing)
- .debug_str     0x000005f1      0x5d7 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
-                                0x7d7 (size before relaxing)
- .debug_str     0x00000bc8      0x321 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
-                                0x402 (size before relaxing)
- .debug_str     0x00000ee9       0xe5 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_fpec.o
-                                0x1d1 (size before relaxing)
+ .debug_str     0x00000000      0x6ae C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+                                0x74d (size before relaxing)
+ .debug_str     0x000006ae      0x591 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+                                0x785 (size before relaxing)
+ .debug_str     0x00000c3f      0x124 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_fpec.o
+                                0x25b (size before relaxing)
 
-.debug_loc      0x00000000     0x3319
+.debug_loc      0x00000000     0x2782
  *(.debug_loc)
- .debug_loc     0x00000000      0x818 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
- .debug_loc     0x00000818     0x1a62 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
- .debug_loc     0x0000227a      0xe64 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
- .debug_loc     0x000030de      0x23b C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_fpec.o
+ .debug_loc     0x00000000      0xb53 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+ .debug_loc     0x00000b53     0x18ee C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+ .debug_loc     0x00002441      0x341 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_fpec.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -960,21 +850,18 @@ START GROUP
 LOAD c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a
 LOAD c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libc.a
 END GROUP
-OUTPUT(C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\Boot.elf elf32-littlearm)
+OUTPUT(C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\Boot.elf elf32-littlearm)
 
 .debug_pubtypes
-                0x00000000      0x262
+                0x00000000      0x24e
  .debug_pubtypes
-                0x00000000      0x149 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
+                0x00000000      0x150 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
  .debug_pubtypes
-                0x00000149       0x9f C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
+                0x00000150       0x9f C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
  .debug_pubtypes
-                0x000001e8       0x40 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
- .debug_pubtypes
-                0x00000228       0x3a C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_fpec.o
+                0x000001ef       0x5f C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_fpec.o
 
-.debug_ranges   0x00000000      0x400
- .debug_ranges  0x00000000       0xd8 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\main.o
- .debug_ranges  0x000000d8      0x1c8 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_file.o
- .debug_ranges  0x000002a0      0x120 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_string.o
- .debug_ranges  0x000003c0       0x40 C:\Users\MightyDubster\Documents\Projects\pygmyos.projects\boot\pygmy_fpec.o
+.debug_ranges   0x00000000      0x348
+ .debug_ranges  0x00000000      0x130 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o
+ .debug_ranges  0x00000130      0x1c8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o
+ .debug_ranges  0x000002f8       0x50 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_fpec.o
