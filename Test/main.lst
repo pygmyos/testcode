@@ -1,0 +1,12 @@
+
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\main.o:     file format elf32-littlearm
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\main.o
+
+
+Disassembly of section .text.main:
+
+00000000 <main>:
+main():
+   0:	b508      	push	{r3, lr}
+   2:	f7ff fffe 	bl	0 <sysInit>
+   6:	e7fe      	b.n	6 <main+0x6>

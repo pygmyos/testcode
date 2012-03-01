@@ -1,0 +1,991 @@
+
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rf.o:     file format elf32-littlearm
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rf.o
+
+
+Disassembly of section .text.rfGetID:
+
+00000000 <rfGetID>:
+rfGetID():
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <rfGetID+0x8>)
+   2:	6818      	ldr	r0, [r3, #0]
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+   8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.rfLoadPacket:
+
+00000000 <rfLoadPacket>:
+rfLoadPacket():
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	460c      	mov	r4, r1
+   4:	4605      	mov	r5, r0
+   6:	f7ff fffe 	bl	0 <convertBufferToU32>
+   a:	492a      	ldr	r1, [pc, #168]	; (b4 <rfLoadPacket+0xb4>)
+   c:	4602      	mov	r2, r0
+   e:	6020      	str	r0, [r4, #0]
+  10:	2001      	movs	r0, #1
+  12:	f7ff fffe 	bl	0 <print>
+  16:	792a      	ldrb	r2, [r5, #4]
+  18:	2001      	movs	r0, #1
+  1a:	0952      	lsrs	r2, r2, #5
+  1c:	72a2      	strb	r2, [r4, #10]
+  1e:	4926      	ldr	r1, [pc, #152]	; (b8 <rfLoadPacket+0xb8>)
+  20:	f7ff fffe 	bl	0 <print>
+  24:	792a      	ldrb	r2, [r5, #4]
+  26:	2001      	movs	r0, #1
+  28:	f002 021f 	and.w	r2, r2, #31
+  2c:	72e2      	strb	r2, [r4, #11]
+  2e:	4923      	ldr	r1, [pc, #140]	; (bc <rfLoadPacket+0xbc>)
+  30:	f7ff fffe 	bl	0 <print>
+  34:	796a      	ldrb	r2, [r5, #5]
+  36:	2001      	movs	r0, #1
+  38:	7322      	strb	r2, [r4, #12]
+  3a:	4921      	ldr	r1, [pc, #132]	; (c0 <rfLoadPacket+0xc0>)
+  3c:	f7ff fffe 	bl	0 <print>
+  40:	7ae0      	ldrb	r0, [r4, #11]
+  42:	3006      	adds	r0, #6
+  44:	1828      	adds	r0, r5, r0
+  46:	f7ff fffe 	bl	0 <convertBufferToU16>
+  4a:	7ae1      	ldrb	r1, [r4, #11]
+  4c:	8120      	strh	r0, [r4, #8]
+  4e:	3106      	adds	r1, #6
+  50:	4628      	mov	r0, r5
+  52:	f7ff fffe 	bl	0 <sysCRC16>
+  56:	8926      	ldrh	r6, [r4, #8]
+  58:	7ae1      	ldrb	r1, [r4, #11]
+  5a:	42b0      	cmp	r0, r6
+  5c:	d102      	bne.n	64 <rfLoadPacket+0x64>
+  5e:	4622      	mov	r2, r4
+  60:	2300      	movs	r3, #0
+  62:	e00f      	b.n	84 <rfLoadPacket+0x84>
+  64:	3106      	adds	r1, #6
+  66:	4628      	mov	r0, r5
+  68:	f7ff fffe 	bl	0 <sysCRC16>
+  6c:	4915      	ldr	r1, [pc, #84]	; (c4 <rfLoadPacket+0xc4>)
+  6e:	4603      	mov	r3, r0
+  70:	4632      	mov	r2, r6
+  72:	2001      	movs	r0, #1
+  74:	f7ff fffe 	bl	0 <print>
+  78:	2000      	movs	r0, #0
+  7a:	bd70      	pop	{r4, r5, r6, pc}
+  7c:	7968      	ldrb	r0, [r5, #5]
+  7e:	3301      	adds	r3, #1
+  80:	7350      	strb	r0, [r2, #13]
+  82:	b2db      	uxtb	r3, r3
+  84:	3501      	adds	r5, #1
+  86:	3201      	adds	r2, #1
+  88:	428b      	cmp	r3, r1
+  8a:	d3f7      	bcc.n	7c <rfLoadPacket+0x7c>
+  8c:	7aa5      	ldrb	r5, [r4, #10]
+  8e:	2d01      	cmp	r5, #1
+  90:	d10f      	bne.n	b2 <rfLoadPacket+0xb2>
+  92:	7ba2      	ldrb	r2, [r4, #14]
+  94:	490c      	ldr	r1, [pc, #48]	; (c8 <rfLoadPacket+0xc8>)
+  96:	7362      	strb	r2, [r4, #13]
+  98:	4628      	mov	r0, r5
+  9a:	f7ff fffe 	bl	0 <print>
+  9e:	f104 000f 	add.w	r0, r4, #15
+  a2:	f7ff fffe 	bl	0 <convertBufferToU32>
+  a6:	4909      	ldr	r1, [pc, #36]	; (cc <rfLoadPacket+0xcc>)
+  a8:	4602      	mov	r2, r0
+  aa:	6060      	str	r0, [r4, #4]
+  ac:	4628      	mov	r0, r5
+  ae:	f7ff fffe 	bl	0 <print>
+  b2:	bd70      	pop	{r4, r5, r6, pc}
+  b4:	00000000 	.word	0x00000000
+  b8:	0000000c 	.word	0x0000000c
+  bc:	00000019 	.word	0x00000019
+  c0:	0000002a 	.word	0x0000002a
+  c4:	00000035 	.word	0x00000035
+  c8:	0000004f 	.word	0x0000004f
+  cc:	00000059 	.word	0x00000059
+
+Disassembly of section .text.rfListSockets:
+
+00000000 <rfListSockets>:
+rfListSockets():
+   0:	4c1db538 	.word	0x4c1db538
+   4:	f504 7500 	add.w	r5, r4, #512	; 0x200
+   8:	68a3      	ldr	r3, [r4, #8]
+   a:	2b00      	cmp	r3, #0
+   c:	d030      	beq.n	70 <rfListSockets+0x70>
+   e:	2001      	movs	r0, #1
+  10:	491a      	ldr	r1, [pc, #104]	; (7c <rfListSockets+0x7c>)
+  12:	f7ff fffe 	bl	0 <print>
+  16:	2001      	movs	r0, #1
+  18:	4919      	ldr	r1, [pc, #100]	; (80 <rfListSockets+0x80>)
+  1a:	68a2      	ldr	r2, [r4, #8]
+  1c:	f7ff fffe 	bl	0 <print>
+  20:	7b20      	ldrb	r0, [r4, #12]
+  22:	0940      	lsrs	r0, r0, #5
+  24:	2804      	cmp	r0, #4
+  26:	d102      	bne.n	2e <rfListSockets+0x2e>
+  28:	3803      	subs	r0, #3
+  2a:	4916      	ldr	r1, [pc, #88]	; (84 <rfListSockets+0x84>)
+  2c:	e00f      	b.n	4e <rfListSockets+0x4e>
+  2e:	2801      	cmp	r0, #1
+  30:	d101      	bne.n	36 <rfListSockets+0x36>
+  32:	4915      	ldr	r1, [pc, #84]	; (88 <rfListSockets+0x88>)
+  34:	e00b      	b.n	4e <rfListSockets+0x4e>
+  36:	2802      	cmp	r0, #2
+  38:	d102      	bne.n	40 <rfListSockets+0x40>
+  3a:	3801      	subs	r0, #1
+  3c:	4913      	ldr	r1, [pc, #76]	; (8c <rfListSockets+0x8c>)
+  3e:	e006      	b.n	4e <rfListSockets+0x4e>
+  40:	2803      	cmp	r0, #3
+  42:	d102      	bne.n	4a <rfListSockets+0x4a>
+  44:	3802      	subs	r0, #2
+  46:	4912      	ldr	r1, [pc, #72]	; (90 <rfListSockets+0x90>)
+  48:	e001      	b.n	4e <rfListSockets+0x4e>
+  4a:	4912      	ldr	r1, [pc, #72]	; (94 <rfListSockets+0x94>)
+  4c:	2001      	movs	r0, #1
+  4e:	f7ff fffe 	bl	0 <print>
+  52:	2001      	movs	r0, #1
+  54:	4910      	ldr	r1, [pc, #64]	; (98 <rfListSockets+0x98>)
+  56:	7b62      	ldrb	r2, [r4, #13]
+  58:	f7ff fffe 	bl	0 <print>
+  5c:	2001      	movs	r0, #1
+  5e:	490f      	ldr	r1, [pc, #60]	; (9c <rfListSockets+0x9c>)
+  60:	7ba2      	ldrb	r2, [r4, #14]
+  62:	f7ff fffe 	bl	0 <print>
+  66:	2001      	movs	r0, #1
+  68:	490d      	ldr	r1, [pc, #52]	; (a0 <rfListSockets+0xa0>)
+  6a:	6822      	ldr	r2, [r4, #0]
+  6c:	f7ff fffe 	bl	0 <print>
+  70:	3410      	adds	r4, #16
+  72:	42ac      	cmp	r4, r5
+  74:	d1c8      	bne.n	8 <rfListSockets+0x8>
+  76:	bd38      	pop	{r3, r4, r5, pc}
+  78:	00000000 	.word	0x00000000
+  7c:	00000064 	.word	0x00000064
+  80:	00000085 	.word	0x00000085
+  84:	0000008a 	.word	0x0000008a
+  88:	00000092 	.word	0x00000092
+  8c:	0000009a 	.word	0x0000009a
+  90:	0000009f 	.word	0x0000009f
+  94:	000000a8 	.word	0x000000a8
+  98:	000000ae 	.word	0x000000ae
+  9c:	000000b2 	.word	0x000000b2
+  a0:	000000b7 	.word	0x000000b7
+
+Disassembly of section .text.rfCloseSocket:
+
+00000000 <rfCloseSocket>:
+rfCloseSocket():
+   0:	01004b05 	.word	0x01004b05
+   4:	b510      	push	{r4, lr}
+   6:	2200      	movs	r2, #0
+   8:	181c      	adds	r4, r3, r0
+   a:	60a2      	str	r2, [r4, #8]
+   c:	7322      	strb	r2, [r4, #12]
+   e:	7362      	strb	r2, [r4, #13]
+  10:	73a2      	strb	r2, [r4, #14]
+  12:	501a      	str	r2, [r3, r0]
+  14:	bd10      	pop	{r4, pc}
+  16:	bf00      	nop
+  18:	00000000 	.word	0x00000000
+
+Disassembly of section .text.rfInitSockets:
+
+00000000 <rfInitSockets>:
+rfInitSockets():
+   0:	b510      	push	{r4, lr}
+   2:	2400      	movs	r4, #0
+   4:	4620      	mov	r0, r4
+   6:	3401      	adds	r4, #1
+   8:	b2e4      	uxtb	r4, r4
+   a:	f7ff fffe 	bl	0 <rfInitSockets>
+   e:	2c20      	cmp	r4, #32
+  10:	d1f8      	bne.n	4 <rfInitSockets+0x4>
+  12:	bd10      	pop	{r4, pc}
+
+Disassembly of section .text.rfFindSocket:
+
+00000000 <rfFindSocket>:
+rfFindSocket():
+   0:	b510      	push	{r4, lr}
+   2:	4b08      	ldr	r3, [pc, #32]	; (24 <rfFindSocket+0x24>)
+   4:	4602      	mov	r2, r0
+   6:	2000      	movs	r0, #0
+   8:	6899      	ldr	r1, [r3, #8]
+   a:	ea82 0101 	eor.w	r1, r2, r1
+   e:	f031 04ff 	bics.w	r4, r1, #255	; 0xff
+  12:	d005      	beq.n	20 <rfFindSocket+0x20>
+  14:	3001      	adds	r0, #1
+  16:	b2c0      	uxtb	r0, r0
+  18:	3310      	adds	r3, #16
+  1a:	2820      	cmp	r0, #32
+  1c:	d1f4      	bne.n	8 <rfFindSocket+0x8>
+  1e:	30df      	adds	r0, #223	; 0xdf
+  20:	bd10      	pop	{r4, pc}
+  22:	bf00      	nop
+  24:	00000000 	.word	0x00000000
+
+Disassembly of section .text.rfOpenSocket:
+
+00000000 <rfOpenSocket>:
+rfOpenSocket():
+   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+   2:	4b0d      	ldr	r3, [pc, #52]	; (38 <rfOpenSocket+0x38>)
+   4:	2500      	movs	r5, #0
+   6:	461e      	mov	r6, r3
+   8:	689a      	ldr	r2, [r3, #8]
+   a:	b2ec      	uxtb	r4, r5
+   c:	b962      	cbnz	r2, 28 <rfOpenSocket+0x28>
+   e:	012d      	lsls	r5, r5, #4
+  10:	1977      	adds	r7, r6, r5
+  12:	f020 00ff 	bic.w	r0, r0, #255	; 0xff
+  16:	737a      	strb	r2, [r7, #13]
+  18:	3209      	adds	r2, #9
+  1a:	60b8      	str	r0, [r7, #8]
+  1c:	7339      	strb	r1, [r7, #12]
+  1e:	73ba      	strb	r2, [r7, #14]
+  20:	f7ff fffe 	bl	0 <timeGet>
+  24:	5170      	str	r0, [r6, r5]
+  26:	e004      	b.n	32 <rfOpenSocket+0x32>
+  28:	3501      	adds	r5, #1
+  2a:	3310      	adds	r3, #16
+  2c:	2d20      	cmp	r5, #32
+  2e:	d1eb      	bne.n	8 <rfOpenSocket+0x8>
+  30:	24ff      	movs	r4, #255	; 0xff
+  32:	4620      	mov	r0, r4
+  34:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+  36:	bf00      	nop
+  38:	00000000 	.word	0x00000000
+
+Disassembly of section .text.rfGetTX:
+
+00000000 <rfGetTX>:
+rfGetTX():
+   0:	68184b02 	.word	0x68184b02
+   4:	f000 0001 	and.w	r0, r0, #1
+   8:	4770      	bx	lr
+   a:	bf00      	nop
+   c:	00000000 	.word	0x00000000
+
+Disassembly of section .text.rfFlushTX:
+
+00000000 <rfFlushTX>:
+rfFlushTX():
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	4c05      	ldr	r4, [pc, #20]	; (18 <rfFlushTX+0x18>)
+   4:	f44f 6500 	mov.w	r5, #2048	; 0x800
+   8:	6165      	str	r5, [r4, #20]
+   a:	4804      	ldr	r0, [pc, #16]	; (1c <rfFlushTX+0x1c>)
+   c:	21e1      	movs	r1, #225	; 0xe1
+   e:	f7ff fffe 	bl	0 <spiWriteByte>
+  12:	6125      	str	r5, [r4, #16]
+  14:	bd38      	pop	{r3, r4, r5, pc}
+  16:	bf00      	nop
+  18:	40011000 	.word	0x40011000
+  1c:	00000000 	.word	0x00000000
+
+Disassembly of section .text.rfFlushRX:
+
+00000000 <rfFlushRX>:
+rfFlushRX():
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	4c05      	ldr	r4, [pc, #20]	; (18 <rfFlushRX+0x18>)
+   4:	f44f 6500 	mov.w	r5, #2048	; 0x800
+   8:	6165      	str	r5, [r4, #20]
+   a:	4804      	ldr	r0, [pc, #16]	; (1c <rfFlushRX+0x1c>)
+   c:	21e2      	movs	r1, #226	; 0xe2
+   e:	f7ff fffe 	bl	0 <spiWriteByte>
+  12:	6125      	str	r5, [r4, #16]
+  14:	bd38      	pop	{r3, r4, r5, pc}
+  16:	bf00      	nop
+  18:	40011000 	.word	0x40011000
+  1c:	00000000 	.word	0x00000000
+
+Disassembly of section .text.rfSocketPutString:
+
+00000000 <rfSocketPutString>:
+rfSocketPutString():
+   0:	4770      	bx	lr
+
+Disassembly of section .text.rfGetStatus:
+
+00000000 <rfGetStatus>:
+rfGetStatus():
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	4c04      	ldr	r4, [pc, #16]	; (14 <rfGetStatus+0x14>)
+   4:	f44f 6500 	mov.w	r5, #2048	; 0x800
+   8:	6165      	str	r5, [r4, #20]
+   a:	4803      	ldr	r0, [pc, #12]	; (18 <rfGetStatus+0x18>)
+   c:	f7ff fffe 	bl	0 <spiReadByte>
+  10:	6125      	str	r5, [r4, #16]
+  12:	bd38      	pop	{r3, r4, r5, pc}
+  14:	40011000 	.word	0x40011000
+  18:	00000000 	.word	0x00000000
+
+Disassembly of section .text.rfGetRXPayloadLen:
+
+00000000 <rfGetRXPayloadLen>:
+rfGetRXPayloadLen():
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	4c06      	ldr	r4, [pc, #24]	; (1c <rfGetRXPayloadLen+0x1c>)
+   4:	f44f 6500 	mov.w	r5, #2048	; 0x800
+   8:	2160      	movs	r1, #96	; 0x60
+   a:	6165      	str	r5, [r4, #20]
+   c:	4804      	ldr	r0, [pc, #16]	; (20 <rfGetRXPayloadLen+0x20>)
+   e:	f7ff fffe 	bl	0 <spiWriteByte>
+  12:	4803      	ldr	r0, [pc, #12]	; (10 <spiReadByte+0x10>)
+  14:	f7ff fffe 	bl	0 <spiReadByte>
+  18:	6125      	str	r5, [r4, #16]
+  1a:	bd38      	pop	{r3, r4, r5, pc}
+  1c:	40011000 	.word	0x40011000
+  20:	00000000 	.word	0x00000000
+
+Disassembly of section .text.rfIsRXFIFOEmpty:
+
+00000000 <rfIsRXFIFOEmpty>:
+rfIsRXFIFOEmpty():
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	4c07      	ldr	r4, [pc, #28]	; (20 <rfIsRXFIFOEmpty+0x20>)
+   4:	f44f 6500 	mov.w	r5, #2048	; 0x800
+   8:	2117      	movs	r1, #23
+   a:	6165      	str	r5, [r4, #20]
+   c:	4805      	ldr	r0, [pc, #20]	; (24 <rfIsRXFIFOEmpty+0x24>)
+   e:	f7ff fffe 	bl	0 <spiWriteByte>
+  12:	4804      	ldr	r0, [pc, #16]	; (14 <spiReadByte+0x14>)
+  14:	f7ff fffe 	bl	0 <spiReadByte>
+  18:	6125      	str	r5, [r4, #16]
+  1a:	f000 0001 	and.w	r0, r0, #1
+  1e:	bd38      	pop	{r3, r4, r5, pc}
+  20:	40011000 	.word	0x40011000
+  24:	00000000 	.word	0x00000000
+
+Disassembly of section .text.rfClearStatus:
+
+00000000 <rfClearStatus>:
+rfClearStatus():
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	4c07      	ldr	r4, [pc, #28]	; (20 <rfClearStatus+0x20>)
+   4:	f44f 6500 	mov.w	r5, #2048	; 0x800
+   8:	4806      	ldr	r0, [pc, #24]	; (24 <rfClearStatus+0x24>)
+   a:	2127      	movs	r1, #39	; 0x27
+   c:	6165      	str	r5, [r4, #20]
+   e:	f7ff fffe 	bl	0 <spiWriteByte>
+  12:	4804      	ldr	r0, [pc, #16]	; (24 <rfClearStatus+0x24>)
+  14:	2170      	movs	r1, #112	; 0x70
+  16:	f7ff fffe 	bl	0 <spiWriteByte>
+  1a:	6125      	str	r5, [r4, #16]
+  1c:	bd38      	pop	{r3, r4, r5, pc}
+  1e:	bf00      	nop
+  20:	40011000 	.word	0x40011000
+  24:	00000000 	.word	0x00000000
+
+Disassembly of section .text.rfSetRX:
+
+00000000 <rfSetRX>:
+rfSetRX():
+   0:	4b0c      	ldr	r3, [pc, #48]	; (34 <rfSetRX+0x34>)
+   2:	b570      	push	{r4, r5, r6, lr}
+   4:	681a      	ldr	r2, [r3, #0]
+   6:	4c0c      	ldr	r4, [pc, #48]	; (38 <rfSetRX+0x38>)
+   8:	f022 0201 	bic.w	r2, r2, #1
+   c:	f44f 6580 	mov.w	r5, #1024	; 0x400
+  10:	f44f 6600 	mov.w	r6, #2048	; 0x800
+  14:	601a      	str	r2, [r3, #0]
+  16:	2120      	movs	r1, #32
+  18:	6165      	str	r5, [r4, #20]
+  1a:	4808      	ldr	r0, [pc, #32]	; (3c <rfSetRX+0x3c>)
+  1c:	6166      	str	r6, [r4, #20]
+  1e:	f7ff fffe 	bl	0 <spiWriteByte>
+  22:	4806      	ldr	r0, [pc, #24]	; (3c <rfSetRX+0x3c>)
+  24:	213b      	movs	r1, #59	; 0x3b
+  26:	f7ff fffe 	bl	0 <spiWriteByte>
+  2a:	6126      	str	r6, [r4, #16]
+  2c:	f7ff fffe 	bl	0 <rfSetRX>
+  30:	6125      	str	r5, [r4, #16]
+  32:	bd70      	pop	{r4, r5, r6, pc}
+  34:	00000000 	.word	0x00000000
+  38:	40011000 	.word	0x40011000
+  3c:	00000000 	.word	0x00000000
+
+Disassembly of section .text.rfSetTX:
+
+00000000 <rfSetTX>:
+rfSetTX():
+   0:	4b0c      	ldr	r3, [pc, #48]	; (34 <rfSetTX+0x34>)
+   2:	b570      	push	{r4, r5, r6, lr}
+   4:	681a      	ldr	r2, [r3, #0]
+   6:	4c0c      	ldr	r4, [pc, #48]	; (38 <rfSetTX+0x38>)
+   8:	f042 0201 	orr.w	r2, r2, #1
+   c:	f44f 6580 	mov.w	r5, #1024	; 0x400
+  10:	f44f 6600 	mov.w	r6, #2048	; 0x800
+  14:	601a      	str	r2, [r3, #0]
+  16:	2120      	movs	r1, #32
+  18:	6165      	str	r5, [r4, #20]
+  1a:	4808      	ldr	r0, [pc, #32]	; (3c <rfSetTX+0x3c>)
+  1c:	6166      	str	r6, [r4, #20]
+  1e:	f7ff fffe 	bl	0 <spiWriteByte>
+  22:	4806      	ldr	r0, [pc, #24]	; (3c <rfSetTX+0x3c>)
+  24:	213a      	movs	r1, #58	; 0x3a
+  26:	f7ff fffe 	bl	0 <spiWriteByte>
+  2a:	6126      	str	r6, [r4, #16]
+  2c:	f7ff fffe 	bl	0 <rfSetTX>
+  30:	6125      	str	r5, [r4, #16]
+  32:	bd70      	pop	{r4, r5, r6, pc}
+  34:	00000000 	.word	0x00000000
+  38:	40011000 	.word	0x40011000
+  3c:	00000000 	.word	0x00000000
+
+Disassembly of section .text.rfPutTXBuffer:
+
+00000000 <rfPutTXBuffer>:
+rfPutTXBuffer():
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	460e      	mov	r6, r1
+   4:	4605      	mov	r5, r0
+   6:	f7ff fffe 	bl	0 <rfPutTXBuffer>
+   a:	4b1c      	ldr	r3, [pc, #112]	; (7c <rfPutTXBuffer+0x7c>)
+   c:	f44f 6200 	mov.w	r2, #2048	; 0x800
+  10:	615a      	str	r2, [r3, #20]
+  12:	481b      	ldr	r0, [pc, #108]	; (80 <rfPutTXBuffer+0x80>)
+  14:	21a0      	movs	r1, #160	; 0xa0
+  16:	f7ff fffe 	bl	0 <spiWriteByte>
+  1a:	2400      	movs	r4, #0
+  1c:	e01c      	b.n	58 <rfPutTXBuffer+0x58>
+  1e:	2c20      	cmp	r4, #32
+  20:	d114      	bne.n	4c <rfPutTXBuffer+0x4c>
+  22:	4b16      	ldr	r3, [pc, #88]	; (7c <rfPutTXBuffer+0x7c>)
+  24:	f44f 6200 	mov.w	r2, #2048	; 0x800
+  28:	611a      	str	r2, [r3, #16]
+  2a:	f7ff fffe 	bl	0 <rfPutTXBuffer>
+  2e:	f010 0f20 	tst.w	r0, #32
+  32:	d0fa      	beq.n	fffffff8 <rfGetID+0xfffffff8>
+  34:	f7ff fffe 	bl	0 <rfPutTXBuffer>
+  38:	4b10      	ldr	r3, [pc, #64]	; (7c <rfPutTXBuffer+0x7c>)
+  3a:	f44f 6200 	mov.w	r2, #2048	; 0x800
+  3e:	3d20      	subs	r5, #32
+  40:	615a      	str	r2, [r3, #20]
+  42:	480f      	ldr	r0, [pc, #60]	; (80 <rfPutTXBuffer+0x80>)
+  44:	21a0      	movs	r1, #160	; 0xa0
+  46:	b2ad      	uxth	r5, r5
+  48:	f7ff fffe 	bl	0 <spiWriteByte>
+  4c:	5d31      	ldrb	r1, [r6, r4]
+  4e:	480c      	ldr	r0, [pc, #48]	; (80 <rfPutTXBuffer+0x80>)
+  50:	f7ff fffe 	bl	0 <spiWriteByte>
+  54:	3401      	adds	r4, #1
+  56:	b2e4      	uxtb	r4, r4
+  58:	42ac      	cmp	r4, r5
+  5a:	d3e0      	bcc.n	1e <rfPutTXBuffer+0x1e>
+  5c:	4b07      	ldr	r3, [pc, #28]	; (7c <rfPutTXBuffer+0x7c>)
+  5e:	f44f 6200 	mov.w	r2, #2048	; 0x800
+  62:	611a      	str	r2, [r3, #16]
+  64:	f7ff fffe 	bl	0 <rfPutTXBuffer>
+  68:	f010 0f20 	tst.w	r0, #32
+  6c:	d0fa      	beq.n	fffffff8 <rfGetID+0xfffffff8>
+  6e:	f7ff fffe 	bl	0 <rfPutTXBuffer>
+  72:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+  76:	f7ff bffe 	b.w	0 <rfPutTXBuffer>
+  7a:	bf00      	nop
+  7c:	40011000 	.word	0x40011000
+  80:	00000000 	.word	0x00000000
+
+Disassembly of section .text.rfSendPacket:
+
+00000000 <rfSendPacket>:
+rfSendPacket():
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	6803      	ldr	r3, [r0, #0]
+   4:	b088      	sub	sp, #32
+   6:	0e1a      	lsrs	r2, r3, #24
+   8:	f88d 2000 	strb.w	r2, [sp]
+   c:	0c1a      	lsrs	r2, r3, #16
+   e:	f88d 2001 	strb.w	r2, [sp, #1]
+  12:	0a1a      	lsrs	r2, r3, #8
+  14:	f88d 2002 	strb.w	r2, [sp, #2]
+  18:	f88d 3003 	strb.w	r3, [sp, #3]
+  1c:	7ac5      	ldrb	r5, [r0, #11]
+  1e:	7a83      	ldrb	r3, [r0, #10]
+  20:	4604      	mov	r4, r0
+  22:	ea45 1343 	orr.w	r3, r5, r3, lsl #5
+  26:	f88d 3004 	strb.w	r3, [sp, #4]
+  2a:	7b03      	ldrb	r3, [r0, #12]
+  2c:	f88d 3005 	strb.w	r3, [sp, #5]
+  30:	7b43      	ldrb	r3, [r0, #13]
+  32:	2b01      	cmp	r3, #1
+  34:	d002      	beq.n	3c <rfSendPacket+0x3c>
+  36:	4602      	mov	r2, r0
+  38:	2300      	movs	r3, #0
+  3a:	e016      	b.n	6a <rfSendPacket+0x6a>
+  3c:	f88d 3006 	strb.w	r3, [sp, #6]
+  40:	6843      	ldr	r3, [r0, #4]
+  42:	250b      	movs	r5, #11
+  44:	0e1a      	lsrs	r2, r3, #24
+  46:	f88d 2007 	strb.w	r2, [sp, #7]
+  4a:	0c1a      	lsrs	r2, r3, #16
+  4c:	f88d 2008 	strb.w	r2, [sp, #8]
+  50:	0a1a      	lsrs	r2, r3, #8
+  52:	f88d 2009 	strb.w	r2, [sp, #9]
+  56:	f88d 300a 	strb.w	r3, [sp, #10]
+  5a:	e00d      	b.n	78 <rfSendPacket+0x78>
+  5c:	a808      	add	r0, sp, #32
+  5e:	1841      	adds	r1, r0, r1
+  60:	7b50      	ldrb	r0, [r2, #13]
+  62:	3301      	adds	r3, #1
+  64:	f801 0c20 	strb.w	r0, [r1, #-32]
+  68:	b2db      	uxtb	r3, r3
+  6a:	1d99      	adds	r1, r3, #6
+  6c:	3201      	adds	r2, #1
+  6e:	42ab      	cmp	r3, r5
+  70:	b2c9      	uxtb	r1, r1
+  72:	d3f3      	bcc.n	5c <rfSendPacket+0x5c>
+  74:	3506      	adds	r5, #6
+  76:	b2ed      	uxtb	r5, r5
+  78:	462a      	mov	r2, r5
+  7a:	2001      	movs	r0, #1
+  7c:	4916      	ldr	r1, [pc, #88]	; (d8 <rfSendPacket+0xd8>)
+  7e:	f7ff fffe 	bl	0 <print>
+  82:	4629      	mov	r1, r5
+  84:	4668      	mov	r0, sp
+  86:	f7ff fffe 	bl	0 <sysCRC16>
+  8a:	aa08      	add	r2, sp, #32
+  8c:	1953      	adds	r3, r2, r5
+  8e:	0a02      	lsrs	r2, r0, #8
+  90:	3501      	adds	r5, #1
+  92:	8120      	strh	r0, [r4, #8]
+  94:	b2ed      	uxtb	r5, r5
+  96:	f803 2c20 	strb.w	r2, [r3, #-32]
+  9a:	aa08      	add	r2, sp, #32
+  9c:	1953      	adds	r3, r2, r5
+  9e:	f803 0c20 	strb.w	r0, [r3, #-32]
+  a2:	3501      	adds	r5, #1
+  a4:	2001      	movs	r0, #1
+  a6:	490d      	ldr	r1, [pc, #52]	; (dc <rfSendPacket+0xdc>)
+  a8:	b2ed      	uxtb	r5, r5
+  aa:	f7ff fffe 	bl	0 <print>
+  ae:	f10d 36ff 	add.w	r6, sp, #4294967295
+  b2:	2400      	movs	r4, #0
+  b4:	e007      	b.n	c6 <rfSendPacket+0xc6>
+  b6:	2001      	movs	r0, #1
+  b8:	4909      	ldr	r1, [pc, #36]	; (e0 <rfSendPacket+0xe0>)
+  ba:	f816 2f01 	ldrb.w	r2, [r6, #1]!
+  be:	f7ff fffe 	bl	0 <print>
+  c2:	3401      	adds	r4, #1
+  c4:	b2e4      	uxtb	r4, r4
+  c6:	42ac      	cmp	r4, r5
+  c8:	d3f5      	bcc.n	b6 <rfSendPacket+0xb6>
+  ca:	4628      	mov	r0, r5
+  cc:	4669      	mov	r1, sp
+  ce:	f7ff fffe 	bl	0 <rfSendPacket>
+  d2:	b008      	add	sp, #32
+  d4:	bd70      	pop	{r4, r5, r6, pc}
+  d6:	bf00      	nop
+  d8:	000000bb 	.word	0x000000bb
+  dc:	000000c8 	.word	0x000000c8
+  e0:	000000d2 	.word	0x000000d2
+
+Disassembly of section .text.rfSendOpenSocket:
+
+00000000 <rfSendOpenSocket>:
+rfSendOpenSocket():
+   0:	4b09b500 	.word	0x4b09b500
+   4:	b08b      	sub	sp, #44	; 0x2c
+   6:	681b      	ldr	r3, [r3, #0]
+   8:	9000      	str	r0, [sp, #0]
+   a:	9301      	str	r3, [sp, #4]
+   c:	2305      	movs	r3, #5
+   e:	f88d 300b 	strb.w	r3, [sp, #11]
+  12:	4668      	mov	r0, sp
+  14:	3b04      	subs	r3, #4
+  16:	f88d 100d 	strb.w	r1, [sp, #13]
+  1a:	f88d 300a 	strb.w	r3, [sp, #10]
+  1e:	f7ff fffe 	bl	0 <rfSendOpenSocket>
+  22:	b00b      	add	sp, #44	; 0x2c
+  24:	bd00      	pop	{pc}
+  26:	bf00      	nop
+  28:	00000000 	.word	0x00000000
+
+Disassembly of section .text.rfSendLastCommand:
+
+00000000 <rfSendLastCommand>:
+rfSendLastCommand():
+   0:	b500      	push	{lr}
+   2:	4b0b      	ldr	r3, [pc, #44]	; (30 <rfSendLastCommand+0x30>)
+   4:	b08b      	sub	sp, #44	; 0x2c
+   6:	eb03 1300 	add.w	r3, r3, r0, lsl #4
+   a:	689a      	ldr	r2, [r3, #8]
+   c:	7b1b      	ldrb	r3, [r3, #12]
+   e:	4668      	mov	r0, sp
+  10:	f88d 300d 	strb.w	r3, [sp, #13]
+  14:	4b07      	ldr	r3, [pc, #28]	; (34 <rfSendLastCommand+0x34>)
+  16:	9200      	str	r2, [sp, #0]
+  18:	681b      	ldr	r3, [r3, #0]
+  1a:	9301      	str	r3, [sp, #4]
+  1c:	2305      	movs	r3, #5
+  1e:	f88d 300b 	strb.w	r3, [sp, #11]
+  22:	3b01      	subs	r3, #1
+  24:	f88d 300a 	strb.w	r3, [sp, #10]
+  28:	f7ff fffe 	bl	0 <rfSendLastCommand>
+  2c:	b00b      	add	sp, #44	; 0x2c
+  2e:	bd00      	pop	{pc}
+	...
+
+Disassembly of section .text.rfSendNextCommand:
+
+00000000 <rfSendNextCommand>:
+rfSendNextCommand():
+   0:	b500      	push	{lr}
+   2:	4b0b      	ldr	r3, [pc, #44]	; (30 <rfSendNextCommand+0x30>)
+   4:	b08b      	sub	sp, #44	; 0x2c
+   6:	eb03 1300 	add.w	r3, r3, r0, lsl #4
+   a:	689a      	ldr	r2, [r3, #8]
+   c:	7b1b      	ldrb	r3, [r3, #12]
+   e:	4668      	mov	r0, sp
+  10:	f88d 300d 	strb.w	r3, [sp, #13]
+  14:	4b07      	ldr	r3, [pc, #28]	; (34 <rfSendNextCommand+0x34>)
+  16:	9200      	str	r2, [sp, #0]
+  18:	681b      	ldr	r3, [r3, #0]
+  1a:	9301      	str	r3, [sp, #4]
+  1c:	2305      	movs	r3, #5
+  1e:	f88d 300b 	strb.w	r3, [sp, #11]
+  22:	3b02      	subs	r3, #2
+  24:	f88d 300a 	strb.w	r3, [sp, #10]
+  28:	f7ff fffe 	bl	0 <rfSendNextCommand>
+  2c:	b00b      	add	sp, #44	; 0x2c
+  2e:	bd00      	pop	{pc}
+	...
+
+Disassembly of section .text.rfSendCloseCommand:
+
+00000000 <rfSendCloseCommand>:
+rfSendCloseCommand():
+   0:	b500      	push	{lr}
+   2:	4b0b      	ldr	r3, [pc, #44]	; (30 <rfSendCloseCommand+0x30>)
+   4:	b08b      	sub	sp, #44	; 0x2c
+   6:	eb03 1300 	add.w	r3, r3, r0, lsl #4
+   a:	689a      	ldr	r2, [r3, #8]
+   c:	7b1b      	ldrb	r3, [r3, #12]
+   e:	4668      	mov	r0, sp
+  10:	f88d 300d 	strb.w	r3, [sp, #13]
+  14:	4b07      	ldr	r3, [pc, #28]	; (34 <rfSendCloseCommand+0x34>)
+  16:	9200      	str	r2, [sp, #0]
+  18:	681b      	ldr	r3, [r3, #0]
+  1a:	9301      	str	r3, [sp, #4]
+  1c:	2305      	movs	r3, #5
+  1e:	f88d 300b 	strb.w	r3, [sp, #11]
+  22:	3b03      	subs	r3, #3
+  24:	f88d 300a 	strb.w	r3, [sp, #10]
+  28:	f7ff fffe 	bl	0 <rfSendCloseCommand>
+  2c:	b00b      	add	sp, #44	; 0x2c
+  2e:	bd00      	pop	{pc}
+	...
+
+Disassembly of section .text.rfSendOpenCommand:
+
+00000000 <rfSendOpenCommand>:
+rfSendOpenCommand():
+   0:	b500      	push	{lr}
+   2:	4b0b      	ldr	r3, [pc, #44]	; (30 <rfSendOpenCommand+0x30>)
+   4:	b08b      	sub	sp, #44	; 0x2c
+   6:	eb03 1300 	add.w	r3, r3, r0, lsl #4
+   a:	689a      	ldr	r2, [r3, #8]
+   c:	7b1b      	ldrb	r3, [r3, #12]
+   e:	4668      	mov	r0, sp
+  10:	f88d 300d 	strb.w	r3, [sp, #13]
+  14:	4b07      	ldr	r3, [pc, #28]	; (34 <rfSendOpenCommand+0x34>)
+  16:	9200      	str	r2, [sp, #0]
+  18:	681b      	ldr	r3, [r3, #0]
+  1a:	9301      	str	r3, [sp, #4]
+  1c:	2305      	movs	r3, #5
+  1e:	f88d 300b 	strb.w	r3, [sp, #11]
+  22:	3b04      	subs	r3, #4
+  24:	f88d 300a 	strb.w	r3, [sp, #10]
+  28:	f7ff fffe 	bl	0 <rfSendOpenCommand>
+  2c:	b00b      	add	sp, #44	; 0x2c
+  2e:	bd00      	pop	{pc}
+	...
+
+Disassembly of section .text.rfProcessPacket:
+
+00000000 <rfProcessPacket>:
+rfProcessPacket():
+   0:	b510      	push	{r4, lr}
+   2:	b08a      	sub	sp, #40	; 0x28
+   4:	4669      	mov	r1, sp
+   6:	f7ff fffe 	bl	0 <rfProcessPacket>
+   a:	f89d 400a 	ldrb.w	r4, [sp, #10]
+   e:	2c01      	cmp	r4, #1
+  10:	d119      	bne.n	46 <rfProcessPacket+0x46>
+  12:	2303      	movs	r3, #3
+  14:	f88d 300a 	strb.w	r3, [sp, #10]
+  18:	4b0c      	ldr	r3, [pc, #48]	; (4c <rfProcessPacket+0x4c>)
+  1a:	9801      	ldr	r0, [sp, #4]
+  1c:	681b      	ldr	r3, [r3, #0]
+  1e:	f89d 100d 	ldrb.w	r1, [sp, #13]
+  22:	9000      	str	r0, [sp, #0]
+  24:	9301      	str	r3, [sp, #4]
+  26:	f7ff fffe 	bl	0 <rfProcessPacket>
+  2a:	28ff      	cmp	r0, #255	; 0xff
+  2c:	d104      	bne.n	38 <rfProcessPacket+0x38>
+  2e:	4620      	mov	r0, r4
+  30:	4907      	ldr	r1, [pc, #28]	; (50 <rfProcessPacket+0x50>)
+  32:	f7ff fffe 	bl	0 <print>
+  36:	e006      	b.n	46 <rfProcessPacket+0x46>
+  38:	4620      	mov	r0, r4
+  3a:	4906      	ldr	r1, [pc, #24]	; (54 <rfProcessPacket+0x54>)
+  3c:	f7ff fffe 	bl	0 <print>
+  40:	4668      	mov	r0, sp
+  42:	f7ff fffe 	bl	0 <rfProcessPacket>
+  46:	b00a      	add	sp, #40	; 0x28
+  48:	bd10      	pop	{r4, pc}
+  4a:	bf00      	nop
+  4c:	00000000 	.word	0x00000000
+  50:	000000da 	.word	0x000000da
+  54:	000000e8 	.word	0x000000e8
+
+Disassembly of section .text.rfPutString:
+
+00000000 <rfPutString>:
+rfPutString():
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	4605      	mov	r5, r0
+   4:	f7ff fffe 	bl	0 <rfPutString>
+   8:	4b1c      	ldr	r3, [pc, #112]	; (7c <rfPutString+0x7c>)
+   a:	f44f 6200 	mov.w	r2, #2048	; 0x800
+   e:	615a      	str	r2, [r3, #20]
+  10:	481b      	ldr	r0, [pc, #108]	; (80 <rfPutString+0x80>)
+  12:	21a0      	movs	r1, #160	; 0xa0
+  14:	f7ff fffe 	bl	0 <spiWriteByte>
+  18:	2400      	movs	r4, #0
+  1a:	e01c      	b.n	56 <rfPutString+0x56>
+  1c:	2c20      	cmp	r4, #32
+  1e:	d113      	bne.n	48 <rfPutString+0x48>
+  20:	4b16      	ldr	r3, [pc, #88]	; (7c <rfPutString+0x7c>)
+  22:	f44f 6200 	mov.w	r2, #2048	; 0x800
+  26:	611a      	str	r2, [r3, #16]
+  28:	f7ff fffe 	bl	0 <rfPutString>
+  2c:	f010 0f20 	tst.w	r0, #32
+  30:	d0fa      	beq.n	fffffff8 <rfGetID+0xfffffff8>
+  32:	f7ff fffe 	bl	0 <rfPutString>
+  36:	4b11      	ldr	r3, [pc, #68]	; (7c <rfPutString+0x7c>)
+  38:	f44f 6200 	mov.w	r2, #2048	; 0x800
+  3c:	615a      	str	r2, [r3, #20]
+  3e:	4810      	ldr	r0, [pc, #64]	; (80 <rfPutString+0x80>)
+  40:	21a0      	movs	r1, #160	; 0xa0
+  42:	f7ff fffe 	bl	0 <spiWriteByte>
+  46:	2400      	movs	r4, #0
+  48:	480d      	ldr	r0, [pc, #52]	; (80 <rfPutString+0x80>)
+  4a:	f815 1c01 	ldrb.w	r1, [r5, #-1]
+  4e:	f7ff fffe 	bl	0 <spiWriteByte>
+  52:	3401      	adds	r4, #1
+  54:	b2e4      	uxtb	r4, r4
+  56:	f815 3b01 	ldrb.w	r3, [r5], #1
+  5a:	2b00      	cmp	r3, #0
+  5c:	d1de      	bne.n	1c <rfPutString+0x1c>
+  5e:	4b07      	ldr	r3, [pc, #28]	; (7c <rfPutString+0x7c>)
+  60:	f44f 6200 	mov.w	r2, #2048	; 0x800
+  64:	611a      	str	r2, [r3, #16]
+  66:	f7ff fffe 	bl	0 <rfPutString>
+  6a:	f010 0f20 	tst.w	r0, #32
+  6e:	d0fa      	beq.n	fffffff8 <rfGetID+0xfffffff8>
+  70:	f7ff fffe 	bl	0 <rfPutString>
+  74:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+  78:	f7ff bffe 	b.w	0 <rfPutString>
+  7c:	40011000 	.word	0x40011000
+  80:	00000000 	.word	0x00000000
+
+Disassembly of section .text.rfGetSignalQuality:
+
+00000000 <rfGetSignalQuality>:
+rfGetSignalQuality():
+   0:	4c09b570 	.word	0x4c09b570
+   4:	f44f 6500 	mov.w	r5, #2048	; 0x800
+   8:	2108      	movs	r1, #8
+   a:	6165      	str	r5, [r4, #20]
+   c:	4807      	ldr	r0, [pc, #28]	; (2c <rfGetSignalQuality+0x2c>)
+   e:	f7ff fffe 	bl	0 <spiWriteByte>
+  12:	4806      	ldr	r0, [pc, #24]	; (1c <spiReadByte+0x1c>)
+  14:	f7ff fffe 	bl	0 <spiReadByte>
+  18:	6125      	str	r5, [r4, #16]
+  1a:	4606      	mov	r6, r0
+  1c:	f7ff fffe 	bl	0 <rfGetSignalQuality>
+  20:	43f0      	mvns	r0, r6
+  22:	f000 000f 	and.w	r0, r0, #15
+  26:	bd70      	pop	{r4, r5, r6, pc}
+  28:	40011000 	.word	0x40011000
+  2c:	00000000 	.word	0x00000000
+
+Disassembly of section .text.rfGetRXPayload:
+
+00000000 <rfGetRXPayload>:
+rfGetRXPayload():
+   0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+   4:	4604      	mov	r4, r0
+   6:	f7ff fffe 	bl	0 <rfGetRXPayload>
+   a:	f000 0007 	and.w	r0, r0, #7
+   e:	2807      	cmp	r0, #7
+  10:	d121      	bne.n	56 <rfGetRXPayload+0x56>
+  12:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  16:	f7ff fffe 	bl	0 <rfGetRXPayload>
+  1a:	4b13      	ldr	r3, [pc, #76]	; (68 <rfGetRXPayload+0x68>)
+  1c:	f44f 6200 	mov.w	r2, #2048	; 0x800
+  20:	4605      	mov	r5, r0
+  22:	615a      	str	r2, [r3, #20]
+  24:	4811      	ldr	r0, [pc, #68]	; (6c <rfGetRXPayload+0x6c>)
+  26:	2161      	movs	r1, #97	; 0x61
+  28:	f7ff fffe 	bl	0 <spiWriteByte>
+  2c:	4627      	mov	r7, r4
+  2e:	e006      	b.n	3e <rfGetRXPayload+0x3e>
+  30:	480e      	ldr	r0, [pc, #56]	; (6c <rfGetRXPayload+0x6c>)
+  32:	f7ff fffe 	bl	0 <spiReadByte>
+  36:	3601      	adds	r6, #1
+  38:	f807 0b01 	strb.w	r0, [r7], #1
+  3c:	b2f6      	uxtb	r6, r6
+  3e:	42ae      	cmp	r6, r5
+  40:	d3f6      	bcc.n	30 <rfGetRXPayload+0x30>
+  42:	2300      	movs	r3, #0
+  44:	5563      	strb	r3, [r4, r5]
+  46:	4b08      	ldr	r3, [pc, #32]	; (68 <rfGetRXPayload+0x68>)
+  48:	f44f 6200 	mov.w	r2, #2048	; 0x800
+  4c:	611a      	str	r2, [r3, #16]
+  4e:	4620      	mov	r0, r4
+  50:	4629      	mov	r1, r5
+  52:	f7ff fffe 	bl	0 <rfGetRXPayload>
+  56:	f7ff fffe 	bl	0 <rfGetRXPayload>
+  5a:	4606      	mov	r6, r0
+  5c:	2800      	cmp	r0, #0
+  5e:	d0da      	beq.n	16 <rfGetRXPayload+0x16>
+  60:	e8bd 41f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, lr}
+  64:	f7ff bffe 	b.w	0 <rfGetRXPayload>
+  68:	40011000 	.word	0x40011000
+  6c:	00000000 	.word	0x00000000
+
+Disassembly of section .text.rfRX:
+
+00000000 <rfRX>:
+rfRX():
+   0:	b510      	push	{r4, lr}
+   2:	b08a      	sub	sp, #40	; 0x28
+   4:	f7ff fffe 	bl	0 <rfRX>
+   8:	f010 0f40 	tst.w	r0, #64	; 0x40
+   c:	4604      	mov	r4, r0
+   e:	d002      	beq.n	16 <rfRX+0x16>
+  10:	4668      	mov	r0, sp
+  12:	f7ff fffe 	bl	0 <rfRX>
+  16:	f014 0f20 	tst.w	r4, #32
+  1a:	d001      	beq.n	6 <rfRX+0x6>
+  1c:	f7ff fffe 	bl	0 <rfRX>
+  20:	b00a      	add	sp, #40	; 0x28
+  22:	bd10      	pop	{r4, pc}
+
+Disassembly of section .text.rfWriteAddress:
+
+00000000 <rfWriteAddress>:
+rfWriteAddress():
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	4b0b      	ldr	r3, [pc, #44]	; (30 <rfWriteAddress+0x30>)
+   4:	f44f 6200 	mov.w	r2, #2048	; 0x800
+   8:	460d      	mov	r5, r1
+   a:	615a      	str	r2, [r3, #20]
+   c:	f040 0120 	orr.w	r1, r0, #32
+  10:	4808      	ldr	r0, [pc, #32]	; (24 <spiWriteByte+0x24>)
+  12:	f7ff fffe 	bl	0 <spiWriteByte>
+  16:	1d6c      	adds	r4, r5, #5
+  18:	f814 1d01 	ldrb.w	r1, [r4, #-1]!
+  1c:	4805      	ldr	r0, [pc, #20]	; (18 <spiWriteByte+0x18>)
+  1e:	f7ff fffe 	bl	0 <spiWriteByte>
+  22:	42ac      	cmp	r4, r5
+  24:	d1f8      	bne.n	18 <rfWriteAddress+0x18>
+  26:	4b02      	ldr	r3, [pc, #8]	; (30 <rfWriteAddress+0x30>)
+  28:	f44f 6200 	mov.w	r2, #2048	; 0x800
+  2c:	611a      	str	r2, [r3, #16]
+  2e:	bd38      	pop	{r3, r4, r5, pc}
+  30:	40011000 	.word	0x40011000
+  34:	00000000 	.word	0x00000000
+
+Disassembly of section .text.rfInit:
+
+00000000 <rfInit>:
+rfInit():
+   0:	b537      	push	{r0, r1, r2, r4, r5, lr}
+   2:	f7ff fffe 	bl	0 <sysGetID>
+   6:	2101      	movs	r1, #1
+   8:	4605      	mov	r5, r0
+   a:	4a33      	ldr	r2, [pc, #204]	; (d8 <rfInit+0xd8>)
+   c:	2000      	movs	r0, #0
+   e:	f7ff fffe 	bl	0 <pdiaEncode>
+  12:	2400      	movs	r4, #0
+  14:	5d28      	ldrb	r0, [r5, r4]
+  16:	2102      	movs	r1, #2
+  18:	4a2f      	ldr	r2, [pc, #188]	; (d8 <rfInit+0xd8>)
+  1a:	3401      	adds	r4, #1
+  1c:	f7ff fffe 	bl	0 <pdiaEncode>
+  20:	2c0c      	cmp	r4, #12
+  22:	d1f7      	bne.n	14 <rfInit+0x14>
+  24:	2104      	movs	r1, #4
+  26:	2000      	movs	r0, #0
+  28:	4a2b      	ldr	r2, [pc, #172]	; (d8 <rfInit+0xd8>)
+  2a:	f7ff fffe 	bl	0 <pdiaEncode>
+  2e:	2312      	movs	r3, #18
+  30:	222c      	movs	r2, #44	; 0x2c
+  32:	9300      	str	r3, [sp, #0]
+  34:	212b      	movs	r1, #43	; 0x2b
+  36:	3b01      	subs	r3, #1
+  38:	4828      	ldr	r0, [pc, #160]	; (dc <rfInit+0xdc>)
+  3a:	4c29      	ldr	r4, [pc, #164]	; (e0 <rfInit+0xe0>)
+  3c:	f7ff fffe 	bl	0 <spiConfig>
+  40:	202a      	movs	r0, #42	; 0x2a
+  42:	2103      	movs	r1, #3
+  44:	f7ff fffe 	bl	0 <pinConfig>
+  48:	f44f 6380 	mov.w	r3, #1024	; 0x400
+  4c:	6163      	str	r3, [r4, #20]
+  4e:	2029      	movs	r0, #41	; 0x29
+  50:	2118      	movs	r1, #24
+  52:	f44f 6500 	mov.w	r5, #2048	; 0x800
+  56:	f7ff fffe 	bl	0 <pinConfig>
+  5a:	2201      	movs	r2, #1
+  5c:	2129      	movs	r1, #41	; 0x29
+  5e:	4821      	ldr	r0, [pc, #132]	; (e4 <rfInit+0xe4>)
+  60:	f7ff fffe 	bl	0 <pinInterrupt>
+  64:	2122      	movs	r1, #34	; 0x22
+  66:	6165      	str	r5, [r4, #20]
+  68:	481c      	ldr	r0, [pc, #112]	; (dc <rfInit+0xdc>)
+  6a:	f7ff fffe 	bl	0 <spiWriteByte>
+  6e:	2101      	movs	r1, #1
+  70:	481a      	ldr	r0, [pc, #104]	; (dc <rfInit+0xdc>)
+  72:	f7ff fffe 	bl	0 <spiWriteByte>
+  76:	6125      	str	r5, [r4, #16]
+  78:	213c      	movs	r1, #60	; 0x3c
+  7a:	6165      	str	r5, [r4, #20]
+  7c:	4817      	ldr	r0, [pc, #92]	; (dc <rfInit+0xdc>)
+  7e:	f7ff fffe 	bl	0 <spiWriteByte>
+  82:	2101      	movs	r1, #1
+  84:	4815      	ldr	r0, [pc, #84]	; (dc <rfInit+0xdc>)
+  86:	f7ff fffe 	bl	0 <spiWriteByte>
+  8a:	6125      	str	r5, [r4, #16]
+  8c:	213d      	movs	r1, #61	; 0x3d
+  8e:	6165      	str	r5, [r4, #20]
+  90:	4812      	ldr	r0, [pc, #72]	; (dc <rfInit+0xdc>)
+  92:	f7ff fffe 	bl	0 <spiWriteByte>
+  96:	2104      	movs	r1, #4
+  98:	4810      	ldr	r0, [pc, #64]	; (dc <rfInit+0xdc>)
+  9a:	f7ff fffe 	bl	0 <spiWriteByte>
+  9e:	6125      	str	r5, [r4, #16]
+  a0:	2121      	movs	r1, #33	; 0x21
+  a2:	6165      	str	r5, [r4, #20]
+  a4:	480d      	ldr	r0, [pc, #52]	; (dc <rfInit+0xdc>)
+  a6:	f7ff fffe 	bl	0 <spiWriteByte>
+  aa:	480c      	ldr	r0, [pc, #48]	; (dc <rfInit+0xdc>)
+  ac:	2101      	movs	r1, #1
+  ae:	f7ff fffe 	bl	0 <spiWriteByte>
+  b2:	6125      	str	r5, [r4, #16]
+  b4:	f7ff fffe 	bl	0 <rfInit>
+  b8:	f7ff fffe 	bl	0 <rfInit>
+  bc:	2010      	movs	r0, #16
+  be:	490a      	ldr	r1, [pc, #40]	; (e8 <rfInit+0xe8>)
+  c0:	f7ff fffe 	bl	0 <rfInit>
+  c4:	200a      	movs	r0, #10
+  c6:	4908      	ldr	r1, [pc, #32]	; (e8 <rfInit+0xe8>)
+  c8:	f7ff fffe 	bl	0 <rfInit>
+  cc:	b003      	add	sp, #12
+  ce:	e8bd 4030 	ldmia.w	sp!, {r4, r5, lr}
+  d2:	f7ff bffe 	b.w	0 <rfInit>
+  d6:	bf00      	nop
+	...
+  e0:	40011000 	.word	0x40011000
+	...

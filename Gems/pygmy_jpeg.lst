@@ -1,0 +1,1311 @@
+
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_jpeg.o:     file format elf32-littlearm
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_jpeg.o
+
+
+Disassembly of section .text.Clamp:
+
+00000000 <Clamp>:
+Clamp():
+   0:	2800      	cmp	r0, #0
+   2:	db03      	blt.n	c <Clamp+0xc>
+   4:	28ff      	cmp	r0, #255	; 0xff
+   6:	dc03      	bgt.n	10 <Clamp+0x10>
+   8:	b2c0      	uxtb	r0, r0
+   a:	4770      	bx	lr
+   c:	2000      	movs	r0, #0
+   e:	4770      	bx	lr
+  10:	20ff      	movs	r0, #255	; 0xff
+  12:	4770      	bx	lr
+
+Disassembly of section .text.GenHuffCodes:
+
+00000000 <GenHuffCodes>:
+GenHuffCodes():
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	2400      	movs	r4, #0
+   4:	2501      	movs	r5, #1
+   6:	4623      	mov	r3, r4
+   8:	e009      	b.n	1e <GenHuffCodes+0x1e>
+   a:	005b      	lsls	r3, r3, #1
+   c:	3501      	adds	r5, #1
+   e:	42ae      	cmp	r6, r5
+  10:	dcfb      	bgt.n	a <GenHuffCodes+0xa>
+  12:	810b      	strh	r3, [r1, #8]
+  14:	5d16      	ldrb	r6, [r2, r4]
+  16:	3301      	adds	r3, #1
+  18:	f841 6b0c 	str.w	r6, [r1], #12
+  1c:	3401      	adds	r4, #1
+  1e:	4284      	cmp	r4, r0
+  20:	da01      	bge.n	26 <GenHuffCodes+0x26>
+  22:	684e      	ldr	r6, [r1, #4]
+  24:	e7f3      	b.n	e <GenHuffCodes+0xe>
+  26:	bd70      	pop	{r4, r5, r6, pc}
+
+Disassembly of section .text.C:
+
+00000000 <C>:
+C():
+   0:	b908      	cbnz	r0, 6 <C+0x6>
+   2:	4802      	ldr	r0, [pc, #8]	; (c <C+0xc>)
+   4:	4770      	bx	lr
+   6:	f04f 507e 	mov.w	r0, #1065353216	; 0x3f800000
+   a:	4770      	bx	lr
+   c:	3f3504f3 	.word	0x3f3504f3
+
+Disassembly of section .text.func:
+
+00000000 <func>:
+func():
+   0:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+   4:	0049      	lsls	r1, r1, #1
+   6:	0040      	lsls	r0, r0, #1
+   8:	b087      	sub	sp, #28
+   a:	3101      	adds	r1, #1
+   c:	3001      	adds	r0, #1
+   e:	2500      	movs	r5, #0
+  10:	9104      	str	r1, [sp, #16]
+  12:	9005      	str	r0, [sp, #20]
+  14:	4690      	mov	r8, r2
+  16:	462c      	mov	r4, r5
+  18:	f04f 0900 	mov.w	r9, #0
+  1c:	e039      	b.n	92 <func+0x92>
+  1e:	4630      	mov	r0, r6
+  20:	f7ff fffe 	bl	0 <func>
+  24:	f85a 3b04 	ldr.w	r3, [sl], #4
+  28:	4683      	mov	fp, r0
+  2a:	4638      	mov	r0, r7
+  2c:	9300      	str	r3, [sp, #0]
+  2e:	f7ff fffe 	bl	0 <__aeabi_i2f>
+  32:	4928      	ldr	r1, [pc, #160]	; (a4 <__aeabi_fmul+0xa4>)
+  34:	f7ff fffe 	bl	0 <__aeabi_fmul>
+  38:	f04f 5176 	mov.w	r1, #1031798784	; 0x3d800000
+  3c:	f7ff fffe 	bl	0 <__aeabi_fmul>
+  40:	f7ff fffe 	bl	0 <cosf>
+  44:	4659      	mov	r1, fp
+  46:	4602      	mov	r2, r0
+  48:	9802      	ldr	r0, [sp, #8]
+  4a:	9201      	str	r2, [sp, #4]
+  4c:	f7ff fffe 	bl	0 <__aeabi_fmul>
+  50:	9b00      	ldr	r3, [sp, #0]
+  52:	4683      	mov	fp, r0
+  54:	4618      	mov	r0, r3
+  56:	f7ff fffe 	bl	0 <__aeabi_i2f>
+  5a:	4601      	mov	r1, r0
+  5c:	4658      	mov	r0, fp
+  5e:	f7ff fffe 	bl	0 <__aeabi_fmul>
+  62:	9903      	ldr	r1, [sp, #12]
+  64:	f7ff fffe 	bl	0 <__aeabi_fmul>
+  68:	9a01      	ldr	r2, [sp, #4]
+  6a:	3601      	adds	r6, #1
+  6c:	4611      	mov	r1, r2
+  6e:	f7ff fffe 	bl	0 <__aeabi_fmul>
+  72:	4601      	mov	r1, r0
+  74:	4648      	mov	r0, r9
+  76:	f7ff fffe 	bl	0 <__aeabi_fadd>
+  7a:	9b04      	ldr	r3, [sp, #16]
+  7c:	2e08      	cmp	r6, #8
+  7e:	4681      	mov	r9, r0
+  80:	441f      	add	r7, r3
+  82:	d1cc      	bne.n	1e <func+0x1e>
+  84:	3401      	adds	r4, #1
+  86:	9b05      	ldr	r3, [sp, #20]
+  88:	2c08      	cmp	r4, #8
+  8a:	441d      	add	r5, r3
+  8c:	f108 0820 	add.w	r8, r8, #32
+  90:	d014      	beq.n	bc <func+0xbc>
+  92:	4620      	mov	r0, r4
+  94:	f7ff fffe 	bl	0 <func>
+  98:	9002      	str	r0, [sp, #8]
+  9a:	4628      	mov	r0, r5
+  9c:	f7ff fffe 	bl	0 <__aeabi_i2f>
+  a0:	490c      	ldr	r1, [pc, #48]	; (34 <__aeabi_fmul+0x34>)
+  a2:	f7ff fffe 	bl	0 <__aeabi_fmul>
+  a6:	f04f 5176 	mov.w	r1, #1031798784	; 0x3d800000
+  aa:	f7ff fffe 	bl	0 <__aeabi_fmul>
+  ae:	f7ff fffe 	bl	0 <cosf>
+  b2:	2700      	movs	r7, #0
+  b4:	9003      	str	r0, [sp, #12]
+  b6:	46c2      	mov	sl, r8
+  b8:	463e      	mov	r6, r7
+  ba:	e7b0      	b.n	1e <func+0x1e>
+  bc:	f7ff fffe 	bl	0 <__aeabi_f2d>
+  c0:	2200      	movs	r2, #0
+  c2:	4b05      	ldr	r3, [pc, #20]	; (d8 <func+0xd8>)
+  c4:	f7ff fffe 	bl	0 <__aeabi_dmul>
+  c8:	f7ff fffe 	bl	0 <__aeabi_d2iz>
+  cc:	b007      	add	sp, #28
+  ce:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+  d2:	bf00      	nop
+  d4:	4048f5c3 	.word	0x4048f5c3
+  d8:	3fd00000 	.word	0x3fd00000
+
+Disassembly of section .text.PerformIDCT:
+
+00000000 <PerformIDCT>:
+PerformIDCT():
+   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+   2:	460f      	mov	r7, r1
+   4:	4606      	mov	r6, r0
+   6:	2500      	movs	r5, #0
+   8:	e00d      	b.n	26 <PerformIDCT+0x26>
+   a:	4620      	mov	r0, r4
+   c:	4629      	mov	r1, r5
+   e:	463a      	mov	r2, r7
+  10:	f7ff fffe 	bl	0 <PerformIDCT>
+  14:	0163      	lsls	r3, r4, #5
+  16:	3401      	adds	r4, #1
+  18:	2c08      	cmp	r4, #8
+  1a:	50f0      	str	r0, [r6, r3]
+  1c:	d1f5      	bne.n	a <PerformIDCT+0xa>
+  1e:	3501      	adds	r5, #1
+  20:	3604      	adds	r6, #4
+  22:	2d08      	cmp	r5, #8
+  24:	d001      	beq.n	2a <PerformIDCT+0x2a>
+  26:	2400      	movs	r4, #0
+  28:	e7ef      	b.n	a <PerformIDCT+0xa>
+  2a:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+
+Disassembly of section .text.DequantizeBlock:
+
+00000000 <DequantizeBlock>:
+DequantizeBlock():
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	4605      	mov	r5, r0
+   4:	460e      	mov	r6, r1
+   6:	2400      	movs	r4, #0
+   8:	5928      	ldr	r0, [r5, r4]
+   a:	f7ff fffe 	bl	0 <__aeabi_i2f>
+   e:	5931      	ldr	r1, [r6, r4]
+  10:	f7ff fffe 	bl	0 <__aeabi_fmul>
+  14:	f7ff fffe 	bl	0 <__aeabi_f2iz>
+  18:	5128      	str	r0, [r5, r4]
+  1a:	3404      	adds	r4, #4
+  1c:	f5b4 7f80 	cmp.w	r4, #256	; 0x100
+  20:	d1f2      	bne.n	8 <DequantizeBlock+0x8>
+  22:	bd70      	pop	{r4, r5, r6, pc}
+
+Disassembly of section .text.DeZigZag:
+
+00000000 <DeZigZag>:
+DeZigZag():
+   0:	2300      	movs	r3, #0
+   2:	4a05      	ldr	r2, [pc, #20]	; (18 <DeZigZag+0x18>)
+   4:	58d2      	ldr	r2, [r2, r3]
+   6:	f851 2022 	ldr.w	r2, [r1, r2, lsl #2]
+   a:	50c2      	str	r2, [r0, r3]
+   c:	3304      	adds	r3, #4
+   e:	f5b3 7f80 	cmp.w	r3, #256	; 0x100
+  12:	d1f6      	bne.n	2 <DeZigZag+0x2>
+  14:	4770      	bx	lr
+  16:	bf00      	nop
+  18:	00000000 	.word	0x00000000
+
+Disassembly of section .text.TransformArray:
+
+00000000 <TransformArray>:
+TransformArray():
+   0:	b510      	push	{r4, lr}
+   2:	2200      	movs	r2, #0
+   4:	e00a      	b.n	1c <TransformArray+0x1c>
+   6:	58cc      	ldr	r4, [r1, r3]
+   8:	f840 4033 	str.w	r4, [r0, r3, lsl #3]
+   c:	3304      	adds	r3, #4
+   e:	2b20      	cmp	r3, #32
+  10:	d1f9      	bne.n	6 <TransformArray+0x6>
+  12:	3201      	adds	r2, #1
+  14:	3120      	adds	r1, #32
+  16:	3004      	adds	r0, #4
+  18:	2a08      	cmp	r2, #8
+  1a:	d001      	beq.n	20 <TransformArray+0x20>
+  1c:	2300      	movs	r3, #0
+  1e:	e7f2      	b.n	6 <TransformArray+0x6>
+  20:	bd10      	pop	{r4, pc}
+
+Disassembly of section .text.DumpDecodedBlock:
+
+00000000 <DumpDecodedBlock>:
+DumpDecodedBlock():
+   0:	4770      	bx	lr
+
+Disassembly of section .text.DecodeSingleBlock:
+
+00000000 <DecodeSingleBlock>:
+DecodeSingleBlock():
+   0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+   4:	4615      	mov	r5, r2
+   6:	2200      	movs	r2, #0
+   8:	460c      	mov	r4, r1
+   a:	f100 0714 	add.w	r7, r0, #20
+   e:	6881      	ldr	r1, [r0, #8]
+  10:	f5ad 6d80 	sub.w	sp, sp, #1024	; 0x400
+  14:	4610      	mov	r0, r2
+  16:	2300      	movs	r3, #0
+  18:	f50d 7e00 	add.w	lr, sp, #512	; 0x200
+  1c:	f84e 3020 	str.w	r3, [lr, r0, lsl #2]
+  20:	f50d 7e80 	add.w	lr, sp, #256	; 0x100
+  24:	aec0      	add	r6, sp, #768	; 0x300
+  26:	f84e 3020 	str.w	r3, [lr, r0, lsl #2]
+  2a:	3001      	adds	r0, #1
+  2c:	f84d 3002 	str.w	r3, [sp, r2]
+  30:	50b3      	str	r3, [r6, r2]
+  32:	3204      	adds	r2, #4
+  34:	2840      	cmp	r0, #64	; 0x40
+  36:	d1ee      	bne.n	16 <DecodeSingleBlock+0x16>
+  38:	eb0d 0003 	add.w	r0, sp, r3
+  3c:	1f02      	subs	r2, r0, #4
+  3e:	5af8      	ldrh	r0, [r7, r3]
+  40:	3302      	adds	r3, #2
+  42:	2b80      	cmp	r3, #128	; 0x80
+  44:	f842 0f04 	str.w	r0, [r2, #4]!
+  48:	d1f9      	bne.n	3e <DecodeSingleBlock+0x3e>
+  4a:	4668      	mov	r0, sp
+  4c:	f7ff fffe 	bl	0 <DecodeSingleBlock>
+  50:	a8c0      	add	r0, sp, #768	; 0x300
+  52:	4669      	mov	r1, sp
+  54:	f7ff fffe 	bl	0 <DecodeSingleBlock>
+  58:	a880      	add	r0, sp, #512	; 0x200
+  5a:	a9c0      	add	r1, sp, #768	; 0x300
+  5c:	f7ff fffe 	bl	0 <DecodeSingleBlock>
+  60:	a840      	add	r0, sp, #256	; 0x100
+  62:	a980      	add	r1, sp, #512	; 0x200
+  64:	f7ff fffe 	bl	0 <DecodeSingleBlock>
+  68:	2600      	movs	r6, #0
+  6a:	e00e      	b.n	8a <DecodeSingleBlock+0x8a>
+  6c:	f8d8 0000 	ldr.w	r0, [r8]
+  70:	3080      	adds	r0, #128	; 0x80
+  72:	f848 0b20 	str.w	r0, [r8], #32
+  76:	f7ff fffe 	bl	0 <DecodeSingleBlock>
+  7a:	55e0      	strb	r0, [r4, r7]
+  7c:	3701      	adds	r7, #1
+  7e:	2f08      	cmp	r7, #8
+  80:	d1f4      	bne.n	6c <DecodeSingleBlock+0x6c>
+  82:	3601      	adds	r6, #1
+  84:	2e08      	cmp	r6, #8
+  86:	d005      	beq.n	94 <DecodeSingleBlock+0x94>
+  88:	1964      	adds	r4, r4, r5
+  8a:	ab40      	add	r3, sp, #256	; 0x100
+  8c:	eb03 0886 	add.w	r8, r3, r6, lsl #2
+  90:	2700      	movs	r7, #0
+  92:	e7eb      	b.n	6c <DecodeSingleBlock+0x6c>
+  94:	f50d 6d80 	add.w	sp, sp, #1024	; 0x400
+  98:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+
+Disassembly of section .text.BuildHuffmanTable:
+
+00000000 <BuildHuffmanTable>:
+BuildHuffmanTable():
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	4611      	mov	r1, r2
+   4:	4614      	mov	r4, r2
+   6:	2301      	movs	r3, #1
+   8:	f810 5f01 	ldrb.w	r5, [r0, #1]!
+   c:	3301      	adds	r3, #1
+   e:	2b11      	cmp	r3, #17
+  10:	f804 5f01 	strb.w	r5, [r4, #1]!
+  14:	d1f8      	bne.n	8 <BuildHuffmanTable+0x8>
+  16:	2000      	movs	r0, #0
+  18:	3b10      	subs	r3, #16
+  1a:	f811 4f01 	ldrb.w	r4, [r1, #1]!
+  1e:	3301      	adds	r3, #1
+  20:	2b11      	cmp	r3, #17
+  22:	4420      	add	r0, r4
+  24:	d1f9      	bne.n	1a <BuildHuffmanTable+0x1a>
+  26:	f8c2 0114 	str.w	r0, [r2, #276]	; 0x114
+  2a:	3b10      	subs	r3, #16
+  2c:	2100      	movs	r1, #0
+  2e:	e009      	b.n	44 <BuildHuffmanTable+0x44>
+  30:	f845 3c0c 	str.w	r3, [r5, #-12]
+  34:	3401      	adds	r4, #1
+  36:	350c      	adds	r5, #12
+  38:	42b4      	cmp	r4, r6
+  3a:	dbf9      	blt.n	30 <BuildHuffmanTable+0x30>
+  3c:	3301      	adds	r3, #1
+  3e:	2b11      	cmp	r3, #17
+  40:	4431      	add	r1, r6
+  42:	d007      	beq.n	54 <BuildHuffmanTable+0x54>
+  44:	250c      	movs	r5, #12
+  46:	fb05 2501 	mla	r5, r5, r1, r2
+  4a:	5cd6      	ldrb	r6, [r2, r3]
+  4c:	f505 758e 	add.w	r5, r5, #284	; 0x11c
+  50:	2400      	movs	r4, #0
+  52:	e7f0      	b.n	36 <BuildHuffmanTable+0x36>
+  54:	f502 718c 	add.w	r1, r2, #280	; 0x118
+  58:	3211      	adds	r2, #17
+  5a:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+  5e:	f7ff bffe 	b.w	0 <BuildHuffmanTable>
+
+Disassembly of section .text.ParseSOF:
+
+00000000 <ParseSOF>:
+ParseSOF():
+   0:	e92d 43f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, lr}
+   4:	790b      	ldrb	r3, [r1, #4]
+   6:	78cc      	ldrb	r4, [r1, #3]
+   8:	794d      	ldrb	r5, [r1, #5]
+   a:	ea43 2404 	orr.w	r4, r3, r4, lsl #8
+   e:	798b      	ldrb	r3, [r1, #6]
+  10:	f891 c007 	ldrb.w	ip, [r1, #7]
+  14:	ea43 2505 	orr.w	r5, r3, r5, lsl #8
+  18:	460b      	mov	r3, r1
+  1a:	f813 7b01 	ldrb.w	r7, [r3], #1
+  1e:	7849      	ldrb	r1, [r1, #1]
+  20:	785e      	ldrb	r6, [r3, #1]
+  22:	f500 7220 	add.w	r2, r0, #640	; 0x280
+  26:	0236      	lsls	r6, r6, #8
+  28:	ea4f 1821 	mov.w	r8, r1, asr #4
+  2c:	1996      	adds	r6, r2, r6
+  2e:	2300      	movs	r3, #0
+  30:	e00a      	b.n	48 <ParseSOF+0x48>
+  32:	229c      	movs	r2, #156	; 0x9c
+  34:	fb02 0207 	mla	r2, r2, r7, r0
+  38:	f001 090f 	and.w	r9, r1, #15
+  3c:	f8c2 9014 	str.w	r9, [r2, #20]
+  40:	f8c2 8010 	str.w	r8, [r2, #16]
+  44:	6196      	str	r6, [r2, #24]
+  46:	3301      	adds	r3, #1
+  48:	4563      	cmp	r3, ip
+  4a:	dbf2      	blt.n	32 <ParseSOF+0x32>
+  4c:	6045      	str	r5, [r0, #4]
+  4e:	6084      	str	r4, [r0, #8]
+  50:	2000      	movs	r0, #0
+  52:	e8bd 83f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, pc}
+
+Disassembly of section .text.BuildQuantizationTable:
+
+00000000 <BuildQuantizationTable>:
+BuildQuantizationTable():
+   0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+   4:	4688      	mov	r8, r1
+   6:	4606      	mov	r6, r0
+   8:	2400      	movs	r4, #0
+   a:	e00c      	b.n	26 <BuildQuantizationTable+0x26>
+   c:	f818 0007 	ldrb.w	r0, [r8, r7]
+  10:	f7ff fffe 	bl	0 <__aeabi_ui2f>
+  14:	5170      	str	r0, [r6, r5]
+  16:	3504      	adds	r5, #4
+  18:	3701      	adds	r7, #1
+  1a:	2d20      	cmp	r5, #32
+  1c:	d1f6      	bne.n	c <BuildQuantizationTable+0xc>
+  1e:	3408      	adds	r4, #8
+  20:	3620      	adds	r6, #32
+  22:	2c40      	cmp	r4, #64	; 0x40
+  24:	d002      	beq.n	2c <BuildQuantizationTable+0x2c>
+  26:	4627      	mov	r7, r4
+  28:	2500      	movs	r5, #0
+  2a:	e7ef      	b.n	c <BuildQuantizationTable+0xc>
+  2c:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+
+Disassembly of section .text.ParseDQT:
+
+00000000 <ParseDQT>:
+ParseDQT():
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	460c      	mov	r4, r1
+   4:	4606      	mov	r6, r0
+   6:	480d      	ldr	r0, [pc, #52]	; (3c <ParseDQT+0x3c>)
+   8:	f7ff fffe 	bl	0 <dprintf>
+   c:	7863      	ldrb	r3, [r4, #1]
+   e:	f814 5b03 	ldrb.w	r5, [r4], #3
+  12:	ea43 2505 	orr.w	r5, r3, r5, lsl #8
+  16:	3d02      	subs	r5, #2
+  18:	e00c      	b.n	34 <ParseDQT+0x34>
+  1a:	f814 3c01 	ldrb.w	r3, [r4, #-1]
+  1e:	f506 7020 	add.w	r0, r6, #640	; 0x280
+  22:	f003 030f 	and.w	r3, r3, #15
+  26:	021b      	lsls	r3, r3, #8
+  28:	4621      	mov	r1, r4
+  2a:	18c0      	adds	r0, r0, r3
+  2c:	f7ff fffe 	bl	0 <ParseDQT>
+  30:	3d41      	subs	r5, #65	; 0x41
+  32:	3441      	adds	r4, #65	; 0x41
+  34:	2d00      	cmp	r5, #0
+  36:	dcf0      	bgt.n	1a <ParseDQT+0x1a>
+  38:	2000      	movs	r0, #0
+  3a:	bd70      	pop	{r4, r5, r6, pc}
+  3c:	00000000 	.word	0x00000000
+
+Disassembly of section .text.ParseSOS:
+
+00000000 <ParseSOS>:
+ParseSOS():
+   0:	b5f0      	push	{r4, r5, r6, r7, lr}
+   2:	f101 0c03 	add.w	ip, r1, #3
+   6:	788d      	ldrb	r5, [r1, #2]
+   8:	2300      	movs	r3, #0
+   a:	e015      	b.n	38 <ParseSOS+0x38>
+   c:	784c      	ldrb	r4, [r1, #1]
+   e:	788a      	ldrb	r2, [r1, #2]
+  10:	269c      	movs	r6, #156	; 0x9c
+  12:	fb06 0604 	mla	r6, r6, r4, r0
+  16:	f243 1718 	movw	r7, #12568	; 0x3118
+  1a:	f002 040f 	and.w	r4, r2, #15
+  1e:	437c      	muls	r4, r7
+  20:	0912      	lsrs	r2, r2, #4
+  22:	fb07 0202 	mla	r2, r7, r2, r0
+  26:	f504 444a 	add.w	r4, r4, #51712	; 0xca00
+  2a:	34e0      	adds	r4, #224	; 0xe0
+  2c:	1904      	adds	r4, r0, r4
+  2e:	f502 62d0 	add.w	r2, r2, #1664	; 0x680
+  32:	61f4      	str	r4, [r6, #28]
+  34:	6232      	str	r2, [r6, #32]
+  36:	3301      	adds	r3, #1
+  38:	3102      	adds	r1, #2
+  3a:	42ab      	cmp	r3, r5
+  3c:	d3e6      	bcc.n	c <ParseSOS+0xc>
+  3e:	eb0c 0545 	add.w	r5, ip, r5, lsl #1
+  42:	3503      	adds	r5, #3
+  44:	60c5      	str	r5, [r0, #12]
+  46:	2000      	movs	r0, #0
+  48:	bdf0      	pop	{r4, r5, r6, r7, pc}
+
+Disassembly of section .text.ParseDHT:
+
+00000000 <ParseDHT>:
+ParseDHT():
+   0:	b5f0      	push	{r4, r5, r6, r7, lr}
+   2:	460c      	mov	r4, r1
+   4:	784b      	ldrb	r3, [r1, #1]
+   6:	f814 7b02 	ldrb.w	r7, [r4], #2
+   a:	b087      	sub	sp, #28
+   c:	ea43 2707 	orr.w	r7, r3, r7, lsl #8
+  10:	4606      	mov	r6, r0
+  12:	3f02      	subs	r7, #2
+  14:	e052      	b.n	bc <ParseDHT+0xbc>
+  16:	4621      	mov	r1, r4
+  18:	2500      	movs	r5, #0
+  1a:	f811 2b01 	ldrb.w	r2, [r1], #1
+  1e:	2301      	movs	r3, #1
+  20:	f88d 5004 	strb.w	r5, [sp, #4]
+  24:	5ce0      	ldrb	r0, [r4, r3]
+  26:	f10d 0e04 	add.w	lr, sp, #4
+  2a:	f80e 0003 	strb.w	r0, [lr, r3]
+  2e:	3301      	adds	r3, #1
+  30:	2b11      	cmp	r3, #17
+  32:	4405      	add	r5, r0
+  34:	d1f6      	bne.n	24 <ParseDHT+0x24>
+  36:	f012 03f0 	ands.w	r3, r2, #240	; 0xf0
+  3a:	f101 0010 	add.w	r0, r1, #16
+  3e:	f243 1e18 	movw	lr, #12568	; 0x3118
+  42:	f002 010f 	and.w	r1, r2, #15
+  46:	d01c      	beq.n	82 <ParseDHT+0x82>
+  48:	fb0e 6101 	mla	r1, lr, r1, r6
+  4c:	f501 414a 	add.w	r1, r1, #51712	; 0xca00
+  50:	31f0      	adds	r1, #240	; 0xf0
+  52:	2300      	movs	r3, #0
+  54:	e006      	b.n	64 <ParseDHT+0x64>
+  56:	eb04 0e03 	add.w	lr, r4, r3
+  5a:	f89e e011 	ldrb.w	lr, [lr, #17]
+  5e:	3301      	adds	r3, #1
+  60:	f801 ef01 	strb.w	lr, [r1, #1]!
+  64:	42ab      	cmp	r3, r5
+  66:	d1f6      	bne.n	56 <ParseDHT+0x56>
+  68:	f002 020f 	and.w	r2, r2, #15
+  6c:	f243 1318 	movw	r3, #12568	; 0x3118
+  70:	435a      	muls	r2, r3
+  72:	f502 424a 	add.w	r2, r2, #51712	; 0xca00
+  76:	1944      	adds	r4, r0, r5
+  78:	32e0      	adds	r2, #224	; 0xe0
+  7a:	a801      	add	r0, sp, #4
+  7c:	4621      	mov	r1, r4
+  7e:	18b2      	adds	r2, r6, r2
+  80:	e018      	b.n	b4 <ParseDHT+0xb4>
+  82:	fb0e 6101 	mla	r1, lr, r1, r6
+  86:	f501 61d2 	add.w	r1, r1, #1680	; 0x690
+  8a:	e006      	b.n	9a <ParseDHT+0x9a>
+  8c:	eb04 0e03 	add.w	lr, r4, r3
+  90:	f89e e011 	ldrb.w	lr, [lr, #17]
+  94:	3301      	adds	r3, #1
+  96:	f801 ef01 	strb.w	lr, [r1, #1]!
+  9a:	42ab      	cmp	r3, r5
+  9c:	d1f6      	bne.n	8c <ParseDHT+0x8c>
+  9e:	f002 020f 	and.w	r2, r2, #15
+  a2:	f243 1318 	movw	r3, #12568	; 0x3118
+  a6:	fb03 6202 	mla	r2, r3, r2, r6
+  aa:	1944      	adds	r4, r0, r5
+  ac:	4621      	mov	r1, r4
+  ae:	a801      	add	r0, sp, #4
+  b0:	f502 62d0 	add.w	r2, r2, #1664	; 0x680
+  b4:	f7ff fffe 	bl	0 <ParseDHT>
+  b8:	3f11      	subs	r7, #17
+  ba:	1b7f      	subs	r7, r7, r5
+  bc:	2f00      	cmp	r7, #0
+  be:	dcaa      	bgt.n	16 <ParseDHT+0x16>
+  c0:	2000      	movs	r0, #0
+  c2:	b007      	add	sp, #28
+  c4:	bdf0      	pop	{r4, r5, r6, r7, pc}
+
+Disassembly of section .text.ParseJFIF:
+
+00000000 <ParseJFIF>:
+ParseJFIF():
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	4605      	mov	r5, r0
+   4:	780b      	ldrb	r3, [r1, #0]
+   6:	2bff      	cmp	r3, #255	; 0xff
+   8:	d001      	beq.n	e <ParseJFIF+0xe>
+   a:	e037      	b.n	7c <ParseJFIF+0x7c>
+   c:	4611      	mov	r1, r2
+   e:	784b      	ldrb	r3, [r1, #1]
+  10:	1c4a      	adds	r2, r1, #1
+  12:	2bff      	cmp	r3, #255	; 0xff
+  14:	d0fa      	beq.n	c <ParseJFIF+0xc>
+  16:	1c54      	adds	r4, r2, #1
+  18:	7861      	ldrb	r1, [r4, #1]
+  1a:	7856      	ldrb	r6, [r2, #1]
+  1c:	2bd9      	cmp	r3, #217	; 0xd9
+  1e:	ea41 2606 	orr.w	r6, r1, r6, lsl #8
+  22:	d806      	bhi.n	32 <ParseJFIF+0x32>
+  24:	2bd8      	cmp	r3, #216	; 0xd8
+  26:	d226      	bcs.n	76 <ParseJFIF+0x76>
+  28:	2bc0      	cmp	r3, #192	; 0xc0
+  2a:	d007      	beq.n	3c <ParseJFIF+0x3c>
+  2c:	2bc4      	cmp	r3, #196	; 0xc4
+  2e:	d123      	bne.n	78 <ParseJFIF+0x78>
+  30:	e01a      	b.n	68 <ParseJFIF+0x68>
+  32:	2bda      	cmp	r3, #218	; 0xda
+  34:	d00e      	beq.n	54 <ParseJFIF+0x54>
+  36:	2bdb      	cmp	r3, #219	; 0xdb
+  38:	d11e      	bne.n	78 <ParseJFIF+0x78>
+  3a:	e004      	b.n	46 <ParseJFIF+0x46>
+  3c:	4628      	mov	r0, r5
+  3e:	4621      	mov	r1, r4
+  40:	f7ff fffe 	bl	0 <ParseJFIF>
+  44:	e003      	b.n	4e <ParseJFIF+0x4e>
+  46:	4628      	mov	r0, r5
+  48:	4621      	mov	r1, r4
+  4a:	f7ff fffe 	bl	0 <ParseJFIF>
+  4e:	2800      	cmp	r0, #0
+  50:	da12      	bge.n	78 <ParseJFIF+0x78>
+  52:	e013      	b.n	7c <ParseJFIF+0x7c>
+  54:	4628      	mov	r0, r5
+  56:	4621      	mov	r1, r4
+  58:	f7ff fffe 	bl	0 <ParseJFIF>
+  5c:	2800      	cmp	r0, #0
+  5e:	bfb4      	ite	lt
+  60:	f04f 30ff 	movlt.w	r0, #4294967295
+  64:	2000      	movge	r0, #0
+  66:	bd70      	pop	{r4, r5, r6, pc}
+  68:	4628      	mov	r0, r5
+  6a:	4621      	mov	r1, r4
+  6c:	f7ff fffe 	bl	0 <ParseJFIF>
+  70:	2800      	cmp	r0, #0
+  72:	da01      	bge.n	78 <ParseJFIF+0x78>
+  74:	e005      	b.n	82 <ParseJFIF+0x82>
+  76:	2600      	movs	r6, #0
+  78:	19a1      	adds	r1, r4, r6
+  7a:	e7c3      	b.n	4 <ParseJFIF+0x4>
+  7c:	f04f 30ff 	mov.w	r0, #4294967295
+  80:	bd70      	pop	{r4, r5, r6, pc}
+  82:	f04f 30ff 	mov.w	r0, #4294967295
+  86:	bd70      	pop	{r4, r5, r6, pc}
+
+Disassembly of section .text.JpegParseHeader:
+
+00000000 <JpegParseHeader>:
+JpegParseHeader():
+   0:	780b      	ldrb	r3, [r1, #0]
+   2:	2bff      	cmp	r3, #255	; 0xff
+   4:	d105      	bne.n	12 <JpegParseHeader+0x12>
+   6:	784b      	ldrb	r3, [r1, #1]
+   8:	2bd8      	cmp	r3, #216	; 0xd8
+   a:	d102      	bne.n	12 <JpegParseHeader+0x12>
+   c:	3102      	adds	r1, #2
+   e:	f7ff bffe 	b.w	0 <JpegParseHeader>
+  12:	f04f 30ff 	mov.w	r0, #4294967295
+  16:	4770      	bx	lr
+
+Disassembly of section .text.JpegGetImageSize:
+
+00000000 <JpegGetImageSize>:
+JpegGetImageSize():
+   0:	6843      	ldr	r3, [r0, #4]
+   2:	600b      	str	r3, [r1, #0]
+   4:	6883      	ldr	r3, [r0, #8]
+   6:	6013      	str	r3, [r2, #0]
+   8:	4770      	bx	lr
+
+Disassembly of section .text.FillNBits:
+
+00000000 <FillNBits>:
+FillNBits():
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	e013      	b.n	2c <FillNBits+0x2c>
+   4:	6805      	ldr	r5, [r0, #0]
+   6:	681e      	ldr	r6, [r3, #0]
+   8:	462a      	mov	r2, r5
+   a:	f812 4b01 	ldrb.w	r4, [r2], #1
+   e:	0236      	lsls	r6, r6, #8
+  10:	2cff      	cmp	r4, #255	; 0xff
+  12:	6002      	str	r2, [r0, #0]
+  14:	601e      	str	r6, [r3, #0]
+  16:	d103      	bne.n	20 <FillNBits+0x20>
+  18:	786d      	ldrb	r5, [r5, #1]
+  1a:	b90d      	cbnz	r5, 20 <FillNBits+0x20>
+  1c:	3201      	adds	r2, #1
+  1e:	6002      	str	r2, [r0, #0]
+  20:	681a      	ldr	r2, [r3, #0]
+  22:	4314      	orrs	r4, r2
+  24:	685a      	ldr	r2, [r3, #4]
+  26:	601c      	str	r4, [r3, #0]
+  28:	3208      	adds	r2, #8
+  2a:	605a      	str	r2, [r3, #4]
+  2c:	4b02      	ldr	r3, [pc, #8]	; (38 <FillNBits+0x38>)
+  2e:	685a      	ldr	r2, [r3, #4]
+  30:	428a      	cmp	r2, r1
+  32:	dbe7      	blt.n	4 <FillNBits+0x4>
+  34:	bd70      	pop	{r4, r5, r6, pc}
+  36:	bf00      	nop
+  38:	00000000 	.word	0x00000000
+
+Disassembly of section .text.GetNBits:
+
+00000000 <GetNBits>:
+GetNBits():
+   0:	460cb510 	.word	0x460cb510
+   4:	f7ff fffe 	bl	0 <GetNBits>
+   8:	4b06      	ldr	r3, [pc, #24]	; (24 <GetNBits+0x24>)
+   a:	685a      	ldr	r2, [r3, #4]
+   c:	6818      	ldr	r0, [r3, #0]
+   e:	1b14      	subs	r4, r2, r4
+  10:	2201      	movs	r2, #1
+  12:	40a2      	lsls	r2, r4
+  14:	3a01      	subs	r2, #1
+  16:	4002      	ands	r2, r0
+  18:	40e0      	lsrs	r0, r4
+  1a:	605c      	str	r4, [r3, #4]
+  1c:	601a      	str	r2, [r3, #0]
+  1e:	b200      	sxth	r0, r0
+  20:	bd10      	pop	{r4, pc}
+  22:	bf00      	nop
+  24:	00000000 	.word	0x00000000
+
+Disassembly of section .text.LookNBits:
+
+00000000 <LookNBits>:
+LookNBits():
+   0:	460cb510 	.word	0x460cb510
+   4:	f7ff fffe 	bl	0 <LookNBits>
+   8:	4b02      	ldr	r3, [pc, #8]	; (14 <LookNBits+0x14>)
+   a:	685a      	ldr	r2, [r3, #4]
+   c:	6818      	ldr	r0, [r3, #0]
+   e:	1b14      	subs	r4, r2, r4
+  10:	40e0      	lsrs	r0, r4
+  12:	bd10      	pop	{r4, pc}
+  14:	00000000 	.word	0x00000000
+
+Disassembly of section .text.SkipNBits:
+
+00000000 <SkipNBits>:
+SkipNBits():
+   0:	b510      	push	{r4, lr}
+   2:	460c      	mov	r4, r1
+   4:	f7ff fffe 	bl	0 <SkipNBits>
+   8:	4b05      	ldr	r3, [pc, #20]	; (20 <SkipNBits+0x20>)
+   a:	685a      	ldr	r2, [r3, #4]
+   c:	1b14      	subs	r4, r2, r4
+   e:	2201      	movs	r2, #1
+  10:	605c      	str	r4, [r3, #4]
+  12:	fa12 f404 	lsls.w	r4, r2, r4
+  16:	681a      	ldr	r2, [r3, #0]
+  18:	3c01      	subs	r4, #1
+  1a:	4014      	ands	r4, r2
+  1c:	601c      	str	r4, [r3, #0]
+  1e:	bd10      	pop	{r4, pc}
+  20:	00000000 	.word	0x00000000
+
+Disassembly of section .text.IsInHuffmanCodes:
+
+00000000 <IsInHuffmanCodes>:
+IsInHuffmanCodes():
+   0:	b5f0      	push	{r4, r5, r6, r7, lr}
+   2:	2400      	movs	r4, #0
+   4:	e00c      	b.n	20 <IsInHuffmanCodes+0x20>
+   6:	891f      	ldrh	r7, [r3, #8]
+   8:	685e      	ldr	r6, [r3, #4]
+   a:	42b8      	cmp	r0, r7
+   c:	681d      	ldr	r5, [r3, #0]
+   e:	d105      	bne.n	1c <IsInHuffmanCodes+0x1c>
+  10:	42b1      	cmp	r1, r6
+  12:	d103      	bne.n	1c <IsInHuffmanCodes+0x1c>
+  14:	9b05      	ldr	r3, [sp, #20]
+  16:	2001      	movs	r0, #1
+  18:	601d      	str	r5, [r3, #0]
+  1a:	bdf0      	pop	{r4, r5, r6, r7, pc}
+  1c:	3401      	adds	r4, #1
+  1e:	330c      	adds	r3, #12
+  20:	4294      	cmp	r4, r2
+  22:	dbf0      	blt.n	6 <IsInHuffmanCodes+0x6>
+  24:	2000      	movs	r0, #0
+  26:	bdf0      	pop	{r4, r5, r6, r7, pc}
+
+Disassembly of section .text.DetermineSign:
+
+00000000 <DetermineSign>:
+DetermineSign():
+   0:	1e4b      	subs	r3, r1, #1
+   2:	2201      	movs	r2, #1
+   4:	fa12 f303 	lsls.w	r3, r2, r3
+   8:	4298      	cmp	r0, r3
+   a:	da05      	bge.n	18 <DetermineSign+0x18>
+   c:	f04f 33ff 	mov.w	r3, #4294967295
+  10:	fa13 f101 	lsls.w	r1, r3, r1
+  14:	1880      	adds	r0, r0, r2
+  16:	1840      	adds	r0, r0, r1
+  18:	4770      	bx	lr
+
+Disassembly of section .text.IntToBinary:
+
+00000000 <IntToBinary>:
+IntToBinary():
+   0:	b510      	push	{r4, lr}
+   2:	2300      	movs	r3, #0
+   4:	4a0a      	ldr	r2, [pc, #40]	; (30 <IntToBinary+0x30>)
+   6:	2400      	movs	r4, #0
+   8:	54d4      	strb	r4, [r2, r3]
+   a:	3301      	adds	r3, #1
+   c:	2b20      	cmp	r3, #32
+   e:	d1f9      	bne.n	4 <IntToBinary+0x4>
+  10:	3901      	subs	r1, #1
+  12:	1e53      	subs	r3, r2, #1
+  14:	e008      	b.n	28 <IntToBinary+0x28>
+  16:	2201      	movs	r2, #1
+  18:	408a      	lsls	r2, r1
+  1a:	4202      	tst	r2, r0
+  1c:	bf0c      	ite	eq
+  1e:	2230      	moveq	r2, #48	; 0x30
+  20:	2231      	movne	r2, #49	; 0x31
+  22:	f803 2f01 	strb.w	r2, [r3, #1]!
+  26:	3901      	subs	r1, #1
+  28:	2900      	cmp	r1, #0
+  2a:	daf4      	bge.n	16 <IntToBinary+0x16>
+  2c:	4800      	ldr	r0, [pc, #0]	; (30 <IntToBinary+0x30>)
+  2e:	bd10      	pop	{r4, pc}
+  30:	00000008 	.word	0x00000008
+
+Disassembly of section .text.DumpHufCodes:
+
+00000000 <DumpHufCodes>:
+DumpHufCodes():
+   0:	4770      	bx	lr
+
+Disassembly of section .text.DumpDCTValues:
+
+00000000 <DumpDCTValues>:
+DumpDCTValues():
+   0:	4770      	bx	lr
+
+Disassembly of section .text.ProcessHuffmanDataUnit:
+
+00000000 <ProcessHuffmanDataUnit>:
+ProcessHuffmanDataUnit():
+   0:	e92d 43f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, lr}
+   4:	b0a5      	sub	sp, #148	; 0x94
+   6:	4607      	mov	r7, r0
+   8:	4688      	mov	r8, r1
+   a:	a803      	add	r0, sp, #12
+   c:	2100      	movs	r1, #0
+   e:	2280      	movs	r2, #128	; 0x80
+  10:	9123      	str	r1, [sp, #140]	; 0x8c
+  12:	f7ff fffe 	bl	0 <memset>
+  16:	2401      	movs	r4, #1
+  18:	259c      	movs	r5, #156	; 0x9c
+  1a:	fb05 7508 	mla	r5, r5, r8, r7
+  1e:	f107 060c 	add.w	r6, r7, #12
+  22:	4621      	mov	r1, r4
+  24:	4630      	mov	r0, r6
+  26:	f7ff fffe 	bl	0 <ProcessHuffmanDataUnit>
+  2a:	6a2b      	ldr	r3, [r5, #32]
+  2c:	aa23      	add	r2, sp, #140	; 0x8c
+  2e:	9200      	str	r2, [sp, #0]
+  30:	f8d3 2114 	ldr.w	r2, [r3, #276]	; 0x114
+  34:	4621      	mov	r1, r4
+  36:	f503 738c 	add.w	r3, r3, #280	; 0x118
+  3a:	f7ff fffe 	bl	0 <ProcessHuffmanDataUnit>
+  3e:	b1e0      	cbz	r0, 7a <ProcessHuffmanDataUnit+0x7a>
+  40:	4621      	mov	r1, r4
+  42:	4630      	mov	r0, r6
+  44:	f7ff fffe 	bl	0 <ProcessHuffmanDataUnit>
+  48:	9c23      	ldr	r4, [sp, #140]	; 0x8c
+  4a:	b92c      	cbnz	r4, 58 <ProcessHuffmanDataUnit+0x58>
+  4c:	f8b5 50a8 	ldrh.w	r5, [r5, #168]	; 0xa8
+  50:	f8ad 500c 	strh.w	r5, [sp, #12]
+  54:	2401      	movs	r4, #1
+  56:	e064      	b.n	122 <ProcessHuffmanDataUnit+0x122>
+  58:	4621      	mov	r1, r4
+  5a:	4630      	mov	r0, r6
+  5c:	f7ff fffe 	bl	0 <ProcessHuffmanDataUnit>
+  60:	4621      	mov	r1, r4
+  62:	f7ff fffe 	bl	0 <ProcessHuffmanDataUnit>
+  66:	f8d5 30a8 	ldr.w	r3, [r5, #168]	; 0xa8
+  6a:	18c3      	adds	r3, r0, r3
+  6c:	b29b      	uxth	r3, r3
+  6e:	f8ad 300c 	strh.w	r3, [sp, #12]
+  72:	b21b      	sxth	r3, r3
+  74:	f8c5 30a8 	str.w	r3, [r5, #168]	; 0xa8
+  78:	e7ec      	b.n	54 <ProcessHuffmanDataUnit+0x54>
+  7a:	3401      	adds	r4, #1
+  7c:	2c10      	cmp	r4, #16
+  7e:	d1cb      	bne.n	18 <ProcessHuffmanDataUnit+0x18>
+  80:	e7e8      	b.n	54 <ProcessHuffmanDataUnit+0x54>
+  82:	4629      	mov	r1, r5
+  84:	4630      	mov	r0, r6
+  86:	f7ff fffe 	bl	0 <ProcessHuffmanDataUnit>
+  8a:	239c      	movs	r3, #156	; 0x9c
+  8c:	fb03 7308 	mla	r3, r3, r8, r7
+  90:	aa23      	add	r2, sp, #140	; 0x8c
+  92:	69db      	ldr	r3, [r3, #28]
+  94:	9200      	str	r2, [sp, #0]
+  96:	f8d3 2114 	ldr.w	r2, [r3, #276]	; 0x114
+  9a:	4629      	mov	r1, r5
+  9c:	f503 738c 	add.w	r3, r3, #280	; 0x118
+  a0:	f7ff fffe 	bl	0 <ProcessHuffmanDataUnit>
+  a4:	b1f8      	cbz	r0, e6 <ProcessHuffmanDataUnit+0xe6>
+  a6:	4630      	mov	r0, r6
+  a8:	4629      	mov	r1, r5
+  aa:	f7ff fffe 	bl	0 <ProcessHuffmanDataUnit>
+  ae:	9a23      	ldr	r2, [sp, #140]	; 0x8c
+  b0:	1113      	asrs	r3, r2, #4
+  b2:	f012 090f 	ands.w	r9, r2, #15
+  b6:	b2db      	uxtb	r3, r3
+  b8:	d104      	bne.n	c4 <ProcessHuffmanDataUnit+0xc4>
+  ba:	b1cb      	cbz	r3, f0 <ProcessHuffmanDataUnit+0xf0>
+  bc:	2b0f      	cmp	r3, #15
+  be:	d119      	bne.n	f4 <ProcessHuffmanDataUnit+0xf4>
+  c0:	3410      	adds	r4, #16
+  c2:	e017      	b.n	f4 <ProcessHuffmanDataUnit+0xf4>
+  c4:	4649      	mov	r1, r9
+  c6:	4630      	mov	r0, r6
+  c8:	18e4      	adds	r4, r4, r3
+  ca:	f7ff fffe 	bl	0 <ProcessHuffmanDataUnit>
+  ce:	4649      	mov	r1, r9
+  d0:	f7ff fffe 	bl	0 <ProcessHuffmanDataUnit>
+  d4:	aa24      	add	r2, sp, #144	; 0x90
+  d6:	eb02 0344 	add.w	r3, r2, r4, lsl #1
+  da:	f823 0c84 	strh.w	r0, [r3, #-132]
+  de:	3401      	adds	r4, #1
+  e0:	f04f 0900 	mov.w	r9, #0
+  e4:	e006      	b.n	f4 <ProcessHuffmanDataUnit+0xf4>
+  e6:	3501      	adds	r5, #1
+  e8:	2d11      	cmp	r5, #17
+  ea:	d1ca      	bne.n	82 <ProcessHuffmanDataUnit+0x82>
+  ec:	4681      	mov	r9, r0
+  ee:	e003      	b.n	f8 <ProcessHuffmanDataUnit+0xf8>
+  f0:	f04f 0901 	mov.w	r9, #1
+  f4:	2d10      	cmp	r5, #16
+  f6:	dd00      	ble.n	fa <ProcessHuffmanDataUnit+0xfa>
+  f8:	3401      	adds	r4, #1
+  fa:	2c3f      	cmp	r4, #63	; 0x3f
+  fc:	dd05      	ble.n	10a <ProcessHuffmanDataUnit+0x10a>
+  fe:	239c      	movs	r3, #156	; 0x9c
+ 100:	fb03 7708 	mla	r7, r3, r8, r7
+ 104:	3b9c      	subs	r3, #156	; 0x9c
+ 106:	3722      	adds	r7, #34	; 0x22
+ 108:	e003      	b.n	112 <ProcessHuffmanDataUnit+0x112>
+ 10a:	f1b9 0f00 	cmp.w	r9, #0
+ 10e:	d008      	beq.n	122 <ProcessHuffmanDataUnit+0x122>
+ 110:	e7f5      	b.n	fe <ProcessHuffmanDataUnit+0xfe>
+ 112:	aa03      	add	r2, sp, #12
+ 114:	5ad2      	ldrh	r2, [r2, r3]
+ 116:	3302      	adds	r3, #2
+ 118:	2b80      	cmp	r3, #128	; 0x80
+ 11a:	f827 2f02 	strh.w	r2, [r7, #2]!
+ 11e:	d1f8      	bne.n	112 <ProcessHuffmanDataUnit+0x112>
+ 120:	e001      	b.n	126 <ProcessHuffmanDataUnit+0x126>
+ 122:	2501      	movs	r5, #1
+ 124:	e7ad      	b.n	82 <ProcessHuffmanDataUnit+0x82>
+ 126:	b025      	add	sp, #148	; 0x94
+ 128:	e8bd 83f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, pc}
+
+Disassembly of section .text.ConvertYCrCbtoRGB:
+
+00000000 <ConvertYCrCbtoRGB>:
+ConvertYCrCbtoRGB():
+   0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+   4:	4690      	mov	r8, r2
+   6:	461f      	mov	r7, r3
+   8:	460c      	mov	r4, r1
+   a:	f7ff fffe 	bl	0 <__aeabi_i2f>
+   e:	4605      	mov	r5, r0
+  10:	f1a4 0080 	sub.w	r0, r4, #128	; 0x80
+  14:	f7ff fffe 	bl	0 <__aeabi_i2f>
+  18:	4606      	mov	r6, r0
+  1a:	f1a8 0080 	sub.w	r0, r8, #128	; 0x80
+  1e:	f7ff fffe 	bl	0 <__aeabi_i2f>
+  22:	491a      	ldr	r1, [pc, #104]	; (8c <ConvertYCrCbtoRGB+0x8c>)
+  24:	4604      	mov	r4, r0
+  26:	4630      	mov	r0, r6
+  28:	f7ff fffe 	bl	0 <__aeabi_fmul>
+  2c:	4601      	mov	r1, r0
+  2e:	4628      	mov	r0, r5
+  30:	f7ff fffe 	bl	0 <__aeabi_fadd>
+  34:	f7ff fffe 	bl	0 <__aeabi_f2iz>
+  38:	f7ff fffe 	bl	0 <ConvertYCrCbtoRGB>
+  3c:	4914      	ldr	r1, [pc, #80]	; (90 <ConvertYCrCbtoRGB+0x90>)
+  3e:	6038      	str	r0, [r7, #0]
+  40:	4620      	mov	r0, r4
+  42:	f7ff fffe 	bl	0 <__aeabi_fmul>
+  46:	4601      	mov	r1, r0
+  48:	4628      	mov	r0, r5
+  4a:	f7ff fffe 	bl	0 <__aeabi_fsub>
+  4e:	4911      	ldr	r1, [pc, #68]	; (94 <ConvertYCrCbtoRGB+0x94>)
+  50:	4607      	mov	r7, r0
+  52:	4630      	mov	r0, r6
+  54:	f7ff fffe 	bl	0 <__aeabi_fmul>
+  58:	4601      	mov	r1, r0
+  5a:	4638      	mov	r0, r7
+  5c:	f7ff fffe 	bl	0 <__aeabi_fsub>
+  60:	f7ff fffe 	bl	0 <__aeabi_f2iz>
+  64:	f7ff fffe 	bl	0 <ConvertYCrCbtoRGB>
+  68:	9b06      	ldr	r3, [sp, #24]
+  6a:	490b      	ldr	r1, [pc, #44]	; (98 <ConvertYCrCbtoRGB+0x98>)
+  6c:	6018      	str	r0, [r3, #0]
+  6e:	4620      	mov	r0, r4
+  70:	f7ff fffe 	bl	0 <__aeabi_fmul>
+  74:	4601      	mov	r1, r0
+  76:	4628      	mov	r0, r5
+  78:	f7ff fffe 	bl	0 <__aeabi_fadd>
+  7c:	f7ff fffe 	bl	0 <__aeabi_f2iz>
+  80:	f7ff fffe 	bl	0 <ConvertYCrCbtoRGB>
+  84:	9b07      	ldr	r3, [sp, #28]
+  86:	6018      	str	r0, [r3, #0]
+  88:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  8c:	3fb374bc 	.word	0x3fb374bc
+  90:	3eb0331e 	.word	0x3eb0331e
+  94:	3f36d1e1 	.word	0x3f36d1e1
+  98:	3fe2d0e5 	.word	0x3fe2d0e5
+
+Disassembly of section .text.YCrCB_to_RGB24_Block8x8:
+
+00000000 <YCrCB_to_RGB24_Block8x8>:
+YCrCB_to_RGB24_Block8x8():
+   0:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+   4:	b08d      	sub	sp, #52	; 0x34
+   6:	460f      	mov	r7, r1
+   8:	9917      	ldr	r1, [sp, #92]	; 0x5c
+   a:	00fc      	lsls	r4, r7, #3
+   c:	1b0c      	subs	r4, r1, r4
+   e:	9205      	str	r2, [sp, #20]
+  10:	42a3      	cmp	r3, r4
+  12:	9c05      	ldr	r4, [sp, #20]
+  14:	4606      	mov	r6, r0
+  16:	9818      	ldr	r0, [sp, #96]	; 0x60
+  18:	9a16      	ldr	r2, [sp, #88]	; 0x58
+  1a:	bfcc      	ite	gt
+  1c:	ebc3 0301 	rsbgt	r3, r3, r1
+  20:	2300      	movle	r3, #0
+  22:	00e1      	lsls	r1, r4, #3
+  24:	1a44      	subs	r4, r0, r1
+  26:	42a2      	cmp	r2, r4
+  28:	bfc8      	it	gt
+  2a:	ebc2 0200 	rsbgt	r2, r2, r0
+  2e:	ea4f 0cc7 	mov.w	ip, r7, lsl #3
+  32:	bfd8      	it	le
+  34:	2200      	movle	r2, #0
+  36:	1a89      	subs	r1, r1, r2
+  38:	ebc3 030c 	rsb	r3, r3, ip
+  3c:	9106      	str	r1, [sp, #24]
+  3e:	9307      	str	r3, [sp, #28]
+  40:	46b0      	mov	r8, r6
+  42:	2500      	movs	r5, #0
+  44:	46e1      	mov	r9, ip
+  46:	e061      	b.n	10c <YCrCB_to_RGB24_Block8x8+0x10c>
+  48:	6872      	ldr	r2, [r6, #4]
+  4a:	f506 33c8 	add.w	r3, r6, #102400	; 0x19000
+  4e:	fb02 4b05 	mla	fp, r2, r5, r4
+  52:	f8d3 a0c0 	ldr.w	sl, [r3, #192]	; 0xc0
+  56:	eb0b 0b4b 	add.w	fp, fp, fp, lsl #1
+  5a:	eb0a 030b 	add.w	r3, sl, fp
+  5e:	4620      	mov	r0, r4
+  60:	9304      	str	r3, [sp, #16]
+  62:	f7ff fffe 	bl	0 <__aeabi_i2f>
+  66:	4603      	mov	r3, r0
+  68:	4638      	mov	r0, r7
+  6a:	9303      	str	r3, [sp, #12]
+  6c:	f7ff fffe 	bl	0 <__aeabi_i2f>
+  70:	4601      	mov	r1, r0
+  72:	f04f 507e 	mov.w	r0, #1065353216	; 0x3f800000
+  76:	f7ff fffe 	bl	0 <__aeabi_fdiv>
+  7a:	9b03      	ldr	r3, [sp, #12]
+  7c:	4601      	mov	r1, r0
+  7e:	4618      	mov	r0, r3
+  80:	f7ff fffe 	bl	0 <__aeabi_fmul>
+  84:	f7ff fffe 	bl	0 <__aeabi_f2iz>
+  88:	4602      	mov	r2, r0
+  8a:	4628      	mov	r0, r5
+  8c:	9202      	str	r2, [sp, #8]
+  8e:	f7ff fffe 	bl	0 <__aeabi_i2f>
+  92:	4603      	mov	r3, r0
+  94:	9805      	ldr	r0, [sp, #20]
+  96:	9303      	str	r3, [sp, #12]
+  98:	f7ff fffe 	bl	0 <__aeabi_i2f>
+  9c:	4601      	mov	r1, r0
+  9e:	f04f 507e 	mov.w	r0, #1065353216	; 0x3f800000
+  a2:	f7ff fffe 	bl	0 <__aeabi_fdiv>
+  a6:	9b03      	ldr	r3, [sp, #12]
+  a8:	4601      	mov	r1, r0
+  aa:	4618      	mov	r0, r3
+  ac:	f7ff fffe 	bl	0 <__aeabi_fmul>
+  b0:	f7ff fffe 	bl	0 <__aeabi_f2iz>
+  b4:	9a02      	ldr	r2, [sp, #8]
+  b6:	eb08 0304 	add.w	r3, r8, r4
+  ba:	eb02 02c0 	add.w	r2, r2, r0, lsl #3
+  be:	f503 33c6 	add.w	r3, r3, #101376	; 0x18c00
+  c2:	18b2      	adds	r2, r6, r2
+  c4:	f893 0340 	ldrb.w	r0, [r3, #832]	; 0x340
+  c8:	f502 32c8 	add.w	r2, r2, #102400	; 0x19000
+  cc:	ab0a      	add	r3, sp, #40	; 0x28
+  ce:	f892 1040 	ldrb.w	r1, [r2, #64]	; 0x40
+  d2:	f892 2080 	ldrb.w	r2, [r2, #128]	; 0x80
+  d6:	9300      	str	r3, [sp, #0]
+  d8:	ab09      	add	r3, sp, #36	; 0x24
+  da:	9301      	str	r3, [sp, #4]
+  dc:	ab0b      	add	r3, sp, #44	; 0x2c
+  de:	f7ff fffe 	bl	0 <YCrCB_to_RGB24_Block8x8>
+  e2:	980b      	ldr	r0, [sp, #44]	; 0x2c
+  e4:	f7ff fffe 	bl	0 <YCrCB_to_RGB24_Block8x8>
+  e8:	f80a 000b 	strb.w	r0, [sl, fp]
+  ec:	980a      	ldr	r0, [sp, #40]	; 0x28
+  ee:	f7ff fffe 	bl	0 <YCrCB_to_RGB24_Block8x8>
+  f2:	9b04      	ldr	r3, [sp, #16]
+  f4:	3401      	adds	r4, #1
+  f6:	7058      	strb	r0, [r3, #1]
+  f8:	9809      	ldr	r0, [sp, #36]	; 0x24
+  fa:	f7ff fffe 	bl	0 <YCrCB_to_RGB24_Block8x8>
+  fe:	9b04      	ldr	r3, [sp, #16]
+ 100:	7098      	strb	r0, [r3, #2]
+ 102:	9b07      	ldr	r3, [sp, #28]
+ 104:	429c      	cmp	r4, r3
+ 106:	db9f      	blt.n	48 <YCrCB_to_RGB24_Block8x8+0x48>
+ 108:	3501      	adds	r5, #1
+ 10a:	44c8      	add	r8, r9
+ 10c:	9c06      	ldr	r4, [sp, #24]
+ 10e:	42a5      	cmp	r5, r4
+ 110:	da01      	bge.n	116 <YCrCB_to_RGB24_Block8x8+0x116>
+ 112:	2400      	movs	r4, #0
+ 114:	e7f5      	b.n	102 <YCrCB_to_RGB24_Block8x8+0x102>
+ 116:	b00d      	add	sp, #52	; 0x34
+ 118:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+
+Disassembly of section .text.DecodeMCU:
+
+00000000 <DecodeMCU>:
+DecodeMCU():
+   0:	e92d 4ff7 	stmdb	sp!, {r0, r1, r2, r4, r5, r6, r7, r8, r9, sl, fp, lr}
+   4:	2500      	movs	r5, #0
+   6:	4604      	mov	r4, r0
+   8:	460f      	mov	r7, r1
+   a:	4692      	mov	sl, r2
+   c:	ea4f 0bc1 	mov.w	fp, r1, lsl #3
+  10:	018b      	lsls	r3, r1, #6
+  12:	462e      	mov	r6, r5
+  14:	e01b      	b.n	4e <DecodeMCU+0x4e>
+  16:	4620      	mov	r0, r4
+  18:	2101      	movs	r1, #1
+  1a:	9301      	str	r3, [sp, #4]
+  1c:	f7ff fffe 	bl	0 <DecodeMCU>
+  20:	f509 31c6 	add.w	r1, r9, #101376	; 0x18c00
+  24:	f501 7150 	add.w	r1, r1, #832	; 0x340
+  28:	f104 00ac 	add.w	r0, r4, #172	; 0xac
+  2c:	1861      	adds	r1, r4, r1
+  2e:	465a      	mov	r2, fp
+  30:	f7ff fffe 	bl	0 <DecodeMCU>
+  34:	f108 0801 	add.w	r8, r8, #1
+  38:	f109 0908 	add.w	r9, r9, #8
+  3c:	9b01      	ldr	r3, [sp, #4]
+  3e:	e002      	b.n	46 <DecodeMCU+0x46>
+  40:	46a9      	mov	r9, r5
+  42:	f04f 0800 	mov.w	r8, #0
+  46:	45b8      	cmp	r8, r7
+  48:	dbe5      	blt.n	16 <DecodeMCU+0x16>
+  4a:	3601      	adds	r6, #1
+  4c:	18ed      	adds	r5, r5, r3
+  4e:	4556      	cmp	r6, sl
+  50:	dbf6      	blt.n	40 <DecodeMCU+0x40>
+  52:	4620      	mov	r0, r4
+  54:	2102      	movs	r1, #2
+  56:	f504 35c8 	add.w	r5, r4, #102400	; 0x19000
+  5a:	f7ff fffe 	bl	0 <DecodeMCU>
+  5e:	2208      	movs	r2, #8
+  60:	f504 70a4 	add.w	r0, r4, #328	; 0x148
+  64:	f105 0180 	add.w	r1, r5, #128	; 0x80
+  68:	f7ff fffe 	bl	0 <DecodeMCU>
+  6c:	4620      	mov	r0, r4
+  6e:	2103      	movs	r1, #3
+  70:	f7ff fffe 	bl	0 <DecodeMCU>
+  74:	f504 70f2 	add.w	r0, r4, #484	; 0x1e4
+  78:	f105 0140 	add.w	r1, r5, #64	; 0x40
+  7c:	2208      	movs	r2, #8
+  7e:	b003      	add	sp, #12
+  80:	e8bd 4ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+  84:	f7ff bffe 	b.w	0 <DecodeMCU>
+
+Disassembly of section .text.JpegDecode:
+
+00000000 <JpegDecode>:
+JpegDecode():
+   0:	e92d 47ff 	stmdb	sp!, {r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, sl, lr}
+   4:	6806      	ldr	r6, [r0, #0]
+   6:	4604      	mov	r4, r0
+   8:	f8d0 70ac 	ldr.w	r7, [r0, #172]	; 0xac
+   c:	f8d0 80b0 	ldr.w	r8, [r0, #176]	; 0xb0
+  10:	b9ce      	cbnz	r6, 46 <JpegDecode+0x46>
+  12:	6842      	ldr	r2, [r0, #4]
+  14:	6883      	ldr	r3, [r0, #8]
+  16:	ea4f 05c8 	mov.w	r5, r8, lsl #3
+  1a:	eb02 0242 	add.w	r2, r2, r2, lsl #1
+  1e:	eb03 0143 	add.w	r1, r3, r3, lsl #1
+  22:	fb92 f2f5 	sdiv	r2, r2, r5
+  26:	00fb      	lsls	r3, r7, #3
+  28:	fb05 5502 	mla	r5, r5, r2, r5
+  2c:	fb91 f2f3 	sdiv	r2, r1, r3
+  30:	fb03 3302 	mla	r3, r3, r2, r3
+  34:	435d      	muls	r5, r3
+  36:	4628      	mov	r0, r5
+  38:	f7ff fffe 	bl	0 <sysAllocate>
+  3c:	4631      	mov	r1, r6
+  3e:	6020      	str	r0, [r4, #0]
+  40:	462a      	mov	r2, r5
+  42:	f7ff fffe 	bl	0 <memset>
+  46:	2500      	movs	r5, #0
+  48:	f8c4 50a8 	str.w	r5, [r4, #168]	; 0xa8
+  4c:	f8c4 5144 	str.w	r5, [r4, #324]	; 0x144
+  50:	f8c4 51e0 	str.w	r5, [r4, #480]	; 0x1e0
+  54:	f8c4 527c 	str.w	r5, [r4, #636]	; 0x27c
+  58:	ea4f 09c7 	mov.w	r9, r7, lsl #3
+  5c:	ea4f 0ac8 	mov.w	sl, r8, lsl #3
+  60:	e01e      	b.n	a0 <JpegDecode+0xa0>
+  62:	fb03 6305 	mla	r3, r3, r5, r6
+  66:	6821      	ldr	r1, [r4, #0]
+  68:	eb03 0343 	add.w	r3, r3, r3, lsl #1
+  6c:	18cb      	adds	r3, r1, r3
+  6e:	f504 32c8 	add.w	r2, r4, #102400	; 0x19000
+  72:	f8c2 30c0 	str.w	r3, [r2, #192]	; 0xc0
+  76:	4620      	mov	r0, r4
+  78:	4639      	mov	r1, r7
+  7a:	4642      	mov	r2, r8
+  7c:	f7ff fffe 	bl	0 <JpegDecode>
+  80:	6863      	ldr	r3, [r4, #4]
+  82:	4620      	mov	r0, r4
+  84:	9301      	str	r3, [sp, #4]
+  86:	68a3      	ldr	r3, [r4, #8]
+  88:	4639      	mov	r1, r7
+  8a:	9302      	str	r3, [sp, #8]
+  8c:	4642      	mov	r2, r8
+  8e:	4633      	mov	r3, r6
+  90:	9500      	str	r5, [sp, #0]
+  92:	f7ff fffe 	bl	0 <JpegDecode>
+  96:	444e      	add	r6, r9
+  98:	6863      	ldr	r3, [r4, #4]
+  9a:	429e      	cmp	r6, r3
+  9c:	dbe1      	blt.n	62 <JpegDecode+0x62>
+  9e:	4455      	add	r5, sl
+  a0:	68a3      	ldr	r3, [r4, #8]
+  a2:	429d      	cmp	r5, r3
+  a4:	da01      	bge.n	aa <JpegDecode+0xaa>
+  a6:	2600      	movs	r6, #0
+  a8:	e7f6      	b.n	98 <JpegDecode+0x98>
+  aa:	2000      	movs	r0, #0
+  ac:	b004      	add	sp, #16
+  ae:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+
+Disassembly of section .text.DecodeJpgFileData:
+
+00000000 <DecodeJpgFileData>:
+DecodeJpgFileData():
+   0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+   4:	4606      	mov	r6, r0
+   6:	480f      	ldr	r0, [pc, #60]	; (44 <DecodeJpgFileData+0x44>)
+   8:	460d      	mov	r5, r1
+   a:	4614      	mov	r4, r2
+   c:	4698      	mov	r8, r3
+   e:	f7ff fffe 	bl	0 <sysAllocate>
+  12:	4607      	mov	r7, r0
+  14:	b198      	cbz	r0, 3e <DecodeJpgFileData+0x3e>
+  16:	4631      	mov	r1, r6
+  18:	462a      	mov	r2, r5
+  1a:	f7ff fffe 	bl	0 <DecodeJpgFileData>
+  1e:	4638      	mov	r0, r7
+  20:	f7ff fffe 	bl	0 <DecodeJpgFileData>
+  24:	4638      	mov	r0, r7
+  26:	4641      	mov	r1, r8
+  28:	9a06      	ldr	r2, [sp, #24]
+  2a:	f7ff fffe 	bl	0 <DecodeJpgFileData>
+  2e:	683b      	ldr	r3, [r7, #0]
+  30:	4638      	mov	r0, r7
+  32:	6023      	str	r3, [r4, #0]
+  34:	f7ff fffe 	bl	0 <sysFree>
+  38:	2001      	movs	r0, #1
+  3a:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  3e:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  42:	bf00      	nop
+  44:	000190c4 	.word	0x000190c4
+
+Disassembly of section .text.ConvertJpgFile:
+
+00000000 <ConvertJpgFile>:
+ConvertJpgFile():
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	4606      	mov	r6, r0
+   4:	b090      	sub	sp, #64	; 0x40
+   6:	460d      	mov	r5, r1
+   8:	a803      	add	r0, sp, #12
+   a:	4631      	mov	r1, r6
+   c:	2201      	movs	r2, #1
+   e:	f7ff fffe 	bl	0 <fileOpen>
+  12:	4604      	mov	r4, r0
+  14:	b928      	cbnz	r0, 22 <ConvertJpgFile+0x22>
+  16:	2001      	movs	r0, #1
+  18:	491d      	ldr	r1, [pc, #116]	; (90 <ConvertJpgFile+0x90>)
+  1a:	4632      	mov	r2, r6
+  1c:	f7ff fffe 	bl	0 <print>
+  20:	e033      	b.n	8a <ConvertJpgFile+0x8a>
+  22:	a803      	add	r0, sp, #12
+  24:	f7ff fffe 	bl	0 <fileLength>
+  28:	4606      	mov	r6, r0
+  2a:	3004      	adds	r0, #4
+  2c:	f7ff fffe 	bl	0 <sysAllocate>
+  30:	4604      	mov	r4, r0
+  32:	b920      	cbnz	r0, 3e <ConvertJpgFile+0x3e>
+  34:	2001      	movs	r0, #1
+  36:	4917      	ldr	r1, [pc, #92]	; (94 <ConvertJpgFile+0x94>)
+  38:	f7ff fffe 	bl	0 <print>
+  3c:	e025      	b.n	8a <ConvertJpgFile+0x8a>
+  3e:	b2b1      	uxth	r1, r6
+  40:	a803      	add	r0, sp, #12
+  42:	4622      	mov	r2, r4
+  44:	f7ff fffe 	bl	0 <fileGetBuffer>
+  48:	2300      	movs	r3, #0
+  4a:	930f      	str	r3, [sp, #60]	; 0x3c
+  4c:	930e      	str	r3, [sp, #56]	; 0x38
+  4e:	930d      	str	r3, [sp, #52]	; 0x34
+  50:	ab0d      	add	r3, sp, #52	; 0x34
+  52:	9300      	str	r3, [sp, #0]
+  54:	4631      	mov	r1, r6
+  56:	4620      	mov	r0, r4
+  58:	aa0f      	add	r2, sp, #60	; 0x3c
+  5a:	ab0e      	add	r3, sp, #56	; 0x38
+  5c:	f7ff fffe 	bl	0 <ConvertJpgFile>
+  60:	9e0f      	ldr	r6, [sp, #60]	; 0x3c
+  62:	b92e      	cbnz	r6, 70 <ConvertJpgFile+0x70>
+  64:	2001      	movs	r0, #1
+  66:	490c      	ldr	r1, [pc, #48]	; (98 <ConvertJpgFile+0x98>)
+  68:	f7ff fffe 	bl	0 <print>
+  6c:	4634      	mov	r4, r6
+  6e:	e00c      	b.n	8a <ConvertJpgFile+0x8a>
+  70:	4620      	mov	r0, r4
+  72:	f7ff fffe 	bl	0 <sysFree>
+  76:	990e      	ldr	r1, [sp, #56]	; 0x38
+  78:	9a0d      	ldr	r2, [sp, #52]	; 0x34
+  7a:	9b0f      	ldr	r3, [sp, #60]	; 0x3c
+  7c:	4628      	mov	r0, r5
+  7e:	f7ff fffe 	bl	0 <WriteBMP24>
+  82:	980f      	ldr	r0, [sp, #60]	; 0x3c
+  84:	f7ff fffe 	bl	0 <sysFree>
+  88:	2401      	movs	r4, #1
+  8a:	4620      	mov	r0, r4
+  8c:	b010      	add	sp, #64	; 0x40
+  8e:	bd70      	pop	{r4, r5, r6, pc}
+  90:	0000000e 	.word	0x0000000e
+  94:	00000028 	.word	0x00000028
+  98:	00000035 	.word	0x00000035

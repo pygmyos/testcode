@@ -1,0 +1,1333 @@
+
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o:     file format elf32-littlearm
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
+
+
+Disassembly of section .text.pinGetIsRising:
+
+00000000 <pinGetIsRising>:
+pinGetIsRising():
+   0:	4770      	bx	lr
+
+Disassembly of section .text.pinGetIRQPR:
+
+00000000 <pinGetIRQPR>:
+pinGetIRQPR():
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <pinGetIRQPR+0x8>)
+   2:	8818      	ldrh	r0, [r3, #0]
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+   8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.pinGetIRQPin:
+
+00000000 <pinGetIRQPin>:
+pinGetIRQPin():
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <pinGetIRQPin+0x8>)
+   2:	5c18      	ldrb	r0, [r3, r0]
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+   8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.pinAnalog:
+
+00000000 <pinAnalog>:
+pinAnalog():
+   0:	b510      	push	{r4, lr}
+   2:	4604      	mov	r4, r0
+   4:	f7ff fffe 	bl	0 <adcGetStatus>
+   8:	b908      	cbnz	r0, 6 <adcSingleSampleInit+0x6>
+   a:	f7ff fffe 	bl	0 <adcSingleSampleInit>
+   e:	4620      	mov	r0, r4
+  10:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+  14:	f7ff bffe 	b.w	0 <adcSingleSample>
+
+Disassembly of section .text.pinInterrupt:
+
+00000000 <pinInterrupt>:
+pinInterrupt():
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	4b30      	ldr	r3, [pc, #192]	; (c4 <pinInterrupt+0xc4>)
+   4:	4615      	mov	r5, r2
+   6:	699a      	ldr	r2, [r3, #24]
+   8:	f001 040f 	and.w	r4, r1, #15
+   c:	f042 0201 	orr.w	r2, r2, #1
+  10:	619a      	str	r2, [r3, #24]
+  12:	4b2d      	ldr	r3, [pc, #180]	; (c8 <pinInterrupt+0xc8>)
+  14:	090e      	lsrs	r6, r1, #4
+  16:	f843 0024 	str.w	r0, [r3, r4, lsl #2]
+  1a:	4b2c      	ldr	r3, [pc, #176]	; (cc <pinInterrupt+0xcc>)
+  1c:	5519      	strb	r1, [r3, r4]
+  1e:	1e63      	subs	r3, r4, #1
+  20:	2b0e      	cmp	r3, #14
+  22:	d809      	bhi.n	38 <pinInterrupt+0x38>
+  24:	e8df f003 	tbb	[pc, r3]
+  28:	100e0c0a 	.word	0x100e0c0a
+  2c:	12121212 	.word	0x12121212
+  30:	14141412 	.word	0x14141412
+  34:	1414      	.short	0x1414
+  36:	14          	.byte	0x14
+  37:	00          	.byte	0x00
+  38:	2006      	movs	r0, #6
+  3a:	e00a      	b.n	52 <pinInterrupt+0x52>
+  3c:	2007      	movs	r0, #7
+  3e:	e008      	b.n	52 <pinInterrupt+0x52>
+  40:	2008      	movs	r0, #8
+  42:	e006      	b.n	52 <pinInterrupt+0x52>
+  44:	2009      	movs	r0, #9
+  46:	e004      	b.n	52 <pinInterrupt+0x52>
+  48:	200a      	movs	r0, #10
+  4a:	e002      	b.n	52 <pinInterrupt+0x52>
+  4c:	2017      	movs	r0, #23
+  4e:	e000      	b.n	52 <pinInterrupt+0x52>
+  50:	2028      	movs	r0, #40	; 0x28
+  52:	f7ff fffe 	bl	0 <interruptEnable>
+  56:	2301      	movs	r3, #1
+  58:	40a3      	lsls	r3, r4
+  5a:	08a1      	lsrs	r1, r4, #2
+  5c:	f004 0403 	and.w	r4, r4, #3
+  60:	00a4      	lsls	r4, r4, #2
+  62:	40a6      	lsls	r6, r4
+  64:	4a1a      	ldr	r2, [pc, #104]	; (d0 <pinInterrupt+0xd0>)
+  66:	3102      	adds	r1, #2
+  68:	f852 0021 	ldr.w	r0, [r2, r1, lsl #2]
+  6c:	b29b      	uxth	r3, r3
+  6e:	4306      	orrs	r6, r0
+  70:	f842 6021 	str.w	r6, [r2, r1, lsl #2]
+  74:	4a17      	ldr	r2, [pc, #92]	; (d4 <pinInterrupt+0xd4>)
+  76:	b11d      	cbz	r5, 80 <pinInterrupt+0x80>
+  78:	6811      	ldr	r1, [r2, #0]
+  7a:	ea43 0101 	orr.w	r1, r3, r1
+  7e:	e002      	b.n	86 <pinInterrupt+0x86>
+  80:	6811      	ldr	r1, [r2, #0]
+  82:	ea21 0103 	bic.w	r1, r1, r3
+  86:	f015 0f01 	tst.w	r5, #1
+  8a:	6011      	str	r1, [r2, #0]
+  8c:	d004      	beq.n	98 <pinInterrupt+0x98>
+  8e:	4a11      	ldr	r2, [pc, #68]	; (d4 <pinInterrupt+0xd4>)
+  90:	68d1      	ldr	r1, [r2, #12]
+  92:	ea43 0101 	orr.w	r1, r3, r1
+  96:	60d1      	str	r1, [r2, #12]
+  98:	f015 0f02 	tst.w	r5, #2
+  9c:	d004      	beq.n	a8 <pinInterrupt+0xa8>
+  9e:	4a0d      	ldr	r2, [pc, #52]	; (d4 <pinInterrupt+0xd4>)
+  a0:	6891      	ldr	r1, [r2, #8]
+  a2:	ea43 0101 	orr.w	r1, r3, r1
+  a6:	6091      	str	r1, [r2, #8]
+  a8:	f015 0f04 	tst.w	r5, #4
+  ac:	d003      	beq.n	b6 <pinInterrupt+0xb6>
+  ae:	4a09      	ldr	r2, [pc, #36]	; (d4 <pinInterrupt+0xd4>)
+  b0:	6851      	ldr	r1, [r2, #4]
+  b2:	430b      	orrs	r3, r1
+  b4:	6053      	str	r3, [r2, #4]
+  b6:	4b07      	ldr	r3, [pc, #28]	; (d4 <pinInterrupt+0xd4>)
+  b8:	f04f 32ff 	mov.w	r2, #4294967295
+  bc:	615a      	str	r2, [r3, #20]
+  be:	3201      	adds	r2, #1
+  c0:	611a      	str	r2, [r3, #16]
+  c2:	bd70      	pop	{r4, r5, r6, pc}
+  c4:	40021000 	.word	0x40021000
+	...
+  d0:	40010000 	.word	0x40010000
+  d4:	40010400 	.word	0x40010400
+
+Disassembly of section .text.pinEnablePortClock:
+
+00000000 <pinEnablePortClock>:
+pinEnablePortClock():
+   0:	d804280f 	.word	0xd804280f
+   4:	4b14      	ldr	r3, [pc, #80]	; (58 <pinEnablePortClock+0x58>)
+   6:	699a      	ldr	r2, [r3, #24]
+   8:	f042 0204 	orr.w	r2, r2, #4
+   c:	e01a      	b.n	44 <pinEnablePortClock+0x44>
+   e:	281f      	cmp	r0, #31
+  10:	d804      	bhi.n	1c <pinEnablePortClock+0x1c>
+  12:	4b11      	ldr	r3, [pc, #68]	; (58 <pinEnablePortClock+0x58>)
+  14:	699a      	ldr	r2, [r3, #24]
+  16:	f042 0208 	orr.w	r2, r2, #8
+  1a:	e013      	b.n	44 <pinEnablePortClock+0x44>
+  1c:	282f      	cmp	r0, #47	; 0x2f
+  1e:	d804      	bhi.n	2a <pinEnablePortClock+0x2a>
+  20:	4b0d      	ldr	r3, [pc, #52]	; (58 <pinEnablePortClock+0x58>)
+  22:	699a      	ldr	r2, [r3, #24]
+  24:	f042 0210 	orr.w	r2, r2, #16
+  28:	e00c      	b.n	44 <pinEnablePortClock+0x44>
+  2a:	283f      	cmp	r0, #63	; 0x3f
+  2c:	d804      	bhi.n	38 <pinEnablePortClock+0x38>
+  2e:	4b0a      	ldr	r3, [pc, #40]	; (58 <pinEnablePortClock+0x58>)
+  30:	699a      	ldr	r2, [r3, #24]
+  32:	f042 0220 	orr.w	r2, r2, #32
+  36:	e005      	b.n	44 <pinEnablePortClock+0x44>
+  38:	284f      	cmp	r0, #79	; 0x4f
+  3a:	d805      	bhi.n	48 <pinEnablePortClock+0x48>
+  3c:	4b06      	ldr	r3, [pc, #24]	; (58 <pinEnablePortClock+0x58>)
+  3e:	699a      	ldr	r2, [r3, #24]
+  40:	f042 0240 	orr.w	r2, r2, #64	; 0x40
+  44:	619a      	str	r2, [r3, #24]
+  46:	4770      	bx	lr
+  48:	285f      	cmp	r0, #95	; 0x5f
+  4a:	d804      	bhi.n	56 <pinEnablePortClock+0x56>
+  4c:	4b02      	ldr	r3, [pc, #8]	; (58 <pinEnablePortClock+0x58>)
+  4e:	699a      	ldr	r2, [r3, #24]
+  50:	f042 0280 	orr.w	r2, r2, #128	; 0x80
+  54:	619a      	str	r2, [r3, #24]
+  56:	4770      	bx	lr
+  58:	40021000 	.word	0x40021000
+
+Disassembly of section .text.pinGetPort:
+
+00000000 <pinGetPort>:
+pinGetPort():
+   0:	d90b280f 	.word	0xd90b280f
+   4:	281f      	cmp	r0, #31
+   6:	d90b      	bls.n	20 <pinGetPort+0x20>
+   8:	282f      	cmp	r0, #47	; 0x2f
+   a:	d90b      	bls.n	24 <pinGetPort+0x24>
+   c:	283f      	cmp	r0, #63	; 0x3f
+   e:	d90b      	bls.n	28 <pinGetPort+0x28>
+  10:	4b06      	ldr	r3, [pc, #24]	; (2c <pinGetPort+0x2c>)
+  12:	284f      	cmp	r0, #79	; 0x4f
+  14:	bf94      	ite	ls
+  16:	4618      	movls	r0, r3
+  18:	2000      	movhi	r0, #0
+  1a:	4770      	bx	lr
+  1c:	4804      	ldr	r0, [pc, #16]	; (30 <pinGetPort+0x30>)
+  1e:	4770      	bx	lr
+  20:	4804      	ldr	r0, [pc, #16]	; (34 <pinGetPort+0x34>)
+  22:	4770      	bx	lr
+  24:	4804      	ldr	r0, [pc, #16]	; (38 <pinGetPort+0x38>)
+  26:	4770      	bx	lr
+  28:	4804      	ldr	r0, [pc, #16]	; (3c <pinGetPort+0x3c>)
+  2a:	4770      	bx	lr
+  2c:	40011800 	.word	0x40011800
+  30:	40010800 	.word	0x40010800
+  34:	40010c00 	.word	0x40010c00
+  38:	40011000 	.word	0x40011000
+  3c:	40011400 	.word	0x40011400
+
+Disassembly of section .text.pinSet:
+
+00000000 <pinSet>:
+pinSet():
+   0:	2201      	movs	r2, #1
+   2:	f000 030f 	and.w	r3, r0, #15
+   6:	fa12 f303 	lsls.w	r3, r2, r3
+   a:	b29b      	uxth	r3, r3
+   c:	2900      	cmp	r1, #0
+   e:	bf14      	ite	ne
+  10:	4619      	movne	r1, r3
+  12:	2100      	moveq	r1, #0
+  14:	280f      	cmp	r0, #15
+  16:	d801      	bhi.n	1c <pinSet+0x1c>
+  18:	4a0f      	ldr	r2, [pc, #60]	; (58 <pinSet+0x58>)
+  1a:	e00a      	b.n	32 <pinSet+0x32>
+  1c:	281f      	cmp	r0, #31
+  1e:	d801      	bhi.n	24 <pinSet+0x24>
+  20:	4a0e      	ldr	r2, [pc, #56]	; (5c <pinSet+0x5c>)
+  22:	e006      	b.n	32 <pinSet+0x32>
+  24:	282f      	cmp	r0, #47	; 0x2f
+  26:	d801      	bhi.n	2c <pinSet+0x2c>
+  28:	4a0d      	ldr	r2, [pc, #52]	; (60 <pinSet+0x60>)
+  2a:	e002      	b.n	32 <pinSet+0x32>
+  2c:	283f      	cmp	r0, #63	; 0x3f
+  2e:	d808      	bhi.n	42 <pinSet+0x42>
+  30:	4a0c      	ldr	r2, [pc, #48]	; (64 <pinSet+0x64>)
+  32:	68d0      	ldr	r0, [r2, #12]
+  34:	ea20 0303 	bic.w	r3, r0, r3
+  38:	60d3      	str	r3, [r2, #12]
+  3a:	68d3      	ldr	r3, [r2, #12]
+  3c:	4319      	orrs	r1, r3
+  3e:	60d1      	str	r1, [r2, #12]
+  40:	4770      	bx	lr
+  42:	284f      	cmp	r0, #79	; 0x4f
+  44:	d807      	bhi.n	56 <pinSet+0x56>
+  46:	4a08      	ldr	r2, [pc, #32]	; (68 <pinSet+0x68>)
+  48:	68d0      	ldr	r0, [r2, #12]
+  4a:	ea20 0303 	bic.w	r3, r0, r3
+  4e:	60d3      	str	r3, [r2, #12]
+  50:	68d3      	ldr	r3, [r2, #12]
+  52:	4319      	orrs	r1, r3
+  54:	60d1      	str	r1, [r2, #12]
+  56:	4770      	bx	lr
+  58:	40010800 	.word	0x40010800
+  5c:	40010c00 	.word	0x40010c00
+  60:	40011000 	.word	0x40011000
+  64:	40011400 	.word	0x40011400
+  68:	40011800 	.word	0x40011800
+
+Disassembly of section .text.pinConfig:
+
+00000000 <pinConfig>:
+pinConfig():
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	4604      	mov	r4, r0
+   4:	460d      	mov	r5, r1
+   6:	f7ff fffe 	bl	0 <pinConfig>
+   a:	4620      	mov	r0, r4
+   c:	f7ff fffe 	bl	0 <pinConfig>
+  10:	f004 0207 	and.w	r2, r4, #7
+  14:	0092      	lsls	r2, r2, #2
+  16:	210f      	movs	r1, #15
+  18:	f005 030f 	and.w	r3, r5, #15
+  1c:	4093      	lsls	r3, r2
+  1e:	fa11 f202 	lsls.w	r2, r1, r2
+  22:	ea04 0101 	and.w	r1, r4, r1
+  26:	43d2      	mvns	r2, r2
+  28:	2907      	cmp	r1, #7
+  2a:	d806      	bhi.n	3a <pinConfig+0x3a>
+  2c:	6801      	ldr	r1, [r0, #0]
+  2e:	400a      	ands	r2, r1
+  30:	6002      	str	r2, [r0, #0]
+  32:	6802      	ldr	r2, [r0, #0]
+  34:	4313      	orrs	r3, r2
+  36:	6003      	str	r3, [r0, #0]
+  38:	e005      	b.n	46 <pinConfig+0x46>
+  3a:	6841      	ldr	r1, [r0, #4]
+  3c:	400a      	ands	r2, r1
+  3e:	6042      	str	r2, [r0, #4]
+  40:	6842      	ldr	r2, [r0, #4]
+  42:	4313      	orrs	r3, r2
+  44:	6043      	str	r3, [r0, #4]
+  46:	f015 0118 	ands.w	r1, r5, #24
+  4a:	d002      	beq.n	52 <pinConfig+0x52>
+  4c:	4620      	mov	r0, r4
+  4e:	2101      	movs	r1, #1
+  50:	e003      	b.n	5a <pinConfig+0x5a>
+  52:	f015 0f28 	tst.w	r5, #40	; 0x28
+  56:	d004      	beq.n	62 <pinConfig+0x62>
+  58:	4620      	mov	r0, r4
+  5a:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+  5e:	f7ff bffe 	b.w	0 <pinConfig>
+  62:	bd70      	pop	{r4, r5, r6, pc}
+
+Disassembly of section .text.pinGet:
+
+00000000 <pinGet>:
+pinGet():
+   0:	2201      	movs	r2, #1
+   2:	f000 030f 	and.w	r3, r0, #15
+   6:	fa12 f303 	lsls.w	r3, r2, r3
+   a:	280f      	cmp	r0, #15
+   c:	b29b      	uxth	r3, r3
+   e:	d801      	bhi.n	14 <pinGet+0x14>
+  10:	4a0b      	ldr	r2, [pc, #44]	; (40 <pinGet+0x40>)
+  12:	e00e      	b.n	32 <pinGet+0x32>
+  14:	281f      	cmp	r0, #31
+  16:	d801      	bhi.n	1c <pinGet+0x1c>
+  18:	4a0a      	ldr	r2, [pc, #40]	; (44 <pinGet+0x44>)
+  1a:	e00a      	b.n	32 <pinGet+0x32>
+  1c:	282f      	cmp	r0, #47	; 0x2f
+  1e:	d801      	bhi.n	24 <pinGet+0x24>
+  20:	4a09      	ldr	r2, [pc, #36]	; (48 <pinGet+0x48>)
+  22:	e006      	b.n	32 <pinGet+0x32>
+  24:	283f      	cmp	r0, #63	; 0x3f
+  26:	d801      	bhi.n	2c <pinGet+0x2c>
+  28:	4a08      	ldr	r2, [pc, #32]	; (4c <pinGet+0x4c>)
+  2a:	e002      	b.n	32 <pinGet+0x32>
+  2c:	284f      	cmp	r0, #79	; 0x4f
+  2e:	d802      	bhi.n	36 <pinGet+0x36>
+  30:	4a07      	ldr	r2, [pc, #28]	; (50 <pinGet+0x50>)
+  32:	6892      	ldr	r2, [r2, #8]
+  34:	4013      	ands	r3, r2
+  36:	1e18      	subs	r0, r3, #0
+  38:	bf18      	it	ne
+  3a:	2001      	movne	r0, #1
+  3c:	4770      	bx	lr
+  3e:	bf00      	nop
+  40:	40010800 	.word	0x40010800
+  44:	40010c00 	.word	0x40010c00
+  48:	40011000 	.word	0x40011000
+  4c:	40011400 	.word	0x40011400
+  50:	40011800 	.word	0x40011800
+
+Disassembly of section .text.pinGetTimer:
+
+00000000 <pinGetTimer>:
+pinGetTimer():
+   0:	b510      	push	{r4, lr}
+   2:	4912      	ldr	r1, [pc, #72]	; (4c <pinGetTimer+0x4c>)
+   4:	2300      	movs	r3, #0
+   6:	e015      	b.n	34 <pinGetTimer+0x34>
+   8:	5c8c      	ldrb	r4, [r1, r2]
+   a:	4284      	cmp	r4, r0
+   c:	d10a      	bne.n	24 <pinGetTimer+0x24>
+   e:	b1a3      	cbz	r3, 3a <pinGetTimer+0x3a>
+  10:	2b01      	cmp	r3, #1
+  12:	d014      	beq.n	3e <pinGetTimer+0x3e>
+  14:	2b02      	cmp	r3, #2
+  16:	d015      	beq.n	44 <pinGetTimer+0x44>
+  18:	4a0d      	ldr	r2, [pc, #52]	; (50 <pinGetTimer+0x50>)
+  1a:	2b03      	cmp	r3, #3
+  1c:	bf0c      	ite	eq
+  1e:	4613      	moveq	r3, r2
+  20:	2300      	movne	r3, #0
+  22:	e010      	b.n	46 <pinGetTimer+0x46>
+  24:	3201      	adds	r2, #1
+  26:	2a04      	cmp	r2, #4
+  28:	d1ee      	bne.n	8 <pinGetTimer+0x8>
+  2a:	3301      	adds	r3, #1
+  2c:	b29b      	uxth	r3, r3
+  2e:	3104      	adds	r1, #4
+  30:	2b04      	cmp	r3, #4
+  32:	d001      	beq.n	38 <pinGetTimer+0x38>
+  34:	2200      	movs	r2, #0
+  36:	e7e7      	b.n	8 <pinGetTimer+0x8>
+  38:	bd10      	pop	{r4, pc}
+  3a:	4b06      	ldr	r3, [pc, #24]	; (54 <pinGetTimer+0x54>)
+  3c:	e003      	b.n	46 <pinGetTimer+0x46>
+  3e:	f04f 4380 	mov.w	r3, #1073741824	; 0x40000000
+  42:	e000      	b.n	46 <pinGetTimer+0x46>
+  44:	4b04      	ldr	r3, [pc, #16]	; (58 <pinGetTimer+0x58>)
+  46:	4618      	mov	r0, r3
+  48:	bd10      	pop	{r4, pc}
+  4a:	bf00      	nop
+  4c:	00000000 	.word	0x00000000
+  50:	40000800 	.word	0x40000800
+  54:	40012c00 	.word	0x40012c00
+  58:	40000400 	.word	0x40000400
+
+Disassembly of section .text.pinGetChannel:
+
+00000000 <pinGetChannel>:
+pinGetChannel():
+   0:	f04fb510 	.word	0xf04fb510
+   4:	33ff      	adds	r3, #255	; 0xff
+   6:	e00c      	b.n	22 <pinGetChannel+0x22>
+   8:	f811 4f01 	ldrb.w	r4, [r1, #1]!
+   c:	3201      	adds	r2, #1
+   e:	4284      	cmp	r4, r0
+  10:	d101      	bne.n	16 <pinGetChannel+0x16>
+  12:	b2d0      	uxtb	r0, r2
+  14:	bd10      	pop	{r4, pc}
+  16:	b2d2      	uxtb	r2, r2
+  18:	2a04      	cmp	r2, #4
+  1a:	d1f5      	bne.n	8 <pinGetChannel+0x8>
+  1c:	3304      	adds	r3, #4
+  1e:	2b0f      	cmp	r3, #15
+  20:	d003      	beq.n	2a <pinGetChannel+0x2a>
+  22:	4903      	ldr	r1, [pc, #12]	; (30 <pinGetChannel+0x30>)
+  24:	2200      	movs	r2, #0
+  26:	18c9      	adds	r1, r1, r3
+  28:	e7ee      	b.n	8 <pinGetChannel+0x8>
+  2a:	2000      	movs	r0, #0
+  2c:	bd10      	pop	{r4, pc}
+  2e:	bf00      	nop
+  30:	00000000 	.word	0x00000000
+
+Disassembly of section .text.pinCounter:
+
+00000000 <pinCounter>:
+pinCounter():
+   0:	4770      	bx	lr
+
+Disassembly of section .text.pinSetSoftPWMFreq:
+
+00000000 <pinSetSoftPWMFreq>:
+pinSetSoftPWMFreq():
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <pinSetSoftPWMFreq+0x8>)
+   2:	6018      	str	r0, [r3, #0]
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+   8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.pinGetSoftPWMFreq:
+
+00000000 <pinGetSoftPWMFreq>:
+pinGetSoftPWMFreq():
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <pinGetSoftPWMFreq+0x8>)
+   2:	6818      	ldr	r0, [r3, #0]
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+   8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.pinInitSoftPWM:
+
+00000000 <pinInitSoftPWM>:
+pinInitSoftPWM():
+   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+   2:	4f1a      	ldr	r7, [pc, #104]	; (6c <pinInitSoftPWM+0x6c>)
+   4:	f44f 53fa 	mov.w	r3, #8000	; 0x1f40
+   8:	603b      	str	r3, [r7, #0]
+   a:	4b19      	ldr	r3, [pc, #100]	; (70 <pinInitSoftPWM+0x70>)
+   c:	2400      	movs	r4, #0
+   e:	735c      	strb	r4, [r3, #13]
+  10:	775c      	strb	r4, [r3, #29]
+  12:	f883 402d 	strb.w	r4, [r3, #45]	; 0x2d
+  16:	f883 403d 	strb.w	r4, [r3, #61]	; 0x3d
+  1a:	f883 404d 	strb.w	r4, [r3, #77]	; 0x4d
+  1e:	f883 405d 	strb.w	r4, [r3, #93]	; 0x5d
+  22:	f883 406d 	strb.w	r4, [r3, #109]	; 0x6d
+  26:	f883 407d 	strb.w	r4, [r3, #125]	; 0x7d
+  2a:	f7ff fffe 	bl	0 <sysGetPWMTimer>
+  2e:	2801      	cmp	r0, #1
+  30:	4606      	mov	r6, r0
+  32:	d919      	bls.n	68 <pinInitSoftPWM+0x68>
+  34:	f7ff fffe 	bl	0 <sysGetTimer>
+  38:	4605      	mov	r5, r0
+  3a:	4630      	mov	r0, r6
+  3c:	f7ff fffe 	bl	0 <sysEnableTimerClock>
+  40:	4630      	mov	r0, r6
+  42:	f7ff fffe 	bl	0 <sysEnableTimerInterrupt>
+  46:	2301      	movs	r3, #1
+  48:	802c      	strh	r4, [r5, #0]
+  4a:	80ac      	strh	r4, [r5, #4]
+  4c:	812c      	strh	r4, [r5, #8]
+  4e:	852c      	strh	r4, [r5, #40]	; 0x28
+  50:	84ac      	strh	r4, [r5, #36]	; 0x24
+  52:	81ab      	strh	r3, [r5, #12]
+  54:	f7ff fffe 	bl	0 <sysGetMainClock>
+  58:	683b      	ldr	r3, [r7, #0]
+  5a:	fbb0 f3f3 	udiv	r3, r0, r3
+  5e:	b29b      	uxth	r3, r3
+  60:	85ab      	strh	r3, [r5, #44]	; 0x2c
+  62:	2381      	movs	r3, #129	; 0x81
+  64:	822c      	strh	r4, [r5, #16]
+  66:	802b      	strh	r3, [r5, #0]
+  68:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+  6a:	bf00      	nop
+	...
+
+Disassembly of section .text.pinPulseLow:
+
+00000000 <pinPulseLow>:
+pinPulseLow():
+   0:	4b1c      	ldr	r3, [pc, #112]	; (74 <pinPulseLow+0x74>)
+   2:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+   6:	681b      	ldr	r3, [r3, #0]
+   8:	4604      	mov	r4, r0
+   a:	460d      	mov	r5, r1
+   c:	4617      	mov	r7, r2
+   e:	b90b      	cbnz	r3, 14 <pinPulseLow+0x14>
+  10:	f7ff fffe 	bl	0 <pinPulseLow>
+  14:	4b18      	ldr	r3, [pc, #96]	; (78 <pinPulseLow+0x78>)
+  16:	2200      	movs	r2, #0
+  18:	4616      	mov	r6, r2
+  1a:	4619      	mov	r1, r3
+  1c:	7b58      	ldrb	r0, [r3, #13]
+  1e:	b110      	cbz	r0, 26 <pinPulseLow+0x26>
+  20:	7b18      	ldrb	r0, [r3, #12]
+  22:	42a0      	cmp	r0, r4
+  24:	d109      	bne.n	3a <pinPulseLow+0x3a>
+  26:	2000      	movs	r0, #0
+  28:	eb01 1202 	add.w	r2, r1, r2, lsl #4
+  2c:	2e08      	cmp	r6, #8
+  2e:	f8df 8048 	ldr.w	r8, [pc, #72]	; 78 <pinPulseLow+0x78>
+  32:	7350      	strb	r0, [r2, #13]
+  34:	d10a      	bne.n	4c <pinPulseLow+0x4c>
+  36:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  3a:	3601      	adds	r6, #1
+  3c:	b2b6      	uxth	r6, r6
+  3e:	3201      	adds	r2, #1
+  40:	3310      	adds	r3, #16
+  42:	2e08      	cmp	r6, #8
+  44:	d1ea      	bne.n	1c <pinPulseLow+0x1c>
+  46:	2000      	movs	r0, #0
+  48:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  4c:	4620      	mov	r0, r4
+  4e:	2103      	movs	r1, #3
+  50:	f7ff fffe 	bl	0 <pinPulseLow>
+  54:	0136      	lsls	r6, r6, #4
+  56:	4620      	mov	r0, r4
+  58:	2101      	movs	r1, #1
+  5a:	f7ff fffe 	bl	0 <pinPulseLow>
+  5e:	eb08 0306 	add.w	r3, r8, r6
+  62:	2001      	movs	r0, #1
+  64:	f848 7006 	str.w	r7, [r8, r6]
+  68:	605d      	str	r5, [r3, #4]
+  6a:	609f      	str	r7, [r3, #8]
+  6c:	731c      	strb	r4, [r3, #12]
+  6e:	7358      	strb	r0, [r3, #13]
+  70:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+	...
+
+Disassembly of section .text.pinPulseHigh:
+
+00000000 <pinPulseHigh>:
+pinPulseHigh():
+   0:	e92d 43f8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
+   4:	4b1e      	ldr	r3, [pc, #120]	; (80 <pinPulseHigh+0x80>)
+   6:	4604      	mov	r4, r0
+   8:	681b      	ldr	r3, [r3, #0]
+   a:	460d      	mov	r5, r1
+   c:	4691      	mov	r9, r2
+   e:	b90b      	cbnz	r3, 14 <pinPulseHigh+0x14>
+  10:	f7ff fffe 	bl	0 <pinPulseHigh>
+  14:	4b1b      	ldr	r3, [pc, #108]	; (84 <pinPulseHigh+0x84>)
+  16:	2200      	movs	r2, #0
+  18:	4616      	mov	r6, r2
+  1a:	4619      	mov	r1, r3
+  1c:	7b58      	ldrb	r0, [r3, #13]
+  1e:	b110      	cbz	r0, 26 <pinPulseHigh+0x26>
+  20:	7b18      	ldrb	r0, [r3, #12]
+  22:	42a0      	cmp	r0, r4
+  24:	d108      	bne.n	38 <pinPulseHigh+0x38>
+  26:	2700      	movs	r7, #0
+  28:	eb01 1202 	add.w	r2, r1, r2, lsl #4
+  2c:	2e08      	cmp	r6, #8
+  2e:	f8df 8054 	ldr.w	r8, [pc, #84]	; 84 <pinPulseHigh+0x84>
+  32:	7357      	strb	r7, [r2, #13]
+  34:	d109      	bne.n	4a <pinPulseHigh+0x4a>
+  36:	e01f      	b.n	78 <pinPulseHigh+0x78>
+  38:	3601      	adds	r6, #1
+  3a:	b2b6      	uxth	r6, r6
+  3c:	3201      	adds	r2, #1
+  3e:	3310      	adds	r3, #16
+  40:	2e08      	cmp	r6, #8
+  42:	d1eb      	bne.n	1c <pinPulseHigh+0x1c>
+  44:	2000      	movs	r0, #0
+  46:	e8bd 83f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
+  4a:	4620      	mov	r0, r4
+  4c:	2103      	movs	r1, #3
+  4e:	f7ff fffe 	bl	0 <pinPulseHigh>
+  52:	0136      	lsls	r6, r6, #4
+  54:	4620      	mov	r0, r4
+  56:	4639      	mov	r1, r7
+  58:	f7ff fffe 	bl	0 <pinPulseHigh>
+  5c:	eb08 0306 	add.w	r3, r8, r6
+  60:	f103 0208 	add.w	r2, r3, #8
+  64:	605d      	str	r5, [r3, #4]
+  66:	609d      	str	r5, [r3, #8]
+  68:	731c      	strb	r4, [r3, #12]
+  6a:	2303      	movs	r3, #3
+  6c:	f848 9006 	str.w	r9, [r8, r6]
+  70:	7153      	strb	r3, [r2, #5]
+  72:	2001      	movs	r0, #1
+  74:	e8bd 83f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
+  78:	4638      	mov	r0, r7
+  7a:	e8bd 83f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
+  7e:	bf00      	nop
+	...
+
+Disassembly of section .text.pinRemoveSoftPWM:
+
+00000000 <pinRemoveSoftPWM>:
+pinRemoveSoftPWM():
+   0:	b510      	push	{r4, lr}
+   2:	4a09      	ldr	r2, [pc, #36]	; (28 <pinRemoveSoftPWM+0x28>)
+   4:	2300      	movs	r3, #0
+   6:	4611      	mov	r1, r2
+   8:	7b14      	ldrb	r4, [r2, #12]
+   a:	4284      	cmp	r4, r0
+   c:	d105      	bne.n	1a <pinRemoveSoftPWM+0x1a>
+   e:	eb01 1303 	add.w	r3, r1, r3, lsl #4
+  12:	2200      	movs	r2, #0
+  14:	735a      	strb	r2, [r3, #13]
+  16:	2001      	movs	r0, #1
+  18:	bd10      	pop	{r4, pc}
+  1a:	3301      	adds	r3, #1
+  1c:	3210      	adds	r2, #16
+  1e:	2b08      	cmp	r3, #8
+  20:	d1f2      	bne.n	8 <pinRemoveSoftPWM+0x8>
+  22:	2000      	movs	r0, #0
+  24:	bd10      	pop	{r4, pc}
+  26:	bf00      	nop
+  28:	00000000 	.word	0x00000000
+
+Disassembly of section .text.pinAddSoftPWM:
+
+00000000 <pinAddSoftPWM>:
+pinAddSoftPWM():
+   0:	4b35      	ldr	r3, [pc, #212]	; (d8 <pinAddSoftPWM+0xd8>)
+   2:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
+   6:	681b      	ldr	r3, [r3, #0]
+   8:	4604      	mov	r4, r0
+   a:	460d      	mov	r5, r1
+   c:	4690      	mov	r8, r2
+   e:	b90b      	cbnz	r3, 14 <pinAddSoftPWM+0x14>
+  10:	f7ff fffe 	bl	0 <pinAddSoftPWM>
+  14:	4b31      	ldr	r3, [pc, #196]	; (dc <pinAddSoftPWM+0xdc>)
+  16:	2200      	movs	r2, #0
+  18:	4617      	mov	r7, r2
+  1a:	4699      	mov	r9, r3
+  1c:	7b59      	ldrb	r1, [r3, #13]
+  1e:	b111      	cbz	r1, 26 <pinAddSoftPWM+0x26>
+  20:	7b19      	ldrb	r1, [r3, #12]
+  22:	42a1      	cmp	r1, r4
+  24:	d108      	bne.n	38 <pinAddSoftPWM+0x38>
+  26:	2600      	movs	r6, #0
+  28:	eb09 1202 	add.w	r2, r9, r2, lsl #4
+  2c:	2f08      	cmp	r7, #8
+  2e:	f8df a0ac 	ldr.w	sl, [pc, #172]	; dc <pinAddSoftPWM+0xdc>
+  32:	7356      	strb	r6, [r2, #13]
+  34:	d108      	bne.n	48 <pinAddSoftPWM+0x48>
+  36:	e04c      	b.n	d2 <pinAddSoftPWM+0xd2>
+  38:	3701      	adds	r7, #1
+  3a:	b2bf      	uxth	r7, r7
+  3c:	3201      	adds	r2, #1
+  3e:	3310      	adds	r3, #16
+  40:	2f08      	cmp	r7, #8
+  42:	d1eb      	bne.n	1c <pinAddSoftPWM+0x1c>
+  44:	2600      	movs	r6, #0
+  46:	e044      	b.n	d2 <pinAddSoftPWM+0xd2>
+  48:	f1b8 0f64 	cmp.w	r8, #100	; 0x64
+  4c:	d841      	bhi.n	d2 <pinAddSoftPWM+0xd2>
+  4e:	2d00      	cmp	r5, #0
+  50:	d03e      	beq.n	d0 <pinAddSoftPWM+0xd0>
+  52:	2103      	movs	r1, #3
+  54:	4620      	mov	r0, r4
+  56:	f7ff fffe 	bl	0 <pinAddSoftPWM>
+  5a:	0139      	lsls	r1, r7, #4
+  5c:	eb0a 0301 	add.w	r3, sl, r1
+  60:	f84a 6001 	str.w	r6, [sl, r1]
+  64:	605e      	str	r6, [r3, #4]
+  66:	f1b8 0f00 	cmp.w	r8, #0
+  6a:	d102      	bne.n	72 <pinAddSoftPWM+0x72>
+  6c:	4620      	mov	r0, r4
+  6e:	4641      	mov	r1, r8
+  70:	e004      	b.n	7c <pinAddSoftPWM+0x7c>
+  72:	f1b8 0f64 	cmp.w	r8, #100	; 0x64
+  76:	d104      	bne.n	82 <pinAddSoftPWM+0x82>
+  78:	4620      	mov	r0, r4
+  7a:	2101      	movs	r1, #1
+  7c:	f7ff fffe 	bl	0 <pinAddSoftPWM>
+  80:	e01e      	b.n	c0 <pinAddSoftPWM+0xc0>
+  82:	f04f 0c64 	mov.w	ip, #100	; 0x64
+  86:	fb9c f0f8 	sdiv	r0, ip, r8
+  8a:	ebc8 080c 	rsb	r8, r8, ip
+  8e:	fb9c fcf8 	sdiv	ip, ip, r8
+  92:	4368      	muls	r0, r5
+  94:	4a12      	ldr	r2, [pc, #72]	; (e0 <pinAddSoftPWM+0xe0>)
+  96:	fb05 f50c 	mul.w	r5, r5, ip
+  9a:	6812      	ldr	r2, [r2, #0]
+  9c:	fbb2 f0f0 	udiv	r0, r2, r0
+  a0:	fbb2 f5f5 	udiv	r5, r2, r5
+  a4:	f84a 0001 	str.w	r0, [sl, r1]
+  a8:	1828      	adds	r0, r5, r0
+  aa:	4290      	cmp	r0, r2
+  ac:	605d      	str	r5, [r3, #4]
+  ae:	d904      	bls.n	ba <pinAddSoftPWM+0xba>
+  b0:	2001      	movs	r0, #1
+  b2:	490c      	ldr	r1, [pc, #48]	; (e4 <pinAddSoftPWM+0xe4>)
+  b4:	f7ff fffe 	bl	0 <print>
+  b8:	e00b      	b.n	d2 <pinAddSoftPWM+0xd2>
+  ba:	2201      	movs	r2, #1
+  bc:	735a      	strb	r2, [r3, #13]
+  be:	731c      	strb	r4, [r3, #12]
+  c0:	013f      	lsls	r7, r7, #4
+  c2:	f859 2007 	ldr.w	r2, [r9, r7]
+  c6:	eb09 0307 	add.w	r3, r9, r7
+  ca:	609a      	str	r2, [r3, #8]
+  cc:	2601      	movs	r6, #1
+  ce:	e000      	b.n	d2 <pinAddSoftPWM+0xd2>
+  d0:	462e      	mov	r6, r5
+  d2:	4630      	mov	r0, r6
+  d4:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+	...
+
+Disassembly of section .text.pinToggle:
+
+00000000 <pinToggle>:
+pinToggle():
+   0:	2232      	movs	r2, #50	; 0x32
+   2:	f7ff bffe 	b.w	0 <pinToggle>
+
+Disassembly of section .text.pinPWM:
+
+00000000 <pinPWM>:
+pinPWM():
+   0:	2a64      	cmp	r2, #100	; 0x64
+   2:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
+   6:	4604      	mov	r4, r0
+   8:	4688      	mov	r8, r1
+   a:	4691      	mov	r9, r2
+   c:	f200 8116 	bhi.w	23c <pinPWM+0x23c>
+  10:	f7ff fffe 	bl	0 <sysGetPWMTimer>
+  14:	2800      	cmp	r0, #0
+  16:	f000 8115 	beq.w	244 <pinPWM+0x244>
+  1a:	4620      	mov	r0, r4
+  1c:	f7ff fffe 	bl	0 <pinPWM>
+  20:	4605      	mov	r5, r0
+  22:	4620      	mov	r0, r4
+  24:	f7ff fffe 	bl	0 <pinPWM>
+  28:	4606      	mov	r6, r0
+  2a:	b120      	cbz	r0, 36 <pinPWM+0x36>
+  2c:	b11d      	cbz	r5, 36 <pinPWM+0x36>
+  2e:	f7ff fffe 	bl	0 <sysGetDelayTimer>
+  32:	2801      	cmp	r0, #1
+  34:	d106      	bne.n	44 <pinPWM+0x44>
+  36:	4620      	mov	r0, r4
+  38:	4641      	mov	r1, r8
+  3a:	464a      	mov	r2, r9
+  3c:	e8bd 47f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
+  40:	f7ff bffe 	b.w	0 <pinPWM>
+  44:	f7ff fffe 	bl	0 <sysGetMainClock>
+  48:	f1b8 0f00 	cmp.w	r8, #0
+  4c:	bf08      	it	eq
+  4e:	f04f 0801 	moveq.w	r8, #1
+  52:	4580      	cmp	r8, r0
+  54:	f200 80f5 	bhi.w	242 <pinPWM+0x242>
+  58:	fbb0 f8f8 	udiv	r8, r0, r8
+  5c:	210b      	movs	r1, #11
+  5e:	4620      	mov	r0, r4
+  60:	f7ff fffe 	bl	0 <pinPWM>
+  64:	4b78      	ldr	r3, [pc, #480]	; (248 <pinPWM+0x248>)
+  66:	2764      	movs	r7, #100	; 0x64
+  68:	fbb8 f7f7 	udiv	r7, r8, r7
+  6c:	429d      	cmp	r5, r3
+  6e:	fb09 f707 	mul.w	r7, r9, r7
+  72:	4b76      	ldr	r3, [pc, #472]	; (24c <pinPWM+0x24c>)
+  74:	d172      	bne.n	15c <pinPWM+0x15c>
+  76:	699a      	ldr	r2, [r3, #24]
+  78:	2019      	movs	r0, #25
+  7a:	f442 6200 	orr.w	r2, r2, #2048	; 0x800
+  7e:	619a      	str	r2, [r3, #24]
+  80:	f7ff fffe 	bl	0 <interruptEnable>
+  84:	2200      	movs	r2, #0
+  86:	802a      	strh	r2, [r5, #0]
+  88:	80aa      	strh	r2, [r5, #4]
+  8a:	f8b5 3044 	ldrh.w	r3, [r5, #68]	; 0x44
+  8e:	fa1f f888 	uxth.w	r8, r8
+  92:	ea6f 4383 	mvn.w	r3, r3, lsl #18
+  96:	ea6f 4393 	mvn.w	r3, r3, lsr #18
+  9a:	b29b      	uxth	r3, r3
+  9c:	2e01      	cmp	r6, #1
+  9e:	f8a5 3044 	strh.w	r3, [r5, #68]	; 0x44
+  a2:	84aa      	strh	r2, [r5, #36]	; 0x24
+  a4:	f8a5 802c 	strh.w	r8, [r5, #44]	; 0x2c
+  a8:	852a      	strh	r2, [r5, #40]	; 0x28
+  aa:	d111      	bne.n	d0 <pinPWM+0xd0>
+  ac:	b2bf      	uxth	r7, r7
+  ae:	86af      	strh	r7, [r5, #52]	; 0x34
+  b0:	8b2b      	ldrh	r3, [r5, #24]
+  b2:	f023 0378 	bic.w	r3, r3, #120	; 0x78
+  b6:	041b      	lsls	r3, r3, #16
+  b8:	0c1b      	lsrs	r3, r3, #16
+  ba:	832b      	strh	r3, [r5, #24]
+  bc:	8b2b      	ldrh	r3, [r5, #24]
+  be:	b29b      	uxth	r3, r3
+  c0:	f043 0368 	orr.w	r3, r3, #104	; 0x68
+  c4:	832b      	strh	r3, [r5, #24]
+  c6:	8c2b      	ldrh	r3, [r5, #32]
+  c8:	b29b      	uxth	r3, r3
+  ca:	f043 0301 	orr.w	r3, r3, #1
+  ce:	e03b      	b.n	148 <pinPWM+0x148>
+  d0:	2e02      	cmp	r6, #2
+  d2:	d111      	bne.n	f8 <pinPWM+0xf8>
+  d4:	b2bf      	uxth	r7, r7
+  d6:	872f      	strh	r7, [r5, #56]	; 0x38
+  d8:	8b2b      	ldrh	r3, [r5, #24]
+  da:	f423 43f0 	bic.w	r3, r3, #30720	; 0x7800
+  de:	041b      	lsls	r3, r3, #16
+  e0:	0c1b      	lsrs	r3, r3, #16
+  e2:	832b      	strh	r3, [r5, #24]
+  e4:	8b2b      	ldrh	r3, [r5, #24]
+  e6:	b29b      	uxth	r3, r3
+  e8:	f443 43d0 	orr.w	r3, r3, #26624	; 0x6800
+  ec:	832b      	strh	r3, [r5, #24]
+  ee:	8c2b      	ldrh	r3, [r5, #32]
+  f0:	b29b      	uxth	r3, r3
+  f2:	f043 0310 	orr.w	r3, r3, #16
+  f6:	e027      	b.n	148 <pinPWM+0x148>
+  f8:	2e03      	cmp	r6, #3
+  fa:	d111      	bne.n	120 <pinPWM+0x120>
+  fc:	b2bf      	uxth	r7, r7
+  fe:	87af      	strh	r7, [r5, #60]	; 0x3c
+ 100:	8bab      	ldrh	r3, [r5, #28]
+ 102:	f023 0378 	bic.w	r3, r3, #120	; 0x78
+ 106:	041b      	lsls	r3, r3, #16
+ 108:	0c1b      	lsrs	r3, r3, #16
+ 10a:	83ab      	strh	r3, [r5, #28]
+ 10c:	8bab      	ldrh	r3, [r5, #28]
+ 10e:	b29b      	uxth	r3, r3
+ 110:	f043 0368 	orr.w	r3, r3, #104	; 0x68
+ 114:	83ab      	strh	r3, [r5, #28]
+ 116:	8c2b      	ldrh	r3, [r5, #32]
+ 118:	b29b      	uxth	r3, r3
+ 11a:	f443 7380 	orr.w	r3, r3, #256	; 0x100
+ 11e:	e013      	b.n	148 <pinPWM+0x148>
+ 120:	2e04      	cmp	r6, #4
+ 122:	d112      	bne.n	14a <pinPWM+0x14a>
+ 124:	b2bf      	uxth	r7, r7
+ 126:	f8a5 7040 	strh.w	r7, [r5, #64]	; 0x40
+ 12a:	8bab      	ldrh	r3, [r5, #28]
+ 12c:	f423 43f0 	bic.w	r3, r3, #30720	; 0x7800
+ 130:	041b      	lsls	r3, r3, #16
+ 132:	0c1b      	lsrs	r3, r3, #16
+ 134:	83ab      	strh	r3, [r5, #28]
+ 136:	8bab      	ldrh	r3, [r5, #28]
+ 138:	b29b      	uxth	r3, r3
+ 13a:	f443 43d0 	orr.w	r3, r3, #26624	; 0x6800
+ 13e:	83ab      	strh	r3, [r5, #28]
+ 140:	8c2b      	ldrh	r3, [r5, #32]
+ 142:	b29b      	uxth	r3, r3
+ 144:	f443 5380 	orr.w	r3, r3, #4096	; 0x1000
+ 148:	842b      	strh	r3, [r5, #32]
+ 14a:	4b3f      	ldr	r3, [pc, #252]	; (248 <pinPWM+0x248>)
+ 14c:	8a9a      	ldrh	r2, [r3, #20]
+ 14e:	b292      	uxth	r2, r2
+ 150:	f042 0201 	orr.w	r2, r2, #1
+ 154:	829a      	strh	r2, [r3, #20]
+ 156:	2281      	movs	r2, #129	; 0x81
+ 158:	801a      	strh	r2, [r3, #0]
+ 15a:	e06c      	b.n	236 <pinPWM+0x236>
+ 15c:	69da      	ldr	r2, [r3, #28]
+ 15e:	fa1f f888 	uxth.w	r8, r8
+ 162:	f042 0201 	orr.w	r2, r2, #1
+ 166:	61da      	str	r2, [r3, #28]
+ 168:	69da      	ldr	r2, [r3, #28]
+ 16a:	f042 0202 	orr.w	r2, r2, #2
+ 16e:	61da      	str	r2, [r3, #28]
+ 170:	69da      	ldr	r2, [r3, #28]
+ 172:	f042 0204 	orr.w	r2, r2, #4
+ 176:	61da      	str	r2, [r3, #28]
+ 178:	2300      	movs	r3, #0
+ 17a:	2e01      	cmp	r6, #1
+ 17c:	802b      	strh	r3, [r5, #0]
+ 17e:	80ab      	strh	r3, [r5, #4]
+ 180:	84ab      	strh	r3, [r5, #36]	; 0x24
+ 182:	f8a5 802c 	strh.w	r8, [r5, #44]	; 0x2c
+ 186:	852b      	strh	r3, [r5, #40]	; 0x28
+ 188:	d111      	bne.n	1ae <pinPWM+0x1ae>
+ 18a:	b2bf      	uxth	r7, r7
+ 18c:	86af      	strh	r7, [r5, #52]	; 0x34
+ 18e:	8b2b      	ldrh	r3, [r5, #24]
+ 190:	f023 0378 	bic.w	r3, r3, #120	; 0x78
+ 194:	041b      	lsls	r3, r3, #16
+ 196:	0c1b      	lsrs	r3, r3, #16
+ 198:	832b      	strh	r3, [r5, #24]
+ 19a:	8b2b      	ldrh	r3, [r5, #24]
+ 19c:	b29b      	uxth	r3, r3
+ 19e:	f043 0368 	orr.w	r3, r3, #104	; 0x68
+ 1a2:	832b      	strh	r3, [r5, #24]
+ 1a4:	8c2b      	ldrh	r3, [r5, #32]
+ 1a6:	b29b      	uxth	r3, r3
+ 1a8:	f043 0301 	orr.w	r3, r3, #1
+ 1ac:	e03b      	b.n	226 <pinPWM+0x226>
+ 1ae:	2e02      	cmp	r6, #2
+ 1b0:	d111      	bne.n	1d6 <pinPWM+0x1d6>
+ 1b2:	b2bf      	uxth	r7, r7
+ 1b4:	872f      	strh	r7, [r5, #56]	; 0x38
+ 1b6:	8b2b      	ldrh	r3, [r5, #24]
+ 1b8:	f423 43f0 	bic.w	r3, r3, #30720	; 0x7800
+ 1bc:	041b      	lsls	r3, r3, #16
+ 1be:	0c1b      	lsrs	r3, r3, #16
+ 1c0:	832b      	strh	r3, [r5, #24]
+ 1c2:	8b2b      	ldrh	r3, [r5, #24]
+ 1c4:	b29b      	uxth	r3, r3
+ 1c6:	f443 43d0 	orr.w	r3, r3, #26624	; 0x6800
+ 1ca:	832b      	strh	r3, [r5, #24]
+ 1cc:	8c2b      	ldrh	r3, [r5, #32]
+ 1ce:	b29b      	uxth	r3, r3
+ 1d0:	f043 0310 	orr.w	r3, r3, #16
+ 1d4:	e027      	b.n	226 <pinPWM+0x226>
+ 1d6:	2e03      	cmp	r6, #3
+ 1d8:	d111      	bne.n	1fe <pinPWM+0x1fe>
+ 1da:	b2bf      	uxth	r7, r7
+ 1dc:	87af      	strh	r7, [r5, #60]	; 0x3c
+ 1de:	8bab      	ldrh	r3, [r5, #28]
+ 1e0:	f023 0378 	bic.w	r3, r3, #120	; 0x78
+ 1e4:	041b      	lsls	r3, r3, #16
+ 1e6:	0c1b      	lsrs	r3, r3, #16
+ 1e8:	83ab      	strh	r3, [r5, #28]
+ 1ea:	8bab      	ldrh	r3, [r5, #28]
+ 1ec:	b29b      	uxth	r3, r3
+ 1ee:	f043 0368 	orr.w	r3, r3, #104	; 0x68
+ 1f2:	83ab      	strh	r3, [r5, #28]
+ 1f4:	8c2b      	ldrh	r3, [r5, #32]
+ 1f6:	b29b      	uxth	r3, r3
+ 1f8:	f443 7380 	orr.w	r3, r3, #256	; 0x100
+ 1fc:	e013      	b.n	226 <pinPWM+0x226>
+ 1fe:	2e04      	cmp	r6, #4
+ 200:	d112      	bne.n	228 <pinPWM+0x228>
+ 202:	b2bf      	uxth	r7, r7
+ 204:	f8a5 7040 	strh.w	r7, [r5, #64]	; 0x40
+ 208:	8bab      	ldrh	r3, [r5, #28]
+ 20a:	f423 43f0 	bic.w	r3, r3, #30720	; 0x7800
+ 20e:	041b      	lsls	r3, r3, #16
+ 210:	0c1b      	lsrs	r3, r3, #16
+ 212:	83ab      	strh	r3, [r5, #28]
+ 214:	8bab      	ldrh	r3, [r5, #28]
+ 216:	b29b      	uxth	r3, r3
+ 218:	f443 43d0 	orr.w	r3, r3, #26624	; 0x6800
+ 21c:	83ab      	strh	r3, [r5, #28]
+ 21e:	8c2b      	ldrh	r3, [r5, #32]
+ 220:	b29b      	uxth	r3, r3
+ 222:	f443 5380 	orr.w	r3, r3, #4096	; 0x1000
+ 226:	842b      	strh	r3, [r5, #32]
+ 228:	8aab      	ldrh	r3, [r5, #20]
+ 22a:	2281      	movs	r2, #129	; 0x81
+ 22c:	b29b      	uxth	r3, r3
+ 22e:	f043 0301 	orr.w	r3, r3, #1
+ 232:	82ab      	strh	r3, [r5, #20]
+ 234:	802a      	strh	r2, [r5, #0]
+ 236:	2001      	movs	r0, #1
+ 238:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+ 23c:	2000      	movs	r0, #0
+ 23e:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+ 242:	2000      	movs	r0, #0
+ 244:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+ 248:	40012c00 	.word	0x40012c00
+ 24c:	40021000 	.word	0x40021000
+
+Disassembly of section .text.pinProcessSoftPWM:
+
+00000000 <pinProcessSoftPWM>:
+pinProcessSoftPWM():
+   0:	4c11b538 	.word	0x4c11b538
+   4:	f104 0580 	add.w	r5, r4, #128	; 0x80
+   8:	7b63      	ldrb	r3, [r4, #13]
+   a:	f013 0f01 	tst.w	r3, #1
+   e:	d017      	beq.n	40 <pinProcessSoftPWM+0x40>
+  10:	68a1      	ldr	r1, [r4, #8]
+  12:	b111      	cbz	r1, 1a <pinProcessSoftPWM+0x1a>
+  14:	3901      	subs	r1, #1
+  16:	60a1      	str	r1, [r4, #8]
+  18:	e012      	b.n	40 <pinProcessSoftPWM+0x40>
+  1a:	f013 0f02 	tst.w	r3, #2
+  1e:	d006      	beq.n	2e <pinProcessSoftPWM+0x2e>
+  20:	6862      	ldr	r2, [r4, #4]
+  22:	f023 0302 	bic.w	r3, r3, #2
+  26:	60a2      	str	r2, [r4, #8]
+  28:	7363      	strb	r3, [r4, #13]
+  2a:	7b20      	ldrb	r0, [r4, #12]
+  2c:	e006      	b.n	3c <pinProcessSoftPWM+0x3c>
+  2e:	6822      	ldr	r2, [r4, #0]
+  30:	f043 0302 	orr.w	r3, r3, #2
+  34:	7b20      	ldrb	r0, [r4, #12]
+  36:	60a2      	str	r2, [r4, #8]
+  38:	7363      	strb	r3, [r4, #13]
+  3a:	2101      	movs	r1, #1
+  3c:	f7ff fffe 	bl	0 <pinProcessSoftPWM>
+  40:	3410      	adds	r4, #16
+  42:	42ac      	cmp	r4, r5
+  44:	d1e0      	bne.n	8 <pinProcessSoftPWM+0x8>
+  46:	bd38      	pop	{r3, r4, r5, pc}
+  48:	00000000 	.word	0x00000000
+
+Disassembly of section .text.TIM1_UP_IRQHandler:
+
+00000000 <TIM1_UP_IRQHandler>:
+TIM1_UP_IRQHandler():
+   0:	22004b02 	.word	0x22004b02
+   4:	821a      	strh	r2, [r3, #16]
+   6:	f7ff bffe 	b.w	0 <TIM1_UP_IRQHandler>
+   a:	bf00      	nop
+   c:	40014400 	.word	0x40014400
+
+Disassembly of section .text.EXTI0_IRQHandler:
+
+00000000 <EXTI0_IRQHandler>:
+EXTI0_IRQHandler():
+   0:	b510      	push	{r4, lr}
+   2:	4b09      	ldr	r3, [pc, #36]	; (28 <EXTI0_IRQHandler+0x28>)
+   4:	4c09      	ldr	r4, [pc, #36]	; (2c <EXTI0_IRQHandler+0x2c>)
+   6:	695a      	ldr	r2, [r3, #20]
+   8:	f042 0201 	orr.w	r2, r2, #1
+   c:	615a      	str	r2, [r3, #20]
+   e:	8823      	ldrh	r3, [r4, #0]
+  10:	f043 0301 	orr.w	r3, r3, #1
+  14:	8023      	strh	r3, [r4, #0]
+  16:	4b06      	ldr	r3, [pc, #24]	; (30 <EXTI0_IRQHandler+0x30>)
+  18:	681b      	ldr	r3, [r3, #0]
+  1a:	4798      	blx	r3
+  1c:	8823      	ldrh	r3, [r4, #0]
+  1e:	f023 0301 	bic.w	r3, r3, #1
+  22:	8023      	strh	r3, [r4, #0]
+  24:	bd10      	pop	{r4, pc}
+  26:	bf00      	nop
+  28:	40010400 	.word	0x40010400
+	...
+
+Disassembly of section .text.EXTI1_IRQHandler:
+
+00000000 <EXTI1_IRQHandler>:
+EXTI1_IRQHandler():
+   0:	b510      	push	{r4, lr}
+   2:	4b09      	ldr	r3, [pc, #36]	; (28 <EXTI1_IRQHandler+0x28>)
+   4:	4c09      	ldr	r4, [pc, #36]	; (2c <EXTI1_IRQHandler+0x2c>)
+   6:	695a      	ldr	r2, [r3, #20]
+   8:	f042 0202 	orr.w	r2, r2, #2
+   c:	615a      	str	r2, [r3, #20]
+   e:	8823      	ldrh	r3, [r4, #0]
+  10:	f043 0302 	orr.w	r3, r3, #2
+  14:	8023      	strh	r3, [r4, #0]
+  16:	4b06      	ldr	r3, [pc, #24]	; (30 <EXTI1_IRQHandler+0x30>)
+  18:	685b      	ldr	r3, [r3, #4]
+  1a:	4798      	blx	r3
+  1c:	8823      	ldrh	r3, [r4, #0]
+  1e:	f023 0302 	bic.w	r3, r3, #2
+  22:	8023      	strh	r3, [r4, #0]
+  24:	bd10      	pop	{r4, pc}
+  26:	bf00      	nop
+  28:	40010400 	.word	0x40010400
+	...
+
+Disassembly of section .text.EXTI2_IRQHandler:
+
+00000000 <EXTI2_IRQHandler>:
+EXTI2_IRQHandler():
+   0:	b510      	push	{r4, lr}
+   2:	4b09      	ldr	r3, [pc, #36]	; (28 <EXTI2_IRQHandler+0x28>)
+   4:	4c09      	ldr	r4, [pc, #36]	; (2c <EXTI2_IRQHandler+0x2c>)
+   6:	695a      	ldr	r2, [r3, #20]
+   8:	f042 0204 	orr.w	r2, r2, #4
+   c:	615a      	str	r2, [r3, #20]
+   e:	8823      	ldrh	r3, [r4, #0]
+  10:	f043 0304 	orr.w	r3, r3, #4
+  14:	8023      	strh	r3, [r4, #0]
+  16:	4b06      	ldr	r3, [pc, #24]	; (30 <EXTI2_IRQHandler+0x30>)
+  18:	689b      	ldr	r3, [r3, #8]
+  1a:	4798      	blx	r3
+  1c:	8823      	ldrh	r3, [r4, #0]
+  1e:	f023 0304 	bic.w	r3, r3, #4
+  22:	8023      	strh	r3, [r4, #0]
+  24:	bd10      	pop	{r4, pc}
+  26:	bf00      	nop
+  28:	40010400 	.word	0x40010400
+	...
+
+Disassembly of section .text.EXTI3_IRQHandler:
+
+00000000 <EXTI3_IRQHandler>:
+EXTI3_IRQHandler():
+   0:	b510      	push	{r4, lr}
+   2:	4b09      	ldr	r3, [pc, #36]	; (28 <EXTI3_IRQHandler+0x28>)
+   4:	4c09      	ldr	r4, [pc, #36]	; (2c <EXTI3_IRQHandler+0x2c>)
+   6:	695a      	ldr	r2, [r3, #20]
+   8:	f042 0208 	orr.w	r2, r2, #8
+   c:	615a      	str	r2, [r3, #20]
+   e:	8823      	ldrh	r3, [r4, #0]
+  10:	f043 0308 	orr.w	r3, r3, #8
+  14:	8023      	strh	r3, [r4, #0]
+  16:	4b06      	ldr	r3, [pc, #24]	; (30 <EXTI3_IRQHandler+0x30>)
+  18:	68db      	ldr	r3, [r3, #12]
+  1a:	4798      	blx	r3
+  1c:	8823      	ldrh	r3, [r4, #0]
+  1e:	f023 0308 	bic.w	r3, r3, #8
+  22:	8023      	strh	r3, [r4, #0]
+  24:	bd10      	pop	{r4, pc}
+  26:	bf00      	nop
+  28:	40010400 	.word	0x40010400
+	...
+
+Disassembly of section .text.EXTI4_IRQHandler:
+
+00000000 <EXTI4_IRQHandler>:
+EXTI4_IRQHandler():
+   0:	b510      	push	{r4, lr}
+   2:	4b09      	ldr	r3, [pc, #36]	; (28 <EXTI4_IRQHandler+0x28>)
+   4:	4c09      	ldr	r4, [pc, #36]	; (2c <EXTI4_IRQHandler+0x2c>)
+   6:	695a      	ldr	r2, [r3, #20]
+   8:	f042 0210 	orr.w	r2, r2, #16
+   c:	615a      	str	r2, [r3, #20]
+   e:	8823      	ldrh	r3, [r4, #0]
+  10:	f043 0310 	orr.w	r3, r3, #16
+  14:	8023      	strh	r3, [r4, #0]
+  16:	4b06      	ldr	r3, [pc, #24]	; (30 <EXTI4_IRQHandler+0x30>)
+  18:	691b      	ldr	r3, [r3, #16]
+  1a:	4798      	blx	r3
+  1c:	8823      	ldrh	r3, [r4, #0]
+  1e:	f023 0310 	bic.w	r3, r3, #16
+  22:	8023      	strh	r3, [r4, #0]
+  24:	bd10      	pop	{r4, pc}
+  26:	bf00      	nop
+  28:	40010400 	.word	0x40010400
+	...
+
+Disassembly of section .text.EXTI9_5_IRQHandler:
+
+00000000 <EXTI9_5_IRQHandler>:
+EXTI9_5_IRQHandler():
+   0:	b510      	push	{r4, lr}
+   2:	4b35      	ldr	r3, [pc, #212]	; (d8 <EXTI9_5_IRQHandler+0xd8>)
+   4:	695a      	ldr	r2, [r3, #20]
+   6:	f012 0f20 	tst.w	r2, #32
+   a:	d00f      	beq.n	2c <EXTI9_5_IRQHandler+0x2c>
+   c:	695a      	ldr	r2, [r3, #20]
+   e:	4c33      	ldr	r4, [pc, #204]	; (dc <EXTI9_5_IRQHandler+0xdc>)
+  10:	f042 0220 	orr.w	r2, r2, #32
+  14:	615a      	str	r2, [r3, #20]
+  16:	8823      	ldrh	r3, [r4, #0]
+  18:	f043 0320 	orr.w	r3, r3, #32
+  1c:	8023      	strh	r3, [r4, #0]
+  1e:	4b30      	ldr	r3, [pc, #192]	; (e0 <EXTI9_5_IRQHandler+0xe0>)
+  20:	695b      	ldr	r3, [r3, #20]
+  22:	4798      	blx	r3
+  24:	8823      	ldrh	r3, [r4, #0]
+  26:	f023 0320 	bic.w	r3, r3, #32
+  2a:	8023      	strh	r3, [r4, #0]
+  2c:	4b2a      	ldr	r3, [pc, #168]	; (d8 <EXTI9_5_IRQHandler+0xd8>)
+  2e:	695a      	ldr	r2, [r3, #20]
+  30:	f012 0f40 	tst.w	r2, #64	; 0x40
+  34:	d00f      	beq.n	56 <EXTI9_5_IRQHandler+0x56>
+  36:	695a      	ldr	r2, [r3, #20]
+  38:	4c28      	ldr	r4, [pc, #160]	; (dc <EXTI9_5_IRQHandler+0xdc>)
+  3a:	f042 0240 	orr.w	r2, r2, #64	; 0x40
+  3e:	615a      	str	r2, [r3, #20]
+  40:	8823      	ldrh	r3, [r4, #0]
+  42:	f043 0340 	orr.w	r3, r3, #64	; 0x40
+  46:	8023      	strh	r3, [r4, #0]
+  48:	4b25      	ldr	r3, [pc, #148]	; (e0 <EXTI9_5_IRQHandler+0xe0>)
+  4a:	699b      	ldr	r3, [r3, #24]
+  4c:	4798      	blx	r3
+  4e:	8823      	ldrh	r3, [r4, #0]
+  50:	f023 0340 	bic.w	r3, r3, #64	; 0x40
+  54:	8023      	strh	r3, [r4, #0]
+  56:	4b20      	ldr	r3, [pc, #128]	; (d8 <EXTI9_5_IRQHandler+0xd8>)
+  58:	695a      	ldr	r2, [r3, #20]
+  5a:	f012 0f80 	tst.w	r2, #128	; 0x80
+  5e:	d00f      	beq.n	80 <EXTI9_5_IRQHandler+0x80>
+  60:	695a      	ldr	r2, [r3, #20]
+  62:	4c1e      	ldr	r4, [pc, #120]	; (dc <EXTI9_5_IRQHandler+0xdc>)
+  64:	f042 0280 	orr.w	r2, r2, #128	; 0x80
+  68:	615a      	str	r2, [r3, #20]
+  6a:	8823      	ldrh	r3, [r4, #0]
+  6c:	f043 0380 	orr.w	r3, r3, #128	; 0x80
+  70:	8023      	strh	r3, [r4, #0]
+  72:	4b1b      	ldr	r3, [pc, #108]	; (e0 <EXTI9_5_IRQHandler+0xe0>)
+  74:	69db      	ldr	r3, [r3, #28]
+  76:	4798      	blx	r3
+  78:	8823      	ldrh	r3, [r4, #0]
+  7a:	f023 0380 	bic.w	r3, r3, #128	; 0x80
+  7e:	8023      	strh	r3, [r4, #0]
+  80:	4b15      	ldr	r3, [pc, #84]	; (d8 <EXTI9_5_IRQHandler+0xd8>)
+  82:	695a      	ldr	r2, [r3, #20]
+  84:	f412 7f80 	tst.w	r2, #256	; 0x100
+  88:	d00f      	beq.n	aa <EXTI9_5_IRQHandler+0xaa>
+  8a:	695a      	ldr	r2, [r3, #20]
+  8c:	4c13      	ldr	r4, [pc, #76]	; (dc <EXTI9_5_IRQHandler+0xdc>)
+  8e:	f442 7280 	orr.w	r2, r2, #256	; 0x100
+  92:	615a      	str	r2, [r3, #20]
+  94:	8823      	ldrh	r3, [r4, #0]
+  96:	f443 7380 	orr.w	r3, r3, #256	; 0x100
+  9a:	8023      	strh	r3, [r4, #0]
+  9c:	4b10      	ldr	r3, [pc, #64]	; (e0 <EXTI9_5_IRQHandler+0xe0>)
+  9e:	6a1b      	ldr	r3, [r3, #32]
+  a0:	4798      	blx	r3
+  a2:	8823      	ldrh	r3, [r4, #0]
+  a4:	f423 7380 	bic.w	r3, r3, #256	; 0x100
+  a8:	8023      	strh	r3, [r4, #0]
+  aa:	4b0b      	ldr	r3, [pc, #44]	; (d8 <EXTI9_5_IRQHandler+0xd8>)
+  ac:	695a      	ldr	r2, [r3, #20]
+  ae:	f412 7f00 	tst.w	r2, #512	; 0x200
+  b2:	d00f      	beq.n	d4 <EXTI9_5_IRQHandler+0xd4>
+  b4:	695a      	ldr	r2, [r3, #20]
+  b6:	4c09      	ldr	r4, [pc, #36]	; (dc <EXTI9_5_IRQHandler+0xdc>)
+  b8:	f442 7200 	orr.w	r2, r2, #512	; 0x200
+  bc:	615a      	str	r2, [r3, #20]
+  be:	8823      	ldrh	r3, [r4, #0]
+  c0:	f443 7300 	orr.w	r3, r3, #512	; 0x200
+  c4:	8023      	strh	r3, [r4, #0]
+  c6:	4b06      	ldr	r3, [pc, #24]	; (e0 <EXTI9_5_IRQHandler+0xe0>)
+  c8:	6a5b      	ldr	r3, [r3, #36]	; 0x24
+  ca:	4798      	blx	r3
+  cc:	8823      	ldrh	r3, [r4, #0]
+  ce:	f423 7300 	bic.w	r3, r3, #512	; 0x200
+  d2:	8023      	strh	r3, [r4, #0]
+  d4:	bd10      	pop	{r4, pc}
+  d6:	bf00      	nop
+  d8:	40010400 	.word	0x40010400
+	...
+
+Disassembly of section .text.EXTI15_10_IRQHandler:
+
+00000000 <EXTI15_10_IRQHandler>:
+EXTI15_10_IRQHandler():
+   0:	b510      	push	{r4, lr}
+   2:	4b40      	ldr	r3, [pc, #256]	; (104 <EXTI15_10_IRQHandler+0x104>)
+   4:	695a      	ldr	r2, [r3, #20]
+   6:	f412 6f80 	tst.w	r2, #1024	; 0x400
+   a:	d00f      	beq.n	2c <EXTI15_10_IRQHandler+0x2c>
+   c:	695a      	ldr	r2, [r3, #20]
+   e:	4c3e      	ldr	r4, [pc, #248]	; (108 <EXTI15_10_IRQHandler+0x108>)
+  10:	f442 6280 	orr.w	r2, r2, #1024	; 0x400
+  14:	615a      	str	r2, [r3, #20]
+  16:	8823      	ldrh	r3, [r4, #0]
+  18:	f443 6380 	orr.w	r3, r3, #1024	; 0x400
+  1c:	8023      	strh	r3, [r4, #0]
+  1e:	4b3b      	ldr	r3, [pc, #236]	; (10c <EXTI15_10_IRQHandler+0x10c>)
+  20:	6a9b      	ldr	r3, [r3, #40]	; 0x28
+  22:	4798      	blx	r3
+  24:	8823      	ldrh	r3, [r4, #0]
+  26:	f423 6380 	bic.w	r3, r3, #1024	; 0x400
+  2a:	8023      	strh	r3, [r4, #0]
+  2c:	4b35      	ldr	r3, [pc, #212]	; (104 <EXTI15_10_IRQHandler+0x104>)
+  2e:	695a      	ldr	r2, [r3, #20]
+  30:	f412 6f00 	tst.w	r2, #2048	; 0x800
+  34:	d00f      	beq.n	56 <EXTI15_10_IRQHandler+0x56>
+  36:	695a      	ldr	r2, [r3, #20]
+  38:	4c33      	ldr	r4, [pc, #204]	; (108 <EXTI15_10_IRQHandler+0x108>)
+  3a:	f442 6200 	orr.w	r2, r2, #2048	; 0x800
+  3e:	615a      	str	r2, [r3, #20]
+  40:	8823      	ldrh	r3, [r4, #0]
+  42:	f443 6300 	orr.w	r3, r3, #2048	; 0x800
+  46:	8023      	strh	r3, [r4, #0]
+  48:	4b30      	ldr	r3, [pc, #192]	; (10c <EXTI15_10_IRQHandler+0x10c>)
+  4a:	6adb      	ldr	r3, [r3, #44]	; 0x2c
+  4c:	4798      	blx	r3
+  4e:	8823      	ldrh	r3, [r4, #0]
+  50:	f423 6300 	bic.w	r3, r3, #2048	; 0x800
+  54:	8023      	strh	r3, [r4, #0]
+  56:	4b2b      	ldr	r3, [pc, #172]	; (104 <EXTI15_10_IRQHandler+0x104>)
+  58:	695a      	ldr	r2, [r3, #20]
+  5a:	f412 5f80 	tst.w	r2, #4096	; 0x1000
+  5e:	d00f      	beq.n	80 <EXTI15_10_IRQHandler+0x80>
+  60:	695a      	ldr	r2, [r3, #20]
+  62:	4c29      	ldr	r4, [pc, #164]	; (108 <EXTI15_10_IRQHandler+0x108>)
+  64:	f442 5280 	orr.w	r2, r2, #4096	; 0x1000
+  68:	615a      	str	r2, [r3, #20]
+  6a:	8823      	ldrh	r3, [r4, #0]
+  6c:	f443 5380 	orr.w	r3, r3, #4096	; 0x1000
+  70:	8023      	strh	r3, [r4, #0]
+  72:	4b26      	ldr	r3, [pc, #152]	; (10c <EXTI15_10_IRQHandler+0x10c>)
+  74:	6b1b      	ldr	r3, [r3, #48]	; 0x30
+  76:	4798      	blx	r3
+  78:	8823      	ldrh	r3, [r4, #0]
+  7a:	f423 5380 	bic.w	r3, r3, #4096	; 0x1000
+  7e:	8023      	strh	r3, [r4, #0]
+  80:	4b20      	ldr	r3, [pc, #128]	; (104 <EXTI15_10_IRQHandler+0x104>)
+  82:	695a      	ldr	r2, [r3, #20]
+  84:	f412 5f00 	tst.w	r2, #8192	; 0x2000
+  88:	d00f      	beq.n	aa <EXTI15_10_IRQHandler+0xaa>
+  8a:	695a      	ldr	r2, [r3, #20]
+  8c:	4c1e      	ldr	r4, [pc, #120]	; (108 <EXTI15_10_IRQHandler+0x108>)
+  8e:	f442 5200 	orr.w	r2, r2, #8192	; 0x2000
+  92:	615a      	str	r2, [r3, #20]
+  94:	8823      	ldrh	r3, [r4, #0]
+  96:	f443 5300 	orr.w	r3, r3, #8192	; 0x2000
+  9a:	8023      	strh	r3, [r4, #0]
+  9c:	4b1b      	ldr	r3, [pc, #108]	; (10c <EXTI15_10_IRQHandler+0x10c>)
+  9e:	6b5b      	ldr	r3, [r3, #52]	; 0x34
+  a0:	4798      	blx	r3
+  a2:	8823      	ldrh	r3, [r4, #0]
+  a4:	f423 5300 	bic.w	r3, r3, #8192	; 0x2000
+  a8:	8023      	strh	r3, [r4, #0]
+  aa:	4b16      	ldr	r3, [pc, #88]	; (104 <EXTI15_10_IRQHandler+0x104>)
+  ac:	695a      	ldr	r2, [r3, #20]
+  ae:	f412 4f80 	tst.w	r2, #16384	; 0x4000
+  b2:	d00f      	beq.n	d4 <EXTI15_10_IRQHandler+0xd4>
+  b4:	695a      	ldr	r2, [r3, #20]
+  b6:	4c14      	ldr	r4, [pc, #80]	; (108 <EXTI15_10_IRQHandler+0x108>)
+  b8:	f442 4280 	orr.w	r2, r2, #16384	; 0x4000
+  bc:	615a      	str	r2, [r3, #20]
+  be:	8823      	ldrh	r3, [r4, #0]
+  c0:	f443 4380 	orr.w	r3, r3, #16384	; 0x4000
+  c4:	8023      	strh	r3, [r4, #0]
+  c6:	4b11      	ldr	r3, [pc, #68]	; (10c <EXTI15_10_IRQHandler+0x10c>)
+  c8:	6b9b      	ldr	r3, [r3, #56]	; 0x38
+  ca:	4798      	blx	r3
+  cc:	8823      	ldrh	r3, [r4, #0]
+  ce:	f423 4380 	bic.w	r3, r3, #16384	; 0x4000
+  d2:	8023      	strh	r3, [r4, #0]
+  d4:	4b0b      	ldr	r3, [pc, #44]	; (104 <EXTI15_10_IRQHandler+0x104>)
+  d6:	695a      	ldr	r2, [r3, #20]
+  d8:	f412 4f00 	tst.w	r2, #32768	; 0x8000
+  dc:	d011      	beq.n	102 <EXTI15_10_IRQHandler+0x102>
+  de:	695a      	ldr	r2, [r3, #20]
+  e0:	4c09      	ldr	r4, [pc, #36]	; (108 <EXTI15_10_IRQHandler+0x108>)
+  e2:	f442 4200 	orr.w	r2, r2, #32768	; 0x8000
+  e6:	615a      	str	r2, [r3, #20]
+  e8:	8823      	ldrh	r3, [r4, #0]
+  ea:	ea6f 4343 	mvn.w	r3, r3, lsl #17
+  ee:	ea6f 4353 	mvn.w	r3, r3, lsr #17
+  f2:	8023      	strh	r3, [r4, #0]
+  f4:	4b05      	ldr	r3, [pc, #20]	; (10c <EXTI15_10_IRQHandler+0x10c>)
+  f6:	6bdb      	ldr	r3, [r3, #60]	; 0x3c
+  f8:	4798      	blx	r3
+  fa:	8823      	ldrh	r3, [r4, #0]
+  fc:	045b      	lsls	r3, r3, #17
+  fe:	0c5b      	lsrs	r3, r3, #17
+ 100:	8023      	strh	r3, [r4, #0]
+ 102:	bd10      	pop	{r4, pc}
+ 104:	40010400 	.word	0x40010400
+	...

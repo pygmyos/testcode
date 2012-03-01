@@ -1,0 +1,62 @@
+
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\startup_stm32f10x_hd.o:     file format elf32-littlearm
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\startup_stm32f10x_hd.o
+
+
+Disassembly of section .text:
+
+00000000 <.text>:
+	...
+
+Disassembly of section .text.Reset_Handler:
+
+00000000 <Reset_Handler>:
+Reset_Handler():
+   0:	f7ff fffe 	bl	0 <Reset_Handler>
+   4:	480c      	ldr	r0, [pc, #48]	; (38 <LoopFillZerobss+0xe>)
+   6:	f380 8808 	msr	MSP, r0
+   a:	2100      	movs	r1, #0
+   c:	e003      	b.n	16 <LoopCopyDataInit>
+
+0000000e <CopyDataInit>:
+CopyDataInit():
+   e:	4b0b      	ldr	r3, [pc, #44]	; (3c <LoopFillZerobss+0x12>)
+  10:	585b      	ldr	r3, [r3, r1]
+  12:	5043      	str	r3, [r0, r1]
+  14:	3104      	adds	r1, #4
+
+00000016 <LoopCopyDataInit>:
+LoopCopyDataInit():
+  16:	480a      	ldr	r0, [pc, #40]	; (40 <LoopFillZerobss+0x16>)
+  18:	4b0a      	ldr	r3, [pc, #40]	; (44 <LoopFillZerobss+0x1a>)
+  1a:	1842      	adds	r2, r0, r1
+  1c:	429a      	cmp	r2, r3
+  1e:	d3f6      	bcc.n	e <CopyDataInit>
+  20:	4a09      	ldr	r2, [pc, #36]	; (48 <LoopFillZerobss+0x1e>)
+  22:	e002      	b.n	2a <LoopFillZerobss>
+
+00000024 <FillZerobss>:
+FillZerobss():
+  24:	2300      	movs	r3, #0
+  26:	f842 3b04 	str.w	r3, [r2], #4
+
+0000002a <LoopFillZerobss>:
+LoopFillZerobss():
+  2a:	4b08      	ldr	r3, [pc, #32]	; (4c <LoopFillZerobss+0x22>)
+  2c:	429a      	cmp	r2, r3
+  2e:	d3f9      	bcc.n	24 <FillZerobss>
+  30:	f7ff fffe 	bl	0 <main>
+  34:	4770      	bx	lr
+	...
+
+Disassembly of section .text.SystemInit_ExtMemCtl_Dummy:
+
+00000000 <SystemInit_ExtMemCtl>:
+SystemInit_ExtMemCtl():
+   0:	4770      	bx	lr
+
+Disassembly of section .text.Default_Handler:
+
+00000000 <ADC1_2_IRQHandler>:
+DMA2_Channel4_5_IRQHandler():
+   0:	e7fe      	b.n	0 <ADC1_2_IRQHandler>

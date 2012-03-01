@@ -22,13 +22,13 @@
 			
 	</Flags>
 	<Views>
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.c" Line="751" Index="0" focus="1" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.c" Line="608" Index="0" />
 		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\pygmy_nebula.h" Line="0" Index="1" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="511" Index="2" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.c" Line="218" Index="3" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.h" Line="116" Index="4" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_profile.h" Line="21" Index="5" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="133" Index="6" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="618" Index="2" focus="1" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.c" Line="216" Index="3" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.h" Line="114" Index="4" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_profile.h" Line="19" Index="5" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="131" Index="6" />
 	</Views>
 	<Grep>
 		<GrepIncludeSub>yes</GrepIncludeSub>
@@ -57,6 +57,11 @@
 		</GrepReplaceWhat>
 	</Grep>
 	<FindStrings>
+		<Find>fileGetName</Find>
+		<Find>cmdLs</Find>
+		<Find>XMODEM_SEND</Find>
+		<Find>cmdSend</Find>
+		<Find>cmd_send</Find>
 		<Find>COMMA</Find>
 		<Find>QUOTES</Find>
 		<Find>SEPARATORS</Find>

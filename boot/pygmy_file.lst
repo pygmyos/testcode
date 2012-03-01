@@ -1788,7 +1788,7 @@ C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:614
     u8 i, ucBuffer[ 16 ];
 
     if( uiFileEntry > pygmyRootVolume.MaxFiles ){
-   2:	4b14      	ldr	r3, [pc, #80]	; (54 <fileGetName+0x54>)
+   2:	4b15      	ldr	r3, [pc, #84]	; (58 <fileGetName+0x58>)
 C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:607
 {
     return( pygmyRootVolume.MaxFiles );
@@ -1821,7 +1821,7 @@ C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:614
 
     if( uiFileEntry > pygmyRootVolume.MaxFiles ){
    a:	4290      	cmp	r0, r2
-   c:	d81f      	bhi.n	4e <fileGetName+0x4e>
+   c:	d820      	bhi.n	50 <fileGetName+0x50>
 C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:618
         return( 0 );
     } // if
@@ -1836,45 +1836,45 @@ C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:619
     uiID = ucBuffer[ 14 ];
   1c:	f89d 600e 	ldrb.w	r6, [sp, #14]
 C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:620
-    uiID = uiID << 8 | ucName[ 15 ];
-  20:	7be5      	ldrb	r5, [r4, #15]
-  22:	f10d 32ff 	add.w	r2, sp, #4294967295
-  26:	4623      	mov	r3, r4
+    uiID = uiID << 8 | ucBuffer[ 15 ];
+  20:	f89d 500f 	ldrb.w	r5, [sp, #15]
+  24:	f10d 32ff 	add.w	r2, sp, #4294967295
+  28:	4623      	mov	r3, r4
 C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:622
     
     for( i = 0; i < 12; i++ ){
-  28:	2000      	movs	r0, #0
+  2a:	2000      	movs	r0, #0
 C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:623
         if( !ucBuffer[ i ] || ucBuffer[ i ] == 0xFF ){
-  2a:	f812 1f01 	ldrb.w	r1, [r2, #1]!
-  2e:	1e4f      	subs	r7, r1, #1
-  30:	b2ff      	uxtb	r7, r7
-  32:	2ffd      	cmp	r7, #253	; 0xfd
-  34:	d805      	bhi.n	42 <fileGetName+0x42>
+  2c:	f812 1f01 	ldrb.w	r1, [r2, #1]!
+  30:	1e4f      	subs	r7, r1, #1
+  32:	b2ff      	uxtb	r7, r7
+  34:	2ffd      	cmp	r7, #253	; 0xfd
+  36:	d805      	bhi.n	44 <fileGetName+0x44>
 C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:622
     
     flashReadBuffer( pygmyRootVolume.ActiveFiles + ( uiFileEntry * 16 ), ucBuffer, 16 );
     uiID = ucBuffer[ 14 ];
-    uiID = uiID << 8 | ucName[ 15 ];
+    uiID = uiID << 8 | ucBuffer[ 15 ];
     
     for( i = 0; i < 12; i++ ){
-  36:	3001      	adds	r0, #1
-  38:	b2c0      	uxtb	r0, r0
-  3a:	280c      	cmp	r0, #12
+  38:	3001      	adds	r0, #1
+  3a:	b2c0      	uxtb	r0, r0
+  3c:	280c      	cmp	r0, #12
 C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:626
         if( !ucBuffer[ i ] || ucBuffer[ i ] == 0xFF ){
             break;
         } else{
             ucName[ i ] = ucBuffer[ i ];
-  3c:	f803 1b01 	strb.w	r1, [r3], #1
+  3e:	f803 1b01 	strb.w	r1, [r3], #1
 C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:622
     
     flashReadBuffer( pygmyRootVolume.ActiveFiles + ( uiFileEntry * 16 ), ucBuffer, 16 );
     uiID = ucBuffer[ 14 ];
-    uiID = uiID << 8 | ucName[ 15 ];
+    uiID = uiID << 8 | ucBuffer[ 15 ];
     
     for( i = 0; i < 12; i++ ){
-  40:	d1f3      	bne.n	2a <fileGetName+0x2a>
+  42:	d1f3      	bne.n	2c <fileGetName+0x2c>
 C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:629
             break;
         } else{
@@ -1882,19 +1882,19 @@ C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:629
         } // else
     } // for
     ucName[ i ] = '\0';
-  42:	2300      	movs	r3, #0
-  44:	5423      	strb	r3, [r4, r0]
+  44:	2300      	movs	r3, #0
+  46:	5423      	strb	r3, [r4, r0]
 C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:630
     if( !i ){
-  46:	b118      	cbz	r0, 50 <fileGetName+0x50>
+  48:	b118      	cbz	r0, 52 <fileGetName+0x52>
 C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:620
         return( 0 );
     } // if
     
     flashReadBuffer( pygmyRootVolume.ActiveFiles + ( uiFileEntry * 16 ), ucBuffer, 16 );
     uiID = ucBuffer[ 14 ];
-    uiID = uiID << 8 | ucName[ 15 ];
-  48:	ea45 2006 	orr.w	r0, r5, r6, lsl #8
+    uiID = uiID << 8 | ucBuffer[ 15 ];
+  4a:	ea45 2006 	orr.w	r0, r5, r6, lsl #8
 C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:648
             } // else
         } // if
@@ -1902,7 +1902,7 @@ C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:648
     */
     // return the ID of the file to use to load length
     return( uiID );//flashReadWord( ulAddress + 14 ) );
-  4c:	e000      	b.n	50 <fileGetName+0x50>
+  4e:	e000      	b.n	52 <fileGetName+0x52>
 C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:615
     u32 ulAddress;
     u16 uiID;
@@ -1910,7 +1910,7 @@ C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:615
 
     if( uiFileEntry > pygmyRootVolume.MaxFiles ){
         return( 0 );
-  4e:	2000      	movs	r0, #0
+  50:	2000      	movs	r0, #0
 C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:649
         } // if
     } // for
@@ -1918,9 +1918,10 @@ C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:649
     // return the ID of the file to use to load length
     return( uiID );//flashReadWord( ulAddress + 14 ) );
 }
-  50:	b005      	add	sp, #20
-  52:	bdf0      	pop	{r4, r5, r6, r7, pc}
-  54:	00000000 	.word	0x00000000
+  52:	b005      	add	sp, #20
+  54:	bdf0      	pop	{r4, r5, r6, r7, pc}
+  56:	bf00      	nop
+  58:	00000000 	.word	0x00000000
 
 Disassembly of section .text.flashReadStatus:
 

@@ -1,0 +1,1323 @@
+Archive member included because of file (symbol)
+
+c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-s_sin.o)
+                              C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_audio.o (sin)
+c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-e_rem_pio2.o)
+                              c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-s_sin.o) (__ieee754_rem_pio2)
+c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-k_cos.o)
+                              c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-s_sin.o) (__kernel_cos)
+c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-k_rem_pio2.o)
+                              c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-e_rem_pio2.o) (__kernel_rem_pio2)
+c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-k_sin.o)
+                              c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-s_sin.o) (__kernel_sin)
+c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-s_fabs.o)
+                              c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-e_rem_pio2.o) (fabs)
+c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-s_floor.o)
+                              c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-k_rem_pio2.o) (floor)
+c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-s_scalbn.o)
+                              c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-k_rem_pio2.o) (scalbn)
+c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-s_copysign.o)
+                              c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-s_scalbn.o) (copysign)
+c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_divsi3.o)
+                              c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-k_rem_pio2.o) (__aeabi_idiv)
+c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_dvmd_tls.o)
+                              c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_divsi3.o) (__aeabi_idiv0)
+c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_addsubdf3.o)
+                              c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-s_sin.o) (__aeabi_dsub)
+c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_muldivdf3.o)
+                              C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_audio.o (__aeabi_dmul)
+c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_cmpdf2.o)
+                              c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-e_rem_pio2.o) (__aeabi_dcmpeq)
+c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_fixdfsi.o)
+                              c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-e_rem_pio2.o) (__aeabi_d2iz)
+c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_fixunsdfsi.o)
+                              C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_audio.o (__aeabi_d2uiz)
+c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_truncdfsf2.o)
+                              C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_audio.o (__aeabi_d2f)
+c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_addsubsf3.o)
+                              C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_audio.o (__aeabi_ui2f)
+c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_muldivsf3.o)
+                              C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_audio.o (__aeabi_fmul)
+c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_aeabi_ldivmod.o)
+                              C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o (__aeabi_ldivmod)
+c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(bpabi.o)
+                              c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_aeabi_ldivmod.o) (__gnu_ldivmod_helper)
+c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_divdi3.o)
+                              c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(bpabi.o) (__divdi3)
+c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_udivdi3.o)
+                              c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(bpabi.o) (__udivdi3)
+c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_udivsi3.o)
+                              c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_divdi3.o) (__aeabi_uidiv)
+
+Allocating common symbols
+Common symbol       size              file
+
+pygmyGlobalRFID     0x4               C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rf.o
+pygmyGlobalMessages
+                    0x190             C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_sys.o
+pygmyGlobalData     0x20              C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_sys.o
+globalCOM3RXBuffer  0x80              C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_com.o
+globalIRQPins       0x10              C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_port.o
+pygmyGlobalRFSockets
+                    0x200             C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rf.o
+globalIRQPR         0x2               C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_port.o
+pygmyRootVolume     0x3c              C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+globalAudioPage     0x1               C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_audio.o
+pygmyRFSPI          0x1c              C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rf.o
+globalIRQHandlers   0x40              C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_port.o
+globalRFTXPayload   0x20              C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rf.o
+pygmyGlobalTasks    0x1a4             C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_sys.o
+globalRFConfig      0x4               C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rf.o
+globalPygmyPWM      0x80              C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_port.o
+globalAudioBuffer   0x400             C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_audio.o
+pygmyFlashSPI       0x1c              C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+globalBaseAddress   0x4               C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_fpec.o
+globalPygmyPWMFreq  0x4               C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_port.o
+pygmyAudioFile      0x28              C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_audio.o
+pygmyGlobalQueues   0x10              C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_sys.o
+
+Discarded input sections
+
+ .text          0x00000000       0x14 C:\Program Files (x86)\Raisonance\Ride\lib\ARM\startup_stm32f10x_hd.o
+ .data          0x00000000        0x0 C:\Program Files (x86)\Raisonance\Ride\lib\ARM\startup_stm32f10x_hd.o
+ .bss           0x00000000        0x0 C:\Program Files (x86)\Raisonance\Ride\lib\ARM\startup_stm32f10x_hd.o
+ .text          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_audio.o
+ .data          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_audio.o
+ .bss           0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_audio.o
+ .text.generateSineWave
+                0x00000000       0x88 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_audio.o
+ .text.generateDTMF
+                0x00000000       0xe8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_audio.o
+ .text.generateSquareWave
+                0x00000000       0x22 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_audio.o
+ .text.generateTriangleWave
+                0x00000000       0x40 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_audio.o
+ .text.generateSawWave
+                0x00000000       0x1a C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_audio.o
+ .text.blendWaves
+                0x00000000       0x22 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_audio.o
+ .text.dac1Output
+                0x00000000       0x68 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_audio.o
+ .text.audioPlayWave
+                0x00000000      0x1a0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_audio.o
+ .text.dac2Output
+                0x00000000       0x6c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_audio.o
+ .rodata.str1.1
+                0x00000000       0x92 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_audio.o
+ .text          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_cmd.o
+ .data          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_cmd.o
+ .bss           0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_cmd.o
+ .text          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_com.o
+ .data          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_com.o
+ .bss           0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_com.o
+ .text.i2cSetAddress
+                0x00000000        0x2 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_com.o
+ .text.comDisable
+                0x00000000       0x54 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_com.o
+ .text.comEnable
+                0x00000000       0x5c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_com.o
+ .text.comGenerateBaud
+                0x00000000       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_com.o
+ .text.comConfig
+                0x00000000       0xe0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_com.o
+ .text.parallelConfig
+                0x00000000      0x104 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_com.o
+ .text.parallelWrite
+                0x00000000       0x3a C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_com.o
+ .text.parallelRead
+                0x00000000       0x12 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_com.o
+ .text.spiWriteByte
+                0x00000000       0x2c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_com.o
+ .text.spiWriteWord
+                0x00000000       0x2c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_com.o
+ .text.spiReadBuffer
+                0x00000000       0x2c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_com.o
+ .text.spiWriteBuffer
+                0x00000000       0x2c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_com.o
+ .text.spiConfig
+                0x00000000       0xa8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_com.o
+ .text.i2cInit  0x00000000       0x54 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_com.o
+ .text.i2cReset
+                0x00000000       0x10 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_com.o
+ .text.I2C3_EV_IRQHandler
+                0x00000000        0x2 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_com.o
+ .text.I2C3_ER_IRQHandler
+                0x00000000        0x2 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_com.o
+ .text.i2cConfig
+                0x00000000       0x68 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_com.o
+ .text.i2cDelay
+                0x00000000        0x2 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_com.o
+ .text.i2cStart
+                0x00000000       0x58 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_com.o
+ .text.i2cStop  0x00000000       0x44 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_com.o
+ .text.i2cWriteBit
+                0x00000000       0x66 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_com.o
+ .text.i2cReadBit
+                0x00000000       0x4c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_com.o
+ .text.i2cWriteByte
+                0x00000000       0x32 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_com.o
+ .text.i2cWriteBuffer
+                0x00000000       0x4c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_com.o
+ .text.i2cReadByte
+                0x00000000       0x28 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_com.o
+ .text.i2cReadBuffer
+                0x00000000       0x46 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_com.o
+ .text.i2cResetBus
+                0x00000000        0x6 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_com.o
+ COMMON         0x00000000       0x80 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_com.o
+ .text          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_debug.o
+ .data          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_debug.o
+ .bss           0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_debug.o
+ .text          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .data          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .text.fileOpenResource
+                0x00000000       0x2e C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .text.fileCopyHandle
+                0x00000000       0x24 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .text.fileGetPosition
+                0x00000000        0x4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .text.fileSetPosition
+                0x00000000       0x3e C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .text.fileIsRootFull
+                0x00000000       0x10 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .text.fileIsValidName
+                0x00000000       0x4c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .text.fileGetMaxFiles
+                0x00000000        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .text.fileGetLong
+                0x00000000       0x5a C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .text.fileGetWord
+                0x00000000       0x32 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .text.flashReadLong
+                0x00000000       0x50 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .text.fileGetLength
+                0x00000000       0x40 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .text.flashReadByte
+                0x00000000       0x28 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .text.fileGetActiveFiles
+                0x00000000       0x30 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .text.fileGetFreeSpace
+                0x00000000       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .text.fileGetVolumeName
+                0x00000000       0x24 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .text.flashReadBuffer
+                0x00000000       0x40 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .text.fileSeekName
+                0x00000000       0x3c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .text.fileGetName
+                0x00000000       0x58 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .text.flashReadStatus
+                0x00000000       0x24 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .text.flashReadID
+                0x00000000       0x30 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .text.flashWaitForBusy
+                0x00000000        0xe C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .text.flashChipErase
+                0x00000000       0x30 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .text.flashSectorErase
+                0x00000000       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .text.flashWriteByte
+                0x00000000       0x40 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .text.flashWriteBuffer
+                0x00000000       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .text.flashWriteString
+                0x00000000       0x24 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .text.flashWriteLong
+                0x00000000       0x20 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .text.fileWriteLength
+                0x00000000       0x54 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .text.flashWriteWord
+                0x00000000       0x18 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .text.fileDeleteFATEntry
+                0x00000000       0x98 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .text.fileGetActiveFAT
+                0x00000000       0x4c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .text.fileGetFreeFATEntry
+                0x00000000       0xbc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .text.fileAllocateFAT
+                0x00000000       0x64 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .text.filePutChar
+                0x00000000       0x98 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .text.filePutLong
+                0x00000000       0x50 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .text.filePutWord
+                0x00000000       0x2c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .text.filePutString
+                0x00000000       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .text.filePutBuffer
+                0x00000000       0x22 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .text.fileClose
+                0x00000000       0xa0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .text.fileGetFreeFileEntry
+                0x00000000       0xf4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .text.fileRename
+                0x00000000       0x88 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .text.flashWriteEnable
+                0x00000000       0x44 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .text.fileFormat
+                0x00000000       0xec C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .text.fileMountRoot
+                0x00000000       0xb4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .text.fileDelete
+                0x00000000       0x3c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .text.fileOpen
+                0x00000000      0x104 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .text.fileCopy
+                0x00000000       0x4c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .rodata.str1.1
+                0x00000000        0x1 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .text          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_fpec.o
+ .data          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_fpec.o
+ .bss           0x00000000        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_fpec.o
+ .text.fpecGetID
+                0x00000000       0x48 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_fpec.o
+ .text.fpecUnlock
+                0x00000000       0x20 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_fpec.o
+ .text.fpecLock
+                0x00000000       0x10 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_fpec.o
+ .text.fpecWriteWord
+                0x00000000       0x6c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_fpec.o
+ .text.fpecWriteLong
+                0x00000000       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_fpec.o
+ .text.fpecProcessIHEX
+                0x00000000       0xac C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_fpec.o
+ .text.fpecWriteDescriptor
+                0x00000000       0x20 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_fpec.o
+ .text.fpecErasePage
+                0x00000000       0xb8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_fpec.o
+ .text.fpecEraseProgramMemory
+                0x00000000       0x58 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_fpec.o
+ COMMON         0x00000000        0x4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_fpec.o
+ .text          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_gui.o
+ .data          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_gui.o
+ .bss           0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_gui.o
+ .text          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_nvic.o
+ .data          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_nvic.o
+ .bss           0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_nvic.o
+ .text.interruptGetTimerVector
+                0x00000000       0x20 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_nvic.o
+ .text.interruptEnable
+                0x00000000       0x2c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_nvic.o
+ .text.interruptDisable
+                0x00000000       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_nvic.o
+ .text.interruptSetPriority
+                0x00000000       0xbc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_nvic.o
+ .rodata        0x00000000       0x24 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_nvic.o
+ .text          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_port.o
+ .data          0x00000000       0x48 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_port.o
+ .bss           0x00000000        0x4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_port.o
+ .text.pinGetIRQPR
+                0x00000000        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_port.o
+ .text.pinGetIRQPin
+                0x00000000        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_port.o
+ .text.pinAnalog
+                0x00000000       0x18 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_port.o
+ .text.pinInterrupt
+                0x00000000       0xd8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_port.o
+ .text.pinEnablePortClock
+                0x00000000       0x5c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_port.o
+ .text.pinGetPort
+                0x00000000       0x40 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_port.o
+ .text.pinConfig
+                0x00000000       0x64 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_port.o
+ .text.pinGet   0x00000000       0x54 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_port.o
+ .text.pinGetTimer
+                0x00000000       0x5c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_port.o
+ .text.pinGetChannel
+                0x00000000       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_port.o
+ .text.pinCounter
+                0x00000000        0x2 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_port.o
+ .text.pinSetSoftPWMFreq
+                0x00000000        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_port.o
+ .text.pinGetSoftPWMFreq
+                0x00000000        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_port.o
+ .text.pinInitSoftPWM
+                0x00000000       0x74 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_port.o
+ .text.pinPulseLow
+                0x00000000       0x7c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_port.o
+ .text.pinPulseHigh
+                0x00000000       0x88 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_port.o
+ .text.pinRemoveSoftPWM
+                0x00000000       0x2c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_port.o
+ .text.pinAddSoftPWM
+                0x00000000       0xe8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_port.o
+ .text.pinToggle
+                0x00000000        0x6 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_port.o
+ .text.pinPWM   0x00000000      0x250 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_port.o
+ .rodata        0x00000000       0x10 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_port.o
+ .rodata.str1.1
+                0x00000000       0x19 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_port.o
+ .text          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rf.o
+ .data          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rf.o
+ .bss           0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rf.o
+ .text.rfGetID  0x00000000        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rf.o
+ .text.rfLoadPacket
+                0x00000000       0xd0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rf.o
+ .text.rfListSockets
+                0x00000000       0xa4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rf.o
+ .text.rfCloseSocket
+                0x00000000       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rf.o
+ .text.rfInitSockets
+                0x00000000       0x14 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rf.o
+ .text.rfFindSocket
+                0x00000000       0x28 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rf.o
+ .text.rfOpenSocket
+                0x00000000       0x3c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rf.o
+ .text.rfGetTX  0x00000000       0x10 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rf.o
+ .text.rfFlushTX
+                0x00000000       0x20 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rf.o
+ .text.rfFlushRX
+                0x00000000       0x20 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rf.o
+ .text.rfSocketPutString
+                0x00000000        0x2 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rf.o
+ .text.rfGetStatus
+                0x00000000       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rf.o
+ .text.rfGetRXPayloadLen
+                0x00000000       0x24 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rf.o
+ .text.rfIsRXFIFOEmpty
+                0x00000000       0x28 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rf.o
+ .text.rfClearStatus
+                0x00000000       0x28 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rf.o
+ .text.rfSetRX  0x00000000       0x40 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rf.o
+ .text.rfSetTX  0x00000000       0x40 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rf.o
+ .text.rfPutTXBuffer
+                0x00000000       0x84 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rf.o
+ .text.rfSendPacket
+                0x00000000       0xe4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rf.o
+ .text.rfSendOpenSocket
+                0x00000000       0x2c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rf.o
+ .text.rfSendLastCommand
+                0x00000000       0x38 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rf.o
+ .text.rfSendNextCommand
+                0x00000000       0x38 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rf.o
+ .text.rfSendCloseCommand
+                0x00000000       0x38 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rf.o
+ .text.rfSendOpenCommand
+                0x00000000       0x38 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rf.o
+ .text.rfProcessPacket
+                0x00000000       0x58 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rf.o
+ .text.rfPutString
+                0x00000000       0x84 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rf.o
+ .text.rfGetSignalQuality
+                0x00000000       0x30 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rf.o
+ .text.rfGetRXPayload
+                0x00000000       0x70 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rf.o
+ .text.rfRX     0x00000000       0x24 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rf.o
+ .text.rfWriteAddress
+                0x00000000       0x38 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rf.o
+ .text.rfInit   0x00000000       0xec C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rf.o
+ .rodata        0x00000000        0x5 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rf.o
+ .rodata.str1.1
+                0x00000000       0xf5 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rf.o
+ COMMON         0x00000000      0x244 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rf.o
+ .text          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rtc.o
+ .data          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rtc.o
+ .bss           0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rtc.o
+ .text.resetBackupDomain
+                0x00000000       0x10 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rtc.o
+ .text.rtcClearFlags
+                0x00000000       0x40 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rtc.o
+ .text.timeSet  0x00000000       0x3c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rtc.o
+ .text.timeGet  0x00000000       0x14 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rtc.o
+ .text.convertSystemTimeToSeconds
+                0x00000000       0xa0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rtc.o
+ .text.convertSecondsToSystemTime
+                0x00000000       0xd0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rtc.o
+ .text.setSysTick
+                0x00000000       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rtc.o
+ .text.enableSysTick
+                0x00000000        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rtc.o
+ .text.disableSysTick
+                0x00000000        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rtc.o
+ .text          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+ .data          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+ .bss           0x00000000        0x4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+ .text.convertPinToString
+                0x00000000       0x24 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+ .text.convertBufferToU16
+                0x00000000        0xa C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+ .text.convertBufferToU32
+                0x00000000       0x18 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+ .text.isCharInString
+                0x00000000       0x16 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+ .text.isAlpha  0x00000000       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+ .text.isNumeric
+                0x00000000        0xe C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+ .text.isAlphaOrNumeric
+                0x00000000       0x2a C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+ .text.isHex    0x00000000       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+ .text.isBinary
+                0x00000000        0xe C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+ .text.isOctal  0x00000000        0xe C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+ .text.isNewline
+                0x00000000       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+ .text.isWhitespace
+                0x00000000        0xe C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+ .text.isQuote  0x00000000       0x14 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+ .text.isMath   0x00000000       0x14 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+ .text.isSeparator
+                0x00000000       0x14 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+ .text.isPunctuation
+                0x00000000       0x14 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+ .text.len      0x00000000       0x20 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+ .text.convertCharToUpper
+                0x00000000       0x10 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+ .text.convertCharToLower
+                0x00000000       0x10 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+ .text.isCharSameIgnoreCase
+                0x00000000       0x1a C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+ .text.isStringSameIgnoreCase
+                0x00000000       0x32 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+ .text.isStringSame
+                0x00000000       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+ .text.getNextSubString
+                0x00000000       0xe0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+ .text.getAllSubStrings
+                0x00000000       0x42 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+ .text.replaceChars
+                0x00000000       0x2c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+ .text.convertCharToInt
+                0x00000000       0x30 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+ .text.convertIntToChar
+                0x00000000        0x2 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+ .text.seekChar
+                0x00000000        0x4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+ .text.seekString
+                0x00000000       0x60 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+ .text.seekStringInBuffer
+                0x00000000        0x4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+ .text.appendString
+                0x00000000       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+ .text.copyString
+                0x00000000       0x12 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+ .text.convertStringToInt
+                0x00000000       0xb4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+ .text.convertIntToString
+                0x00000000      0x1a8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+ .text.convertStringToPin
+                0x00000000       0xcc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+ .text.convertBase64ToCode
+                0x00000000       0x46 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+ .text.convertHexCharToInteger
+                0x00000000       0x20 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+ .text.convertHexEncodedStringToBuffer
+                0x00000000       0x2c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+ .text.convertBase64ToBuffer
+                0x00000000       0x7c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+ .text.convertBase64ToString
+                0x00000000       0x78 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+ .text.convertStringToBase64
+                0x00000000       0x88 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+ .rodata        0x00000000      0x134 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+ .rodata.str1.1
+                0x00000000       0xac C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+ .text          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_sys.o
+ .data          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_sys.o
+ .bss           0x00000000       0x19 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_sys.o
+ .text.sysSetPipe
+                0x00000000       0x18 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_sys.o
+ .text.sysEnableComClock
+                0x00000000       0x14 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_sys.o
+ .text.sysRandom
+                0x00000000       0x84 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_sys.o
+ .text.sysDisableComClock
+                0x00000000       0x14 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_sys.o
+ .text.sysDisableTimerClock
+                0x00000000       0xf8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_sys.o
+ .text.sysEnableTimerInterrupt
+                0x00000000       0x12 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_sys.o
+ .text.sysGetDelayTimer
+                0x00000000        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_sys.o
+ .text.sysGetPWMTimer
+                0x00000000        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_sys.o
+ .text.sysGetMainClock
+                0x00000000        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_sys.o
+ .text.sysSetMainClock
+                0x00000000        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_sys.o
+ .text.sysGetXTAL
+                0x00000000        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_sys.o
+ .text.sysSetXTAL
+                0x00000000        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_sys.o
+ .text.sysCRC8  0x00000000       0x1e C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_sys.o
+ .text.sysCRC16
+                0x00000000       0x1e C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_sys.o
+ .text.TaskException_Handler
+                0x00000000        0x2 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_sys.o
+ .text.sysGetIDString
+                0x00000000       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_sys.o
+ .text.sysGetID
+                0x00000000        0x8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_sys.o
+ .text.sysGetFile
+                0x00000000        0x8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_sys.o
+ .text.descriptorGetMainClock
+                0x00000000       0x18 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_sys.o
+ .text.descriptorGetXTAL
+                0x00000000       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_sys.o
+ .text.descriptorGetID
+                0x00000000       0x18 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_sys.o
+ .text.sysGetIDRevision
+                0x00000000        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_sys.o
+ .text.setMainClock
+                0x00000000       0x68 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_sys.o
+ .text.sysGetTimer
+                0x00000000       0x18 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_sys.o
+ .text.delay    0x00000000       0xbc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_sys.o
+ .text.stopwatchStart
+                0x00000000        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_sys.o
+ .text.stopwatchGet
+                0x00000000        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_sys.o
+ .text.mcoEnable
+                0x00000000       0x5c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_sys.o
+ .text.mcoDisable
+                0x00000000       0x10 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_sys.o
+ .rodata.str1.1
+                0x00000000        0x3 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_sys.o
+ .text          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\main.o
+ .data          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\main.o
+ .bss           0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\main.o
+ .text          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_adc.o
+ .data          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_adc.o
+ .bss           0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_adc.o
+ .text          0x00000000       0x98 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-s_sin.o)
+ .data          0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-s_sin.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-s_sin.o)
+ .ARM.attributes
+                0x00000000       0x29 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-s_sin.o)
+ .debug_frame   0x00000000       0x30 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-s_sin.o)
+ .text          0x00000000      0x448 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-e_rem_pio2.o)
+ .data          0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-e_rem_pio2.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-e_rem_pio2.o)
+ .rodata        0x00000000      0x188 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-e_rem_pio2.o)
+ .ARM.attributes
+                0x00000000       0x29 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-e_rem_pio2.o)
+ .debug_frame   0x00000000       0x3c c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-e_rem_pio2.o)
+ .text          0x00000000      0x250 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-k_cos.o)
+ .data          0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-k_cos.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-k_cos.o)
+ .ARM.attributes
+                0x00000000       0x29 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-k_cos.o)
+ .debug_frame   0x00000000       0x3c c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-k_cos.o)
+ .text          0x00000000      0x7a8 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-k_rem_pio2.o)
+ .data          0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-k_rem_pio2.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-k_rem_pio2.o)
+ .rodata        0x00000000       0x50 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-k_rem_pio2.o)
+ .ARM.attributes
+                0x00000000       0x29 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-k_rem_pio2.o)
+ .debug_frame   0x00000000       0x3c c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-k_rem_pio2.o)
+ .text          0x00000000      0x168 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-k_sin.o)
+ .data          0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-k_sin.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-k_sin.o)
+ .ARM.attributes
+                0x00000000       0x29 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-k_sin.o)
+ .debug_frame   0x00000000       0x3c c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-k_sin.o)
+ .text          0x00000000        0x8 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-s_fabs.o)
+ .data          0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-s_fabs.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-s_fabs.o)
+ .ARM.attributes
+                0x00000000       0x29 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-s_fabs.o)
+ .debug_frame   0x00000000       0x20 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-s_fabs.o)
+ .text          0x00000000      0x128 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-s_floor.o)
+ .data          0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-s_floor.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-s_floor.o)
+ .ARM.attributes
+                0x00000000       0x29 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-s_floor.o)
+ .debug_frame   0x00000000       0x34 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-s_floor.o)
+ .text          0x00000000      0x108 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-s_scalbn.o)
+ .data          0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-s_scalbn.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-s_scalbn.o)
+ .ARM.attributes
+                0x00000000       0x29 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-s_scalbn.o)
+ .debug_frame   0x00000000       0x30 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-s_scalbn.o)
+ .text          0x00000000       0x14 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-s_copysign.o)
+ .data          0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-s_copysign.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-s_copysign.o)
+ .ARM.attributes
+                0x00000000       0x29 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-s_copysign.o)
+ .debug_frame   0x00000000       0x28 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a(lib_a-s_copysign.o)
+ .text          0x00000000      0x2b0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_divsi3.o)
+ .data          0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_divsi3.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_divsi3.o)
+ .debug_frame   0x00000000       0x20 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_divsi3.o)
+ .ARM.attributes
+                0x00000000       0x1b c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_divsi3.o)
+ .text          0x00000000        0x4 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_dvmd_tls.o)
+ .data          0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_dvmd_tls.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_dvmd_tls.o)
+ .ARM.attributes
+                0x00000000       0x1b c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_dvmd_tls.o)
+ .text          0x00000000      0x370 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_addsubdf3.o)
+ .data          0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_addsubdf3.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_addsubdf3.o)
+ .ARM.attributes
+                0x00000000       0x1b c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_addsubdf3.o)
+ .text          0x00000000      0x424 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_muldivdf3.o)
+ .data          0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_muldivdf3.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_muldivdf3.o)
+ .ARM.attributes
+                0x00000000       0x1b c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_muldivdf3.o)
+ .text          0x00000000      0x110 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_cmpdf2.o)
+ .data          0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_cmpdf2.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_cmpdf2.o)
+ .ARM.attributes
+                0x00000000       0x1b c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_cmpdf2.o)
+ .text          0x00000000       0x50 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_fixdfsi.o)
+ .data          0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_fixdfsi.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_fixdfsi.o)
+ .ARM.attributes
+                0x00000000       0x1b c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_fixdfsi.o)
+ .text          0x00000000       0x40 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_fixunsdfsi.o)
+ .data          0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_fixunsdfsi.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_fixunsdfsi.o)
+ .ARM.attributes
+                0x00000000       0x1b c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_fixunsdfsi.o)
+ .text          0x00000000       0xa0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_truncdfsf2.o)
+ .data          0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_truncdfsf2.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_truncdfsf2.o)
+ .ARM.attributes
+                0x00000000       0x1b c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_truncdfsf2.o)
+ .text          0x00000000      0x21c c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_addsubsf3.o)
+ .data          0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_addsubsf3.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_addsubsf3.o)
+ .ARM.attributes
+                0x00000000       0x1b c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_addsubsf3.o)
+ .text          0x00000000      0x2a0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_muldivsf3.o)
+ .data          0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_muldivsf3.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_muldivsf3.o)
+ .ARM.attributes
+                0x00000000       0x1b c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_muldivsf3.o)
+ .text          0x00000000       0x38 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_aeabi_ldivmod.o)
+ .data          0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_aeabi_ldivmod.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_aeabi_ldivmod.o)
+ .ARM.attributes
+                0x00000000       0x1b c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_aeabi_ldivmod.o)
+ .text          0x00000000       0x60 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(bpabi.o)
+ .data          0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(bpabi.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(bpabi.o)
+ .ARM.attributes
+                0x00000000       0x29 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(bpabi.o)
+ .debug_frame   0x00000000       0x50 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(bpabi.o)
+ .text          0x00000000      0x364 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_divdi3.o)
+ .data          0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_divdi3.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_divdi3.o)
+ .ARM.extab     0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_divdi3.o)
+ .ARM.exidx     0x00000000        0x8 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_divdi3.o)
+ .ARM.attributes
+                0x00000000       0x29 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_divdi3.o)
+ .debug_frame   0x00000000       0x3c c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_divdi3.o)
+ .text          0x00000000      0x314 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_udivdi3.o)
+ .data          0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_udivdi3.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_udivdi3.o)
+ .ARM.extab     0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_udivdi3.o)
+ .ARM.exidx     0x00000000        0x8 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_udivdi3.o)
+ .ARM.attributes
+                0x00000000       0x29 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_udivdi3.o)
+ .debug_frame   0x00000000       0x3c c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_udivdi3.o)
+ .text          0x00000000      0x278 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_udivsi3.o)
+ .data          0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_udivsi3.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_udivsi3.o)
+ .debug_frame   0x00000000       0x20 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_udivsi3.o)
+ .ARM.attributes
+                0x00000000       0x1b c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_udivsi3.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+RAM              0x20000000         0x00002000         xrw
+FLASH            0x08002000         0x0000e000         xr
+STARTFLASH       0x00000000         0x00000000         xr
+CRPPATCH         0x00000000         0x00000000         r
+FLASHPATCH       0x00000000         0x00000000         r
+ENDFLASH         0x00000000         0x00000000         xr
+FLASHB1          0x00000000         0x00000000         xr
+EXTMEMB0         0x00000000         0x00000000         xr
+EXTMEMB1         0x00000000         0x00000000         xr
+EXTMEMB2         0x00000000         0x00000000         xr
+EXTMEMB3         0x00000000         0x00000000         xr
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD C:\Program Files (x86)\Raisonance\Ride\lib\ARM\startup_stm32f10x_hd.o
+LOAD C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_audio.o
+LOAD C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_cmd.o
+LOAD C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_com.o
+LOAD C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_debug.o
+LOAD C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+LOAD C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_fpec.o
+LOAD C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_gui.o
+LOAD C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_nvic.o
+LOAD C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_port.o
+LOAD C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rf.o
+LOAD C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rtc.o
+LOAD C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+LOAD C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_sys.o
+LOAD C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\main.o
+LOAD C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_adc.o
+START GROUP
+LOAD C:\Program Files (x86)\Raisonance\Ride\Lib\ARM\std_sbrk_thumb.lib
+LOAD C:\Program Files (x86)\Raisonance\Ride\Lib\ARM\smallprintf_thumb.a
+LOAD c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libc.a
+LOAD c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a
+END GROUP
+                0x00000400                __Stack_Size = 0x400
+                0x00000400                PROVIDE (_Stack_Size, __Stack_Size)
+                0x20001c00                __Stack_Init = (_estack - __Stack_Size)
+                0x20001c00                PROVIDE (_Stack_Init, __Stack_Init)
+                0x00000100                _Minimum_Stack_Size = 0x100
+                0x00000000                PROVIDE (Undefined_Handler, 0x0)
+                0x00000000                PROVIDE (SWI_Handler, 0x0)
+                0x00000000                PROVIDE (IRQ_Handler, 0x0)
+                0x00000000                PROVIDE (Prefetch_Handler, 0x0)
+                0x00000000                PROVIDE (Abort_Handler, 0x0)
+                0x00000000                PROVIDE (FIQ_Handler, 0x0)
+                0x00000000                PROVIDE (NMIException, 0x0)
+                0x00000000                PROVIDE (NMI_Handler, 0x0)
+                0x00000000                PROVIDE (HardFaultException, 0x0)
+                0x00000000                PROVIDE (HardFault_Handler, 0x0)
+                0x00000000                PROVIDE (MemManageException, 0x0)
+                0x00000000                PROVIDE (MemManage_Handler, 0x0)
+                0x00000000                PROVIDE (BusFaultException, 0x0)
+                0x00000000                PROVIDE (BusFault_Handler, 0x0)
+                0x00000000                PROVIDE (UsageFaultException, 0x0)
+                0x00000000                PROVIDE (UsageFault_Handler, 0x0)
+                0x00000000                PROVIDE (SVCHandler, 0x0)
+                0x00000000                PROVIDE (SVC_Handler, 0x0)
+                0x00000000                PROVIDE (DebugMonitor, 0x0)
+                0x00000000                PROVIDE (DebugMon_Handler, 0x0)
+                0x00000000                PROVIDE (PendSVC, 0x0)
+                0x00000000                PROVIDE (PendSV_Handler, 0x0)
+                0x00000000                PROVIDE (SysTickHandler, 0x0)
+                0x00000000                PROVIDE (SysTick_Handler, 0x0)
+                0x00000000                PROVIDE (WWDG_IRQHandler, 0x0)
+                0x00000000                PROVIDE (PVD_IRQHandler, 0x0)
+                0x00000000                PROVIDE (TAMPER_IRQHandler, 0x0)
+                0x00000000                PROVIDE (RTC_IRQHandler, 0x0)
+                0x00000000                PROVIDE (FLASH_IRQHandler, 0x0)
+                0x00000000                PROVIDE (RCC_IRQHandler, 0x0)
+                0x00000000                PROVIDE (EXTI0_IRQHandler, 0x0)
+                0x00000000                PROVIDE (EXTI1_IRQHandler, 0x0)
+                0x00000000                PROVIDE (EXTI2_IRQHandler, 0x0)
+                0x00000000                PROVIDE (EXTI3_IRQHandler, 0x0)
+                0x00000000                PROVIDE (EXTI4_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMAChannel1_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMAChannel2_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMAChannel3_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMAChannel4_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMAChannel5_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMAChannel6_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMAChannel7_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMA1_Channel1_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMA1_Channel2_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMA1_Channel3_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMA1_Channel4_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMA1_Channel5_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMA1_Channel6_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMA1_Channel7_IRQHandler, 0x0)
+                0x00000000                PROVIDE (ADC_IRQHandler, 0x0)
+                0x00000000                PROVIDE (ADC1_2_IRQHandler, 0x0)
+                0x00000000                PROVIDE (USB_HP_CAN_TX_IRQHandler, 0x0)
+                0x00000000                PROVIDE (USB_HP_CAN1_TX_IRQHandler, 0x0)
+                0x00000000                PROVIDE (USB_LP_CAN_RX0_IRQHandler, 0x0)
+                0x00000000                PROVIDE (USB_LP_CAN1_RX0_IRQHandler, 0x0)
+                0x00000000                PROVIDE (CAN_RX1_IRQHandler, 0x0)
+                0x00000000                PROVIDE (CAN1_RX1_IRQHandler, 0x0)
+                0x00000000                PROVIDE (CAN_SCE_IRQHandler, 0x0)
+                0x00000000                PROVIDE (CAN1_SCE_IRQHandler, 0x0)
+                0x00000000                PROVIDE (EXTI9_5_IRQHandler, 0x0)
+                0x00000000                PROVIDE (TIM1_BRK_IRQHandler, 0x0)
+                0x00000000                PROVIDE (TIM1_UP_IRQHandler, 0x0)
+                0x00000000                PROVIDE (TIM1_TRG_COM_IRQHandler, 0x0)
+                0x00000000                PROVIDE (TIM1_CC_IRQHandler, 0x0)
+                0x00000000                PROVIDE (TIM2_IRQHandler, 0x0)
+                0x00000000                PROVIDE (TIM3_IRQHandler, 0x0)
+                0x00000000                PROVIDE (TIM4_IRQHandler, 0x0)
+                0x00000000                PROVIDE (I2C1_EV_IRQHandler, 0x0)
+                0x00000000                PROVIDE (I2C1_ER_IRQHandler, 0x0)
+                0x00000000                PROVIDE (I2C2_EV_IRQHandler, 0x0)
+                0x00000000                PROVIDE (I2C2_ER_IRQHandler, 0x0)
+                0x00000000                PROVIDE (SPI1_IRQHandler, 0x0)
+                0x00000000                PROVIDE (SPI2_IRQHandler, 0x0)
+                0x00000000                PROVIDE (USART1_IRQHandler, 0x0)
+                0x00000000                PROVIDE (USART2_IRQHandler, 0x0)
+                0x00000000                PROVIDE (USART3_IRQHandler, 0x0)
+                0x00000000                PROVIDE (EXTI15_10_IRQHandler, 0x0)
+                0x00000000                PROVIDE (RTCAlarm_IRQHandler, 0x0)
+                0x00000000                PROVIDE (USBWakeUp_IRQHandler, 0x0)
+                0x00000000                PROVIDE (TIM8_BRK_IRQHandler, 0x0)
+                0x00000000                PROVIDE (TIM8_UP_IRQHandler, 0x0)
+                0x00000000                PROVIDE (TIM8_TRG_COM_IRQHandler, 0x0)
+                0x00000000                PROVIDE (TIM8_CC_IRQHandler, 0x0)
+                0x00000000                PROVIDE (ADC3_IRQHandler, 0x0)
+                0x00000000                PROVIDE (FSMC_IRQHandler, 0x0)
+                0x00000000                PROVIDE (SDIO_IRQHandler, 0x0)
+                0x00000000                PROVIDE (TIM5_IRQHandler, 0x0)
+                0x00000000                PROVIDE (SPI3_IRQHandler, 0x0)
+                0x00000000                PROVIDE (UART4_IRQHandler, 0x0)
+                0x00000000                PROVIDE (UART5_IRQHandler, 0x0)
+                0x00000000                PROVIDE (TIM6_IRQHandler, 0x0)
+                0x00000000                PROVIDE (TIM7_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMA2_Channel1_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMA2_Channel2_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMA2_Channel3_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMA2_Channel4_5_IRQHandler, 0x0)
+                0x42000000                PERIPH_BB_BASE = 0x42000000
+                0x22000000                SRAM_BB_BASE = 0x22000000
+                0x20000000                SRAM_BASE = 0x20000000
+                0x40000000                PERIPH_BASE = 0x40000000
+                0x40022000                PROVIDE (FLASH_BASE, 0x40022000)
+                0x1ffff800                PROVIDE (OB_BASE, 0x1ffff800)
+                0x40000000                APB1PERIPH_BASE = PERIPH_BASE
+                0x40010000                APB2PERIPH_BASE = (PERIPH_BASE + 0x10000)
+                0x40020000                AHBPERIPH_BASE = (PERIPH_BASE + 0x20000)
+                0x40000000                PROVIDE (TIM2, (APB1PERIPH_BASE + 0x0))
+                0x40000400                PROVIDE (TIM3, (APB1PERIPH_BASE + 0x400))
+                0x40000800                PROVIDE (TIM4, (APB1PERIPH_BASE + 0x800))
+                0x40002800                PROVIDE (RTC, (APB1PERIPH_BASE + 0x2800))
+                0x40002c00                PROVIDE (WWDG, (APB1PERIPH_BASE + 0x2c00))
+                0x40003000                PROVIDE (IWDG, (APB1PERIPH_BASE + 0x3000))
+                0x40003800                PROVIDE (SPI2, (APB1PERIPH_BASE + 0x3800))
+                0x40004400                PROVIDE (USART2, (APB1PERIPH_BASE + 0x4400))
+                0x40004800                PROVIDE (USART3, (APB1PERIPH_BASE + 0x4800))
+                0x40005400                PROVIDE (I2C1, (APB1PERIPH_BASE + 0x5400))
+                0x40005800                PROVIDE (I2C2, (APB1PERIPH_BASE + 0x5800))
+                0x40006400                PROVIDE (CAN, (APB1PERIPH_BASE + 0x6400))
+                0x40006c00                PROVIDE (BKP, (APB1PERIPH_BASE + 0x6c00))
+                0x40007000                PROVIDE (PWR, (APB1PERIPH_BASE + 0x7000))
+                0x40010000                PROVIDE (AFIO, (APB2PERIPH_BASE + 0x0))
+                0x40010400                PROVIDE (EXTI, (APB2PERIPH_BASE + 0x400))
+                0x40010800                PROVIDE (GPIOA, (APB2PERIPH_BASE + 0x800))
+                0x40010c00                PROVIDE (GPIOB, (APB2PERIPH_BASE + 0xc00))
+                0x40011000                PROVIDE (GPIOC, (APB2PERIPH_BASE + 0x1000))
+                0x40011400                PROVIDE (GPIOD, (APB2PERIPH_BASE + 0x1400))
+                0x40011800                PROVIDE (GPIOE, (APB2PERIPH_BASE + 0x1800))
+                0x40012400                PROVIDE (ADC1, (APB2PERIPH_BASE + 0x2400))
+                0x40012800                PROVIDE (ADC2, (APB2PERIPH_BASE + 0x2800))
+                0x40012c00                PROVIDE (TIM1, (APB2PERIPH_BASE + 0x2c00))
+                0x40013000                PROVIDE (SPI1, (APB2PERIPH_BASE + 0x3000))
+                0x40013800                PROVIDE (USART1, (APB2PERIPH_BASE + 0x3800))
+                0x40020000                PROVIDE (DMA, (AHBPERIPH_BASE + 0x0))
+                0x40020008                PROVIDE (DMA_Channel1, (AHBPERIPH_BASE + 0x8))
+                0x4002001c                PROVIDE (DMA_Channel2, (AHBPERIPH_BASE + 0x1c))
+                0x40020030                PROVIDE (DMA_Channel3, (AHBPERIPH_BASE + 0x30))
+                0x40020044                PROVIDE (DMA_Channel4, (AHBPERIPH_BASE + 0x44))
+                0x40020058                PROVIDE (DMA_Channel5, (AHBPERIPH_BASE + 0x58))
+                0x4002006c                PROVIDE (DMA_Channel6, (AHBPERIPH_BASE + 0x6c))
+                0x40020080                PROVIDE (DMA_Channel7, (AHBPERIPH_BASE + 0x80))
+                0x40021000                PROVIDE (RCC, (AHBPERIPH_BASE + 0x1000))
+                0xe000e000                SCS_BASE = 0xe000e000
+                0xe000e010                PROVIDE (SysTick, (SCS_BASE + 0x10))
+                0xe000e100                PROVIDE (NVIC, (SCS_BASE + 0x100))
+                0xe000ed00                PROVIDE (SCB, (SCS_BASE + 0xd00))
+                0x20002000                _estack = 0x20002000
+
+.isr_vector     0x08002000      0x1e4
+                0x08002000                . = ALIGN (0x4)
+ *(.isr_vector)
+ .isr_vector    0x08002000      0x1e4 C:\Program Files (x86)\Raisonance\Ride\lib\ARM\startup_stm32f10x_hd.o
+                0x08002000                g_pfnVectors
+                0x080021e4                . = ALIGN (0x4)
+
+.flash_start    0x00000000        0x0
+                0x00000000                . = ALIGN (0x4)
+ *(.flash_start)
+ *(.flash_start.*)
+                0x00000000                . = ALIGN (0x4)
+
+.crp_patch      0x00000000        0x0
+                0x00000000                . = ALIGN (0x4)
+ *(.crp_patch)
+                0x00000000                . = ALIGN (0x4)
+
+.flashtext      0x080021e4        0x0
+                0x080021e4                . = ALIGN (0x4)
+ *(.flashtext)
+                0x080021e4                . = ALIGN (0x4)
+
+.text           0x080021e4      0xa34
+                0x080021e4                . = ALIGN (0x4)
+ *(.text)
+ *(.text.*)
+ .text.Reset_Handler
+                0x080021e4       0x50 C:\Program Files (x86)\Raisonance\Ride\lib\ARM\startup_stm32f10x_hd.o
+                0x080021e4                Reset_Handler
+ .text.SystemInit_ExtMemCtl_Dummy
+                0x08002234        0x2 C:\Program Files (x86)\Raisonance\Ride\lib\ARM\startup_stm32f10x_hd.o
+                0x08002234                SystemInit_ExtMemCtl
+                0x08002234                SystemInit_ExtMemCtl_Dummy
+ .text.Default_Handler
+                0x08002236        0x2 C:\Program Files (x86)\Raisonance\Ride\lib\ARM\startup_stm32f10x_hd.o
+                0x08002236                TIM8_TRG_COM_IRQHandler
+                0x08002236                TIM8_CC_IRQHandler
+                0x08002236                DebugMon_Handler
+                0x08002236                TIM1_CC_IRQHandler
+                0x08002236                HardFault_Handler
+                0x08002236                TIM6_IRQHandler
+                0x08002236                PVD_IRQHandler
+                0x08002236                SDIO_IRQHandler
+                0x08002236                PendSV_Handler
+                0x08002236                NMI_Handler
+                0x08002236                UsageFault_Handler
+                0x08002236                ADC1_2_IRQHandler
+                0x08002236                SPI1_IRQHandler
+                0x08002236                TAMPER_IRQHandler
+                0x08002236                TIM8_UP_IRQHandler
+                0x08002236                DMA2_Channel2_IRQHandler
+                0x08002236                DMA1_Channel4_IRQHandler
+                0x08002236                USART3_IRQHandler
+                0x08002236                RTC_IRQHandler
+                0x08002236                DMA1_Channel7_IRQHandler
+                0x08002236                CAN1_RX1_IRQHandler
+                0x08002236                UART5_IRQHandler
+                0x08002236                ADC3_IRQHandler
+                0x08002236                TIM4_IRQHandler
+                0x08002236                DMA2_Channel1_IRQHandler
+                0x08002236                I2C1_EV_IRQHandler
+                0x08002236                DMA1_Channel6_IRQHandler
+                0x08002236                UART4_IRQHandler
+                0x08002236                TIM3_IRQHandler
+                0x08002236                RCC_IRQHandler
+                0x08002236                TIM1_TRG_COM_IRQHandler
+                0x08002236                DMA1_Channel1_IRQHandler
+                0x08002236                Default_Handler
+                0x08002236                TIM7_IRQHandler
+                0x08002236                TIM5_IRQHandler
+                0x08002236                SPI2_IRQHandler
+                0x08002236                MemManage_Handler
+                0x08002236                SVC_Handler
+                0x08002236                DMA1_Channel5_IRQHandler
+                0x08002236                USB_LP_CAN1_RX0_IRQHandler
+                0x08002236                USB_HP_CAN1_TX_IRQHandler
+                0x08002236                FSMC_IRQHandler
+                0x08002236                WWDG_IRQHandler
+                0x08002236                TIM2_IRQHandler
+                0x08002236                TIM1_BRK_IRQHandler
+                0x08002236                RTCAlarm_IRQHandler
+                0x08002236                DMA2_Channel4_5_IRQHandler
+                0x08002236                USART2_IRQHandler
+                0x08002236                DMA1_Channel2_IRQHandler
+                0x08002236                TIM8_BRK_IRQHandler
+                0x08002236                CAN1_SCE_IRQHandler
+                0x08002236                FLASH_IRQHandler
+                0x08002236                BusFault_Handler
+                0x08002236                USART1_IRQHandler
+                0x08002236                SPI3_IRQHandler
+                0x08002236                USBWakeUp_IRQHandler
+                0x08002236                DMA2_Channel3_IRQHandler
+ .text.DMA1_Channel3_IRQHandler
+                0x08002238       0x6c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_audio.o
+                0x08002238                DMA1_Channel3_IRQHandler
+ .text.spiWriteLong
+                0x080022a4       0x2c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_com.o
+                0x080022a4                spiWriteLong
+ .text.spiReadByte
+                0x080022d0       0x30 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_com.o
+                0x080022d0                spiReadByte
+ .text.I2C1_ER_IRQHandler
+                0x08002300        0x2 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_com.o
+                0x08002300                I2C1_ER_IRQHandler
+ .text.I2C2_EV_IRQHandler
+                0x08002302        0x2 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_com.o
+                0x08002302                I2C2_EV_IRQHandler
+ .text.I2C2_ER_IRQHandler
+                0x08002304        0x2 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_com.o
+                0x08002304                I2C2_ER_IRQHandler
+ .text.fileIsEOF
+                0x08002306        0x8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+                0x08002306                fileIsEOF
+ *fill*         0x0800230e        0x2 00
+ .text.flashReadWord
+                0x08002310       0x38 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+                0x08002310                flashReadWord
+ .text.fileGetFAT
+                0x08002348       0x5c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+                0x08002348                fileGetFAT
+ .text.fileGetChar
+                0x080023a4      0x128 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+                0x080023a4                fileGetChar
+ .text.fileGetBuffer
+                0x080024cc       0x20 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+                0x080024cc                fileGetBuffer
+ .text.pinSet   0x080024ec       0x6c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_port.o
+                0x080024ec                pinSet
+ .text.pinProcessSoftPWM
+                0x08002558       0x4c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_port.o
+                0x08002558                pinProcessSoftPWM
+ .text.TIM1_UP_IRQHandler
+                0x080025a4       0x10 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_port.o
+                0x080025a4                TIM1_UP_IRQHandler
+ .text.EXTI0_IRQHandler
+                0x080025b4       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_port.o
+                0x080025b4                EXTI0_IRQHandler
+ .text.EXTI1_IRQHandler
+                0x080025e8       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_port.o
+                0x080025e8                EXTI1_IRQHandler
+ .text.EXTI2_IRQHandler
+                0x0800261c       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_port.o
+                0x0800261c                EXTI2_IRQHandler
+ .text.EXTI3_IRQHandler
+                0x08002650       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_port.o
+                0x08002650                EXTI3_IRQHandler
+ .text.EXTI4_IRQHandler
+                0x08002684       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_port.o
+                0x08002684                EXTI4_IRQHandler
+ .text.EXTI9_5_IRQHandler
+                0x080026b8       0xe4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_port.o
+                0x080026b8                EXTI9_5_IRQHandler
+ .text.EXTI15_10_IRQHandler
+                0x0800279c      0x110 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_port.o
+                0x0800279c                EXTI15_10_IRQHandler
+ .text.timeInit
+                0x080028ac       0xa4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rtc.o
+                0x080028ac                timeInit
+ .text.sysEnableTimerClock
+                0x08002950       0xf8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_sys.o
+                0x08002950                sysEnableTimerClock
+ .text.sysInit  0x08002a48       0x44 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_sys.o
+                0x08002a48                sysInit
+ .text.SysTick_Handler
+                0x08002a8c       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_sys.o
+                0x08002a8c                SysTick_Handler
+ .text.main     0x08002aa8        0x8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\main.o
+                0x08002aa8                main
+ *(.rodata)
+ .rodata        0x08002ab0      0x168 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_sys.o
+                0x08002b04                PYGSYS_INVBITS
+                0x08002b0c                PYGMY_DAYSINMONTH
+                0x08002b18                PYGMY_BITMASKS
+                0x08002b98                PYGMY_INVBITMASKS
+ *(.rodata*)
+ *(.glue_7)
+ .glue_7        0x00000000        0x0 linker stubs
+ *(.glue_7t)
+ .glue_7t       0x00000000        0x0 linker stubs
+                0x08002c18                . = ALIGN (0x4)
+                0x08002c18                _etext = .
+                0x08002c18                _sidata = _etext
+
+.vfp11_veneer   0x08002c18        0x0
+ .vfp11_veneer  0x00000000        0x0 linker stubs
+
+.v4_bx          0x08002c18        0x0
+ .v4_bx         0x00000000        0x0 linker stubs
+
+.flashpatch     0x00000000        0x0
+                0x00000000                . = ALIGN (0x4)
+ *(.flashpatch)
+                0x00000000                . = ALIGN (0x4)
+
+.endflash       0x00000000        0x0
+                0x00000000                . = ALIGN (0x4)
+ *(.endflash)
+                0x00000000                . = ALIGN (0x4)
+                0x00000000                _e_endflash = .
+
+.data           0x20000000        0x0 load address 0x08002c18
+                0x20000000                . = ALIGN (0x4)
+                0x20000000                _sdata = .
+                0x20000000                _data = .
+ *(.data)
+ *(.data.*)
+ *(.RAMtext)
+                0x20000000                . = ALIGN (0x4)
+                0x20000000                _edata = .
+                0x08002c18                _eidata = ((_sidata + _edata) - _sdata)
+                0x08010000                _lastdataromaddress = 0x8010000
+                0x00000000                toobig = (_eidata > _lastdataromaddress)?!!!!!!!!! FLASH IS FULL !!!!!!!!!:0x0
+
+.bss            0x20000000      0x94c
+                0x20000000                . = ALIGN (0x4)
+                0x20000000                _sbss = .
+                0x20000000                _bss = .
+ *(.bss)
+ .bss           0x20000000       0x8c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ *(COMMON)
+ COMMON         0x2000008c      0x42c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_audio.o
+                0x2000008c                globalAudioPage
+                0x2000008d                globalAudioBuffer
+                0x20000490                pygmyAudioFile
+ COMMON         0x200004b8       0x58 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+                0x200004b8                pygmyRootVolume
+                0x200004f4                pygmyFlashSPI
+ COMMON         0x20000510       0xd8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_port.o
+                0x20000510                globalIRQPins
+                0x20000520                globalIRQPR
+                0x20000524                globalIRQHandlers
+                0x20000564                globalPygmyPWM
+                0x200005e4                globalPygmyPWMFreq
+ COMMON         0x200005e8      0x364 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_sys.o
+                0x200005e8                pygmyGlobalMessages
+                0x20000778                pygmyGlobalData
+                0x20000798                pygmyGlobalTasks
+                0x2000093c                pygmyGlobalQueues
+                0x2000094c                . = ALIGN (0x4)
+                0x2000094c                _ebss = .
+                0x2000094c                PROVIDE (end, _ebss)
+                0x2000094c                PROVIDE (_end, _ebss)
+
+._usrstack      0x2000094c      0x100
+                0x2000094c                . = ALIGN (0x4)
+                0x2000094c                _susrstack = .
+                0x20000a4c                . = (. + _Minimum_Stack_Size)
+ *fill*         0x2000094c      0x100 00
+                0x20000a4c                . = ALIGN (0x4)
+                0x20000a4c                _eusrstack = .
+
+.b1text
+ *(.b1text)
+ *(.b1rodata)
+ *(.b1rodata*)
+
+.eb0text
+ *(.eb0text)
+ *(.eb0rodata)
+ *(.eb0rodata*)
+
+.eb1text
+ *(.eb1text)
+ *(.eb1rodata)
+ *(.eb1rodata*)
+
+.eb2text
+ *(.eb2text)
+ *(.eb2rodata)
+ *(.eb2rodata*)
+
+.eb3text
+ *(.eb3text)
+ *(.eb3rodata)
+ *(.eb3rodata*)
+                0x20000a4c                __exidx_start = .
+                0x20000a4c                __exidx_end = .
+
+/DISCARD/
+ libc.a(*)
+ libm.a(*)
+ libgcc.a(*)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.ARM.attributes
+                0x00000000       0x2d
+ .ARM.attributes
+                0x00000000       0x21 C:\Program Files (x86)\Raisonance\Ride\lib\ARM\startup_stm32f10x_hd.o
+ .ARM.attributes
+                0x00000021       0x31 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_audio.o
+ .ARM.attributes
+                0x00000052       0x31 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_cmd.o
+ .ARM.attributes
+                0x00000083       0x31 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_com.o
+ .ARM.attributes
+                0x000000b4       0x31 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_debug.o
+ .ARM.attributes
+                0x000000e5       0x31 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .ARM.attributes
+                0x00000116       0x31 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_fpec.o
+ .ARM.attributes
+                0x00000147       0x31 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_gui.o
+ .ARM.attributes
+                0x00000178       0x31 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_nvic.o
+ .ARM.attributes
+                0x000001a9       0x31 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_port.o
+ .ARM.attributes
+                0x000001da       0x31 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rf.o
+ .ARM.attributes
+                0x0000020b       0x31 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rtc.o
+ .ARM.attributes
+                0x0000023c       0x31 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+ .ARM.attributes
+                0x0000026d       0x31 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_sys.o
+ .ARM.attributes
+                0x0000029e       0x31 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\main.o
+ .ARM.attributes
+                0x000002cf       0x31 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_adc.o
+
+.comment        0x00000000       0x2a
+ *(.comment)
+ .comment       0x00000000       0x2a C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_audio.o
+                                 0x2b (size before relaxing)
+ .comment       0x00000000       0x2b C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_cmd.o
+ .comment       0x00000000       0x2b C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_com.o
+ .comment       0x00000000       0x2b C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_debug.o
+ .comment       0x00000000       0x2b C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_file.o
+ .comment       0x00000000       0x2b C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_fpec.o
+ .comment       0x00000000       0x2b C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_gui.o
+ .comment       0x00000000       0x2b C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_nvic.o
+ .comment       0x00000000       0x2b C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_port.o
+ .comment       0x00000000       0x2b C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rf.o
+ .comment       0x00000000       0x2b C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_rtc.o
+ .comment       0x00000000       0x2b C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_string.o
+ .comment       0x00000000       0x2b C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_sys.o
+ .comment       0x00000000       0x2b C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\main.o
+ .comment       0x00000000       0x2b C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_adc.o
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges
+ *(.debug_aranges)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info
+ *(.debug_info .gnu.linkonce.wi.*)
+
+.debug_abbrev
+ *(.debug_abbrev)
+
+.debug_line
+ *(.debug_line)
+
+.debug_frame
+ *(.debug_frame)
+
+.debug_str
+ *(.debug_str)
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+START GROUP
+LOAD c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a
+LOAD c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libc.a
+END GROUP
+OUTPUT(C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\Test.elf elf32-littlearm)

@@ -1,0 +1,652 @@
+
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\gems.o:     file format elf32-littlearm
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\gems.o
+
+
+Disassembly of section .text.gemJoyUp:
+
+00000000 <gemJoyUp>:
+gemJoyUp():
+   0:	4770      	bx	lr
+
+Disassembly of section .text.gemJoyDown:
+
+00000000 <gemJoyDown>:
+gemJoyDown():
+   0:	4770      	bx	lr
+
+Disassembly of section .text.gemDetectRows:
+
+00000000 <gemDetectRows>:
+gemDetectRows():
+   0:	4770      	bx	lr
+
+Disassembly of section .text.gemDrawGameOver:
+
+00000000 <gemDrawGameOver>:
+gemDrawGameOver():
+   0:	b507      	push	{r0, r1, r2, lr}
+   2:	f7ff fffe 	bl	0 <guiSaveScreen>
+   6:	2100      	movs	r1, #0
+   8:	480c      	ldr	r0, [pc, #48]	; (3c <gemDrawGameOver+0x3c>)
+   a:	f7ff fffe 	bl	0 <taskDelete>
+   e:	f7ff fffe 	bl	0 <guiInitSprites>
+  12:	f7ff fffe 	bl	0 <guiClearScreen>
+  16:	2008      	movs	r0, #8
+  18:	2137      	movs	r1, #55	; 0x37
+  1a:	f7ff fffe 	bl	0 <guiSetCursor>
+  1e:	2003      	movs	r0, #3
+  20:	4907      	ldr	r1, [pc, #28]	; (40 <gemDrawGameOver+0x40>)
+  22:	f7ff fffe 	bl	0 <print>
+  26:	2308      	movs	r3, #8
+  28:	2000      	movs	r0, #0
+  2a:	227f      	movs	r2, #127	; 0x7f
+  2c:	9300      	str	r3, [sp, #0]
+  2e:	4601      	mov	r1, r0
+  30:	4613      	mov	r3, r2
+  32:	9001      	str	r0, [sp, #4]
+  34:	f7ff fffe 	bl	0 <drawRect>
+  38:	bd0e      	pop	{r1, r2, r3, pc}
+  3a:	bf00      	nop
+  3c:	00000000 	.word	0x00000000
+  40:	00000008 	.word	0x00000008
+
+Disassembly of section .text.gemResetCursor:
+
+00000000 <gemResetCursor>:
+gemResetCursor():
+   0:	2107b538 	.word	0x2107b538
+   4:	2004      	movs	r0, #4
+   6:	f7ff fffe 	bl	0 <sysRandom>
+   a:	4d0b      	ldr	r5, [pc, #44]	; (38 <gemResetCursor+0x38>)
+   c:	7028      	strb	r0, [r5, #0]
+   e:	2001      	movs	r0, #1
+  10:	f7ff fffe 	bl	0 <guiGetSprite>
+  14:	4604      	mov	r4, r0
+  16:	7828      	ldrb	r0, [r5, #0]
+  18:	f7ff fffe 	bl	0 <guiGetSprite>
+  1c:	f104 011c 	add.w	r1, r4, #28
+  20:	301c      	adds	r0, #28
+  22:	f7ff fffe 	bl	0 <fileCopyHandle>
+  26:	6922      	ldr	r2, [r4, #16]
+  28:	2330      	movs	r3, #48	; 0x30
+  2a:	8013      	strh	r3, [r2, #0]
+  2c:	2300      	movs	r3, #0
+  2e:	8053      	strh	r3, [r2, #2]
+  30:	8323      	strh	r3, [r4, #24]
+  32:	2302      	movs	r3, #2
+  34:	82a3      	strh	r3, [r4, #20]
+  36:	bd38      	pop	{r3, r4, r5, pc}
+  38:	00000000 	.word	0x00000000
+
+Disassembly of section .text.gemProcess:
+
+00000000 <gemProcess>:
+gemProcess():
+   0:	4770      	bx	lr
+
+Disassembly of section .text.gemCollision:
+
+00000000 <gemCollision>:
+gemCollision():
+   0:	4a07      	ldr	r2, [pc, #28]	; (20 <gemCollision+0x20>)
+   2:	eb01 03c0 	add.w	r3, r1, r0, lsl #3
+   6:	5cd3      	ldrb	r3, [r2, r3]
+   8:	b933      	cbnz	r3, 18 <gemCollision+0x18>
+   a:	2807      	cmp	r0, #7
+   c:	d806      	bhi.n	1c <gemCollision+0x1c>
+   e:	2907      	cmp	r1, #7
+  10:	bf94      	ite	ls
+  12:	2000      	movls	r0, #0
+  14:	2001      	movhi	r0, #1
+  16:	4770      	bx	lr
+  18:	2001      	movs	r0, #1
+  1a:	4770      	bx	lr
+  1c:	2001      	movs	r0, #1
+  1e:	4770      	bx	lr
+  20:	00000000 	.word	0x00000000
+
+Disassembly of section .text.gemJoyRight:
+
+00000000 <gemJoyRight>:
+gemJoyRight():
+   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+   2:	4c0c      	ldr	r4, [pc, #48]	; (34 <gemJoyRight+0x34>)
+   4:	8827      	ldrh	r7, [r4, #0]
+   6:	8865      	ldrh	r5, [r4, #2]
+   8:	f107 0610 	add.w	r6, r7, #16
+   c:	0930      	lsrs	r0, r6, #4
+   e:	2807      	cmp	r0, #7
+  10:	d80e      	bhi.n	30 <gemJoyRight+0x30>
+  12:	0929      	lsrs	r1, r5, #4
+  14:	f7ff fffe 	bl	0 <gemJoyRight>
+  18:	b950      	cbnz	r0, 30 <gemJoyRight+0x30>
+  1a:	f105 0310 	add.w	r3, r5, #16
+  1e:	b29b      	uxth	r3, r3
+  20:	4638      	mov	r0, r7
+  22:	4629      	mov	r1, r5
+  24:	b2b2      	uxth	r2, r6
+  26:	f7ff fffe 	bl	0 <guiClearArea>
+  2a:	8823      	ldrh	r3, [r4, #0]
+  2c:	3310      	adds	r3, #16
+  2e:	8023      	strh	r3, [r4, #0]
+  30:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+  32:	bf00      	nop
+  34:	00000000 	.word	0x00000000
+
+Disassembly of section .text.gemJoyLeft:
+
+00000000 <gemJoyLeft>:
+gemJoyLeft():
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	4c0d      	ldr	r4, [pc, #52]	; (38 <gemJoyLeft+0x38>)
+   4:	8825      	ldrh	r5, [r4, #0]
+   6:	2d0f      	cmp	r5, #15
+   8:	d915      	bls.n	36 <gemJoyLeft+0x36>
+   a:	8866      	ldrh	r6, [r4, #2]
+   c:	f1a5 0010 	sub.w	r0, r5, #16
+  10:	1100      	asrs	r0, r0, #4
+  12:	b280      	uxth	r0, r0
+  14:	0931      	lsrs	r1, r6, #4
+  16:	f7ff fffe 	bl	0 <gemJoyLeft>
+  1a:	b960      	cbnz	r0, 36 <gemJoyLeft+0x36>
+  1c:	f105 0210 	add.w	r2, r5, #16
+  20:	f106 0310 	add.w	r3, r6, #16
+  24:	b29b      	uxth	r3, r3
+  26:	4628      	mov	r0, r5
+  28:	4631      	mov	r1, r6
+  2a:	b292      	uxth	r2, r2
+  2c:	f7ff fffe 	bl	0 <guiClearArea>
+  30:	8823      	ldrh	r3, [r4, #0]
+  32:	3b10      	subs	r3, #16
+  34:	8023      	strh	r3, [r4, #0]
+  36:	bd70      	pop	{r4, r5, r6, pc}
+  38:	00000000 	.word	0x00000000
+
+Disassembly of section .text.gemAdd:
+
+00000000 <gemAdd>:
+gemAdd():
+   0:	b5f7      	push	{r0, r1, r2, r4, r5, r6, r7, lr}
+   2:	4604      	mov	r4, r0
+   4:	4615      	mov	r5, r2
+   6:	460e      	mov	r6, r1
+   8:	b1d9      	cbz	r1, 42 <gemAdd+0x42>
+   a:	4610      	mov	r0, r2
+   c:	f7ff fffe 	bl	0 <guiGetSprite>
+  10:	4a0d      	ldr	r2, [pc, #52]	; (48 <gemAdd+0x48>)
+  12:	eb06 03c4 	add.w	r3, r6, r4, lsl #3
+  16:	54d5      	strb	r5, [r2, r3]
+  18:	8a81      	ldrh	r1, [r0, #20]
+  1a:	6905      	ldr	r5, [r0, #16]
+  1c:	0127      	lsls	r7, r4, #4
+  1e:	f825 7011 	strh.w	r7, [r5, r1, lsl #1]
+  22:	3101      	adds	r1, #1
+  24:	b289      	uxth	r1, r1
+  26:	0137      	lsls	r7, r6, #4
+  28:	f825 7011 	strh.w	r7, [r5, r1, lsl #1]
+  2c:	3101      	adds	r1, #1
+  2e:	8281      	strh	r1, [r0, #20]
+  30:	5cd2      	ldrb	r2, [r2, r3]
+  32:	2001      	movs	r0, #1
+  34:	4905      	ldr	r1, [pc, #20]	; (4c <gemAdd+0x4c>)
+  36:	4623      	mov	r3, r4
+  38:	9600      	str	r6, [sp, #0]
+  3a:	f7ff fffe 	bl	0 <print>
+  3e:	2001      	movs	r0, #1
+  40:	e000      	b.n	44 <gemAdd+0x44>
+  42:	4608      	mov	r0, r1
+  44:	bdfe      	pop	{r1, r2, r3, r4, r5, r6, r7, pc}
+  46:	bf00      	nop
+  48:	00000000 	.word	0x00000000
+  4c:	00000012 	.word	0x00000012
+
+Disassembly of section .text.gemDetectRowsY:
+
+00000000 <gemDetectRowsY>:
+gemDetectRowsY():
+   0:	e92d 4ff7 	stmdb	sp!, {r0, r1, r2, r4, r5, r6, r7, r8, r9, sl, fp, lr}
+   4:	2600      	movs	r6, #0
+   6:	4635      	mov	r5, r6
+   8:	46b2      	mov	sl, r6
+   a:	e03e      	b.n	8a <gemDetectRowsY+0x8a>
+   c:	f812 1f01 	ldrb.w	r1, [r2, #1]!
+  10:	b141      	cbz	r1, 24 <gemDetectRowsY+0x24>
+  12:	7850      	ldrb	r0, [r2, #1]
+  14:	4288      	cmp	r0, r1
+  16:	d105      	bne.n	24 <gemDetectRowsY+0x24>
+  18:	b90c      	cbnz	r4, 1e <gemDetectRowsY+0x1e>
+  1a:	4698      	mov	r8, r3
+  1c:	3401      	adds	r4, #1
+  1e:	3401      	adds	r4, #1
+  20:	b2a4      	uxth	r4, r4
+  22:	e002      	b.n	2a <gemDetectRowsY+0x2a>
+  24:	2c02      	cmp	r4, #2
+  26:	d806      	bhi.n	36 <gemDetectRowsY+0x36>
+  28:	2400      	movs	r4, #0
+  2a:	3301      	adds	r3, #1
+  2c:	b29b      	uxth	r3, r3
+  2e:	2b07      	cmp	r3, #7
+  30:	d1ec      	bne.n	c <gemDetectRowsY+0xc>
+  32:	2c02      	cmp	r4, #2
+  34:	d924      	bls.n	80 <gemDetectRowsY+0x80>
+  36:	44a2      	add	sl, r4
+  38:	ea4f 1908 	mov.w	r9, r8, lsl #4
+  3c:	fa1f fa8a 	uxth.w	sl, sl
+  40:	fa1f f989 	uxth.w	r9, r9
+  44:	4647      	mov	r7, r8
+  46:	e017      	b.n	78 <gemDetectRowsY+0x78>
+  48:	4a16      	ldr	r2, [pc, #88]	; (a4 <gemDetectRowsY+0xa4>)
+  4a:	eb07 0bc5 	add.w	fp, r7, r5, lsl #3
+  4e:	f812 000b 	ldrb.w	r0, [r2, fp]
+  52:	4631      	mov	r1, r6
+  54:	464a      	mov	r2, r9
+  56:	f7ff fffe 	bl	0 <guiRemoveSpriteCoords>
+  5a:	4a12      	ldr	r2, [pc, #72]	; (a4 <gemDetectRowsY+0xa4>)
+  5c:	2300      	movs	r3, #0
+  5e:	f802 300b 	strb.w	r3, [r2, fp]
+  62:	4639      	mov	r1, r7
+  64:	9801      	ldr	r0, [sp, #4]
+  66:	2208      	movs	r2, #8
+  68:	f7ff fffe 	bl	0 <gemDetectRowsY>
+  6c:	3701      	adds	r7, #1
+  6e:	f109 0910 	add.w	r9, r9, #16
+  72:	b2bf      	uxth	r7, r7
+  74:	fa1f f989 	uxth.w	r9, r9
+  78:	eb04 0308 	add.w	r3, r4, r8
+  7c:	429f      	cmp	r7, r3
+  7e:	dbe3      	blt.n	48 <gemDetectRowsY+0x48>
+  80:	3501      	adds	r5, #1
+  82:	3610      	adds	r6, #16
+  84:	2d08      	cmp	r5, #8
+  86:	b2b6      	uxth	r6, r6
+  88:	d008      	beq.n	9c <gemDetectRowsY+0x9c>
+  8a:	00ea      	lsls	r2, r5, #3
+  8c:	4905      	ldr	r1, [pc, #20]	; (a4 <gemDetectRowsY+0xa4>)
+  8e:	b2ab      	uxth	r3, r5
+  90:	3a01      	subs	r2, #1
+  92:	2400      	movs	r4, #0
+  94:	9301      	str	r3, [sp, #4]
+  96:	1852      	adds	r2, r2, r1
+  98:	4623      	mov	r3, r4
+  9a:	e7b7      	b.n	c <gemDetectRowsY+0xc>
+  9c:	4650      	mov	r0, sl
+  9e:	e8bd 8ffe 	ldmia.w	sp!, {r1, r2, r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}
+  a2:	bf00      	nop
+  a4:	00000000 	.word	0x00000000
+
+Disassembly of section .text.gemDetectRowsX:
+
+00000000 <gemDetectRowsX>:
+gemDetectRowsX():
+   0:	e92d 4ff7 	stmdb	sp!, {r0, r1, r2, r4, r5, r6, r7, r8, r9, sl, fp, lr}
+   4:	2600      	movs	r6, #0
+   6:	4635      	mov	r5, r6
+   8:	46b2      	mov	sl, r6
+   a:	e03f      	b.n	8c <gemDetectRowsX+0x8c>
+   c:	f812 1c08 	ldrb.w	r1, [r2, #-8]
+  10:	b141      	cbz	r1, 24 <gemDetectRowsX+0x24>
+  12:	7810      	ldrb	r0, [r2, #0]
+  14:	4288      	cmp	r0, r1
+  16:	d105      	bne.n	24 <gemDetectRowsX+0x24>
+  18:	b90c      	cbnz	r4, 1e <gemDetectRowsX+0x1e>
+  1a:	4698      	mov	r8, r3
+  1c:	3401      	adds	r4, #1
+  1e:	3401      	adds	r4, #1
+  20:	b2a4      	uxth	r4, r4
+  22:	e002      	b.n	2a <gemDetectRowsX+0x2a>
+  24:	2c02      	cmp	r4, #2
+  26:	d807      	bhi.n	38 <gemDetectRowsX+0x38>
+  28:	2400      	movs	r4, #0
+  2a:	3301      	adds	r3, #1
+  2c:	b29b      	uxth	r3, r3
+  2e:	3208      	adds	r2, #8
+  30:	2b07      	cmp	r3, #7
+  32:	d1eb      	bne.n	c <gemDetectRowsX+0xc>
+  34:	2c02      	cmp	r4, #2
+  36:	d924      	bls.n	82 <gemDetectRowsX+0x82>
+  38:	44a2      	add	sl, r4
+  3a:	ea4f 1908 	mov.w	r9, r8, lsl #4
+  3e:	fa1f fa8a 	uxth.w	sl, sl
+  42:	fa1f f989 	uxth.w	r9, r9
+  46:	4647      	mov	r7, r8
+  48:	e017      	b.n	7a <gemDetectRowsX+0x7a>
+  4a:	4a20      	ldr	r2, [pc, #128]	; (cc <gemDetectRowsX+0xcc>)
+  4c:	eb05 0bc7 	add.w	fp, r5, r7, lsl #3
+  50:	4649      	mov	r1, r9
+  52:	f812 000b 	ldrb.w	r0, [r2, fp]
+  56:	4632      	mov	r2, r6
+  58:	f7ff fffe 	bl	0 <guiRemoveSpriteCoords>
+  5c:	4a1b      	ldr	r2, [pc, #108]	; (cc <gemDetectRowsX+0xcc>)
+  5e:	2300      	movs	r3, #0
+  60:	f802 300b 	strb.w	r3, [r2, fp]
+  64:	4638      	mov	r0, r7
+  66:	9901      	ldr	r1, [sp, #4]
+  68:	2208      	movs	r2, #8
+  6a:	f7ff fffe 	bl	0 <gemDetectRowsX>
+  6e:	3701      	adds	r7, #1
+  70:	f109 0910 	add.w	r9, r9, #16
+  74:	b2bf      	uxth	r7, r7
+  76:	fa1f f989 	uxth.w	r9, r9
+  7a:	eb04 0308 	add.w	r3, r4, r8
+  7e:	429f      	cmp	r7, r3
+  80:	dbe3      	blt.n	4a <gemDetectRowsX+0x4a>
+  82:	3501      	adds	r5, #1
+  84:	3610      	adds	r6, #16
+  86:	2d08      	cmp	r5, #8
+  88:	b2b6      	uxth	r6, r6
+  8a:	d008      	beq.n	9e <gemDetectRowsX+0x9e>
+  8c:	490f      	ldr	r1, [pc, #60]	; (cc <gemDetectRowsX+0xcc>)
+  8e:	b2ab      	uxth	r3, r5
+  90:	f105 0208 	add.w	r2, r5, #8
+  94:	2400      	movs	r4, #0
+  96:	9301      	str	r3, [sp, #4]
+  98:	1852      	adds	r2, r2, r1
+  9a:	4623      	mov	r3, r4
+  9c:	e7b6      	b.n	c <gemDetectRowsX+0xc>
+  9e:	f7ff fffe 	bl	0 <gemDetectRowsX>
+  a2:	2100      	movs	r1, #0
+  a4:	4482      	add	sl, r0
+  a6:	2050      	movs	r0, #80	; 0x50
+  a8:	f7ff fffe 	bl	0 <guiSetCursor>
+  ac:	fa1f fa8a 	uxth.w	sl, sl
+  b0:	2050      	movs	r0, #80	; 0x50
+  b2:	2100      	movs	r1, #0
+  b4:	227f      	movs	r2, #127	; 0x7f
+  b6:	2312      	movs	r3, #18
+  b8:	f7ff fffe 	bl	0 <guiClearArea>
+  bc:	2003      	movs	r0, #3
+  be:	4904      	ldr	r1, [pc, #16]	; (d0 <gemDetectRowsX+0xd0>)
+  c0:	4652      	mov	r2, sl
+  c2:	f7ff fffe 	bl	0 <print>
+  c6:	4650      	mov	r0, sl
+  c8:	e8bd 8ffe 	ldmia.w	sp!, {r1, r2, r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}
+  cc:	00000000 	.word	0x00000000
+  d0:	0000002d 	.word	0x0000002d
+
+Disassembly of section .text.gemGravity:
+
+00000000 <gemGravity>:
+gemGravity():
+   0:	41f0e92d 	.word	0x41f0e92d
+   4:	4c14      	ldr	r4, [pc, #80]	; (58 <gemGravity+0x58>)
+   6:	8827      	ldrh	r7, [r4, #0]
+   8:	8866      	ldrh	r6, [r4, #2]
+   a:	ea4f 1817 	mov.w	r8, r7, lsr #4
+   e:	f106 0510 	add.w	r5, r6, #16
+  12:	4640      	mov	r0, r8
+  14:	0929      	lsrs	r1, r5, #4
+  16:	f7ff fffe 	bl	0 <gemGravity>
+  1a:	b960      	cbnz	r0, 36 <gemGravity+0x36>
+  1c:	f107 0210 	add.w	r2, r7, #16
+  20:	b2ab      	uxth	r3, r5
+  22:	4638      	mov	r0, r7
+  24:	4631      	mov	r1, r6
+  26:	b292      	uxth	r2, r2
+  28:	f7ff fffe 	bl	0 <guiClearArea>
+  2c:	8863      	ldrh	r3, [r4, #2]
+  2e:	3310      	adds	r3, #16
+  30:	8063      	strh	r3, [r4, #2]
+  32:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  36:	4b09      	ldr	r3, [pc, #36]	; (5c <gemGravity+0x5c>)
+  38:	4640      	mov	r0, r8
+  3a:	0931      	lsrs	r1, r6, #4
+  3c:	781a      	ldrb	r2, [r3, #0]
+  3e:	f7ff fffe 	bl	0 <gemGravity>
+  42:	b918      	cbnz	r0, 4c <gemGravity+0x4c>
+  44:	e8bd 41f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, lr}
+  48:	f7ff bffe 	b.w	0 <gemGravity>
+  4c:	f7ff fffe 	bl	0 <gemGravity>
+  50:	e8bd 41f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, lr}
+  54:	f7ff bffe 	b.w	0 <gemGravity>
+	...
+
+Disassembly of section .text.gemJoyClick:
+
+00000000 <gemJoyClick>:
+gemJoyClick():
+   0:	4770      	bx	lr
+
+Disassembly of section .text.gemButton1:
+
+00000000 <gemButton1>:
+gemButton1():
+   0:	4770      	bx	lr
+
+Disassembly of section .text.gemInit:
+
+00000000 <gemInit>:
+gemInit():
+   0:	b573      	push	{r0, r1, r4, r5, r6, lr}
+   2:	f7ff fffe 	bl	0 <guiInitSprites>
+   6:	4b53      	ldr	r3, [pc, #332]	; (154 <gemInit+0x154>)
+   8:	2000      	movs	r0, #0
+   a:	2604      	movs	r6, #4
+   c:	701e      	strb	r6, [r3, #0]
+   e:	4601      	mov	r1, r0
+  10:	22ff      	movs	r2, #255	; 0xff
+  12:	f7ff fffe 	bl	0 <guiSetColor>
+  16:	20ff      	movs	r0, #255	; 0xff
+  18:	4602      	mov	r2, r0
+  1a:	4601      	mov	r1, r0
+  1c:	f7ff fffe 	bl	0 <guiSetBackColor>
+  20:	f7ff fffe 	bl	0 <guiClearScreen>
+  24:	494c      	ldr	r1, [pc, #304]	; (158 <gemInit+0x158>)
+  26:	484d      	ldr	r0, [pc, #308]	; (15c <gemInit+0x15c>)
+  28:	f7ff fffe 	bl	0 <fileOpenResource>
+  2c:	494c      	ldr	r1, [pc, #304]	; (160 <gemInit+0x160>)
+  2e:	484b      	ldr	r0, [pc, #300]	; (15c <gemInit+0x15c>)
+  30:	f7ff fffe 	bl	0 <guiSetFont>
+  34:	494b      	ldr	r1, [pc, #300]	; (164 <gemInit+0x164>)
+  36:	484c      	ldr	r0, [pc, #304]	; (168 <gemInit+0x168>)
+  38:	f7ff fffe 	bl	0 <fileOpenResource>
+  3c:	494b      	ldr	r1, [pc, #300]	; (16c <gemInit+0x16c>)
+  3e:	484c      	ldr	r0, [pc, #304]	; (170 <gemInit+0x170>)
+  40:	f7ff fffe 	bl	0 <fileOpenResource>
+  44:	494b      	ldr	r1, [pc, #300]	; (174 <gemInit+0x174>)
+  46:	484c      	ldr	r0, [pc, #304]	; (178 <gemInit+0x178>)
+  48:	f7ff fffe 	bl	0 <fileOpenResource>
+  4c:	494b      	ldr	r1, [pc, #300]	; (17c <gemInit+0x17c>)
+  4e:	484c      	ldr	r0, [pc, #304]	; (180 <gemInit+0x180>)
+  50:	f7ff fffe 	bl	0 <fileOpenResource>
+  54:	494b      	ldr	r1, [pc, #300]	; (184 <gemInit+0x184>)
+  56:	484c      	ldr	r0, [pc, #304]	; (188 <gemInit+0x188>)
+  58:	2400      	movs	r4, #0
+  5a:	f7ff fffe 	bl	0 <fileOpenResource>
+  5e:	2564      	movs	r5, #100	; 0x64
+  60:	2101      	movs	r1, #1
+  62:	4a4a      	ldr	r2, [pc, #296]	; (18c <gemInit+0x18c>)
+  64:	2302      	movs	r3, #2
+  66:	4840      	ldr	r0, [pc, #256]	; (168 <gemInit+0x168>)
+  68:	9500      	str	r5, [sp, #0]
+  6a:	9401      	str	r4, [sp, #4]
+  6c:	f7ff fffe 	bl	0 <guiCreateSprite>
+  70:	4631      	mov	r1, r6
+  72:	4a47      	ldr	r2, [pc, #284]	; (190 <gemInit+0x190>)
+  74:	4623      	mov	r3, r4
+  76:	483c      	ldr	r0, [pc, #240]	; (168 <gemInit+0x168>)
+  78:	9500      	str	r5, [sp, #0]
+  7a:	9401      	str	r4, [sp, #4]
+  7c:	f7ff fffe 	bl	0 <guiCreateSprite>
+  80:	2105      	movs	r1, #5
+  82:	4a44      	ldr	r2, [pc, #272]	; (194 <gemInit+0x194>)
+  84:	4623      	mov	r3, r4
+  86:	483a      	ldr	r0, [pc, #232]	; (170 <gemInit+0x170>)
+  88:	9500      	str	r5, [sp, #0]
+  8a:	9401      	str	r4, [sp, #4]
+  8c:	f7ff fffe 	bl	0 <guiCreateSprite>
+  90:	2106      	movs	r1, #6
+  92:	4a41      	ldr	r2, [pc, #260]	; (198 <gemInit+0x198>)
+  94:	4623      	mov	r3, r4
+  96:	4838      	ldr	r0, [pc, #224]	; (178 <gemInit+0x178>)
+  98:	9500      	str	r5, [sp, #0]
+  9a:	9401      	str	r4, [sp, #4]
+  9c:	f7ff fffe 	bl	0 <guiCreateSprite>
+  a0:	2107      	movs	r1, #7
+  a2:	4a3e      	ldr	r2, [pc, #248]	; (19c <gemInit+0x19c>)
+  a4:	4623      	mov	r3, r4
+  a6:	4836      	ldr	r0, [pc, #216]	; (180 <gemInit+0x180>)
+  a8:	9500      	str	r5, [sp, #0]
+  aa:	9401      	str	r4, [sp, #4]
+  ac:	f7ff fffe 	bl	0 <guiCreateSprite>
+  b0:	4a3b      	ldr	r2, [pc, #236]	; (1a0 <gemInit+0x1a0>)
+  b2:	4623      	mov	r3, r4
+  b4:	4834      	ldr	r0, [pc, #208]	; (188 <gemInit+0x188>)
+  b6:	2108      	movs	r1, #8
+  b8:	9500      	str	r5, [sp, #0]
+  ba:	9401      	str	r4, [sp, #4]
+  bc:	f7ff fffe 	bl	0 <guiCreateSprite>
+  c0:	4b38      	ldr	r3, [pc, #224]	; (1a4 <gemInit+0x1a4>)
+  c2:	f103 0240 	add.w	r2, r3, #64	; 0x40
+  c6:	2400      	movs	r4, #0
+  c8:	f803 4c01 	strb.w	r4, [r3, #-1]
+  cc:	701c      	strb	r4, [r3, #0]
+  ce:	705c      	strb	r4, [r3, #1]
+  d0:	709c      	strb	r4, [r3, #2]
+  d2:	70dc      	strb	r4, [r3, #3]
+  d4:	711c      	strb	r4, [r3, #4]
+  d6:	715c      	strb	r4, [r3, #5]
+  d8:	719c      	strb	r4, [r3, #6]
+  da:	3308      	adds	r3, #8
+  dc:	4293      	cmp	r3, r2
+  de:	d1f2      	bne.n	c6 <gemInit+0xc6>
+  e0:	4620      	mov	r0, r4
+  e2:	2118      	movs	r1, #24
+  e4:	f7ff fffe 	bl	0 <pinConfig>
+  e8:	2028      	movs	r0, #40	; 0x28
+  ea:	2118      	movs	r1, #24
+  ec:	f7ff fffe 	bl	0 <pinConfig>
+  f0:	2004      	movs	r0, #4
+  f2:	2118      	movs	r1, #24
+  f4:	f7ff fffe 	bl	0 <pinConfig>
+  f8:	2006      	movs	r0, #6
+  fa:	2118      	movs	r1, #24
+  fc:	f7ff fffe 	bl	0 <pinConfig>
+ 100:	2005      	movs	r0, #5
+ 102:	2118      	movs	r1, #24
+ 104:	f7ff fffe 	bl	0 <pinConfig>
+ 108:	2002      	movs	r0, #2
+ 10a:	2118      	movs	r1, #24
+ 10c:	f7ff fffe 	bl	0 <pinConfig>
+ 110:	2003      	movs	r0, #3
+ 112:	2118      	movs	r1, #24
+ 114:	f7ff fffe 	bl	0 <pinConfig>
+ 118:	4621      	mov	r1, r4
+ 11a:	2202      	movs	r2, #2
+ 11c:	4822      	ldr	r0, [pc, #136]	; (1a8 <gemInit+0x1a8>)
+ 11e:	f7ff fffe 	bl	0 <pinInterrupt>
+ 122:	2128      	movs	r1, #40	; 0x28
+ 124:	2202      	movs	r2, #2
+ 126:	4821      	ldr	r0, [pc, #132]	; (1ac <gemInit+0x1ac>)
+ 128:	f7ff fffe 	bl	0 <pinInterrupt>
+ 12c:	2104      	movs	r1, #4
+ 12e:	2202      	movs	r2, #2
+ 130:	481f      	ldr	r0, [pc, #124]	; (1b0 <gemInit+0x1b0>)
+ 132:	f7ff fffe 	bl	0 <pinInterrupt>
+ 136:	2106      	movs	r1, #6
+ 138:	2202      	movs	r2, #2
+ 13a:	481e      	ldr	r0, [pc, #120]	; (1b4 <gemInit+0x1b4>)
+ 13c:	f7ff fffe 	bl	0 <pinInterrupt>
+ 140:	f7ff fffe 	bl	0 <gemInit>
+ 144:	481c      	ldr	r0, [pc, #112]	; (1b8 <gemInit+0x1b8>)
+ 146:	4a1d      	ldr	r2, [pc, #116]	; (1bc <gemInit+0x1bc>)
+ 148:	21c8      	movs	r1, #200	; 0xc8
+ 14a:	b002      	add	sp, #8
+ 14c:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+ 150:	f7ff bffe 	b.w	0 <taskNewSimple>
+	...
+ 164:	00000808 	.word	0x00000808
+ 168:	00000000 	.word	0x00000000
+ 16c:	000012ff 	.word	0x000012ff
+ 170:	00000000 	.word	0x00000000
+ 174:	00001ea4 	.word	0x00001ea4
+ 178:	00000000 	.word	0x00000000
+ 17c:	000028ed 	.word	0x000028ed
+ 180:	00000000 	.word	0x00000000
+ 184:	0000347d 	.word	0x0000347d
+	...
+ 1a4:	00000001 	.word	0x00000001
+	...
+
+Disassembly of section .text.gemButton2:
+
+00000000 <gemButton2>:
+gemButton2():
+   0:	f7ff bffe 	b.w	0 <gemButton2>
+
+Disassembly of section .text.gemClickMenu:
+
+00000000 <gemClickMenu>:
+gemClickMenu():
+   0:	b510      	push	{r4, lr}
+   2:	2005      	movs	r0, #5
+   4:	f7ff fffe 	bl	0 <pinGet>
+   8:	4b07      	ldr	r3, [pc, #28]	; (28 <gemClickMenu+0x28>)
+   a:	b118      	cbz	r0, 14 <gemClickMenu+0x14>
+   c:	68da      	ldr	r2, [r3, #12]
+   e:	f422 6280 	bic.w	r2, r2, #1024	; 0x400
+  12:	e002      	b.n	1a <gemClickMenu+0x1a>
+  14:	68da      	ldr	r2, [r3, #12]
+  16:	f442 6280 	orr.w	r2, r2, #1024	; 0x400
+  1a:	4803      	ldr	r0, [pc, #12]	; (28 <gemClickMenu+0x28>)
+  1c:	60da      	str	r2, [r3, #12]
+  1e:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+  22:	f7ff bffe 	b.w	0 <drawWidget>
+  26:	bf00      	nop
+  28:	00000000 	.word	0x00000000
+
+Disassembly of section .text.gemDrawMenu:
+
+00000000 <gemDrawMenu>:
+gemDrawMenu():
+   0:	20ff      	movs	r0, #255	; 0xff
+   2:	b570      	push	{r4, r5, r6, lr}
+   4:	4601      	mov	r1, r0
+   6:	4602      	mov	r2, r0
+   8:	f7ff fffe 	bl	0 <guiSetColor>
+   c:	20ff      	movs	r0, #255	; 0xff
+   e:	4601      	mov	r1, r0
+  10:	4602      	mov	r2, r0
+  12:	f7ff fffe 	bl	0 <guiSetBackColor>
+  16:	f7ff fffe 	bl	0 <guiClearScreen>
+  1a:	2048      	movs	r0, #72	; 0x48
+  1c:	218e      	movs	r1, #142	; 0x8e
+  1e:	22df      	movs	r2, #223	; 0xdf
+  20:	f7ff fffe 	bl	0 <guiSetColor>
+  24:	2065      	movs	r0, #101	; 0x65
+  26:	4602      	mov	r2, r0
+  28:	4601      	mov	r1, r0
+  2a:	f7ff fffe 	bl	0 <guiSetBackColor>
+  2e:	4911      	ldr	r1, [pc, #68]	; (74 <gemDrawMenu+0x74>)
+  30:	4811      	ldr	r0, [pc, #68]	; (78 <gemDrawMenu+0x78>)
+  32:	4c12      	ldr	r4, [pc, #72]	; (7c <gemDrawMenu+0x7c>)
+  34:	f7ff fffe 	bl	0 <fileOpenResource>
+  38:	4d11      	ldr	r5, [pc, #68]	; (80 <gemDrawMenu+0x80>)
+  3a:	4912      	ldr	r1, [pc, #72]	; (84 <gemDrawMenu+0x84>)
+  3c:	480e      	ldr	r0, [pc, #56]	; (78 <gemDrawMenu+0x78>)
+  3e:	f7ff fffe 	bl	0 <guiSetFont>
+  42:	2008      	movs	r0, #8
+  44:	60e5      	str	r5, [r4, #12]
+  46:	f7ff fffe 	bl	0 <guiSetRadius>
+  4a:	4628      	mov	r0, r5
+  4c:	f7ff fffe 	bl	0 <guiSetStyle>
+  50:	2304      	movs	r3, #4
+  52:	7423      	strb	r3, [r4, #16]
+  54:	2300      	movs	r3, #0
+  56:	80a3      	strh	r3, [r4, #4]
+  58:	232c      	movs	r3, #44	; 0x2c
+  5a:	80e3      	strh	r3, [r4, #6]
+  5c:	237f      	movs	r3, #127	; 0x7f
+  5e:	8123      	strh	r3, [r4, #8]
+  60:	2327      	movs	r3, #39	; 0x27
+  62:	8163      	strh	r3, [r4, #10]
+  64:	4b08      	ldr	r3, [pc, #32]	; (88 <gemDrawMenu+0x88>)
+  66:	4620      	mov	r0, r4
+  68:	6163      	str	r3, [r4, #20]
+  6a:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+  6e:	f7ff bffe 	b.w	0 <drawWidget>
+  72:	bf00      	nop
+	...
+  80:	00010155 	.word	0x00010155
+  84:	00000000 	.word	0x00000000
+  88:	00000031 	.word	0x00000031

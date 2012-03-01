@@ -8,18 +8,6 @@
  <type Header="u32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="49" Pointer="No"/>
  <type Header="u16" Icon="1" Type="type" Desc=": unsigned int" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="50" Pointer="No"/>
  <type Header="u8" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="51" Pointer="No"/>
- <type Header="RCC_TYPEDEF" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="402" Pointer="No"/>
- <type Header="DMA_CHANNEL_TYPEDEF" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="675" Pointer="No"/>
- <type Header="DMA_TYPEDEF" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="681" Pointer="No"/>
- <type Header="PYGMYADC" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_adc.h" DeclLine="99" Pointer="No"/>
- <func Header="ADC1_2_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_adc.c" DeclLine="31"/>
- <variable Header="PYGMY_ADC_CHANNELS" Icon="2" Type="variable" Desc=":   unsigned char[18]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_adc.c" DeclLine="23" Pointer="No"/>
- <variable Header="uiGlobalADC1Channel" Icon="2" Type="variable" Desc=":   unsigned int" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_adc.c" DeclLine="24" Pointer="No"/>
- <variable Header="uiGlobalADC1" Icon="2" Type="variable" Desc=":   unsigned int[16]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_adc.c" DeclLine="24" Pointer="No"/>
- <variable Header="globalADCStatus" Icon="2" Type="variable" Desc=":   unsigned int" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_adc.c" DeclLine="24" Pointer="No"/>
- <type Header="u32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="49" Pointer="No"/>
- <type Header="u16" Icon="1" Type="type" Desc=": unsigned int" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="50" Pointer="No"/>
- <type Header="u8" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="51" Pointer="No"/>
  <type Header="PYGMYSYSTEM" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="321" Pointer="No"/>
  <type Header="DAC_TYPEDEF" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="566" Pointer="No"/>
  <type Header="DMA_CHANNEL_TYPEDEF" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="675" Pointer="No"/>
@@ -31,28 +19,6 @@
  <variable Header="pygmyAudioFile" Icon="2" Type="variable" Desc=":   struct PYGMYFILE_TYPEDEF" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_audio.c" DeclLine="24" Pointer="No"/>
  <variable Header="globalAudioBuffer" Icon="2" Type="variable" Desc=":   unsigned char[1024]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_audio.c" DeclLine="25" Pointer="No"/>
  <variable Header="globalAudioPage" Icon="2" Type="variable" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_audio.c" DeclLine="25" Pointer="No"/>
- <type Header="u32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="49" Pointer="No"/>
- <type Header="u16" Icon="1" Type="type" Desc=": unsigned int" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="50" Pointer="No"/>
- <type Header="u8" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="51" Pointer="No"/>
- <type Header="PYGMYFUNCPTR" Icon="1" Type="type" Desc=": unsigned char CODE*" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="223" Pointer="Yes"/>
- <type Header="PYGMYVOIDPTR" Icon="1" Type="type" Desc=": void CODE*" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="224" Pointer="Yes"/>
- <type Header="PYGMYCMDPTR" Icon="1" Type="type" Desc=": unsigned char CODE*" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="225" Pointer="Yes"/>
- <type Header="PYGMYCMD" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="240" Pointer="No"/>
- <type Header="PYGMYCOMMAND" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="251" Pointer="No"/>
- <type Header="PYGMYCOMMANDQUEUE" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="259" Pointer="No"/>
- <type Header="PYGMYTASK" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="281" Pointer="No"/>
- <type Header="GPIO" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.h" DeclLine="427" Pointer="No"/>
- <type Header="PYGMYI2CPORT" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.h" DeclLine="466" Pointer="No"/>
- <type Header="PYGMYSPIPORT" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.h" DeclLine="478" Pointer="No"/>
- <type Header="PYGMYPORTINDEX" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.h" DeclLine="498" Pointer="No"/>
- <type Header="SCB_TYPEDEF" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_nvic.h" DeclLine="85" Pointer="No"/>
- <variable Header="globalCMDPrompt" Icon="2" Type="variable" Desc=":   unsigned char CODE*" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" DeclLine="23" Pointer="Yes"/>
- <variable Header="globalCMDError" Icon="2" Type="variable" Desc=":   unsigned char CODE*" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" DeclLine="23" Pointer="Yes"/>
- <variable Header="globalCMDUnsupported" Icon="2" Type="variable" Desc=":   unsigned char CODE*" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" DeclLine="23" Pointer="Yes"/>
- <variable Header="globalSPIPorts" Icon="2" Type="variable" Desc=":   struct [2]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" DeclLine="33" Pointer="No"/>
- <variable Header="globalI2CPorts" Icon="2" Type="variable" Desc=":   struct [2]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" DeclLine="34" Pointer="No"/>
- <variable Header="globalCMDPorts" Icon="2" Type="variable" Desc=":   struct [4]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" DeclLine="35" Pointer="No"/>
- <variable Header="PYGMYSTDCOMMANDS" Icon="2" Type="variable" Desc=":   struct [13]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" DeclLine="37" Pointer="No"/>
  <type Header="u32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="49" Pointer="No"/>
  <type Header="u16" Icon="1" Type="type" Desc=": unsigned int" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="50" Pointer="No"/>
  <type Header="u8" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="51" Pointer="No"/>
@@ -71,12 +37,12 @@
  <func Header="spiReadByte" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="329"/>
  <func Header="spiConfig" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="370"/>
  <func Header="I2C1_ER_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="465"/>
- <func Header="streamReset" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="732"/>
- <func Header="streamInit" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="722"/>
- <func Header="streamSetSTDIO" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="758"/>
- <func Header="streamSetPut" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="902"/>
- <func Header="streamSetRXBuffer" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="924"/>
- <func Header="putsUSART3" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="1148"/>
+ <func Header="streamReset" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="731"/>
+ <func Header="streamInit" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="721"/>
+ <func Header="streamSetSTDIO" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="757"/>
+ <func Header="streamSetPut" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="901"/>
+ <func Header="streamSetRXBuffer" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="923"/>
+ <func Header="putsUSART3" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="1144"/>
  <variable Header="globalStreams" Icon="2" Type="variable" Desc=":   struct [2]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="24" Pointer="No"/>
  <variable Header="globalCOM3RXBuffer" Icon="2" Type="variable" Desc=":   unsigned char[128]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="35" Pointer="No"/>
  <variable Header="globalStreamEcho" Icon="2" Type="variable" Desc=":   unsigned char[2]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="25" Pointer="No"/>
@@ -120,27 +86,11 @@
  <type Header="IWDG_TYPEDEF" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="1034" Pointer="No"/>
  <type Header="FPEC_TYPEDEF" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.h" DeclLine="41" Pointer="No"/>
  <type Header="SIZEREG_TYPEDEF" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.h" DeclLine="56" Pointer="No"/>
- <func Header="fpecUnlock" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.c" DeclLine="98"/>
- <func Header="fpecWriteWord" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.c" DeclLine="124"/>
+ <func Header="fpecUnlock" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.c" DeclLine="97"/>
+ <func Header="fpecWriteWord" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.c" DeclLine="123"/>
  <func Header="fpecProcessIHEX" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.c" DeclLine="48"/>
- <func Header="fpecErasePage" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.c" DeclLine="211"/>
+ <func Header="fpecErasePage" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.c" DeclLine="210"/>
  <variable Header="globalBaseAddress" Icon="2" Type="variable" Desc=":   unsigned int CODE*" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.c" DeclLine="23" Pointer="Yes"/>
- <type Header="s16" Icon="1" Type="type" Desc=": int" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="30" Pointer="No"/>
- <type Header="s8" Icon="1" Type="type" Desc=": signed char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="31" Pointer="No"/>
- <type Header="u32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="49" Pointer="No"/>
- <type Header="u16" Icon="1" Type="type" Desc=": unsigned int" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="50" Pointer="No"/>
- <type Header="u8" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="51" Pointer="No"/>
- <type Header="PYGMYFILE" Icon="1" Type="type" Desc=": struct PYGMYFILE_TYPEDEF" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.h" DeclLine="148" Pointer="No"/>
- <type Header="PYGMYCURSOR" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_gui.h" DeclLine="112" Pointer="No"/>
- <type Header="PYGMYCOLOR" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_gui.h" DeclLine="118" Pointer="No"/>
- <type Header="PYGMYFONT" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_gui.h" DeclLine="131" Pointer="No"/>
- <type Header="PYGMYGUIOBJECT" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_gui.h" DeclLine="154" Pointer="No"/>
- <type Header="PYGMYWIDGET" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_gui.h" DeclLine="169" Pointer="No"/>
- <type Header="PYGMYGUI" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_gui.h" DeclLine="179" Pointer="No"/>
- <type Header="PYGMYSPRITE" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_gui.h" DeclLine="191" Pointer="No"/>
- <variable Header="globalGUI" Icon="2" Type="variable" Desc=":   struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_gui.c" DeclLine="33" Pointer="No"/>
- <variable Header="globalSprites" Icon="2" Type="variable" Desc=":   struct [32]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_gui.c" DeclLine="38" Pointer="No"/>
- <variable Header="globalSpriteStatus" Icon="2" Type="variable" Desc=":   unsigned long" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_gui.c" DeclLine="39" Pointer="No"/>
  <type Header="u32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="49" Pointer="No"/>
  <type Header="u8" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="51" Pointer="No"/>
  <type Header="NVIC_TYPEDEF" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_nvic.h" DeclLine="42" Pointer="No"/>
@@ -254,8 +204,8 @@
  <type Header="SYSTICK_TYPEDEF" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_nvic.h" DeclLine="67" Pointer="No"/>
  <func Header="sysEnableTimerClock" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" DeclLine="324"/>
  <func Header="sysInit" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" DeclLine="40"/>
- <func Header="TaskException_Handler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" DeclLine="872"/>
- <func Header="print" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" DeclLine="1122"/>
+ <func Header="TaskException_Handler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" DeclLine="873"/>
+ <func Header="print" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" DeclLine="1123"/>
  <func Header="sysGetTimer" Icon="3" Type="func" Desc=":   void CODE*" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" DeclLine="1291"/>
  <func Header="delay" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" DeclLine="1237"/>
  <func Header="SysTick_Handler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" DeclLine="1394"/>
@@ -275,6 +225,6 @@
  <type Header="PYGMYFILE" Icon="1" Type="type" Desc=": struct PYGMYFILE_TYPEDEF" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.h" DeclLine="148" Pointer="No"/>
  <type Header="SCB_TYPEDEF" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_nvic.h" DeclLine="85" Pointer="No"/>
  <func Header="main" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater\main.c" DeclLine="32"/>
- <variable Header="PYGMY_boothex" Icon="2" Type="variable" Desc=":   unsigned char[22846]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater\boothex.h" DeclLine="2" Pointer="No"/>
+ <variable Header="PYGMY_boothex" Icon="2" Type="variable" Desc=":   unsigned char[22867]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater\boothex.h" DeclLine="2" Pointer="No"/>
 </aoffile>
 

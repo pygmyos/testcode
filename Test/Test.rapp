@@ -1,0 +1,74 @@
+
+<ApplicationBuild Header="Test" Extern=".\Test.rapp" Path=".\Test.rapp" AsyncBuild="" OutputFile=".\Test.elf" sate="96" >
+	<NodeC Path="..\..\pygmyos\core\pygmy_audio.c" Header="pygmy_audio.c" Marker="-1" AsyncBuild="" OutputFile=".\pygmy_audio.o" sate="0" />
+	<NodeC Path="..\..\pygmyos\core\pygmy_cmd.c" Header="pygmy_cmd.c" Marker="-1" AsyncBuild="" OutputFile=".\pygmy_cmd.o" sate="0" />
+	<NodeC Path="..\..\pygmyos\core\pygmy_com.c" Header="pygmy_com.c" Marker="-1" AsyncBuild="" OutputFile=".\pygmy_com.o" sate="0" />
+	<NodeC Path="..\..\pygmyos\core\pygmy_debug.c" Header="pygmy_debug.c" Marker="-1" AsyncBuild="" OutputFile=".\pygmy_debug.o" sate="0" />
+	<NodeC Path="..\..\pygmyos\core\pygmy_file.c" Header="pygmy_file.c" Marker="-1" AsyncBuild="" OutputFile=".\pygmy_file.o" sate="0" />
+	<NodeC Path="..\..\pygmyos\core\pygmy_fpec.c" Header="pygmy_fpec.c" Marker="-1" AsyncBuild="" OutputFile=".\pygmy_fpec.o" sate="0" />
+	<NodeC Path="..\..\pygmyos\core\pygmy_gui.c" Header="pygmy_gui.c" Marker="-1" AsyncBuild="" OutputFile=".\pygmy_gui.o" sate="0" >
+		<Options/>
+	</NodeC>
+	<NodeC Path="..\..\pygmyos\core\pygmy_nvic.c" Header="pygmy_nvic.c" Marker="-1" AsyncBuild="" OutputFile=".\pygmy_nvic.o" sate="0" />
+	<NodeC Path="..\..\pygmyos\core\pygmy_port.c" Header="pygmy_port.c" Marker="-1" AsyncBuild="" OutputFile=".\pygmy_port.o" sate="0" />
+	<NodeC Path="..\..\pygmyos\core\pygmy_rf.c" Header="pygmy_rf.c" Marker="-1" AsyncBuild="" OutputFile=".\pygmy_rf.o" sate="0" />
+	<NodeC Path="..\..\pygmyos\core\pygmy_rtc.c" Header="pygmy_rtc.c" Marker="-1" AsyncBuild="" OutputFile=".\pygmy_rtc.o" sate="0" />
+	<NodeC Path="..\..\pygmyos\core\pygmy_string.c" Header="pygmy_string.c" Marker="-1" AsyncBuild="" OutputFile=".\pygmy_string.o" sate="0" />
+	<NodeC Path="..\..\pygmyos\core\pygmy_sys.c" Header="pygmy_sys.c" Marker="-1" AsyncBuild="" OutputFile=".\pygmy_sys.o" sate="0" />
+	<NodeC Path=".\main.c" Header="main.c" Marker="-1" AsyncBuild="" OutputFile=".\main.o" sate="0" />
+	<Options>
+		<Config Header="Standard" >
+			<Set Header="ApplicationBuild" >
+				<Section Header="General" >
+					<Property Header="TargetFamily" Value="ARM" />
+																									
+				</Section>
+				<Section Header="Directories" >
+					<Property Header="IncDir" Value=".;$(RkitLib)\ARM\include;C:\Users\MightyDubster\Documents\Projects\pygmyos;C:\Users\MightyDubster\Documents\Projects\pygmyos\core" Removable="1" />
+																
+				</Section>
+												
+			</Set>
+			<Set Header="Target" >
+				<Section Header="ProcessorARM" >
+					<Property Header="Processor" Value="STM32F100R8" />
+																									
+				</Section>
+				<Section Header="ToolSetARM" >
+					<Property Header="BuildToolSetARM" Value="ARM\GNU.config" Removable="1" />
+																									
+				</Section>
+																			
+			</Set>
+			<Set Header="GCC" >
+				<Section Header="DEBUG" >
+					<Property Header="DEBUGINFO" Value="" Removable="1" />
+																
+				</Section>
+				<Section Header="OPTIMIZE" >
+					<Property Header="Optimize" Value="-Os" Removable="1" />
+																
+				</Section>
+												
+			</Set>
+			<Set Header="LD" >
+				<Section Header="LIB" >
+					<Property Header="UART0PUTC" Value="0" Removable="1" />
+																
+				</Section>
+				<Section Header="Startup" >
+					<Property Header="DEFAULTSTARTUP" Value="No" Removable="1" />
+					<Property Header="File" Value="C:\Program Files (x86)\Raisonance\Ride\lib\ARM\startup_stm32f10x_hd.o" Removable="1" />
+																
+				</Section>
+				<Section Header="Scripts" >
+					<Property Header="SCRIPTFILES" Value="No" Removable="1" />
+					<Property Header="File" Value="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\STM32F100_64K_8K_FLASH_PygmyOS.ld" Removable="1" />
+							
+				</Section>
+					
+			</Set>
+		</Config>
+	</Options>
+	<NodeC Path="..\..\pygmyos\core\pygmy_adc.c" Header="pygmy_adc.c" Marker="-1" AsyncBuild="" OutputFile=".\pygmy_adc.o" sate="2" />
+</ApplicationBuild>

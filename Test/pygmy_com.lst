@@ -1,0 +1,971 @@
+
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_com.o:     file format elf32-littlearm
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_com.o
+
+
+Disassembly of section .text.i2cSetAddress:
+
+00000000 <i2cSetAddress>:
+i2cSetAddress():
+   0:	4770      	bx	lr
+
+Disassembly of section .text.comDisable:
+
+00000000 <comDisable>:
+comDisable():
+   0:	2801      	cmp	r0, #1
+   2:	d101      	bne.n	8 <comDisable+0x8>
+   4:	4a0f      	ldr	r2, [pc, #60]	; (44 <comDisable+0x44>)
+   6:	e002      	b.n	e <comDisable+0xe>
+   8:	2802      	cmp	r0, #2
+   a:	d10c      	bne.n	26 <comDisable+0x26>
+   c:	4a0e      	ldr	r2, [pc, #56]	; (48 <comDisable+0x48>)
+   e:	8993      	ldrh	r3, [r2, #12]
+  10:	f423 5300 	bic.w	r3, r3, #8192	; 0x2000
+  14:	041b      	lsls	r3, r3, #16
+  16:	0c1b      	lsrs	r3, r3, #16
+  18:	8193      	strh	r3, [r2, #12]
+  1a:	4b0c      	ldr	r3, [pc, #48]	; (4c <comDisable+0x4c>)
+  1c:	699a      	ldr	r2, [r3, #24]
+  1e:	f422 4280 	bic.w	r2, r2, #16384	; 0x4000
+  22:	619a      	str	r2, [r3, #24]
+  24:	4770      	bx	lr
+  26:	2803      	cmp	r0, #3
+  28:	d10b      	bne.n	42 <comDisable+0x42>
+  2a:	4a09      	ldr	r2, [pc, #36]	; (50 <comDisable+0x50>)
+  2c:	8993      	ldrh	r3, [r2, #12]
+  2e:	f423 5300 	bic.w	r3, r3, #8192	; 0x2000
+  32:	041b      	lsls	r3, r3, #16
+  34:	0c1b      	lsrs	r3, r3, #16
+  36:	8193      	strh	r3, [r2, #12]
+  38:	4b04      	ldr	r3, [pc, #16]	; (4c <comDisable+0x4c>)
+  3a:	699a      	ldr	r2, [r3, #24]
+  3c:	f422 4280 	bic.w	r2, r2, #16384	; 0x4000
+  40:	619a      	str	r2, [r3, #24]
+  42:	4770      	bx	lr
+  44:	40013800 	.word	0x40013800
+  48:	40004400 	.word	0x40004400
+  4c:	40021000 	.word	0x40021000
+  50:	40004800 	.word	0x40004800
+
+Disassembly of section .text.comEnable:
+
+00000000 <comEnable>:
+comEnable():
+   0:	2801      	cmp	r0, #1
+   2:	d106      	bne.n	12 <comEnable+0x12>
+   4:	4b11      	ldr	r3, [pc, #68]	; (4c <comEnable+0x4c>)
+   6:	699a      	ldr	r2, [r3, #24]
+   8:	f442 4280 	orr.w	r2, r2, #16384	; 0x4000
+   c:	619a      	str	r2, [r3, #24]
+   e:	4b10      	ldr	r3, [pc, #64]	; (50 <comEnable+0x50>)
+  10:	e007      	b.n	22 <comEnable+0x22>
+  12:	2802      	cmp	r0, #2
+  14:	d10b      	bne.n	2e <comEnable+0x2e>
+  16:	4b0d      	ldr	r3, [pc, #52]	; (4c <comEnable+0x4c>)
+  18:	699a      	ldr	r2, [r3, #24]
+  1a:	f442 4280 	orr.w	r2, r2, #16384	; 0x4000
+  1e:	619a      	str	r2, [r3, #24]
+  20:	4b0c      	ldr	r3, [pc, #48]	; (54 <comEnable+0x54>)
+  22:	899a      	ldrh	r2, [r3, #12]
+  24:	b292      	uxth	r2, r2
+  26:	f442 5200 	orr.w	r2, r2, #8192	; 0x2000
+  2a:	819a      	strh	r2, [r3, #12]
+  2c:	4770      	bx	lr
+  2e:	2803      	cmp	r0, #3
+  30:	d10a      	bne.n	48 <comEnable+0x48>
+  32:	4b06      	ldr	r3, [pc, #24]	; (4c <comEnable+0x4c>)
+  34:	699a      	ldr	r2, [r3, #24]
+  36:	f442 4280 	orr.w	r2, r2, #16384	; 0x4000
+  3a:	619a      	str	r2, [r3, #24]
+  3c:	4b06      	ldr	r3, [pc, #24]	; (58 <comEnable+0x58>)
+  3e:	899a      	ldrh	r2, [r3, #12]
+  40:	b292      	uxth	r2, r2
+  42:	f442 5200 	orr.w	r2, r2, #8192	; 0x2000
+  46:	819a      	strh	r2, [r3, #12]
+  48:	4770      	bx	lr
+  4a:	bf00      	nop
+  4c:	40021000 	.word	0x40021000
+  50:	40013800 	.word	0x40013800
+  54:	40004400 	.word	0x40004400
+  58:	40004800 	.word	0x40004800
+
+Disassembly of section .text.comGenerateBaud:
+
+00000000 <comGenerateBaud>:
+comGenerateBaud():
+   0:	460cb510 	.word	0x460cb510
+   4:	f7ff fffe 	bl	0 <sysGetMainClock>
+   8:	4b08      	ldr	r3, [pc, #32]	; (2c <comGenerateBaud+0x2c>)
+   a:	4298      	cmp	r0, r3
+   c:	d002      	beq.n	14 <comGenerateBaud+0x14>
+   e:	4b08      	ldr	r3, [pc, #32]	; (30 <comGenerateBaud+0x30>)
+  10:	4298      	cmp	r0, r3
+  12:	d100      	bne.n	16 <comGenerateBaud+0x16>
+  14:	0880      	lsrs	r0, r0, #2
+  16:	08c3      	lsrs	r3, r0, #3
+  18:	fbb0 f0f4 	udiv	r0, r0, r4
+  1c:	fbb3 f3f4 	udiv	r3, r3, r4
+  20:	f000 0007 	and.w	r0, r0, #7
+  24:	eb00 1003 	add.w	r0, r0, r3, lsl #4
+  28:	b280      	uxth	r0, r0
+  2a:	bd10      	pop	{r4, pc}
+  2c:	044aa200 	.word	0x044aa200
+  30:	02dc6c00 	.word	0x02dc6c00
+
+Disassembly of section .text.comConfig:
+
+00000000 <comConfig>:
+comConfig():
+   0:	2801      	cmp	r0, #1
+   2:	b538      	push	{r3, r4, r5, lr}
+   4:	4601      	mov	r1, r0
+   6:	4614      	mov	r4, r2
+   8:	461d      	mov	r5, r3
+   a:	d13a      	bne.n	82 <comConfig+0x82>
+   c:	4b31      	ldr	r3, [pc, #196]	; (d4 <comConfig+0xd4>)
+   e:	2027      	movs	r0, #39	; 0x27
+  10:	69da      	ldr	r2, [r3, #28]
+  12:	f442 2280 	orr.w	r2, r2, #262144	; 0x40000
+  16:	61da      	str	r2, [r3, #28]
+  18:	699a      	ldr	r2, [r3, #24]
+  1a:	f042 0208 	orr.w	r2, r2, #8
+  1e:	619a      	str	r2, [r3, #24]
+  20:	f7ff fffe 	bl	0 <interruptSetPriority>
+  24:	2027      	movs	r0, #39	; 0x27
+  26:	f7ff fffe 	bl	0 <interruptEnable>
+  2a:	f014 0f01 	tst.w	r4, #1
+  2e:	d008      	beq.n	42 <comConfig+0x42>
+  30:	4b29      	ldr	r3, [pc, #164]	; (d8 <comConfig+0xd8>)
+  32:	685a      	ldr	r2, [r3, #4]
+  34:	f022 6270 	bic.w	r2, r2, #251658240	; 0xf000000
+  38:	605a      	str	r2, [r3, #4]
+  3a:	685a      	ldr	r2, [r3, #4]
+  3c:	f042 6230 	orr.w	r2, r2, #184549376	; 0xb000000
+  40:	605a      	str	r2, [r3, #4]
+  42:	f014 0f02 	tst.w	r4, #2
+  46:	d008      	beq.n	5a <comConfig+0x5a>
+  48:	4b23      	ldr	r3, [pc, #140]	; (d8 <comConfig+0xd8>)
+  4a:	685a      	ldr	r2, [r3, #4]
+  4c:	f422 0270 	bic.w	r2, r2, #15728640	; 0xf00000
+  50:	605a      	str	r2, [r3, #4]
+  52:	685a      	ldr	r2, [r3, #4]
+  54:	f442 0280 	orr.w	r2, r2, #4194304	; 0x400000
+  58:	605a      	str	r2, [r3, #4]
+  5a:	4b1f      	ldr	r3, [pc, #124]	; (d8 <comConfig+0xd8>)
+  5c:	685a      	ldr	r2, [r3, #4]
+  5e:	f422 6270 	bic.w	r2, r2, #3840	; 0xf00
+  62:	605a      	str	r2, [r3, #4]
+  64:	685a      	ldr	r2, [r3, #4]
+  66:	f442 6230 	orr.w	r2, r2, #2816	; 0xb00
+  6a:	605a      	str	r2, [r3, #4]
+  6c:	685a      	ldr	r2, [r3, #4]
+  6e:	f422 4270 	bic.w	r2, r2, #61440	; 0xf000
+  72:	605a      	str	r2, [r3, #4]
+  74:	685a      	ldr	r2, [r3, #4]
+  76:	f442 4200 	orr.w	r2, r2, #32768	; 0x8000
+  7a:	605a      	str	r2, [r3, #4]
+  7c:	f44f 6200 	mov.w	r2, #2048	; 0x800
+  80:	611a      	str	r2, [r3, #16]
+  82:	4b16      	ldr	r3, [pc, #88]	; (dc <comConfig+0xdc>)
+  84:	2200      	movs	r2, #0
+  86:	f014 0f01 	tst.w	r4, #1
+  8a:	829a      	strh	r2, [r3, #20]
+  8c:	d004      	beq.n	98 <comConfig+0x98>
+  8e:	8a9a      	ldrh	r2, [r3, #20]
+  90:	b292      	uxth	r2, r2
+  92:	f442 7280 	orr.w	r2, r2, #256	; 0x100
+  96:	829a      	strh	r2, [r3, #20]
+  98:	f014 0f02 	tst.w	r4, #2
+  9c:	d005      	beq.n	aa <comConfig+0xaa>
+  9e:	4b0f      	ldr	r3, [pc, #60]	; (dc <comConfig+0xdc>)
+  a0:	8a9a      	ldrh	r2, [r3, #20]
+  a2:	b292      	uxth	r2, r2
+  a4:	f442 7200 	orr.w	r2, r2, #512	; 0x200
+  a8:	829a      	strh	r2, [r3, #20]
+  aa:	f7ff fffe 	bl	0 <sysGetMainClock>
+  ae:	4629      	mov	r1, r5
+  b0:	f7ff fffe 	bl	0 <comConfig>
+  b4:	4b09      	ldr	r3, [pc, #36]	; (dc <comConfig+0xdc>)
+  b6:	2200      	movs	r2, #0
+  b8:	f014 0f10 	tst.w	r4, #16
+  bc:	8118      	strh	r0, [r3, #8]
+  be:	829a      	strh	r2, [r3, #20]
+  c0:	bf14      	ite	ne
+  c2:	f24a 02ac 	movwne	r2, #41132	; 0xa0ac
+  c6:	f24a 022c 	movweq	r2, #41004	; 0xa02c
+  ca:	819a      	strh	r2, [r3, #12]
+  cc:	2200      	movs	r2, #0
+  ce:	801a      	strh	r2, [r3, #0]
+  d0:	bd38      	pop	{r3, r4, r5, pc}
+  d2:	bf00      	nop
+  d4:	40021000 	.word	0x40021000
+  d8:	40010c00 	.word	0x40010c00
+  dc:	40004800 	.word	0x40004800
+
+Disassembly of section .text.parallelConfig:
+
+00000000 <parallelConfig>:
+parallelConfig():
+   0:	e92d 4ff1 	stmdb	sp!, {r0, r4, r5, r6, r7, r8, r9, sl, fp, lr}
+   4:	469a      	mov	sl, r3
+   6:	460d      	mov	r5, r1
+   8:	f89d 9028 	ldrb.w	r9, [sp, #40]	; 0x28
+   c:	2103      	movs	r1, #3
+   e:	4604      	mov	r4, r0
+  10:	4610      	mov	r0, r2
+  12:	4616      	mov	r6, r2
+  14:	f89d 802c 	ldrb.w	r8, [sp, #44]	; 0x2c
+  18:	f89d 7030 	ldrb.w	r7, [sp, #48]	; 0x30
+  1c:	f7ff fffe 	bl	0 <pinConfig>
+  20:	2103      	movs	r1, #3
+  22:	4650      	mov	r0, sl
+  24:	f7ff fffe 	bl	0 <pinConfig>
+  28:	2103      	movs	r1, #3
+  2a:	4648      	mov	r0, r9
+  2c:	f7ff fffe 	bl	0 <pinConfig>
+  30:	2103      	movs	r1, #3
+  32:	4640      	mov	r0, r8
+  34:	f7ff fffe 	bl	0 <pinConfig>
+  38:	2d10      	cmp	r5, #16
+  3a:	d802      	bhi.n	42 <parallelConfig+0x42>
+  3c:	f884 5020 	strb.w	r5, [r4, #32]
+  40:	e002      	b.n	48 <parallelConfig+0x48>
+  42:	2308      	movs	r3, #8
+  44:	f884 3020 	strb.w	r3, [r4, #32]
+  48:	2300      	movs	r3, #0
+  4a:	83e3      	strh	r3, [r4, #30]
+  4c:	2500      	movs	r5, #0
+  4e:	e00f      	b.n	70 <parallelConfig+0x70>
+  50:	f007 030f 	and.w	r3, r7, #15
+  54:	f85b 2023 	ldr.w	r2, [fp, r3, lsl #2]
+  58:	8be3      	ldrh	r3, [r4, #30]
+  5a:	4638      	mov	r0, r7
+  5c:	ea42 0303 	orr.w	r3, r2, r3
+  60:	83e3      	strh	r3, [r4, #30]
+  62:	2103      	movs	r1, #3
+  64:	f7ff fffe 	bl	0 <pinConfig>
+  68:	3501      	adds	r5, #1
+  6a:	3701      	adds	r7, #1
+  6c:	b2ed      	uxtb	r5, r5
+  6e:	b2ff      	uxtb	r7, r7
+  70:	f894 3020 	ldrb.w	r3, [r4, #32]
+  74:	f8df b088 	ldr.w	fp, [pc, #136]	; 100 <parallelConfig+0x100>
+  78:	42ab      	cmp	r3, r5
+  7a:	d8e9      	bhi.n	50 <parallelConfig+0x50>
+  7c:	4630      	mov	r0, r6
+  7e:	f7ff fffe 	bl	0 <pinGetPort>
+  82:	6020      	str	r0, [r4, #0]
+  84:	4650      	mov	r0, sl
+  86:	f7ff fffe 	bl	0 <pinGetPort>
+  8a:	6060      	str	r0, [r4, #4]
+  8c:	4648      	mov	r0, r9
+  8e:	f7ff fffe 	bl	0 <pinGetPort>
+  92:	60a0      	str	r0, [r4, #8]
+  94:	4640      	mov	r0, r8
+  96:	f7ff fffe 	bl	0 <pinGetPort>
+  9a:	60e0      	str	r0, [r4, #12]
+  9c:	4638      	mov	r0, r7
+  9e:	f7ff fffe 	bl	0 <pinGetPort>
+  a2:	f006 030f 	and.w	r3, r6, #15
+  a6:	f83b 3023 	ldrh.w	r3, [fp, r3, lsl #2]
+  aa:	f007 070f 	and.w	r7, r7, #15
+  ae:	82a3      	strh	r3, [r4, #20]
+  b0:	f00a 030f 	and.w	r3, sl, #15
+  b4:	f83b 3023 	ldrh.w	r3, [fp, r3, lsl #2]
+  b8:	6120      	str	r0, [r4, #16]
+  ba:	82e3      	strh	r3, [r4, #22]
+  bc:	f009 030f 	and.w	r3, r9, #15
+  c0:	f83b 3023 	ldrh.w	r3, [fp, r3, lsl #2]
+  c4:	4630      	mov	r0, r6
+  c6:	8323      	strh	r3, [r4, #24]
+  c8:	f008 030f 	and.w	r3, r8, #15
+  cc:	f83b 3023 	ldrh.w	r3, [fp, r3, lsl #2]
+  d0:	f83b b027 	ldrh.w	fp, [fp, r7, lsl #2]
+  d4:	8363      	strh	r3, [r4, #26]
+  d6:	2101      	movs	r1, #1
+  d8:	f8a4 b01c 	strh.w	fp, [r4, #28]
+  dc:	f7ff fffe 	bl	0 <pinSet>
+  e0:	4650      	mov	r0, sl
+  e2:	2101      	movs	r1, #1
+  e4:	f7ff fffe 	bl	0 <pinSet>
+  e8:	4648      	mov	r0, r9
+  ea:	2101      	movs	r1, #1
+  ec:	f7ff fffe 	bl	0 <pinSet>
+  f0:	4640      	mov	r0, r8
+  f2:	2101      	movs	r1, #1
+  f4:	b001      	add	sp, #4
+  f6:	e8bd 4ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+  fa:	f7ff bffe 	b.w	0 <pinSet>
+  fe:	bf00      	nop
+ 100:	00000000 	.word	0x00000000
+
+Disassembly of section .text.parallelWrite:
+
+00000000 <parallelWrite>:
+parallelWrite():
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	8b84      	ldrh	r4, [r0, #28]
+   4:	8bc3      	ldrh	r3, [r0, #30]
+   6:	fa12 f404 	lsls.w	r4, r2, r4
+   a:	6845      	ldr	r5, [r0, #4]
+   c:	401c      	ands	r4, r3
+   e:	8ac6      	ldrh	r6, [r0, #22]
+  10:	b109      	cbz	r1, 16 <parallelWrite+0x16>
+  12:	612e      	str	r6, [r5, #16]
+  14:	e000      	b.n	18 <parallelWrite+0x18>
+  16:	616e      	str	r6, [r5, #20]
+  18:	6801      	ldr	r1, [r0, #0]
+  1a:	8a85      	ldrh	r5, [r0, #20]
+  1c:	6902      	ldr	r2, [r0, #16]
+  1e:	614d      	str	r5, [r1, #20]
+  20:	68d6      	ldr	r6, [r2, #12]
+  22:	ea26 0303 	bic.w	r3, r6, r3
+  26:	60d3      	str	r3, [r2, #12]
+  28:	68d3      	ldr	r3, [r2, #12]
+  2a:	431c      	orrs	r4, r3
+  2c:	60d4      	str	r4, [r2, #12]
+  2e:	6883      	ldr	r3, [r0, #8]
+  30:	8b02      	ldrh	r2, [r0, #24]
+  32:	615a      	str	r2, [r3, #20]
+  34:	611a      	str	r2, [r3, #16]
+  36:	610d      	str	r5, [r1, #16]
+  38:	bd70      	pop	{r4, r5, r6, pc}
+
+Disassembly of section .text.parallelRead:
+
+00000000 <parallelRead>:
+parallelRead():
+   0:	6903      	ldr	r3, [r0, #16]
+   2:	689a      	ldr	r2, [r3, #8]
+   4:	8bc3      	ldrh	r3, [r0, #30]
+   6:	401a      	ands	r2, r3
+   8:	8b83      	ldrh	r3, [r0, #28]
+   a:	fa52 f003 	asrs.w	r0, r2, r3
+   e:	b280      	uxth	r0, r0
+  10:	4770      	bx	lr
+
+Disassembly of section .text.spiWriteByte:
+
+00000000 <spiWriteByte>:
+spiWriteByte():
+   0:	b5f0      	push	{r4, r5, r6, r7, lr}
+   2:	6842      	ldr	r2, [r0, #4]
+   4:	8a44      	ldrh	r4, [r0, #18]
+   6:	4b08      	ldr	r3, [pc, #32]	; (28 <spiWriteByte+0x28>)
+   8:	6154      	str	r4, [r2, #20]
+   a:	f103 0720 	add.w	r7, r3, #32
+   e:	f853 5b04 	ldr.w	r5, [r3], #4
+  12:	8a86      	ldrh	r6, [r0, #20]
+  14:	4229      	tst	r1, r5
+  16:	6885      	ldr	r5, [r0, #8]
+  18:	bf14      	ite	ne
+  1a:	612e      	strne	r6, [r5, #16]
+  1c:	616e      	streq	r6, [r5, #20]
+  1e:	42bb      	cmp	r3, r7
+  20:	6114      	str	r4, [r2, #16]
+  22:	6154      	str	r4, [r2, #20]
+  24:	d1f3      	bne.n	e <spiWriteByte+0xe>
+  26:	bdf0      	pop	{r4, r5, r6, r7, pc}
+  28:	00000060 	.word	0x00000060
+
+Disassembly of section .text.spiWriteWord:
+
+00000000 <spiWriteWord>:
+spiWriteWord():
+   0:	b5f0      	push	{r4, r5, r6, r7, lr}
+   2:	6842      	ldr	r2, [r0, #4]
+   4:	8a44      	ldrh	r4, [r0, #18]
+   6:	4b08      	ldr	r3, [pc, #32]	; (28 <spiWriteWord+0x28>)
+   8:	6154      	str	r4, [r2, #20]
+   a:	f103 0740 	add.w	r7, r3, #64	; 0x40
+   e:	f853 5b04 	ldr.w	r5, [r3], #4
+  12:	8a86      	ldrh	r6, [r0, #20]
+  14:	4229      	tst	r1, r5
+  16:	6885      	ldr	r5, [r0, #8]
+  18:	bf14      	ite	ne
+  1a:	612e      	strne	r6, [r5, #16]
+  1c:	616e      	streq	r6, [r5, #20]
+  1e:	42bb      	cmp	r3, r7
+  20:	6114      	str	r4, [r2, #16]
+  22:	6154      	str	r4, [r2, #20]
+  24:	d1f3      	bne.n	e <spiWriteWord+0xe>
+  26:	bdf0      	pop	{r4, r5, r6, r7, pc}
+  28:	00000040 	.word	0x00000040
+
+Disassembly of section .text.spiWriteLong:
+
+00000000 <spiWriteLong>:
+spiWriteLong():
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	6842      	ldr	r2, [r0, #4]
+   4:	8a44      	ldrh	r4, [r0, #18]
+   6:	2300      	movs	r3, #0
+   8:	6154      	str	r4, [r2, #20]
+   a:	4d07      	ldr	r5, [pc, #28]	; (28 <spiWriteLong+0x28>)
+   c:	8a86      	ldrh	r6, [r0, #20]
+   e:	595d      	ldr	r5, [r3, r5]
+  10:	4229      	tst	r1, r5
+  12:	6885      	ldr	r5, [r0, #8]
+  14:	bf14      	ite	ne
+  16:	612e      	strne	r6, [r5, #16]
+  18:	616e      	streq	r6, [r5, #20]
+  1a:	3304      	adds	r3, #4
+  1c:	2b80      	cmp	r3, #128	; 0x80
+  1e:	6114      	str	r4, [r2, #16]
+  20:	6154      	str	r4, [r2, #20]
+  22:	d1f2      	bne.n	a <spiWriteLong+0xa>
+  24:	bd70      	pop	{r4, r5, r6, pc}
+  26:	bf00      	nop
+  28:	00000000 	.word	0x00000000
+
+Disassembly of section .text.spiReadByte:
+
+00000000 <spiReadByte>:
+spiReadByte():
+   0:	6842      	ldr	r2, [r0, #4]
+   2:	8a41      	ldrh	r1, [r0, #18]
+   4:	4b09      	ldr	r3, [pc, #36]	; (2c <spiReadByte+0x2c>)
+   6:	b5f0      	push	{r4, r5, r6, r7, lr}
+   8:	68c6      	ldr	r6, [r0, #12]
+   a:	8ac5      	ldrh	r5, [r0, #22]
+   c:	6151      	str	r1, [r2, #20]
+   e:	f103 0420 	add.w	r4, r3, #32
+  12:	2000      	movs	r0, #0
+  14:	6111      	str	r1, [r2, #16]
+  16:	68b7      	ldr	r7, [r6, #8]
+  18:	6151      	str	r1, [r2, #20]
+  1a:	423d      	tst	r5, r7
+  1c:	bf1c      	itt	ne
+  1e:	f893 7060 	ldrbne.w	r7, [r3, #96]	; 0x60
+  22:	4338      	orrne	r0, r7
+  24:	3304      	adds	r3, #4
+  26:	42a3      	cmp	r3, r4
+  28:	d1f4      	bne.n	14 <spiReadByte+0x14>
+  2a:	bdf0      	pop	{r4, r5, r6, r7, pc}
+  2c:	00000000 	.word	0x00000000
+
+Disassembly of section .text.spiReadBuffer:
+
+00000000 <spiReadBuffer>:
+spiReadBuffer():
+   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+   2:	4615      	mov	r5, r2
+   4:	6803      	ldr	r3, [r0, #0]
+   6:	8a02      	ldrh	r2, [r0, #16]
+   8:	4604      	mov	r4, r0
+   a:	615a      	str	r2, [r3, #20]
+   c:	460f      	mov	r7, r1
+   e:	2600      	movs	r6, #0
+  10:	e006      	b.n	20 <spiReadBuffer+0x20>
+  12:	4620      	mov	r0, r4
+  14:	f7ff fffe 	bl	0 <spiReadBuffer>
+  18:	3601      	adds	r6, #1
+  1a:	f807 0b01 	strb.w	r0, [r7], #1
+  1e:	b2b6      	uxth	r6, r6
+  20:	42ae      	cmp	r6, r5
+  22:	d3f6      	bcc.n	12 <spiReadBuffer+0x12>
+  24:	6823      	ldr	r3, [r4, #0]
+  26:	8a22      	ldrh	r2, [r4, #16]
+  28:	611a      	str	r2, [r3, #16]
+  2a:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+
+Disassembly of section .text.spiWriteBuffer:
+
+00000000 <spiWriteBuffer>:
+spiWriteBuffer():
+   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+   2:	4617      	mov	r7, r2
+   4:	6803      	ldr	r3, [r0, #0]
+   6:	8a02      	ldrh	r2, [r0, #16]
+   8:	4604      	mov	r4, r0
+   a:	615a      	str	r2, [r3, #20]
+   c:	460e      	mov	r6, r1
+   e:	2500      	movs	r5, #0
+  10:	e006      	b.n	20 <spiWriteBuffer+0x20>
+  12:	4620      	mov	r0, r4
+  14:	f816 1b01 	ldrb.w	r1, [r6], #1
+  18:	f7ff fffe 	bl	0 <spiWriteBuffer>
+  1c:	3501      	adds	r5, #1
+  1e:	b2ad      	uxth	r5, r5
+  20:	42bd      	cmp	r5, r7
+  22:	d3f6      	bcc.n	12 <spiWriteBuffer+0x12>
+  24:	6823      	ldr	r3, [r4, #0]
+  26:	8a22      	ldrh	r2, [r4, #16]
+  28:	611a      	str	r2, [r3, #16]
+  2a:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+
+Disassembly of section .text.spiConfig:
+
+00000000 <spiConfig>:
+spiConfig():
+   0:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
+   4:	4616      	mov	r6, r2
+   6:	f89d 9020 	ldrb.w	r9, [sp, #32]
+   a:	4604      	mov	r4, r0
+   c:	460d      	mov	r5, r1
+   e:	4608      	mov	r0, r1
+  10:	2103      	movs	r1, #3
+  12:	4698      	mov	r8, r3
+  14:	f7ff fffe 	bl	0 <pinConfig>
+  18:	2103      	movs	r1, #3
+  1a:	4630      	mov	r0, r6
+  1c:	f7ff fffe 	bl	0 <pinConfig>
+  20:	f1b9 0fff 	cmp.w	r9, #255	; 0xff
+  24:	4f1f      	ldr	r7, [pc, #124]	; (a4 <spiConfig+0xa4>)
+  26:	d00d      	beq.n	44 <spiConfig+0x44>
+  28:	4648      	mov	r0, r9
+  2a:	2103      	movs	r1, #3
+  2c:	f7ff fffe 	bl	0 <pinConfig>
+  30:	4648      	mov	r0, r9
+  32:	f7ff fffe 	bl	0 <pinGetPort>
+  36:	f009 090f 	and.w	r9, r9, #15
+  3a:	f837 9029 	ldrh.w	r9, [r7, r9, lsl #2]
+  3e:	60a0      	str	r0, [r4, #8]
+  40:	f8a4 9014 	strh.w	r9, [r4, #20]
+  44:	f1b8 0fff 	cmp.w	r8, #255	; 0xff
+  48:	d00d      	beq.n	66 <spiConfig+0x66>
+  4a:	4640      	mov	r0, r8
+  4c:	2104      	movs	r1, #4
+  4e:	f7ff fffe 	bl	0 <pinConfig>
+  52:	4640      	mov	r0, r8
+  54:	f7ff fffe 	bl	0 <pinGetPort>
+  58:	f008 080f 	and.w	r8, r8, #15
+  5c:	f837 8028 	ldrh.w	r8, [r7, r8, lsl #2]
+  60:	60e0      	str	r0, [r4, #12]
+  62:	f8a4 8016 	strh.w	r8, [r4, #22]
+  66:	4628      	mov	r0, r5
+  68:	f7ff fffe 	bl	0 <pinGetPort>
+  6c:	6020      	str	r0, [r4, #0]
+  6e:	4630      	mov	r0, r6
+  70:	f7ff fffe 	bl	0 <pinGetPort>
+  74:	f005 030f 	and.w	r3, r5, #15
+  78:	f837 3023 	ldrh.w	r3, [r7, r3, lsl #2]
+  7c:	6060      	str	r0, [r4, #4]
+  7e:	8223      	strh	r3, [r4, #16]
+  80:	f006 030f 	and.w	r3, r6, #15
+  84:	f837 7023 	ldrh.w	r7, [r7, r3, lsl #2]
+  88:	23ff      	movs	r3, #255	; 0xff
+  8a:	4630      	mov	r0, r6
+  8c:	2100      	movs	r1, #0
+  8e:	8267      	strh	r7, [r4, #18]
+  90:	8323      	strh	r3, [r4, #24]
+  92:	f7ff fffe 	bl	0 <pinSet>
+  96:	4628      	mov	r0, r5
+  98:	2101      	movs	r1, #1
+  9a:	e8bd 47f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
+  9e:	f7ff bffe 	b.w	0 <pinSet>
+  a2:	bf00      	nop
+  a4:	00000000 	.word	0x00000000
+
+Disassembly of section .text.i2cInit:
+
+00000000 <i2cInit>:
+i2cInit():
+   0:	2100b538 	.word	0x2100b538
+   4:	4c0f      	ldr	r4, [pc, #60]	; (44 <i2cInit+0x44>)
+   6:	4605      	mov	r5, r0
+   8:	2210      	movs	r2, #16
+   a:	480f      	ldr	r0, [pc, #60]	; (48 <i2cInit+0x48>)
+   c:	47a0      	blx	r4
+   e:	2101      	movs	r1, #1
+  10:	2213      	movs	r2, #19
+  12:	480d      	ldr	r0, [pc, #52]	; (48 <i2cInit+0x48>)
+  14:	47a0      	blx	r4
+  16:	2100      	movs	r1, #0
+  18:	2211      	movs	r2, #17
+  1a:	480c      	ldr	r0, [pc, #48]	; (4c <i2cInit+0x4c>)
+  1c:	47a0      	blx	r4
+  1e:	2101      	movs	r1, #1
+  20:	2214      	movs	r2, #20
+  22:	480a      	ldr	r0, [pc, #40]	; (4c <i2cInit+0x4c>)
+  24:	47a0      	blx	r4
+  26:	2100      	movs	r1, #0
+  28:	2212      	movs	r2, #18
+  2a:	4809      	ldr	r0, [pc, #36]	; (50 <i2cInit+0x50>)
+  2c:	47a0      	blx	r4
+  2e:	4808      	ldr	r0, [pc, #32]	; (50 <i2cInit+0x50>)
+  30:	2101      	movs	r1, #1
+  32:	2215      	movs	r2, #21
+  34:	47a0      	blx	r4
+  36:	f44f 7349 	mov.w	r3, #804	; 0x324
+  3a:	80ab      	strh	r3, [r5, #4]
+  3c:	f240 6301 	movw	r3, #1537	; 0x601
+  40:	802b      	strh	r3, [r5, #0]
+  42:	bd38      	pop	{r3, r4, r5, pc}
+  44:	00000000 	.word	0x00000000
+  48:	40005400 	.word	0x40005400
+  4c:	40005800 	.word	0x40005800
+  50:	40005c00 	.word	0x40005c00
+
+Disassembly of section .text.i2cReset:
+
+00000000 <i2cReset>:
+i2cReset():
+   0:	8803      	ldrh	r3, [r0, #0]
+   2:	ea6f 4343 	mvn.w	r3, r3, lsl #17
+   6:	ea6f 4353 	mvn.w	r3, r3, lsr #17
+   a:	b29b      	uxth	r3, r3
+   c:	8003      	strh	r3, [r0, #0]
+   e:	4770      	bx	lr
+
+Disassembly of section .text.I2C1_ER_IRQHandler:
+
+00000000 <I2C1_ER_IRQHandler>:
+I2C1_ER_IRQHandler():
+   0:	4770      	bx	lr
+
+Disassembly of section .text.I2C2_EV_IRQHandler:
+
+00000000 <I2C2_EV_IRQHandler>:
+I2C2_EV_IRQHandler():
+   0:	4770      	bx	lr
+
+Disassembly of section .text.I2C2_ER_IRQHandler:
+
+00000000 <I2C2_ER_IRQHandler>:
+I2C2_ER_IRQHandler():
+   0:	4770      	bx	lr
+
+Disassembly of section .text.I2C3_EV_IRQHandler:
+
+00000000 <I2C3_EV_IRQHandler>:
+I2C3_EV_IRQHandler():
+   0:	4770      	bx	lr
+
+Disassembly of section .text.I2C3_ER_IRQHandler:
+
+00000000 <I2C3_ER_IRQHandler>:
+I2C3_ER_IRQHandler():
+   0:	4770      	bx	lr
+
+Disassembly of section .text.i2cConfig:
+
+00000000 <i2cConfig>:
+i2cConfig():
+   0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+   4:	4604      	mov	r4, r0
+   6:	4616      	mov	r6, r2
+   8:	460d      	mov	r5, r1
+   a:	4608      	mov	r0, r1
+   c:	2118      	movs	r1, #24
+   e:	4698      	mov	r8, r3
+  10:	f8bd 7018 	ldrh.w	r7, [sp, #24]
+  14:	f7ff fffe 	bl	0 <pinConfig>
+  18:	4630      	mov	r0, r6
+  1a:	2118      	movs	r1, #24
+  1c:	f7ff fffe 	bl	0 <pinConfig>
+  20:	7025      	strb	r5, [r4, #0]
+  22:	7066      	strb	r6, [r4, #1]
+  24:	4628      	mov	r0, r5
+  26:	f7ff fffe 	bl	0 <pinGetPort>
+  2a:	6060      	str	r0, [r4, #4]
+  2c:	4630      	mov	r0, r6
+  2e:	f7ff fffe 	bl	0 <pinGetPort>
+  32:	4b0c      	ldr	r3, [pc, #48]	; (64 <i2cConfig+0x64>)
+  34:	f005 050f 	and.w	r5, r5, #15
+  38:	f006 060f 	and.w	r6, r6, #15
+  3c:	f833 5025 	ldrh.w	r5, [r3, r5, lsl #2]
+  40:	f833 6026 	ldrh.w	r6, [r3, r6, lsl #2]
+  44:	ea4f 0848 	mov.w	r8, r8, lsl #1
+  48:	60a0      	str	r0, [r4, #8]
+  4a:	81a5      	strh	r5, [r4, #12]
+  4c:	81e6      	strh	r6, [r4, #14]
+  4e:	f884 8002 	strb.w	r8, [r4, #2]
+  52:	b117      	cbz	r7, 5a <i2cConfig+0x5a>
+  54:	8267      	strh	r7, [r4, #18]
+  56:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  5a:	2308      	movs	r3, #8
+  5c:	8263      	strh	r3, [r4, #18]
+  5e:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  62:	bf00      	nop
+  64:	00000000 	.word	0x00000000
+
+Disassembly of section .text.i2cDelay:
+
+00000000 <i2cDelay>:
+i2cDelay():
+   0:	4770      	bx	lr
+
+Disassembly of section .text.i2cStart:
+
+00000000 <i2cStart>:
+i2cStart():
+   0:	b510      	push	{r4, lr}
+   2:	2118      	movs	r1, #24
+   4:	4604      	mov	r4, r0
+   6:	7840      	ldrb	r0, [r0, #1]
+   8:	f7ff fffe 	bl	0 <pinConfig>
+   c:	2118      	movs	r1, #24
+   e:	7820      	ldrb	r0, [r4, #0]
+  10:	f7ff fffe 	bl	0 <pinConfig>
+  14:	6861      	ldr	r1, [r4, #4]
+  16:	89a2      	ldrh	r2, [r4, #12]
+  18:	f64f 73ff 	movw	r3, #65535	; 0xffff
+  1c:	6888      	ldr	r0, [r1, #8]
+  1e:	4202      	tst	r2, r0
+  20:	d103      	bne.n	2a <i2cStart+0x2a>
+  22:	3b01      	subs	r3, #1
+  24:	b29b      	uxth	r3, r3
+  26:	2b00      	cmp	r3, #0
+  28:	d1f8      	bne.n	1c <i2cStart+0x1c>
+  2a:	68a3      	ldr	r3, [r4, #8]
+  2c:	89e1      	ldrh	r1, [r4, #14]
+  2e:	689a      	ldr	r2, [r3, #8]
+  30:	68da      	ldr	r2, [r3, #12]
+  32:	ea22 0201 	bic.w	r2, r2, r1
+  36:	60da      	str	r2, [r3, #12]
+  38:	7860      	ldrb	r0, [r4, #1]
+  3a:	2103      	movs	r1, #3
+  3c:	f7ff fffe 	bl	0 <pinConfig>
+  40:	6863      	ldr	r3, [r4, #4]
+  42:	89a1      	ldrh	r1, [r4, #12]
+  44:	68da      	ldr	r2, [r3, #12]
+  46:	ea22 0201 	bic.w	r2, r2, r1
+  4a:	60da      	str	r2, [r3, #12]
+  4c:	7820      	ldrb	r0, [r4, #0]
+  4e:	2103      	movs	r1, #3
+  50:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+  54:	f7ff bffe 	b.w	0 <pinConfig>
+
+Disassembly of section .text.i2cStop:
+
+00000000 <i2cStop>:
+i2cStop():
+   0:	b510      	push	{r4, lr}
+   2:	6883      	ldr	r3, [r0, #8]
+   4:	89c1      	ldrh	r1, [r0, #14]
+   6:	68da      	ldr	r2, [r3, #12]
+   8:	4604      	mov	r4, r0
+   a:	ea22 0201 	bic.w	r2, r2, r1
+   e:	60da      	str	r2, [r3, #12]
+  10:	7840      	ldrb	r0, [r0, #1]
+  12:	2103      	movs	r1, #3
+  14:	f7ff fffe 	bl	0 <pinConfig>
+  18:	2118      	movs	r1, #24
+  1a:	7820      	ldrb	r0, [r4, #0]
+  1c:	f7ff fffe 	bl	0 <pinConfig>
+  20:	6861      	ldr	r1, [r4, #4]
+  22:	89a2      	ldrh	r2, [r4, #12]
+  24:	f64f 73ff 	movw	r3, #65535	; 0xffff
+  28:	6888      	ldr	r0, [r1, #8]
+  2a:	4202      	tst	r2, r0
+  2c:	d003      	beq.n	36 <i2cStop+0x36>
+  2e:	3b01      	subs	r3, #1
+  30:	b29b      	uxth	r3, r3
+  32:	2b00      	cmp	r3, #0
+  34:	d1f8      	bne.n	28 <i2cStop+0x28>
+  36:	7860      	ldrb	r0, [r4, #1]
+  38:	2118      	movs	r1, #24
+  3a:	f7ff fffe 	bl	0 <pinConfig>
+  3e:	68a3      	ldr	r3, [r4, #8]
+  40:	689b      	ldr	r3, [r3, #8]
+  42:	bd10      	pop	{r4, pc}
+
+Disassembly of section .text.i2cWriteBit:
+
+00000000 <i2cWriteBit>:
+i2cWriteBit():
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	4604      	mov	r4, r0
+   4:	460d      	mov	r5, r1
+   6:	b111      	cbz	r1, e <i2cWriteBit+0xe>
+   8:	7840      	ldrb	r0, [r0, #1]
+   a:	2118      	movs	r1, #24
+   c:	e007      	b.n	1e <i2cWriteBit+0x1e>
+   e:	6883      	ldr	r3, [r0, #8]
+  10:	89c1      	ldrh	r1, [r0, #14]
+  12:	68da      	ldr	r2, [r3, #12]
+  14:	ea22 0201 	bic.w	r2, r2, r1
+  18:	60da      	str	r2, [r3, #12]
+  1a:	7840      	ldrb	r0, [r0, #1]
+  1c:	2103      	movs	r1, #3
+  1e:	f7ff fffe 	bl	0 <pinConfig>
+  22:	2118      	movs	r1, #24
+  24:	7820      	ldrb	r0, [r4, #0]
+  26:	f7ff fffe 	bl	0 <pinConfig>
+  2a:	6861      	ldr	r1, [r4, #4]
+  2c:	89a2      	ldrh	r2, [r4, #12]
+  2e:	f64f 73ff 	movw	r3, #65535	; 0xffff
+  32:	6888      	ldr	r0, [r1, #8]
+  34:	4202      	tst	r2, r0
+  36:	d003      	beq.n	40 <i2cWriteBit+0x40>
+  38:	3b01      	subs	r3, #1
+  3a:	b29b      	uxth	r3, r3
+  3c:	2b00      	cmp	r3, #0
+  3e:	d1f8      	bne.n	32 <i2cWriteBit+0x32>
+  40:	b12d      	cbz	r5, 4e <i2cWriteBit+0x4e>
+  42:	7860      	ldrb	r0, [r4, #1]
+  44:	2118      	movs	r1, #24
+  46:	f7ff fffe 	bl	0 <pinConfig>
+  4a:	68a3      	ldr	r3, [r4, #8]
+  4c:	689b      	ldr	r3, [r3, #8]
+  4e:	6863      	ldr	r3, [r4, #4]
+  50:	89a1      	ldrh	r1, [r4, #12]
+  52:	68da      	ldr	r2, [r3, #12]
+  54:	ea22 0201 	bic.w	r2, r2, r1
+  58:	60da      	str	r2, [r3, #12]
+  5a:	7820      	ldrb	r0, [r4, #0]
+  5c:	2103      	movs	r1, #3
+  5e:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+  62:	f7ff bffe 	b.w	0 <pinConfig>
+
+Disassembly of section .text.i2cReadBit:
+
+00000000 <i2cReadBit>:
+i2cReadBit():
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	2118      	movs	r1, #24
+   4:	4604      	mov	r4, r0
+   6:	7840      	ldrb	r0, [r0, #1]
+   8:	f7ff fffe 	bl	0 <pinConfig>
+   c:	2118      	movs	r1, #24
+   e:	7820      	ldrb	r0, [r4, #0]
+  10:	f7ff fffe 	bl	0 <pinConfig>
+  14:	6863      	ldr	r3, [r4, #4]
+  16:	89a1      	ldrh	r1, [r4, #12]
+  18:	f64f 72ff 	movw	r2, #65535	; 0xffff
+  1c:	6898      	ldr	r0, [r3, #8]
+  1e:	4201      	tst	r1, r0
+  20:	d003      	beq.n	2a <i2cReadBit+0x2a>
+  22:	3a01      	subs	r2, #1
+  24:	b292      	uxth	r2, r2
+  26:	2a00      	cmp	r2, #0
+  28:	d1f8      	bne.n	1c <i2cReadBit+0x1c>
+  2a:	68a2      	ldr	r2, [r4, #8]
+  2c:	89e0      	ldrh	r0, [r4, #14]
+  2e:	6892      	ldr	r2, [r2, #8]
+  30:	4210      	tst	r0, r2
+  32:	68da      	ldr	r2, [r3, #12]
+  34:	bf0c      	ite	eq
+  36:	2500      	moveq	r5, #0
+  38:	2501      	movne	r5, #1
+  3a:	ea22 0101 	bic.w	r1, r2, r1
+  3e:	60d9      	str	r1, [r3, #12]
+  40:	7820      	ldrb	r0, [r4, #0]
+  42:	2103      	movs	r1, #3
+  44:	f7ff fffe 	bl	0 <pinConfig>
+  48:	4628      	mov	r0, r5
+  4a:	bd38      	pop	{r3, r4, r5, pc}
+
+Disassembly of section .text.i2cWriteByte:
+
+00000000 <i2cWriteByte>:
+i2cWriteByte():
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	4604      	mov	r4, r0
+   4:	460e      	mov	r6, r1
+   6:	2508      	movs	r5, #8
+   8:	f016 0f80 	tst.w	r6, #128	; 0x80
+   c:	d002      	beq.n	14 <i2cWriteByte+0x14>
+   e:	4620      	mov	r0, r4
+  10:	2101      	movs	r1, #1
+  12:	e001      	b.n	18 <i2cWriteByte+0x18>
+  14:	4620      	mov	r0, r4
+  16:	2100      	movs	r1, #0
+  18:	3d01      	subs	r5, #1
+  1a:	b2ed      	uxtb	r5, r5
+  1c:	f7ff fffe 	bl	0 <i2cWriteByte>
+  20:	b115      	cbz	r5, 28 <i2cWriteByte+0x28>
+  22:	0076      	lsls	r6, r6, #1
+  24:	b2f6      	uxtb	r6, r6
+  26:	e7ef      	b.n	8 <i2cWriteByte+0x8>
+  28:	4620      	mov	r0, r4
+  2a:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+  2e:	f7ff bffe 	b.w	0 <i2cWriteByte>
+
+Disassembly of section .text.i2cWriteBuffer:
+
+00000000 <i2cWriteBuffer>:
+i2cWriteBuffer():
+   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+   2:	4604      	mov	r4, r0
+   4:	461f      	mov	r7, r3
+   6:	460d      	mov	r5, r1
+   8:	4616      	mov	r6, r2
+   a:	f7ff fffe 	bl	0 <i2cWriteBuffer>
+   e:	4620      	mov	r0, r4
+  10:	78a1      	ldrb	r1, [r4, #2]
+  12:	f7ff fffe 	bl	0 <i2cWriteBuffer>
+  16:	8a63      	ldrh	r3, [r4, #18]
+  18:	f013 0f02 	tst.w	r3, #2
+  1c:	d003      	beq.n	26 <i2cWriteBuffer+0x26>
+  1e:	4620      	mov	r0, r4
+  20:	0a29      	lsrs	r1, r5, #8
+  22:	f7ff fffe 	bl	0 <i2cWriteBuffer>
+  26:	b2e9      	uxtb	r1, r5
+  28:	4620      	mov	r0, r4
+  2a:	f7ff fffe 	bl	0 <i2cWriteBuffer>
+  2e:	2500      	movs	r5, #0
+  30:	e006      	b.n	40 <i2cWriteBuffer+0x40>
+  32:	4620      	mov	r0, r4
+  34:	f816 1b01 	ldrb.w	r1, [r6], #1
+  38:	f7ff fffe 	bl	0 <i2cWriteBuffer>
+  3c:	3501      	adds	r5, #1
+  3e:	b2ad      	uxth	r5, r5
+  40:	42bd      	cmp	r5, r7
+  42:	d3f6      	bcc.n	32 <i2cWriteBuffer+0x32>
+  44:	4620      	mov	r0, r4
+  46:	f7ff fffe 	bl	0 <i2cWriteBuffer>
+  4a:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+
+Disassembly of section .text.i2cReadByte:
+
+00000000 <i2cReadByte>:
+i2cReadByte():
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	4606      	mov	r6, r0
+   4:	2508      	movs	r5, #8
+   6:	2400      	movs	r4, #0
+   8:	4630      	mov	r0, r6
+   a:	f7ff fffe 	bl	0 <i2cReadByte>
+   e:	3d01      	subs	r5, #1
+  10:	ea40 0444 	orr.w	r4, r0, r4, lsl #1
+  14:	b2ed      	uxtb	r5, r5
+  16:	b2e4      	uxtb	r4, r4
+  18:	2d00      	cmp	r5, #0
+  1a:	d1f5      	bne.n	8 <i2cReadByte+0x8>
+  1c:	4630      	mov	r0, r6
+  1e:	4629      	mov	r1, r5
+  20:	f7ff fffe 	bl	0 <i2cReadByte>
+  24:	4620      	mov	r0, r4
+  26:	bd70      	pop	{r4, r5, r6, pc}
+
+Disassembly of section .text.i2cReadBuffer:
+
+00000000 <i2cReadBuffer>:
+i2cReadBuffer():
+   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+   2:	4604      	mov	r4, r0
+   4:	461e      	mov	r6, r3
+   6:	2300      	movs	r3, #0
+   8:	4615      	mov	r5, r2
+   a:	f7ff fffe 	bl	0 <i2cReadBuffer>
+   e:	4620      	mov	r0, r4
+  10:	f7ff fffe 	bl	0 <i2cReadBuffer>
+  14:	78a1      	ldrb	r1, [r4, #2]
+  16:	4620      	mov	r0, r4
+  18:	f041 0101 	orr.w	r1, r1, #1
+  1c:	f7ff fffe 	bl	0 <i2cReadBuffer>
+  20:	2700      	movs	r7, #0
+  22:	e006      	b.n	32 <i2cReadBuffer+0x32>
+  24:	4620      	mov	r0, r4
+  26:	f7ff fffe 	bl	0 <i2cReadBuffer>
+  2a:	3701      	adds	r7, #1
+  2c:	f805 0b01 	strb.w	r0, [r5], #1
+  30:	b2bf      	uxth	r7, r7
+  32:	42b7      	cmp	r7, r6
+  34:	d3f6      	bcc.n	24 <i2cReadBuffer+0x24>
+  36:	4620      	mov	r0, r4
+  38:	2100      	movs	r1, #0
+  3a:	f7ff fffe 	bl	0 <i2cReadBuffer>
+  3e:	4620      	mov	r0, r4
+  40:	f7ff fffe 	bl	0 <i2cReadBuffer>
+  44:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+
+Disassembly of section .text.i2cResetBus:
+
+00000000 <i2cResetBus>:
+i2cResetBus():
+   0:	2100      	movs	r1, #0
+   2:	f7ff bffe 	b.w	0 <i2cResetBus>

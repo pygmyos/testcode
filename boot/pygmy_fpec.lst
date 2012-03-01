@@ -517,7 +517,7 @@ C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:94
         case IHEX_EOF:
             return( 0xFF );
             break;
-    }
+    } // switch
 
     return( 1 );
   a2:	2001      	movs	r0, #1
@@ -549,12 +549,10 @@ C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:162
    a:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
    e:	f1b3 3fff 	cmp.w	r3, #4294967295
   12:	d101      	bne.n	6 <fpecWriteDescriptor+0x6>
-C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:165
-        //putstr( "\rDesc: " );
-        //putIntUSART3( uiAddress );
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:163
         return( fpecWriteLong( uiAddress, ulValue ) );
   14:	f7ff bffe 	b.w	0 <fpecWriteDescriptor>
-C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:169
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:167
     } // if
     
     return( 0 );
@@ -567,7 +565,7 @@ Disassembly of section .text.fpecErasePage:
 
 00000000 <fpecErasePage>:
 fpecErasePage():
-C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:213
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:211
 
     return( 1 );
 }
@@ -575,14 +573,14 @@ C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:213
 u8 fpecErasePage( u32 ulAddress )
 {
    0:	b570      	push	{r4, r5, r6, lr}
-C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:218
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:216
     u32 *ulData;
     u16 i, uiLen;
 
     ulData = (u32*)ulAddress;
     if ( SIZEREG->Pages >= 512 ){
    2:	4b2a      	ldr	r3, [pc, #168]	; (ac <fpecErasePage+0xac>)
-C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:213
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:211
 
     return( 1 );
 }
@@ -590,19 +588,19 @@ C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:213
 u8 fpecErasePage( u32 ulAddress )
 {
    4:	4605      	mov	r5, r0
-C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:218
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:216
     u32 *ulData;
     u16 i, uiLen;
 
     ulData = (u32*)ulAddress;
     if ( SIZEREG->Pages >= 512 ){
    6:	881e      	ldrh	r6, [r3, #0]
-C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:221
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:219
         uiLen = 512;
     } else{
         uiLen = 256;
    8:	4602      	mov	r2, r0
-C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:218
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:216
 {
     u32 *ulData;
     u16 i, uiLen;
@@ -610,25 +608,25 @@ C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:218
     ulData = (u32*)ulAddress;
     if ( SIZEREG->Pages >= 512 ){
    a:	b2b6      	uxth	r6, r6
-C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:219
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:217
         uiLen = 512;
    c:	f5b6 7f00 	cmp.w	r6, #512	; 0x200
   10:	bf34      	ite	cc
   12:	f44f 7680 	movcc.w	r6, #256	; 0x100
   16:	f44f 7600 	movcs.w	r6, #512	; 0x200
-C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:224
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:222
     } else{
         uiLen = 256;
     } // else
     
     for( i = 0; i < uiLen; i++ ){         // Verify the 1KB Page is empty
   1a:	2300      	movs	r3, #0
-C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:225
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:223
         if( *(ulData+i) != 0xFFFFFFFF ){
   1c:	f852 1b04 	ldr.w	r1, [r2], #4
   20:	f1b1 3fff 	cmp.w	r1, #4294967295
   24:	d103      	bne.n	2e <fpecErasePage+0x2e>
-C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:224
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:222
         uiLen = 512;
     } else{
         uiLen = 256;
@@ -639,7 +637,7 @@ C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:224
   28:	b29b      	uxth	r3, r3
   2a:	42b3      	cmp	r3, r6
   2c:	d3f6      	bcc.n	1c <fpecErasePage+0x1c>
-C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:229
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:227
         if( *(ulData+i) != 0xFFFFFFFF ){
             break;
         } // if
@@ -647,7 +645,7 @@ C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:229
     if( i == uiLen ){
   2e:	42b3      	cmp	r3, r6
   30:	d038      	beq.n	a4 <fpecErasePage+0xa4>
-C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:233
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:231
         // Don't erase a page that is already erased
         return( 1 );
     } // if
@@ -656,69 +654,69 @@ C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:233
   34:	4c1f      	ldr	r4, [pc, #124]	; (b4 <fpecErasePage+0xb4>)
   36:	429d      	cmp	r5, r3
   38:	d915      	bls.n	66 <fpecErasePage+0x66>
-C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:234
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:232
         fpecUnlock( 1 );
   3a:	2001      	movs	r0, #1
   3c:	f7ff fffe 	bl	0 <fpecErasePage>
-C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:235
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:233
         FPEC->CR2 |= FPEC_CR_PER;            // Page Erase
   40:	6d23      	ldr	r3, [r4, #80]	; 0x50
   42:	f043 0302 	orr.w	r3, r3, #2
   46:	6523      	str	r3, [r4, #80]	; 0x50
-C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:236
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:234
         FPEC->AR2 = ulAddress;               // Load Address
   48:	6565      	str	r5, [r4, #84]	; 0x54
-C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:237
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:235
         FPEC->CR2 |= FPEC_CR_STRT;           // Start Erase
   4a:	6d23      	ldr	r3, [r4, #80]	; 0x50
   4c:	f043 0340 	orr.w	r3, r3, #64	; 0x40
   50:	6523      	str	r3, [r4, #80]	; 0x50
-C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:239
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:237
         i = 0; // At least one command must be executed before checking status to avoid F103XL silicon bug
         while( FPEC->SR2 & FPEC_SR_BSY )    // Wait until complete
   52:	4b18      	ldr	r3, [pc, #96]	; (b4 <fpecErasePage+0xb4>)
   54:	6cda      	ldr	r2, [r3, #76]	; 0x4c
   56:	f012 0f01 	tst.w	r2, #1
   5a:	d1fa      	bne.n	52 <fpecErasePage+0x52>
-C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:241
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:239
             ;
         FPEC->CR2 &= ~(FPEC_CR_PER|FPEC_CR_STRT);           // Start Erase
   5c:	6d1a      	ldr	r2, [r3, #80]	; 0x50
   5e:	f022 0242 	bic.w	r2, r2, #66	; 0x42
   62:	651a      	str	r2, [r3, #80]	; 0x50
   64:	e014      	b.n	90 <fpecErasePage+0x90>
-C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:243
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:241
     } else{
         fpecUnlock( 0 );
   66:	2000      	movs	r0, #0
   68:	f7ff fffe 	bl	0 <fpecErasePage>
-C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:244
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:242
         FPEC->CR |= FPEC_CR_PER;            // Page Erase
   6c:	6923      	ldr	r3, [r4, #16]
   6e:	f043 0302 	orr.w	r3, r3, #2
   72:	6123      	str	r3, [r4, #16]
-C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:245
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:243
         FPEC->AR = ulAddress;               // Load Address
   74:	6165      	str	r5, [r4, #20]
-C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:246
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:244
         FPEC->CR |= FPEC_CR_STRT;           // Start Erase
   76:	6923      	ldr	r3, [r4, #16]
   78:	f043 0340 	orr.w	r3, r3, #64	; 0x40
   7c:	6123      	str	r3, [r4, #16]
-C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:248
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:246
         i = 0; // At least one command must be executed before checking status to avoid F103XL silicon bug
         while( FPEC->SR & FPEC_SR_BSY )    // Wait until complete
   7e:	4b0d      	ldr	r3, [pc, #52]	; (b4 <fpecErasePage+0xb4>)
   80:	68da      	ldr	r2, [r3, #12]
   82:	f012 0f01 	tst.w	r2, #1
   86:	d1fa      	bne.n	7e <fpecErasePage+0x7e>
-C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:250
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:248
             ;
         FPEC->CR &= ~(FPEC_CR_PER|FPEC_CR_STRT);           // Start Erase
   88:	691a      	ldr	r2, [r3, #16]
   8a:	f022 0242 	bic.w	r2, r2, #66	; 0x42
   8e:	611a      	str	r2, [r3, #16]
-C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:224
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:222
         uiLen = 512;
     } else{
         uiLen = 256;
@@ -726,7 +724,7 @@ C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:224
     
     for( i = 0; i < uiLen; i++ ){         // Verify the 1KB Page is empty
   90:	2300      	movs	r3, #0
-C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:254
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:252
             ;
         FPEC->CR &= ~(FPEC_CR_PER|FPEC_CR_STRT);           // Start Erase
     } // else
@@ -736,7 +734,7 @@ C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:254
   92:	f855 2b04 	ldr.w	r2, [r5], #4
   96:	f1b2 3fff 	cmp.w	r2, #4294967295
   9a:	d105      	bne.n	a8 <fpecErasePage+0xa8>
-C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:253
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:251
         while( FPEC->SR & FPEC_SR_BSY )    // Wait until complete
             ;
         FPEC->CR &= ~(FPEC_CR_PER|FPEC_CR_STRT);           // Start Erase
@@ -747,7 +745,7 @@ C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:253
   9e:	b29b      	uxth	r3, r3
   a0:	42b3      	cmp	r3, r6
   a2:	d3f6      	bcc.n	92 <fpecErasePage+0x92>
-C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:231
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:229
             break;
         } // if
     } // for
@@ -756,7 +754,7 @@ C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:231
         return( 1 );
   a4:	2001      	movs	r0, #1
   a6:	bd70      	pop	{r4, r5, r6, pc}
-C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:255
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:253
         FPEC->CR &= ~(FPEC_CR_PER|FPEC_CR_STRT);           // Start Erase
     } // else
     
@@ -764,7 +762,7 @@ C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:255
         if( *(ulData+i) != 0xFFFFFFFF ){
             return( 0 );
   a8:	2000      	movs	r0, #0
-C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:260
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:258
         } // if
     } // for
        
@@ -779,7 +777,7 @@ Disassembly of section .text.fpecEraseProgramMemory:
 
 00000000 <fpecEraseProgramMemory>:
 fpecEraseProgramMemory():
-C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:188
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:186
 {
     
 }*/
@@ -787,7 +785,7 @@ C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:188
 u8 fpecEraseProgramMemory( void ) 
 {
    0:	4b13b5f8 	.word	0x4b13b5f8
-C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:194
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:192
     u32 i;
     u16 uiLen, uiPageSize;
     //u8 ucFail;
@@ -798,13 +796,13 @@ C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:194
    6:	b292      	uxth	r2, r2
    8:	f5b2 7f00 	cmp.w	r2, #512	; 0x200
    c:	d30c      	bcc.n	28 <fpecEraseProgramMemory+0x28>
-C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:195
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:193
         uiLen = ( SIZEREG->Pages / 2 ) - 2;
    e:	881f      	ldrh	r7, [r3, #0]
-C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:196
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:194
         uiPageSize = 2048;
   10:	f44f 6500 	mov.w	r5, #2048	; 0x800
-C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:195
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:193
     u16 uiLen, uiPageSize;
     //u8 ucFail;
     
@@ -815,11 +813,11 @@ C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:195
   16:	087f      	lsrs	r7, r7, #1
   18:	3f02      	subs	r7, #2
   1a:	b2bf      	uxth	r7, r7
-C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:197
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:195
         uiPageSize = 2048;
         i = 4;
   1c:	2404      	movs	r4, #4
-C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:187
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:185
 u8 fpecEraseBoot( void )
 {
     
@@ -829,7 +827,7 @@ u8 fpecEraseProgramMemory( void )
   1e:	fb04 f605 	mul.w	r6, r4, r5
   22:	f106 6600 	add.w	r6, r6, #134217728	; 0x8000000
   26:	e00e      	b.n	46 <fpecEraseProgramMemory+0x46>
-C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:199
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:197
     if ( SIZEREG->Pages >= 512 ){
         uiLen = ( SIZEREG->Pages / 2 ) - 2;
         uiPageSize = 2048;
@@ -837,10 +835,10 @@ C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:199
     } else{
         uiLen = SIZEREG->Pages - 2;
   28:	881f      	ldrh	r7, [r3, #0]
-C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:200
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:198
         uiPageSize = 1024;
   2a:	f44f 6580 	mov.w	r5, #1024	; 0x400
-C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:199
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:197
     if ( SIZEREG->Pages >= 512 ){
         uiLen = ( SIZEREG->Pages / 2 ) - 2;
         uiPageSize = 2048;
@@ -849,12 +847,12 @@ C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:199
         uiLen = SIZEREG->Pages - 2;
   2e:	3f02      	subs	r7, #2
   30:	b2bf      	uxth	r7, r7
-C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:201
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:199
         uiPageSize = 1024;
         i = 8;
   32:	2408      	movs	r4, #8
   34:	e7f3      	b.n	1e <fpecEraseProgramMemory+0x1e>
-C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:205
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:203
     } // else
     
     for( ; i < uiLen; i++ ){ 
@@ -862,11 +860,11 @@ C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:205
   36:	4b07      	ldr	r3, [pc, #28]	; (54 <fpecEraseProgramMemory+0x54>)
   38:	f64a 22aa 	movw	r2, #43690	; 0xaaaa
   3c:	601a      	str	r2, [r3, #0]
-C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:206
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:204
         fpecErasePage( 0x08000000 + ( i * uiPageSize ) ); 
   3e:	1b70      	subs	r0, r6, r5
   40:	f7ff fffe 	bl	0 <fpecEraseProgramMemory>
-C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:204
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:202
         uiLen = SIZEREG->Pages - 2;
         uiPageSize = 1024;
         i = 8;
@@ -877,7 +875,7 @@ C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:204
   46:	42bc      	cmp	r4, r7
   48:	442e      	add	r6, r5
   4a:	d3f4      	bcc.n	36 <fpecEraseProgramMemory+0x36>
-C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:210
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_fpec.c:208
         PYGMY_WATCHDOG_REFRESH;
         fpecErasePage( 0x08000000 + ( i * uiPageSize ) ); 
     } // for

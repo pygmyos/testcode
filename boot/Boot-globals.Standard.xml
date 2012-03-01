@@ -140,8 +140,8 @@
  <func Header="fpecWriteLong" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.c" DeclLine="113"/>
  <func Header="fpecProcessIHEX" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.c" DeclLine="48"/>
  <func Header="fpecWriteDescriptor" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.c" DeclLine="154"/>
- <func Header="fpecErasePage" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.c" DeclLine="212"/>
- <func Header="fpecEraseProgramMemory" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.c" DeclLine="187"/>
+ <func Header="fpecErasePage" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.c" DeclLine="210"/>
+ <func Header="fpecEraseProgramMemory" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.c" DeclLine="185"/>
  <variable Header="globalBaseAddress" Icon="2" Type="variable" Desc=":   unsigned int CODE*" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.c" DeclLine="23" Pointer="Yes"/>
 </aoffile>
 

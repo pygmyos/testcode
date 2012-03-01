@@ -316,14 +316,14 @@
    <type Family="array" ID="4658" toTI="129"/>
    <type Family="array" ID="4710" toTI="251"/>
    <type Family="Pointer" TI="4905" toTI="4874"/>
-   <variable Name="STRID_L15X" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.c" Line="76" Addr="0x8001E6C" TI="4942"/>
-   <variable Name="STRID_F100" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.c" Line="77" Addr="0x8001E71" TI="4965"/>
-   <variable Name="STRID_F103" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.c" Line="78" Addr="0x8001E76" TI="4988"/>
-   <variable Name="BOOT_OK" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.c" Line="79" Addr="0x8001EF9" TI="5011"/>
-   <variable Name="BOOT_ERROR" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.c" Line="80" Addr="0x8001E7B" TI="5034"/>
-   <variable Name="BOOT_PROMPT" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.c" Line="81" Addr="0x8001E94" TI="5057"/>
-   <variable Name="BOOT_filename" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.c" Line="82" Addr="0x8001EF0" TI="5080"/>
-   <variable Name="BOOTCOMMANDS" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.c" Line="84" Addr="0x8001E98" TI="5103"/>
+   <variable Name="STRID_L15X" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.c" Line="76" Addr="0x8001E70" TI="4942"/>
+   <variable Name="STRID_F100" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.c" Line="77" Addr="0x8001E75" TI="4965"/>
+   <variable Name="STRID_F103" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.c" Line="78" Addr="0x8001E7A" TI="4988"/>
+   <variable Name="BOOT_OK" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.c" Line="79" Addr="0x8001EFD" TI="5011"/>
+   <variable Name="BOOT_ERROR" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.c" Line="80" Addr="0x8001E7F" TI="5034"/>
+   <variable Name="BOOT_PROMPT" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.c" Line="81" Addr="0x8001E98" TI="5057"/>
+   <variable Name="BOOT_filename" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.c" Line="82" Addr="0x8001EF4" TI="5080"/>
+   <variable Name="BOOTCOMMANDS" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.c" Line="84" Addr="0x8001E9C" TI="5103"/>
    <variable Name="pygmyFile" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.c" Line="99" Addr="0x200001B0" TI="1273"/>
    <variable Name="globalFileLen" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.c" Line="100" Addr="0x200001A4" TI="93"/>
    <variable Name="globalXMTimeout" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.c" Line="100" Addr="0x2000019C" TI="93"/>
@@ -680,16 +680,16 @@
     <parameter Name="ulValue" TI="10465" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.c" Line="154" Addr="0x1" Param="Yes"/>
     <variable Name="uiAddress" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.c" Line="157" Addr="0x200001E8" TI="11080"/>
    </function >
-   <function Name="fpecErasePage" TI="10501" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.c" Line="212">
-    <parameter Name="ulAddress" TI="10465" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.c" Line="212" Addr="0x0" Param="Yes"/>
-    <variable Name="ulData" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.c" Line="214" Addr="0x0" TI="10946"/>
-    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.c" Line="215" Addr="0x0" TI="10483"/>
-    <variable Name="uiLen" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.c" Line="215" Addr="0x6" TI="10483"/>
+   <function Name="fpecErasePage" TI="10501" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.c" Line="210">
+    <parameter Name="ulAddress" TI="10465" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.c" Line="210" Addr="0x0" Param="Yes"/>
+    <variable Name="ulData" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.c" Line="212" Addr="0x0" TI="10946"/>
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.c" Line="213" Addr="0x0" TI="10483"/>
+    <variable Name="uiLen" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.c" Line="213" Addr="0x6" TI="10483"/>
    </function >
-   <function Name="fpecEraseProgramMemory" TI="10501" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.c" Line="187">
-    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.c" Line="189" Addr="0x0" TI="10465"/>
-    <variable Name="uiLen" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.c" Line="190" Addr="0x7" TI="10483"/>
-    <variable Name="uiPageSize" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.c" Line="190" Addr="0x0" TI="10483"/>
+   <function Name="fpecEraseProgramMemory" TI="10501" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.c" Line="185">
+    <variable Name="i" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.c" Line="187" Addr="0x0" TI="10465"/>
+    <variable Name="uiLen" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.c" Line="188" Addr="0x7" TI="10483"/>
+    <variable Name="uiPageSize" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.c" Line="188" Addr="0x0" TI="10483"/>
    </function >
    <variable Name="globalBaseAddress" FileName="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.c" Line="23" Addr="0x200001E8" TI="11080"/>
   </module>

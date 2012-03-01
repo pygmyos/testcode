@@ -1,4 +1,4 @@
 
 <Project Header="Project 'Gems'" Path=".\Gems.rprj" Project="Yes" AsyncBuild="" OutputFile="" sate="96" ActiveApp="Gems" >
-	<ApplicationBuild Header="Gems" Extern=".\Gems.rapp" Path=".\Gems.rapp" AsyncBuild="" OutputFile=".\Gems.elf" sate="2" />
+	<ApplicationBuild Header="Gems" Extern=".\Gems.rapp" Path=".\Gems.rapp" AsyncBuild="" OutputFile=".\Gems.elf" sate="98" />
 </Project>

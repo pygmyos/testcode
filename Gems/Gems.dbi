@@ -9,7 +9,7 @@ LoaderTool=ARM
 Target=ARM
 DebugTool=RLINK_CORTEX
 [Device]
-Name=STM32F100R8
+Name=STM32F103ZGH6
 [ARMSigDrv options]
 CXS=0
 [Debug]
@@ -21,3 +21,5 @@ ToolName=RLINK_CORTEX
 Crystal=8.000
 [General]
 FreqXTal=8.000
+[SimFile]
+path=C:\Program Files (x86)\Raisonance\Ride\sim\ARM\STM32F103ZGT6.sim

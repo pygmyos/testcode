@@ -1,0 +1,796 @@
+
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_sys.o:     file format elf32-littlearm
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Test\pygmy_sys.o
+
+
+Disassembly of section .text.sysSetPipe:
+
+00000000 <sysSetPipe>:
+sysSetPipe():
+   0:	2801      	cmp	r0, #1
+   2:	d805      	bhi.n	10 <sysSetPipe+0x10>
+   4:	2901      	cmp	r1, #1
+   6:	d803      	bhi.n	10 <sysSetPipe+0x10>
+   8:	4902      	ldr	r1, [pc, #8]	; (14 <sysSetPipe+0x14>)
+   a:	2001      	movs	r0, #1
+   c:	f7ff bffe 	b.w	0 <streamSetPut>
+  10:	4770      	bx	lr
+  12:	bf00      	nop
+  14:	00000000 	.word	0x00000000
+
+Disassembly of section .text.sysEnableComClock:
+
+00000000 <sysEnableComClock>:
+sysEnableComClock():
+   0:	d1042801 	.word	0xd1042801
+   4:	4b02      	ldr	r3, [pc, #8]	; (10 <sysEnableComClock+0x10>)
+   6:	69da      	ldr	r2, [r3, #28]
+   8:	f442 2280 	orr.w	r2, r2, #262144	; 0x40000
+   c:	61da      	str	r2, [r3, #28]
+   e:	4770      	bx	lr
+  10:	40021000 	.word	0x40021000
+
+Disassembly of section .text.sysRandom:
+
+00000000 <sysRandom>:
+sysRandom():
+   0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+   4:	4e19      	ldr	r6, [pc, #100]	; (6c <sysRandom+0x6c>)
+   6:	460d      	mov	r5, r1
+   8:	6937      	ldr	r7, [r6, #16]
+   a:	4604      	mov	r4, r0
+   c:	f7ff fffe 	bl	0 <timeGet>
+  10:	4b17      	ldr	r3, [pc, #92]	; (70 <sysRandom+0x70>)
+  12:	4a18      	ldr	r2, [pc, #96]	; (74 <sysRandom+0x74>)
+  14:	f8d3 c04c 	ldr.w	ip, [r3, #76]	; 0x4c
+  18:	4b17      	ldr	r3, [pc, #92]	; (78 <sysRandom+0x78>)
+  1a:	f8d3 8008 	ldr.w	r8, [r3, #8]
+  1e:	4b17      	ldr	r3, [pc, #92]	; (7c <sysRandom+0x7c>)
+  20:	44c4      	add	ip, r8
+  22:	689b      	ldr	r3, [r3, #8]
+  24:	6891      	ldr	r1, [r2, #8]
+  26:	4a16      	ldr	r2, [pc, #88]	; (80 <sysRandom+0x80>)
+  28:	4463      	add	r3, ip
+  2a:	6892      	ldr	r2, [r2, #8]
+  2c:	185b      	adds	r3, r3, r1
+  2e:	189b      	adds	r3, r3, r2
+  30:	181b      	adds	r3, r3, r0
+  32:	ea83 0347 	eor.w	r3, r3, r7, lsl #1
+  36:	19df      	adds	r7, r3, r7
+  38:	6137      	str	r7, [r6, #16]
+  3a:	4638      	mov	r0, r7
+  3c:	2320      	movs	r3, #32
+  3e:	0840      	lsrs	r0, r0, #1
+  40:	42a0      	cmp	r0, r4
+  42:	d301      	bcc.n	48 <sysRandom+0x48>
+  44:	42a8      	cmp	r0, r5
+  46:	d90f      	bls.n	68 <sysRandom+0x68>
+  48:	3b01      	subs	r3, #1
+  4a:	d1f8      	bne.n	3e <sysRandom+0x3e>
+  4c:	1b2b      	subs	r3, r5, r4
+  4e:	fbb7 f0f3 	udiv	r0, r7, r3
+  52:	fb03 7710 	mls	r7, r3, r0, r7
+  56:	42af      	cmp	r7, r5
+  58:	d805      	bhi.n	66 <sysRandom+0x66>
+  5a:	42a7      	cmp	r7, r4
+  5c:	bf2c      	ite	cs
+  5e:	4638      	movcs	r0, r7
+  60:	4620      	movcc	r0, r4
+  62:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  66:	4628      	mov	r0, r5
+  68:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  6c:	00000000 	.word	0x00000000
+  70:	40012400 	.word	0x40012400
+  74:	40011400 	.word	0x40011400
+  78:	40010800 	.word	0x40010800
+  7c:	40010c00 	.word	0x40010c00
+  80:	40011000 	.word	0x40011000
+
+Disassembly of section .text.sysDisableComClock:
+
+00000000 <sysDisableComClock>:
+sysDisableComClock():
+   0:	d1042801 	.word	0xd1042801
+   4:	4b02      	ldr	r3, [pc, #8]	; (10 <sysDisableComClock+0x10>)
+   6:	69da      	ldr	r2, [r3, #28]
+   8:	f442 2280 	orr.w	r2, r2, #262144	; 0x40000
+   c:	61da      	str	r2, [r3, #28]
+   e:	4770      	bx	lr
+  10:	40021000 	.word	0x40021000
+
+Disassembly of section .text.sysEnableTimerClock:
+
+00000000 <sysEnableTimerClock>:
+sysEnableTimerClock():
+   0:	2801      	cmp	r0, #1
+   2:	d104      	bne.n	e <sysEnableTimerClock+0xe>
+   4:	4b3b      	ldr	r3, [pc, #236]	; (f4 <sysEnableTimerClock+0xf4>)
+   6:	699a      	ldr	r2, [r3, #24]
+   8:	f442 6200 	orr.w	r2, r2, #2048	; 0x800
+   c:	e068      	b.n	e0 <sysEnableTimerClock+0xe0>
+   e:	2802      	cmp	r0, #2
+  10:	d104      	bne.n	1c <sysEnableTimerClock+0x1c>
+  12:	4b38      	ldr	r3, [pc, #224]	; (f4 <sysEnableTimerClock+0xf4>)
+  14:	69da      	ldr	r2, [r3, #28]
+  16:	f042 0201 	orr.w	r2, r2, #1
+  1a:	e052      	b.n	c2 <sysEnableTimerClock+0xc2>
+  1c:	2803      	cmp	r0, #3
+  1e:	d104      	bne.n	2a <sysEnableTimerClock+0x2a>
+  20:	4b34      	ldr	r3, [pc, #208]	; (f4 <sysEnableTimerClock+0xf4>)
+  22:	69da      	ldr	r2, [r3, #28]
+  24:	f042 0202 	orr.w	r2, r2, #2
+  28:	e04b      	b.n	c2 <sysEnableTimerClock+0xc2>
+  2a:	2804      	cmp	r0, #4
+  2c:	d104      	bne.n	38 <sysEnableTimerClock+0x38>
+  2e:	4b31      	ldr	r3, [pc, #196]	; (f4 <sysEnableTimerClock+0xf4>)
+  30:	69da      	ldr	r2, [r3, #28]
+  32:	f042 0204 	orr.w	r2, r2, #4
+  36:	e044      	b.n	c2 <sysEnableTimerClock+0xc2>
+  38:	2805      	cmp	r0, #5
+  3a:	d104      	bne.n	46 <sysEnableTimerClock+0x46>
+  3c:	4b2d      	ldr	r3, [pc, #180]	; (f4 <sysEnableTimerClock+0xf4>)
+  3e:	69da      	ldr	r2, [r3, #28]
+  40:	f042 0208 	orr.w	r2, r2, #8
+  44:	e03d      	b.n	c2 <sysEnableTimerClock+0xc2>
+  46:	2806      	cmp	r0, #6
+  48:	d104      	bne.n	54 <sysEnableTimerClock+0x54>
+  4a:	4b2a      	ldr	r3, [pc, #168]	; (f4 <sysEnableTimerClock+0xf4>)
+  4c:	69da      	ldr	r2, [r3, #28]
+  4e:	f042 0210 	orr.w	r2, r2, #16
+  52:	e036      	b.n	c2 <sysEnableTimerClock+0xc2>
+  54:	2807      	cmp	r0, #7
+  56:	d104      	bne.n	62 <sysEnableTimerClock+0x62>
+  58:	4b26      	ldr	r3, [pc, #152]	; (f4 <sysEnableTimerClock+0xf4>)
+  5a:	69da      	ldr	r2, [r3, #28]
+  5c:	f042 0220 	orr.w	r2, r2, #32
+  60:	e02f      	b.n	c2 <sysEnableTimerClock+0xc2>
+  62:	2808      	cmp	r0, #8
+  64:	d104      	bne.n	70 <sysEnableTimerClock+0x70>
+  66:	4b23      	ldr	r3, [pc, #140]	; (f4 <sysEnableTimerClock+0xf4>)
+  68:	699a      	ldr	r2, [r3, #24]
+  6a:	f442 5200 	orr.w	r2, r2, #8192	; 0x2000
+  6e:	e037      	b.n	e0 <sysEnableTimerClock+0xe0>
+  70:	2809      	cmp	r0, #9
+  72:	d104      	bne.n	7e <sysEnableTimerClock+0x7e>
+  74:	4b1f      	ldr	r3, [pc, #124]	; (f4 <sysEnableTimerClock+0xf4>)
+  76:	699a      	ldr	r2, [r3, #24]
+  78:	f442 2200 	orr.w	r2, r2, #524288	; 0x80000
+  7c:	e030      	b.n	e0 <sysEnableTimerClock+0xe0>
+  7e:	280a      	cmp	r0, #10
+  80:	d104      	bne.n	8c <sysEnableTimerClock+0x8c>
+  82:	4b1c      	ldr	r3, [pc, #112]	; (f4 <sysEnableTimerClock+0xf4>)
+  84:	699a      	ldr	r2, [r3, #24]
+  86:	f442 1280 	orr.w	r2, r2, #1048576	; 0x100000
+  8a:	e029      	b.n	e0 <sysEnableTimerClock+0xe0>
+  8c:	280b      	cmp	r0, #11
+  8e:	d104      	bne.n	9a <sysEnableTimerClock+0x9a>
+  90:	4b18      	ldr	r3, [pc, #96]	; (f4 <sysEnableTimerClock+0xf4>)
+  92:	699a      	ldr	r2, [r3, #24]
+  94:	f442 1200 	orr.w	r2, r2, #2097152	; 0x200000
+  98:	e022      	b.n	e0 <sysEnableTimerClock+0xe0>
+  9a:	280c      	cmp	r0, #12
+  9c:	d104      	bne.n	a8 <sysEnableTimerClock+0xa8>
+  9e:	4b15      	ldr	r3, [pc, #84]	; (f4 <sysEnableTimerClock+0xf4>)
+  a0:	69da      	ldr	r2, [r3, #28]
+  a2:	f042 0240 	orr.w	r2, r2, #64	; 0x40
+  a6:	e00c      	b.n	c2 <sysEnableTimerClock+0xc2>
+  a8:	280d      	cmp	r0, #13
+  aa:	d104      	bne.n	b6 <sysEnableTimerClock+0xb6>
+  ac:	4b11      	ldr	r3, [pc, #68]	; (f4 <sysEnableTimerClock+0xf4>)
+  ae:	69da      	ldr	r2, [r3, #28]
+  b0:	f042 0280 	orr.w	r2, r2, #128	; 0x80
+  b4:	e005      	b.n	c2 <sysEnableTimerClock+0xc2>
+  b6:	280e      	cmp	r0, #14
+  b8:	d105      	bne.n	c6 <sysEnableTimerClock+0xc6>
+  ba:	4b0e      	ldr	r3, [pc, #56]	; (f4 <sysEnableTimerClock+0xf4>)
+  bc:	69da      	ldr	r2, [r3, #28]
+  be:	f442 7280 	orr.w	r2, r2, #256	; 0x100
+  c2:	61da      	str	r2, [r3, #28]
+  c4:	4770      	bx	lr
+  c6:	280f      	cmp	r0, #15
+  c8:	d104      	bne.n	d4 <sysEnableTimerClock+0xd4>
+  ca:	4b0a      	ldr	r3, [pc, #40]	; (f4 <sysEnableTimerClock+0xf4>)
+  cc:	699a      	ldr	r2, [r3, #24]
+  ce:	f442 3280 	orr.w	r2, r2, #65536	; 0x10000
+  d2:	e005      	b.n	e0 <sysEnableTimerClock+0xe0>
+  d4:	2810      	cmp	r0, #16
+  d6:	d105      	bne.n	e4 <sysEnableTimerClock+0xe4>
+  d8:	4b06      	ldr	r3, [pc, #24]	; (f4 <sysEnableTimerClock+0xf4>)
+  da:	699a      	ldr	r2, [r3, #24]
+  dc:	f442 3200 	orr.w	r2, r2, #131072	; 0x20000
+  e0:	619a      	str	r2, [r3, #24]
+  e2:	4770      	bx	lr
+  e4:	2811      	cmp	r0, #17
+  e6:	d104      	bne.n	f2 <sysEnableTimerClock+0xf2>
+  e8:	4b02      	ldr	r3, [pc, #8]	; (f4 <sysEnableTimerClock+0xf4>)
+  ea:	699a      	ldr	r2, [r3, #24]
+  ec:	f442 2280 	orr.w	r2, r2, #262144	; 0x40000
+  f0:	619a      	str	r2, [r3, #24]
+  f2:	4770      	bx	lr
+  f4:	40021000 	.word	0x40021000
+
+Disassembly of section .text.sysInit:
+
+00000000 <sysInit>:
+sysInit():
+   0:	f44f4b0c 	.word	0xf44f4b0c
+   4:	6286      	str	r6, [r0, #40]	; 0x28
+   6:	b510      	push	{r4, lr}
+   8:	829a      	strh	r2, [r3, #20]
+   a:	4a0b      	ldr	r2, [pc, #44]	; (38 <sysInit+0x38>)
+   c:	2400      	movs	r4, #0
+   e:	605a      	str	r2, [r3, #4]
+  10:	4a0a      	ldr	r2, [pc, #40]	; (3c <sysInit+0x3c>)
+  12:	2009      	movs	r0, #9
+  14:	601a      	str	r2, [r3, #0]
+  16:	220a      	movs	r2, #10
+  18:	60dc      	str	r4, [r3, #12]
+  1a:	761a      	strb	r2, [r3, #24]
+  1c:	75d8      	strb	r0, [r3, #23]
+  1e:	f7ff fffe 	bl	0 <sysInit>
+  22:	f7ff fffe 	bl	0 <timeInit>
+  26:	4b06      	ldr	r3, [pc, #24]	; (40 <sysInit+0x40>)
+  28:	4620      	mov	r0, r4
+  2a:	601c      	str	r4, [r3, #0]
+  2c:	605c      	str	r4, [r3, #4]
+  2e:	609c      	str	r4, [r3, #8]
+  30:	60dc      	str	r4, [r3, #12]
+  32:	bd10      	pop	{r4, pc}
+  34:	00000000 	.word	0x00000000
+  38:	00b71b00 	.word	0x00b71b00
+  3c:	044aa200 	.word	0x044aa200
+  40:	00000000 	.word	0x00000000
+
+Disassembly of section .text.sysDisableTimerClock:
+
+00000000 <sysDisableTimerClock>:
+sysDisableTimerClock():
+   0:	2801      	cmp	r0, #1
+   2:	d104      	bne.n	e <sysDisableTimerClock+0xe>
+   4:	4b3b      	ldr	r3, [pc, #236]	; (f4 <sysDisableTimerClock+0xf4>)
+   6:	699a      	ldr	r2, [r3, #24]
+   8:	f422 6200 	bic.w	r2, r2, #2048	; 0x800
+   c:	e068      	b.n	e0 <sysDisableTimerClock+0xe0>
+   e:	2802      	cmp	r0, #2
+  10:	d104      	bne.n	1c <sysDisableTimerClock+0x1c>
+  12:	4b38      	ldr	r3, [pc, #224]	; (f4 <sysDisableTimerClock+0xf4>)
+  14:	69da      	ldr	r2, [r3, #28]
+  16:	f022 0201 	bic.w	r2, r2, #1
+  1a:	e052      	b.n	c2 <sysDisableTimerClock+0xc2>
+  1c:	2803      	cmp	r0, #3
+  1e:	d104      	bne.n	2a <sysDisableTimerClock+0x2a>
+  20:	4b34      	ldr	r3, [pc, #208]	; (f4 <sysDisableTimerClock+0xf4>)
+  22:	69da      	ldr	r2, [r3, #28]
+  24:	f022 0202 	bic.w	r2, r2, #2
+  28:	e04b      	b.n	c2 <sysDisableTimerClock+0xc2>
+  2a:	2804      	cmp	r0, #4
+  2c:	d104      	bne.n	38 <sysDisableTimerClock+0x38>
+  2e:	4b31      	ldr	r3, [pc, #196]	; (f4 <sysDisableTimerClock+0xf4>)
+  30:	69da      	ldr	r2, [r3, #28]
+  32:	f022 0204 	bic.w	r2, r2, #4
+  36:	e044      	b.n	c2 <sysDisableTimerClock+0xc2>
+  38:	2805      	cmp	r0, #5
+  3a:	d104      	bne.n	46 <sysDisableTimerClock+0x46>
+  3c:	4b2d      	ldr	r3, [pc, #180]	; (f4 <sysDisableTimerClock+0xf4>)
+  3e:	69da      	ldr	r2, [r3, #28]
+  40:	f022 0208 	bic.w	r2, r2, #8
+  44:	e03d      	b.n	c2 <sysDisableTimerClock+0xc2>
+  46:	2806      	cmp	r0, #6
+  48:	d104      	bne.n	54 <sysDisableTimerClock+0x54>
+  4a:	4b2a      	ldr	r3, [pc, #168]	; (f4 <sysDisableTimerClock+0xf4>)
+  4c:	69da      	ldr	r2, [r3, #28]
+  4e:	f022 0210 	bic.w	r2, r2, #16
+  52:	e036      	b.n	c2 <sysDisableTimerClock+0xc2>
+  54:	2807      	cmp	r0, #7
+  56:	d104      	bne.n	62 <sysDisableTimerClock+0x62>
+  58:	4b26      	ldr	r3, [pc, #152]	; (f4 <sysDisableTimerClock+0xf4>)
+  5a:	69da      	ldr	r2, [r3, #28]
+  5c:	f022 0220 	bic.w	r2, r2, #32
+  60:	e02f      	b.n	c2 <sysDisableTimerClock+0xc2>
+  62:	2808      	cmp	r0, #8
+  64:	d104      	bne.n	70 <sysDisableTimerClock+0x70>
+  66:	4b23      	ldr	r3, [pc, #140]	; (f4 <sysDisableTimerClock+0xf4>)
+  68:	699a      	ldr	r2, [r3, #24]
+  6a:	f422 5200 	bic.w	r2, r2, #8192	; 0x2000
+  6e:	e037      	b.n	e0 <sysDisableTimerClock+0xe0>
+  70:	2809      	cmp	r0, #9
+  72:	d104      	bne.n	7e <sysDisableTimerClock+0x7e>
+  74:	4b1f      	ldr	r3, [pc, #124]	; (f4 <sysDisableTimerClock+0xf4>)
+  76:	699a      	ldr	r2, [r3, #24]
+  78:	f422 2200 	bic.w	r2, r2, #524288	; 0x80000
+  7c:	e030      	b.n	e0 <sysDisableTimerClock+0xe0>
+  7e:	280a      	cmp	r0, #10
+  80:	d104      	bne.n	8c <sysDisableTimerClock+0x8c>
+  82:	4b1c      	ldr	r3, [pc, #112]	; (f4 <sysDisableTimerClock+0xf4>)
+  84:	699a      	ldr	r2, [r3, #24]
+  86:	f422 1280 	bic.w	r2, r2, #1048576	; 0x100000
+  8a:	e029      	b.n	e0 <sysDisableTimerClock+0xe0>
+  8c:	280b      	cmp	r0, #11
+  8e:	d104      	bne.n	9a <sysDisableTimerClock+0x9a>
+  90:	4b18      	ldr	r3, [pc, #96]	; (f4 <sysDisableTimerClock+0xf4>)
+  92:	699a      	ldr	r2, [r3, #24]
+  94:	f422 1200 	bic.w	r2, r2, #2097152	; 0x200000
+  98:	e022      	b.n	e0 <sysDisableTimerClock+0xe0>
+  9a:	280c      	cmp	r0, #12
+  9c:	d104      	bne.n	a8 <sysDisableTimerClock+0xa8>
+  9e:	4b15      	ldr	r3, [pc, #84]	; (f4 <sysDisableTimerClock+0xf4>)
+  a0:	69da      	ldr	r2, [r3, #28]
+  a2:	f022 0240 	bic.w	r2, r2, #64	; 0x40
+  a6:	e00c      	b.n	c2 <sysDisableTimerClock+0xc2>
+  a8:	280d      	cmp	r0, #13
+  aa:	d104      	bne.n	b6 <sysDisableTimerClock+0xb6>
+  ac:	4b11      	ldr	r3, [pc, #68]	; (f4 <sysDisableTimerClock+0xf4>)
+  ae:	69da      	ldr	r2, [r3, #28]
+  b0:	f022 0280 	bic.w	r2, r2, #128	; 0x80
+  b4:	e005      	b.n	c2 <sysDisableTimerClock+0xc2>
+  b6:	280e      	cmp	r0, #14
+  b8:	d105      	bne.n	c6 <sysDisableTimerClock+0xc6>
+  ba:	4b0e      	ldr	r3, [pc, #56]	; (f4 <sysDisableTimerClock+0xf4>)
+  bc:	69da      	ldr	r2, [r3, #28]
+  be:	f422 7280 	bic.w	r2, r2, #256	; 0x100
+  c2:	61da      	str	r2, [r3, #28]
+  c4:	4770      	bx	lr
+  c6:	280f      	cmp	r0, #15
+  c8:	d104      	bne.n	d4 <sysDisableTimerClock+0xd4>
+  ca:	4b0a      	ldr	r3, [pc, #40]	; (f4 <sysDisableTimerClock+0xf4>)
+  cc:	699a      	ldr	r2, [r3, #24]
+  ce:	f422 3280 	bic.w	r2, r2, #65536	; 0x10000
+  d2:	e005      	b.n	e0 <sysDisableTimerClock+0xe0>
+  d4:	2810      	cmp	r0, #16
+  d6:	d105      	bne.n	e4 <sysDisableTimerClock+0xe4>
+  d8:	4b06      	ldr	r3, [pc, #24]	; (f4 <sysDisableTimerClock+0xf4>)
+  da:	699a      	ldr	r2, [r3, #24]
+  dc:	f422 3200 	bic.w	r2, r2, #131072	; 0x20000
+  e0:	619a      	str	r2, [r3, #24]
+  e2:	4770      	bx	lr
+  e4:	2811      	cmp	r0, #17
+  e6:	d104      	bne.n	f2 <sysDisableTimerClock+0xf2>
+  e8:	4b02      	ldr	r3, [pc, #8]	; (f4 <sysDisableTimerClock+0xf4>)
+  ea:	699a      	ldr	r2, [r3, #24]
+  ec:	f422 2280 	bic.w	r2, r2, #262144	; 0x40000
+  f0:	619a      	str	r2, [r3, #24]
+  f2:	4770      	bx	lr
+  f4:	40021000 	.word	0x40021000
+
+Disassembly of section .text.sysEnableTimerInterrupt:
+
+00000000 <sysEnableTimerInterrupt>:
+sysEnableTimerInterrupt():
+   0:	b508      	push	{r3, lr}
+   2:	f7ff fffe 	bl	0 <interruptGetTimerVector>
+   6:	b118      	cbz	r0, a <interruptEnable+0xa>
+   8:	f7ff fffe 	bl	0 <interruptEnable>
+   c:	2001      	movs	r0, #1
+   e:	bd08      	pop	{r3, pc}
+  10:	bd08      	pop	{r3, pc}
+
+Disassembly of section .text.sysGetDelayTimer:
+
+00000000 <sysGetDelayTimer>:
+sysGetDelayTimer():
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <sysGetDelayTimer+0x8>)
+   2:	7dd8      	ldrb	r0, [r3, #23]
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+   8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.sysGetPWMTimer:
+
+00000000 <sysGetPWMTimer>:
+sysGetPWMTimer():
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <sysGetPWMTimer+0x8>)
+   2:	7e18      	ldrb	r0, [r3, #24]
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+   8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.sysGetMainClock:
+
+00000000 <sysGetMainClock>:
+sysGetMainClock():
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <sysGetMainClock+0x8>)
+   2:	6818      	ldr	r0, [r3, #0]
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+   8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.sysSetMainClock:
+
+00000000 <sysSetMainClock>:
+sysSetMainClock():
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <sysSetMainClock+0x8>)
+   2:	6018      	str	r0, [r3, #0]
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+   8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.sysGetXTAL:
+
+00000000 <sysGetXTAL>:
+sysGetXTAL():
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <sysGetXTAL+0x8>)
+   2:	6858      	ldr	r0, [r3, #4]
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+   8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.sysSetXTAL:
+
+00000000 <sysSetXTAL>:
+sysSetXTAL():
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <sysSetXTAL+0x8>)
+   2:	6058      	str	r0, [r3, #4]
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+   8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.sysCRC8:
+
+00000000 <sysCRC8>:
+sysCRC8():
+   0:	2300      	movs	r3, #0
+   2:	b510      	push	{r4, lr}
+   4:	461a      	mov	r2, r3
+   6:	e004      	b.n	12 <sysCRC8+0x12>
+   8:	5c84      	ldrb	r4, [r0, r2]
+   a:	3201      	adds	r2, #1
+   c:	191b      	adds	r3, r3, r4
+   e:	b2db      	uxtb	r3, r3
+  10:	b292      	uxth	r2, r2
+  12:	1e4c      	subs	r4, r1, #1
+  14:	42a2      	cmp	r2, r4
+  16:	dbf7      	blt.n	8 <sysCRC8+0x8>
+  18:	425b      	negs	r3, r3
+  1a:	b2d8      	uxtb	r0, r3
+  1c:	bd10      	pop	{r4, pc}
+
+Disassembly of section .text.sysCRC16:
+
+00000000 <sysCRC16>:
+sysCRC16():
+   0:	2300      	movs	r3, #0
+   2:	b510      	push	{r4, lr}
+   4:	461a      	mov	r2, r3
+   6:	e004      	b.n	12 <sysCRC16+0x12>
+   8:	5c84      	ldrb	r4, [r0, r2]
+   a:	3201      	adds	r2, #1
+   c:	191b      	adds	r3, r3, r4
+   e:	b29b      	uxth	r3, r3
+  10:	b292      	uxth	r2, r2
+  12:	1e4c      	subs	r4, r1, #1
+  14:	42a2      	cmp	r2, r4
+  16:	dbf7      	blt.n	8 <sysCRC16+0x8>
+  18:	425b      	negs	r3, r3
+  1a:	b298      	uxth	r0, r3
+  1c:	bd10      	pop	{r4, pc}
+
+Disassembly of section .text.TaskException_Handler:
+
+00000000 <TaskException_Handler>:
+TaskException_Handler():
+   0:	4770      	bx	lr
+
+Disassembly of section .text.sysGetIDString:
+
+00000000 <sysGetIDString>:
+sysGetIDString():
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	4e08      	ldr	r6, [pc, #32]	; (24 <sysGetIDString+0x24>)
+   4:	2500      	movs	r5, #0
+   6:	4c08      	ldr	r4, [pc, #32]	; (28 <sysGetIDString+0x28>)
+   8:	7035      	strb	r5, [r6, #0]
+   a:	1973      	adds	r3, r6, r5
+   c:	f814 0d01 	ldrb.w	r0, [r4, #-1]!
+  10:	2100      	movs	r1, #0
+  12:	4a06      	ldr	r2, [pc, #24]	; (2c <sysGetIDString+0x2c>)
+  14:	f7ff fffe 	bl	0 <convertIntToString>
+  18:	4b05      	ldr	r3, [pc, #20]	; (30 <sysGetIDString+0x30>)
+  1a:	3502      	adds	r5, #2
+  1c:	429c      	cmp	r4, r3
+  1e:	d1f4      	bne.n	a <sysGetIDString+0xa>
+  20:	4800      	ldr	r0, [pc, #0]	; (24 <sysGetIDString+0x24>)
+  22:	bd70      	pop	{r4, r5, r6, pc}
+  24:	00000000 	.word	0x00000000
+  28:	1ffff7f4 	.word	0x1ffff7f4
+  2c:	00000000 	.word	0x00000000
+  30:	1ffff7e8 	.word	0x1ffff7e8
+
+Disassembly of section .text.sysGetID:
+
+00000000 <sysGetID>:
+sysGetID():
+   0:	47704800 	.word	0x47704800
+   4:	1ffff7e8 	.word	0x1ffff7e8
+
+Disassembly of section .text.sysGetFile:
+
+00000000 <sysGetFile>:
+sysGetFile():
+   0:	4800      	ldr	r0, [pc, #0]	; (4 <sysGetFile+0x4>)
+   2:	4770      	bx	lr
+   4:	0000001c 	.word	0x0000001c
+
+Disassembly of section .text.descriptorGetMainClock:
+
+00000000 <descriptorGetMainClock>:
+descriptorGetMainClock():
+   0:	4b03      	ldr	r3, [pc, #12]	; (10 <descriptorGetMainClock+0x10>)
+   2:	881a      	ldrh	r2, [r3, #0]
+   4:	4b03      	ldr	r3, [pc, #12]	; (14 <descriptorGetMainClock+0x14>)
+   6:	b292      	uxth	r2, r2
+   8:	18d3      	adds	r3, r2, r3
+   a:	029b      	lsls	r3, r3, #10
+   c:	6858      	ldr	r0, [r3, #4]
+   e:	4770      	bx	lr
+  10:	1ffff7e0 	.word	0x1ffff7e0
+  14:	0001fffe 	.word	0x0001fffe
+
+Disassembly of section .text.descriptorGetXTAL:
+
+00000000 <descriptorGetXTAL>:
+descriptorGetXTAL():
+   0:	4b04      	ldr	r3, [pc, #16]	; (14 <descriptorGetXTAL+0x14>)
+   2:	881a      	ldrh	r2, [r3, #0]
+   4:	4b04      	ldr	r3, [pc, #16]	; (18 <descriptorGetXTAL+0x18>)
+   6:	b292      	uxth	r2, r2
+   8:	18d3      	adds	r3, r2, r3
+   a:	029b      	lsls	r3, r3, #10
+   c:	f8d3 0002 	ldr.w	r0, [r3, #2]
+  10:	4770      	bx	lr
+  12:	bf00      	nop
+  14:	1ffff7e0 	.word	0x1ffff7e0
+  18:	0001fffe 	.word	0x0001fffe
+
+Disassembly of section .text.descriptorGetID:
+
+00000000 <descriptorGetID>:
+descriptorGetID():
+   0:	881a4b03 	.word	0x881a4b03
+   4:	4b03      	ldr	r3, [pc, #12]	; (14 <descriptorGetID+0x14>)
+   6:	b292      	uxth	r2, r2
+   8:	18d3      	adds	r3, r2, r3
+   a:	029b      	lsls	r3, r3, #10
+   c:	6818      	ldr	r0, [r3, #0]
+   e:	4770      	bx	lr
+  10:	1ffff7e0 	.word	0x1ffff7e0
+  14:	0001fffe 	.word	0x0001fffe
+
+Disassembly of section .text.sysGetIDRevision:
+
+00000000 <sysGetIDRevision>:
+sysGetIDRevision():
+   0:	68184b01 	.word	0x68184b01
+   4:	0b00      	lsrs	r0, r0, #12
+   6:	4770      	bx	lr
+   8:	e0042000 	.word	0xe0042000
+
+Disassembly of section .text.setMainClock:
+
+00000000 <setMainClock>:
+setMainClock():
+   0:	4b15      	ldr	r3, [pc, #84]	; (58 <setMainClock+0x58>)
+   2:	681a      	ldr	r2, [r3, #0]
+   4:	f442 3280 	orr.w	r2, r2, #65536	; 0x10000
+   8:	601a      	str	r2, [r3, #0]
+   a:	4b13      	ldr	r3, [pc, #76]	; (58 <setMainClock+0x58>)
+   c:	681a      	ldr	r2, [r3, #0]
+   e:	f412 3f00 	tst.w	r2, #131072	; 0x20000
+  12:	d0fa      	beq.n	a <setMainClock+0xa>
+  14:	2200      	movs	r2, #0
+  16:	629a      	str	r2, [r3, #40]	; 0x28
+  18:	4a10      	ldr	r2, [pc, #64]	; (5c <setMainClock+0x5c>)
+  1a:	605a      	str	r2, [r3, #4]
+  1c:	681a      	ldr	r2, [r3, #0]
+  1e:	f042 7280 	orr.w	r2, r2, #16777216	; 0x1000000
+  22:	601a      	str	r2, [r3, #0]
+  24:	4b0c      	ldr	r3, [pc, #48]	; (58 <setMainClock+0x58>)
+  26:	681a      	ldr	r2, [r3, #0]
+  28:	f012 7f00 	tst.w	r2, #33554432	; 0x2000000
+  2c:	d0fa      	beq.n	24 <setMainClock+0x24>
+  2e:	685a      	ldr	r2, [r3, #4]
+  30:	f042 0201 	orr.w	r2, r2, #1
+  34:	605a      	str	r2, [r3, #4]
+  36:	699a      	ldr	r2, [r3, #24]
+  38:	f442 6200 	orr.w	r2, r2, #2048	; 0x800
+  3c:	619a      	str	r2, [r3, #24]
+  3e:	4b08      	ldr	r3, [pc, #32]	; (60 <setMainClock+0x60>)
+  40:	681a      	ldr	r2, [r3, #0]
+  42:	f44f 737a 	mov.w	r3, #1000	; 0x3e8
+  46:	0052      	lsls	r2, r2, #1
+  48:	fbb2 f2f3 	udiv	r2, r2, r3
+  4c:	4b05      	ldr	r3, [pc, #20]	; (64 <setMainClock+0x64>)
+  4e:	605a      	str	r2, [r3, #4]
+  50:	609a      	str	r2, [r3, #8]
+  52:	2207      	movs	r2, #7
+  54:	601a      	str	r2, [r3, #0]
+  56:	4770      	bx	lr
+  58:	40021000 	.word	0x40021000
+  5c:	0001c002 	.word	0x0001c002
+  60:	00000000 	.word	0x00000000
+  64:	e000e010 	.word	0xe000e010
+
+Disassembly of section .text.sysGetTimer:
+
+00000000 <sysGetTimer>:
+sysGetTimer():
+   0:	b2c03801 	.word	0xb2c03801
+   4:	2810      	cmp	r0, #16
+   6:	bf9a      	itte	ls
+   8:	4b02      	ldrls	r3, [pc, #8]	; (14 <sysGetTimer+0x14>)
+   a:	f853 0020 	ldrls.w	r0, [r3, r0, lsl #2]
+   e:	2000      	movhi	r0, #0
+  10:	4770      	bx	lr
+  12:	bf00      	nop
+  14:	00000000 	.word	0x00000000
+
+Disassembly of section .text.delay:
+
+00000000 <delay>:
+delay():
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	4d2b      	ldr	r5, [pc, #172]	; (b0 <delay+0xb0>)
+   4:	4604      	mov	r4, r0
+   6:	7de8      	ldrb	r0, [r5, #23]
+   8:	2801      	cmp	r0, #1
+   a:	d128      	bne.n	5e <delay+0x5e>
+   c:	4b29      	ldr	r3, [pc, #164]	; (b4 <delay+0xb4>)
+   e:	2200      	movs	r2, #0
+  10:	f5b4 3f80 	cmp.w	r4, #65536	; 0x10000
+  14:	801a      	strh	r2, [r3, #0]
+  16:	d308      	bcc.n	2a <delay+0x2a>
+  18:	6828      	ldr	r0, [r5, #0]
+  1a:	4a27      	ldr	r2, [pc, #156]	; (b8 <delay+0xb8>)
+  1c:	0c21      	lsrs	r1, r4, #16
+  1e:	fbb0 f2f2 	udiv	r2, r0, r2
+  22:	434a      	muls	r2, r1
+  24:	b292      	uxth	r2, r2
+  26:	851a      	strh	r2, [r3, #40]	; 0x28
+  28:	b2a4      	uxth	r4, r4
+  2a:	682a      	ldr	r2, [r5, #0]
+  2c:	4b22      	ldr	r3, [pc, #136]	; (b8 <delay+0xb8>)
+  2e:	fbb2 f3f3 	udiv	r3, r2, r3
+  32:	435c      	muls	r4, r3
+  34:	2c3b      	cmp	r4, #59	; 0x3b
+  36:	bf98      	it	ls
+  38:	243c      	movls	r4, #60	; 0x3c
+  3a:	4b1e      	ldr	r3, [pc, #120]	; (b4 <delay+0xb4>)
+  3c:	3c3c      	subs	r4, #60	; 0x3c
+  3e:	2200      	movs	r2, #0
+  40:	b2a4      	uxth	r4, r4
+  42:	809a      	strh	r2, [r3, #4]
+  44:	811a      	strh	r2, [r3, #8]
+  46:	819a      	strh	r2, [r3, #12]
+  48:	849a      	strh	r2, [r3, #36]	; 0x24
+  4a:	859c      	strh	r4, [r3, #44]	; 0x2c
+  4c:	821a      	strh	r2, [r3, #16]
+  4e:	2289      	movs	r2, #137	; 0x89
+  50:	801a      	strh	r2, [r3, #0]
+  52:	4b18      	ldr	r3, [pc, #96]	; (b4 <delay+0xb4>)
+  54:	881b      	ldrh	r3, [r3, #0]
+  56:	f013 0f01 	tst.w	r3, #1
+  5a:	d1fa      	bne.n	52 <delay+0x52>
+  5c:	bd38      	pop	{r3, r4, r5, pc}
+  5e:	f7ff fffe 	bl	0 <delay>
+  62:	2300      	movs	r3, #0
+  64:	f5b4 3f80 	cmp.w	r4, #65536	; 0x10000
+  68:	8003      	strh	r3, [r0, #0]
+  6a:	d308      	bcc.n	7e <delay+0x7e>
+  6c:	6829      	ldr	r1, [r5, #0]
+  6e:	4b12      	ldr	r3, [pc, #72]	; (b8 <delay+0xb8>)
+  70:	0c22      	lsrs	r2, r4, #16
+  72:	fbb1 f3f3 	udiv	r3, r1, r3
+  76:	4353      	muls	r3, r2
+  78:	b29b      	uxth	r3, r3
+  7a:	8503      	strh	r3, [r0, #40]	; 0x28
+  7c:	b2a4      	uxth	r4, r4
+  7e:	682a      	ldr	r2, [r5, #0]
+  80:	4b0d      	ldr	r3, [pc, #52]	; (b8 <delay+0xb8>)
+  82:	fbb2 f3f3 	udiv	r3, r2, r3
+  86:	435c      	muls	r4, r3
+  88:	2c3b      	cmp	r4, #59	; 0x3b
+  8a:	bf98      	it	ls
+  8c:	243c      	movls	r4, #60	; 0x3c
+  8e:	3c3c      	subs	r4, #60	; 0x3c
+  90:	2200      	movs	r2, #0
+  92:	b2a4      	uxth	r4, r4
+  94:	2389      	movs	r3, #137	; 0x89
+  96:	8082      	strh	r2, [r0, #4]
+  98:	8102      	strh	r2, [r0, #8]
+  9a:	8182      	strh	r2, [r0, #12]
+  9c:	8482      	strh	r2, [r0, #36]	; 0x24
+  9e:	8584      	strh	r4, [r0, #44]	; 0x2c
+  a0:	8202      	strh	r2, [r0, #16]
+  a2:	8003      	strh	r3, [r0, #0]
+  a4:	8803      	ldrh	r3, [r0, #0]
+  a6:	f013 0f01 	tst.w	r3, #1
+  aa:	d1fb      	bne.n	a4 <delay+0xa4>
+  ac:	bd38      	pop	{r3, r4, r5, pc}
+  ae:	bf00      	nop
+  b0:	00000000 	.word	0x00000000
+  b4:	40012c00 	.word	0x40012c00
+  b8:	000f4240 	.word	0x000f4240
+
+Disassembly of section .text.stopwatchStart:
+
+00000000 <stopwatchStart>:
+stopwatchStart():
+   0:	22004b01 	.word	0x22004b01
+   4:	609a      	str	r2, [r3, #8]
+   6:	4770      	bx	lr
+   8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.stopwatchGet:
+
+00000000 <stopwatchGet>:
+stopwatchGet():
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <stopwatchGet+0x8>)
+   2:	6898      	ldr	r0, [r3, #8]
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+   8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.mcoEnable:
+
+00000000 <mcoEnable>:
+mcoEnable():
+   0:	b530      	push	{r4, r5, lr}
+   2:	4b13      	ldr	r3, [pc, #76]	; (50 <mcoEnable+0x50>)
+   4:	4605      	mov	r5, r0
+   6:	b085      	sub	sp, #20
+   8:	466c      	mov	r4, sp
+   a:	2d03      	cmp	r5, #3
+   c:	cb0f      	ldmia	r3, {r0, r1, r2, r3}
+   e:	e884 000f 	stmia.w	r4, {r0, r1, r2, r3}
+  12:	d81a      	bhi.n	4a <mcoEnable+0x4a>
+  14:	4b0f      	ldr	r3, [pc, #60]	; (54 <mcoEnable+0x54>)
+  16:	699a      	ldr	r2, [r3, #24]
+  18:	f042 0204 	orr.w	r2, r2, #4
+  1c:	619a      	str	r2, [r3, #24]
+  1e:	4a0e      	ldr	r2, [pc, #56]	; (58 <mcoEnable+0x58>)
+  20:	6851      	ldr	r1, [r2, #4]
+  22:	f021 010f 	bic.w	r1, r1, #15
+  26:	6051      	str	r1, [r2, #4]
+  28:	6851      	ldr	r1, [r2, #4]
+  2a:	f041 010b 	orr.w	r1, r1, #11
+  2e:	6051      	str	r1, [r2, #4]
+  30:	685a      	ldr	r2, [r3, #4]
+  32:	f022 62e0 	bic.w	r2, r2, #117440512	; 0x7000000
+  36:	605a      	str	r2, [r3, #4]
+  38:	aa04      	add	r2, sp, #16
+  3a:	eb02 0585 	add.w	r5, r2, r5, lsl #2
+  3e:	6859      	ldr	r1, [r3, #4]
+  40:	f855 2c10 	ldr.w	r2, [r5, #-16]
+  44:	ea41 0202 	orr.w	r2, r1, r2
+  48:	605a      	str	r2, [r3, #4]
+  4a:	b005      	add	sp, #20
+  4c:	bd30      	pop	{r4, r5, pc}
+  4e:	bf00      	nop
+  50:	00000044 	.word	0x00000044
+  54:	40021000 	.word	0x40021000
+  58:	40010800 	.word	0x40010800
+
+Disassembly of section .text.mcoDisable:
+
+00000000 <mcoDisable>:
+mcoDisable():
+   0:	685a4b02 	.word	0x685a4b02
+   4:	f022 62e0 	bic.w	r2, r2, #117440512	; 0x7000000
+   8:	605a      	str	r2, [r3, #4]
+   a:	4770      	bx	lr
+   c:	40021000 	.word	0x40021000
+
+Disassembly of section .text.SysTick_Handler:
+
+00000000 <SysTick_Handler>:
+SysTick_Handler():
+   0:	4b04      	ldr	r3, [pc, #16]	; (14 <SysTick_Handler+0x14>)
+   2:	f64a 22aa 	movw	r2, #43690	; 0xaaaa
+   6:	601a      	str	r2, [r3, #0]
+   8:	4b03      	ldr	r3, [pc, #12]	; (18 <SysTick_Handler+0x18>)
+   a:	689a      	ldr	r2, [r3, #8]
+   c:	320a      	adds	r2, #10
+   e:	609a      	str	r2, [r3, #8]
+  10:	4770      	bx	lr
+  12:	bf00      	nop
+  14:	40003000 	.word	0x40003000
+  18:	00000000 	.word	0x00000000

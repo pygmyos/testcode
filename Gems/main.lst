@@ -1,0 +1,23 @@
+
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\main.o:     file format elf32-littlearm
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\main.o
+
+
+Disassembly of section .text.main:
+
+00000000 <main>:
+main():
+   0:	b500      	push	{lr}
+   2:	b08b      	sub	sp, #44	; 0x2c
+   4:	f7ff fffe 	bl	0 <sysInit>
+   8:	4905      	ldr	r1, [pc, #20]	; (20 <main+0x20>)
+   a:	2201      	movs	r2, #1
+   c:	4668      	mov	r0, sp
+   e:	f7ff fffe 	bl	0 <fileOpen>
+  12:	2000      	movs	r0, #0
+  14:	4601      	mov	r1, r0
+  16:	466a      	mov	r2, sp
+  18:	4603      	mov	r3, r0
+  1a:	f7ff fffe 	bl	0 <drawImage>
+  1e:	e7fe      	b.n	0 <main>
+  20:	00000000 	.word	0x00000000

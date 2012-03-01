@@ -22,14 +22,14 @@
 			
 	</Flags>
 	<Views>
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater\main.c" Line="119" Index="0" focus="1" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater\pygmy_profile.h" Line="76" Index="1" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="616" Index="2" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_gui.c" Line="26" Index="3" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater\main.c" Line="41" Index="0" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\BootUpdater\pygmy_profile.h" Line="73" Index="1" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="613" Index="2" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_gui.c" Line="23" Index="3" />
 		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_lcd.h" Line="0" Index="4" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.c" Line="170" Index="5" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.c" Line="308" Index="6" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="149" Index="7" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.c" Line="60" Index="5" focus="1" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.c" Line="305" Index="6" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="146" Index="7" />
 	</Views>
 	<Grep>
 		<GrepIncludeSub>yes</GrepIncludeSub>
