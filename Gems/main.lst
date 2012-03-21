@@ -3,21 +3,158 @@ C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\main.o:     file for
 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\main.o
 
 
+Disassembly of section .text.drawMainMenu:
+
+00000000 <drawMainMenu>:
+drawMainMenu():
+   0:	b500      	push	{lr}
+   2:	b093      	sub	sp, #76	; 0x4c
+   4:	f7ff fffe 	bl	0 <colorGetRootColor>
+   8:	2165      	movs	r1, #101	; 0x65
+   a:	22be      	movs	r2, #190	; 0xbe
+   c:	23ff      	movs	r3, #255	; 0xff
+   e:	f7ff fffe 	bl	0 <colorSetRGB>
+  12:	f7ff fffe 	bl	0 <colorGetRootBackColor>
+  16:	2165      	movs	r1, #101	; 0x65
+  18:	460a      	mov	r2, r1
+  1a:	460b      	mov	r3, r1
+  1c:	f7ff fffe 	bl	0 <colorSetRGB>
+  20:	f7ff fffe 	bl	0 <colorGetRootFocusColor>
+  24:	2165      	movs	r1, #101	; 0x65
+  26:	460a      	mov	r2, r1
+  28:	460b      	mov	r3, r1
+  2a:	f7ff fffe 	bl	0 <colorSetRGB>
+  2e:	f7ff fffe 	bl	0 <colorGetRootFocusBackColor>
+  32:	2165      	movs	r1, #101	; 0x65
+  34:	228e      	movs	r2, #142	; 0x8e
+  36:	23df      	movs	r3, #223	; 0xdf
+  38:	f7ff fffe 	bl	0 <colorSetRGB>
+  3c:	f7ff fffe 	bl	0 <colorGetRootClearColor>
+  40:	21e0      	movs	r1, #224	; 0xe0
+  42:	460a      	mov	r2, r1
+  44:	23ff      	movs	r3, #255	; 0xff
+  46:	f7ff fffe 	bl	0 <colorSetRGB>
+  4a:	2008      	movs	r0, #8
+  4c:	f7ff fffe 	bl	0 <guiSetRadius>
+  50:	481c      	ldr	r0, [pc, #112]	; (74 <guiSetStyle+0x74>)
+  52:	f7ff fffe 	bl	0 <guiSetStyle>
+  56:	2280      	movs	r2, #128	; 0x80
+  58:	2000      	movs	r0, #0
+  5a:	4613      	mov	r3, r2
+  5c:	4601      	mov	r1, r0
+  5e:	f7ff fffe 	bl	0 <formNew>
+  62:	4b19      	ldr	r3, [pc, #100]	; (c8 <drawMainMenu+0xc8>)
+  64:	4668      	mov	r0, sp
+  66:	9307      	str	r3, [sp, #28]
+  68:	2304      	movs	r3, #4
+  6a:	f88d 3020 	strb.w	r3, [sp, #32]
+  6e:	2300      	movs	r3, #0
+  70:	f8ad 3014 	strh.w	r3, [sp, #20]
+  74:	2306      	movs	r3, #6
+  76:	f8ad 3016 	strh.w	r3, [sp, #22]
+  7a:	237f      	movs	r3, #127	; 0x7f
+  7c:	f8ad 3018 	strh.w	r3, [sp, #24]
+  80:	2324      	movs	r3, #36	; 0x24
+  82:	f8ad 301a 	strh.w	r3, [sp, #26]
+  86:	4b11      	ldr	r3, [pc, #68]	; (cc <drawMainMenu+0xcc>)
+  88:	9309      	str	r3, [sp, #36]	; 0x24
+  8a:	f7ff fffe 	bl	0 <formAddWidget>
+  8e:	f7ff fffe 	bl	0 <widgetGetCurrent>
+  92:	220b      	movs	r2, #11
+  94:	490e      	ldr	r1, [pc, #56]	; (d0 <drawMainMenu+0xd0>)
+  96:	f7ff fffe 	bl	0 <widgetAddEventHandler>
+  9a:	232e      	movs	r3, #46	; 0x2e
+  9c:	f8ad 3016 	strh.w	r3, [sp, #22]
+  a0:	4b0c      	ldr	r3, [pc, #48]	; (d4 <drawMainMenu+0xd4>)
+  a2:	4668      	mov	r0, sp
+  a4:	9309      	str	r3, [sp, #36]	; 0x24
+  a6:	f7ff fffe 	bl	0 <formAddWidget>
+  aa:	2356      	movs	r3, #86	; 0x56
+  ac:	f8ad 3016 	strh.w	r3, [sp, #22]
+  b0:	4b09      	ldr	r3, [pc, #36]	; (d8 <drawMainMenu+0xd8>)
+  b2:	4668      	mov	r0, sp
+  b4:	9309      	str	r3, [sp, #36]	; 0x24
+  b6:	f7ff fffe 	bl	0 <formAddWidget>
+  ba:	f7ff fffe 	bl	0 <drawForms>
+  be:	b013      	add	sp, #76	; 0x4c
+  c0:	bd00      	pop	{pc}
+  c2:	bf00      	nop
+  c4:	00010055 	.word	0x00010055
+  c8:	00110151 	.word	0x00110151
+	...
+  d4:	0000000b 	.word	0x0000000b
+  d8:	00000013 	.word	0x00000013
+
 Disassembly of section .text.main:
 
 00000000 <main>:
 main():
-   0:	b500      	push	{lr}
-   2:	b08b      	sub	sp, #44	; 0x2c
-   4:	f7ff fffe 	bl	0 <sysInit>
-   8:	4905      	ldr	r1, [pc, #20]	; (20 <main+0x20>)
-   a:	2201      	movs	r2, #1
-   c:	4668      	mov	r0, sp
-   e:	f7ff fffe 	bl	0 <fileOpen>
-  12:	2000      	movs	r0, #0
-  14:	4601      	mov	r1, r0
-  16:	466a      	mov	r2, sp
-  18:	4603      	mov	r3, r0
-  1a:	f7ff fffe 	bl	0 <drawImage>
-  1e:	e7fe      	b.n	0 <main>
-  20:	00000000 	.word	0x00000000
+   0:	f7ffb508 	.word	0xf7ffb508
+   4:	fffe 492a 	vtbl.8	d20, {d14-d15}, d26
+   8:	482a      	ldr	r0, [pc, #168]	; (ac <fileOpenResource+0xac>)
+   a:	f7ff fffe 	bl	0 <fileOpenResource>
+   e:	492a      	ldr	r1, [pc, #168]	; (b8 <main+0xb8>)
+  10:	4828      	ldr	r0, [pc, #160]	; (b4 <main+0xb4>)
+  12:	f7ff fffe 	bl	0 <fontLoad>
+  16:	4828      	ldr	r0, [pc, #160]	; (a4 <fontSetAll+0xa4>)
+  18:	f7ff fffe 	bl	0 <fontSetAll>
+  1c:	2000      	movs	r0, #0
+  1e:	2118      	movs	r1, #24
+  20:	f7ff fffe 	bl	0 <pinConfig>
+  24:	2028      	movs	r0, #40	; 0x28
+  26:	2118      	movs	r1, #24
+  28:	f7ff fffe 	bl	0 <pinConfig>
+  2c:	2006      	movs	r0, #6
+  2e:	2118      	movs	r1, #24
+  30:	f7ff fffe 	bl	0 <pinConfig>
+  34:	2004      	movs	r0, #4
+  36:	2118      	movs	r1, #24
+  38:	f7ff fffe 	bl	0 <pinConfig>
+  3c:	2005      	movs	r0, #5
+  3e:	2118      	movs	r1, #24
+  40:	f7ff fffe 	bl	0 <pinConfig>
+  44:	2002      	movs	r0, #2
+  46:	2118      	movs	r1, #24
+  48:	f7ff fffe 	bl	0 <pinConfig>
+  4c:	2003      	movs	r0, #3
+  4e:	2118      	movs	r1, #24
+  50:	f7ff fffe 	bl	0 <pinConfig>
+  54:	2100      	movs	r1, #0
+  56:	2202      	movs	r2, #2
+  58:	2301      	movs	r3, #1
+  5a:	4818      	ldr	r0, [pc, #96]	; (bc <main+0xbc>)
+  5c:	f7ff fffe 	bl	0 <pinInterrupt>
+  60:	2202      	movs	r2, #2
+  62:	2301      	movs	r3, #1
+  64:	4816      	ldr	r0, [pc, #88]	; (c0 <main+0xc0>)
+  66:	2128      	movs	r1, #40	; 0x28
+  68:	f7ff fffe 	bl	0 <pinInterrupt>
+  6c:	2106      	movs	r1, #6
+  6e:	4815      	ldr	r0, [pc, #84]	; (c4 <main+0xc4>)
+  70:	2202      	movs	r2, #2
+  72:	2301      	movs	r3, #1
+  74:	f7ff fffe 	bl	0 <pinInterrupt>
+  78:	4813      	ldr	r0, [pc, #76]	; (c8 <main+0xc8>)
+  7a:	2104      	movs	r1, #4
+  7c:	2202      	movs	r2, #2
+  7e:	2301      	movs	r3, #1
+  80:	f7ff fffe 	bl	0 <pinInterrupt>
+  84:	4811      	ldr	r0, [pc, #68]	; (cc <main+0xcc>)
+  86:	2105      	movs	r1, #5
+  88:	2202      	movs	r2, #2
+  8a:	2301      	movs	r3, #1
+  8c:	f7ff fffe 	bl	0 <pinInterrupt>
+  90:	2102      	movs	r1, #2
+  92:	460a      	mov	r2, r1
+  94:	480e      	ldr	r0, [pc, #56]	; (d0 <main+0xd0>)
+  96:	2301      	movs	r3, #1
+  98:	f7ff fffe 	bl	0 <pinInterrupt>
+  9c:	480d      	ldr	r0, [pc, #52]	; (d4 <main+0xd4>)
+  9e:	2103      	movs	r1, #3
+  a0:	2202      	movs	r2, #2
+  a2:	2301      	movs	r3, #1
+  a4:	f7ff fffe 	bl	0 <pinInterrupt>
+  a8:	f7ff fffe 	bl	0 <main>
+  ac:	e7fe      	b.n	ac <main+0xac>
+  ae:	bf00      	nop
+	...

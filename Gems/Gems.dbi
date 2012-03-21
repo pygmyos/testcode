@@ -8,6 +8,7 @@ CodeOffset=0x0
 LoaderTool=ARM
 Target=ARM
 DebugTool=RLINK_CORTEX
+ApplicationComponents=
 [Device]
 Name=STM32F103ZGH6
 [ARMSigDrv options]

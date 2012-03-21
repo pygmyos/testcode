@@ -20,7 +20,11 @@
 
 #include "pygmy_profile.h"
 #include "gems.h"
-#include "fonts/orbitron18.h"
+//#ifndef PYGMY_orbitron18
+   // #include "fonts/orbitron18.h"
+//#else
+    extern const u8 PYGMY_orbitron18[];
+//#endif
 #include "ruby.h"
 #include "emerald.h"
 #include "topaz.h"
@@ -44,6 +48,7 @@ void gemDetectRows( void )
 
 u16 gemDetectRowsX( void )
 {
+    PYGMYCOLOR pygmyColor = { 0x00, 0x00, 0x00 };
     u16 uiX, uiY, uiColCount, uiColStart, uiScore;
   
     uiScore = 0;
@@ -74,13 +79,14 @@ u16 gemDetectRowsX( void )
     } // for
     uiScore += gemDetectRowsY( );
     guiSetCursor( 80, 0 );
-    guiClearArea( 80, 0, 127, 18 );
+    guiClearArea( &pygmyColor, 80, 0, 127, 18 );
     print( LCD, "%4d", uiScore );
     return( uiScore );
 }
 
 u16 gemDetectRowsY( void )
 {
+    PYGMYCOLOR pygmyColor;
     u16 uiX, uiY, uiRowCount, uiRowStart, uiScore;
   
     uiScore = 0;
@@ -111,19 +117,25 @@ u16 gemDetectRowsY( void )
         } // if
     } // for
 
-    //print( COM3, "\rGems deleted: %d", uiScore );
     return( uiScore );
 }
 
 void gemDrawGameOver( void )
 {
+    PYGMYCOLOR pygmyColor = { 0xFF, 0x00, 0x20 };
+
+    //pygmyColor.R = 0xFF;
+    //pygmyColor.G = 0x00;
+    //pygmyColor.B = 0x20;
     guiSaveScreen();
     taskDelete( "gemgrav", 0 );
     guiInitSprites( );
-    guiClearScreen();
+    guiClearScreen( &pygmyColor);
     guiSetCursor( 8, 55 );
     print( LCD, "Game Over" );
-    drawRect( 0, 0, 127, 127, 8, 0 );
+    
+
+    drawRect( &pygmyColor, 0, 0, 127, 127, 8, 0 );
 }
 
 void gemResetCursor( void )
@@ -204,6 +216,7 @@ void gemJoyDown( void )
 
 void gemJoyLeft( void )
 {
+    PYGMYCOLOR pygmyColor;
     u16 uiX, uiY;
 
     if( globalCursor1Coords[ 0 ] < 16 ){
@@ -212,7 +225,7 @@ void gemJoyLeft( void )
     uiX = ( globalCursor1Coords[ 0 ] - 16 ) / 16;
     uiY = ( globalCursor1Coords[ 1 ] / 16 );
     if( !gemCollision( uiX, uiY  ) ){
-        guiClearArea( globalCursor1Coords[ 0 ], globalCursor1Coords[ 1 ], 
+        guiClearArea( &pygmyColor, globalCursor1Coords[ 0 ], globalCursor1Coords[ 1 ], 
             globalCursor1Coords[ 0 ] + 16, globalCursor1Coords[ 1 ] + 16 );
         globalCursor1Coords[ 0 ] -= 16;
     } //if else{
@@ -224,15 +237,19 @@ void gemJoyLeft( void )
 
 void gemJoyRight( void )
 {
+    PYGMYCOLOR pygmyColor;
     u16 uiX, uiY;
 
+    pygmyColor.R = 0xFF;
+    pygmyColor.G = 0xFF;
+    pygmyColor.B = 0xFF;
     uiX = ( globalCursor1Coords[ 0 ] + 16 ) / 16;
     uiY = ( globalCursor1Coords[ 1 ] / 16 );
     if( uiX > 7 ){
         return;
     } // if
     if( !gemCollision( uiX, uiY ) ){
-        guiClearArea( globalCursor1Coords[ 0 ], globalCursor1Coords[ 1 ], 
+        guiClearArea( &pygmyColor, globalCursor1Coords[ 0 ], globalCursor1Coords[ 1 ], 
             globalCursor1Coords[ 0 ] + 16, globalCursor1Coords[ 1 ] + 16 );
         globalCursor1Coords[ 0 ] += 16;
     } // else{ 
@@ -259,8 +276,13 @@ void gemButton2( void )
 
 void gemGravity( void )
 {
+    PYGMYCOLOR pygmyColor;
+
+    pygmyColor.R = 0xFF;
+    pygmyColor.G = 0xFF;
+    pygmyColor.B = 0xFF;
     if( !gemCollision( ( globalCursor1Coords[ 0 ] / 16 ), ( globalCursor1Coords[ 1 ] + 16 ) / 16 ) ){
-        guiClearArea( globalCursor1Coords[ 0 ], globalCursor1Coords[ 1 ], 
+        guiClearArea( &pygmyColor, globalCursor1Coords[ 0 ], globalCursor1Coords[ 1 ], 
             globalCursor1Coords[ 0 ] + 16, globalCursor1Coords[ 1 ] + 16 );
         globalCursor1Coords[ 1 ] += 16;
     } else{
@@ -275,17 +297,31 @@ void gemGravity( void )
 
 void gemInit( void )
 {
+    PYGMYCOLOR pygmyColor;
     u16 i, ii;
-    
-    
+
+    // Create Form to draw sprites on...
+    colorSetRGB( colorGetRootColor(), 0x65, 0xBE, 0xFF ); //0x48, 0x8E, 0xDF );
+    colorSetRGB( colorGetRootBackColor(), 0x65, 0x65, 0x65 );
+    colorSetRGB( colorGetRootFocusColor(), 0x65, 0x65, 0x65 );//0x38, 0x6E, 0xBF  );
+    colorSetRGB( colorGetRootFocusBackColor(), 0x65, 0x8E, 0xDF );
+    colorSetRGB( colorGetRootClearColor(), 0xE0, 0xE0, 0xFF );
+    formNew( 0, 0, 128, 128 );
+    drawForms( );
+
+    // Now create sprites
     guiInitSprites();
     globalCursor1Gem = GEM_RUBY;
 
-    guiSetColor( 0x00, 0x00, 0xFF );
-    guiSetBackColor( 0xFF, 0xFF, 0xFF );
-    guiClearScreen();
-    fileOpenResource( &fileFont, (u8*)PYGMY_orbitron18 );
-    guiSetFont( &fileFont, &fontOrbitron18 );
+    //guiSetColor( 0x00, 0x00, 0xFF );
+    //guiSetBackColor( 0xFF, 0xFF, 0xFF );
+    //pygmyColor.R = 0xFF;
+    //pygmyColor.G = 0xFF;
+    //pygmyColor.B = 0xFF;
+    //guiClearScreen( &pygmyColor);
+    
+    //fileOpenResource( &fileFont, (u8*)PYGMY_orbitron18 );
+    //guiSetFont( &fileFont, &fontOrbitron18 );
     
     fileOpenResource( &imgRuby, (u8*)PYGMY_ruby );
     fileOpenResource( &imgEmerald, (u8*)PYGMY_emerald );
@@ -311,10 +347,10 @@ void gemInit( void )
     pinConfig( SHIELD_CENTER, PULLUP );
     pinConfig( SHIELD_BUTTON1, PULLUP );
     pinConfig( SHIELD_BUTTON2, PULLUP );
-    pinInterrupt( gemJoyUp, SHIELD_UP,  TRIGGER_RISING );
-    pinInterrupt( gemJoyDown, SHIELD_DOWN,  TRIGGER_RISING );
-    pinInterrupt( gemJoyLeft, SHIELD_LEFT,  TRIGGER_RISING );
-    pinInterrupt( gemJoyRight, SHIELD_RIGHT,  TRIGGER_RISING );
+    pinInterrupt( gemJoyUp, SHIELD_UP,  TRIGGER_RISING, 1 );
+    pinInterrupt( gemJoyDown, SHIELD_DOWN,  TRIGGER_RISING, 1 );
+    pinInterrupt( gemJoyLeft, SHIELD_LEFT,  TRIGGER_RISING, 1 );
+    pinInterrupt( gemJoyRight, SHIELD_RIGHT,  TRIGGER_RISING, 1 );
     //pinInterrupt( gemInit, SHIELD_BUTTON2, TRIGGER_RISING );
     gemResetCursor( );
     taskNewSimple( "gemgrav", 200, (PYGMYFUNCPTR)gemGravity );
@@ -332,9 +368,14 @@ void gemClickMenu( void )
 
 void gemDrawMenu( void )
 {
+    PYGMYCOLOR pygmyColor;
+
     guiSetColor( 0xFF, 0xFF, 0xFF );
     guiSetBackColor( 0xFF, 0xFF, 0xFF );
-    guiClearScreen();
+    pygmyColor.R = 0xFF;
+    pygmyColor.G = 0xFF;
+    pygmyColor.B = 0xFF;
+    guiClearScreen( &pygmyColor );
     guiSetColor( 0x48, 0x8E, 0xDF );
     guiSetBackColor( 0x65, 0x65, 0x65 );
     fileOpenResource( &fileFont, (u8*)PYGMY_orbitron18 );

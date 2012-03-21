@@ -332,8 +332,8 @@ audioPlayWave():
    a:	f7ff fffe 	bl	0 <fileOpen>
    e:	2800      	cmp	r0, #0
   10:	f000 80a4 	beq.w	15c <audioPlayWave+0x15c>
-  14:	4852      	ldr	r0, [pc, #328]	; (160 <audioPlayWave+0x160>)
-  16:	2104      	movs	r1, #4
+  14:	2104      	movs	r1, #4
+  16:	4852      	ldr	r0, [pc, #328]	; (160 <audioPlayWave+0x160>)
   18:	466a      	mov	r2, sp
   1a:	f7ff fffe 	bl	0 <fileGetBuffer>
   1e:	2400      	movs	r4, #0
@@ -346,8 +346,8 @@ audioPlayWave():
   32:	4621      	mov	r1, r4
   34:	484a      	ldr	r0, [pc, #296]	; (160 <audioPlayWave+0x160>)
   36:	f7ff fffe 	bl	0 <fileGetLong>
-  3a:	4849      	ldr	r0, [pc, #292]	; (160 <audioPlayWave+0x160>)
-  3c:	2104      	movs	r1, #4
+  3a:	2104      	movs	r1, #4
+  3c:	4848      	ldr	r0, [pc, #288]	; (160 <audioPlayWave+0x160>)
   3e:	466a      	mov	r2, sp
   40:	f7ff fffe 	bl	0 <fileGetBuffer>
   44:	4668      	mov	r0, sp
@@ -356,8 +356,8 @@ audioPlayWave():
   4c:	f7ff fffe 	bl	0 <isStringSame>
   50:	2800      	cmp	r0, #0
   52:	f000 8083 	beq.w	15c <audioPlayWave+0x15c>
-  56:	4842      	ldr	r0, [pc, #264]	; (160 <audioPlayWave+0x160>)
-  58:	2104      	movs	r1, #4
+  56:	2104      	movs	r1, #4
+  58:	4841      	ldr	r0, [pc, #260]	; (160 <audioPlayWave+0x160>)
   5a:	466a      	mov	r2, sp
   5c:	f7ff fffe 	bl	0 <fileGetBuffer>
   60:	4668      	mov	r0, sp
@@ -439,8 +439,8 @@ audioPlayWave():
  120:	465a      	mov	r2, fp
  122:	f7ff fffe 	bl	0 <print>
  126:	f44f 6180 	mov.w	r1, #1024	; 0x400
- 12a:	480d      	ldr	r0, [pc, #52]	; (160 <audioPlayWave+0x160>)
- 12c:	4a19      	ldr	r2, [pc, #100]	; (194 <audioPlayWave+0x194>)
+ 12a:	4a1a      	ldr	r2, [pc, #104]	; (194 <audioPlayWave+0x194>)
+ 12c:	480c      	ldr	r0, [pc, #48]	; (160 <audioPlayWave+0x160>)
  12e:	f7ff fffe 	bl	0 <fileGetBuffer>
  132:	4b19      	ldr	r3, [pc, #100]	; (198 <audioPlayWave+0x198>)
  134:	200d      	movs	r0, #13

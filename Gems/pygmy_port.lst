@@ -46,90 +46,95 @@ Disassembly of section .text.pinInterrupt:
 
 00000000 <pinInterrupt>:
 pinInterrupt():
-   0:	b570      	push	{r4, r5, r6, lr}
-   2:	4b30      	ldr	r3, [pc, #192]	; (c4 <pinInterrupt+0xc4>)
-   4:	4615      	mov	r5, r2
-   6:	699a      	ldr	r2, [r3, #24]
-   8:	f001 040f 	and.w	r4, r1, #15
-   c:	f042 0201 	orr.w	r2, r2, #1
-  10:	619a      	str	r2, [r3, #24]
-  12:	4b2d      	ldr	r3, [pc, #180]	; (c8 <pinInterrupt+0xc8>)
-  14:	090e      	lsrs	r6, r1, #4
-  16:	f843 0024 	str.w	r0, [r3, r4, lsl #2]
-  1a:	4b2c      	ldr	r3, [pc, #176]	; (cc <pinInterrupt+0xcc>)
-  1c:	5519      	strb	r1, [r3, r4]
-  1e:	1e63      	subs	r3, r4, #1
-  20:	2b0e      	cmp	r3, #14
-  22:	d809      	bhi.n	38 <pinInterrupt+0x38>
-  24:	e8df f003 	tbb	[pc, r3]
-  28:	100e0c0a 	.word	0x100e0c0a
-  2c:	12121212 	.word	0x12121212
-  30:	14141412 	.word	0x14141412
-  34:	1414      	.short	0x1414
-  36:	14          	.byte	0x14
-  37:	00          	.byte	0x00
-  38:	2006      	movs	r0, #6
-  3a:	e00a      	b.n	52 <pinInterrupt+0x52>
-  3c:	2007      	movs	r0, #7
-  3e:	e008      	b.n	52 <pinInterrupt+0x52>
-  40:	2008      	movs	r0, #8
-  42:	e006      	b.n	52 <pinInterrupt+0x52>
-  44:	2009      	movs	r0, #9
-  46:	e004      	b.n	52 <pinInterrupt+0x52>
-  48:	200a      	movs	r0, #10
-  4a:	e002      	b.n	52 <pinInterrupt+0x52>
-  4c:	2017      	movs	r0, #23
-  4e:	e000      	b.n	52 <pinInterrupt+0x52>
-  50:	2028      	movs	r0, #40	; 0x28
-  52:	f7ff fffe 	bl	0 <interruptEnable>
-  56:	2301      	movs	r3, #1
-  58:	40a3      	lsls	r3, r4
-  5a:	08a1      	lsrs	r1, r4, #2
-  5c:	f004 0403 	and.w	r4, r4, #3
-  60:	00a4      	lsls	r4, r4, #2
-  62:	40a6      	lsls	r6, r4
-  64:	4a1a      	ldr	r2, [pc, #104]	; (d0 <pinInterrupt+0xd0>)
-  66:	3102      	adds	r1, #2
-  68:	f852 0021 	ldr.w	r0, [r2, r1, lsl #2]
-  6c:	b29b      	uxth	r3, r3
-  6e:	4306      	orrs	r6, r0
-  70:	f842 6021 	str.w	r6, [r2, r1, lsl #2]
-  74:	4a17      	ldr	r2, [pc, #92]	; (d4 <pinInterrupt+0xd4>)
-  76:	b11d      	cbz	r5, 80 <pinInterrupt+0x80>
-  78:	6811      	ldr	r1, [r2, #0]
-  7a:	ea43 0101 	orr.w	r1, r3, r1
-  7e:	e002      	b.n	86 <pinInterrupt+0x86>
-  80:	6811      	ldr	r1, [r2, #0]
-  82:	ea21 0103 	bic.w	r1, r1, r3
-  86:	f015 0f01 	tst.w	r5, #1
-  8a:	6011      	str	r1, [r2, #0]
-  8c:	d004      	beq.n	98 <pinInterrupt+0x98>
-  8e:	4a11      	ldr	r2, [pc, #68]	; (d4 <pinInterrupt+0xd4>)
-  90:	68d1      	ldr	r1, [r2, #12]
-  92:	ea43 0101 	orr.w	r1, r3, r1
-  96:	60d1      	str	r1, [r2, #12]
-  98:	f015 0f02 	tst.w	r5, #2
-  9c:	d004      	beq.n	a8 <pinInterrupt+0xa8>
-  9e:	4a0d      	ldr	r2, [pc, #52]	; (d4 <pinInterrupt+0xd4>)
-  a0:	6891      	ldr	r1, [r2, #8]
-  a2:	ea43 0101 	orr.w	r1, r3, r1
-  a6:	6091      	str	r1, [r2, #8]
-  a8:	f015 0f04 	tst.w	r5, #4
-  ac:	d003      	beq.n	b6 <pinInterrupt+0xb6>
-  ae:	4a09      	ldr	r2, [pc, #36]	; (d4 <pinInterrupt+0xd4>)
-  b0:	6851      	ldr	r1, [r2, #4]
-  b2:	430b      	orrs	r3, r1
-  b4:	6053      	str	r3, [r2, #4]
-  b6:	4b07      	ldr	r3, [pc, #28]	; (d4 <pinInterrupt+0xd4>)
-  b8:	f04f 32ff 	mov.w	r2, #4294967295
-  bc:	615a      	str	r2, [r3, #20]
-  be:	3201      	adds	r2, #1
-  c0:	611a      	str	r2, [r3, #16]
-  c2:	bd70      	pop	{r4, r5, r6, pc}
-  c4:	40021000 	.word	0x40021000
+   0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+   4:	4698      	mov	r8, r3
+   6:	4b33      	ldr	r3, [pc, #204]	; (d4 <pinInterrupt+0xd4>)
+   8:	4614      	mov	r4, r2
+   a:	699a      	ldr	r2, [r3, #24]
+   c:	f001 050f 	and.w	r5, r1, #15
+  10:	f042 0201 	orr.w	r2, r2, #1
+  14:	619a      	str	r2, [r3, #24]
+  16:	4b30      	ldr	r3, [pc, #192]	; (d8 <pinInterrupt+0xd8>)
+  18:	460e      	mov	r6, r1
+  1a:	f843 0025 	str.w	r0, [r3, r5, lsl #2]
+  1e:	4b2f      	ldr	r3, [pc, #188]	; (dc <pinInterrupt+0xdc>)
+  20:	090f      	lsrs	r7, r1, #4
+  22:	5559      	strb	r1, [r3, r5]
+  24:	1e6b      	subs	r3, r5, #1
+  26:	2b0e      	cmp	r3, #14
+  28:	d809      	bhi.n	3e <pinInterrupt+0x3e>
+  2a:	e8df f003 	tbb	[pc, r3]
+  2e:	0c0a      	.short	0x0c0a
+  30:	1212100e 	.word	0x1212100e
+  34:	14121212 	.word	0x14121212
+  38:	14141414 	.word	0x14141414
+  3c:	14          	.byte	0x14
+  3d:	00          	.byte	0x00
+  3e:	2006      	movs	r0, #6
+  40:	e00a      	b.n	58 <pinInterrupt+0x58>
+  42:	2007      	movs	r0, #7
+  44:	e008      	b.n	58 <pinInterrupt+0x58>
+  46:	2008      	movs	r0, #8
+  48:	e006      	b.n	58 <pinInterrupt+0x58>
+  4a:	2009      	movs	r0, #9
+  4c:	e004      	b.n	58 <pinInterrupt+0x58>
+  4e:	200a      	movs	r0, #10
+  50:	e002      	b.n	58 <pinInterrupt+0x58>
+  52:	2017      	movs	r0, #23
+  54:	e000      	b.n	58 <pinInterrupt+0x58>
+  56:	2028      	movs	r0, #40	; 0x28
+  58:	f7ff fffe 	bl	0 <interruptEnable>
+  5c:	2006      	movs	r0, #6
+  5e:	4641      	mov	r1, r8
+  60:	f7ff fffe 	bl	0 <interruptSetPriority>
+  64:	2301      	movs	r3, #1
+  66:	40ab      	lsls	r3, r5
+  68:	08a9      	lsrs	r1, r5, #2
+  6a:	f005 0503 	and.w	r5, r5, #3
+  6e:	00ad      	lsls	r5, r5, #2
+  70:	40af      	lsls	r7, r5
+  72:	4a1b      	ldr	r2, [pc, #108]	; (e0 <pinInterrupt+0xe0>)
+  74:	3102      	adds	r1, #2
+  76:	f852 0021 	ldr.w	r0, [r2, r1, lsl #2]
+  7a:	b29b      	uxth	r3, r3
+  7c:	4307      	orrs	r7, r0
+  7e:	f842 7021 	str.w	r7, [r2, r1, lsl #2]
+  82:	4a18      	ldr	r2, [pc, #96]	; (e4 <pinInterrupt+0xe4>)
+  84:	b11c      	cbz	r4, 8e <pinInterrupt+0x8e>
+  86:	6811      	ldr	r1, [r2, #0]
+  88:	ea43 0101 	orr.w	r1, r3, r1
+  8c:	e002      	b.n	94 <pinInterrupt+0x94>
+  8e:	6811      	ldr	r1, [r2, #0]
+  90:	ea21 0103 	bic.w	r1, r1, r3
+  94:	f014 0f01 	tst.w	r4, #1
+  98:	6011      	str	r1, [r2, #0]
+  9a:	d004      	beq.n	a6 <pinInterrupt+0xa6>
+  9c:	4a11      	ldr	r2, [pc, #68]	; (e4 <pinInterrupt+0xe4>)
+  9e:	68d1      	ldr	r1, [r2, #12]
+  a0:	ea43 0101 	orr.w	r1, r3, r1
+  a4:	60d1      	str	r1, [r2, #12]
+  a6:	f014 0f02 	tst.w	r4, #2
+  aa:	d004      	beq.n	b6 <pinInterrupt+0xb6>
+  ac:	4a0d      	ldr	r2, [pc, #52]	; (e4 <pinInterrupt+0xe4>)
+  ae:	6891      	ldr	r1, [r2, #8]
+  b0:	ea43 0101 	orr.w	r1, r3, r1
+  b4:	6091      	str	r1, [r2, #8]
+  b6:	f014 0f04 	tst.w	r4, #4
+  ba:	d003      	beq.n	c4 <pinInterrupt+0xc4>
+  bc:	4a09      	ldr	r2, [pc, #36]	; (e4 <pinInterrupt+0xe4>)
+  be:	6851      	ldr	r1, [r2, #4]
+  c0:	430b      	orrs	r3, r1
+  c2:	6053      	str	r3, [r2, #4]
+  c4:	4b07      	ldr	r3, [pc, #28]	; (e4 <pinInterrupt+0xe4>)
+  c6:	f04f 32ff 	mov.w	r2, #4294967295
+  ca:	615a      	str	r2, [r3, #20]
+  cc:	3201      	adds	r2, #1
+  ce:	611a      	str	r2, [r3, #16]
+  d0:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  d4:	40021000 	.word	0x40021000
 	...
-  d0:	40010000 	.word	0x40010000
-  d4:	40010400 	.word	0x40010400
+  e0:	40010000 	.word	0x40010000
+  e4:	40010400 	.word	0x40010400
 
 Disassembly of section .text.pinEnablePortClock:
 

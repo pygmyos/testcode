@@ -1272,8 +1272,8 @@ ConvertJpgFile():
   38:	f7ff fffe 	bl	0 <print>
   3c:	e025      	b.n	8a <ConvertJpgFile+0x8a>
   3e:	b2b1      	uxth	r1, r6
-  40:	a803      	add	r0, sp, #12
-  42:	4622      	mov	r2, r4
+  40:	4622      	mov	r2, r4
+  42:	a803      	add	r0, sp, #12
   44:	f7ff fffe 	bl	0 <fileGetBuffer>
   48:	2300      	movs	r3, #0
   4a:	930f      	str	r3, [sp, #60]	; 0x3c

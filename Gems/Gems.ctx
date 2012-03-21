@@ -21,7 +21,25 @@
 		</Report>
 			
 	</Flags>
-	<Views/>
+	<Views>
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\main.c" Line="80" Index="0" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\gems.c" Line="378" Index="1" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\gems.h" Line="51" Index="2" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_gui.c" Line="789" Index="3" focus="1" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_gui.h" Line="68" Index="4" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\lcdVaritronixParallel.h" Line="30" Index="5" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="841" Index="6" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\lcd\varitronix128x128_parallel.c" Line="417" Index="7" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.h" Line="1" Index="8" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.h" Line="0" Index="9" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="0" Index="10" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_jpeg.c" Line="885" Index="11" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_jpeg.h" Line="0" Index="12" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="85" Index="13" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" Line="1237" Index="14" />
+		<View File="C:\Program Files (x86)\Raisonance\Ride\lib\ARM\startup_stm32f10x_hd.s" Line="0" Index="15" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\STM32F103_1M_96K_FLASH_PygmyOS.ld" Line="20" Index="16" />
+	</Views>
 	<Grep>
 		<GrepIncludeSub>yes</GrepIncludeSub>
 		<GrepMatchCase>no</GrepMatchCase>
@@ -49,6 +67,24 @@
 		</GrepReplaceWhat>
 	</Grep>
 	<FindStrings>
+		<Find>guiSaveScreen</Find>
+		<Find>guiDrawWidget</Find>
+		<Find>guiGetImage</Find>
+		<Find>drawLine</Find>
+		<Find>code</Find>
+		<Find>const</Find>
+		<Find>formNew</Find>
+		<Find>drawPNG</Find>
+		<Find>guiClearArea</Find>
+		<Find>fileGetBuffer</Find>
+		<Find>guiSetfonts</Find>
+		<Find>lcdSetColor</Find>
+		<Find>widget</Find>
+		<Find>guiScreen</Find>
+		<Find>lcdGetWidth</Find>
+		<Find>fileGetLong</Find>
+		<Find>sysCRC</Find>
+		<Find>LCD_DATA_RD</Find>
 		<Find>drawWidget</Find>
 		<Find>pdiaEncode</Find>
 		<Find>pdiaAdd</Find>
@@ -184,6 +220,7 @@
 		<Find>delay</Find>
 	</FindStrings>
 	<ReplaceStrings>
+		<Find>lCode</Find>
 		<Find>PYGMYCOMMAND</Find>
 	</ReplaceStrings>
 </Debug>

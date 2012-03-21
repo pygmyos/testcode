@@ -422,15 +422,19 @@ fileGetBuffer():
    4:	460d      	mov	r5, r1
    6:	4617      	mov	r7, r2
    8:	2600      	movs	r6, #0
-   a:	e006      	b.n	1a <fileGetBuffer+0x1a>
+   a:	e00a      	b.n	22 <fileGetBuffer+0x22>
    c:	4620      	mov	r0, r4
    e:	f7ff fffe 	bl	0 <fileGetBuffer>
-  12:	3601      	adds	r6, #1
-  14:	f807 0b01 	strb.w	r0, [r7], #1
-  18:	b2b6      	uxth	r6, r6
-  1a:	42ae      	cmp	r6, r5
-  1c:	d3f6      	bcc.n	c <fileGetBuffer+0xc>
-  1e:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+  12:	f807 0b01 	strb.w	r0, [r7], #1
+  16:	4620      	mov	r0, r4
+  18:	f7ff fffe 	bl	0 <fileGetBuffer>
+  1c:	b918      	cbnz	r0, 26 <fileGetBuffer+0x26>
+  1e:	3601      	adds	r6, #1
+  20:	b2b6      	uxth	r6, r6
+  22:	42ae      	cmp	r6, r5
+  24:	d3f2      	bcc.n	c <fileGetBuffer+0xc>
+  26:	4630      	mov	r0, r6
+  28:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
 
 Disassembly of section .text.flashReadLong:
 

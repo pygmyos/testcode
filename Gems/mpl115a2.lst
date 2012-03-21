@@ -1,0 +1,227 @@
+
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\mpl115a2.o:     file format elf32-littlearm
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\mpl115a2.o
+
+
+Disassembly of section .text.pressureEnable:
+
+00000000 <pressureEnable>:
+pressureEnable():
+   0:	b510      	push	{r4, lr}
+   2:	4b07      	ldr	r3, [pc, #28]	; (20 <pressureEnable+0x20>)
+   4:	781a      	ldrb	r2, [r3, #0]
+   6:	2aff      	cmp	r2, #255	; 0xff
+   8:	d008      	beq.n	1c <pressureEnable+0x1c>
+   a:	7818      	ldrb	r0, [r3, #0]
+   c:	2101      	movs	r1, #1
+   e:	f7ff fffe 	bl	0 <pinSet>
+  12:	203c      	movs	r0, #60	; 0x3c
+  14:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+  18:	f7ff bffe 	b.w	0 <delay>
+  1c:	bd10      	pop	{r4, pc}
+  1e:	bf00      	nop
+  20:	00000000 	.word	0x00000000
+
+Disassembly of section .text.pressureDisable:
+
+00000000 <pressureDisable>:
+pressureDisable():
+   0:	781a4b04 	.word	0x781a4b04
+   4:	2aff      	cmp	r2, #255	; 0xff
+   6:	d003      	beq.n	10 <pressureDisable+0x10>
+   8:	7818      	ldrb	r0, [r3, #0]
+   a:	2100      	movs	r1, #0
+   c:	f7ff bffe 	b.w	0 <pinSet>
+  10:	4770      	bx	lr
+  12:	bf00      	nop
+  14:	00000000 	.word	0x00000000
+
+Disassembly of section .text.pressureReset:
+
+00000000 <pressureReset>:
+pressureReset():
+   0:	b510      	push	{r4, lr}
+   2:	4c09      	ldr	r4, [pc, #36]	; (28 <pressureReset+0x28>)
+   4:	7823      	ldrb	r3, [r4, #0]
+   6:	2bff      	cmp	r3, #255	; 0xff
+   8:	d00c      	beq.n	24 <pressureReset+0x24>
+   a:	2100      	movs	r1, #0
+   c:	7820      	ldrb	r0, [r4, #0]
+   e:	f7ff fffe 	bl	0 <pinSet>
+  12:	203c      	movs	r0, #60	; 0x3c
+  14:	f7ff fffe 	bl	0 <delay>
+  18:	7820      	ldrb	r0, [r4, #0]
+  1a:	2101      	movs	r1, #1
+  1c:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+  20:	f7ff bffe 	b.w	0 <pinSet>
+  24:	bd10      	pop	{r4, pc}
+  26:	bf00      	nop
+  28:	00000000 	.word	0x00000000
+
+Disassembly of section .text.pressureInit:
+
+00000000 <pressureInit>:
+pressureInit():
+   0:	28ff      	cmp	r0, #255	; 0xff
+   2:	b537      	push	{r0, r1, r2, r4, r5, lr}
+   4:	4605      	mov	r5, r0
+   6:	460c      	mov	r4, r1
+   8:	d013      	beq.n	32 <pressureInit+0x32>
+   a:	29ff      	cmp	r1, #255	; 0xff
+   c:	d011      	beq.n	32 <pressureInit+0x32>
+   e:	490a      	ldr	r1, [pc, #40]	; (38 <pressureInit+0x38>)
+  10:	480a      	ldr	r0, [pc, #40]	; (3c <pressureInit+0x3c>)
+  12:	700a      	strb	r2, [r1, #0]
+  14:	4a0a      	ldr	r2, [pc, #40]	; (40 <pressureInit+0x40>)
+  16:	4629      	mov	r1, r5
+  18:	7013      	strb	r3, [r2, #0]
+  1a:	2300      	movs	r3, #0
+  1c:	4622      	mov	r2, r4
+  1e:	9300      	str	r3, [sp, #0]
+  20:	3360      	adds	r3, #96	; 0x60
+  22:	f7ff fffe 	bl	0 <i2cConfig>
+  26:	f7ff fffe 	bl	0 <pressureInit>
+  2a:	f7ff fffe 	bl	0 <pressureInit>
+  2e:	2001      	movs	r0, #1
+  30:	e000      	b.n	34 <pressureInit+0x34>
+  32:	2000      	movs	r0, #0
+  34:	bd3e      	pop	{r1, r2, r3, r4, r5, pc}
+  36:	bf00      	nop
+	...
+
+Disassembly of section .text.pressureReadkPa:
+
+00000000 <pressureReadkPa>:
+pressureReadkPa():
+   0:	b5f7      	push	{r0, r1, r2, r4, r5, r6, r7, lr}
+   2:	f7ff fffe 	bl	0 <pressureReadkPa>
+   6:	4c58      	ldr	r4, [pc, #352]	; (168 <pressureReadkPa+0x168>)
+   8:	2112      	movs	r1, #18
+   a:	466a      	mov	r2, sp
+   c:	2300      	movs	r3, #0
+   e:	4857      	ldr	r0, [pc, #348]	; (16c <pressureReadkPa+0x16c>)
+  10:	f7ff fffe 	bl	0 <i2cWriteBuffer>
+  14:	2064      	movs	r0, #100	; 0x64
+  16:	f7ff fffe 	bl	0 <delay>
+  1a:	7825      	ldrb	r5, [r4, #0]
+  1c:	2d00      	cmp	r5, #0
+  1e:	d14d      	bne.n	bc <pressureReadkPa+0xbc>
+  20:	2601      	movs	r6, #1
+  22:	2104      	movs	r1, #4
+  24:	4851      	ldr	r0, [pc, #324]	; (16c <pressureReadkPa+0x16c>)
+  26:	466a      	mov	r2, sp
+  28:	2308      	movs	r3, #8
+  2a:	7026      	strb	r6, [r4, #0]
+  2c:	f7ff fffe 	bl	0 <i2cReadBuffer>
+  30:	4630      	mov	r0, r6
+  32:	494f      	ldr	r1, [pc, #316]	; (170 <pressureReadkPa+0x170>)
+  34:	f7ff fffe 	bl	0 <print>
+  38:	2001      	movs	r0, #1
+  3a:	f81d 2005 	ldrb.w	r2, [sp, r5]
+  3e:	494d      	ldr	r1, [pc, #308]	; (174 <pressureReadkPa+0x174>)
+  40:	3501      	adds	r5, #1
+  42:	f7ff fffe 	bl	0 <print>
+  46:	2d0c      	cmp	r5, #12
+  48:	d1f6      	bne.n	38 <pressureReadkPa+0x38>
+  4a:	f89d 3003 	ldrb.w	r3, [sp, #3]
+  4e:	f89d 7002 	ldrb.w	r7, [sp, #2]
+  52:	f89d 6004 	ldrb.w	r6, [sp, #4]
+  56:	ea43 2707 	orr.w	r7, r3, r7, lsl #8
+  5a:	f89d 3005 	ldrb.w	r3, [sp, #5]
+  5e:	f89d 5006 	ldrb.w	r5, [sp, #6]
+  62:	ea43 2606 	orr.w	r6, r3, r6, lsl #8
+  66:	f89d 3007 	ldrb.w	r3, [sp, #7]
+  6a:	f89d 0000 	ldrb.w	r0, [sp]
+  6e:	ea43 2505 	orr.w	r5, r3, r5, lsl #8
+  72:	f89d 3001 	ldrb.w	r3, [sp, #1]
+  76:	08ad      	lsrs	r5, r5, #2
+  78:	ea43 2000 	orr.w	r0, r3, r0, lsl #8
+  7c:	b200      	sxth	r0, r0
+  7e:	f7ff fffe 	bl	0 <__aeabi_i2f>
+  82:	f04f 5178 	mov.w	r1, #1040187392	; 0x3e000000
+  86:	f7ff fffe 	bl	0 <__aeabi_fmul>
+  8a:	6060      	str	r0, [r4, #4]
+  8c:	b238      	sxth	r0, r7
+  8e:	f7ff fffe 	bl	0 <__aeabi_i2f>
+  92:	f04f 5164 	mov.w	r1, #956301312	; 0x39000000
+  96:	f7ff fffe 	bl	0 <__aeabi_fmul>
+  9a:	60a0      	str	r0, [r4, #8]
+  9c:	b230      	sxth	r0, r6
+  9e:	f7ff fffe 	bl	0 <__aeabi_i2f>
+  a2:	f04f 5162 	mov.w	r1, #947912704	; 0x38800000
+  a6:	f7ff fffe 	bl	0 <__aeabi_fmul>
+  aa:	60e0      	str	r0, [r4, #12]
+  ac:	4628      	mov	r0, r5
+  ae:	f7ff fffe 	bl	0 <__aeabi_i2f>
+  b2:	f04f 5164 	mov.w	r1, #956301312	; 0x39000000
+  b6:	f7ff fffe 	bl	0 <__aeabi_fmul>
+  ba:	6120      	str	r0, [r4, #16]
+  bc:	2100      	movs	r1, #0
+  be:	466a      	mov	r2, sp
+  c0:	2304      	movs	r3, #4
+  c2:	482a      	ldr	r0, [pc, #168]	; (16c <pressureReadkPa+0x16c>)
+  c4:	f7ff fffe 	bl	0 <i2cReadBuffer>
+  c8:	2001      	movs	r0, #1
+  ca:	492b      	ldr	r1, [pc, #172]	; (178 <pressureReadkPa+0x178>)
+  cc:	f7ff fffe 	bl	0 <print>
+  d0:	2500      	movs	r5, #0
+  d2:	2001      	movs	r0, #1
+  d4:	f81d 2005 	ldrb.w	r2, [sp, r5]
+  d8:	4926      	ldr	r1, [pc, #152]	; (174 <pressureReadkPa+0x174>)
+  da:	3501      	adds	r5, #1
+  dc:	f7ff fffe 	bl	0 <print>
+  e0:	2d04      	cmp	r5, #4
+  e2:	d1f6      	bne.n	d2 <pressureReadkPa+0xd2>
+  e4:	f89d 3004 	ldrb.w	r3, [sp, #4]
+  e8:	f89d 0003 	ldrb.w	r0, [sp, #3]
+  ec:	ea43 2000 	orr.w	r0, r3, r0, lsl #8
+  f0:	0980      	lsrs	r0, r0, #6
+  f2:	f7ff fffe 	bl	0 <__aeabi_i2f>
+  f6:	6921      	ldr	r1, [r4, #16]
+  f8:	4606      	mov	r6, r0
+  fa:	f7ff fffe 	bl	0 <__aeabi_fmul>
+  fe:	68a1      	ldr	r1, [r4, #8]
+ 100:	f7ff fffe 	bl	0 <__aeabi_fadd>
+ 104:	f89d 3001 	ldrb.w	r3, [sp, #1]
+ 108:	4605      	mov	r5, r0
+ 10a:	f89d 0000 	ldrb.w	r0, [sp]
+ 10e:	ea43 2000 	orr.w	r0, r3, r0, lsl #8
+ 112:	0980      	lsrs	r0, r0, #6
+ 114:	f7ff fffe 	bl	0 <__aeabi_i2f>
+ 118:	4601      	mov	r1, r0
+ 11a:	4628      	mov	r0, r5
+ 11c:	f7ff fffe 	bl	0 <__aeabi_fmul>
+ 120:	6861      	ldr	r1, [r4, #4]
+ 122:	f7ff fffe 	bl	0 <__aeabi_fadd>
+ 126:	68e1      	ldr	r1, [r4, #12]
+ 128:	4605      	mov	r5, r0
+ 12a:	4630      	mov	r0, r6
+ 12c:	f7ff fffe 	bl	0 <__aeabi_fmul>
+ 130:	4601      	mov	r1, r0
+ 132:	4628      	mov	r0, r5
+ 134:	f7ff fffe 	bl	0 <__aeabi_fadd>
+ 138:	f7ff fffe 	bl	0 <__aeabi_f2iz>
+ 13c:	b200      	sxth	r0, r0
+ 13e:	f7ff fffe 	bl	0 <__aeabi_i2f>
+ 142:	f7ff fffe 	bl	0 <__aeabi_f2d>
+ 146:	a306      	add	r3, pc, #24	; (adr r3, 160 <pressureReadkPa+0x160>)
+ 148:	e9d3 2300 	ldrd	r2, r3, [r3]
+ 14c:	f7ff fffe 	bl	0 <__aeabi_dmul>
+ 150:	2200      	movs	r2, #0
+ 152:	4b0a      	ldr	r3, [pc, #40]	; (17c <pressureReadkPa+0x17c>)
+ 154:	f7ff fffe 	bl	0 <__aeabi_dadd>
+ 158:	f7ff fffe 	bl	0 <__aeabi_d2f>
+ 15c:	bdfe      	pop	{r1, r2, r3, r4, r5, r6, r7, pc}
+ 15e:	bf00      	nop
+ 160:	04411044 	.word	0x04411044
+ 164:	3fb04411 	.word	0x3fb04411
+	...
+ 174:	00000022 	.word	0x00000022
+ 178:	0000002a 	.word	0x0000002a
+ 17c:	40490000 	.word	0x40490000
+
+Disassembly of section .text.mpl115a2CalculateCompensation:
+
+00000000 <mpl115a2CalculateCompensation>:
+mpl115a2CalculateCompensation():
+   0:	4770      	bx	lr

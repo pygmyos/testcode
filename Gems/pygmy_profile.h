@@ -26,7 +26,7 @@
 
 #define __PYGMYNEBULA
 
-//#define __PYGMYANALOG
+#define __PYGMYANALOG
 #define __PYGMYCOMMANDS
 #define __PYGMYFILES
 #define __PYGMYTASKS
@@ -76,6 +76,8 @@
 //-------------------------------------------------------------------------------------
 
 //#include "profiles/nebula/pygmy_nebula.h"
+#include "profiles/sensors/mpl115a2.h"
+#include "profiles/sensors/hih5030.h"
 #include "profiles/nebula/pygmy_nebula_hp.h"
 
 #include "profiles/nebula/shields/lcdVaritronixParallel.h"
