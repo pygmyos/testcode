@@ -1,5 +1,5 @@
 
-<ApplicationBuild Header="Gems" Extern=".\Gems.rapp" Path=".\Gems.rapp" AsyncBuild="" OutputFile=".\Gems.elf" sate="96" >
+<ApplicationBuild Header="Gems" Extern=".\Gems.rapp" Path=".\Gems.rapp" AsyncBuild="" OutputFile=".\Gems.elf" sate="98" >
 	<NodeC Path="..\..\pygmyos\core\pygmy_adc.c" Header="pygmy_adc.c" Marker="-1" AsyncBuild="" OutputFile=".\pygmy_adc.o" sate="0" />
 	<NodeC Path="..\..\pygmyos\core\pygmy_audio.c" Header="pygmy_audio.c" Marker="-1" AsyncBuild="" OutputFile=".\pygmy_audio.o" sate="0" />
 	<NodeC Path="..\..\pygmyos\core\pygmy_cmd.c" Header="pygmy_cmd.c" Marker="-1" AsyncBuild="" OutputFile=".\pygmy_cmd.o" sate="0" />
@@ -16,7 +16,7 @@
 	<NodeC Path="..\..\pygmyos\core\pygmy_sys.c" Header="pygmy_sys.c" Marker="-1" AsyncBuild="" OutputFile=".\pygmy_sys.o" sate="0" />
 	<NodeC Path=".\main.c" Header="main.c" Marker="-1" AsyncBuild="" OutputFile=".\main.o" sate="0" />
 	<NodeC Path="..\..\pygmyos\profiles\lcd\varitronix128x128_parallel.c" Header="varitronix128x128_parallel.c" Marker="-1" AsyncBuild="" OutputFile=".\varitronix128x128_parallel.o" sate="0" />
-	<NodeC Path=".\gems.c" Header="gems.c" Marker="-1" AsyncBuild="" OutputFile=".\gems.o" sate="2" >
+	<NodeC Path=".\gems.c" Header="gems.c" Marker="-1" AsyncBuild="" OutputFile=".\gems.o" sate="0" >
 		<Options>		</Options>
 			
 	</NodeC>
@@ -79,4 +79,5 @@
 	</Options>
 	<NodeC Path="..\..\pygmyos\profiles\sensors\mpl115a2.c" Header="mpl115a2.c" Marker="-1" AsyncBuild="" OutputFile=".\mpl115a2.o" sate="0" />
 	<NodeC Path="..\..\pygmyos\profiles\sensors\hih5030.c" Header="hih5030.c" Marker="-1" AsyncBuild="" OutputFile=".\hih5030.o" sate="0" />
+	<NodeC Path="..\..\pygmyos\profiles\eeprom\at24hc02b.c" Header="at24hc02b.c" Marker="-1" AsyncBuild="" OutputFile=".\at24hc02b.o" sate="0" />
 </ApplicationBuild>

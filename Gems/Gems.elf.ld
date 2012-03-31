@@ -29,6 +29,7 @@ INPUT("C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\gems.o")
 INPUT("C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_jpeg.o")
 INPUT("C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\mpl115a2.o")
 INPUT("C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\hih5030.o")
+INPUT("C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\at24hc02b.o")
 GROUP(
 "std_sbrk_thumb.lib"
 "smallprintf_thumb.a"

@@ -20,11 +20,12 @@
 
 #include "pygmy_profile.h"
 #include "gems.h"
-//#ifndef PYGMY_orbitron18
-   // #include "fonts/orbitron18.h"
-//#else
-    extern const u8 PYGMY_orbitron18[];
-//#endif
+
+void gemDrawEndMenu( void );
+void drawMainMenu( void );
+void drawRFTest( void );
+void eventRFBack( void );
+extern const u8 PYGMY_orbitron18[];
 #include "ruby.h"
 #include "emerald.h"
 #include "topaz.h"
@@ -48,7 +49,7 @@ void gemDetectRows( void )
 
 u16 gemDetectRowsX( void )
 {
-    PYGMYCOLOR pygmyColor = { 0x00, 0x00, 0x00 };
+    PYGMYCOLOR pygmyColor = { 0xFF, 0xFF, 0xFF };
     u16 uiX, uiY, uiColCount, uiColStart, uiScore;
   
     uiScore = 0;
@@ -80,6 +81,11 @@ u16 gemDetectRowsX( void )
     uiScore += gemDetectRowsY( );
     guiSetCursor( 80, 0 );
     guiClearArea( &pygmyColor, 80, 0, 127, 18 );
+    pygmyColor.R = 0xFF;
+    pygmyColor.G = 0x0E;
+    pygmyColor.B = 0xE0;
+    fontSetColor( fontGetActive(), &pygmyColor );
+    drawRect( &pygmyColor, 80, 0, 127, 18, VISIBLE|ROUNDED, 4 );
     print( LCD, "%4d", uiScore );
     return( uiScore );
 }
@@ -124,18 +130,16 @@ void gemDrawGameOver( void )
 {
     PYGMYCOLOR pygmyColor = { 0xFF, 0x00, 0x20 };
 
-    //pygmyColor.R = 0xFF;
-    //pygmyColor.G = 0x00;
-    //pygmyColor.B = 0x20;
-    guiSaveScreen();
+    //guiSaveScreen();
     taskDelete( "gemgrav", 0 );
     guiInitSprites( );
     guiClearScreen( &pygmyColor);
     guiSetCursor( 8, 55 );
+    fontSetColor( fontGetActive(), colorGetRootColor() );
     print( LCD, "Game Over" );
-    
-
-    drawRect( &pygmyColor, 0, 0, 127, 127, 8, 0 );
+    PYGMY_WATCHDOG_REFRESH;
+    delay( 4000000 );
+    gemDrawEndMenu();
 }
 
 void gemResetCursor( void )
@@ -216,7 +220,7 @@ void gemJoyDown( void )
 
 void gemJoyLeft( void )
 {
-    PYGMYCOLOR pygmyColor;
+    PYGMYCOLOR pygmyColor = { 0xFF, 0xFF, 0xFF };
     u16 uiX, uiY;
 
     if( globalCursor1Coords[ 0 ] < 16 ){
@@ -237,12 +241,9 @@ void gemJoyLeft( void )
 
 void gemJoyRight( void )
 {
-    PYGMYCOLOR pygmyColor;
+    PYGMYCOLOR pygmyColor = {0xFF, 0xFF, 0xFF };
     u16 uiX, uiY;
 
-    pygmyColor.R = 0xFF;
-    pygmyColor.G = 0xFF;
-    pygmyColor.B = 0xFF;
     uiX = ( globalCursor1Coords[ 0 ] + 16 ) / 16;
     uiY = ( globalCursor1Coords[ 1 ] / 16 );
     if( uiX > 7 ){
@@ -302,13 +303,16 @@ void gemInit( void )
 
     // Create Form to draw sprites on...
     colorSetRGB( colorGetRootColor(), 0x65, 0xBE, 0xFF ); //0x48, 0x8E, 0xDF );
-    colorSetRGB( colorGetRootBackColor(), 0x65, 0x65, 0x65 );
-    colorSetRGB( colorGetRootFocusColor(), 0x65, 0x65, 0x65 );//0x38, 0x6E, 0xBF  );
-    colorSetRGB( colorGetRootFocusBackColor(), 0x65, 0x8E, 0xDF );
-    colorSetRGB( colorGetRootClearColor(), 0xE0, 0xE0, 0xFF );
-    formNew( 0, 0, 128, 128 );
-    drawForms( );
-
+    colorSetRGB( colorGetRootBackColor(), 0xFF, 0xFF, 0xFF );
+    colorSetRGB( colorGetRootFocusColor(), 0xFF, 0xFF, 0xFF );//0x38, 0x6E, 0xBF  );
+    colorSetRGB( colorGetRootFocusBackColor(), 0xFF, 0xFF, 0xFF );
+    colorSetRGB( colorGetRootClearColor(), 0xFF, 0xFF, 0xFF );
+    fontSetColor( fontGetActive(), colorGetRootColor() );
+    fontSetBackColor( fontGetActive(), colorGetRootBackColor() );
+    formFreeAll();
+    //formNew( 0, 0, 128, 128 );
+    //drawForms( );
+    guiClearArea( colorGetRootClearColor(), 0, 0, 128, 128 );
     // Now create sprites
     guiInitSprites();
     globalCursor1Gem = GEM_RUBY;
@@ -340,18 +344,19 @@ void gemInit( void )
             globalGems[ i ][ ii ] = 0;
         } // for
     } // for
-    pinConfig( SHIELD_UP, PULLUP );
-    pinConfig( SHIELD_DOWN, PULLUP );
-    pinConfig( SHIELD_LEFT, PULLUP );
-    pinConfig( SHIELD_RIGHT, PULLUP );
-    pinConfig( SHIELD_CENTER, PULLUP );
-    pinConfig( SHIELD_BUTTON1, PULLUP );
-    pinConfig( SHIELD_BUTTON2, PULLUP );
+    //pinConfig( SHIELD_UP, PULLUP );
+    //pinConfig( SHIELD_DOWN, PULLUP );
+    //pinConfig( SHIELD_LEFT, PULLUP );
+    //pinConfig( SHIELD_RIGHT, PULLUP );
+    //pinConfig( SHIELD_CENTER, PULLUP );
+    //pinConfig( SHIELD_BUTTON1, PULLUP );
+    //pinConfig( SHIELD_BUTTON2, PULLUP );
     pinInterrupt( gemJoyUp, SHIELD_UP,  TRIGGER_RISING, 1 );
     pinInterrupt( gemJoyDown, SHIELD_DOWN,  TRIGGER_RISING, 1 );
     pinInterrupt( gemJoyLeft, SHIELD_LEFT,  TRIGGER_RISING, 1 );
     pinInterrupt( gemJoyRight, SHIELD_RIGHT,  TRIGGER_RISING, 1 );
-    //pinInterrupt( gemInit, SHIELD_BUTTON2, TRIGGER_RISING );
+    pinInterrupt( gemDrawEndMenu, SHIELD_BUTTON1, TRIGGER_RISING, 1 );
+    pinInterrupt( gemDrawEndMenu, SHIELD_BUTTON2, TRIGGER_RISING, 1 );
     gemResetCursor( );
     taskNewSimple( "gemgrav", 200, (PYGMYFUNCPTR)gemGravity );
 }
@@ -366,86 +371,48 @@ void gemClickMenu( void )
     drawWidget( &widgetButton );
 }
 
-void gemDrawMenu( void )
+
+void gemDrawEndMenu( void )
 {
-    PYGMYCOLOR pygmyColor;
+    PYGMYWIDGET widgetButton;
 
-    guiSetColor( 0xFF, 0xFF, 0xFF );
-    guiSetBackColor( 0xFF, 0xFF, 0xFF );
-    pygmyColor.R = 0xFF;
-    pygmyColor.G = 0xFF;
-    pygmyColor.B = 0xFF;
-    guiClearScreen( &pygmyColor );
-    guiSetColor( 0x48, 0x8E, 0xDF );
-    guiSetBackColor( 0x65, 0x65, 0x65 );
-    fileOpenResource( &fileFont, (u8*)PYGMY_orbitron18 );
-    guiSetFont( &fileFont, &fontOrbitron18 );
-    //guiSetFonts( &fontOrbitron18, &fontOrbitron18, &fontOrbitron18 );
-    
-        //guiSetFontColor( &fontOrbitron18, 0x65, 0x65, 0x65 );
-        //guiSetFontBackColor( &fontOrbitron18, 0x48, 0x8E, 0xDF );
-        
-       /* widgetButton.Color.R = 0x48;
-        widgetButton.Color.G = 0x8E;
-        widgetButton.Color.B = 0xDF;
-        widgetButton.BackColor.R = 0x48;
-        widgetButton.BackColor.G = 0x8E;
-        widgetButton.BackColor.B = 0xDF;*/
-        widgetButton.Style = FILLED|VISIBLE|BUTTON|ROUNDED|BORDER|CENTERED;
-   /* } else{
-        guiSetFontBackColor( &fontOrbitron18, 0xFF, 0xFF, 0xFF );
-        guiSetFontColor( &fontOrbitron18, 0x65, 0x65, 0x65 );
-        //widgetButton.Font = &fontOrbitron18;
-        widgetButton.Color.R = 0x65;
-        widgetButton.Color.G = 0x65;
-        widgetButton.Color.B = 0x65;
-        widgetButton.BackColor.R = 0xFF;
-        widgetButton.BackColor.G = 0xFF;
-        widgetButton.BackColor.B = 0xFF;
-        widgetButton.Style = VISIBLE|BUTTON|ROUNDED|BORDER|CENTERED;
-    } // else*/
-    //widgetButton.Cursor.X = 8;
-    //widgetButton.Cursor.Y = ( 128 / 2 ) - 10;
-    //widgetButton.Radius = 8;
+    taskDelete( "gemgrav", 0 );
+    guiInitSprites( );
+
+    pinInterrupt( eventMouseMoveUp, A0, TRIGGER_RISING, 1 );
+    pinInterrupt( eventMouseMoveDown, D3, TRIGGER_RISING, 1 );
+    pinInterrupt( eventMouseMoveLeft, TA0, TRIGGER_RISING, 1 );
+    pinInterrupt( eventMouseMoveRight, DAC1, TRIGGER_RISING, 1 );
+    pinInterrupt( eventMouseClickLeft, DAC2, TRIGGER_RISING, 1 );
+    pinInterrupt( eventMouseClickCenter, TX2, TRIGGER_RISING, 1 );
+    pinInterrupt( eventMouseClickRight, RX2, TRIGGER_RISING, 1 );
+
+    colorSetRGB( colorGetRootColor(), 0x65, 0xBE, 0xFF ); //0x48, 0x8E, 0xDF );
+    colorSetRGB( colorGetRootBackColor(), 0x65, 0x65, 0x65 );
+    colorSetRGB( colorGetRootFocusColor(), 0x65, 0x65, 0x65 );//0x38, 0x6E, 0xBF  );
+    colorSetRGB( colorGetRootFocusBackColor(), 0x65, 0x8E, 0xDF );
+    colorSetRGB( colorGetRootClearColor(), 0xFF, 0x0E, 0xE0 );
+     
     guiSetRadius( 8 );
-    guiSetStyle( FILLED|VISIBLE|BUTTON|ROUNDED|BORDER|CENTERED );
+    guiSetStyle( VISIBLE|BUTTON|ROUNDED|BORDER|CENTERED );
+    
+    formFreeAll();
+    formNew( 0, 0, 128, 128 );
+    widgetButton.Style = CAPTION|FILLED|VISIBLE|ROUNDED|BORDER|CENTERED;
     widgetButton.Type = BUTTON;
-    //widgetButton.Style = VISIBLE|BUTTON|ROUNDED|BORDER|CENTERED|FILLED;
-    widgetButton.X= 0;
-    widgetButton.Y = ( 128 / 2 ) - 20;
+    widgetButton.X = 0;
+    widgetButton.Y = 6;
     widgetButton.Width = 127;
-    widgetButton.Height = 39;
+    widgetButton.Height = 36;
+    widgetButton.String = "New Game";
+    formAddWidget( &widgetButton );
+    widgetAddEventHandler( widgetGetCurrent(), gemInit, SELECTED );
     
-    widgetButton.String = "Start Game";
+    widgetButton.Y = 46;
+    widgetButton.String = "Main Menu";
+    formAddWidget( &widgetButton );
+    widgetAddEventHandler( widgetGetCurrent(), drawMainMenu, SELECTED );
     
-    drawWidget( &widgetButton );
-    /*PYGMYWIDGET widgetButton;
-    
-    guiSetColor( 0x00, 0x00, 0xFF );
-    guiSetBackColor( 0xFF, 0xFF, 0xFF );
-    guiClearScreen();
-    fileOpenResource( &fileFont, (u8*)PYGMY_orbitron18 );
-    guiSetFont( &fileFont, &fontOrbitron18 );
-    guiSetFontColor( &fontOrbitron18, 0x00, 0x0, 0xFF );
-    guiSetFontBackColor( &fontOrbitron18, 0xFF, 0xFF, 0xFF );
-    widgetButton.Font = &fontOrbitron18;
-    widgetButton.Color.R = 0x00;
-    widgetButton.Color.G = 0x00;
-    widgetButton.Color.B = 0xFF;
-    widgetButton.BackColor.R = 0xFF;
-    widgetButton.BackColor.G = 0xFF;
-    widgetButton.BackColor.B = 0xFF;
-    //widgetButton.Cursor.X = 8;
-    //widgetButton.Cursor.Y = ( 128 / 2 ) - 10;
-    widgetButton.Radius = 8;
-    widgetButton.Style = VISIBLE|BUTTON|ROUNDED|BORDER|CENTERED;
-    widgetButton.X= 0;
-    widgetButton.Y = ( 128 / 2 ) - 20;
-    widgetButton.Width = 127;
-    widgetButton.Height = 39;
-    widgetButton.String = "Start Game";
-    
-    drawWidget( &widgetButton );*/
+    drawForms();
 }
-
 
