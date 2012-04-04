@@ -37,43 +37,41 @@ u8 globalHumidity[ 20 ];
 
 void main( void )
 {
-    u8 i, ucChar, ucBuffer[ 20 ];
+    u8 i, ucChar, *ucEeproms, ucBuffer[ 40 ];
 
     sysInit();
     socketInit();
     rfInit();
     print( COM3, "\rV2 RFID: 0x%X", socketGetID());
-    //pressureInit( TX1, RX1, NONE, NONE );
-    //print( COM3, "\rPressure: %d", (u16)pressureReadkPa() );
+    mpl115a2Init( TX1, RX1, NONE, NONE );
+    print( COM3, "\rPressure: %f", mpl115a2ReadkPa() );
+    print( COM3, "\rTemp: %f", mpl115a2ReadTemp() );
     //
     //fileDelete( "humidity.txt" );
 
-    if( pygmyGlobalData.MCUID == DESC_STM32F103XLD ){
-        print( COM3, "\rpygmyGlobalData.MCUID == DESC_STM32F103XLD" );
-    } // if
-    if( pygmyGlobalData.MainClock == 72000000 ){
-        print( COM3, "\rpygmyGlobalData.MainClock == 72000000 " );
-    } // if
-    if( pygmyGlobalData.DelayTimer == PYGMY_TIMER9 ){
-        print( COM3, "\rpygmyGlobalData.DelayTimer == PYGMY_TIMER9" );
-    } // if
-     if( pygmyGlobalData.PWMTimer == PYGMY_TIMER10 ){
-        print( COM3, "\rpygmyGlobalData.PWMTimer == PYGMY_TIMER10" );
-     } // if
     //stopwatchStart();
     //delay( 1000000 );
     //print( COM3, "\rStopwatch %d", stopwatchGet() );
     //stopwatchStart();
     //delay( 200000 );
     //print( COM3, "\rStopwatch %d", stopwatchGet() );
+    pinConfig( MCO, OUT );
+    pinSet( MCO, HIGH );
+    /*eepromOpen( 0x51, TX1, RX1, NONE );
     
-    eepromOpen( 0x51, TX1, RX1, NONE );
-    //eepromPutString( 0, "test" );
-    eepromPutString( 0, "<shield varitronix>" );
-    //eepromPutChar( 1, 'U' );
-    //eepromPutChar( 2, 'B' );
-    print( COM3, "\rEEPROM Direct Read: " );
-    /*for( i = 0; i < 3; i++ ){
+    ucEeproms = (u8*)eepromQueryBus();
+    for( i = 0; i < 8; i++ ){
+        if( ucEeproms[ i ] ){
+            print( COM3, "\rFound eeprom at address: 0x%02X", ucEeproms[ i ] );
+        } // if
+    } // for
+    
+    eepromPutString( 0, "test" );*/
+    
+    //eepromGetBuffer( 0, ucBuffer, len( "test" ) );
+    //print( COM3, "\rEeprom: ucBuffer );
+    //print( COM3, "\rEEPROM Direct Read: " );
+    /*for( i = 0; i < len( "test" ); i++ ){
         ucChar = eepromGetChar( i );
         if( isAlphaOrNumeric( ucChar ) ) {
             print( COM3, "%c", ucChar );
@@ -85,7 +83,7 @@ void main( void )
     //ucBuffer[ len( "humidity" ) ] = '\0';
     //print( COM3, "\rEEPROM: %s", ucBuffer );
     //
-    if( isStringSame( ucBuffer, "<shield varitronix>" ) ){
+    if( isStringSame( ucBuffer, "<shield lcd>" ) ){
         print( COM3, "\rLCD Shield Detected" );
         fileOpenResource( &fileFont, (u8*)PYGMY_orbitron18 );
         fontLoad( &fileFont, &fontOrbitron18 );
@@ -100,7 +98,7 @@ void main( void )
         pinConfig( RX2, PULLUP );
         drawMainMenu();
     } else{
-        humidityInit( A2, A3 );
+        hih5030Init( A2, A3 );
     } // else
     //convertFloatToString( 1489.01234567, "%5.10", ucBuffer );
     //print( COM3, ucBuffer );

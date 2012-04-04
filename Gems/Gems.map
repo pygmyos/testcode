@@ -121,7 +121,7 @@ c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.
 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_dvmd_tls.o)
                               c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_udivsi3.o) (__aeabi_idiv0)
 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_addsubdf3.o)
-                              c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-s_modf.o) (__aeabi_dsub)
+                              C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\mpl115a2.o (__aeabi_dsub)
 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_muldivdf3.o)
                               C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_audio.o (__aeabi_dmul)
 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_cmpdf2.o)
@@ -144,10 +144,6 @@ c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.
                               C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o (__aeabi_ldivmod)
 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_aeabi_uldivmod.o)
                               c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-svfprintf.o) (__aeabi_uldivmod)
-c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_fixsfdi.o)
-                              C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\main.o (__aeabi_f2lz)
-c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_fixunssfdi.o)
-                              c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_fixsfdi.o) (__aeabi_f2ulz)
 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(bpabi.o)
                               c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_aeabi_ldivmod.o) (__gnu_ldivmod_helper)
 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_divdi3.o)
@@ -179,7 +175,6 @@ globalWidgets       0x48              C:\Users\MightyDubster\Documents\Projects\
 globalStreams       0x90              C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
 globalIRQPR         0x2               C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
 globalContrast      0x1               C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\varitronix128x128_parallel.o
-globalEEPROMWP      0x1               C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\at24hc02b.o
 imgBusy             0x28              C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\gems.o
 globalRubyCoords    0x80              C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\gems.o
 globalHumidityPin   0x1               C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\hih5030.o
@@ -319,10 +314,10 @@ Discarded input sections
                 0x00000000        0x2 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
  .text.I2C3_ER_IRQHandler
                 0x00000000        0x2 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
- .text.i2cDelay
-                0x00000000        0x2 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
+ .text.i2cStretch
+                0x00000000       0x14 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
  .text.i2cResetBus
-                0x00000000        0x6 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
+                0x00000000       0x30 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
  .text.streamResetRX
                 0x00000000       0x18 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
  .text.streamResetTX
@@ -756,41 +751,26 @@ Discarded input sections
                 0x00000000       0x4b C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_jpeg.o
  .text          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\mpl115a2.o
  .data          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\mpl115a2.o
- .bss           0x00000000       0x14 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\mpl115a2.o
- .text.pressureEnable
-                0x00000000       0x24 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\mpl115a2.o
- .text.pressureDisable
+ .text.mpl115a2Disable
                 0x00000000       0x18 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\mpl115a2.o
- .text.pressureReset
-                0x00000000       0x2c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\mpl115a2.o
- .text.pressureInit
-                0x00000000       0x44 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\mpl115a2.o
- .text.pressureReadkPa
-                0x00000000      0x180 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\mpl115a2.o
- .text.mpl115a2CalculateCompensation
-                0x00000000        0x2 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\mpl115a2.o
- .rodata.str1.1
-                0x00000000       0x44 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\mpl115a2.o
- COMMON         0x00000000       0x19 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\mpl115a2.o
  .text          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\hih5030.o
  .data          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\hih5030.o
- .text.humidityRead
-                0x00000000       0x90 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\hih5030.o
- .text.humidityDisable
+ .text.hih5030Read
+                0x00000000       0xa8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\hih5030.o
+ .text.hih5030Disable
                 0x00000000       0x14 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\hih5030.o
  .text          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\at24hc02b.o
  .data          0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\at24hc02b.o
- .bss           0x00000000        0x0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\at24hc02b.o
- .text.eepromErase
-                0x00000000       0x30 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\at24hc02b.o
+ .text.eepromEnableWP
+                0x00000000       0x14 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\at24hc02b.o
+ .text.eepromDisableWP
+                0x00000000       0x14 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\at24hc02b.o
+ .text.eepromGetAddress
+                0x00000000       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\at24hc02b.o
  .text.eepromPutBuffer
-                0x00000000       0x22 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\at24hc02b.o
- .text.eepromPutString
-                0x00000000       0x44 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\at24hc02b.o
+                0x00000000       0x24 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\at24hc02b.o
  .text.eepromGetBuffer
-                0x00000000       0x18 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\at24hc02b.o
- .rodata.str1.1
-                0x00000000       0x1d C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\at24hc02b.o
+                0x00000000       0x22 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\at24hc02b.o
  .text          0x00000000       0x68 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-dprintf.o)
  .data          0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-dprintf.o)
  .bss           0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-dprintf.o)
@@ -1181,12 +1161,10 @@ Discarded input sections
  .bss           0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_fixunsdfsi.o)
  .ARM.attributes
                 0x00000000       0x1b c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_fixunsdfsi.o)
- .text          0x00000000       0xa0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_truncdfsf2.o)
  .data          0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_truncdfsf2.o)
  .bss           0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_truncdfsf2.o)
  .ARM.attributes
                 0x00000000       0x1b c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_truncdfsf2.o)
- .text          0x00000000      0x21c c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_addsubsf3.o)
  .data          0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_addsubsf3.o)
  .bss           0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_addsubsf3.o)
  .ARM.attributes
@@ -1215,18 +1193,6 @@ Discarded input sections
  .bss           0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_aeabi_uldivmod.o)
  .ARM.attributes
                 0x00000000       0x1b c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_aeabi_uldivmod.o)
- .text          0x00000000       0x2c c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_fixsfdi.o)
- .data          0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_fixsfdi.o)
- .bss           0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_fixsfdi.o)
- .ARM.attributes
-                0x00000000       0x29 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_fixsfdi.o)
- .debug_frame   0x00000000       0x28 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_fixsfdi.o)
- .text          0x00000000       0x48 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_fixunssfdi.o)
- .data          0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_fixunssfdi.o)
- .bss           0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_fixunssfdi.o)
- .ARM.attributes
-                0x00000000       0x29 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_fixunssfdi.o)
- .debug_frame   0x00000000       0x2c c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_fixunssfdi.o)
  .data          0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(bpabi.o)
  .bss           0x00000000        0x0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(bpabi.o)
  .ARM.attributes
@@ -1468,7 +1434,7 @@ END GROUP
  *(.flashtext)
                 0x080021e4                . = ALIGN (0x4)
 
-.text           0x080021e8     0xf58c
+.text           0x080021e8     0xfd38
                 0x080021e8                . = ALIGN (0x4)
  *(.text)
  .text          0x080021e8       0x20 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-malloc.o)
@@ -1543,1158 +1509,1227 @@ END GROUP
  .text          0x08003b18       0x40 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_fixunsdfsi.o)
                 0x08003b18                __aeabi_d2uiz
                 0x08003b18                __fixunsdfsi
- .text          0x08003b58       0x38 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_aeabi_ldivmod.o)
-                0x08003b58                __aeabi_ldivmod
- .text          0x08003b90       0x60 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(bpabi.o)
-                0x08003b90                __gnu_ldivmod_helper
-                0x08003bc0                __gnu_uldivmod_helper
- .text          0x08003bf0      0x364 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_divdi3.o)
-                0x08003bf0                __divdi3
- .text          0x08003f54      0x314 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_udivdi3.o)
-                0x08003f54                __udivdi3
+ .text          0x08003b58       0xa0 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_truncdfsf2.o)
+                0x08003b58                __truncdfsf2
+                0x08003b58                __aeabi_d2f
+ .text          0x08003bf8      0x21c c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_arm_addsubsf3.o)
+                0x08003bf8                __aeabi_frsub
+                0x08003c00                __subsf3
+                0x08003c00                __aeabi_fsub
+                0x08003c04                __aeabi_fadd
+                0x08003c04                __addsf3
+                0x08003d64                __aeabi_ui2f
+                0x08003d64                __floatunsisf
+                0x08003d6c                __aeabi_i2f
+                0x08003d6c                __floatsisf
+                0x08003d88                __aeabi_ul2f
+                0x08003d88                __floatundisf
+                0x08003d98                __aeabi_l2f
+                0x08003d98                __floatdisf
+ .text          0x08003e14       0x38 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_aeabi_ldivmod.o)
+                0x08003e14                __aeabi_ldivmod
+ .text          0x08003e4c       0x60 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(bpabi.o)
+                0x08003e4c                __gnu_ldivmod_helper
+                0x08003e7c                __gnu_uldivmod_helper
+ .text          0x08003eac      0x364 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_divdi3.o)
+                0x08003eac                __divdi3
+ .text          0x08004210      0x314 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a(_udivdi3.o)
+                0x08004210                __udivdi3
  *(.text.*)
  .text.Reset_Handler
-                0x08004268       0x50 C:\Program Files (x86)\Raisonance\Ride\lib\ARM\startup_stm32f10x_hd.o
-                0x08004268                Reset_Handler
+                0x08004524       0x50 C:\Program Files (x86)\Raisonance\Ride\lib\ARM\startup_stm32f10x_hd.o
+                0x08004524                Reset_Handler
  .text.SystemInit_ExtMemCtl_Dummy
-                0x080042b8        0x2 C:\Program Files (x86)\Raisonance\Ride\lib\ARM\startup_stm32f10x_hd.o
-                0x080042b8                SystemInit_ExtMemCtl
-                0x080042b8                SystemInit_ExtMemCtl_Dummy
+                0x08004574        0x2 C:\Program Files (x86)\Raisonance\Ride\lib\ARM\startup_stm32f10x_hd.o
+                0x08004574                SystemInit_ExtMemCtl
+                0x08004574                SystemInit_ExtMemCtl_Dummy
  .text.Default_Handler
-                0x080042ba        0x2 C:\Program Files (x86)\Raisonance\Ride\lib\ARM\startup_stm32f10x_hd.o
-                0x080042ba                TIM8_TRG_COM_IRQHandler
-                0x080042ba                TIM8_CC_IRQHandler
-                0x080042ba                DebugMon_Handler
-                0x080042ba                TIM1_CC_IRQHandler
-                0x080042ba                HardFault_Handler
-                0x080042ba                TIM6_IRQHandler
-                0x080042ba                PVD_IRQHandler
-                0x080042ba                SDIO_IRQHandler
-                0x080042ba                PendSV_Handler
-                0x080042ba                NMI_Handler
-                0x080042ba                UsageFault_Handler
-                0x080042ba                SPI1_IRQHandler
-                0x080042ba                TAMPER_IRQHandler
-                0x080042ba                TIM8_UP_IRQHandler
-                0x080042ba                DMA2_Channel2_IRQHandler
-                0x080042ba                DMA1_Channel4_IRQHandler
-                0x080042ba                RTC_IRQHandler
-                0x080042ba                DMA1_Channel7_IRQHandler
-                0x080042ba                CAN1_RX1_IRQHandler
-                0x080042ba                UART5_IRQHandler
-                0x080042ba                ADC3_IRQHandler
-                0x080042ba                TIM4_IRQHandler
-                0x080042ba                DMA2_Channel1_IRQHandler
-                0x080042ba                I2C1_EV_IRQHandler
-                0x080042ba                DMA1_Channel6_IRQHandler
-                0x080042ba                UART4_IRQHandler
-                0x080042ba                TIM3_IRQHandler
-                0x080042ba                RCC_IRQHandler
-                0x080042ba                TIM1_TRG_COM_IRQHandler
-                0x080042ba                DMA1_Channel1_IRQHandler
-                0x080042ba                Default_Handler
-                0x080042ba                TIM7_IRQHandler
-                0x080042ba                TIM5_IRQHandler
-                0x080042ba                SPI2_IRQHandler
-                0x080042ba                MemManage_Handler
-                0x080042ba                SVC_Handler
-                0x080042ba                DMA1_Channel5_IRQHandler
-                0x080042ba                USB_LP_CAN1_RX0_IRQHandler
-                0x080042ba                USB_HP_CAN1_TX_IRQHandler
-                0x080042ba                FSMC_IRQHandler
-                0x080042ba                WWDG_IRQHandler
-                0x080042ba                TIM2_IRQHandler
-                0x080042ba                TIM1_BRK_IRQHandler
-                0x080042ba                RTCAlarm_IRQHandler
-                0x080042ba                DMA2_Channel4_5_IRQHandler
-                0x080042ba                USART2_IRQHandler
-                0x080042ba                DMA1_Channel2_IRQHandler
-                0x080042ba                TIM8_BRK_IRQHandler
-                0x080042ba                CAN1_SCE_IRQHandler
-                0x080042ba                FLASH_IRQHandler
-                0x080042ba                BusFault_Handler
-                0x080042ba                USART1_IRQHandler
-                0x080042ba                SPI3_IRQHandler
-                0x080042ba                USBWakeUp_IRQHandler
-                0x080042ba                DMA2_Channel3_IRQHandler
+                0x08004576        0x2 C:\Program Files (x86)\Raisonance\Ride\lib\ARM\startup_stm32f10x_hd.o
+                0x08004576                TIM8_TRG_COM_IRQHandler
+                0x08004576                TIM8_CC_IRQHandler
+                0x08004576                DebugMon_Handler
+                0x08004576                TIM1_CC_IRQHandler
+                0x08004576                HardFault_Handler
+                0x08004576                TIM6_IRQHandler
+                0x08004576                PVD_IRQHandler
+                0x08004576                SDIO_IRQHandler
+                0x08004576                PendSV_Handler
+                0x08004576                NMI_Handler
+                0x08004576                UsageFault_Handler
+                0x08004576                SPI1_IRQHandler
+                0x08004576                TAMPER_IRQHandler
+                0x08004576                TIM8_UP_IRQHandler
+                0x08004576                DMA2_Channel2_IRQHandler
+                0x08004576                DMA1_Channel4_IRQHandler
+                0x08004576                RTC_IRQHandler
+                0x08004576                DMA1_Channel7_IRQHandler
+                0x08004576                CAN1_RX1_IRQHandler
+                0x08004576                UART5_IRQHandler
+                0x08004576                ADC3_IRQHandler
+                0x08004576                TIM4_IRQHandler
+                0x08004576                DMA2_Channel1_IRQHandler
+                0x08004576                I2C1_EV_IRQHandler
+                0x08004576                DMA1_Channel6_IRQHandler
+                0x08004576                UART4_IRQHandler
+                0x08004576                TIM3_IRQHandler
+                0x08004576                RCC_IRQHandler
+                0x08004576                TIM1_TRG_COM_IRQHandler
+                0x08004576                DMA1_Channel1_IRQHandler
+                0x08004576                Default_Handler
+                0x08004576                TIM7_IRQHandler
+                0x08004576                TIM5_IRQHandler
+                0x08004576                SPI2_IRQHandler
+                0x08004576                MemManage_Handler
+                0x08004576                SVC_Handler
+                0x08004576                DMA1_Channel5_IRQHandler
+                0x08004576                USB_LP_CAN1_RX0_IRQHandler
+                0x08004576                USB_HP_CAN1_TX_IRQHandler
+                0x08004576                FSMC_IRQHandler
+                0x08004576                WWDG_IRQHandler
+                0x08004576                TIM2_IRQHandler
+                0x08004576                TIM1_BRK_IRQHandler
+                0x08004576                RTCAlarm_IRQHandler
+                0x08004576                DMA2_Channel4_5_IRQHandler
+                0x08004576                USART2_IRQHandler
+                0x08004576                DMA1_Channel2_IRQHandler
+                0x08004576                TIM8_BRK_IRQHandler
+                0x08004576                CAN1_SCE_IRQHandler
+                0x08004576                FLASH_IRQHandler
+                0x08004576                BusFault_Handler
+                0x08004576                USART1_IRQHandler
+                0x08004576                SPI3_IRQHandler
+                0x08004576                USBWakeUp_IRQHandler
+                0x08004576                DMA2_Channel3_IRQHandler
  .text.adcGetStatus
-                0x080042bc        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_adc.o
-                0x080042bc                adcGetStatus
+                0x08004578        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_adc.o
+                0x08004578                adcGetStatus
  .text.ADC1_2_IRQHandler
-                0x080042c8       0x10 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_adc.o
-                0x080042c8                ADC1_2_IRQHandler
+                0x08004584       0x10 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_adc.o
+                0x08004584                ADC1_2_IRQHandler
  .text.adcSingleSampleInit
-                0x080042d8       0x44 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_adc.o
-                0x080042d8                adcSingleSampleInit
+                0x08004594       0x44 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_adc.o
+                0x08004594                adcSingleSampleInit
  .text.adcGetChannelFromPin
-                0x0800431c       0x20 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_adc.o
-                0x0800431c                adcGetChannelFromPin
+                0x080045d8       0x20 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_adc.o
+                0x080045d8                adcGetChannelFromPin
  .text.adcSingleSample
-                0x0800433c       0x2c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_adc.o
-                0x0800433c                adcSingleSample
+                0x080045f8       0x2c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_adc.o
+                0x080045f8                adcSingleSample
  .text.DMA1_Channel3_IRQHandler
-                0x08004368       0x6c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_audio.o
-                0x08004368                DMA1_Channel3_IRQHandler
- .text.cmdNull  0x080043d4        0x4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
-                0x080043d4                cmdNull
+                0x08004624       0x6c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_audio.o
+                0x08004624                DMA1_Channel3_IRQHandler
+ .text.cmdNull  0x08004690        0x4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
+                0x08004690                cmdNull
  .text.cmd_reset
-                0x080043d8       0x14 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
-                0x080043d8                cmd_reset
+                0x08004694       0x14 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
+                0x08004694                cmd_reset
  .text.cmd_peek
-                0x080043ec        0x4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
-                0x080043ec                cmd_peek
+                0x080046a8        0x4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
+                0x080046a8                cmd_peek
  .text.cmd_poke
-                0x080043f0        0x4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
-                0x080043f0                cmd_poke
+                0x080046ac        0x4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
+                0x080046ac                cmd_poke
  .text.cmd_kill
-                0x080043f4        0x4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
-                0x080043f4                cmd_kill
- .text.cmd_rfsend
-                0x080043f8       0x44 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
-                0x080043f8                cmd_rfsend
- .text.cmd_rfopen
-                0x0800443c       0x18 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
-                0x0800443c                cmd_rfopen
- .text.cmd_rfput
-                0x08004454       0x26 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
-                0x08004454                cmd_rfput
- .text.cmd_rfget
-                0x0800447a       0x26 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
-                0x0800447a                cmd_rfget
- .text.cmd_rfscan
-                0x080044a0       0x2c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
-                0x080044a0                cmd_rfscan
+                0x080046b0        0x4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
+                0x080046b0                cmd_kill
  .text.cmd_write
-                0x080044cc        0xe C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
-                0x080044cc                cmd_write
+                0x080046b4        0xe C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
+                0x080046b4                cmd_write
+ *fill*         0x080046c2        0x2 00
+ .text.cmd_eeprom
+                0x080046c4      0x1a0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
+                0x080046c4                cmd_eeprom
+ .text.cmd_rfsend
+                0x08004864       0x44 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
+                0x08004864                cmd_rfsend
+ .text.cmd_rfopen
+                0x080048a8       0x18 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
+                0x080048a8                cmd_rfopen
+ .text.cmd_rfput
+                0x080048c0       0x26 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
+                0x080048c0                cmd_rfput
+ .text.cmd_rfget
+                0x080048e6       0x26 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
+                0x080048e6                cmd_rfget
+ .text.cmd_rfscan
+                0x0800490c       0x2c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
+                0x0800490c                cmd_rfscan
  .text.cmd_rflist
-                0x080044da        0xa C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
-                0x080044da                cmd_rflist
+                0x08004938        0xa C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
+                0x08004938                cmd_rflist
  .text.cmd_humidity
-                0x080044e4       0x26 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
-                0x080044e4                cmd_humidity
- .text.cmd_cp   0x0800450a       0x18 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
-                0x0800450a                cmd_cp
- .text.cmd_mv   0x08004522       0x16 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
-                0x08004522                cmd_mv
+                0x08004942       0x26 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
+                0x08004942                cmd_humidity
+ .text.cmd_cp   0x08004968       0x18 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
+                0x08004968                cmd_cp
+ .text.cmd_mv   0x08004980       0x16 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
+                0x08004980                cmd_mv
+ *fill*         0x08004996        0x2 00
  .text.cmd_open
-                0x08004538       0x64 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
-                0x08004538                cmd_open
+                0x08004998       0x64 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
+                0x08004998                cmd_open
  .text.cmd_close
-                0x0800459c        0xe C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
-                0x0800459c                cmd_close
- .text.cmd_rm   0x080045aa       0x10 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
-                0x080045aa                cmd_rm
- .text.cmd_ls   0x080045ba        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
-                0x080045ba                cmd_ls
- *fill*         0x080045c6        0x2 00
+                0x080049fc        0xe C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
+                0x080049fc                cmd_close
+ .text.cmd_rm   0x08004a0a       0x10 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
+                0x08004a0a                cmd_rm
+ .text.cmd_ls   0x08004a1a        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
+                0x08004a1a                cmd_ls
+ *fill*         0x08004a26        0x2 00
  .text.cmd_read
-                0x080045c8       0x8c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
-                0x080045c8                cmd_read
+                0x08004a28       0x8c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
+                0x08004a28                cmd_read
  .text.cmd_format
-                0x08004654       0x10 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
-                0x08004654                cmd_format
- .text.cmd_mnt  0x08004664        0xa C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
-                0x08004664                cmd_mnt
- *fill*         0x0800466e        0x2 00
+                0x08004ab4       0x10 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
+                0x08004ab4                cmd_format
+ .text.cmd_mnt  0x08004ac4        0xa C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
+                0x08004ac4                cmd_mnt
+ *fill*         0x08004ace        0x2 00
  .text.cmd_pinconfig
-                0x08004670       0x78 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
-                0x08004670                cmd_pinconfig
+                0x08004ad0       0x78 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
+                0x08004ad0                cmd_pinconfig
  .text.cmd_pinpwm
-                0x080046e8       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
-                0x080046e8                cmd_pinpwm
+                0x08004b48       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
+                0x08004b48                cmd_pinpwm
  .text.cmd_pinanalog
-                0x0800471c       0x30 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
-                0x0800471c                cmd_pinanalog
+                0x08004b7c       0x30 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
+                0x08004b7c                cmd_pinanalog
  .text.cmd_pinget
-                0x0800474c       0x24 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
-                0x0800474c                cmd_pinget
+                0x08004bac       0x24 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
+                0x08004bac                cmd_pinget
  .text.cmd_pinset
-                0x08004770       0x7c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
-                0x08004770                cmd_pinset
+                0x08004bd0       0x7c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
+                0x08004bd0                cmd_pinset
  .text.cmd_pinevent
-                0x080047ec       0x48 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
-                0x080047ec                cmd_pinevent
+                0x08004c4c       0x48 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
+                0x08004c4c                cmd_pinevent
  .text.cmdPinEvent
-                0x08004834       0x60 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
-                0x08004834                cmdPinEvent
- .text.cmd_ps   0x08004894      0x12c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
-                0x08004894                cmd_ps
- .text.cmdInit  0x080049c0       0x5c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
-                0x080049c0                cmdInit
+                0x08004c94       0x60 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
+                0x08004c94                cmdPinEvent
+ .text.cmd_ps   0x08004cf4      0x12c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
+                0x08004cf4                cmd_ps
+ .text.cmdInit  0x08004e20       0x5c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
+                0x08004e20                cmdInit
  .text.cmdExecute
-                0x08004a1c       0x84 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
-                0x08004a1c                cmdExecute
+                0x08004e7c       0x84 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
+                0x08004e7c                cmdExecute
  .text.cmdGetsCOM3
-                0x08004aa0       0x30 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
-                0x08004aa0                cmdGetsCOM3
+                0x08004f00       0x30 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
+                0x08004f00                cmdGetsCOM3
  .text.cmdOpenPort
-                0x08004ad0       0xd4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
-                0x08004ad0                cmdOpenPort
+                0x08004f30       0xd4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
+                0x08004f30                cmdOpenPort
  .text.cmdWritePort
-                0x08004ba4       0x54 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
-                0x08004ba4                cmdWritePort
+                0x08005004       0x54 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
+                0x08005004                cmdWritePort
  .text.cmdReadPort
-                0x08004bf8       0x54 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
-                0x08004bf8                cmdReadPort
+                0x08005058       0x54 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
+                0x08005058                cmdReadPort
  .text.cmd_port
-                0x08004c4c      0x284 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
-                0x08004c4c                cmd_port
+                0x080050ac      0x284 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
+                0x080050ac                cmd_port
  .text.spiWriteByte
-                0x08004ed0       0x2c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
-                0x08004ed0                spiWriteByte
+                0x08005330       0x2c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
+                0x08005330                spiWriteByte
  .text.spiWriteLong
-                0x08004efc       0x2c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
-                0x08004efc                spiWriteLong
+                0x0800535c       0x2c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
+                0x0800535c                spiWriteLong
  .text.spiReadByte
-                0x08004f28       0x30 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
-                0x08004f28                spiReadByte
+                0x08005388       0x30 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
+                0x08005388                spiReadByte
  .text.spiReadBuffer
-                0x08004f58       0x2c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
-                0x08004f58                spiReadBuffer
+                0x080053b8       0x2c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
+                0x080053b8                spiReadBuffer
  .text.spiWriteBuffer
-                0x08004f84       0x2c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
-                0x08004f84                spiWriteBuffer
+                0x080053e4       0x2c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
+                0x080053e4                spiWriteBuffer
  .text.spiConfig
-                0x08004fb0       0xa8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
-                0x08004fb0                spiConfig
+                0x08005410       0xa8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
+                0x08005410                spiConfig
  .text.I2C1_ER_IRQHandler
-                0x08005058        0x2 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
-                0x08005058                I2C1_ER_IRQHandler
+                0x080054b8        0x2 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
+                0x080054b8                I2C1_ER_IRQHandler
  .text.I2C2_EV_IRQHandler
-                0x0800505a        0x2 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
-                0x0800505a                I2C2_EV_IRQHandler
+                0x080054ba        0x2 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
+                0x080054ba                I2C2_EV_IRQHandler
  .text.I2C2_ER_IRQHandler
-                0x0800505c        0x2 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
-                0x0800505c                I2C2_ER_IRQHandler
- *fill*         0x0800505e        0x2 00
+                0x080054bc        0x2 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
+                0x080054bc                I2C2_ER_IRQHandler
+ *fill*         0x080054be        0x2 00
  .text.i2cConfig
-                0x08005060       0x68 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
-                0x08005060                i2cConfig
+                0x080054c0       0xb8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
+                0x080054c0                i2cConfig
+ .text.i2cDelay
+                0x08005578       0x12 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
+                0x08005578                i2cDelay
  .text.i2cStart
-                0x080050c8       0x58 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
-                0x080050c8                i2cStart
- .text.i2cStop  0x08005120       0x44 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
-                0x08005120                i2cStop
+                0x0800558a       0x4e C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
+                0x0800558a                i2cStart
+ .text.i2cStop  0x080055d8       0x4c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
+                0x080055d8                i2cStop
  .text.i2cWriteBit
-                0x08005164       0x66 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
-                0x08005164                i2cWriteBit
+                0x08005624       0x5c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
+                0x08005624                i2cWriteBit
  .text.i2cReadBit
-                0x080051ca       0x4c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
-                0x080051ca                i2cReadBit
+                0x08005680       0x46 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
+                0x08005680                i2cReadBit
  .text.i2cWriteByte
-                0x08005216       0x32 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
-                0x08005216                i2cWriteByte
+                0x080056c6       0x32 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
+                0x080056c6                i2cWriteByte
  .text.i2cWriteBuffer
-                0x08005248       0x4c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
-                0x08005248                i2cWriteBuffer
+                0x080056f8       0x4c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
+                0x080056f8                i2cWriteBuffer
  .text.i2cReadByte
-                0x08005294       0x28 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
-                0x08005294                i2cReadByte
+                0x08005744       0x28 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
+                0x08005744                i2cReadByte
  .text.i2cReadBuffer
-                0x080052bc       0x46 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
-                0x080052bc                i2cReadBuffer
- *fill*         0x08005302        0x2 00
+                0x0800576c       0x46 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
+                0x0800576c                i2cReadBuffer
+ *fill*         0x080057b2        0x2 00
  .text.streamReset
-                0x08005304       0x44 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
-                0x08005304                streamReset
+                0x080057b4       0x44 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
+                0x080057b4                streamReset
  .text.streamInit
-                0x08005348       0x14 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
-                0x08005348                streamInit
+                0x080057f8       0x14 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
+                0x080057f8                streamInit
  .text.streamGetSTDIO
-                0x0800535c        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
-                0x0800535c                streamGetSTDIO
+                0x0800580c        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
+                0x0800580c                streamGetSTDIO
  .text.streamSetSTDIO
-                0x08005368       0x4c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
-                0x08005368                streamSetSTDIO
+                0x08005818       0x4c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
+                0x08005818                streamSetSTDIO
  .text.streamEchoChar
-                0x080053b4       0x24 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
-                0x080053b4                streamEchoChar
+                0x08005864       0x24 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
+                0x08005864                streamEchoChar
  .text.streamGetChar
-                0x080053d8       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
-                0x080053d8                streamGetChar
+                0x08005888       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
+                0x08005888                streamGetChar
  .text.streamFIFOToString
-                0x0800540c       0x28 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
-                0x0800540c                streamFIFOToString
+                0x080058bc       0x28 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
+                0x080058bc                streamFIFOToString
  .text.streamPopChar
-                0x08005434       0x38 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
-                0x08005434                streamPopChar
+                0x080058e4       0x38 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
+                0x080058e4                streamPopChar
  .text.streamPushChar
-                0x0800546c       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
-                0x0800546c                streamPushChar
+                0x0800591c       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
+                0x0800591c                streamPushChar
  .text.streamSetPut
-                0x080054a0       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
-                0x080054a0                streamSetPut
+                0x08005950       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
+                0x08005950                streamSetPut
  .text.streamSetGet
-                0x080054bc       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
-                0x080054bc                streamSetGet
+                0x0800596c       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
+                0x0800596c                streamSetGet
  .text.streamSetRXBuffer
-                0x080054d8       0x20 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
-                0x080054d8                streamSetRXBuffer
+                0x08005988       0x20 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
+                0x08005988                streamSetRXBuffer
  .text.streamEnableEcho
-                0x080054f8       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
-                0x080054f8                streamEnableEcho
+                0x080059a8       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
+                0x080059a8                streamEnableEcho
  .text.streamEnableActionChars
-                0x08005514       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
-                0x08005514                streamEnableActionChars
+                0x080059c4       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
+                0x080059c4                streamEnableActionChars
  .text.streamEnableBackspace
-                0x08005530       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
-                0x08005530                streamEnableBackspace
+                0x080059e0       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
+                0x080059e0                streamEnableBackspace
  .text.streamHandler
-                0x0800554c       0x78 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
-                0x0800554c                streamHandler
+                0x080059fc       0x78 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
+                0x080059fc                streamHandler
  .text.USART3_IRQHandler
-                0x080055c4       0x24 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
-                0x080055c4                USART3_IRQHandler
+                0x08005a74       0x24 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
+                0x08005a74                USART3_IRQHandler
  .text.putsUSART3
-                0x080055e8       0x20 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
-                0x080055e8                putsUSART3
+                0x08005a98       0x20 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
+                0x08005a98                putsUSART3
  .text.fileOpenResource
-                0x08005608       0x2e C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
-                0x08005608                fileOpenResource
+                0x08005ab8       0x2e C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
+                0x08005ab8                fileOpenResource
  .text.fileCopyHandle
-                0x08005636       0x24 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
-                0x08005636                fileCopyHandle
+                0x08005ae6       0x24 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
+                0x08005ae6                fileCopyHandle
  .text.fileSetPosition
-                0x0800565a       0x3e C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
-                0x0800565a                fileSetPosition
+                0x08005b0a       0x3e C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
+                0x08005b0a                fileSetPosition
  .text.fileIsEOF
-                0x08005698        0x8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
-                0x08005698                fileIsEOF
+                0x08005b48        0x8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
+                0x08005b48                fileIsEOF
  .text.fileIsValidName
-                0x080056a0       0x4c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
-                0x080056a0                fileIsValidName
+                0x08005b50       0x4c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
+                0x08005b50                fileIsValidName
  .text.flashReadWord
-                0x080056ec       0x38 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
-                0x080056ec                flashReadWord
+                0x08005b9c       0x38 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
+                0x08005b9c                flashReadWord
  .text.fileGetFAT
-                0x08005724       0x5c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
-                0x08005724                fileGetFAT
+                0x08005bd4       0x5c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
+                0x08005bd4                fileGetFAT
  .text.fileGetChar
-                0x08005780      0x128 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
-                0x08005780                fileGetChar
+                0x08005c30      0x128 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
+                0x08005c30                fileGetChar
  .text.fileGetLong
-                0x080058a8       0x5a C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
-                0x080058a8                fileGetLong
+                0x08005d58       0x5a C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
+                0x08005d58                fileGetLong
  .text.fileGetWord
-                0x08005902       0x32 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
-                0x08005902                fileGetWord
+                0x08005db2       0x32 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
+                0x08005db2                fileGetWord
  .text.fileGetBuffer
-                0x08005934       0x2a C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
-                0x08005934                fileGetBuffer
- *fill*         0x0800595e        0x2 00
+                0x08005de4       0x2a C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
+                0x08005de4                fileGetBuffer
+ *fill*         0x08005e0e        0x2 00
  .text.flashReadLong
-                0x08005960       0x50 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
-                0x08005960                flashReadLong
+                0x08005e10       0x50 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
+                0x08005e10                flashReadLong
  .text.fileGetLength
-                0x080059b0       0x40 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
-                0x080059b0                fileGetLength
+                0x08005e60       0x40 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
+                0x08005e60                fileGetLength
  .text.flashReadByte
-                0x080059f0       0x28 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
-                0x080059f0                flashReadByte
+                0x08005ea0       0x28 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
+                0x08005ea0                flashReadByte
  .text.fileGetActiveFiles
-                0x08005a18       0x30 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
-                0x08005a18                fileGetActiveFiles
+                0x08005ec8       0x30 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
+                0x08005ec8                fileGetActiveFiles
  .text.fileGetFreeSpace
-                0x08005a48       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
-                0x08005a48                fileGetFreeSpace
+                0x08005ef8       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
+                0x08005ef8                fileGetFreeSpace
  .text.flashReadBuffer
-                0x08005a7c       0x40 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
-                0x08005a7c                flashReadBuffer
+                0x08005f2c       0x40 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
+                0x08005f2c                flashReadBuffer
  .text.filePrintList
-                0x08005abc       0x84 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
-                0x08005abc                filePrintList
+                0x08005f6c       0x84 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
+                0x08005f6c                filePrintList
  .text.fileSeekName
-                0x08005b40       0x3c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
-                0x08005b40                fileSeekName
+                0x08005ff0       0x3c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
+                0x08005ff0                fileSeekName
  .text.flashReadStatus
-                0x08005b7c       0x24 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
-                0x08005b7c                flashReadStatus
+                0x0800602c       0x24 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
+                0x0800602c                flashReadStatus
  .text.flashReadID
-                0x08005ba0       0x30 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
-                0x08005ba0                flashReadID
+                0x08006050       0x30 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
+                0x08006050                flashReadID
  .text.flashWaitForBusy
-                0x08005bd0        0xe C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
-                0x08005bd0                flashWaitForBusy
- *fill*         0x08005bde        0x2 00
+                0x08006080        0xe C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
+                0x08006080                flashWaitForBusy
+ *fill*         0x0800608e        0x2 00
  .text.flashChipErase
-                0x08005be0       0x30 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
-                0x08005be0                flashChipErase
+                0x08006090       0x30 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
+                0x08006090                flashChipErase
  .text.flashSectorErase
-                0x08005c10       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
-                0x08005c10                flashSectorErase
+                0x080060c0       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
+                0x080060c0                flashSectorErase
  .text.flashWriteByte
-                0x08005c44       0x40 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
-                0x08005c44                flashWriteByte
+                0x080060f4       0x40 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
+                0x080060f4                flashWriteByte
  .text.flashWriteBuffer
-                0x08005c84       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
-                0x08005c84                flashWriteBuffer
+                0x08006134       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
+                0x08006134                flashWriteBuffer
  .text.flashWriteString
-                0x08005ca0       0x24 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
-                0x08005ca0                flashWriteString
+                0x08006150       0x24 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
+                0x08006150                flashWriteString
  .text.flashWriteLong
-                0x08005cc4       0x20 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
-                0x08005cc4                flashWriteLong
+                0x08006174       0x20 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
+                0x08006174                flashWriteLong
  .text.fileWriteLength
-                0x08005ce4       0x54 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
-                0x08005ce4                fileWriteLength
+                0x08006194       0x54 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
+                0x08006194                fileWriteLength
  .text.flashWriteWord
-                0x08005d38       0x18 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
-                0x08005d38                flashWriteWord
+                0x080061e8       0x18 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
+                0x080061e8                flashWriteWord
  .text.fileDeleteFATEntry
-                0x08005d50       0x98 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
-                0x08005d50                fileDeleteFATEntry
+                0x08006200       0x98 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
+                0x08006200                fileDeleteFATEntry
  .text.fileGetActiveFAT
-                0x08005de8       0x4c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
-                0x08005de8                fileGetActiveFAT
+                0x08006298       0x4c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
+                0x08006298                fileGetActiveFAT
  .text.fileGetFreeFATEntry
-                0x08005e34       0xbc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
-                0x08005e34                fileGetFreeFATEntry
+                0x080062e4       0xbc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
+                0x080062e4                fileGetFreeFATEntry
  .text.fileAllocateFAT
-                0x08005ef0       0x64 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
-                0x08005ef0                fileAllocateFAT
+                0x080063a0       0x64 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
+                0x080063a0                fileAllocateFAT
  .text.filePutChar
-                0x08005f54       0x98 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
-                0x08005f54                filePutChar
+                0x08006404       0x98 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
+                0x08006404                filePutChar
  .text.filePutString
-                0x08005fec       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
-                0x08005fec                filePutString
+                0x0800649c       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
+                0x0800649c                filePutString
  .text.filePutBuffer
-                0x08006008       0x22 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
-                0x08006008                filePutBuffer
- *fill*         0x0800602a        0x2 00
+                0x080064b8       0x22 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
+                0x080064b8                filePutBuffer
+ *fill*         0x080064da        0x2 00
  .text.fileClose
-                0x0800602c       0xa0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
-                0x0800602c                fileClose
+                0x080064dc       0xa0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
+                0x080064dc                fileClose
  .text.fileGetFreeFileEntry
-                0x080060cc       0xf4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
-                0x080060cc                fileGetFreeFileEntry
+                0x0800657c       0xf4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
+                0x0800657c                fileGetFreeFileEntry
  .text.fileRename
-                0x080061c0       0x88 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
-                0x080061c0                fileRename
+                0x08006670       0x88 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
+                0x08006670                fileRename
  .text.flashWriteEnable
-                0x08006248       0x44 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
-                0x08006248                flashWriteEnable
+                0x080066f8       0x44 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
+                0x080066f8                flashWriteEnable
  .text.fileFormat
-                0x0800628c       0xec C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
-                0x0800628c                fileFormat
+                0x0800673c       0xec C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
+                0x0800673c                fileFormat
  .text.fileMountRoot
-                0x08006378       0xb4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
-                0x08006378                fileMountRoot
+                0x08006828       0xb4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
+                0x08006828                fileMountRoot
  .text.fileDelete
-                0x0800642c       0x3c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
-                0x0800642c                fileDelete
+                0x080068dc       0x3c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
+                0x080068dc                fileDelete
  .text.fileOpen
-                0x08006468      0x104 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
-                0x08006468                fileOpen
+                0x08006918      0x104 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
+                0x08006918                fileOpen
  .text.fileCopy
-                0x0800656c       0x4c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
-                0x0800656c                fileCopy
+                0x08006a1c       0x4c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
+                0x08006a1c                fileCopy
  .text.guiSetStyle
-                0x080065b8        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x080065b8                guiSetStyle
+                0x08006a68        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x08006a68                guiSetStyle
  .text.guiSetRadius
-                0x080065c4        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x080065c4                guiSetRadius
+                0x08006a74        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x08006a74                guiSetRadius
  .text.guiSetCursor
-                0x080065d0        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x080065d0                guiSetCursor
+                0x08006a80        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x08006a80                guiSetCursor
  .text.colorSetRGB
-                0x080065dc        0x8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x080065dc                colorSetRGB
+                0x08006a8c        0x8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x08006a8c                colorSetRGB
  .text.colorCopy
-                0x080065e4        0xe C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x080065e4                colorCopy
+                0x08006a94        0xe C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x08006a94                colorCopy
  .text.colorApply
-                0x080065f2        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x080065f2                colorApply
- *fill*         0x080065fe        0x2 00
+                0x08006aa2        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x08006aa2                colorApply
+ *fill*         0x08006aae        0x2 00
  .text.colorGetRootColor
-                0x08006600        0x8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x08006600                colorGetRootColor
+                0x08006ab0        0x8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x08006ab0                colorGetRootColor
  .text.colorGetRootClearColor
-                0x08006608        0x8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x08006608                colorGetRootClearColor
+                0x08006ab8        0x8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x08006ab8                colorGetRootClearColor
  .text.colorGetRootFocusColor
-                0x08006610        0x8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x08006610                colorGetRootFocusColor
+                0x08006ac0        0x8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x08006ac0                colorGetRootFocusColor
  .text.colorGetRootFocusBackColor
-                0x08006618        0x8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x08006618                colorGetRootFocusBackColor
+                0x08006ac8        0x8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x08006ac8                colorGetRootFocusBackColor
  .text.colorGetRootBackColor
-                0x08006620        0x8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x08006620                colorGetRootBackColor
+                0x08006ad0        0x8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x08006ad0                colorGetRootBackColor
  .text.fontSetColor
-                0x08006628       0x38 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x08006628                fontSetColor
+                0x08006ad8       0x38 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x08006ad8                fontSetColor
  .text.fontSetBackColor
-                0x08006660       0x38 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x08006660                fontSetBackColor
+                0x08006b10       0x38 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x08006b10                fontSetBackColor
  .text.fontGetActive
-                0x08006698        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x08006698                fontGetActive
+                0x08006b48        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x08006b48                fontGetActive
  .text.fontSetAll
-                0x080066a4       0x10 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x080066a4                fontSetAll
+                0x08006b54       0x10 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x08006b54                fontSetAll
  .text.guiClearArea
-                0x080066b4       0x22 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x080066b4                guiClearArea
+                0x08006b64       0x22 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x08006b64                guiClearArea
  .text.guiClearScreen
-                0x080066d6        0xe C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x080066d6                guiClearScreen
+                0x08006b86        0xe C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x08006b86                guiClearScreen
  .text.guiInitSprites
-                0x080066e4       0x20 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x080066e4                guiInitSprites
+                0x08006b94       0x20 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x08006b94                guiInitSprites
  .text.guiGetSprite
-                0x08006704       0x28 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x08006704                guiGetSprite
+                0x08006bb4       0x28 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x08006bb4                guiGetSprite
  .text.guiCreateSprite
-                0x0800672c       0x7c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x0800672c                guiCreateSprite
+                0x08006bdc       0x7c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x08006bdc                guiCreateSprite
  .text.guiDeleteSprite
-                0x080067a8       0x2c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x080067a8                guiDeleteSprite
+                0x08006c58       0x2c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x08006c58                guiDeleteSprite
  .text.guiRemoveSpriteCoords
-                0x080067d4       0x6c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x080067d4                guiRemoveSpriteCoords
+                0x08006c84       0x6c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x08006c84                guiRemoveSpriteCoords
  .text.guiGetHeader
-                0x08006840       0x24 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x08006840                guiGetHeader
+                0x08006cf0       0x24 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x08006cf0                guiGetHeader
  .text.guiGetEntries
-                0x08006864       0x26 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x08006864                guiGetEntries
+                0x08006d14       0x26 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x08006d14                guiGetEntries
  .text.guiGetImage
-                0x0800688a       0x5c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x0800688a                guiGetImage
- *fill*         0x080068e6        0x2 00
+                0x08006d3a       0x5c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x08006d3a                guiGetImage
+ *fill*         0x08006d96        0x2 00
  .text.fontLoad
-                0x080068e8       0x74 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x080068e8                fontLoad
+                0x08006d98       0x74 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x08006d98                fontLoad
  .text.drawImage
-                0x0800695c      0x28c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x0800695c                drawImage
+                0x08006e0c      0x28c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x08006e0c                drawImage
  .text.drawSprite
-                0x08006be8       0x48 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x08006be8                drawSprite
+                0x08007098       0x48 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x08007098                drawSprite
  .text.guiSpriteProcess
-                0x08006c30       0x58 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x08006c30                guiSpriteProcess
+                0x080070e0       0x58 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x080070e0                guiSpriteProcess
  .text.drawString
-                0x08006c88       0x30 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x08006c88                drawString
- .text.putsLCD  0x08006cb8        0xa C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x08006cb8                putsLCD
- *fill*         0x08006cc2        0x2 00
- .text.formNew  0x08006cc4      0x14c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x08006cc4                formNew
+                0x08007138       0x30 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x08007138                drawString
+ .text.putsLCD  0x08007168        0xa C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x08007168                putsLCD
+ *fill*         0x08007172        0x2 00
+ .text.formNew  0x08007174      0x14c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x08007174                formNew
  .text.widgetGetFocused
-                0x08006e10       0x24 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x08006e10                widgetGetFocused
+                0x080072c0       0x24 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x080072c0                widgetGetFocused
  .text.widgetGetCurrent
-                0x08006e34       0x24 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x08006e34                widgetGetCurrent
+                0x080072e4       0x24 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x080072e4                widgetGetCurrent
  .text.widgetAddEventHandler
-                0x08006e58       0x30 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x08006e58                widgetAddEventHandler
+                0x08007308       0x30 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x08007308                widgetAddEventHandler
  .text.formGetWidgetCount
-                0x08006e88       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x08006e88                formGetWidgetCount
+                0x08007338       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x08007338                formGetWidgetCount
  .text.formAddWidget
-                0x08006ea4       0xfc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x08006ea4                formAddWidget
+                0x08007354       0xfc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x08007354                formAddWidget
  .text.formFreeAll
-                0x08006fa0       0x4c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x08006fa0                formFreeAll
+                0x08007450       0x4c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x08007450                formFreeAll
  .text.drawLine
-                0x08006fec       0xea C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x08006fec                drawLine
+                0x0800749c       0xea C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x0800749c                drawLine
  .text.drawRadius
-                0x080070d6      0x210 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x080070d6                drawRadius
+                0x08007586      0x210 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x08007586                drawRadius
  .text.drawRect
-                0x080072e6      0x23a C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x080072e6                drawRect
+                0x08007796      0x23a C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x08007796                drawRect
  .text.drawWidget
-                0x08007520      0x4d8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x08007520                drawWidget
+                0x080079d0      0x4d8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x080079d0                drawWidget
  .text.drawForms
-                0x080079f8       0x68 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x080079f8                drawForms
+                0x08007ea8       0x68 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x08007ea8                drawForms
  .text.formEventHandler
-                0x08007a60      0x180 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x08007a60                formEventHandler
+                0x08007f10      0x180 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x08007f10                formEventHandler
  .text.eventMouseClickRight
-                0x08007be0       0x18 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x08007be0                eventMouseClickRight
+                0x08008090       0x18 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x08008090                eventMouseClickRight
  .text.eventMouseClickCenter
-                0x08007bf8       0x18 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x08007bf8                eventMouseClickCenter
+                0x080080a8       0x18 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x080080a8                eventMouseClickCenter
  .text.eventMouseClickLeft
-                0x08007c10       0x18 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x08007c10                eventMouseClickLeft
+                0x080080c0       0x18 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x080080c0                eventMouseClickLeft
  .text.eventMouseMoveRight
-                0x08007c28       0x2c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x08007c28                eventMouseMoveRight
+                0x080080d8       0x2c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x080080d8                eventMouseMoveRight
  .text.eventMouseMoveLeft
-                0x08007c54       0x20 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x08007c54                eventMouseMoveLeft
+                0x08008104       0x20 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x08008104                eventMouseMoveLeft
  .text.eventMouseMoveDown
-                0x08007c74       0x30 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x08007c74                eventMouseMoveDown
+                0x08008124       0x30 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x08008124                eventMouseMoveDown
  .text.eventMouseMoveUp
-                0x08007ca4       0x20 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x08007ca4                eventMouseMoveUp
+                0x08008154       0x20 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x08008154                eventMouseMoveUp
  .text.formFocusPrevious
-                0x08007cc4       0x74 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x08007cc4                formFocusPrevious
+                0x08008174       0x74 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x08008174                formFocusPrevious
  .text.formFocusNext
-                0x08007d38       0x78 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x08007d38                formFocusNext
+                0x080081e8       0x78 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x080081e8                formFocusNext
  .text.formSetFocus
-                0x08007db0       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x08007db0                formSetFocus
+                0x08008260       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x08008260                formSetFocus
  .text.interruptGetTimerVector
-                0x08007de4       0x20 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_nvic.o
-                0x08007de4                interruptGetTimerVector
+                0x08008294       0x20 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_nvic.o
+                0x08008294                interruptGetTimerVector
  .text.interruptEnable
-                0x08007e04       0x2c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_nvic.o
-                0x08007e04                interruptEnable
+                0x080082b4       0x2c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_nvic.o
+                0x080082b4                interruptEnable
  .text.interruptSetPriority
-                0x08007e30       0xbc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_nvic.o
-                0x08007e30                interruptSetPriority
+                0x080082e0       0xbc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_nvic.o
+                0x080082e0                interruptSetPriority
  .text.pinGetIRQPR
-                0x08007eec        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
-                0x08007eec                pinGetIRQPR
+                0x0800839c        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
+                0x0800839c                pinGetIRQPR
  .text.pinGetIRQPin
-                0x08007ef8        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
-                0x08007ef8                pinGetIRQPin
+                0x080083a8        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
+                0x080083a8                pinGetIRQPin
  .text.pinInterrupt
-                0x08007f04       0xe8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
-                0x08007f04                pinInterrupt
+                0x080083b4       0xe8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
+                0x080083b4                pinInterrupt
  .text.pinEnablePortClock
-                0x08007fec       0x5c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
-                0x08007fec                pinEnablePortClock
+                0x0800849c       0x5c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
+                0x0800849c                pinEnablePortClock
  .text.pinGetPort
-                0x08008048       0x40 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
-                0x08008048                pinGetPort
- .text.pinSet   0x08008088       0x6c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
-                0x08008088                pinSet
+                0x080084f8       0x40 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
+                0x080084f8                pinGetPort
+ .text.pinSet   0x08008538       0x6c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
+                0x08008538                pinSet
  .text.pinConfig
-                0x080080f4       0x64 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
-                0x080080f4                pinConfig
- .text.pinGet   0x08008158       0x54 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
-                0x08008158                pinGet
+                0x080085a4       0x64 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
+                0x080085a4                pinConfig
+ .text.pinGet   0x08008608       0x54 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
+                0x08008608                pinGet
  .text.pinGetTimer
-                0x080081ac       0x5c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
-                0x080081ac                pinGetTimer
+                0x0800865c       0x5c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
+                0x0800865c                pinGetTimer
  .text.pinGetChannel
-                0x08008208       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
-                0x08008208                pinGetChannel
+                0x080086b8       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
+                0x080086b8                pinGetChannel
  .text.pinInitSoftPWM
-                0x0800823c       0x74 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
-                0x0800823c                pinInitSoftPWM
+                0x080086ec       0x74 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
+                0x080086ec                pinInitSoftPWM
  .text.pinAddSoftPWM
-                0x080082b0       0xe8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
-                0x080082b0                pinAddSoftPWM
- .text.pinPWM   0x08008398      0x250 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
-                0x08008398                pinPWM
+                0x08008760       0xe8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
+                0x08008760                pinAddSoftPWM
+ .text.pinPWM   0x08008848      0x250 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
+                0x08008848                pinPWM
  .text.pinProcessSoftPWM
-                0x080085e8       0x4c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
-                0x080085e8                pinProcessSoftPWM
+                0x08008a98       0x4c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
+                0x08008a98                pinProcessSoftPWM
  .text.TIM1_UP_IRQHandler
-                0x08008634       0x10 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
-                0x08008634                TIM1_UP_IRQHandler
+                0x08008ae4       0x10 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
+                0x08008ae4                TIM1_UP_IRQHandler
  .text.EXTI0_IRQHandler
-                0x08008644       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
-                0x08008644                EXTI0_IRQHandler
+                0x08008af4       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
+                0x08008af4                EXTI0_IRQHandler
  .text.EXTI1_IRQHandler
-                0x08008678       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
-                0x08008678                EXTI1_IRQHandler
+                0x08008b28       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
+                0x08008b28                EXTI1_IRQHandler
  .text.EXTI2_IRQHandler
-                0x080086ac       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
-                0x080086ac                EXTI2_IRQHandler
+                0x08008b5c       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
+                0x08008b5c                EXTI2_IRQHandler
  .text.EXTI3_IRQHandler
-                0x080086e0       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
-                0x080086e0                EXTI3_IRQHandler
+                0x08008b90       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
+                0x08008b90                EXTI3_IRQHandler
  .text.EXTI4_IRQHandler
-                0x08008714       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
-                0x08008714                EXTI4_IRQHandler
+                0x08008bc4       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
+                0x08008bc4                EXTI4_IRQHandler
  .text.EXTI9_5_IRQHandler
-                0x08008748       0xe4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
-                0x08008748                EXTI9_5_IRQHandler
+                0x08008bf8       0xe4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
+                0x08008bf8                EXTI9_5_IRQHandler
  .text.EXTI15_10_IRQHandler
-                0x0800882c      0x110 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
-                0x0800882c                EXTI15_10_IRQHandler
+                0x08008cdc      0x110 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
+                0x08008cdc                EXTI15_10_IRQHandler
  .text.socketGetID
-                0x0800893c        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
-                0x0800893c                socketGetID
+                0x08008dec        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
+                0x08008dec                socketGetID
  .text.socketInit
-                0x08008948       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
-                0x08008948                socketInit
+                0x08008df8       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
+                0x08008df8                socketInit
  .text.socketList
-                0x0800897c       0xe8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
-                0x0800897c                socketList
+                0x08008e2c       0xe8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
+                0x08008e2c                socketList
  .text.socketGet
-                0x08008a64       0x48 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
-                0x08008a64                socketGet
+                0x08008f14       0x48 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
+                0x08008f14                socketGet
  .text.socketOpenFromPacket
-                0x08008aac       0xc8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
-                0x08008aac                socketOpenFromPacket
+                0x08008f5c       0xc8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
+                0x08008f5c                socketOpenFromPacket
  .text.socketOpen
-                0x08008b74       0x28 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
-                0x08008b74                socketOpen
+                0x08009024       0x28 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
+                0x08009024                socketOpen
  .text.socketCopy
-                0x08008b9c       0x94 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
-                0x08008b9c                socketCopy
+                0x0800904c       0x94 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
+                0x0800904c                socketCopy
  .text.socketClose
-                0x08008c30       0x80 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
-                0x08008c30                socketClose
+                0x080090e0       0x80 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
+                0x080090e0                socketClose
  .text.socketSaveData
-                0x08008cb0       0x20 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
-                0x08008cb0                socketSaveData
+                0x08009160       0x20 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
+                0x08009160                socketSaveData
  .text.rfFlushTX
-                0x08008cd0       0x20 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
-                0x08008cd0                rfFlushTX
+                0x08009180       0x20 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
+                0x08009180                rfFlushTX
  .text.rfFlushRX
-                0x08008cf0       0x20 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
-                0x08008cf0                rfFlushRX
+                0x080091a0       0x20 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
+                0x080091a0                rfFlushRX
  .text.rfGetStatus
-                0x08008d10       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
-                0x08008d10                rfGetStatus
+                0x080091c0       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
+                0x080091c0                rfGetStatus
  .text.rfGetRXPayloadLen
-                0x08008d2c       0x24 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
-                0x08008d2c                rfGetRXPayloadLen
+                0x080091dc       0x24 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
+                0x080091dc                rfGetRXPayloadLen
  .text.rfClearStatus
-                0x08008d50       0x28 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
-                0x08008d50                rfClearStatus
- .text.rfSetRX  0x08008d78       0x40 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
-                0x08008d78                rfSetRX
- .text.rfSetTX  0x08008db8       0x40 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
-                0x08008db8                rfSetTX
+                0x08009200       0x28 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
+                0x08009200                rfClearStatus
+ .text.rfSetRX  0x08009228       0x40 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
+                0x08009228                rfSetRX
+ .text.rfSetTX  0x08009268       0x40 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
+                0x08009268                rfSetTX
  .text.rfPutTXBuffer
-                0x08008df8       0x94 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
-                0x08008df8                rfPutTXBuffer
+                0x080092a8       0x94 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
+                0x080092a8                rfPutTXBuffer
  .text.socketSendAck
-                0x08008e8c       0x58 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
-                0x08008e8c                socketSendAck
+                0x0800933c       0x58 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
+                0x0800933c                socketSendAck
  .text.socketSendClose
-                0x08008ee4       0x64 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
-                0x08008ee4                socketSendClose
+                0x08009394       0x64 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
+                0x08009394                socketSendClose
  .text.socketSendData
-                0x08008f48       0x9c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
-                0x08008f48                socketSendData
+                0x080093f8       0x9c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
+                0x080093f8                socketSendData
  .text.socketSendDataFromString
-                0x08008fe4       0xc0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
-                0x08008fe4                socketSendDataFromString
+                0x08009494       0xc0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
+                0x08009494                socketSendDataFromString
  .text.socketControl
-                0x080090a4       0xbc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
-                0x080090a4                socketControl
+                0x08009554       0xbc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
+                0x08009554                socketControl
  .text.socketSendControl
-                0x08009160       0x70 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
-                0x08009160                socketSendControl
+                0x08009610       0x70 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
+                0x08009610                socketSendControl
  .text.socketCommandLine
-                0x080091d0       0x8c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
-                0x080091d0                socketCommandLine
+                0x08009680       0x8c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
+                0x08009680                socketCommandLine
  .text.socketOpenCommandLine
-                0x0800925c       0x74 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
-                0x0800925c                socketOpenCommandLine
+                0x0800970c       0x74 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
+                0x0800970c                socketOpenCommandLine
  .text.socketFile
-                0x080092d0       0xf8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
-                0x080092d0                socketFile
+                0x08009780       0xf8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
+                0x08009780                socketFile
  .text.socketRequestFile
-                0x080093c8       0x78 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
-                0x080093c8                socketRequestFile
+                0x08009878       0x78 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
+                0x08009878                socketRequestFile
  .text.socketSendFile
-                0x08009440       0x44 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
-                0x08009440                socketSendFile
+                0x080098f0       0x44 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
+                0x080098f0                socketSendFile
  .text.socketResend
-                0x08009484       0x20 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
-                0x08009484                socketResend
+                0x08009934       0x20 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
+                0x08009934                socketResend
  .text.socketHandler
-                0x080094a4      0x378 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
-                0x080094a4                socketHandler
+                0x08009954      0x378 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
+                0x08009954                socketHandler
  .text.threadSocketMonitor
-                0x0800981c       0xac C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
-                0x0800981c                threadSocketMonitor
- .text.rfRX     0x080098c8       0x84 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
-                0x080098c8                rfRX
+                0x08009ccc       0xac C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
+                0x08009ccc                threadSocketMonitor
+ .text.rfRX     0x08009d78       0x84 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
+                0x08009d78                rfRX
  .text.rfWriteAddress
-                0x0800994c       0x38 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
-                0x0800994c                rfWriteAddress
- .text.rfInit   0x08009984      0x100 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
-                0x08009984                rfInit
+                0x08009dfc       0x38 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
+                0x08009dfc                rfWriteAddress
+ .text.rfInit   0x08009e34      0x100 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
+                0x08009e34                rfInit
  .text.timeInit
-                0x08009a84       0xa4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rtc.o
-                0x08009a84                timeInit
- .text.timeGet  0x08009b28       0x14 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rtc.o
-                0x08009b28                timeGet
+                0x08009f34       0xa4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rtc.o
+                0x08009f34                timeInit
+ .text.timeGet  0x08009fd8       0x14 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rtc.o
+                0x08009fd8                timeGet
  .text.convertSecondsToSystemTime
-                0x08009b3c       0xd0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rtc.o
-                0x08009b3c                convertSecondsToSystemTime
+                0x08009fec       0xd0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rtc.o
+                0x08009fec                convertSecondsToSystemTime
  .text.convertPinToString
-                0x08009c0c       0x24 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
-                0x08009c0c                convertPinToString
+                0x0800a0bc       0x24 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
+                0x0800a0bc                convertPinToString
  .text.convertU16ToBuffer
-                0x08009c30       0x12 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
-                0x08009c30                convertU16ToBuffer
+                0x0800a0e0       0x12 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
+                0x0800a0e0                convertU16ToBuffer
  .text.convertU32ToBuffer
-                0x08009c42       0x26 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
-                0x08009c42                convertU32ToBuffer
+                0x0800a0f2       0x26 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
+                0x0800a0f2                convertU32ToBuffer
  .text.convertBufferToU16
-                0x08009c68        0xa C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
-                0x08009c68                convertBufferToU16
+                0x0800a118        0xa C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
+                0x0800a118                convertBufferToU16
  .text.convertBufferToU32
-                0x08009c72       0x18 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
-                0x08009c72                convertBufferToU32
+                0x0800a122       0x18 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
+                0x0800a122                convertBufferToU32
+ .text.isPrintable
+                0x0800a13a        0xe C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
+                0x0800a13a                isPrintable
  .text.isCharInString
-                0x08009c8a       0x16 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
-                0x08009c8a                isCharInString
- .text.isAlpha  0x08009ca0       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
-                0x08009ca0                isAlpha
+                0x0800a148       0x16 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
+                0x0800a148                isCharInString
+ .text.isAlpha  0x0800a15e       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
+                0x0800a15e                isAlpha
  .text.isNumeric
-                0x08009cbc        0xe C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
-                0x08009cbc                isNumeric
+                0x0800a17a        0xe C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
+                0x0800a17a                isNumeric
  .text.isAlphaOrNumeric
-                0x08009cca       0x2a C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
-                0x08009cca                isAlphaOrNumeric
+                0x0800a188       0x2a C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
+                0x0800a188                isAlphaOrNumeric
  .text.isNewline
-                0x08009cf4       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
-                0x08009cf4                isNewline
+                0x0800a1b2       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
+                0x0800a1b2                isNewline
  .text.isWhitespace
-                0x08009d10        0xe C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
-                0x08009d10                isWhitespace
- .text.isQuote  0x08009d1e       0x14 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
-                0x08009d1e                isQuote
- *fill*         0x08009d32        0x2 00
+                0x0800a1ce        0xe C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
+                0x0800a1ce                isWhitespace
+ .text.isQuote  0x0800a1dc       0x14 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
+                0x0800a1dc                isQuote
  .text.isSeparator
-                0x08009d34       0x14 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
-                0x08009d34                isSeparator
+                0x0800a1f0       0x14 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
+                0x0800a1f0                isSeparator
  .text.isPunctuation
-                0x08009d48       0x14 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
-                0x08009d48                isPunctuation
- .text.len      0x08009d5c       0x20 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
-                0x08009d5c                len
+                0x0800a204       0x14 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
+                0x0800a204                isPunctuation
+ .text.len      0x0800a218       0x20 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
+                0x0800a218                len
  .text.convertCharToUpper
-                0x08009d7c       0x10 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
-                0x08009d7c                convertCharToUpper
+                0x0800a238       0x10 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
+                0x0800a238                convertCharToUpper
  .text.isCharSameIgnoreCase
-                0x08009d8c       0x1a C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
-                0x08009d8c                isCharSameIgnoreCase
+                0x0800a248       0x1a C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
+                0x0800a248                isCharSameIgnoreCase
  .text.isStringSameIgnoreCase
-                0x08009da6       0x32 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
-                0x08009da6                isStringSameIgnoreCase
+                0x0800a262       0x32 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
+                0x0800a262                isStringSameIgnoreCase
  .text.isStringSame
-                0x08009dd8       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
-                0x08009dd8                isStringSame
+                0x0800a294       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
+                0x0800a294                isStringSame
  .text.getNextSubString
-                0x08009e0c       0xf0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
-                0x08009e0c                getNextSubString
+                0x0800a2c8       0xf0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
+                0x0800a2c8                getNextSubString
  .text.getAllSubStrings
-                0x08009efc       0x42 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
-                0x08009efc                getAllSubStrings
+                0x0800a3b8       0x42 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
+                0x0800a3b8                getAllSubStrings
  .text.replaceChars
-                0x08009f3e       0x2c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
-                0x08009f3e                replaceChars
+                0x0800a3fa       0x2c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
+                0x0800a3fa                replaceChars
  .text.convertCharToInt
-                0x08009f6a       0x30 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
-                0x08009f6a                convertCharToInt
+                0x0800a426       0x30 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
+                0x0800a426                convertCharToInt
  .text.appendString
-                0x08009f9a       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
-                0x08009f9a                appendString
+                0x0800a456       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
+                0x0800a456                appendString
  .text.copyString
-                0x08009fb6       0x12 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
-                0x08009fb6                copyString
+                0x0800a472       0x12 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
+                0x0800a472                copyString
  .text.convertStringToInt
-                0x08009fc8       0xb4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
-                0x08009fc8                convertStringToInt
+                0x0800a484       0xb4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
+                0x0800a484                convertStringToInt
  .text.convertIntToString
-                0x0800a07c      0x1a8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
-                0x0800a07c                convertIntToString
- *fill*         0x0800a224        0x4 00
+                0x0800a538      0x1a8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
+                0x0800a538                convertIntToString
  .text.convertFloatToString
-                0x0800a228      0x148 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
-                0x0800a228                convertFloatToString
+                0x0800a6e0      0x148 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
+                0x0800a6e0                convertFloatToString
  .text.convertStringToPin
-                0x0800a370       0xcc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
-                0x0800a370                convertStringToPin
+                0x0800a828       0xcc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
+                0x0800a828                convertStringToPin
  .text.TaskException_Handler
-                0x0800a43c        0x2 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
-                0x0800a43c                TaskException_Handler
- *fill*         0x0800a43e        0x2 00
+                0x0800a8f4        0x2 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
+                0x0800a8f4                TaskException_Handler
+ *fill*         0x0800a8f6        0x2 00
  .text.putsFILE
-                0x0800a440       0x10 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
-                0x0800a440                putsFILE
+                0x0800a8f8       0x10 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
+                0x0800a8f8                putsFILE
  .text.sysAllocate
-                0x0800a450        0x4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
-                0x0800a450                sysAllocate
+                0x0800a908        0x4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
+                0x0800a908                sysAllocate
  .text.sysReallocate
-                0x0800a454        0x4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
-                0x0800a454                sysReallocate
- .text.sysFree  0x0800a458        0x4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
-                0x0800a458                sysFree
+                0x0800a90c        0x4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
+                0x0800a90c                sysReallocate
+ .text.sysFree  0x0800a910        0x4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
+                0x0800a910                sysFree
  .text.sysRandom
-                0x0800a45c       0x84 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
-                0x0800a45c                sysRandom
+                0x0800a914       0x84 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
+                0x0800a914                sysRandom
  .text.sysEnableTimerClock
-                0x0800a4e0       0xf8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
-                0x0800a4e0                sysEnableTimerClock
+                0x0800a998       0xf8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
+                0x0800a998                sysEnableTimerClock
  .text.sysEnableTimerInterrupt
-                0x0800a5d8       0x12 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
-                0x0800a5d8                sysEnableTimerInterrupt
- *fill*         0x0800a5ea        0x2 00
+                0x0800aa90       0x12 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
+                0x0800aa90                sysEnableTimerInterrupt
+ *fill*         0x0800aaa2        0x2 00
  .text.sysGetDelayTimer
-                0x0800a5ec        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
-                0x0800a5ec                sysGetDelayTimer
+                0x0800aaa4        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
+                0x0800aaa4                sysGetDelayTimer
  .text.sysGetPWMTimer
-                0x0800a5f8        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
-                0x0800a5f8                sysGetPWMTimer
+                0x0800aab0        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
+                0x0800aab0                sysGetPWMTimer
  .text.sysGetMainClock
-                0x0800a604        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
-                0x0800a604                sysGetMainClock
+                0x0800aabc        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
+                0x0800aabc                sysGetMainClock
  .text.cmdListQueue
-                0x0800a610        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
-                0x0800a610                cmdListQueue
+                0x0800aac8        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
+                0x0800aac8                cmdListQueue
  .text.sysCRC16
-                0x0800a61c       0x1e C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
-                0x0800a61c                sysCRC16
- *fill*         0x0800a63a        0x2 00
+                0x0800aad4       0x1e C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
+                0x0800aad4                sysCRC16
+ *fill*         0x0800aaf2        0x2 00
  .text.pdiaEncode
-                0x0800a63c       0x78 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
-                0x0800a63c                pdiaEncode
+                0x0800aaf4       0x78 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
+                0x0800aaf4                pdiaEncode
  .text.taskInit
-                0x0800a6b4       0x44 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
-                0x0800a6b4                taskInit
- .text.taskNew  0x0800a6f8       0x9c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
-                0x0800a6f8                taskNew
+                0x0800ab6c       0x44 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
+                0x0800ab6c                taskInit
+ .text.taskNew  0x0800abb0       0x9c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
+                0x0800abb0                taskNew
  .text.taskNewSimple
-                0x0800a794       0x12 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
-                0x0800a794                taskNewSimple
- *fill*         0x0800a7a6        0x2 00
+                0x0800ac4c       0x12 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
+                0x0800ac4c                taskNewSimple
+ *fill*         0x0800ac5e        0x2 00
  .text.taskIsRunning
-                0x0800a7a8       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
-                0x0800a7a8                taskIsRunning
+                0x0800ac60       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
+                0x0800ac60                taskIsRunning
  .text.taskDelete
-                0x0800a7dc       0x54 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
-                0x0800a7dc                taskDelete
+                0x0800ac94       0x54 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
+                0x0800ac94                taskDelete
  .text.taskProcess
-                0x0800a830       0x64 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
-                0x0800a830                taskProcess
+                0x0800ace8       0x64 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
+                0x0800ace8                taskProcess
  .text.taskList
-                0x0800a894       0x2c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
-                0x0800a894                taskList
- .text.msgInit  0x0800a8c0       0x38 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
-                0x0800a8c0                msgInit
- .text.sysInit  0x0800a8f8       0xb4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
-                0x0800a8f8                sysInit
+                0x0800ad4c       0x2c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
+                0x0800ad4c                taskList
+ .text.msgInit  0x0800ad78       0x38 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
+                0x0800ad78                msgInit
+ .text.sysInit  0x0800adb0       0xb4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
+                0x0800adb0                sysInit
  .text.msgGetIndex
-                0x0800a9ac       0x3c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
-                0x0800a9ac                msgGetIndex
+                0x0800ae64       0x3c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
+                0x0800ae64                msgGetIndex
  .text.msgDelete
-                0x0800a9e8       0x30 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
-                0x0800a9e8                msgDelete
- .text.msgSend  0x0800aa18       0x44 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
-                0x0800aa18                msgSend
+                0x0800aea0       0x30 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
+                0x0800aea0                msgDelete
+ .text.msgSend  0x0800aed0       0x44 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
+                0x0800aed0                msgSend
  .text.msgProcess
-                0x0800aa5c       0x94 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
-                0x0800aa5c                msgProcess
- .text.msgList  0x0800aaf0       0x24 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
-                0x0800aaf0                msgList
+                0x0800af14       0x94 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
+                0x0800af14                msgProcess
+ .text.msgList  0x0800afa8       0x24 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
+                0x0800afa8                msgList
  .text.sysGetID
-                0x0800ab14        0x8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
-                0x0800ab14                sysGetID
+                0x0800afcc        0x8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
+                0x0800afcc                sysGetID
  .text.sysGetFile
-                0x0800ab1c        0x8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
-                0x0800ab1c                sysGetFile
+                0x0800afd4        0x8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
+                0x0800afd4                sysGetFile
  .text.descriptorGetID
-                0x0800ab24       0x18 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
-                0x0800ab24                descriptorGetID
- .text.print    0x0800ab3c      0x208 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
-                0x0800ab3c                print
- .text.println  0x0800ad44       0x20 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
-                0x0800ad44                println
+                0x0800afdc       0x18 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
+                0x0800afdc                descriptorGetID
+ .text.print    0x0800aff4      0x208 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
+                0x0800aff4                print
+ .text.println  0x0800b1fc       0x20 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
+                0x0800b1fc                println
  .text.sysGetTimer
-                0x0800ad64       0x18 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
-                0x0800ad64                sysGetTimer
- .text.delay    0x0800ad7c       0xcc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
-                0x0800ad7c                delay
+                0x0800b21c       0x18 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
+                0x0800b21c                sysGetTimer
+ .text.delay    0x0800b234       0xc0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
+                0x0800b234                delay
+ .text.delayms  0x0800b2f4        0xa C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
+                0x0800b2f4                delayms
+ *fill*         0x0800b2fe        0x2 00
  .text.SysTick_Handler
-                0x0800ae48       0x3c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
-                0x0800ae48                SysTick_Handler
+                0x0800b300       0x3c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
+                0x0800b300                SysTick_Handler
  .text.drawRFTest
-                0x0800ae84      0x11c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\main.o
-                0x0800ae84                drawRFTest
+                0x0800b33c      0x11c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\main.o
+                0x0800b33c                drawRFTest
  .text.drawMainMenu
-                0x0800afa0      0x160 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\main.o
-                0x0800afa0                drawMainMenu
+                0x0800b458      0x160 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\main.o
+                0x0800b458                drawMainMenu
  .text.eventRFBack
-                0x0800b100       0x18 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\main.o
-                0x0800b100                eventRFBack
- .text.main     0x0800b118      0x15c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\main.o
-                0x0800b118                main
+                0x0800b5b8       0x18 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\main.o
+                0x0800b5b8                eventRFBack
+ .text.main     0x0800b5d0       0xf4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\main.o
+                0x0800b5d0                main
  .text.lcdWriteCommand
-                0x0800b274       0x30 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\varitronix128x128_parallel.o
-                0x0800b274                lcdWriteCommand
+                0x0800b6c4       0x30 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\varitronix128x128_parallel.o
+                0x0800b6c4                lcdWriteCommand
  .text.lcdWriteData
-                0x0800b2a4       0x30 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\varitronix128x128_parallel.o
-                0x0800b2a4                lcdWriteData
+                0x0800b6f4       0x30 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\varitronix128x128_parallel.o
+                0x0800b6f4                lcdWriteData
  .text.lcdGetWidth
-                0x0800b2d4        0x4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\varitronix128x128_parallel.o
-                0x0800b2d4                lcdGetWidth
+                0x0800b724        0x4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\varitronix128x128_parallel.o
+                0x0800b724                lcdGetWidth
  .text.lcdGetHeight
-                0x0800b2d8        0x4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\varitronix128x128_parallel.o
-                0x0800b2d8                lcdGetHeight
+                0x0800b728        0x4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\varitronix128x128_parallel.o
+                0x0800b728                lcdGetHeight
  .text.lcdSetContrast
-                0x0800b2dc       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\varitronix128x128_parallel.o
-                0x0800b2dc                lcdSetContrast
+                0x0800b72c       0x1c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\varitronix128x128_parallel.o
+                0x0800b72c                lcdSetContrast
  .text.lcdDrawPixel
-                0x0800b2f8       0xc8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\varitronix128x128_parallel.o
-                0x0800b2f8                lcdDrawPixel
+                0x0800b748       0xc8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\varitronix128x128_parallel.o
+                0x0800b748                lcdDrawPixel
  .text.lcdSetBPP
-                0x0800b3c0        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\varitronix128x128_parallel.o
-                0x0800b3c0                lcdSetBPP
+                0x0800b810        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\varitronix128x128_parallel.o
+                0x0800b810                lcdSetBPP
  .text.lcdGetBPP
-                0x0800b3cc        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\varitronix128x128_parallel.o
-                0x0800b3cc                lcdGetBPP
+                0x0800b81c        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\varitronix128x128_parallel.o
+                0x0800b81c                lcdGetBPP
  .text.lcdSetColor
-                0x0800b3d8       0x48 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\varitronix128x128_parallel.o
-                0x0800b3d8                lcdSetColor
+                0x0800b828       0x48 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\varitronix128x128_parallel.o
+                0x0800b828                lcdSetColor
  .text.lcdClearArea
-                0x0800b420       0xb8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\varitronix128x128_parallel.o
-                0x0800b420                lcdClearArea
+                0x0800b870       0xb8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\varitronix128x128_parallel.o
+                0x0800b870                lcdClearArea
  .text.lcdClear
-                0x0800b4d8        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\varitronix128x128_parallel.o
-                0x0800b4d8                lcdClear
- .text.lcdInit  0x0800b4e4      0x244 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\varitronix128x128_parallel.o
-                0x0800b4e4                lcdInit
+                0x0800b928        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\varitronix128x128_parallel.o
+                0x0800b928                lcdClear
+ .text.lcdInit  0x0800b934      0x244 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\varitronix128x128_parallel.o
+                0x0800b934                lcdInit
  .text.gemJoyUp
-                0x0800b728        0x2 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\gems.o
-                0x0800b728                gemJoyUp
+                0x0800bb78        0x2 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\gems.o
+                0x0800bb78                gemJoyUp
  .text.gemJoyDown
-                0x0800b72a        0x2 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\gems.o
-                0x0800b72a                gemJoyDown
+                0x0800bb7a        0x2 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\gems.o
+                0x0800bb7a                gemJoyDown
  .text.gemDrawEndMenu
-                0x0800b72c      0x15c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\gems.o
-                0x0800b72c                gemDrawEndMenu
+                0x0800bb7c      0x15c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\gems.o
+                0x0800bb7c                gemDrawEndMenu
  .text.gemDrawGameOver
-                0x0800b888       0x68 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\gems.o
-                0x0800b888                gemDrawGameOver
+                0x0800bcd8       0x68 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\gems.o
+                0x0800bcd8                gemDrawGameOver
  .text.gemResetCursor
-                0x0800b8f0       0x3c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\gems.o
-                0x0800b8f0                gemResetCursor
- .text.gemInit  0x0800b92c      0x1f4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\gems.o
-                0x0800b92c                gemInit
+                0x0800bd40       0x3c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\gems.o
+                0x0800bd40                gemResetCursor
+ .text.gemInit  0x0800bd7c      0x1f4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\gems.o
+                0x0800bd7c                gemInit
  .text.gemCollision
-                0x0800bb20       0x24 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\gems.o
-                0x0800bb20                gemCollision
+                0x0800bf70       0x24 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\gems.o
+                0x0800bf70                gemCollision
  .text.gemJoyRight
-                0x0800bb44       0x50 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\gems.o
-                0x0800bb44                gemJoyRight
+                0x0800bf94       0x50 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\gems.o
+                0x0800bf94                gemJoyRight
  .text.gemJoyLeft
-                0x0800bb94       0x54 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\gems.o
-                0x0800bb94                gemJoyLeft
- .text.gemAdd   0x0800bbe8       0x50 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\gems.o
-                0x0800bbe8                gemAdd
+                0x0800bfe4       0x54 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\gems.o
+                0x0800bfe4                gemJoyLeft
+ .text.gemAdd   0x0800c038       0x50 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\gems.o
+                0x0800c038                gemAdd
  .text.gemDetectRowsY
-                0x0800bc38       0xa8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\gems.o
-                0x0800bc38                gemDetectRowsY
+                0x0800c088       0xa8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\gems.o
+                0x0800c088                gemDetectRowsY
  .text.gemDetectRowsX
-                0x0800bce0      0x120 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\gems.o
-                0x0800bce0                gemDetectRowsX
+                0x0800c130      0x120 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\gems.o
+                0x0800c130                gemDetectRowsX
  .text.gemGravity
-                0x0800be00       0x70 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\gems.o
-                0x0800be00                gemGravity
- .text.humidityInit
-                0x0800be70       0x40 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\hih5030.o
-                0x0800be70                humidityInit
+                0x0800c250       0x70 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\gems.o
+                0x0800c250                gemGravity
+ .text.mpl115a2IsEnabled
+                0x0800c2c0       0x18 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\mpl115a2.o
+                0x0800c2c0                mpl115a2IsEnabled
+ .text.mpl115a2Enable
+                0x0800c2d8       0x24 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\mpl115a2.o
+                0x0800c2d8                mpl115a2Enable
+ .text.mpl115a2Reset
+                0x0800c2fc       0x2c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\mpl115a2.o
+                0x0800c2fc                mpl115a2Reset
+ .text.mpl115a2Init
+                0x0800c328       0x44 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\mpl115a2.o
+                0x0800c328                mpl115a2Init
+ .text.mpl115a2GetChar
+                0x0800c36c       0x68 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\mpl115a2.o
+                0x0800c36c                mpl115a2GetChar
+ .text.mpl115a2PutChar
+                0x0800c3d4       0x40 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\mpl115a2.o
+                0x0800c3d4                mpl115a2PutChar
+ *fill*         0x0800c414        0x4 00
+ .text.mpl115a2ReadTemp
+                0x0800c418       0x78 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\mpl115a2.o
+                0x0800c418                mpl115a2ReadTemp
+ .text.mpl115a2ReadkPa
+                0x0800c490      0x100 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\mpl115a2.o
+                0x0800c490                mpl115a2ReadkPa
+ .text.hih5030Init
+                0x0800c590       0x40 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\hih5030.o
+                0x0800c590                hih5030Init
  .text.eepromOpen
-                0x0800beb0       0x3c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\at24hc02b.o
-                0x0800beb0                eepromOpen
+                0x0800c5d0       0x64 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\at24hc02b.o
+                0x0800c5d0                eepromOpen
+ .text.eepromQueryBus
+                0x0800c634       0x48 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\at24hc02b.o
+                0x0800c634                eepromQueryBus
+ .text.eepromPollAck
+                0x0800c67c       0x34 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\at24hc02b.o
+                0x0800c67c                eepromPollAck
  .text.eepromPutChar
-                0x0800beec       0x3c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\at24hc02b.o
-                0x0800beec                eepromPutChar
+                0x0800c6b0       0x44 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\at24hc02b.o
+                0x0800c6b0                eepromPutChar
+ .text.eepromErase
+                0x0800c6f4       0x28 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\at24hc02b.o
+                0x0800c6f4                eepromErase
+ .text.eepromPutString
+                0x0800c71c       0x20 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\at24hc02b.o
+                0x0800c71c                eepromPutString
  .text.eepromGetChar
-                0x0800bf28       0x4c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\at24hc02b.o
-                0x0800bf28                eepromGetChar
- .text._sbrk    0x0800bf74       0x30 C:\Program Files (x86)\Raisonance\Ride\Lib\ARM\std_sbrk_thumb.lib(sbrk.o)
-                0x0800bf74                _sbrk
+                0x0800c73c       0x58 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\at24hc02b.o
+                0x0800c73c                eepromGetChar
+ .text._sbrk    0x0800c794       0x30 C:\Program Files (x86)\Raisonance\Ride\Lib\ARM\std_sbrk_thumb.lib(sbrk.o)
+                0x0800c794                _sbrk
  *(.rodata)
- .rodata        0x0800bfa4       0x12 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_adc.o
-                0x0800bfa4                PYGMY_ADC_CHANNELS
- *fill*         0x0800bfb6        0x2 00
- .rodata        0x0800bfb8       0xf0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
-                0x0800bfb8                PYGMYSTDCOMMANDS
- .rodata        0x0800c0a8       0x24 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_nvic.o
-                0x0800c0a8                PYGMY_TIMERVECTORS_L15X
-                0x0800c0ba                PYGMY_TIMERVECTORS
- .rodata        0x0800c0cc       0x10 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
-                0x0800c0cc                PYGMY_TIMERPINS
- .rodata        0x0800c0dc        0x5 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
-                0x0800c0dc                ucAddrP0
- *fill*         0x0800c0e1        0x3 00
- .rodata        0x0800c0e4      0x134 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
-                0x0800c0e4                PYGMYNEBULAPINS
-                0x0800c1c4                PYGMYHEXCHARS
-                0x0800c1d4                PYGMYBASE64CHARS
- .rodata        0x0800c218      0x168 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
-                0x0800c26c                PYGSYS_INVBITS
-                0x0800c274                PYGMY_DAYSINMONTH
-                0x0800c280                PYGMY_BITMASKS
-                0x0800c300                PYGMY_INVBITMASKS
- .rodata        0x0800c380      0x808 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\main.o
-                0x0800c380                PYGMY_orbitron18
- .rodata        0x0800cb88     0x3df0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\gems.o
-                0x0800cb88                PYGMY_ruby
-                0x0800d67f                PYGMY_emerald
-                0x0800e224                PYGMY_topaz
-                0x0800ec6d                PYGMY_ytopaz
-                0x0800f7fd                PYGMY_dollar
- .rodata        0x08010978       0x60 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-findfp.o)
-                0x08010978                __sf_fake_stdin
-                0x08010998                __sf_fake_stdout
-                0x080109b8                __sf_fake_stderr
+ .rodata        0x0800c7c4       0x12 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_adc.o
+                0x0800c7c4                PYGMY_ADC_CHANNELS
+ *fill*         0x0800c7d6        0x2 00
+ .rodata        0x0800c7d8       0xf8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
+                0x0800c7d8                PYGMYSTDCOMMANDS
+ .rodata        0x0800c8d0       0x24 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_nvic.o
+                0x0800c8d0                PYGMY_TIMERVECTORS_L15X
+                0x0800c8e2                PYGMY_TIMERVECTORS
+ .rodata        0x0800c8f4       0x10 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
+                0x0800c8f4                PYGMY_TIMERPINS
+ .rodata        0x0800c904        0x5 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
+                0x0800c904                ucAddrP0
+ *fill*         0x0800c909        0x3 00
+ .rodata        0x0800c90c      0x134 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
+                0x0800c90c                PYGMYNEBULAPINS
+                0x0800c9ec                PYGMYHEXCHARS
+                0x0800c9fc                PYGMYBASE64CHARS
+ .rodata        0x0800ca40      0x168 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
+                0x0800ca94                PYGSYS_INVBITS
+                0x0800ca9c                PYGMY_DAYSINMONTH
+                0x0800caa8                PYGMY_BITMASKS
+                0x0800cb28                PYGMY_INVBITMASKS
+ .rodata        0x0800cba8      0x808 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\main.o
+                0x0800cba8                PYGMY_orbitron18
+ .rodata        0x0800d3b0     0x3df0 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\gems.o
+                0x0800d3b0                PYGMY_ruby
+                0x0800dea7                PYGMY_emerald
+                0x0800ea4c                PYGMY_topaz
+                0x0800f495                PYGMY_ytopaz
+                0x08010025                PYGMY_dollar
+ .rodata        0x080111a0       0x60 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-findfp.o)
+                0x080111a0                __sf_fake_stdin
+                0x080111c0                __sf_fake_stdout
+                0x080111e0                __sf_fake_stderr
  *(.rodata*)
  .rodata.str1.1
-                0x080109d8      0x2b5 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
-                                0x2d9 (size before relaxing)
+                0x08011200      0x2d4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
+                                0x2ff (size before relaxing)
  .rodata.str1.1
-                0x00000000        0x2 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
+                0x080114d4        0xc C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
+                                  0xe (size before relaxing)
  .rodata.str1.1
-                0x08010c8d      0x14e C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
+                0x080114e0      0x14e C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
                                 0x14f (size before relaxing)
  .rodata.str1.1
-                0x08010ddb      0x361 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x0801162e      0x361 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
                                 0x364 (size before relaxing)
  .rodata.str1.1
-                0x0801113c       0x19 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
+                0x0801198f       0x19 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
  .rodata.str1.1
-                0x08011155      0x32b C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
+                0x080119a8      0x32b C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
                                 0x354 (size before relaxing)
  .rodata.str1.1
-                0x08011480       0xa2 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
+                0x08011cd3       0xa2 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
                                  0xb8 (size before relaxing)
  .rodata.str1.1
-                0x08011522       0x3c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
+                0x08011d75       0x3c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
                                  0x3f (size before relaxing)
  .rodata.str1.1
-                0x0801155e      0x1cd C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\main.o
-                                0x1f8 (size before relaxing)
+                0x08011db1      0x126 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\main.o
+                                0x149 (size before relaxing)
  .rodata.str1.1
-                0x0801172b       0x44 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\gems.o
- *fill*         0x0801176f        0x1 00
+                0x08011ed7       0x44 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\gems.o
+ .rodata.str1.1
+                0x00000000        0x2 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\at24hc02b.o
+ *fill*         0x08011f1b        0x1 00
  .rodata.str1.4
-                0x08011770        0x4 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-impure.o)
+                0x08011f1c        0x4 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-impure.o)
  *(.glue_7)
  .glue_7        0x00000000        0x0 linker stubs
  *(.glue_7t)
  .glue_7t       0x00000000        0x0 linker stubs
-                0x08011774                . = ALIGN (0x4)
-                0x08011774                _etext = .
-                0x08011774                _sidata = _etext
+                0x08011f20                . = ALIGN (0x4)
+                0x08011f20                _etext = .
+                0x08011f20                _sidata = _etext
 
-.vfp11_veneer   0x08011774        0x0
+.vfp11_veneer   0x08011f20        0x0
  .vfp11_veneer  0x00000000        0x0 linker stubs
 
-.v4_bx          0x08011774        0x0
+.v4_bx          0x08011f20        0x0
  .v4_bx         0x00000000        0x0 linker stubs
 
 .flashpatch     0x00000000        0x0
@@ -2708,7 +2743,7 @@ END GROUP
                 0x00000000                . = ALIGN (0x4)
                 0x00000000                _e_endflash = .
 
-.data           0x20000000      0x504 load address 0x08011774
+.data           0x20000000      0x504 load address 0x08011f20
                 0x20000000                . = ALIGN (0x4)
                 0x20000000                _sdata = .
                 0x20000000                _data = .
@@ -2723,11 +2758,11 @@ END GROUP
  *(.RAMtext)
                 0x20000504                . = ALIGN (0x4)
                 0x20000504                _edata = .
-                0x08011c78                _eidata = ((_sidata + _edata) - _sdata)
+                0x08012424                _eidata = ((_sidata + _edata) - _sdata)
                 0x08102000                _lastdataromaddress = 0x8102000
                 0x00000000                toobig = (_eidata > _lastdataromaddress)?!!!!!!!!! FLASH IS FULL !!!!!!!!!:0x0
 
-.bss            0x20000504     0x1924 load address 0x08011c78
+.bss            0x20000504     0x194c load address 0x08012424
                 0x20000504                . = ALIGN (0x4)
                 0x20000504                _sbss = .
                 0x20000504                _bss = .
@@ -2746,105 +2781,112 @@ END GROUP
                 0x2000059c                globalPygmyPWMCR
  .bss           0x200005a0        0x4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_string.o
  .bss           0x200005a4       0x28 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
- .bss           0x200005cc        0x1 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\hih5030.o
-                0x200005cc                globalHumidityCR
- *fill*         0x200005cd        0x3 00
- .bss           0x200005d0       0x34 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-mallocr.o)
-                0x200005d0                __malloc_top_pad
-                0x200005d4                __malloc_current_mallinfo
-                0x200005fc                __malloc_max_sbrked_mem
-                0x20000600                __malloc_max_total_mem
- .bss           0x20000604        0x4 C:\Program Files (x86)\Raisonance\Ride\Lib\ARM\std_sbrk_thumb.lib(sbrk.o)
+ .bss           0x200005cc        0xa C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\mpl115a2.o
+ .bss           0x200005d6        0x1 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\hih5030.o
+                0x200005d6                globalHumidityCR
+ .bss           0x200005d7        0x9 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\at24hc02b.o
+                0x200005d7                globalEEPROMWP
+ .bss           0x200005e0       0x34 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-mallocr.o)
+                0x200005e0                __malloc_top_pad
+                0x200005e4                __malloc_current_mallinfo
+                0x2000060c                __malloc_max_sbrked_mem
+                0x20000610                __malloc_max_total_mem
+ .bss           0x20000614        0x4 C:\Program Files (x86)\Raisonance\Ride\Lib\ARM\std_sbrk_thumb.lib(sbrk.o)
  *(COMMON)
- COMMON         0x20000608      0x42c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_audio.o
-                0x20000608                globalAudioPage
-                0x20000609                globalAudioBuffer
-                0x20000a0c                pygmyAudioFile
- COMMON         0x20000a34       0x74 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
-                0x20000a34                globalCMDPorts
-                0x20000a3c                globalCMDUnsupported
-                0x20000a40                globalCMDError
-                0x20000a44                globalSPIPorts
-                0x20000a7c                globalI2CPorts
-                0x20000aa4                globalCMDPrompt
- COMMON         0x20000aa8      0x114 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
-                0x20000aa8                globalCOM3RXBuffer
-                0x20000b28                globalStreams
-                0x20000bb8                globalStreamEcho
- COMMON         0x20000bbc       0x58 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
-                0x20000bbc                pygmyRootVolume
-                0x20000bf8                pygmyFlashSPI
- COMMON         0x20000c14      0x930 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
-                0x20000c14                globalForms
-                0x20000c18                globalGUI
-                0x20000c7c                globalSprites
-                0x200014fc                globalWidgets
- COMMON         0x20001544       0xd8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
-                0x20001544                globalIRQPins
-                0x20001554                globalIRQPR
-                0x20001558                globalIRQHandlers
-                0x20001598                globalPygmyPWM
-                0x20001618                globalPygmyPWMFreq
- COMMON         0x2000161c       0x30 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
-                0x2000161c                globalRFID
-                0x20001620                pygmyRFSPI
-                0x2000163c                globalRFSubNetMask
-                0x20001640                globalRFConfig
-                0x20001644                globalRFSocketCount
-                0x20001648                globalRFSockets
- COMMON         0x2000164c      0x364 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
-                0x2000164c                pygmyGlobalMessages
-                0x200017dc                pygmyGlobalData
-                0x200017fc                pygmyGlobalTasks
-                0x200019a0                pygmyGlobalQueues
- COMMON         0x200019b0       0x4c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\main.o
-                0x200019b0                fileFont
-                0x200019d8                globalHumidity
-                0x200019ec                fontOrbitron18
- COMMON         0x200019fc        0x4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\varitronix128x128_parallel.o
-                0x200019fc                globalContrast
-                0x200019fd                globalBPP
-                0x200019fe                globalPixel
- COMMON         0x20001a00      0x40a C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\gems.o
-                0x20001a00                globalYTopazCount
-                0x20001a02                globalEmeraldCount
-                0x20001a04                imgYTopaz
-                0x20001a2c                imgDollar
-                0x20001a54                globalDollarCoords
-                0x20001ad4                imgBusy
-                0x20001afc                globalRubyCoords
-                0x20001b7c                widgetButton
-                0x20001bc4                globalTopazCount
-                0x20001bc6                globalGems
-                0x20001c06                globalTopazCoords
-                0x20001c88                imgEmerald
-                0x20001cb0                globalYTopazCoords
-                0x20001d30                globalCursor1Gem
-                0x20001d34                imgRuby
-                0x20001d5c                imgTopaz
-                0x20001d84                globalRubyCount
-                0x20001d86                globalEmeraldCoords
-                0x20001e06                globalCursor1Coords
- COMMON         0x20001e0a        0x2 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\hih5030.o
-                0x20001e0a                globalHumidityPin
-                0x20001e0b                globalHumidityPower
- COMMON         0x20001e0c       0x18 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\at24hc02b.o
-                0x20001e0c                globalEEPROMWP
-                0x20001e10                globalI2CEEPROM
- COMMON         0x20001e24        0x4 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-reent.o)
-                0x20001e24                errno
-                0x20001e28                . = ALIGN (0x4)
-                0x20001e28                _ebss = .
-                0x20001e28                PROVIDE (end, _ebss)
-                0x20001e28                PROVIDE (_end, _ebss)
+ COMMON         0x20000618      0x42c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_audio.o
+                0x20000618                globalAudioPage
+                0x20000619                globalAudioBuffer
+                0x20000a1c                pygmyAudioFile
+ COMMON         0x20000a44       0x74 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_cmd.o
+                0x20000a44                globalCMDPorts
+                0x20000a4c                globalCMDUnsupported
+                0x20000a50                globalCMDError
+                0x20000a54                globalSPIPorts
+                0x20000a8c                globalI2CPorts
+                0x20000ab4                globalCMDPrompt
+ COMMON         0x20000ab8      0x114 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_com.o
+                0x20000ab8                globalCOM3RXBuffer
+                0x20000b38                globalStreams
+                0x20000bc8                globalStreamEcho
+ COMMON         0x20000bcc       0x58 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_file.o
+                0x20000bcc                pygmyRootVolume
+                0x20000c08                pygmyFlashSPI
+ COMMON         0x20000c24      0x930 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_gui.o
+                0x20000c24                globalForms
+                0x20000c28                globalGUI
+                0x20000c8c                globalSprites
+                0x2000150c                globalWidgets
+ COMMON         0x20001554       0xd8 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_port.o
+                0x20001554                globalIRQPins
+                0x20001564                globalIRQPR
+                0x20001568                globalIRQHandlers
+                0x200015a8                globalPygmyPWM
+                0x20001628                globalPygmyPWMFreq
+ COMMON         0x2000162c       0x30 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
+                0x2000162c                globalRFID
+                0x20001630                pygmyRFSPI
+                0x2000164c                globalRFSubNetMask
+                0x20001650                globalRFConfig
+                0x20001654                globalRFSocketCount
+                0x20001658                globalRFSockets
+ COMMON         0x2000165c      0x364 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_sys.o
+                0x2000165c                pygmyGlobalMessages
+                0x200017ec                pygmyGlobalData
+                0x2000180c                pygmyGlobalTasks
+                0x200019b0                pygmyGlobalQueues
+ COMMON         0x200019c0       0x4c C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\main.o
+                0x200019c0                fileFont
+                0x200019e8                globalHumidity
+                0x200019fc                fontOrbitron18
+ COMMON         0x20001a0c        0x4 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\varitronix128x128_parallel.o
+                0x20001a0c                globalContrast
+                0x20001a0d                globalBPP
+                0x20001a0e                globalPixel
+ COMMON         0x20001a10      0x40a C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\gems.o
+                0x20001a10                globalYTopazCount
+                0x20001a12                globalEmeraldCount
+                0x20001a14                imgYTopaz
+                0x20001a3c                imgDollar
+                0x20001a64                globalDollarCoords
+                0x20001ae4                imgBusy
+                0x20001b0c                globalRubyCoords
+                0x20001b8c                widgetButton
+                0x20001bd4                globalTopazCount
+                0x20001bd6                globalGems
+                0x20001c16                globalTopazCoords
+                0x20001c98                imgEmerald
+                0x20001cc0                globalYTopazCoords
+                0x20001d40                globalCursor1Gem
+                0x20001d44                imgRuby
+                0x20001d6c                imgTopaz
+                0x20001d94                globalRubyCount
+                0x20001d96                globalEmeraldCoords
+                0x20001e16                globalCursor1Coords
+ *fill*         0x20001e1a        0x2 00
+ COMMON         0x20001e1c       0x19 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\mpl115a2.o
+                0x20001e1c                globalPressureSHUTDOWN
+                0x20001e20                globalI2CPressure
+                0x20001e34                globalPressureRES
+ COMMON         0x20001e35        0x2 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\hih5030.o
+                0x20001e35                globalHumidityPin
+                0x20001e36                globalHumidityPower
+ *fill*         0x20001e37        0x1 00
+ COMMON         0x20001e38       0x14 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\at24hc02b.o
+                0x20001e38                globalI2CEEPROM
+ COMMON         0x20001e4c        0x4 c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libc.a(lib_a-reent.o)
+                0x20001e4c                errno
+                0x20001e50                . = ALIGN (0x4)
+                0x20001e50                _ebss = .
+                0x20001e50                PROVIDE (end, _ebss)
+                0x20001e50                PROVIDE (_end, _ebss)
 
-._usrstack      0x20001e28      0x100 load address 0x0801359c
-                0x20001e28                . = ALIGN (0x4)
-                0x20001e28                _susrstack = .
-                0x20001f28                . = (. + _Minimum_Stack_Size)
- *fill*         0x20001e28      0x100 00
-                0x20001f28                . = ALIGN (0x4)
-                0x20001f28                _eusrstack = .
+._usrstack      0x20001e50      0x100 load address 0x08013d70
+                0x20001e50                . = ALIGN (0x4)
+                0x20001e50                _susrstack = .
+                0x20001f50                . = (. + _Minimum_Stack_Size)
+ *fill*         0x20001e50      0x100 00
+                0x20001f50                . = ALIGN (0x4)
+                0x20001f50                _eusrstack = .
 
 .b1text
  *(.b1text)
@@ -2870,8 +2912,8 @@ END GROUP
  *(.eb3text)
  *(.eb3rodata)
  *(.eb3rodata*)
-                0x20001f28                __exidx_start = .
-                0x20001f28                __exidx_end = .
+                0x20001f50                __exidx_start = .
+                0x20001f50                __exidx_end = .
 
 /DISCARD/
  libc.a(*)

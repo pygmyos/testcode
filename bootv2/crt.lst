@@ -1,0 +1,97 @@
+
+C:\Users\MightyDubster\Ride7\Nebula\boot\crt.o:     file format elf32-littlearm
+C:\Users\MightyDubster\Ride7\Nebula\boot\crt.o
+
+
+Disassembly of section .text.SystemInit:
+
+00000000 <SystemInit>:
+SystemInit():
+C:\Users\MightyDubster\Ride7\Nebula\boot/crt.c:62
+void SystemInit (void) __attribute__((weak));
+
+void SystemInit (void)
+{
+    // ToDO: Add any system init code here
+}
+   0:	4770      	bx	lr
+
+Disassembly of section .text.ResetHandler:
+
+00000000 <ResetHandler>:
+ResetHandler():
+C:\Users\MightyDubster\Ride7\Nebula\boot/crt.c:67
+
+// MCU calls on reset, place RAM init code, etc. in this function before call to main()
+
+void ResetHandler (void)
+{
+   0:	b508      	push	{r3, lr}
+C:\Users\MightyDubster\Ride7\Nebula\boot/crt.c:71
+   uint32_t *pSrc;
+   uint32_t *pDest;
+   
+   SystemInit();    
+   2:	f7ff fffe 	bl	0 <ResetHandler>
+C:\Users\MightyDubster\Ride7\Nebula\boot/crt.c:73
+   
+   *((uint32_t*)0xE000ED08) = (uint32_t)&_stext; // Set Vector Offset Register
+   6:	4a0c      	ldr	r2, [pc, #48]	; (38 <ResetHandler+0x38>)
+   8:	4b0c      	ldr	r3, [pc, #48]	; (3c <ResetHandler+0x3c>)
+   a:	601a      	str	r2, [r3, #0]
+   c:	4a0c      	ldr	r2, [pc, #48]	; (40 <ResetHandler+0x40>)
+C:\Users\MightyDubster\Ride7\Nebula\boot/crt.c:77
+   
+    // Copy the initialized data from Flash to RAM
+    pSrc  = &_etext;
+    pDest = &_sdata;
+   e:	4b0d      	ldr	r3, [pc, #52]	; (44 <ResetHandler+0x44>)
+C:\Users\MightyDubster\Ride7\Nebula\boot/crt.c:78
+    while(pDest < &_edata){
+  10:	e003      	b.n	1a <ResetHandler+0x1a>
+C:\Users\MightyDubster\Ride7\Nebula\boot/crt.c:79
+        *pDest++ = *pSrc++;
+  12:	f852 1b04 	ldr.w	r1, [r2], #4
+  16:	f843 1b04 	str.w	r1, [r3], #4
+C:\Users\MightyDubster\Ride7\Nebula\boot/crt.c:78
+   *((uint32_t*)0xE000ED08) = (uint32_t)&_stext; // Set Vector Offset Register
+   
+    // Copy the initialized data from Flash to RAM
+    pSrc  = &_etext;
+    pDest = &_sdata;
+    while(pDest < &_edata){
+  1a:	490b      	ldr	r1, [pc, #44]	; (48 <ResetHandler+0x48>)
+  1c:	428b      	cmp	r3, r1
+  1e:	d3f8      	bcc.n	12 <ResetHandler+0x12>
+  20:	4b0a      	ldr	r3, [pc, #40]	; (4c <ResetHandler+0x4c>)
+  22:	e002      	b.n	2a <ResetHandler+0x2a>
+C:\Users\MightyDubster\Ride7\Nebula\boot/crt.c:85
+    }
+   
+    //Clear the ".bss" segment.
+    pDest = &_sbss;
+    while(pDest < &_ebss){
+        *pDest++ = 0;
+  24:	2200      	movs	r2, #0
+  26:	f843 2b04 	str.w	r2, [r3], #4
+C:\Users\MightyDubster\Ride7\Nebula\boot/crt.c:84
+        *pDest++ = *pSrc++;
+    }
+   
+    //Clear the ".bss" segment.
+    pDest = &_sbss;
+    while(pDest < &_ebss){
+  2a:	4a09      	ldr	r2, [pc, #36]	; (50 <ResetHandler+0x50>)
+  2c:	4293      	cmp	r3, r2
+  2e:	d3f9      	bcc.n	24 <ResetHandler+0x24>
+C:\Users\MightyDubster\Ride7\Nebula\boot/crt.c:88
+        *pDest++ = 0;
+    }
+     
+    main();    
+  30:	f7ff fffe 	bl	0 <main>
+  34:	e7fe      	b.n	34 <ResetHandler+0x34>
+  36:	bf00      	nop
+  38:	00000000 	.word	0x00000000
+  3c:	e000ed08 	.word	0xe000ed08
+	...

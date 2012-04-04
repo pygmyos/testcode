@@ -3,72 +3,79 @@ C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\hih5030.o:     file 
 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\hih5030.o
 
 
-Disassembly of section .text.humidityRead:
+Disassembly of section .text.hih5030Read:
 
-00000000 <humidityRead>:
-humidityRead():
+00000000 <hih5030Read>:
+hih5030Read():
    0:	b510      	push	{r4, lr}
-   2:	4b1d      	ldr	r3, [pc, #116]	; (78 <humidityRead+0x78>)
+   2:	4b25      	ldr	r3, [pc, #148]	; (98 <hih5030Read+0x98>)
    4:	781b      	ldrb	r3, [r3, #0]
-   6:	b35b      	cbz	r3, 60 <humidityRead+0x60>
-   8:	4c1c      	ldr	r4, [pc, #112]	; (7c <humidityRead+0x7c>)
-   a:	7820      	ldrb	r0, [r4, #0]
-   c:	b130      	cbz	r0, 1c <humidityRead+0x1c>
-   e:	f7ff fffe 	bl	0 <pinGet>
-  12:	b918      	cbnz	r0, 1c <humidityRead+0x1c>
-  14:	7820      	ldrb	r0, [r4, #0]
-  16:	2101      	movs	r1, #1
-  18:	f7ff fffe 	bl	0 <pinSet>
-  1c:	203c      	movs	r0, #60	; 0x3c
-  1e:	f7ff fffe 	bl	0 <delay>
-  22:	4b17      	ldr	r3, [pc, #92]	; (80 <humidityRead+0x80>)
-  24:	7818      	ldrb	r0, [r3, #0]
-  26:	f7ff fffe 	bl	0 <pinAnalog>
-  2a:	f7ff fffe 	bl	0 <__aeabi_ui2d>
-  2e:	a30e      	add	r3, pc, #56	; (adr r3, 68 <humidityRead+0x68>)
-  30:	e9d3 2300 	ldrd	r2, r3, [r3]
-  34:	f7ff fffe 	bl	0 <__aeabi_ddiv>
-  38:	a30d      	add	r3, pc, #52	; (adr r3, 70 <humidityRead+0x70>)
-  3a:	e9d3 2300 	ldrd	r2, r3, [r3]
-  3e:	f7ff fffe 	bl	0 <__aeabi_dmul>
-  42:	f7ff fffe 	bl	0 <__aeabi_d2f>
-  46:	2100      	movs	r1, #0
-  48:	f7ff fffe 	bl	0 <__aeabi_fadd>
-  4c:	490d      	ldr	r1, [pc, #52]	; (38 <__aeabi_fsub+0x38>)
-  4e:	f7ff fffe 	bl	0 <__aeabi_fsub>
-  52:	490d      	ldr	r1, [pc, #52]	; (38 <__aeabi_fdiv+0x38>)
-  54:	f7ff fffe 	bl	0 <__aeabi_fdiv>
-  58:	490c      	ldr	r1, [pc, #48]	; (34 <__aeabi_fmul+0x34>)
-  5a:	f7ff fffe 	bl	0 <__aeabi_fmul>
-  5e:	bd10      	pop	{r4, pc}
-  60:	2000      	movs	r0, #0
-  62:	bd10      	pop	{r4, pc}
-  64:	f3af 8000 	nop.w
-  68:	00000000 	.word	0x00000000
-  6c:	40a9c800 	.word	0x40a9c800
-  70:	66666666 	.word	0x66666666
-  74:	400a6666 	.word	0x400a6666
+   6:	2b00      	cmp	r3, #0
+   8:	d031      	beq.n	6e <hih5030Read+0x6e>
+   a:	4c24      	ldr	r4, [pc, #144]	; (9c <hih5030Read+0x9c>)
+   c:	7820      	ldrb	r0, [r4, #0]
+   e:	b130      	cbz	r0, 1e <hih5030Read+0x1e>
+  10:	f7ff fffe 	bl	0 <pinGet>
+  14:	b918      	cbnz	r0, 1e <hih5030Read+0x1e>
+  16:	7820      	ldrb	r0, [r4, #0]
+  18:	2101      	movs	r1, #1
+  1a:	f7ff fffe 	bl	0 <pinSet>
+  1e:	2001      	movs	r0, #1
+  20:	f7ff fffe 	bl	0 <delayms>
+  24:	4b1e      	ldr	r3, [pc, #120]	; (a0 <hih5030Read+0xa0>)
+  26:	7818      	ldrb	r0, [r3, #0]
+  28:	f7ff fffe 	bl	0 <pinAnalog>
+  2c:	f7ff fffe 	bl	0 <__aeabi_ui2d>
+  30:	a311      	add	r3, pc, #68	; (adr r3, 78 <hih5030Read+0x78>)
+  32:	e9d3 2300 	ldrd	r2, r3, [r3]
+  36:	f7ff fffe 	bl	0 <__aeabi_ddiv>
+  3a:	a311      	add	r3, pc, #68	; (adr r3, 80 <hih5030Read+0x80>)
+  3c:	e9d3 2300 	ldrd	r2, r3, [r3]
+  40:	f7ff fffe 	bl	0 <__aeabi_dmul>
+  44:	f7ff fffe 	bl	0 <__aeabi_d2f>
+  48:	f7ff fffe 	bl	0 <__aeabi_f2d>
+  4c:	a30e      	add	r3, pc, #56	; (adr r3, 88 <hih5030Read+0x88>)
+  4e:	e9d3 2300 	ldrd	r2, r3, [r3]
+  52:	f7ff fffe 	bl	0 <__aeabi_dsub>
+  56:	a30e      	add	r3, pc, #56	; (adr r3, 90 <hih5030Read+0x90>)
+  58:	e9d3 2300 	ldrd	r2, r3, [r3]
+  5c:	f7ff fffe 	bl	0 <__aeabi_ddiv>
+  60:	2200      	movs	r2, #0
+  62:	4b10      	ldr	r3, [pc, #64]	; (a4 <hih5030Read+0xa4>)
+  64:	f7ff fffe 	bl	0 <__aeabi_dmul>
+  68:	f7ff fffe 	bl	0 <__aeabi_d2f>
+  6c:	bd10      	pop	{r4, pc}
+  6e:	2000      	movs	r0, #0
+  70:	bd10      	pop	{r4, pc}
+  72:	bf00      	nop
+  74:	f3af 8000 	nop.w
+  78:	00000000 	.word	0x00000000
+  7c:	40a9c800 	.word	0x40a9c800
+  80:	66666666 	.word	0x66666666
+  84:	400a6666 	.word	0x400a6666
+  88:	4189374c 	.word	0x4189374c
+  8c:	3fe0e560 	.word	0x3fe0e560
+  90:	e0000000 	.word	0xe0000000
+  94:	3ffd3851 	.word	0x3ffd3851
 	...
-  84:	3f072b02 	.word	0x3f072b02
-  88:	3fe9c28f 	.word	0x3fe9c28f
-  8c:	42c80000 	.word	0x42c80000
+  a4:	40590000 	.word	0x40590000
 
-Disassembly of section .text.humidityInit:
+Disassembly of section .text.hih5030Init:
 
-00000000 <humidityInit>:
-humidityInit():
+00000000 <hih5030Init>:
+hih5030Init():
    0:	b5704b0c 	.word	0xb5704b0c
    4:	2501      	movs	r5, #1
    6:	701d      	strb	r5, [r3, #0]
-   8:	4b0b      	ldr	r3, [pc, #44]	; (38 <humidityInit+0x38>)
+   8:	4b0b      	ldr	r3, [pc, #44]	; (38 <hih5030Init+0x38>)
    a:	460c      	mov	r4, r1
    c:	7018      	strb	r0, [r3, #0]
-   e:	4b0b      	ldr	r3, [pc, #44]	; (3c <humidityInit+0x3c>)
+   e:	4b0b      	ldr	r3, [pc, #44]	; (3c <hih5030Init+0x3c>)
   10:	7019      	strb	r1, [r3, #0]
   12:	2100      	movs	r1, #0
   14:	f7ff fffe 	bl	0 <pinConfig>
   18:	2cff      	cmp	r4, #255	; 0xff
-  1a:	d009      	beq.n	30 <humidityInit+0x30>
+  1a:	d009      	beq.n	30 <hih5030Init+0x30>
   1c:	4620      	mov	r0, r4
   1e:	2103      	movs	r1, #3
   20:	f7ff fffe 	bl	0 <pinConfig>
@@ -80,13 +87,13 @@ humidityInit():
   32:	bf00      	nop
 	...
 
-Disassembly of section .text.humidityDisable:
+Disassembly of section .text.hih5030Disable:
 
-00000000 <humidityDisable>:
-humidityDisable():
-   0:	4b03      	ldr	r3, [pc, #12]	; (10 <humidityDisable+0x10>)
+00000000 <hih5030Disable>:
+hih5030Disable():
+   0:	4b03      	ldr	r3, [pc, #12]	; (10 <hih5030Disable+0x10>)
    2:	7818      	ldrb	r0, [r3, #0]
-   4:	b110      	cbz	r0, c <humidityDisable+0xc>
+   4:	b110      	cbz	r0, c <hih5030Disable+0xc>
    6:	2100      	movs	r1, #0
    8:	f7ff bffe 	b.w	0 <pinSet>
    c:	4770      	bx	lr

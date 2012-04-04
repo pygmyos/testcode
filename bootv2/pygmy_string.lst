@@ -1,0 +1,2735 @@
+
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_string.o:     file format elf32-littlearm
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_string.o
+
+
+Disassembly of section .text.convertPinToString:
+
+00000000 <convertPinToString>:
+convertPinToString():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:61
+                                        { (u8*)"D3",    D3 },
+                                        { (u8*)NULL,    0 } };
+#endif // __PYGMYNEBULA
+#endif // Not __PYGMY_BOOT
+u8 *convertPinToString( u8 ucPin )
+{
+   0:	2300      	movs	r3, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:60
+                                        { (u8*)"D2",    D2 },
+                                        { (u8*)"D3",    D3 },
+                                        { (u8*)NULL,    0 } };
+#endif // __PYGMYNEBULA
+#endif // Not __PYGMY_BOOT
+u8 *convertPinToString( u8 ucPin )
+   2:	4a07      	ldr	r2, [pc, #28]	; (20 <convertPinToString+0x20>)
+   4:	eb02 01c3 	add.w	r1, r2, r3, lsl #3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:65
+{
+    u8 i;
+
+    for( i = 0; i < PYGMYMAXPINS; i++ ){
+        if( ucPin == PYGMYNEBULAPINS[ i ].Value ){
+   8:	7909      	ldrb	r1, [r1, #4]
+   a:	4281      	cmp	r1, r0
+   c:	d102      	bne.n	14 <convertPinToString+0x14>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:66
+            return( PYGMYNEBULAPINS[ i ].String );
+   e:	f852 0033 	ldr.w	r0, [r2, r3, lsl #3]
+  12:	4770      	bx	lr
+  14:	3301      	adds	r3, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:64
+#endif // Not __PYGMY_BOOT
+u8 *convertPinToString( u8 ucPin )
+{
+    u8 i;
+
+    for( i = 0; i < PYGMYMAXPINS; i++ ){
+  16:	2b1b      	cmp	r3, #27
+  18:	d1f3      	bne.n	2 <convertPinToString+0x2>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:70
+        if( ucPin == PYGMYNEBULAPINS[ i ].Value ){
+            return( PYGMYNEBULAPINS[ i ].String );
+        } // if
+    } // for
+
+    return( NULL );
+  1a:	2000      	movs	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:71
+}
+  1c:	4770      	bx	lr
+  1e:	bf00      	nop
+  20:	00000000 	.word	0x00000000
+
+Disassembly of section .text.convertBufferToU16:
+
+00000000 <convertBufferToU16>:
+convertBufferToU16():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:112
+
+u16 convertBufferToU16( u8 *ucBuffer )
+{
+    u16 i;
+
+    i = (u16)( *(ucBuffer++)) << 8;
+   0:	7802      	ldrb	r2, [r0, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:113
+    i |= (u16)(*ucBuffer);
+   2:	7843      	ldrb	r3, [r0, #1]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:116
+
+    return( i );
+}
+   4:	ea43 2002 	orr.w	r0, r3, r2, lsl #8
+   8:	4770      	bx	lr
+
+Disassembly of section .text.convertBufferToU32:
+
+00000000 <convertBufferToU32>:
+convertBufferToU32():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:124
+{
+    u32 ii;
+    u8 i;
+
+    for ( i = 0, ii = *(ucBuffer++); i < 3; i++ ){
+        ii = ( ii << 8 ) | *(ucBuffer++);
+   0:	7842      	ldrb	r2, [r0, #1]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:123
+u32 convertBufferToU32( u8 *ucBuffer )
+{
+    u32 ii;
+    u8 i;
+
+    for ( i = 0, ii = *(ucBuffer++); i < 3; i++ ){
+   2:	7801      	ldrb	r1, [r0, #0]
+   4:	1c43      	adds	r3, r0, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:124
+        ii = ( ii << 8 ) | *(ucBuffer++);
+   6:	ea42 2001 	orr.w	r0, r2, r1, lsl #8
+   a:	785a      	ldrb	r2, [r3, #1]
+   c:	789b      	ldrb	r3, [r3, #2]
+   e:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:128
+    } // if
+
+    return( ii );
+}
+  12:	ea43 2000 	orr.w	r0, r3, r0, lsl #8
+  16:	4770      	bx	lr
+
+Disassembly of section .text.isCharInString:
+
+00000000 <isCharInString>:
+isCharInString():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:132
+
+s8 isCharInString( u8 ucChar, u8 *ucChars )
+{
+    for( ; *ucChars; ) {
+   0:	e001      	b.n	6 <isCharInString+0x6>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:133
+        if( ucChar == *(ucChars++) ){
+   2:	4298      	cmp	r0, r3
+   4:	d004      	beq.n	10 <isCharInString+0x10>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:132
+    return( ii );
+}
+
+s8 isCharInString( u8 ucChar, u8 *ucChars )
+{
+    for( ; *ucChars; ) {
+   6:	f811 3b01 	ldrb.w	r3, [r1], #1
+   a:	2b00      	cmp	r3, #0
+   c:	d1f9      	bne.n	2 <isCharInString+0x2>
+   e:	e000      	b.n	12 <isCharInString+0x12>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:134
+        if( ucChar == *(ucChars++) ){
+            return( 1 );
+  10:	2301      	movs	r3, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:139
+        } // if
+    } // for
+    
+    return( 0 );
+}
+  12:	b258      	sxtb	r0, r3
+  14:	4770      	bx	lr
+
+Disassembly of section .text.isAlpha:
+
+00000000 <isAlpha>:
+isAlpha():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:143
+
+s8 isAlpha( u8 ucChar )
+{
+    if( ( ucChar > 64 && ucChar < 91 ) || ( ucChar > 96 && ucChar < 123 ) ){
+   0:	f1a0 0341 	sub.w	r3, r0, #65	; 0x41
+   4:	b2db      	uxtb	r3, r3
+   6:	2b19      	cmp	r3, #25
+   8:	d906      	bls.n	18 <isAlpha+0x18>
+   a:	3861      	subs	r0, #97	; 0x61
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:144
+        return( 1 );
+   c:	b2c0      	uxtb	r0, r0
+   e:	2819      	cmp	r0, #25
+  10:	bf8c      	ite	hi
+  12:	2000      	movhi	r0, #0
+  14:	2001      	movls	r0, #1
+  16:	4770      	bx	lr
+  18:	2001      	movs	r0, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:148
+    } // if
+    
+    return( 0 );
+}
+  1a:	4770      	bx	lr
+
+Disassembly of section .text.isNumeric:
+
+00000000 <isNumeric>:
+isNumeric():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:152
+
+s8 isNumeric( u8 ucChar )
+{
+    if( ucChar > 47 && ucChar < 58 ){
+   0:	3830      	subs	r0, #48	; 0x30
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:153
+        return( 1 );
+   2:	b2c0      	uxtb	r0, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:157
+    } // if
+        
+    return( 0 );
+}
+   4:	2809      	cmp	r0, #9
+   6:	bf8c      	ite	hi
+   8:	2000      	movhi	r0, #0
+   a:	2001      	movls	r0, #1
+   c:	4770      	bx	lr
+
+Disassembly of section .text.isAlphaOrNumeric:
+
+00000000 <isAlphaOrNumeric>:
+isAlphaOrNumeric():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:161
+
+s8 isAlphaOrNumeric( u8 ucChar )
+{
+    if( ( ucChar > 64 && ucChar < 91 ) || ( ucChar > 96 && ucChar < 123 )
+   0:	f1a0 0341 	sub.w	r3, r0, #65	; 0x41
+   4:	b2db      	uxtb	r3, r3
+   6:	2b19      	cmp	r3, #25
+   8:	d90b      	bls.n	22 <isAlphaOrNumeric+0x22>
+   a:	f1a0 0361 	sub.w	r3, r0, #97	; 0x61
+   e:	b2db      	uxtb	r3, r3
+  10:	2b19      	cmp	r3, #25
+  12:	d908      	bls.n	26 <isAlphaOrNumeric+0x26>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:162
+        || ( ucChar > 47 && ucChar < 58 ) ){
+  14:	3830      	subs	r0, #48	; 0x30
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:163
+        return( 1 );
+  16:	b2c0      	uxtb	r0, r0
+  18:	2809      	cmp	r0, #9
+  1a:	bf8c      	ite	hi
+  1c:	2000      	movhi	r0, #0
+  1e:	2001      	movls	r0, #1
+  20:	4770      	bx	lr
+  22:	2001      	movs	r0, #1
+  24:	4770      	bx	lr
+  26:	2001      	movs	r0, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:167
+    } // if
+
+    return( 0 );
+}
+  28:	4770      	bx	lr
+
+Disassembly of section .text.isHex:
+
+00000000 <isHex>:
+isHex():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:171
+
+s8 isHex( u8 ucChar )
+{
+    if( ( ucChar > 47 && ucChar < 58 ) || ( ucChar > 64 && ucChar < 71 ) ){
+   0:	f1a0 0330 	sub.w	r3, r0, #48	; 0x30
+   4:	b2db      	uxtb	r3, r3
+   6:	2b09      	cmp	r3, #9
+   8:	d906      	bls.n	18 <isHex+0x18>
+   a:	3841      	subs	r0, #65	; 0x41
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:172
+        return( 1 );
+   c:	b2c0      	uxtb	r0, r0
+   e:	2805      	cmp	r0, #5
+  10:	bf8c      	ite	hi
+  12:	2000      	movhi	r0, #0
+  14:	2001      	movls	r0, #1
+  16:	4770      	bx	lr
+  18:	2001      	movs	r0, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:176
+    } // if
+        
+    return( 0 );
+}
+  1a:	4770      	bx	lr
+
+Disassembly of section .text.isBinary:
+
+00000000 <isBinary>:
+isBinary():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:180
+
+s8 isBinary( u8 ucChar )
+{
+    if( ucChar == '0' || ucChar == '1' ){
+   0:	3830      	subs	r0, #48	; 0x30
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:181
+        return( 1 );
+   2:	b2c0      	uxtb	r0, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:185
+    } // if
+        
+    return( 0 );
+}
+   4:	2801      	cmp	r0, #1
+   6:	bf8c      	ite	hi
+   8:	2000      	movhi	r0, #0
+   a:	2001      	movls	r0, #1
+   c:	4770      	bx	lr
+
+Disassembly of section .text.isOctal:
+
+00000000 <isOctal>:
+isOctal():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:189
+
+s8 isOctal( u8 ucChar )
+{
+    if( ucChar > 47 && ucChar < 56 ){
+   0:	3830      	subs	r0, #48	; 0x30
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:190
+        return( 1 );
+   2:	b2c0      	uxtb	r0, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:194
+    } // if
+        
+    return( 0 );
+}
+   4:	2807      	cmp	r0, #7
+   6:	bf8c      	ite	hi
+   8:	2000      	movhi	r0, #0
+   a:	2001      	movls	r0, #1
+   c:	4770      	bx	lr
+
+Disassembly of section .text.isNewline:
+
+00000000 <isNewline>:
+isNewline():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:198
+
+s8 isNewline( u8 ucChar )
+{
+    if( ucChar == 10 || ucChar == 12 || ucChar == 13 ){
+   0:	280a      	cmp	r0, #10
+   2:	d007      	beq.n	14 <isNewline+0x14>
+   4:	280c      	cmp	r0, #12
+   6:	d007      	beq.n	18 <isNewline+0x18>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:199
+        return( 1 );
+   8:	f1a0 030d 	sub.w	r3, r0, #13
+   c:	4258      	negs	r0, r3
+   e:	eb40 0003 	adc.w	r0, r0, r3
+  12:	4770      	bx	lr
+  14:	2001      	movs	r0, #1
+  16:	4770      	bx	lr
+  18:	2001      	movs	r0, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:203
+    } // if
+        
+    return( 0 );
+}
+  1a:	4770      	bx	lr
+
+Disassembly of section .text.isWhitespace:
+
+00000000 <isWhitespace>:
+isWhitespace():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:207
+
+s8 isWhitespace( u8 ucChar )
+{
+    if( ( ucChar > 7 && ucChar < 33 ) ){
+   0:	3808      	subs	r0, #8
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:208
+        return( 1 );
+   2:	b2c0      	uxtb	r0, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:212
+    } // if
+        
+    return( 0 );
+}
+   4:	2818      	cmp	r0, #24
+   6:	bf8c      	ite	hi
+   8:	2000      	movhi	r0, #0
+   a:	2001      	movls	r0, #1
+   c:	4770      	bx	lr
+
+Disassembly of section .text.isQuote:
+
+00000000 <isQuote>:
+isQuote():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:216
+
+s8 isQuote( u8 ucChar )
+{
+    if( ( ucChar == 34 ) || ( ucChar == 39 ) ){
+   0:	2822      	cmp	r0, #34	; 0x22
+   2:	d005      	beq.n	10 <isQuote+0x10>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:217
+        return( 1 );
+   4:	f1a0 0227 	sub.w	r2, r0, #39	; 0x27
+   8:	4250      	negs	r0, r2
+   a:	eb40 0002 	adc.w	r0, r0, r2
+   e:	4770      	bx	lr
+  10:	2001      	movs	r0, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:222
+    } // if
+    
+    return( 0 );
+    
+}
+  12:	4770      	bx	lr
+
+Disassembly of section .text.isMath:
+
+00000000 <isMath>:
+isMath():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:225
+
+s8 isMath( u8 ucChar )
+{
+   0:	b508      	push	{r3, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:226
+    if( isCharInString( ucChar, "*/%&^|+=<>()%~" ) ){
+   2:	4903      	ldr	r1, [pc, #12]	; (10 <isMath+0x10>)
+   4:	f7ff fffe 	bl	0 <isMath>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:231
+        return( 1 );
+    } // if
+        
+    return( 0 );
+}
+   8:	3800      	subs	r0, #0
+   a:	bf18      	it	ne
+   c:	2001      	movne	r0, #1
+   e:	bd08      	pop	{r3, pc}
+  10:	00000000 	.word	0x00000000
+
+Disassembly of section .text.isSeparator:
+
+00000000 <isSeparator>:
+isSeparator():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:234
+
+s8 isSeparator( u8 ucChar )
+{
+   0:	b508      	push	{r3, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:235
+    if( isCharInString( ucChar, "/\\{}[]-_+=@`|<>'\"" ) ){
+   2:	4903      	ldr	r1, [pc, #12]	; (10 <isSeparator+0x10>)
+   4:	f7ff fffe 	bl	0 <isSeparator>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:240
+        return( 1 );
+    } // if
+    
+    return( 0 );
+}
+   8:	3800      	subs	r0, #0
+   a:	bf18      	it	ne
+   c:	2001      	movne	r0, #1
+   e:	bd08      	pop	{r3, pc}
+  10:	0000000f 	.word	0x0000000f
+
+Disassembly of section .text.isPunctuation:
+
+00000000 <isPunctuation>:
+isPunctuation():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:243
+
+s8 isPunctuation( u8 ucChar )
+{
+   0:	b508      	push	{r3, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:244
+    if( isCharInString( ucChar, "!?,.:;" ) ){
+   2:	4903      	ldr	r1, [pc, #12]	; (10 <isPunctuation+0x10>)
+   4:	f7ff fffe 	bl	0 <isPunctuation>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:249
+        return( 1 );
+    } // if
+        
+    return( 0 );
+}
+   8:	3800      	subs	r0, #0
+   a:	bf18      	it	ne
+   c:	2001      	movne	r0, #1
+   e:	bd08      	pop	{r3, pc}
+  10:	00000021 	.word	0x00000021
+
+Disassembly of section .text.len:
+
+00000000 <len>:
+len():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:255
+
+u16 len( u8 *ucString )
+{
+    u16 i;
+    
+    for( i = 0; *(ucString++) ; i++ ){
+   0:	2300      	movs	r3, #0
+   2:	e003      	b.n	c <len+0xc>
+   4:	3301      	adds	r3, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:256
+        if( i == 0xFFFF ){
+   6:	f5b3 3f80 	cmp.w	r3, #65536	; 0x10000
+   a:	d005      	beq.n	18 <len+0x18>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:255
+
+u16 len( u8 *ucString )
+{
+    u16 i;
+    
+    for( i = 0; *(ucString++) ; i++ ){
+   c:	f810 1b01 	ldrb.w	r1, [r0], #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:256
+        if( i == 0xFFFF ){
+  10:	b29a      	uxth	r2, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:255
+
+u16 len( u8 *ucString )
+{
+    u16 i;
+    
+    for( i = 0; *(ucString++) ; i++ ){
+  12:	2900      	cmp	r1, #0
+  14:	d1f6      	bne.n	4 <len+0x4>
+  16:	e001      	b.n	1c <len+0x1c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:256
+        if( i == 0xFFFF ){
+  18:	f64f 72ff 	movw	r2, #65535	; 0xffff
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:262
+            break;
+        } // if
+    } // for
+    
+    return( i );
+}
+  1c:	4610      	mov	r0, r2
+  1e:	4770      	bx	lr
+
+Disassembly of section .text.convertCharToUpper:
+
+00000000 <convertCharToUpper>:
+convertCharToUpper():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:266
+
+u8 convertCharToUpper( u8 ucChar )
+{
+    if( ucChar > 64 && ucChar < 91 ){
+   0:	f1a0 0341 	sub.w	r3, r0, #65	; 0x41
+   4:	b2db      	uxtb	r3, r3
+   6:	2b19      	cmp	r3, #25
+   8:	d801      	bhi.n	e <convertCharToUpper+0xe>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:267
+        ucChar += 32;
+   a:	3020      	adds	r0, #32
+   c:	b2c0      	uxtb	r0, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:271
+    } // if
+
+    return( ucChar );
+}
+   e:	4770      	bx	lr
+
+Disassembly of section .text.convertCharToLower:
+
+00000000 <convertCharToLower>:
+convertCharToLower():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:275
+
+u8 convertCharToLower( u8 ucChar )
+{
+    if( ucChar > 96 && ucChar < 123 ){
+   0:	f1a0 0361 	sub.w	r3, r0, #97	; 0x61
+   4:	b2db      	uxtb	r3, r3
+   6:	2b19      	cmp	r3, #25
+   8:	d801      	bhi.n	e <convertCharToLower+0xe>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:276
+        ucChar -= 32;
+   a:	3820      	subs	r0, #32
+   c:	b2c0      	uxtb	r0, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:280
+    } // if
+
+    return( ucChar );
+}
+   e:	4770      	bx	lr
+
+Disassembly of section .text.isCharSameIgnoreCase:
+
+00000000 <isCharSameIgnoreCase>:
+isCharSameIgnoreCase():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:283
+
+u8 isCharSameIgnoreCase( u8 ucChar1, u8 ucChar2 )
+{
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	460d      	mov	r5, r1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:284
+    if( convertCharToUpper( ucChar1 ) == convertCharToUpper( ucChar2 ) ){
+   4:	f7ff fffe 	bl	0 <isCharSameIgnoreCase>
+   8:	4604      	mov	r4, r0
+   a:	4628      	mov	r0, r5
+   c:	f7ff fffe 	bl	0 <isCharSameIgnoreCase>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:289
+       return( 1 );
+    } // if
+
+    return( 0 );
+}
+  10:	1a21      	subs	r1, r4, r0
+  12:	4248      	negs	r0, r1
+  14:	eb40 0001 	adc.w	r0, r0, r1
+  18:	bd38      	pop	{r3, r4, r5, pc}
+
+Disassembly of section .text.isStringSameIgnoreCase:
+
+00000000 <isStringSameIgnoreCase>:
+isStringSameIgnoreCase():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:292
+
+u8 isStringSameIgnoreCase( u8 *ucString1, u8 *ucString2 )
+{
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	460c      	mov	r4, r1
+   4:	4605      	mov	r5, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:293
+    if( len( ucString1 ) != len( ucString2 ) )
+   6:	f7ff fffe 	bl	0 <isStringSameIgnoreCase>
+   a:	4606      	mov	r6, r0
+   c:	4620      	mov	r0, r4
+   e:	f7ff fffe 	bl	0 <isStringSameIgnoreCase>
+  12:	4286      	cmp	r6, r0
+  14:	d10b      	bne.n	2e <isStringSameIgnoreCase+0x2e>
+  16:	e004      	b.n	22 <isStringSameIgnoreCase+0x22>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:297
+        return ( 0 );
+    
+    for( ; *ucString1; ){
+        if( !isCharSameIgnoreCase( *(ucString1++), *(ucString2++) ) ){
+  18:	f814 1b01 	ldrb.w	r1, [r4], #1
+  1c:	f7ff fffe 	bl	0 <isStringSameIgnoreCase>
+  20:	b130      	cbz	r0, 30 <isStringSameIgnoreCase+0x30>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:296
+u8 isStringSameIgnoreCase( u8 *ucString1, u8 *ucString2 )
+{
+    if( len( ucString1 ) != len( ucString2 ) )
+        return ( 0 );
+    
+    for( ; *ucString1; ){
+  22:	f815 0b01 	ldrb.w	r0, [r5], #1
+  26:	2800      	cmp	r0, #0
+  28:	d1f6      	bne.n	18 <isStringSameIgnoreCase+0x18>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:302
+        if( !isCharSameIgnoreCase( *(ucString1++), *(ucString2++) ) ){
+            return( 0 );
+        } // if
+    } // for
+    
+    return( 1 );
+  2a:	3001      	adds	r0, #1
+  2c:	bd70      	pop	{r4, r5, r6, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:294
+}
+
+u8 isStringSameIgnoreCase( u8 *ucString1, u8 *ucString2 )
+{
+    if( len( ucString1 ) != len( ucString2 ) )
+        return ( 0 );
+  2e:	2000      	movs	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:303
+            return( 0 );
+        } // if
+    } // for
+    
+    return( 1 );
+}
+  30:	bd70      	pop	{r4, r5, r6, pc}
+
+Disassembly of section .text.isStringSame:
+
+00000000 <isStringSame>:
+isStringSame():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:306
+
+s8 isStringSame( u8 *ucBuffer, u8 *ucString )
+{
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	460d      	mov	r5, r1
+   4:	4604      	mov	r4, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:307
+    if( len( ucBuffer ) != len( ucString ) )
+   6:	f7ff fffe 	bl	0 <isStringSame>
+   a:	4606      	mov	r6, r0
+   c:	4628      	mov	r0, r5
+   e:	f7ff fffe 	bl	0 <isStringSame>
+  12:	4286      	cmp	r6, r0
+  14:	d10a      	bne.n	2c <isStringSame+0x2c>
+  16:	e003      	b.n	20 <isStringSame+0x20>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:311
+        return ( 0 );
+        
+    for( ; *ucBuffer ; ){
+        if( *(ucBuffer++) != *(ucString++) ){
+  18:	f815 2b01 	ldrb.w	r2, [r5], #1
+  1c:	4293      	cmp	r3, r2
+  1e:	d107      	bne.n	30 <isStringSame+0x30>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:310
+s8 isStringSame( u8 *ucBuffer, u8 *ucString )
+{
+    if( len( ucBuffer ) != len( ucString ) )
+        return ( 0 );
+        
+    for( ; *ucBuffer ; ){
+  20:	f814 3b01 	ldrb.w	r3, [r4], #1
+  24:	2b00      	cmp	r3, #0
+  26:	d1f7      	bne.n	18 <isStringSame+0x18>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:316
+        if( *(ucBuffer++) != *(ucString++) ){
+            return( 0 );
+        } // if
+    } // for
+    
+    return( 1 );
+  28:	2001      	movs	r0, #1
+  2a:	bd70      	pop	{r4, r5, r6, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:308
+}
+
+s8 isStringSame( u8 *ucBuffer, u8 *ucString )
+{
+    if( len( ucBuffer ) != len( ucString ) )
+        return ( 0 );
+  2c:	2000      	movs	r0, #0
+  2e:	bd70      	pop	{r4, r5, r6, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:312
+        
+    for( ; *ucBuffer ; ){
+        if( *(ucBuffer++) != *(ucString++) ){
+            return( 0 );
+  30:	2000      	movs	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:317
+        } // if
+    } // for
+    
+    return( 1 );
+}
+  32:	bd70      	pop	{r4, r5, r6, pc}
+
+Disassembly of section .text.getNextSubString:
+
+00000000 <getNextSubString>:
+getNextSubString():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:338
+
+    return( i );
+}
+
+u8 *getNextSubString( u8 *ucBuffer, u8 ucMode )
+{
+   0:	e92d 4ff7 	stmdb	sp!, {r0, r1, r2, r4, r5, r6, r7, r8, r9, sl, fp, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:341
+    static u8 *ucIndex = NULL;
+    
+    if( *ucBuffer ){
+   4:	7803      	ldrb	r3, [r0, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:338
+
+    return( i );
+}
+
+u8 *getNextSubString( u8 *ucBuffer, u8 ucMode )
+{
+   6:	460c      	mov	r4, r1
+   8:	4e34      	ldr	r6, [pc, #208]	; (dc <getNextSubString+0xdc>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:341
+    static u8 *ucIndex = NULL;
+    
+    if( *ucBuffer ){
+   a:	b103      	cbz	r3, e <getNextSubString+0xe>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:342
+        ucIndex = ucBuffer;
+   c:	6030      	str	r0, [r6, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:344
+    } // if
+    if( ucIndex == NULL ){
+   e:	6837      	ldr	r7, [r6, #0]
+  10:	2f00      	cmp	r7, #0
+  12:	d060      	beq.n	d6 <getNextSubString+0xd6>
+  14:	e05a      	b.n	cc <getNextSubString+0xcc>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:349
+        return( NULL );
+    } // if
+    
+    for( ; *ucIndex;  ){
+        if( ( isWhitespace( *ucIndex ) ) || 
+  16:	4628      	mov	r0, r5
+  18:	f7ff fffe 	bl	0 <getNextSubString>
+  1c:	b9d0      	cbnz	r0, 54 <getNextSubString+0x54>
+  1e:	f014 0901 	ands.w	r9, r4, #1
+  22:	d003      	beq.n	2c <getNextSubString+0x2c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:350
+            ( (ucMode & PUNCT) && isPunctuation( *ucIndex ) ) ||
+  24:	4628      	mov	r0, r5
+  26:	f7ff fffe 	bl	0 <getNextSubString>
+  2a:	b998      	cbnz	r0, 54 <getNextSubString+0x54>
+  2c:	f014 0a08 	ands.w	sl, r4, #8
+  30:	d003      	beq.n	3a <getNextSubString+0x3a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:351
+            ( (ucMode & SEPARATORS) && isSeparator( *ucIndex ) ) ||
+  32:	4628      	mov	r0, r5
+  34:	f7ff fffe 	bl	0 <getNextSubString>
+  38:	b960      	cbnz	r0, 54 <getNextSubString+0x54>
+  3a:	f014 0b10 	ands.w	fp, r4, #16
+  3e:	d003      	beq.n	48 <getNextSubString+0x48>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:352
+            ( (ucMode & QUOTES) && isQuote( *ucIndex ) ) ||
+  40:	4628      	mov	r0, r5
+  42:	f7ff fffe 	bl	0 <getNextSubString>
+  46:	b928      	cbnz	r0, 54 <getNextSubString+0x54>
+  48:	f014 0320 	ands.w	r3, r4, #32
+  4c:	9301      	str	r3, [sp, #4]
+  4e:	d02e      	beq.n	ae <getNextSubString+0xae>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:353
+            ( (ucMode & COMMA) && *ucIndex == ',' ) ){
+  50:	2d2c      	cmp	r5, #44	; 0x2c
+  52:	d12c      	bne.n	ae <getNextSubString+0xae>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:354
+            ++ucIndex;
+  54:	3701      	adds	r7, #1
+  56:	6037      	str	r7, [r6, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:355
+            continue;
+  58:	e038      	b.n	cc <getNextSubString+0xcc>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:360
+            } // if
+        ucBuffer = ucIndex;
+        //for( ; *ucIndex && !Pygmy_TestWhiteSpace( *ucIndex ) && !Pygmy_TestPunctuation( *ucIndex ) ; ){
+        for( ; *ucIndex ; ){
+            if( ( (ucMode & WHITESPACE) && isWhitespace( *ucIndex ) ) || 
+  5a:	f014 0f02 	tst.w	r4, #2
+  5e:	d003      	beq.n	68 <getNextSubString+0x68>
+  60:	4628      	mov	r0, r5
+  62:	f7ff fffe 	bl	0 <getNextSubString>
+  66:	bb58      	cbnz	r0, c0 <getNextSubString+0xc0>
+  68:	f1b9 0f00 	cmp.w	r9, #0
+  6c:	d003      	beq.n	76 <getNextSubString+0x76>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:361
+                ( (ucMode & PUNCT) && isPunctuation( *ucIndex ) ) ||
+  6e:	4628      	mov	r0, r5
+  70:	f7ff fffe 	bl	0 <getNextSubString>
+  74:	bb20      	cbnz	r0, c0 <getNextSubString+0xc0>
+  76:	f1ba 0f00 	cmp.w	sl, #0
+  7a:	d003      	beq.n	84 <getNextSubString+0x84>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:362
+                ( (ucMode & SEPARATORS) && isSeparator( *ucIndex ) ) ||
+  7c:	4628      	mov	r0, r5
+  7e:	f7ff fffe 	bl	0 <getNextSubString>
+  82:	b9e8      	cbnz	r0, c0 <getNextSubString+0xc0>
+  84:	f1bb 0f00 	cmp.w	fp, #0
+  88:	d003      	beq.n	92 <getNextSubString+0x92>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:363
+                ( (ucMode & QUOTES) && isQuote( *ucIndex ) ) ||
+  8a:	4628      	mov	r0, r5
+  8c:	f7ff fffe 	bl	0 <getNextSubString>
+  90:	b9b0      	cbnz	r0, c0 <getNextSubString+0xc0>
+  92:	f014 0f04 	tst.w	r4, #4
+  96:	d003      	beq.n	a0 <getNextSubString+0xa0>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:364
+                ( (ucMode & NEWLINE) && isNewline( *ucIndex ) ) ||
+  98:	4628      	mov	r0, r5
+  9a:	f7ff fffe 	bl	0 <getNextSubString>
+  9e:	b978      	cbnz	r0, c0 <getNextSubString+0xc0>
+  a0:	9b01      	ldr	r3, [sp, #4]
+  a2:	b10b      	cbz	r3, a8 <getNextSubString+0xa8>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:365
+                ( (ucMode & COMMA) && *ucIndex == ',' ) ){
+  a4:	2d2c      	cmp	r5, #44	; 0x2c
+  a6:	d00b      	beq.n	c0 <getNextSubString+0xc0>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:368
+                break;
+            } // if
+            ++ucIndex;
+  a8:	f108 0301 	add.w	r3, r8, #1
+  ac:	6033      	str	r3, [r6, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:359
+            ++ucIndex;
+            continue;
+            } // if
+        ucBuffer = ucIndex;
+        //for( ; *ucIndex && !Pygmy_TestWhiteSpace( *ucIndex ) && !Pygmy_TestPunctuation( *ucIndex ) ; ){
+        for( ; *ucIndex ; ){
+  ae:	f8d6 8000 	ldr.w	r8, [r6]
+  b2:	f898 5000 	ldrb.w	r5, [r8]
+  b6:	2d00      	cmp	r5, #0
+  b8:	d1cf      	bne.n	5a <getNextSubString+0x5a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:373
+            ++ucIndex;
+        } // for
+        if( *ucIndex ){
+            *(ucIndex++) = '\0';
+        } else{
+            ucIndex = NULL;
+  ba:	4b08      	ldr	r3, [pc, #32]	; (dc <getNextSubString+0xdc>)
+  bc:	601d      	str	r5, [r3, #0]
+  be:	e00a      	b.n	d6 <getNextSubString+0xd6>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:371
+                break;
+            } // if
+            ++ucIndex;
+        } // for
+        if( *ucIndex ){
+            *(ucIndex++) = '\0';
+  c0:	4643      	mov	r3, r8
+  c2:	2200      	movs	r2, #0
+  c4:	f803 2b01 	strb.w	r2, [r3], #1
+  c8:	6033      	str	r3, [r6, #0]
+  ca:	e004      	b.n	d6 <getNextSubString+0xd6>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:348
+    } // if
+    if( ucIndex == NULL ){
+        return( NULL );
+    } // if
+    
+    for( ; *ucIndex;  ){
+  cc:	6837      	ldr	r7, [r6, #0]
+  ce:	783d      	ldrb	r5, [r7, #0]
+  d0:	2d00      	cmp	r5, #0
+  d2:	d1a0      	bne.n	16 <getNextSubString+0x16>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:379
+        } // else
+    
+        return( ucBuffer );
+    } // for
+    
+    return( NULL );
+  d4:	462f      	mov	r7, r5
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:380
+}
+  d6:	4638      	mov	r0, r7
+  d8:	e8bd 8ffe 	ldmia.w	sp!, {r1, r2, r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}
+  dc:	00000000 	.word	0x00000000
+
+Disassembly of section .text.getAllSubStrings:
+
+00000000 <getAllSubStrings>:
+getAllSubStrings():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:320
+    
+    return( 1 );
+}
+
+u16 getAllSubStrings( u8 *ucBuffer, u8 *ucStrings[], u16 uiLen, u8 ucMode )
+{
+   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+   2:	4614      	mov	r4, r2
+   4:	461f      	mov	r7, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:329
+    // First clear string buffer to prevent memory errors later
+    for( i = 0; i < uiLen; i++ ){
+        ucStrings[ i ] = NULL;
+    } // for
+    ucSub = getNextSubString( ucBuffer, ucMode );
+    for( i = 0; i < uiLen && ucSub; i++ ){
+   6:	460e      	mov	r6, r1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:325
+{
+    u16 i;
+    u8 *ucSub;
+
+    // First clear string buffer to prevent memory errors later
+    for( i = 0; i < uiLen; i++ ){
+   8:	460a      	mov	r2, r1
+   a:	2300      	movs	r3, #0
+   c:	e004      	b.n	18 <getAllSubStrings+0x18>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:326
+        ucStrings[ i ] = NULL;
+   e:	2100      	movs	r1, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:325
+{
+    u16 i;
+    u8 *ucSub;
+
+    // First clear string buffer to prevent memory errors later
+    for( i = 0; i < uiLen; i++ ){
+  10:	3301      	adds	r3, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:326
+        ucStrings[ i ] = NULL;
+  12:	f842 1b04 	str.w	r1, [r2], #4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:325
+{
+    u16 i;
+    u8 *ucSub;
+
+    // First clear string buffer to prevent memory errors later
+    for( i = 0; i < uiLen; i++ ){
+  16:	b29b      	uxth	r3, r3
+  18:	42a3      	cmp	r3, r4
+  1a:	d3f8      	bcc.n	e <getAllSubStrings+0xe>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:328
+        ucStrings[ i ] = NULL;
+    } // for
+    ucSub = getNextSubString( ucBuffer, ucMode );
+  1c:	4639      	mov	r1, r7
+  1e:	f7ff fffe 	bl	0 <getAllSubStrings>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:329
+    for( i = 0; i < uiLen && ucSub; i++ ){
+  22:	2500      	movs	r5, #0
+  24:	e007      	b.n	36 <getAllSubStrings+0x36>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:330
+        ucStrings[ i ] = ucSub;
+  26:	f846 0b04 	str.w	r0, [r6], #4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:331
+        ucSub = getNextSubString( NULL, ucMode );
+  2a:	4639      	mov	r1, r7
+  2c:	2000      	movs	r0, #0
+  2e:	f7ff fffe 	bl	0 <getAllSubStrings>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:329
+    // First clear string buffer to prevent memory errors later
+    for( i = 0; i < uiLen; i++ ){
+        ucStrings[ i ] = NULL;
+    } // for
+    ucSub = getNextSubString( ucBuffer, ucMode );
+    for( i = 0; i < uiLen && ucSub; i++ ){
+  32:	3501      	adds	r5, #1
+  34:	b2ad      	uxth	r5, r5
+  36:	42a5      	cmp	r5, r4
+  38:	d201      	bcs.n	3e <getAllSubStrings+0x3e>
+  3a:	2800      	cmp	r0, #0
+  3c:	d1f3      	bne.n	26 <getAllSubStrings+0x26>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:335
+        ucStrings[ i ] = ucSub;
+        ucSub = getNextSubString( NULL, ucMode );
+    } // for
+
+    return( i );
+}
+  3e:	4628      	mov	r0, r5
+  40:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+
+Disassembly of section .text.replaceChars:
+
+00000000 <replaceChars>:
+replaceChars():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:383
+    
+    return( NULL );
+}
+
+u8 replaceChars( u8 *ucBuffer, u8 *ucChars, u8 ucChar )
+{
+   0:	b570      	push	{r4, r5, r6, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:386
+    u16 i, uiReplaced;
+    
+    for( uiReplaced = 0; *ucBuffer ; ){
+   2:	2300      	movs	r3, #0
+   4:	e00b      	b.n	1e <replaceChars+0x1e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:388
+        for( i = 0; *(ucChars+i); i++ ){
+            if( *ucBuffer == *(ucChars+i) ){
+   6:	42b5      	cmp	r5, r6
+   8:	d104      	bne.n	14 <replaceChars+0x14>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:389
+                ++uiReplaced; 
+   a:	3301      	adds	r3, #1
+   c:	b29b      	uxth	r3, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:390
+                *ucBuffer = ucChar;
+   e:	f800 2c01 	strb.w	r2, [r0, #-1]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:391
+                break;
+  12:	e004      	b.n	1e <replaceChars+0x1e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:387
+u8 replaceChars( u8 *ucBuffer, u8 *ucChars, u8 ucChar )
+{
+    u16 i, uiReplaced;
+    
+    for( uiReplaced = 0; *ucBuffer ; ){
+        for( i = 0; *(ucChars+i); i++ ){
+  14:	3401      	adds	r4, #1
+  16:	b2a4      	uxth	r4, r4
+  18:	5d0e      	ldrb	r6, [r1, r4]
+  1a:	2e00      	cmp	r6, #0
+  1c:	d1f3      	bne.n	6 <replaceChars+0x6>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:386
+
+u8 replaceChars( u8 *ucBuffer, u8 *ucChars, u8 ucChar )
+{
+    u16 i, uiReplaced;
+    
+    for( uiReplaced = 0; *ucBuffer ; ){
+  1e:	f810 5b01 	ldrb.w	r5, [r0], #1
+  22:	b10d      	cbz	r5, 28 <replaceChars+0x28>
+  24:	2400      	movs	r4, #0
+  26:	e7f7      	b.n	18 <replaceChars+0x18>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:398
+        } // for
+        ++ucBuffer;
+    } // for
+    
+    return( uiReplaced );
+}
+  28:	b2d8      	uxtb	r0, r3
+  2a:	bd70      	pop	{r4, r5, r6, pc}
+
+Disassembly of section .text.convertCharToInt:
+
+00000000 <convertCharToInt>:
+convertCharToInt():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:401
+
+u8 convertCharToInt( u8 ucChar )
+{
+   0:	4603      	mov	r3, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:402
+    if( ucChar > 47 && ucChar < 58 ){
+   2:	3830      	subs	r0, #48	; 0x30
+   4:	b2c0      	uxtb	r0, r0
+   6:	2809      	cmp	r0, #9
+   8:	d911      	bls.n	2e <convertCharToInt+0x2e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:404
+        return( ucChar - 48 );
+    } else if( ucChar > 64 && ucChar < 71 ){
+   a:	f1a3 0241 	sub.w	r2, r3, #65	; 0x41
+   e:	b2d2      	uxtb	r2, r2
+  10:	2a05      	cmp	r2, #5
+  12:	d802      	bhi.n	1a <convertCharToInt+0x1a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:405
+        return( ucChar - 55 );
+  14:	f1a3 0037 	sub.w	r0, r3, #55	; 0x37
+  18:	e006      	b.n	28 <convertCharToInt+0x28>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:406
+    } else if( ucChar > 96 && ucChar < 103 ){
+  1a:	f1a3 0261 	sub.w	r2, r3, #97	; 0x61
+  1e:	b2d2      	uxtb	r2, r2
+  20:	2a05      	cmp	r2, #5
+  22:	d803      	bhi.n	2c <convertCharToInt+0x2c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:407
+        return( ucChar - 87);
+  24:	f1a3 0057 	sub.w	r0, r3, #87	; 0x57
+  28:	b2c0      	uxtb	r0, r0
+  2a:	4770      	bx	lr
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:410
+    }
+    
+    return( 0 );   
+  2c:	2000      	movs	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:411
+}
+  2e:	4770      	bx	lr
+
+Disassembly of section .text.convertIntToChar:
+
+00000000 <convertIntToChar>:
+convertIntToChar():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:416
+
+u8 convertIntToChar( u8 ucData )
+{
+    
+}
+   0:	4770      	bx	lr
+
+Disassembly of section .text.seekChar:
+
+00000000 <seekChar>:
+seekChar():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:423
+u8 *seekChar( u8 ucChar, u8 *ucString )
+{
+    // ToDo: Add this function
+
+    return( NULL );
+}
+   0:	2000      	movs	r0, #0
+   2:	4770      	bx	lr
+
+Disassembly of section .text.seekString:
+
+00000000 <seekString>:
+seekString():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:426
+
+u8 *seekString( u8 *ucSeekString, u8 *ucInString )
+{
+   0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+   4:	460e      	mov	r6, r1
+   6:	4604      	mov	r4, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:429
+    u16 i, ii, uiLen, uiStop;
+    
+    uiLen = len( ucSeekString );
+   8:	f7ff fffe 	bl	0 <seekString>
+   c:	4605      	mov	r5, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:430
+    uiStop = 1 + len( ucInString );
+   e:	4630      	mov	r0, r6
+  10:	f7ff fffe 	bl	0 <seekString>
+  14:	3001      	adds	r0, #1
+  16:	b280      	uxth	r0, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:431
+    if( uiStop < uiLen ){ // can't search in a string for a longer string match
+  18:	42a8      	cmp	r0, r5
+  1a:	d31b      	bcc.n	54 <seekString+0x54>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:434
+        return( NULL );
+    }
+    uiStop -= uiLen; // don't search for a match past end of InString
+  1c:	1b40      	subs	r0, r0, r5
+  1e:	b287      	uxth	r7, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:435
+    for( i = 0; i < uiStop; i++ ){
+  20:	2000      	movs	r0, #0
+  22:	e012      	b.n	4a <seekString+0x4a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:425
+    // ToDo: Add this function
+
+    return( NULL );
+}
+
+u8 *seekString( u8 *ucSeekString, u8 *ucInString )
+  24:	eb06 0c00 	add.w	ip, r6, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:437
+        return( NULL );
+    }
+    uiStop -= uiLen; // don't search for a match past end of InString
+    for( i = 0; i < uiStop; i++ ){
+        for( ii = 0; ii < uiLen; ii++ ){
+            if( ucSeekString[ ii ] != ucInString[ i + ii ] ){
+  28:	f81c c003 	ldrb.w	ip, [ip, r3]
+  2c:	f812 8b01 	ldrb.w	r8, [r2], #1
+  30:	3301      	adds	r3, #1
+  32:	45e0      	cmp	r8, ip
+  34:	d102      	bne.n	3c <seekString+0x3c>
+  36:	b299      	uxth	r1, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:436
+    if( uiStop < uiLen ){ // can't search in a string for a longer string match
+        return( NULL );
+    }
+    uiStop -= uiLen; // don't search for a match past end of InString
+    for( i = 0; i < uiStop; i++ ){
+        for( ii = 0; ii < uiLen; ii++ ){
+  38:	42a9      	cmp	r1, r5
+  3a:	d3f3      	bcc.n	24 <seekString+0x24>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:441
+            if( ucSeekString[ ii ] != ucInString[ i + ii ] ){
+                break; // break on first mismatch, increment and test again
+            }
+        }
+        if( ii == uiLen ){
+  3c:	42a9      	cmp	r1, r5
+  3e:	d102      	bne.n	46 <seekString+0x46>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:442
+            return( (u8*)ucInString+i ); // this is the start of the match
+  40:	1830      	adds	r0, r6, r0
+  42:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:435
+    uiStop = 1 + len( ucInString );
+    if( uiStop < uiLen ){ // can't search in a string for a longer string match
+        return( NULL );
+    }
+    uiStop -= uiLen; // don't search for a match past end of InString
+    for( i = 0; i < uiStop; i++ ){
+  46:	3001      	adds	r0, #1
+  48:	b280      	uxth	r0, r0
+  4a:	42b8      	cmp	r0, r7
+  4c:	d205      	bcs.n	5a <seekString+0x5a>
+  4e:	4622      	mov	r2, r4
+  50:	2300      	movs	r3, #0
+  52:	e7f0      	b.n	36 <seekString+0x36>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:432
+    u16 i, ii, uiLen, uiStop;
+    
+    uiLen = len( ucSeekString );
+    uiStop = 1 + len( ucInString );
+    if( uiStop < uiLen ){ // can't search in a string for a longer string match
+        return( NULL );
+  54:	2000      	movs	r0, #0
+  56:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:446
+        if( ii == uiLen ){
+            return( (u8*)ucInString+i ); // this is the start of the match
+        }
+    }
+    
+    return( NULL );
+  5a:	2000      	movs	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:447
+}
+  5c:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+
+Disassembly of section .text.seekStringInBuffer:
+
+00000000 <seekStringInBuffer>:
+seekStringInBuffer():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:454
+s32 seekStringInBuffer( u8 *ucString, u8 *ucBuffer, u32 ulLen  )
+{
+    // ToDo: Add this function
+    
+    return( 0 );
+}
+   0:	2000      	movs	r0, #0
+   2:	4770      	bx	lr
+
+Disassembly of section .text.appendString:
+
+00000000 <appendString>:
+appendString():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:511
+    *ucBuffer = '\0';
+}
+
+void appendString( u8 *ucFrom, u8 *ucTo )
+{
+    for( ; *ucTo; ){
+   0:	780a      	ldrb	r2, [r1, #0]
+   2:	460b      	mov	r3, r1
+   4:	3101      	adds	r1, #1
+   6:	2a00      	cmp	r2, #0
+   8:	d1fa      	bne.n	0 <appendString>
+   a:	e001      	b.n	10 <appendString+0x10>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:515
+        ++ucTo;
+    }
+    for( ; *ucFrom; ){
+        *(ucTo++) = *(ucFrom++);
+   c:	f803 2b01 	strb.w	r2, [r3], #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:514
+void appendString( u8 *ucFrom, u8 *ucTo )
+{
+    for( ; *ucTo; ){
+        ++ucTo;
+    }
+    for( ; *ucFrom; ){
+  10:	f810 2b01 	ldrb.w	r2, [r0], #1
+  14:	2a00      	cmp	r2, #0
+  16:	d1f9      	bne.n	c <appendString+0xc>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:517
+        *(ucTo++) = *(ucFrom++);
+    }
+    *ucTo = '\0';
+  18:	701a      	strb	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:518
+}
+  1a:	4770      	bx	lr
+
+Disassembly of section .text.copyString:
+
+00000000 <copyString>:
+copyString():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:522
+
+void copyString( u8 *ucFrom, u8 *ucTo )
+{
+    for( ; *ucFrom; ){
+   0:	e001      	b.n	6 <copyString+0x6>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:523
+        *(ucTo++) = *(ucFrom++); 
+   2:	f801 3b01 	strb.w	r3, [r1], #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:522
+    *ucTo = '\0';
+}
+
+void copyString( u8 *ucFrom, u8 *ucTo )
+{
+    for( ; *ucFrom; ){
+   6:	f810 3b01 	ldrb.w	r3, [r0], #1
+   a:	2b00      	cmp	r3, #0
+   c:	d1f9      	bne.n	2 <copyString+0x2>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:525
+        *(ucTo++) = *(ucFrom++); 
+    }
+    *ucTo = '\0';
+   e:	700b      	strb	r3, [r1, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:526
+}
+  10:	4770      	bx	lr
+
+Disassembly of section .text.convertStringToInt:
+
+00000000 <convertStringToInt>:
+convertStringToInt():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:529
+
+s32 convertStringToInt( u8 *ucBuffer )
+{
+   0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:534
+    u8 ucScratch[35]; // 32 + sign char and format char
+    s32 iValue, iType, iSign;
+    
+    // ucBuffer is moved to scratch buffer to make function constant safe
+    for( iValue = 0; iValue < 35 && ucBuffer[ iValue ]; iValue++ )
+   4:	2300      	movs	r3, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:529
+    }
+    *ucTo = '\0';
+}
+
+s32 convertStringToInt( u8 *ucBuffer )
+{
+   6:	b08a      	sub	sp, #40	; 0x28
+   8:	e004      	b.n	14 <convertStringToInt+0x14>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:535
+    u8 ucScratch[35]; // 32 + sign char and format char
+    s32 iValue, iType, iSign;
+    
+    // ucBuffer is moved to scratch buffer to make function constant safe
+    for( iValue = 0; iValue < 35 && ucBuffer[ iValue ]; iValue++ )
+        ucScratch[ iValue ] = ucBuffer[ iValue ];
+   a:	a901      	add	r1, sp, #4
+   c:	54ca      	strb	r2, [r1, r3]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:534
+{
+    u8 ucScratch[35]; // 32 + sign char and format char
+    s32 iValue, iType, iSign;
+    
+    // ucBuffer is moved to scratch buffer to make function constant safe
+    for( iValue = 0; iValue < 35 && ucBuffer[ iValue ]; iValue++ )
+   e:	3301      	adds	r3, #1
+  10:	2b23      	cmp	r3, #35	; 0x23
+  12:	d002      	beq.n	1a <convertStringToInt+0x1a>
+  14:	5cc2      	ldrb	r2, [r0, r3]
+  16:	2a00      	cmp	r2, #0
+  18:	d1f7      	bne.n	a <convertStringToInt+0xa>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:536
+        ucScratch[ iValue ] = ucBuffer[ iValue ];
+    ucScratch[ iValue ] = '\0';
+  1a:	aa0a      	add	r2, sp, #40	; 0x28
+  1c:	18d3      	adds	r3, r2, r3
+  1e:	2200      	movs	r2, #0
+  20:	f803 2c24 	strb.w	r2, [r3, #-36]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:540
+    ucBuffer = ucScratch;    
+    
+    iType = 10; // Decimal
+    if( replaceChars( ucBuffer, "-", ' ' ) )
+  24:	491e      	ldr	r1, [pc, #120]	; (a0 <convertStringToInt+0xa0>)
+  26:	3220      	adds	r2, #32
+  28:	a801      	add	r0, sp, #4
+  2a:	f7ff fffe 	bl	0 <convertStringToInt>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:545
+        iSign = -1;
+    else
+        iSign = 1;
+    // HEX must be tested first to avoid stripping valid HEX digit chars
+    if( replaceChars( ucBuffer, "xXhH", ' ' ) ){//"xXh"
+  2e:	491d      	ldr	r1, [pc, #116]	; (a4 <convertStringToInt+0xa4>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:541
+    ucScratch[ iValue ] = '\0';
+    ucBuffer = ucScratch;    
+    
+    iType = 10; // Decimal
+    if( replaceChars( ucBuffer, "-", ' ' ) )
+        iSign = -1;
+  30:	2800      	cmp	r0, #0
+  32:	bf0c      	ite	eq
+  34:	2401      	moveq	r4, #1
+  36:	f04f 34ff 	movne.w	r4, #4294967295
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:545
+    else
+        iSign = 1;
+    // HEX must be tested first to avoid stripping valid HEX digit chars
+    if( replaceChars( ucBuffer, "xXhH", ' ' ) ){//"xXh"
+  3a:	2220      	movs	r2, #32
+  3c:	a801      	add	r0, sp, #4
+  3e:	f7ff fffe 	bl	0 <convertStringToInt>
+  42:	b990      	cbnz	r0, 6a <convertStringToInt+0x6a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:547
+        iType = 16; // HEX
+    }else if( replaceChars( ucBuffer, "bB", ' ' ) ){//"bB"
+  44:	a801      	add	r0, sp, #4
+  46:	4918      	ldr	r1, [pc, #96]	; (a8 <convertStringToInt+0xa8>)
+  48:	2220      	movs	r2, #32
+  4a:	f7ff fffe 	bl	0 <convertStringToInt>
+  4e:	b970      	cbnz	r0, 6e <convertStringToInt+0x6e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:549
+        iType = 2; // Binary
+    }else if( replaceChars( ucBuffer, "oO", ' ' ) ){//"oO"
+  50:	a801      	add	r0, sp, #4
+  52:	4916      	ldr	r1, [pc, #88]	; (ac <convertStringToInt+0xac>)
+  54:	2220      	movs	r2, #32
+  56:	f7ff fffe 	bl	0 <convertStringToInt>
+  5a:	b950      	cbnz	r0, 72 <convertStringToInt+0x72>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:552
+        iType = 8; // Octal
+    } else{
+        replaceChars( ucBuffer, "dD", ' ' );//"dD"
+  5c:	a801      	add	r0, sp, #4
+  5e:	4914      	ldr	r1, [pc, #80]	; (b0 <convertStringToInt+0xb0>)
+  60:	2220      	movs	r2, #32
+  62:	f7ff fffe 	bl	0 <convertStringToInt>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:539
+    for( iValue = 0; iValue < 35 && ucBuffer[ iValue ]; iValue++ )
+        ucScratch[ iValue ] = ucBuffer[ iValue ];
+    ucScratch[ iValue ] = '\0';
+    ucBuffer = ucScratch;    
+    
+    iType = 10; // Decimal
+  66:	250a      	movs	r5, #10
+  68:	e004      	b.n	74 <convertStringToInt+0x74>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:546
+        iSign = -1;
+    else
+        iSign = 1;
+    // HEX must be tested first to avoid stripping valid HEX digit chars
+    if( replaceChars( ucBuffer, "xXhH", ' ' ) ){//"xXh"
+        iType = 16; // HEX
+  6a:	2510      	movs	r5, #16
+  6c:	e002      	b.n	74 <convertStringToInt+0x74>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:548
+    }else if( replaceChars( ucBuffer, "bB", ' ' ) ){//"bB"
+        iType = 2; // Binary
+  6e:	2502      	movs	r5, #2
+  70:	e000      	b.n	74 <convertStringToInt+0x74>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:550
+    }else if( replaceChars( ucBuffer, "oO", ' ' ) ){//"oO"
+        iType = 8; // Octal
+  72:	2508      	movs	r5, #8
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:552
+    } else{
+        replaceChars( ucBuffer, "dD", ' ' );//"dD"
+  74:	f10d 0803 	add.w	r8, sp, #3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:555
+    }
+   
+    for( iValue = 0; *ucBuffer ; ){
+  78:	2600      	movs	r6, #0
+  7a:	e008      	b.n	8e <convertStringToInt+0x8e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:556
+        if( isAlphaOrNumeric( *ucBuffer ) ){
+  7c:	4638      	mov	r0, r7
+  7e:	f7ff fffe 	bl	0 <convertStringToInt>
+  82:	b120      	cbz	r0, 8e <convertStringToInt+0x8e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:557
+            iValue = ( iValue * iType ) + convertCharToInt( *ucBuffer );
+  84:	4638      	mov	r0, r7
+  86:	f7ff fffe 	bl	0 <convertStringToInt>
+  8a:	436e      	muls	r6, r5
+  8c:	1986      	adds	r6, r0, r6
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:555
+        iType = 8; // Octal
+    } else{
+        replaceChars( ucBuffer, "dD", ' ' );//"dD"
+    }
+   
+    for( iValue = 0; *ucBuffer ; ){
+  8e:	f818 7f01 	ldrb.w	r7, [r8, #1]!
+  92:	2f00      	cmp	r7, #0
+  94:	d1f2      	bne.n	7c <convertStringToInt+0x7c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:563
+        }
+        ++ucBuffer;
+    }
+    
+    return( iValue * iSign );
+}
+  96:	fb04 f006 	mul.w	r0, r4, r6
+  9a:	b00a      	add	sp, #40	; 0x28
+  9c:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  a0:	00000028 	.word	0x00000028
+  a4:	0000002a 	.word	0x0000002a
+  a8:	0000002f 	.word	0x0000002f
+  ac:	00000032 	.word	0x00000032
+  b0:	00000035 	.word	0x00000035
+
+Disassembly of section .text.convertIntToString:
+
+00000000 <convertIntToString>:
+convertIntToString():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:457
+    
+    return( 0 );
+}
+
+u8 convertIntToString( s64 lData, u8 *ucFormat, u8 *ucBuffer )
+{
+   0:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+   4:	b087      	sub	sp, #28
+   6:	4680      	mov	r8, r0
+   8:	4689      	mov	r9, r1
+   a:	461e      	mov	r6, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:462
+    u8 ucTmpFormat[ 9 ];
+    s64 i, iType, iLen, iMagnitude, iValue;
+    u8 ucPadding;
+
+    for( i = 0; i < 8 && ucFormat[ i ]; i++ )
+   c:	2000      	movs	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:494
+    } // else
+    
+    iLen = convertStringToInt( ucFormat )-1;
+    if( iLen < 0 )
+        iLen = 0;
+    for( i = 0, iMagnitude = 1; ( iMagnitude * iType ) <= lData; i++ )
+   e:	f10d 030b 	add.w	r3, sp, #11
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:462
+{
+    u8 ucTmpFormat[ 9 ];
+    s64 i, iType, iLen, iMagnitude, iValue;
+    u8 ucPadding;
+
+    for( i = 0; i < 8 && ucFormat[ i ]; i++ )
+  12:	2100      	movs	r1, #0
+  14:	e00d      	b.n	32 <convertIntToString+0x32>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:463
+        ucTmpFormat[ i ] = ucFormat[ i ];
+  16:	f803 4f01 	strb.w	r4, [r3, #1]!
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:462
+{
+    u8 ucTmpFormat[ 9 ];
+    s64 i, iType, iLen, iMagnitude, iValue;
+    u8 ucPadding;
+
+    for( i = 0; i < 8 && ucFormat[ i ]; i++ )
+  1a:	2401      	movs	r4, #1
+  1c:	2500      	movs	r5, #0
+  1e:	1900      	adds	r0, r0, r4
+  20:	eb41 0105 	adc.w	r1, r1, r5
+  24:	2408      	movs	r4, #8
+  26:	2500      	movs	r5, #0
+  28:	4044      	eors	r4, r0
+  2a:	404d      	eors	r5, r1
+  2c:	ea54 0705 	orrs.w	r7, r4, r5
+  30:	d003      	beq.n	3a <convertIntToString+0x3a>
+  32:	f812 4b01 	ldrb.w	r4, [r2], #1
+  36:	2c00      	cmp	r4, #0
+  38:	d1ed      	bne.n	16 <convertIntToString+0x16>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:464
+        ucTmpFormat[ i ] = ucFormat[ i ];
+    ucTmpFormat[ i ] = '\0';
+  3a:	aa03      	add	r2, sp, #12
+  3c:	2300      	movs	r3, #0
+  3e:	1810      	adds	r0, r2, r0
+  40:	7003      	strb	r3, [r0, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:467
+    ucFormat = ucTmpFormat;
+    
+    if( lData < 0 ){
+  42:	f1b8 0f00 	cmp.w	r8, #0
+  46:	f179 0300 	sbcs.w	r3, r9, #0
+  4a:	da06      	bge.n	5a <convertIntToString+0x5a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:468
+        *(ucBuffer++) = '-';
+  4c:	232d      	movs	r3, #45	; 0x2d
+  4e:	f806 3b01 	strb.w	r3, [r6], #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:469
+        lData = ~((u32)lData) + 1; // reverse 2s complement
+  52:	f1c8 0800 	rsb	r8, r8, #0
+  56:	f04f 0900 	mov.w	r9, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:471
+    }
+    if( *ucFormat == '%' ){
+  5a:	f89d 700c 	ldrb.w	r7, [sp, #12]
+  5e:	2f25      	cmp	r7, #37	; 0x25
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:472
+        ++ucFormat;
+  60:	bf06      	itte	eq
+  62:	ac06      	addeq	r4, sp, #24
+  64:	f814 7d0b 	ldrbeq.w	r7, [r4, #-11]!
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:465
+    u8 ucPadding;
+
+    for( i = 0; i < 8 && ucFormat[ i ]; i++ )
+        ucTmpFormat[ i ] = ucFormat[ i ];
+    ucTmpFormat[ i ] = '\0';
+    ucFormat = ucTmpFormat;
+  68:	ac03      	addne	r4, sp, #12
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:474
+        lData = ~((u32)lData) + 1; // reverse 2s complement
+    }
+    if( *ucFormat == '%' ){
+        ++ucFormat;
+    }
+    if( !isAlphaOrNumeric( *ucFormat ) || *ucFormat == '0' ){
+  6a:	4638      	mov	r0, r7
+  6c:	f7ff fffe 	bl	0 <convertIntToString>
+  70:	b108      	cbz	r0, 76 <convertIntToString+0x76>
+  72:	2f30      	cmp	r7, #48	; 0x30
+  74:	d101      	bne.n	7a <convertIntToString+0x7a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:476
+        ucPadding = *ucFormat;
+        ++ucFormat;
+  76:	3401      	adds	r4, #1
+  78:	e000      	b.n	7c <convertIntToString+0x7c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:478
+    } else{
+        ucPadding = '0';
+  7a:	2730      	movs	r7, #48	; 0x30
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:481
+    }
+    
+    if( replaceChars( ucFormat, "xXHh", ' ' ) ){
+  7c:	4620      	mov	r0, r4
+  7e:	4948      	ldr	r1, [pc, #288]	; (1a0 <convertIntToString+0x1a0>)
+  80:	2220      	movs	r2, #32
+  82:	f7ff fffe 	bl	0 <convertIntToString>
+  86:	b970      	cbnz	r0, a6 <convertIntToString+0xa6>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:483
+        iType = 16;
+    } else if( replaceChars( ucFormat, "oO", ' ' ) ){
+  88:	4620      	mov	r0, r4
+  8a:	4946      	ldr	r1, [pc, #280]	; (1a4 <convertIntToString+0x1a4>)
+  8c:	2220      	movs	r2, #32
+  8e:	f7ff fffe 	bl	0 <convertIntToString>
+  92:	b958      	cbnz	r0, ac <convertIntToString+0xac>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:485
+        iType = 8;
+    } else if( replaceChars( ucFormat, "bB", ' ' ) ){
+  94:	4620      	mov	r0, r4
+  96:	4944      	ldr	r1, [pc, #272]	; (1a8 <convertIntToString+0x1a8>)
+  98:	2220      	movs	r2, #32
+  9a:	f7ff fffe 	bl	0 <convertIntToString>
+  9e:	b140      	cbz	r0, b2 <convertIntToString+0xb2>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:486
+        iType = 2;
+  a0:	f04f 0a02 	mov.w	sl, #2
+  a4:	e007      	b.n	b6 <convertIntToString+0xb6>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:482
+    } else{
+        ucPadding = '0';
+    }
+    
+    if( replaceChars( ucFormat, "xXHh", ' ' ) ){
+        iType = 16;
+  a6:	f04f 0a10 	mov.w	sl, #16
+  aa:	e004      	b.n	b6 <convertIntToString+0xb6>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:484
+    } else if( replaceChars( ucFormat, "oO", ' ' ) ){
+        iType = 8;
+  ac:	f04f 0a08 	mov.w	sl, #8
+  b0:	e001      	b.n	b6 <convertIntToString+0xb6>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:488
+    } else if( replaceChars( ucFormat, "bB", ' ' ) ){
+        iType = 2;
+    } else{
+        iType = 10; // Decimal
+  b2:	f04f 0a0a 	mov.w	sl, #10
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:491
+    } // else
+    
+    iLen = convertStringToInt( ucFormat )-1;
+  b6:	4620      	mov	r0, r4
+  b8:	f7ff fffe 	bl	0 <convertIntToString>
+  bc:	1e42      	subs	r2, r0, #1
+  be:	17d3      	asrs	r3, r2, #31
+  c0:	2a00      	cmp	r2, #0
+  c2:	f173 0400 	sbcs.w	r4, r3, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:488
+    } else if( replaceChars( ucFormat, "oO", ' ' ) ){
+        iType = 8;
+    } else if( replaceChars( ucFormat, "bB", ' ' ) ){
+        iType = 2;
+    } else{
+        iType = 10; // Decimal
+  c6:	f04f 0b00 	mov.w	fp, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:491
+    } // else
+    
+    iLen = convertStringToInt( ucFormat )-1;
+  ca:	da01      	bge.n	d0 <convertIntToString+0xd0>
+  cc:	2200      	movs	r2, #0
+  ce:	2300      	movs	r3, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:494
+    if( iLen < 0 )
+        iLen = 0;
+    for( i = 0, iMagnitude = 1; ( iMagnitude * iType ) <= lData; i++ )
+  d0:	2000      	movs	r0, #0
+  d2:	2100      	movs	r1, #0
+  d4:	46be      	mov	lr, r7
+  d6:	46b4      	mov	ip, r6
+  d8:	2401      	movs	r4, #1
+  da:	2500      	movs	r5, #0
+  dc:	e9cd 0100 	strd	r0, r1, [sp]
+  e0:	4616      	mov	r6, r2
+  e2:	461f      	mov	r7, r3
+  e4:	e00a      	b.n	fc <convertIntToString+0xfc>
+  e6:	2001      	movs	r0, #1
+  e8:	e9dd 4500 	ldrd	r4, r5, [sp]
+  ec:	2100      	movs	r1, #0
+  ee:	1824      	adds	r4, r4, r0
+  f0:	eb45 0501 	adc.w	r5, r5, r1
+  f4:	e9cd 4500 	strd	r4, r5, [sp]
+  f8:	4614      	mov	r4, r2
+  fa:	461d      	mov	r5, r3
+  fc:	fb04 f10b 	mul.w	r1, r4, fp
+ 100:	fba4 230a 	umull	r2, r3, r4, sl
+ 104:	fb0a 1105 	mla	r1, sl, r5, r1
+ 108:	18cb      	adds	r3, r1, r3
+ 10a:	4590      	cmp	r8, r2
+ 10c:	eb79 0003 	sbcs.w	r0, r9, r3
+ 110:	dae9      	bge.n	e6 <convertIntToString+0xe6>
+ 112:	4632      	mov	r2, r6
+ 114:	463b      	mov	r3, r7
+ 116:	4666      	mov	r6, ip
+ 118:	4677      	mov	r7, lr
+ 11a:	e008      	b.n	12e <convertIntToString+0x12e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:496
+        iMagnitude *= iType;
+    for( ; iLen > i; iLen-- ){
+ 11c:	f04f 30ff 	mov.w	r0, #4294967295
+ 120:	f04f 31ff 	mov.w	r1, #4294967295
+ 124:	1812      	adds	r2, r2, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:497
+        *(ucBuffer++) = ucPadding;//'0';
+ 126:	f806 7b01 	strb.w	r7, [r6], #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:496
+    iLen = convertStringToInt( ucFormat )-1;
+    if( iLen < 0 )
+        iLen = 0;
+    for( i = 0, iMagnitude = 1; ( iMagnitude * iType ) <= lData; i++ )
+        iMagnitude *= iType;
+    for( ; iLen > i; iLen-- ){
+ 12a:	eb43 0301 	adc.w	r3, r3, r1
+ 12e:	e9dd 0100 	ldrd	r0, r1, [sp]
+ 132:	4290      	cmp	r0, r2
+ 134:	4199      	sbcs	r1, r3
+ 136:	dbf1      	blt.n	11c <convertIntToString+0x11c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:501
+        *(ucBuffer++) = ucPadding;//'0';
+    }
+    
+    for( ; i>=0; i-- ){
+        iValue = lData / iMagnitude;
+ 138:	4622      	mov	r2, r4
+ 13a:	462b      	mov	r3, r5
+ 13c:	4640      	mov	r0, r8
+ 13e:	4649      	mov	r1, r9
+ 140:	f7ff fffe 	bl	0 <__aeabi_ldivmod>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:502
+        *(ucBuffer++) = PYGMYHEXCHARS[ iValue ];
+ 144:	4b19      	ldr	r3, [pc, #100]	; (1ac <convertIntToString+0x1ac>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:504
+        lData -= ( iValue * iMagnitude );
+        iMagnitude /= iType;
+ 146:	4652      	mov	r2, sl
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:502
+        *(ucBuffer++) = ucPadding;//'0';
+    }
+    
+    for( ; i>=0; i-- ){
+        iValue = lData / iMagnitude;
+        *(ucBuffer++) = PYGMYHEXCHARS[ iValue ];
+ 148:	181b      	adds	r3, r3, r0
+ 14a:	f893 30e0 	ldrb.w	r3, [r3, #224]	; 0xe0
+ 14e:	f806 3b01 	strb.w	r3, [r6], #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:503
+        lData -= ( iValue * iMagnitude );
+ 152:	fb00 f305 	mul.w	r3, r0, r5
+ 156:	fb01 3304 	mla	r3, r1, r4, r3
+ 15a:	fba0 0104 	umull	r0, r1, r0, r4
+ 15e:	1859      	adds	r1, r3, r1
+ 160:	ebb8 0800 	subs.w	r8, r8, r0
+ 164:	eb69 0901 	sbc.w	r9, r9, r1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:504
+        iMagnitude /= iType;
+ 168:	465b      	mov	r3, fp
+ 16a:	4620      	mov	r0, r4
+ 16c:	4629      	mov	r1, r5
+ 16e:	f7ff fffe 	bl	0 <__aeabi_ldivmod>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:500
+        iMagnitude *= iType;
+    for( ; iLen > i; iLen-- ){
+        *(ucBuffer++) = ucPadding;//'0';
+    }
+    
+    for( ; i>=0; i-- ){
+ 172:	f04f 32ff 	mov.w	r2, #4294967295
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:504
+        iValue = lData / iMagnitude;
+        *(ucBuffer++) = PYGMYHEXCHARS[ iValue ];
+        lData -= ( iValue * iMagnitude );
+        iMagnitude /= iType;
+ 176:	4604      	mov	r4, r0
+ 178:	460d      	mov	r5, r1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:500
+        iMagnitude *= iType;
+    for( ; iLen > i; iLen-- ){
+        *(ucBuffer++) = ucPadding;//'0';
+    }
+    
+    for( ; i>=0; i-- ){
+ 17a:	f04f 33ff 	mov.w	r3, #4294967295
+ 17e:	e9dd 0100 	ldrd	r0, r1, [sp]
+ 182:	1880      	adds	r0, r0, r2
+ 184:	eb41 0103 	adc.w	r1, r1, r3
+ 188:	e9cd 0100 	strd	r0, r1, [sp]
+ 18c:	2800      	cmp	r0, #0
+ 18e:	f171 0100 	sbcs.w	r1, r1, #0
+ 192:	dad1      	bge.n	138 <convertIntToString+0x138>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:506
+        iValue = lData / iMagnitude;
+        *(ucBuffer++) = PYGMYHEXCHARS[ iValue ];
+        lData -= ( iValue * iMagnitude );
+        iMagnitude /= iType;
+    }
+    *ucBuffer = '\0';
+ 194:	2300      	movs	r3, #0
+ 196:	7033      	strb	r3, [r6, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:507
+}
+ 198:	b007      	add	sp, #28
+ 19a:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+ 19e:	bf00      	nop
+ 1a0:	00000038 	.word	0x00000038
+ 1a4:	00000032 	.word	0x00000032
+ 1a8:	0000002f 	.word	0x0000002f
+ 1ac:	00000000 	.word	0x00000000
+
+Disassembly of section .text.convertStringToPin:
+
+00000000 <convertStringToPin>:
+convertStringToPin():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:74
+
+    return( NULL );
+}
+                                    
+u8 convertStringToPin( u8 *ucBuffer )
+{
+   0:	41f0e92d 	.word	0x41f0e92d
+   4:	4604      	mov	r4, r0
+   6:	2600      	movs	r6, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:80
+    // This function is constant string safe
+    u8 i, ucPin;
+
+    #ifdef __PYGMYNEBULA
+        for( i = 0; i < PYGMYMAXPINS; i++ ){
+            if( isStringSame( PYGMYNEBULAPINS[ i ].String, ucBuffer ) ){
+   8:	4f28      	ldr	r7, [pc, #160]	; (ac <convertStringToPin+0xac>)
+   a:	4621      	mov	r1, r4
+   c:	f857 0036 	ldr.w	r0, [r7, r6, lsl #3]
+  10:	f7ff fffe 	bl	0 <convertStringToPin>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:73
+    } // for
+
+    return( NULL );
+}
+                                    
+u8 convertStringToPin( u8 *ucBuffer )
+  14:	ea4f 08c6 	mov.w	r8, r6, lsl #3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:80
+    // This function is constant string safe
+    u8 i, ucPin;
+
+    #ifdef __PYGMYNEBULA
+        for( i = 0; i < PYGMYMAXPINS; i++ ){
+            if( isStringSame( PYGMYNEBULAPINS[ i ].String, ucBuffer ) ){
+  18:	4605      	mov	r5, r0
+  1a:	b118      	cbz	r0, 24 <convertStringToPin+0x24>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:81
+                return( PYGMYNEBULAPINS[ i ].Value );
+  1c:	4447      	add	r7, r8
+  1e:	7938      	ldrb	r0, [r7, #4]
+  20:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  24:	3601      	adds	r6, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:79
+{
+    // This function is constant string safe
+    u8 i, ucPin;
+
+    #ifdef __PYGMYNEBULA
+        for( i = 0; i < PYGMYMAXPINS; i++ ){
+  26:	2e1b      	cmp	r6, #27
+  28:	d1ee      	bne.n	8 <convertStringToPin+0x8>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:86
+                return( PYGMYNEBULAPINS[ i ].Value );
+            } // if     
+        } // for
+    #endif // __PYGMYNEBULA
+    // Pin isn't an alias, check for port letter and pin number
+    if( replaceChars( ucBuffer, "pP", ' ' ) ){
+  2a:	4620      	mov	r0, r4
+  2c:	4920      	ldr	r1, [pc, #128]	; (b0 <convertStringToPin+0xb0>)
+  2e:	2220      	movs	r2, #32
+  30:	f7ff fffe 	bl	0 <convertStringToPin>
+  34:	2800      	cmp	r0, #0
+  36:	d033      	beq.n	a0 <convertStringToPin+0xa0>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:87
+        if( replaceChars( ucBuffer, "aA", ' ' ) ){
+  38:	4620      	mov	r0, r4
+  3a:	491e      	ldr	r1, [pc, #120]	; (b4 <convertStringToPin+0xb4>)
+  3c:	2220      	movs	r2, #32
+  3e:	f7ff fffe 	bl	0 <convertStringToPin>
+  42:	bb30      	cbnz	r0, 92 <convertStringToPin+0x92>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:89
+            ucPin = 0;
+        } else if( replaceChars( ucBuffer, "bB", ' ' ) ){
+  44:	4620      	mov	r0, r4
+  46:	491c      	ldr	r1, [pc, #112]	; (b8 <convertStringToPin+0xb8>)
+  48:	2220      	movs	r2, #32
+  4a:	f7ff fffe 	bl	0 <convertStringToPin>
+  4e:	b9c8      	cbnz	r0, 84 <convertStringToPin+0x84>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:91
+            ucPin = 16;
+        } else if( replaceChars( ucBuffer, "cC", ' ' ) ){
+  50:	4620      	mov	r0, r4
+  52:	491a      	ldr	r1, [pc, #104]	; (bc <convertStringToPin+0xbc>)
+  54:	2220      	movs	r2, #32
+  56:	f7ff fffe 	bl	0 <convertStringToPin>
+  5a:	b9a8      	cbnz	r0, 88 <convertStringToPin+0x88>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:93
+            ucPin = 32;
+        } else if( replaceChars( ucBuffer, "dD", ' ' ) ){
+  5c:	4620      	mov	r0, r4
+  5e:	4918      	ldr	r1, [pc, #96]	; (c0 <convertStringToPin+0xc0>)
+  60:	2220      	movs	r2, #32
+  62:	f7ff fffe 	bl	0 <convertStringToPin>
+  66:	b988      	cbnz	r0, 8c <convertStringToPin+0x8c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:95
+            ucPin = 48;
+        } else if( replaceChars( ucBuffer, "eE", ' ' ) ){
+  68:	4620      	mov	r0, r4
+  6a:	4916      	ldr	r1, [pc, #88]	; (c4 <convertStringToPin+0xc4>)
+  6c:	2220      	movs	r2, #32
+  6e:	f7ff fffe 	bl	0 <convertStringToPin>
+  72:	b968      	cbnz	r0, 90 <convertStringToPin+0x90>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:97
+            ucPin = 64;
+        } else if( replaceChars( ucBuffer, "fF", ' ' ) ){
+  74:	4620      	mov	r0, r4
+  76:	4914      	ldr	r1, [pc, #80]	; (c8 <convertStringToPin+0xc8>)
+  78:	2220      	movs	r2, #32
+  7a:	f7ff fffe 	bl	0 <convertStringToPin>
+  7e:	b190      	cbz	r0, a6 <convertStringToPin+0xa6>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:98
+            ucPin = 80;
+  80:	2550      	movs	r5, #80	; 0x50
+  82:	e006      	b.n	92 <convertStringToPin+0x92>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:90
+    // Pin isn't an alias, check for port letter and pin number
+    if( replaceChars( ucBuffer, "pP", ' ' ) ){
+        if( replaceChars( ucBuffer, "aA", ' ' ) ){
+            ucPin = 0;
+        } else if( replaceChars( ucBuffer, "bB", ' ' ) ){
+            ucPin = 16;
+  84:	2510      	movs	r5, #16
+  86:	e004      	b.n	92 <convertStringToPin+0x92>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:92
+        } else if( replaceChars( ucBuffer, "cC", ' ' ) ){
+            ucPin = 32;
+  88:	2520      	movs	r5, #32
+  8a:	e002      	b.n	92 <convertStringToPin+0x92>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:94
+        } else if( replaceChars( ucBuffer, "dD", ' ' ) ){
+            ucPin = 48;
+  8c:	2530      	movs	r5, #48	; 0x30
+  8e:	e000      	b.n	92 <convertStringToPin+0x92>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:96
+        } else if( replaceChars( ucBuffer, "eE", ' ' ) ){
+            ucPin = 64;
+  90:	2540      	movs	r5, #64	; 0x40
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:102
+        } else if( replaceChars( ucBuffer, "fF", ' ' ) ){
+            ucPin = 80;
+        } else{
+            return( 0xFF );
+        } // else
+        return( ucPin + convertStringToInt( ucBuffer ) );
+  92:	4620      	mov	r0, r4
+  94:	f7ff fffe 	bl	0 <convertStringToPin>
+  98:	1828      	adds	r0, r5, r0
+  9a:	b2c0      	uxtb	r0, r0
+  9c:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:105
+    } // if
+
+    return( 0xFF );
+  a0:	20ff      	movs	r0, #255	; 0xff
+  a2:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:100
+        } else if( replaceChars( ucBuffer, "eE", ' ' ) ){
+            ucPin = 64;
+        } else if( replaceChars( ucBuffer, "fF", ' ' ) ){
+            ucPin = 80;
+        } else{
+            return( 0xFF );
+  a6:	20ff      	movs	r0, #255	; 0xff
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:106
+        } // else
+        return( ucPin + convertStringToInt( ucBuffer ) );
+    } // if
+
+    return( 0xFF );
+}
+  a8:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  ac:	00000000 	.word	0x00000000
+  b0:	0000003d 	.word	0x0000003d
+  b4:	00000040 	.word	0x00000040
+  b8:	0000002f 	.word	0x0000002f
+  bc:	00000043 	.word	0x00000043
+  c0:	00000035 	.word	0x00000035
+  c4:	00000046 	.word	0x00000046
+  c8:	00000049 	.word	0x00000049
+
+Disassembly of section .text.convertBase64ToCode:
+
+00000000 <convertBase64ToCode>:
+convertBase64ToCode():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:566
+    
+    return( iValue * iSign );
+}
+
+u8 convertBase64ToCode( u8 ucChar )
+{
+   0:	4603      	mov	r3, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:574
+    // for loop to handle both is significantly less efficient
+    // Alphabet 1 = A-Z,a-z,0-9,+,/,=
+    // Alphabet 2 = A-Z,a-z,0-9,-,_,=
+    // The = char signifies padding, input len must be divisible by 3
+    // and output len must be divisible by 4
+    if( ucChar > 64 && ucChar < 91 ){ // A-Z
+   2:	3841      	subs	r0, #65	; 0x41
+   4:	b2c0      	uxtb	r0, r0
+   6:	2819      	cmp	r0, #25
+   8:	d91c      	bls.n	44 <convertBase64ToCode+0x44>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:576
+        return( ucChar - 65 );
+    } else if( ucChar > 96 && ucChar < 123 ){ // a-z
+   a:	f1a3 0261 	sub.w	r2, r3, #97	; 0x61
+   e:	b2d2      	uxtb	r2, r2
+  10:	2a19      	cmp	r2, #25
+  12:	d801      	bhi.n	18 <convertBase64ToCode+0x18>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:577
+        return( ucChar - 71 );
+  14:	3b47      	subs	r3, #71	; 0x47
+  16:	e005      	b.n	24 <convertBase64ToCode+0x24>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:578
+    } else if( ucChar > 47 && ucChar < 58 ){ // 0-9
+  18:	f1a3 0230 	sub.w	r2, r3, #48	; 0x30
+  1c:	b2d2      	uxtb	r2, r2
+  1e:	2a09      	cmp	r2, #9
+  20:	d802      	bhi.n	28 <convertBase64ToCode+0x28>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:579
+        return( ucChar + 4 );
+  22:	3304      	adds	r3, #4
+  24:	b2d8      	uxtb	r0, r3
+  26:	4770      	bx	lr
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:580
+    } else if( ucChar == '+' || ucChar == '-' ){
+  28:	2b2b      	cmp	r3, #43	; 0x2b
+  2a:	d008      	beq.n	3e <convertBase64ToCode+0x3e>
+  2c:	2b2d      	cmp	r3, #45	; 0x2d
+  2e:	d006      	beq.n	3e <convertBase64ToCode+0x3e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:582
+        return( 62 );
+    } else if( ucChar == '/' || ucChar == '_' ){
+  30:	2b2f      	cmp	r3, #47	; 0x2f
+  32:	d006      	beq.n	42 <convertBase64ToCode+0x42>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:583
+        return( 63 );
+  34:	2b5f      	cmp	r3, #95	; 0x5f
+  36:	bf14      	ite	ne
+  38:	2040      	movne	r0, #64	; 0x40
+  3a:	203f      	moveq	r0, #63	; 0x3f
+  3c:	4770      	bx	lr
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:581
+    } else if( ucChar > 96 && ucChar < 123 ){ // a-z
+        return( ucChar - 71 );
+    } else if( ucChar > 47 && ucChar < 58 ){ // 0-9
+        return( ucChar + 4 );
+    } else if( ucChar == '+' || ucChar == '-' ){
+        return( 62 );
+  3e:	203e      	movs	r0, #62	; 0x3e
+  40:	4770      	bx	lr
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:583
+    } else if( ucChar == '/' || ucChar == '_' ){
+        return( 63 );
+  42:	203f      	movs	r0, #63	; 0x3f
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:587
+    } 
+
+    return( 64 );
+}
+  44:	4770      	bx	lr
+
+Disassembly of section .text.convertHexCharToInteger:
+
+00000000 <convertHexCharToInteger>:
+convertHexCharToInteger():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:610
+}
+
+
+
+u16 convertHexCharToInteger( u8 ucChar )
+{
+   0:	4602      	mov	r2, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:613
+    u16 i;
+
+    for( i = 0; i < 16 && ucChar != PYGMYHEXCHARS[ i ]; i++ )
+   2:	4b06      	ldr	r3, [pc, #24]	; (1c <convertHexCharToInteger+0x1c>)
+   4:	2000      	movs	r0, #0
+   6:	e003      	b.n	10 <convertHexCharToInteger+0x10>
+   8:	3001      	adds	r0, #1
+   a:	b280      	uxth	r0, r0
+   c:	2810      	cmp	r0, #16
+   e:	d003      	beq.n	18 <convertHexCharToInteger+0x18>
+  10:	f813 1f01 	ldrb.w	r1, [r3, #1]!
+  14:	4291      	cmp	r1, r2
+  16:	d1f7      	bne.n	8 <convertHexCharToInteger+0x8>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:617
+        ;
+    
+    return( i );
+}
+  18:	4770      	bx	lr
+  1a:	bf00      	nop
+  1c:	000000df 	.word	0x000000df
+
+Disassembly of section .text.convertHexEncodedStringToBuffer:
+
+00000000 <convertHexEncodedStringToBuffer>:
+convertHexEncodedStringToBuffer():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:590
+
+    return( 64 );
+}
+
+u16 convertHexEncodedStringToBuffer( u8 *ucString, u8 *ucBuffer )
+{
+   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+   2:	4604      	mov	r4, r0
+   4:	460e      	mov	r6, r1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:598
+    // Note that input buffer may be used as output buffer since input is always
+    //  twice the length of the output
+    u16 uiLen;
+    u8 ucByte;
+
+    for( uiLen = 0; *ucString; ){
+   6:	2500      	movs	r5, #0
+   8:	e00b      	b.n	22 <convertHexEncodedStringToBuffer+0x22>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:599
+        ucByte = convertHexCharToInteger( *(ucString++) ) * 16;
+   a:	f7ff fffe 	bl	0 <convertHexEncodedStringToBuffer>
+   e:	0100      	lsls	r0, r0, #4
+  10:	b2c7      	uxtb	r7, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:600
+        ucByte += convertHexCharToInteger( *(ucString++) );
+  12:	7860      	ldrb	r0, [r4, #1]
+  14:	f7ff fffe 	bl	0 <convertHexEncodedStringToBuffer>
+  18:	1838      	adds	r0, r7, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:601
+        ucBuffer[ uiLen++ ] = ucByte;
+  1a:	5570      	strb	r0, [r6, r5]
+  1c:	3501      	adds	r5, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:589
+    } 
+
+    return( 64 );
+}
+
+u16 convertHexEncodedStringToBuffer( u8 *ucString, u8 *ucBuffer )
+  1e:	3402      	adds	r4, #2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:601
+    u8 ucByte;
+
+    for( uiLen = 0; *ucString; ){
+        ucByte = convertHexCharToInteger( *(ucString++) ) * 16;
+        ucByte += convertHexCharToInteger( *(ucString++) );
+        ucBuffer[ uiLen++ ] = ucByte;
+  20:	b2ad      	uxth	r5, r5
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:598
+    // Note that input buffer may be used as output buffer since input is always
+    //  twice the length of the output
+    u16 uiLen;
+    u8 ucByte;
+
+    for( uiLen = 0; *ucString; ){
+  22:	7820      	ldrb	r0, [r4, #0]
+  24:	2800      	cmp	r0, #0
+  26:	d1f0      	bne.n	a <convertHexEncodedStringToBuffer+0xa>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:605
+        ucByte += convertHexCharToInteger( *(ucString++) );
+        ucBuffer[ uiLen++ ] = ucByte;
+    }
+        
+    return( uiLen );
+}
+  28:	4628      	mov	r0, r5
+  2a:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+
+Disassembly of section .text.convertBase64ToBuffer:
+
+00000000 <convertBase64ToBuffer>:
+convertBase64ToBuffer():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:620
+    
+    return( i );
+}
+
+u16 convertBase64ToBuffer( u8 *ucBufferIn, u8 *ucBufferOut )
+{
+   0:	e92d 43f8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
+   4:	4603      	mov	r3, r0
+   6:	4689      	mov	r9, r1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:624
+    u16 i, uiPad, uiLen;
+    u32 ulValue;
+    
+    for( uiLen = 0; *ucBufferIn ; ){
+   8:	2700      	movs	r7, #0
+   a:	e02b      	b.n	64 <convertBase64ToBuffer+0x64>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:626
+        for( i = 0, ulValue = 0, uiPad = 0; i < 4 && *ucBufferIn; i++ ){
+            if( convertBase64ToCode( *ucBufferIn ) == 64 )
+   c:	f7ff fffe 	bl	0 <convertBase64ToBuffer>
+  10:	2840      	cmp	r0, #64	; 0x40
+  12:	d104      	bne.n	1e <convertBase64ToBuffer+0x1e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:627
+                ++uiPad;
+  14:	f108 0801 	add.w	r8, r8, #1
+  18:	fa1f f888 	uxth.w	r8, r8
+  1c:	e001      	b.n	22 <convertBase64ToBuffer+0x22>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:629
+            else
+                ulValue +=  ( u32)convertBase64ToCode( *ucBufferIn ) << ( ( 3 - i ) * 6 ) ;
+  1e:	40a8      	lsls	r0, r5
+  20:	1824      	adds	r4, r4, r0
+  22:	3d06      	subs	r5, #6
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:625
+{
+    u16 i, uiPad, uiLen;
+    u32 ulValue;
+    
+    for( uiLen = 0; *ucBufferIn ; ){
+        for( i = 0, ulValue = 0, uiPad = 0; i < 4 && *ucBufferIn; i++ ){
+  24:	f115 0f06 	cmn.w	r5, #6
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:629
+            if( convertBase64ToCode( *ucBufferIn ) == 64 )
+                ++uiPad;
+            else
+                ulValue +=  ( u32)convertBase64ToCode( *ucBufferIn ) << ( ( 3 - i ) * 6 ) ;
+  28:	4633      	mov	r3, r6
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:625
+{
+    u16 i, uiPad, uiLen;
+    u32 ulValue;
+    
+    for( uiLen = 0; *ucBufferIn ; ){
+        for( i = 0, ulValue = 0, uiPad = 0; i < 4 && *ucBufferIn; i++ ){
+  2a:	d101      	bne.n	30 <convertBase64ToBuffer+0x30>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:624
+u16 convertBase64ToBuffer( u8 *ucBufferIn, u8 *ucBufferOut )
+{
+    u16 i, uiPad, uiLen;
+    u32 ulValue;
+    
+    for( uiLen = 0; *ucBufferIn ; ){
+  2c:	2200      	movs	r2, #0
+  2e:	e015      	b.n	5c <convertBase64ToBuffer+0x5c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:625
+        for( i = 0, ulValue = 0, uiPad = 0; i < 4 && *ucBufferIn; i++ ){
+  30:	4633      	mov	r3, r6
+  32:	f816 0b01 	ldrb.w	r0, [r6], #1
+  36:	2800      	cmp	r0, #0
+  38:	d1e8      	bne.n	c <convertBase64ToBuffer+0xc>
+  3a:	e7f7      	b.n	2c <convertBase64ToBuffer+0x2c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:633
+            else
+                ulValue +=  ( u32)convertBase64ToCode( *ucBufferIn ) << ( ( 3 - i ) * 6 ) ;
+            ++ucBufferIn;
+        }
+        for( i = 0; i < 3-uiPad; i++, uiLen++ ){
+            *(ucBufferOut++) = PYGMYBASE64CHARS[ (u8)(0x000000FF & ( ulValue >> ( ( 2 - i ) * 8 ) ) ) ];
+  3c:	f1c2 0102 	rsb	r1, r2, #2
+  40:	00c9      	lsls	r1, r1, #3
+  42:	fa34 f101 	lsrs.w	r1, r4, r1
+  46:	480c      	ldr	r0, [pc, #48]	; (78 <convertBase64ToBuffer+0x78>)
+  48:	b2c9      	uxtb	r1, r1
+  4a:	1841      	adds	r1, r0, r1
+  4c:	f891 10f0 	ldrb.w	r1, [r1, #240]	; 0xf0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:632
+                ++uiPad;
+            else
+                ulValue +=  ( u32)convertBase64ToCode( *ucBufferIn ) << ( ( 3 - i ) * 6 ) ;
+            ++ucBufferIn;
+        }
+        for( i = 0; i < 3-uiPad; i++, uiLen++ ){
+  50:	3201      	adds	r2, #1
+  52:	3701      	adds	r7, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:633
+            *(ucBufferOut++) = PYGMYBASE64CHARS[ (u8)(0x000000FF & ( ulValue >> ( ( 2 - i ) * 8 ) ) ) ];
+  54:	f809 1b01 	strb.w	r1, [r9], #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:632
+                ++uiPad;
+            else
+                ulValue +=  ( u32)convertBase64ToCode( *ucBufferIn ) << ( ( 3 - i ) * 6 ) ;
+            ++ucBufferIn;
+        }
+        for( i = 0; i < 3-uiPad; i++, uiLen++ ){
+  58:	b292      	uxth	r2, r2
+  5a:	b2bf      	uxth	r7, r7
+  5c:	f1c8 0103 	rsb	r1, r8, #3
+  60:	428a      	cmp	r2, r1
+  62:	dbeb      	blt.n	3c <convertBase64ToBuffer+0x3c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:624
+u16 convertBase64ToBuffer( u8 *ucBufferIn, u8 *ucBufferOut )
+{
+    u16 i, uiPad, uiLen;
+    u32 ulValue;
+    
+    for( uiLen = 0; *ucBufferIn ; ){
+  64:	781a      	ldrb	r2, [r3, #0]
+  66:	b122      	cbz	r2, 72 <convertBase64ToBuffer+0x72>
+  68:	2400      	movs	r4, #0
+  6a:	461e      	mov	r6, r3
+  6c:	2512      	movs	r5, #18
+  6e:	46a0      	mov	r8, r4
+  70:	e7de      	b.n	30 <convertBase64ToBuffer+0x30>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:638
+            *(ucBufferOut++) = PYGMYBASE64CHARS[ (u8)(0x000000FF & ( ulValue >> ( ( 2 - i ) * 8 ) ) ) ];
+        }
+    }
+    
+    return( uiLen );
+}
+  72:	4638      	mov	r0, r7
+  74:	e8bd 83f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
+  78:	00000000 	.word	0x00000000
+
+Disassembly of section .text.convertBase64ToString:
+
+00000000 <convertBase64ToString>:
+convertBase64ToString():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:641
+
+void convertBase64ToString( u8 *ucBuffer, u8 *ucString )
+{
+   0:	41f0e92d 	.word	0x41f0e92d
+   4:	4603      	mov	r3, r0
+   6:	460f      	mov	r7, r1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:645
+    u16 i, uiPad;
+    u32 ulValue;
+    
+    for( ; *ucBuffer ; ){
+   8:	e029      	b.n	5e <convertBase64ToString+0x5e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:647
+        for( i = 0, ulValue = 0, uiPad = 0; i < 4 && *ucBuffer; i++ ){
+            if( convertBase64ToCode( *ucBuffer ) == 64 )
+   a:	f7ff fffe 	bl	0 <convertBase64ToString>
+   e:	2840      	cmp	r0, #64	; 0x40
+  10:	d104      	bne.n	1c <convertBase64ToString+0x1c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:648
+                ++uiPad;
+  12:	f108 0801 	add.w	r8, r8, #1
+  16:	fa1f f888 	uxth.w	r8, r8
+  1a:	e001      	b.n	20 <convertBase64ToString+0x20>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:650
+            else
+                ulValue +=  ( u32)convertBase64ToCode( *ucBuffer ) << ( ( 3 - i ) * 6 ) ;
+  1c:	40a8      	lsls	r0, r5
+  1e:	1824      	adds	r4, r4, r0
+  20:	3d06      	subs	r5, #6
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:646
+{
+    u16 i, uiPad;
+    u32 ulValue;
+    
+    for( ; *ucBuffer ; ){
+        for( i = 0, ulValue = 0, uiPad = 0; i < 4 && *ucBuffer; i++ ){
+  22:	f115 0f06 	cmn.w	r5, #6
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:650
+            if( convertBase64ToCode( *ucBuffer ) == 64 )
+                ++uiPad;
+            else
+                ulValue +=  ( u32)convertBase64ToCode( *ucBuffer ) << ( ( 3 - i ) * 6 ) ;
+  26:	4633      	mov	r3, r6
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:646
+{
+    u16 i, uiPad;
+    u32 ulValue;
+    
+    for( ; *ucBuffer ; ){
+        for( i = 0, ulValue = 0, uiPad = 0; i < 4 && *ucBuffer; i++ ){
+  28:	d101      	bne.n	2e <convertBase64ToString+0x2e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:645
+void convertBase64ToString( u8 *ucBuffer, u8 *ucString )
+{
+    u16 i, uiPad;
+    u32 ulValue;
+    
+    for( ; *ucBuffer ; ){
+  2a:	2200      	movs	r2, #0
+  2c:	e013      	b.n	56 <convertBase64ToString+0x56>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:646
+        for( i = 0, ulValue = 0, uiPad = 0; i < 4 && *ucBuffer; i++ ){
+  2e:	4633      	mov	r3, r6
+  30:	f816 0b01 	ldrb.w	r0, [r6], #1
+  34:	2800      	cmp	r0, #0
+  36:	d1e8      	bne.n	a <convertBase64ToString+0xa>
+  38:	e7f7      	b.n	2a <convertBase64ToString+0x2a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:654
+            else
+                ulValue +=  ( u32)convertBase64ToCode( *ucBuffer ) << ( ( 3 - i ) * 6 ) ;
+            ++ucBuffer;
+        }
+        for( i = 0; i < 3-uiPad; i++){
+            *(ucString++) = PYGMYBASE64CHARS[ (u8)(0x000000FF & ( ulValue >> ( ( 2 - i ) * 8 ) ) ) ];
+  3a:	f1c2 0102 	rsb	r1, r2, #2
+  3e:	00c9      	lsls	r1, r1, #3
+  40:	fa34 f101 	lsrs.w	r1, r4, r1
+  44:	480b      	ldr	r0, [pc, #44]	; (74 <convertBase64ToString+0x74>)
+  46:	b2c9      	uxtb	r1, r1
+  48:	1841      	adds	r1, r0, r1
+  4a:	f891 10f0 	ldrb.w	r1, [r1, #240]	; 0xf0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:653
+                ++uiPad;
+            else
+                ulValue +=  ( u32)convertBase64ToCode( *ucBuffer ) << ( ( 3 - i ) * 6 ) ;
+            ++ucBuffer;
+        }
+        for( i = 0; i < 3-uiPad; i++){
+  4e:	3201      	adds	r2, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:654
+            *(ucString++) = PYGMYBASE64CHARS[ (u8)(0x000000FF & ( ulValue >> ( ( 2 - i ) * 8 ) ) ) ];
+  50:	f807 1b01 	strb.w	r1, [r7], #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:653
+                ++uiPad;
+            else
+                ulValue +=  ( u32)convertBase64ToCode( *ucBuffer ) << ( ( 3 - i ) * 6 ) ;
+            ++ucBuffer;
+        }
+        for( i = 0; i < 3-uiPad; i++){
+  54:	b292      	uxth	r2, r2
+  56:	f1c8 0103 	rsb	r1, r8, #3
+  5a:	428a      	cmp	r2, r1
+  5c:	dbed      	blt.n	3a <convertBase64ToString+0x3a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:645
+void convertBase64ToString( u8 *ucBuffer, u8 *ucString )
+{
+    u16 i, uiPad;
+    u32 ulValue;
+    
+    for( ; *ucBuffer ; ){
+  5e:	781a      	ldrb	r2, [r3, #0]
+  60:	b122      	cbz	r2, 6c <convertBase64ToString+0x6c>
+  62:	2400      	movs	r4, #0
+  64:	461e      	mov	r6, r3
+  66:	2512      	movs	r5, #18
+  68:	46a0      	mov	r8, r4
+  6a:	e7e0      	b.n	2e <convertBase64ToString+0x2e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:657
+        }
+        for( i = 0; i < 3-uiPad; i++){
+            *(ucString++) = PYGMYBASE64CHARS[ (u8)(0x000000FF & ( ulValue >> ( ( 2 - i ) * 8 ) ) ) ];
+        }
+    }
+    *ucString = '\0';
+  6c:	703a      	strb	r2, [r7, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:658
+}
+  6e:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  72:	bf00      	nop
+  74:	00000000 	.word	0x00000000
+
+Disassembly of section .text.convertStringToBase64:
+
+00000000 <convertStringToBase64>:
+convertStringToBase64():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:661
+
+void convertStringToBase64( u8 *ucString, u8 *ucBase64 )
+{
+   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+   2:	4604      	mov	r4, r0
+   4:	460d      	mov	r5, r1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:665
+    u16 i, uiPad, uiLen;
+    u32 ulValue;
+    
+    uiLen = len( ucString );
+   6:	f7ff fffe 	bl	0 <convertStringToBase64>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:675
+                break;
+            }
+            ulValue += ((u32)*(ucString++) << ( ( 2 - i ) * 8 ) );
+        }
+        if( uiPad )
+            uiPad = 3 - ( uiLen % 3 );
+   a:	2303      	movs	r3, #3
+   c:	fbb0 f3f3 	udiv	r3, r0, r3
+  10:	eb03 0343 	add.w	r3, r3, r3, lsl #1
+  14:	1ac0      	subs	r0, r0, r3
+  16:	f1c0 0003 	rsb	r0, r0, #3
+  1a:	b280      	uxth	r0, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:666
+{
+    u16 i, uiPad, uiLen;
+    u32 ulValue;
+    
+    uiLen = len( ucString );
+    for( ; *ucString; ){
+  1c:	e022      	b.n	64 <convertStringToBase64+0x64>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:672
+        for( i = 0, ulValue = 0, uiPad = 0; i < 3; i++){
+            if( !(*ucString) ){
+                uiPad = 1;
+                break;
+            }
+            ulValue += ((u32)*(ucString++) << ( ( 2 - i ) * 8 ) );
+  1e:	1852      	adds	r2, r2, r1
+  20:	3401      	adds	r4, #1
+  22:	2100      	movs	r1, #0
+  24:	e000      	b.n	28 <convertStringToBase64+0x28>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:675
+        }
+        if( uiPad )
+            uiPad = 3 - ( uiLen % 3 );
+  26:	4601      	mov	r1, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:676
+        for( i = 0; i < 4 - uiPad; i++ ){
+  28:	2300      	movs	r3, #0
+  2a:	e00f      	b.n	4c <convertStringToBase64+0x4c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:677
+            *(ucBase64++) = PYGMYBASE64CHARS[ (u8)(0x0000003F & ( ulValue >> ( ( 3 - i ) * 6 ) ) ) ];
+  2c:	f06f 0605 	mvn.w	r6, #5
+  30:	435e      	muls	r6, r3
+  32:	3612      	adds	r6, #18
+  34:	fa32 f606 	lsrs.w	r6, r2, r6
+  38:	4f12      	ldr	r7, [pc, #72]	; (84 <convertStringToBase64+0x84>)
+  3a:	f006 063f 	and.w	r6, r6, #63	; 0x3f
+  3e:	19be      	adds	r6, r7, r6
+  40:	f896 60f0 	ldrb.w	r6, [r6, #240]	; 0xf0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:676
+            }
+            ulValue += ((u32)*(ucString++) << ( ( 2 - i ) * 8 ) );
+        }
+        if( uiPad )
+            uiPad = 3 - ( uiLen % 3 );
+        for( i = 0; i < 4 - uiPad; i++ ){
+  44:	3301      	adds	r3, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:677
+            *(ucBase64++) = PYGMYBASE64CHARS[ (u8)(0x0000003F & ( ulValue >> ( ( 3 - i ) * 6 ) ) ) ];
+  46:	f805 6b01 	strb.w	r6, [r5], #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:676
+            }
+            ulValue += ((u32)*(ucString++) << ( ( 2 - i ) * 8 ) );
+        }
+        if( uiPad )
+            uiPad = 3 - ( uiLen % 3 );
+        for( i = 0; i < 4 - uiPad; i++ ){
+  4a:	b29b      	uxth	r3, r3
+  4c:	f1c1 0604 	rsb	r6, r1, #4
+  50:	42b3      	cmp	r3, r6
+  52:	dbeb      	blt.n	2c <convertStringToBase64+0x2c>
+  54:	e004      	b.n	60 <convertStringToBase64+0x60>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:680
+            *(ucBase64++) = PYGMYBASE64CHARS[ (u8)(0x0000003F & ( ulValue >> ( ( 3 - i ) * 6 ) ) ) ];
+        }
+        for( ; i < 4; i++ ){
+            *(ucBase64++) = '=';
+  56:	223d      	movs	r2, #61	; 0x3d
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:679
+        if( uiPad )
+            uiPad = 3 - ( uiLen % 3 );
+        for( i = 0; i < 4 - uiPad; i++ ){
+            *(ucBase64++) = PYGMYBASE64CHARS[ (u8)(0x0000003F & ( ulValue >> ( ( 3 - i ) * 6 ) ) ) ];
+        }
+        for( ; i < 4; i++ ){
+  58:	3301      	adds	r3, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:680
+            *(ucBase64++) = '=';
+  5a:	f805 2b01 	strb.w	r2, [r5], #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:679
+        if( uiPad )
+            uiPad = 3 - ( uiLen % 3 );
+        for( i = 0; i < 4 - uiPad; i++ ){
+            *(ucBase64++) = PYGMYBASE64CHARS[ (u8)(0x0000003F & ( ulValue >> ( ( 3 - i ) * 6 ) ) ) ];
+        }
+        for( ; i < 4; i++ ){
+  5e:	b29b      	uxth	r3, r3
+  60:	2b03      	cmp	r3, #3
+  62:	d9f8      	bls.n	56 <convertStringToBase64+0x56>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:666
+{
+    u16 i, uiPad, uiLen;
+    u32 ulValue;
+    
+    uiLen = len( ucString );
+    for( ; *ucString; ){
+  64:	7822      	ldrb	r2, [r4, #0]
+  66:	b15a      	cbz	r2, 80 <convertStringToBase64+0x80>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:668
+        for( i = 0, ulValue = 0, uiPad = 0; i < 3; i++){
+            if( !(*ucString) ){
+  68:	f814 1f01 	ldrb.w	r1, [r4, #1]!
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:672
+                uiPad = 1;
+                break;
+            }
+            ulValue += ((u32)*(ucString++) << ( ( 2 - i ) * 8 ) );
+  6c:	0412      	lsls	r2, r2, #16
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:668
+    u32 ulValue;
+    
+    uiLen = len( ucString );
+    for( ; *ucString; ){
+        for( i = 0, ulValue = 0, uiPad = 0; i < 3; i++){
+            if( !(*ucString) ){
+  6e:	2900      	cmp	r1, #0
+  70:	d0d9      	beq.n	26 <convertStringToBase64+0x26>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:672
+                uiPad = 1;
+                break;
+            }
+            ulValue += ((u32)*(ucString++) << ( ( 2 - i ) * 8 ) );
+  72:	0209      	lsls	r1, r1, #8
+  74:	1852      	adds	r2, r2, r1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:668
+    u32 ulValue;
+    
+    uiLen = len( ucString );
+    for( ; *ucString; ){
+        for( i = 0, ulValue = 0, uiPad = 0; i < 3; i++){
+            if( !(*ucString) ){
+  76:	f814 1f01 	ldrb.w	r1, [r4, #1]!
+  7a:	2900      	cmp	r1, #0
+  7c:	d1cf      	bne.n	1e <convertStringToBase64+0x1e>
+  7e:	e7d2      	b.n	26 <convertStringToBase64+0x26>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:683
+        }
+        for( ; i < 4; i++ ){
+            *(ucBase64++) = '=';
+        }
+    }
+    *ucBase64 = '\0';
+  80:	702a      	strb	r2, [r5, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_string.c:684
+}
+  82:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+  84:	00000000 	.word	0x00000000

@@ -82,6 +82,18 @@ convertBufferToU32():
   12:	ea43 2000 	orr.w	r0, r3, r0, lsl #8
   16:	4770      	bx	lr
 
+Disassembly of section .text.isPrintable:
+
+00000000 <isPrintable>:
+isPrintable():
+   0:	3820      	subs	r0, #32
+   2:	b2c0      	uxtb	r0, r0
+   4:	285e      	cmp	r0, #94	; 0x5e
+   6:	bf8c      	ite	hi
+   8:	2000      	movhi	r0, #0
+   a:	2001      	movls	r0, #1
+   c:	4770      	bx	lr
+
 Disassembly of section .text.isCharInString:
 
 00000000 <isCharInString>:

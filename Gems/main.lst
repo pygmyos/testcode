@@ -247,130 +247,89 @@ Disassembly of section .text.main:
 
 00000000 <main>:
 main():
-   0:	b530      	push	{r4, r5, lr}
-   2:	b087      	sub	sp, #28
+   0:	b500      	push	{lr}
+   2:	b08b      	sub	sp, #44	; 0x2c
    4:	f7ff fffe 	bl	0 <sysInit>
    8:	f7ff fffe 	bl	0 <socketInit>
    c:	f7ff fffe 	bl	0 <rfInit>
   10:	f7ff fffe 	bl	0 <socketGetID>
-  14:	4c42      	ldr	r4, [pc, #264]	; (120 <main+0x120>)
+  14:	492f      	ldr	r1, [pc, #188]	; (d4 <main+0xd4>)
   16:	4602      	mov	r2, r0
-  18:	4942      	ldr	r1, [pc, #264]	; (124 <main+0x124>)
-  1a:	2001      	movs	r0, #1
-  1c:	f7ff fffe 	bl	0 <print>
-  20:	8aa3      	ldrh	r3, [r4, #20]
-  22:	f5b3 6f86 	cmp.w	r3, #1072	; 0x430
-  26:	d103      	bne.n	30 <main+0x30>
-  28:	2001      	movs	r0, #1
-  2a:	493f      	ldr	r1, [pc, #252]	; (128 <main+0x128>)
-  2c:	f7ff fffe 	bl	0 <print>
-  30:	6822      	ldr	r2, [r4, #0]
-  32:	4b3e      	ldr	r3, [pc, #248]	; (12c <main+0x12c>)
-  34:	429a      	cmp	r2, r3
-  36:	d103      	bne.n	40 <main+0x40>
-  38:	2001      	movs	r0, #1
-  3a:	493d      	ldr	r1, [pc, #244]	; (130 <main+0x130>)
-  3c:	f7ff fffe 	bl	0 <print>
-  40:	7de3      	ldrb	r3, [r4, #23]
-  42:	2b09      	cmp	r3, #9
-  44:	d103      	bne.n	4e <main+0x4e>
-  46:	2001      	movs	r0, #1
-  48:	493a      	ldr	r1, [pc, #232]	; (134 <main+0x134>)
-  4a:	f7ff fffe 	bl	0 <print>
-  4e:	7e23      	ldrb	r3, [r4, #24]
-  50:	2b0a      	cmp	r3, #10
-  52:	d103      	bne.n	5c <main+0x5c>
-  54:	2001      	movs	r0, #1
-  56:	4938      	ldr	r1, [pc, #224]	; (138 <main+0x138>)
-  58:	f7ff fffe 	bl	0 <print>
-  5c:	220a      	movs	r2, #10
-  5e:	23ff      	movs	r3, #255	; 0xff
-  60:	2109      	movs	r1, #9
-  62:	2051      	movs	r0, #81	; 0x51
-  64:	f7ff fffe 	bl	0 <eepromOpen>
-  68:	2144      	movs	r1, #68	; 0x44
-  6a:	2000      	movs	r0, #0
-  6c:	f7ff fffe 	bl	0 <eepromPutChar>
-  70:	2155      	movs	r1, #85	; 0x55
-  72:	2001      	movs	r0, #1
-  74:	f7ff fffe 	bl	0 <eepromPutChar>
-  78:	2142      	movs	r1, #66	; 0x42
-  7a:	2002      	movs	r0, #2
-  7c:	f7ff fffe 	bl	0 <eepromPutChar>
-  80:	2001      	movs	r0, #1
-  82:	492e      	ldr	r1, [pc, #184]	; (13c <main+0x13c>)
-  84:	f7ff fffe 	bl	0 <print>
-  88:	2400      	movs	r4, #0
-  8a:	4620      	mov	r0, r4
-  8c:	f7ff fffe 	bl	0 <eepromGetChar>
-  90:	b2c5      	uxtb	r5, r0
-  92:	4628      	mov	r0, r5
-  94:	f7ff fffe 	bl	0 <isAlphaOrNumeric>
-  98:	b110      	cbz	r0, a0 <main+0xa0>
-  9a:	2001      	movs	r0, #1
-  9c:	4928      	ldr	r1, [pc, #160]	; (140 <main+0x140>)
-  9e:	e001      	b.n	a4 <main+0xa4>
-  a0:	4928      	ldr	r1, [pc, #160]	; (144 <main+0x144>)
-  a2:	2001      	movs	r0, #1
-  a4:	462a      	mov	r2, r5
-  a6:	3401      	adds	r4, #1
-  a8:	f7ff fffe 	bl	0 <print>
-  ac:	2c03      	cmp	r4, #3
-  ae:	d1ec      	bne.n	8a <main+0x8a>
-  b0:	a801      	add	r0, sp, #4
-  b2:	4925      	ldr	r1, [pc, #148]	; (148 <main+0x148>)
-  b4:	f7ff fffe 	bl	0 <isStringSame>
-  b8:	b368      	cbz	r0, 116 <main+0x116>
-  ba:	2001      	movs	r0, #1
-  bc:	4923      	ldr	r1, [pc, #140]	; (14c <main+0x14c>)
-  be:	f7ff fffe 	bl	0 <print>
-  c2:	4923      	ldr	r1, [pc, #140]	; (150 <main+0x150>)
-  c4:	4823      	ldr	r0, [pc, #140]	; (154 <main+0x154>)
-  c6:	f7ff fffe 	bl	0 <fileOpenResource>
-  ca:	4923      	ldr	r1, [pc, #140]	; (158 <main+0x158>)
-  cc:	4821      	ldr	r0, [pc, #132]	; (154 <main+0x154>)
-  ce:	f7ff fffe 	bl	0 <fontLoad>
-  d2:	4821      	ldr	r0, [pc, #132]	; (88 <fontSetAll+0x88>)
-  d4:	f7ff fffe 	bl	0 <fontSetAll>
-  d8:	2000      	movs	r0, #0
-  da:	2118      	movs	r1, #24
-  dc:	f7ff fffe 	bl	0 <pinConfig>
-  e0:	2028      	movs	r0, #40	; 0x28
-  e2:	2118      	movs	r1, #24
-  e4:	f7ff fffe 	bl	0 <pinConfig>
-  e8:	2006      	movs	r0, #6
-  ea:	2118      	movs	r1, #24
-  ec:	f7ff fffe 	bl	0 <pinConfig>
-  f0:	2004      	movs	r0, #4
-  f2:	2118      	movs	r1, #24
-  f4:	f7ff fffe 	bl	0 <pinConfig>
-  f8:	2005      	movs	r0, #5
-  fa:	2118      	movs	r1, #24
-  fc:	f7ff fffe 	bl	0 <pinConfig>
- 100:	2002      	movs	r0, #2
- 102:	2118      	movs	r1, #24
- 104:	f7ff fffe 	bl	0 <pinConfig>
- 108:	4620      	mov	r0, r4
- 10a:	2118      	movs	r1, #24
- 10c:	f7ff fffe 	bl	0 <pinConfig>
- 110:	f7ff fffe 	bl	0 <main>
- 114:	e003      	b.n	11e <main+0x11e>
- 116:	2020      	movs	r0, #32
- 118:	2121      	movs	r1, #33	; 0x21
- 11a:	f7ff fffe 	bl	0 <humidityInit>
- 11e:	e7fe      	b.n	0 <pygmyGlobalData>
- 120:	00000000 	.word	0x00000000
- 124:	0000003e 	.word	0x0000003e
- 128:	0000004d 	.word	0x0000004d
- 12c:	044aa200 	.word	0x044aa200
- 130:	00000079 	.word	0x00000079
- 134:	000000a1 	.word	0x000000a1
- 138:	000000cd 	.word	0x000000cd
- 13c:	000000f8 	.word	0x000000f8
- 140:	0000010e 	.word	0x0000010e
- 144:	00000111 	.word	0x00000111
- 148:	00000116 	.word	0x00000116
- 14c:	00000121 	.word	0x00000121
+  18:	2001      	movs	r0, #1
+  1a:	f7ff fffe 	bl	0 <print>
+  1e:	22ff      	movs	r2, #255	; 0xff
+  20:	4613      	mov	r3, r2
+  22:	210a      	movs	r1, #10
+  24:	2009      	movs	r0, #9
+  26:	f7ff fffe 	bl	0 <mpl115a2Init>
+  2a:	f7ff fffe 	bl	0 <mpl115a2ReadkPa>
+  2e:	f7ff fffe 	bl	0 <__aeabi_f2d>
+  32:	4602      	mov	r2, r0
+  34:	460b      	mov	r3, r1
+  36:	2001      	movs	r0, #1
+  38:	4927      	ldr	r1, [pc, #156]	; (d8 <main+0xd8>)
+  3a:	f7ff fffe 	bl	0 <print>
+  3e:	f7ff fffe 	bl	0 <mpl115a2ReadTemp>
+  42:	f7ff fffe 	bl	0 <__aeabi_f2d>
+  46:	4602      	mov	r2, r0
+  48:	460b      	mov	r3, r1
+  4a:	2001      	movs	r0, #1
+  4c:	4923      	ldr	r1, [pc, #140]	; (dc <main+0xdc>)
+  4e:	f7ff fffe 	bl	0 <print>
+  52:	2008      	movs	r0, #8
+  54:	2103      	movs	r1, #3
+  56:	f7ff fffe 	bl	0 <pinConfig>
+  5a:	2008      	movs	r0, #8
+  5c:	2101      	movs	r1, #1
+  5e:	f7ff fffe 	bl	0 <pinSet>
+  62:	4668      	mov	r0, sp
+  64:	491e      	ldr	r1, [pc, #120]	; (e0 <main+0xe0>)
+  66:	f7ff fffe 	bl	0 <isStringSame>
+  6a:	b368      	cbz	r0, c8 <main+0xc8>
+  6c:	2001      	movs	r0, #1
+  6e:	491d      	ldr	r1, [pc, #116]	; (e4 <main+0xe4>)
+  70:	f7ff fffe 	bl	0 <print>
+  74:	491c      	ldr	r1, [pc, #112]	; (e8 <main+0xe8>)
+  76:	481d      	ldr	r0, [pc, #116]	; (ec <main+0xec>)
+  78:	f7ff fffe 	bl	0 <fileOpenResource>
+  7c:	491c      	ldr	r1, [pc, #112]	; (f0 <main+0xf0>)
+  7e:	481b      	ldr	r0, [pc, #108]	; (ec <main+0xec>)
+  80:	f7ff fffe 	bl	0 <fontLoad>
+  84:	481a      	ldr	r0, [pc, #104]	; (6c <fontSetAll+0x6c>)
+  86:	f7ff fffe 	bl	0 <fontSetAll>
+  8a:	2000      	movs	r0, #0
+  8c:	2118      	movs	r1, #24
+  8e:	f7ff fffe 	bl	0 <pinConfig>
+  92:	2028      	movs	r0, #40	; 0x28
+  94:	2118      	movs	r1, #24
+  96:	f7ff fffe 	bl	0 <pinConfig>
+  9a:	2006      	movs	r0, #6
+  9c:	2118      	movs	r1, #24
+  9e:	f7ff fffe 	bl	0 <pinConfig>
+  a2:	2004      	movs	r0, #4
+  a4:	2118      	movs	r1, #24
+  a6:	f7ff fffe 	bl	0 <pinConfig>
+  aa:	2005      	movs	r0, #5
+  ac:	2118      	movs	r1, #24
+  ae:	f7ff fffe 	bl	0 <pinConfig>
+  b2:	2002      	movs	r0, #2
+  b4:	2118      	movs	r1, #24
+  b6:	f7ff fffe 	bl	0 <pinConfig>
+  ba:	2003      	movs	r0, #3
+  bc:	2118      	movs	r1, #24
+  be:	f7ff fffe 	bl	0 <pinConfig>
+  c2:	f7ff fffe 	bl	0 <main>
+  c6:	e003      	b.n	d0 <main+0xd0>
+  c8:	2020      	movs	r0, #32
+  ca:	2121      	movs	r1, #33	; 0x21
+  cc:	f7ff fffe 	bl	0 <hih5030Init>
+  d0:	e7fe      	b.n	d0 <main+0xd0>
+  d2:	bf00      	nop
+  d4:	0000003e 	.word	0x0000003e
+  d8:	0000004d 	.word	0x0000004d
+  dc:	0000005b 	.word	0x0000005b
+  e0:	00000065 	.word	0x00000065
+  e4:	00000072 	.word	0x00000072
 	...
 
 Disassembly of section .text.threadRFHumidity:
@@ -438,15 +397,15 @@ threadRFHumidity():
   90:	bd10      	pop	{r4, pc}
   92:	bf00      	nop
   94:	13480238 	.word	0x13480238
-  98:	00000136 	.word	0x00000136
-  9c:	00000143 	.word	0x00000143
+  98:	00000087 	.word	0x00000087
+  9c:	00000094 	.word	0x00000094
   a0:	00000000 	.word	0x00000000
-  a4:	00000157 	.word	0x00000157
-  a8:	00000169 	.word	0x00000169
-  ac:	0000017f 	.word	0x0000017f
-  b0:	00000198 	.word	0x00000198
+  a4:	000000a8 	.word	0x000000a8
+  a8:	000000ba 	.word	0x000000ba
+  ac:	000000d0 	.word	0x000000d0
+  b0:	000000e9 	.word	0x000000e9
   b4:	00000000 	.word	0x00000000
-  b8:	0000019c 	.word	0x0000019c
+  b8:	000000ed 	.word	0x000000ed
 
 Disassembly of section .text.threadRFHumiditySave:
 
@@ -458,7 +417,7 @@ threadRFHumiditySave():
    a:	aa05      	add	r2, sp, #20
    c:	f7ff fffe 	bl	0 <msgGet>
   10:	2800      	cmp	r0, #0
-  12:	d037      	beq.n	84 <threadRFHumiditySave+0x84>
+  12:	d036      	beq.n	82 <threadRFHumiditySave+0x82>
   14:	2001      	movs	r0, #1
   16:	491d      	ldr	r1, [pc, #116]	; (8c <threadRFHumiditySave+0x8c>)
   18:	f7ff fffe 	bl	0 <print>
@@ -466,50 +425,51 @@ threadRFHumiditySave():
   1e:	491c      	ldr	r1, [pc, #112]	; (90 <threadRFHumiditySave+0x90>)
   20:	f7ff fffe 	bl	0 <isStringSame>
   24:	4604      	mov	r4, r0
-  26:	b1d8      	cbz	r0, 60 <threadRFHumiditySave+0x60>
+  26:	b1d0      	cbz	r0, 5e <threadRFHumiditySave+0x5e>
   28:	f7ff fffe 	bl	0 <humidityRead>
-  2c:	f7ff fffe 	bl	0 <__aeabi_f2lz>
-  30:	4a18      	ldr	r2, [pc, #96]	; (94 <threadRFHumiditySave+0x94>)
-  32:	466b      	mov	r3, sp
-  34:	f7ff fffe 	bl	0 <convertIntToString>
-  38:	9808      	ldr	r0, [sp, #32]
-  3a:	4601      	mov	r1, r0
-  3c:	f7ff fffe 	bl	0 <socketGet>
-  40:	4604      	mov	r4, r0
-  42:	b140      	cbz	r0, 56 <threadRFHumiditySave+0x56>
-  44:	2001      	movs	r0, #1
-  46:	4914      	ldr	r1, [pc, #80]	; (98 <threadRFHumiditySave+0x98>)
-  48:	f7ff fffe 	bl	0 <print>
-  4c:	4620      	mov	r0, r4
-  4e:	4669      	mov	r1, sp
-  50:	f7ff fffe 	bl	0 <socketSendDataFromString>
-  54:	e016      	b.n	84 <threadRFHumiditySave+0x84>
-  56:	2001      	movs	r0, #1
-  58:	4910      	ldr	r1, [pc, #64]	; (9c <threadRFHumiditySave+0x9c>)
-  5a:	f7ff fffe 	bl	0 <print>
-  5e:	e011      	b.n	84 <threadRFHumiditySave+0x84>
-  60:	9807      	ldr	r0, [sp, #28]
-  62:	490f      	ldr	r1, [pc, #60]	; (a0 <threadRFHumiditySave+0xa0>)
-  64:	f7ff fffe 	bl	0 <isStringSame>
-  68:	b160      	cbz	r0, 84 <threadRFHumiditySave+0x84>
-  6a:	2001      	movs	r0, #1
-  6c:	490d      	ldr	r1, [pc, #52]	; (a4 <threadRFHumiditySave+0xa4>)
-  6e:	9a08      	ldr	r2, [sp, #32]
-  70:	f7ff fffe 	bl	0 <print>
-  74:	9808      	ldr	r0, [sp, #32]
-  76:	4621      	mov	r1, r4
-  78:	4a06      	ldr	r2, [pc, #24]	; (94 <threadRFHumiditySave+0x94>)
-  7a:	4b0b      	ldr	r3, [pc, #44]	; (a8 <threadRFHumiditySave+0xa8>)
-  7c:	f7ff fffe 	bl	0 <convertIntToString>
-  80:	f7ff fffe 	bl	0 <drawForms>
-  84:	b00a      	add	sp, #40	; 0x28
-  86:	bd10      	pop	{r4, pc}
+  2c:	4a19      	ldr	r2, [pc, #100]	; (94 <threadRFHumiditySave+0x94>)
+  2e:	17c1      	asrs	r1, r0, #31
+  30:	466b      	mov	r3, sp
+  32:	f7ff fffe 	bl	0 <convertIntToString>
+  36:	9808      	ldr	r0, [sp, #32]
+  38:	4601      	mov	r1, r0
+  3a:	f7ff fffe 	bl	0 <socketGet>
+  3e:	4604      	mov	r4, r0
+  40:	b140      	cbz	r0, 54 <threadRFHumiditySave+0x54>
+  42:	2001      	movs	r0, #1
+  44:	4914      	ldr	r1, [pc, #80]	; (98 <threadRFHumiditySave+0x98>)
+  46:	f7ff fffe 	bl	0 <print>
+  4a:	4620      	mov	r0, r4
+  4c:	4669      	mov	r1, sp
+  4e:	f7ff fffe 	bl	0 <socketSendDataFromString>
+  52:	e016      	b.n	82 <threadRFHumiditySave+0x82>
+  54:	2001      	movs	r0, #1
+  56:	4911      	ldr	r1, [pc, #68]	; (9c <threadRFHumiditySave+0x9c>)
+  58:	f7ff fffe 	bl	0 <print>
+  5c:	e011      	b.n	82 <threadRFHumiditySave+0x82>
+  5e:	9807      	ldr	r0, [sp, #28]
+  60:	490f      	ldr	r1, [pc, #60]	; (a0 <threadRFHumiditySave+0xa0>)
+  62:	f7ff fffe 	bl	0 <isStringSame>
+  66:	b160      	cbz	r0, 82 <threadRFHumiditySave+0x82>
+  68:	2001      	movs	r0, #1
+  6a:	490e      	ldr	r1, [pc, #56]	; (a4 <threadRFHumiditySave+0xa4>)
+  6c:	9a08      	ldr	r2, [sp, #32]
+  6e:	f7ff fffe 	bl	0 <print>
+  72:	9808      	ldr	r0, [sp, #32]
+  74:	4621      	mov	r1, r4
+  76:	4a07      	ldr	r2, [pc, #28]	; (94 <threadRFHumiditySave+0x94>)
+  78:	4b0b      	ldr	r3, [pc, #44]	; (a8 <threadRFHumiditySave+0xa8>)
+  7a:	f7ff fffe 	bl	0 <convertIntToString>
+  7e:	f7ff fffe 	bl	0 <drawForms>
+  82:	b00a      	add	sp, #40	; 0x28
+  84:	bd10      	pop	{r4, pc}
+  86:	bf00      	nop
   88:	00000035 	.word	0x00000035
-  8c:	000001b0 	.word	0x000001b0
-  90:	000001c2 	.word	0x000001c2
-  94:	000001c5 	.word	0x000001c5
-  98:	000001c8 	.word	0x000001c8
-  9c:	000001d6 	.word	0x000001d6
-  a0:	000001e7 	.word	0x000001e7
-  a4:	000001ea 	.word	0x000001ea
+  8c:	00000101 	.word	0x00000101
+  90:	00000113 	.word	0x00000113
+  94:	00000116 	.word	0x00000116
+  98:	00000119 	.word	0x00000119
+  9c:	00000127 	.word	0x00000127
+  a0:	00000138 	.word	0x00000138
+  a4:	0000013b 	.word	0x0000013b
   a8:	00000000 	.word	0x00000000
