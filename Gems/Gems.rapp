@@ -80,4 +80,6 @@
 	<NodeC Path="..\..\pygmyos\profiles\sensors\mpl115a2.c" Header="mpl115a2.c" Marker="-1" AsyncBuild="" OutputFile=".\mpl115a2.o" sate="0" />
 	<NodeC Path="..\..\pygmyos\profiles\sensors\hih5030.c" Header="hih5030.c" Marker="-1" AsyncBuild="" OutputFile=".\hih5030.o" sate="0" />
 	<NodeC Path="..\..\pygmyos\profiles\eeprom\at24hc02b.c" Header="at24hc02b.c" Marker="-1" AsyncBuild="" OutputFile=".\at24hc02b.o" sate="0" />
+	<NodeC Path="..\..\pygmyos\profiles\digipots\mcp443x.c" Header="mcp443x.c" Marker="-1" AsyncBuild="" OutputFile=".\mcp443x.o" sate="0" />
+	<NodeC Path="..\..\pygmyos\profiles\nebula\shields\gasSensor.c" Header="gasSensor.c" Marker="-1" AsyncBuild="" OutputFile=".\gasSensor.o" sate="0" />
 </ApplicationBuild>

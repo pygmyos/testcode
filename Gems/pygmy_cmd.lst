@@ -44,6 +44,20 @@ cmd_kill():
    0:	2000      	movs	r0, #0
    2:	4770      	bx	lr
 
+Disassembly of section .text.cmd_set:
+
+00000000 <cmd_set>:
+cmd_set():
+   0:	b500      	push	{lr}
+   2:	b089      	sub	sp, #36	; 0x24
+   4:	4669      	mov	r1, sp
+   6:	2208      	movs	r2, #8
+   8:	2302      	movs	r3, #2
+   a:	f7ff fffe 	bl	0 <getAllSubStrings>
+   e:	2001      	movs	r0, #1
+  10:	b009      	add	sp, #36	; 0x24
+  12:	bd00      	pop	{pc}
+
 Disassembly of section .text.cmd_write:
 
 00000000 <cmd_write>:
@@ -54,6 +68,103 @@ cmd_write():
    6:	f7ff fffe 	bl	0 <print>
    a:	2001      	movs	r0, #1
    c:	bd08      	pop	{r3, pc}
+
+Disassembly of section .text.cmd_gassensor:
+
+00000000 <cmd_gassensor>:
+cmd_gassensor():
+   0:	b537      	push	{r0, r1, r2, r4, r5, lr}
+   2:	2202      	movs	r2, #2
+   4:	4669      	mov	r1, sp
+   6:	4613      	mov	r3, r2
+   8:	f7ff fffe 	bl	0 <getAllSubStrings>
+   c:	f010 0fff 	tst.w	r0, #255	; 0xff
+  10:	d054      	beq.n	bc <cmd_gassensor+0xbc>
+  12:	4830      	ldr	r0, [pc, #192]	; (d4 <cmd_gassensor+0xd4>)
+  14:	9900      	ldr	r1, [sp, #0]
+  16:	f7ff fffe 	bl	0 <isStringSameIgnoreCase>
+  1a:	4605      	mov	r5, r0
+  1c:	b130      	cbz	r0, 2c <cmd_gassensor+0x2c>
+  1e:	2000      	movs	r0, #0
+  20:	492d      	ldr	r1, [pc, #180]	; (d8 <cmd_gassensor+0xd8>)
+  22:	f7ff fffe 	bl	0 <print>
+  26:	f7ff fffe 	bl	0 <gasSensorBoostEnable>
+  2a:	e047      	b.n	bc <cmd_gassensor+0xbc>
+  2c:	482b      	ldr	r0, [pc, #172]	; (dc <cmd_gassensor+0xdc>)
+  2e:	9900      	ldr	r1, [sp, #0]
+  30:	f7ff fffe 	bl	0 <isStringSameIgnoreCase>
+  34:	4604      	mov	r4, r0
+  36:	b130      	cbz	r0, 46 <cmd_gassensor+0x46>
+  38:	4628      	mov	r0, r5
+  3a:	4929      	ldr	r1, [pc, #164]	; (e0 <cmd_gassensor+0xe0>)
+  3c:	f7ff fffe 	bl	0 <print>
+  40:	f7ff fffe 	bl	0 <gasSensorBoostDisable>
+  44:	e03a      	b.n	bc <cmd_gassensor+0xbc>
+  46:	4827      	ldr	r0, [pc, #156]	; (e4 <cmd_gassensor+0xe4>)
+  48:	9900      	ldr	r1, [sp, #0]
+  4a:	f7ff fffe 	bl	0 <isStringSame>
+  4e:	b150      	cbz	r0, 66 <cmd_gassensor+0x66>
+  50:	4620      	mov	r0, r4
+  52:	4925      	ldr	r1, [pc, #148]	; (e8 <cmd_gassensor+0xe8>)
+  54:	f7ff fffe 	bl	0 <print>
+  58:	9801      	ldr	r0, [sp, #4]
+  5a:	f7ff fffe 	bl	0 <convertStringToInt>
+  5e:	b2c0      	uxtb	r0, r0
+  60:	f7ff fffe 	bl	0 <gasSensorSetHeaterPWM>
+  64:	e02a      	b.n	bc <cmd_gassensor+0xbc>
+  66:	4821      	ldr	r0, [pc, #132]	; (ec <cmd_gassensor+0xec>)
+  68:	9900      	ldr	r1, [sp, #0]
+  6a:	f7ff fffe 	bl	0 <isStringSame>
+  6e:	b130      	cbz	r0, 7e <cmd_gassensor+0x7e>
+  70:	9801      	ldr	r0, [sp, #4]
+  72:	f7ff fffe 	bl	0 <convertStringToInt>
+  76:	b2c0      	uxtb	r0, r0
+  78:	f7ff fffe 	bl	0 <gasSensorSetGain>
+  7c:	e01e      	b.n	bc <cmd_gassensor+0xbc>
+  7e:	481c      	ldr	r0, [pc, #112]	; (f0 <cmd_gassensor+0xf0>)
+  80:	9900      	ldr	r1, [sp, #0]
+  82:	f7ff fffe 	bl	0 <isStringSame>
+  86:	4605      	mov	r5, r0
+  88:	b130      	cbz	r0, 98 <cmd_gassensor+0x98>
+  8a:	9801      	ldr	r0, [sp, #4]
+  8c:	f7ff fffe 	bl	0 <convertStringToInt>
+  90:	b2c0      	uxtb	r0, r0
+  92:	f7ff fffe 	bl	0 <gasSensorSetLoad>
+  96:	e011      	b.n	bc <cmd_gassensor+0xbc>
+  98:	4816      	ldr	r0, [pc, #88]	; (f4 <cmd_gassensor+0xf4>)
+  9a:	9900      	ldr	r1, [sp, #0]
+  9c:	f7ff fffe 	bl	0 <isStringSame>
+  a0:	b160      	cbz	r0, bc <cmd_gassensor+0xbc>
+  a2:	9801      	ldr	r0, [sp, #4]
+  a4:	f7ff fffe 	bl	0 <convertStringToInt>
+  a8:	b2c4      	uxtb	r4, r0
+  aa:	4620      	mov	r0, r4
+  ac:	f7ff fffe 	bl	0 <gasSensorGetGain>
+  b0:	4911      	ldr	r1, [pc, #68]	; (f8 <cmd_gassensor+0xf8>)
+  b2:	4603      	mov	r3, r0
+  b4:	4622      	mov	r2, r4
+  b6:	4628      	mov	r0, r5
+  b8:	f7ff fffe 	bl	0 <print>
+  bc:	f7ff fffe 	bl	0 <gasSensorRead>
+  c0:	f7ff fffe 	bl	0 <__aeabi_f2d>
+  c4:	4602      	mov	r2, r0
+  c6:	460b      	mov	r3, r1
+  c8:	2001      	movs	r0, #1
+  ca:	490c      	ldr	r1, [pc, #48]	; (fc <cmd_gassensor+0xfc>)
+  cc:	f7ff fffe 	bl	0 <print>
+  d0:	2001      	movs	r0, #1
+  d2:	bd3e      	pop	{r1, r2, r3, r4, r5, pc}
+  d4:	00000000 	.word	0x00000000
+  d8:	00000003 	.word	0x00000003
+  dc:	0000000d 	.word	0x0000000d
+  e0:	00000011 	.word	0x00000011
+  e4:	0000001c 	.word	0x0000001c
+  e8:	00000020 	.word	0x00000020
+  ec:	00000030 	.word	0x00000030
+  f0:	00000035 	.word	0x00000035
+  f4:	0000003a 	.word	0x0000003a
+  f8:	00000040 	.word	0x00000040
+  fc:	00000051 	.word	0x00000051
 
 Disassembly of section .text.cmd_eeprom:
 
@@ -66,9 +177,9 @@ cmd_eeprom():
    8:	f7ff fffe 	bl	0 <getAllSubStrings>
    c:	b2c5      	uxtb	r5, r0
    e:	2d00      	cmp	r5, #0
-  10:	f000 80aa 	beq.w	168 <cmd_eeprom+0x168>
+  10:	f000 80ac 	beq.w	16c <cmd_eeprom+0x16c>
   14:	9800      	ldr	r0, [sp, #0]
-  16:	4959      	ldr	r1, [pc, #356]	; (17c <cmd_eeprom+0x17c>)
+  16:	495a      	ldr	r1, [pc, #360]	; (180 <cmd_eeprom+0x180>)
   18:	f7ff fffe 	bl	0 <isStringSame>
   1c:	4604      	mov	r4, r0
   1e:	2800      	cmp	r0, #0
@@ -84,7 +195,7 @@ cmd_eeprom():
   36:	2050      	movs	r0, #80	; 0x50
   38:	e00f      	b.n	5a <cmd_eeprom+0x5a>
   3a:	2d04      	cmp	r5, #4
-  3c:	f040 8096 	bne.w	16c <cmd_eeprom+0x16c>
+  3c:	f040 8098 	bne.w	170 <cmd_eeprom+0x170>
   40:	9801      	ldr	r0, [sp, #4]
   42:	f7ff fffe 	bl	0 <convertStringToInt>
   46:	4605      	mov	r5, r0
@@ -94,32 +205,32 @@ cmd_eeprom():
   50:	9803      	ldr	r0, [sp, #12]
   52:	f7ff fffe 	bl	0 <convertStringToPin>
   56:	4602      	mov	r2, r0
-  58:	4628      	mov	r0, r5
+  58:	b2e8      	uxtb	r0, r5
   5a:	4621      	mov	r1, r4
   5c:	23ff      	movs	r3, #255	; 0xff
   5e:	f7ff fffe 	bl	0 <eepromOpen>
   62:	2000      	movs	r0, #0
-  64:	4946      	ldr	r1, [pc, #280]	; (180 <cmd_eeprom+0x180>)
+  64:	4947      	ldr	r1, [pc, #284]	; (184 <cmd_eeprom+0x184>)
   66:	f7ff fffe 	bl	0 <print>
   6a:	f7ff fffe 	bl	0 <eepromQueryBus>
   6e:	2400      	movs	r4, #0
   70:	4605      	mov	r5, r0
-  72:	5d62      	ldrb	r2, [r4, r5]
+  72:	5d2a      	ldrb	r2, [r5, r4]
   74:	b11a      	cbz	r2, 7e <cmd_eeprom+0x7e>
   76:	2000      	movs	r0, #0
-  78:	4942      	ldr	r1, [pc, #264]	; (184 <cmd_eeprom+0x184>)
+  78:	4943      	ldr	r1, [pc, #268]	; (188 <cmd_eeprom+0x188>)
   7a:	f7ff fffe 	bl	0 <print>
   7e:	3401      	adds	r4, #1
   80:	2c08      	cmp	r4, #8
   82:	d1f6      	bne.n	72 <cmd_eeprom+0x72>
-  84:	e06e      	b.n	164 <cmd_eeprom+0x164>
+  84:	e070      	b.n	168 <cmd_eeprom+0x168>
   86:	9800      	ldr	r0, [sp, #0]
-  88:	493f      	ldr	r1, [pc, #252]	; (188 <cmd_eeprom+0x188>)
+  88:	4940      	ldr	r1, [pc, #256]	; (18c <cmd_eeprom+0x18c>)
   8a:	f7ff fffe 	bl	0 <isStringSame>
   8e:	4606      	mov	r6, r0
   90:	b198      	cbz	r0, ba <cmd_eeprom+0xba>
   92:	2d03      	cmp	r5, #3
-  94:	d96c      	bls.n	170 <cmd_eeprom+0x170>
+  94:	d96e      	bls.n	174 <cmd_eeprom+0x174>
   96:	9801      	ldr	r0, [sp, #4]
   98:	f7ff fffe 	bl	0 <convertStringToInt>
   9c:	4605      	mov	r5, r0
@@ -131,98 +242,100 @@ cmd_eeprom():
   ac:	4621      	mov	r1, r4
   ae:	4602      	mov	r2, r0
   b0:	23ff      	movs	r3, #255	; 0xff
-  b2:	4628      	mov	r0, r5
+  b2:	b2e8      	uxtb	r0, r5
   b4:	f7ff fffe 	bl	0 <eepromOpen>
-  b8:	e054      	b.n	164 <cmd_eeprom+0x164>
+  b8:	e056      	b.n	168 <cmd_eeprom+0x168>
   ba:	9800      	ldr	r0, [sp, #0]
-  bc:	4933      	ldr	r1, [pc, #204]	; (18c <cmd_eeprom+0x18c>)
+  bc:	4934      	ldr	r1, [pc, #208]	; (190 <cmd_eeprom+0x190>)
   be:	f7ff fffe 	bl	0 <isStringSame>
   c2:	4604      	mov	r4, r0
-  c4:	b1f8      	cbz	r0, 106 <cmd_eeprom+0x106>
+  c4:	b310      	cbz	r0, 10c <cmd_eeprom+0x10c>
   c6:	2d02      	cmp	r5, #2
-  c8:	d954      	bls.n	174 <cmd_eeprom+0x174>
+  c8:	d956      	bls.n	178 <cmd_eeprom+0x178>
   ca:	9801      	ldr	r0, [sp, #4]
   cc:	f7ff fffe 	bl	0 <convertStringToInt>
   d0:	9902      	ldr	r1, [sp, #8]
-  d2:	f7ff fffe 	bl	0 <eepromPutString>
-  d6:	4634      	mov	r4, r6
-  d8:	e011      	b.n	fe <cmd_eeprom+0xfe>
-  da:	9801      	ldr	r0, [sp, #4]
-  dc:	f7ff fffe 	bl	0 <convertStringToInt>
-  e0:	492b      	ldr	r1, [pc, #172]	; (b0 <eepromPutString+0xb0>)
-  e2:	f7ff fffe 	bl	0 <eepromPutString>
-  e6:	9801      	ldr	r0, [sp, #4]
-  e8:	f7ff fffe 	bl	0 <convertStringToInt>
-  ec:	aa04      	add	r2, sp, #16
-  ee:	eb02 0384 	add.w	r3, r2, r4, lsl #2
-  f2:	f853 1c08 	ldr.w	r1, [r3, #-8]
-  f6:	f7ff fffe 	bl	0 <eepromPutString>
-  fa:	3401      	adds	r4, #1
-  fc:	b2e4      	uxtb	r4, r4
-  fe:	1eeb      	subs	r3, r5, #3
- 100:	429c      	cmp	r4, r3
- 102:	dbea      	blt.n	da <cmd_eeprom+0xda>
- 104:	e02e      	b.n	164 <cmd_eeprom+0x164>
- 106:	9800      	ldr	r0, [sp, #0]
- 108:	4922      	ldr	r1, [pc, #136]	; (194 <cmd_eeprom+0x194>)
- 10a:	f7ff fffe 	bl	0 <isStringSame>
- 10e:	b310      	cbz	r0, 156 <cmd_eeprom+0x156>
- 110:	2d02      	cmp	r5, #2
- 112:	d103      	bne.n	11c <cmd_eeprom+0x11c>
- 114:	9801      	ldr	r0, [sp, #4]
- 116:	e008      	b.n	12a <cmd_eeprom+0x12a>
- 118:	25ff      	movs	r5, #255	; 0xff
- 11a:	e019      	b.n	150 <cmd_eeprom+0x150>
- 11c:	2d03      	cmp	r5, #3
- 11e:	d1fb      	bne.n	118 <cmd_eeprom+0x118>
- 120:	9801      	ldr	r0, [sp, #4]
- 122:	f7ff fffe 	bl	0 <convertStringToInt>
- 126:	b2c4      	uxtb	r4, r0
- 128:	9802      	ldr	r0, [sp, #8]
- 12a:	f7ff fffe 	bl	0 <convertStringToInt>
- 12e:	b2c5      	uxtb	r5, r0
- 130:	e00e      	b.n	150 <cmd_eeprom+0x150>
- 132:	4620      	mov	r0, r4
- 134:	f7ff fffe 	bl	0 <eepromGetChar>
- 138:	b2c6      	uxtb	r6, r0
- 13a:	4630      	mov	r0, r6
- 13c:	f7ff fffe 	bl	0 <isPrintable>
- 140:	b120      	cbz	r0, 14c <cmd_eeprom+0x14c>
- 142:	2000      	movs	r0, #0
- 144:	4914      	ldr	r1, [pc, #80]	; (198 <cmd_eeprom+0x198>)
- 146:	4632      	mov	r2, r6
- 148:	f7ff fffe 	bl	0 <print>
- 14c:	3401      	adds	r4, #1
- 14e:	b2e4      	uxtb	r4, r4
- 150:	42ac      	cmp	r4, r5
- 152:	d3ee      	bcc.n	132 <cmd_eeprom+0x132>
- 154:	e006      	b.n	164 <cmd_eeprom+0x164>
- 156:	9800      	ldr	r0, [sp, #0]
- 158:	4910      	ldr	r1, [pc, #64]	; (19c <cmd_eeprom+0x19c>)
- 15a:	f7ff fffe 	bl	0 <isStringSame>
- 15e:	b150      	cbz	r0, 18 <eepromErase+0x18>
- 160:	f7ff fffe 	bl	0 <eepromErase>
- 164:	2001      	movs	r0, #1
- 166:	e006      	b.n	176 <cmd_eeprom+0x176>
- 168:	4628      	mov	r0, r5
- 16a:	e004      	b.n	176 <cmd_eeprom+0x176>
- 16c:	2000      	movs	r0, #0
- 16e:	e002      	b.n	176 <cmd_eeprom+0x176>
- 170:	4620      	mov	r0, r4
- 172:	e000      	b.n	176 <cmd_eeprom+0x176>
- 174:	4630      	mov	r0, r6
- 176:	b004      	add	sp, #16
- 178:	bd70      	pop	{r4, r5, r6, pc}
- 17a:	bf00      	nop
- 17c:	00000000 	.word	0x00000000
- 180:	00000005 	.word	0x00000005
- 184:	0000000f 	.word	0x0000000f
- 188:	00000017 	.word	0x00000017
- 18c:	0000001c 	.word	0x0000001c
- 190:	00000022 	.word	0x00000022
- 194:	00000024 	.word	0x00000024
- 198:	00000029 	.word	0x00000029
- 19c:	0000002c 	.word	0x0000002c
+  d2:	b2c0      	uxtb	r0, r0
+  d4:	f7ff fffe 	bl	0 <eepromPutString>
+  d8:	4634      	mov	r4, r6
+  da:	e013      	b.n	104 <cmd_eeprom+0x104>
+  dc:	9801      	ldr	r0, [sp, #4]
+  de:	f7ff fffe 	bl	0 <convertStringToInt>
+  e2:	492c      	ldr	r1, [pc, #176]	; (194 <cmd_eeprom+0x194>)
+  e4:	b2c0      	uxtb	r0, r0
+  e6:	f7ff fffe 	bl	0 <eepromPutString>
+  ea:	9801      	ldr	r0, [sp, #4]
+  ec:	f7ff fffe 	bl	0 <convertStringToInt>
+  f0:	aa04      	add	r2, sp, #16
+  f2:	eb02 0384 	add.w	r3, r2, r4, lsl #2
+  f6:	b2c0      	uxtb	r0, r0
+  f8:	f853 1c08 	ldr.w	r1, [r3, #-8]
+  fc:	f7ff fffe 	bl	0 <eepromPutString>
+ 100:	3401      	adds	r4, #1
+ 102:	b2e4      	uxtb	r4, r4
+ 104:	1eeb      	subs	r3, r5, #3
+ 106:	429c      	cmp	r4, r3
+ 108:	dbe8      	blt.n	dc <cmd_eeprom+0xdc>
+ 10a:	e02d      	b.n	168 <cmd_eeprom+0x168>
+ 10c:	9800      	ldr	r0, [sp, #0]
+ 10e:	4922      	ldr	r1, [pc, #136]	; (198 <cmd_eeprom+0x198>)
+ 110:	f7ff fffe 	bl	0 <isStringSame>
+ 114:	b308      	cbz	r0, 15a <cmd_eeprom+0x15a>
+ 116:	2d02      	cmp	r5, #2
+ 118:	d103      	bne.n	122 <cmd_eeprom+0x122>
+ 11a:	9801      	ldr	r0, [sp, #4]
+ 11c:	e008      	b.n	130 <cmd_eeprom+0x130>
+ 11e:	25ff      	movs	r5, #255	; 0xff
+ 120:	e018      	b.n	154 <cmd_eeprom+0x154>
+ 122:	2d03      	cmp	r5, #3
+ 124:	d1fb      	bne.n	11e <cmd_eeprom+0x11e>
+ 126:	9801      	ldr	r0, [sp, #4]
+ 128:	f7ff fffe 	bl	0 <convertStringToInt>
+ 12c:	b2c4      	uxtb	r4, r0
+ 12e:	9802      	ldr	r0, [sp, #8]
+ 130:	f7ff fffe 	bl	0 <convertStringToInt>
+ 134:	b2c5      	uxtb	r5, r0
+ 136:	e00d      	b.n	154 <cmd_eeprom+0x154>
+ 138:	4620      	mov	r0, r4
+ 13a:	f7ff fffe 	bl	0 <eepromGetChar>
+ 13e:	4606      	mov	r6, r0
+ 140:	f7ff fffe 	bl	0 <isPrintable>
+ 144:	b120      	cbz	r0, 150 <cmd_eeprom+0x150>
+ 146:	2000      	movs	r0, #0
+ 148:	4914      	ldr	r1, [pc, #80]	; (19c <cmd_eeprom+0x19c>)
+ 14a:	4632      	mov	r2, r6
+ 14c:	f7ff fffe 	bl	0 <print>
+ 150:	3401      	adds	r4, #1
+ 152:	b2e4      	uxtb	r4, r4
+ 154:	42ac      	cmp	r4, r5
+ 156:	d3ef      	bcc.n	138 <cmd_eeprom+0x138>
+ 158:	e006      	b.n	168 <cmd_eeprom+0x168>
+ 15a:	9800      	ldr	r0, [sp, #0]
+ 15c:	4910      	ldr	r1, [pc, #64]	; (1a0 <cmd_eeprom+0x1a0>)
+ 15e:	f7ff fffe 	bl	0 <isStringSame>
+ 162:	b150      	cbz	r0, 18 <eepromErase+0x18>
+ 164:	f7ff fffe 	bl	0 <eepromErase>
+ 168:	2001      	movs	r0, #1
+ 16a:	e006      	b.n	17a <cmd_eeprom+0x17a>
+ 16c:	4628      	mov	r0, r5
+ 16e:	e004      	b.n	17a <cmd_eeprom+0x17a>
+ 170:	2000      	movs	r0, #0
+ 172:	e002      	b.n	17a <cmd_eeprom+0x17a>
+ 174:	4620      	mov	r0, r4
+ 176:	e000      	b.n	17a <cmd_eeprom+0x17a>
+ 178:	4630      	mov	r0, r6
+ 17a:	b004      	add	sp, #16
+ 17c:	bd70      	pop	{r4, r5, r6, pc}
+ 17e:	bf00      	nop
+ 180:	00000064 	.word	0x00000064
+ 184:	00000069 	.word	0x00000069
+ 188:	00000073 	.word	0x00000073
+ 18c:	0000007b 	.word	0x0000007b
+ 190:	00000080 	.word	0x00000080
+ 194:	00000086 	.word	0x00000086
+ 198:	00000088 	.word	0x00000088
+ 19c:	0000008d 	.word	0x0000008d
+ 1a0:	00000090 	.word	0x00000090
 
 Disassembly of section .text.cmd_rfsend:
 
@@ -330,8 +443,8 @@ cmd_rfscan():
   1c:	2001      	movs	r0, #1
   1e:	bd08      	pop	{r3, pc}
   20:	00000000 	.word	0x00000000
-  24:	00000032 	.word	0x00000032
-  28:	0000003d 	.word	0x0000003d
+  24:	00000096 	.word	0x00000096
+  28:	000000a1 	.word	0x000000a1
 
 Disassembly of section .text.cmd_rflist:
 
@@ -434,9 +547,9 @@ cmd_open():
   50:	4622      	mov	r2, r4
   52:	f7ff fffe 	bl	0 <fileOpen>
   56:	bd1c      	pop	{r2, r3, r4, pc}
-  58:	0000004b 	.word	0x0000004b
-  5c:	0000004e 	.word	0x0000004e
-  60:	00000051 	.word	0x00000051
+  58:	000000af 	.word	0x000000af
+  5c:	000000b2 	.word	0x000000b2
+  60:	000000b5 	.word	0x000000b5
 
 Disassembly of section .text.cmd_close:
 
@@ -526,9 +639,9 @@ cmd_read():
   7a:	b00b      	add	sp, #44	; 0x2c
   7c:	bd30      	pop	{r4, r5, pc}
   7e:	bf00      	nop
-  80:	00000054 	.word	0x00000054
-  84:	00000056 	.word	0x00000056
-  88:	00000029 	.word	0x00000029
+  80:	000000b8 	.word	0x000000b8
+  84:	000000ba 	.word	0x000000ba
+  88:	0000008d 	.word	0x0000008d
 
 Disassembly of section .text.cmd_format:
 
@@ -596,11 +709,11 @@ cmd_pinconfig():
   5c:	f7ff fffe 	bl	0 <pinConfig>
   60:	2001      	movs	r0, #1
   62:	bd3e      	pop	{r1, r2, r3, r4, r5, pc}
-  64:	0000005b 	.word	0x0000005b
-  68:	0000005e 	.word	0x0000005e
-  6c:	00000062 	.word	0x00000062
-  70:	00000069 	.word	0x00000069
-  74:	00000070 	.word	0x00000070
+  64:	000000bf 	.word	0x000000bf
+  68:	000000c2 	.word	0x000000c2
+  6c:	000000c6 	.word	0x000000c6
+  70:	000000cd 	.word	0x000000cd
+  74:	000000d4 	.word	0x000000d4
 
 Disassembly of section .text.cmd_pinpwm:
 
@@ -648,7 +761,7 @@ cmd_pinanalog():
   24:	f7ff fffe 	bl	0 <print>
   28:	2001      	movs	r0, #1
   2a:	bd10      	pop	{r4, pc}
-  2c:	00000079 	.word	0x00000079
+  2c:	000000dd 	.word	0x000000dd
 
 Disassembly of section .text.cmd_pinget:
 
@@ -665,7 +778,7 @@ cmd_pinget():
   1a:	2001      	movs	r0, #1
   1c:	bd08      	pop	{r3, pc}
   1e:	bf00      	nop
-  20:	00000079 	.word	0x00000079
+  20:	000000dd 	.word	0x000000dd
 
 Disassembly of section .text.cmd_pinset:
 
@@ -712,12 +825,12 @@ cmd_pinset():
   5e:	2001      	movs	r0, #1
   60:	bd1c      	pop	{r2, r3, r4, pc}
   62:	bf00      	nop
-  64:	0000007d 	.word	0x0000007d
-  68:	00000082 	.word	0x00000082
-  6c:	00000084 	.word	0x00000084
-  70:	00000087 	.word	0x00000087
-  74:	0000008b 	.word	0x0000008b
-  78:	0000008d 	.word	0x0000008d
+  64:	000000e1 	.word	0x000000e1
+  68:	000000e6 	.word	0x000000e6
+  6c:	00000000 	.word	0x00000000
+  70:	000000e8 	.word	0x000000e8
+  74:	000000ec 	.word	0x000000ec
+  78:	0000000d 	.word	0x0000000d
 
 Disassembly of section .text.cmd_pinevent:
 
@@ -750,7 +863,7 @@ cmd_pinevent():
   3a:	2001      	movs	r0, #1
   3c:	bd3e      	pop	{r1, r2, r3, r4, r5, pc}
   3e:	bf00      	nop
-  40:	0000008d 	.word	0x0000008d
+  40:	0000000d 	.word	0x0000000d
   44:	00000000 	.word	0x00000000
 
 Disassembly of section .text.cmdPinEvent:
@@ -790,8 +903,8 @@ cmdPinEvent():
   4e:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
   52:	bf00      	nop
   54:	00000000 	.word	0x00000000
-  58:	00000091 	.word	0x00000091
-  5c:	0000009c 	.word	0x0000009c
+  58:	000000ee 	.word	0x000000ee
+  5c:	000000f9 	.word	0x000000f9
 
 Disassembly of section .text.cmd_ps:
 
@@ -901,19 +1014,19 @@ cmd_ps():
   f2:	2001      	movs	r0, #1
   f4:	b00e      	add	sp, #56	; 0x38
   f6:	bd70      	pop	{r4, r5, r6, pc}
-  f8:	000000a6 	.word	0x000000a6
-  fc:	000000a9 	.word	0x000000a9
- 100:	000000b3 	.word	0x000000b3
- 104:	000000b6 	.word	0x000000b6
- 108:	000000c1 	.word	0x000000c1
- 10c:	000000cc 	.word	0x000000cc
- 110:	000000dc 	.word	0x000000dc
- 114:	000000ea 	.word	0x000000ea
- 118:	000000fa 	.word	0x000000fa
- 11c:	00000105 	.word	0x00000105
- 120:	0000010e 	.word	0x0000010e
- 124:	00000118 	.word	0x00000118
- 128:	00000129 	.word	0x00000129
+  f8:	00000103 	.word	0x00000103
+  fc:	00000106 	.word	0x00000106
+ 100:	00000110 	.word	0x00000110
+ 104:	00000113 	.word	0x00000113
+ 108:	0000011e 	.word	0x0000011e
+ 10c:	00000129 	.word	0x00000129
+ 110:	00000139 	.word	0x00000139
+ 114:	00000147 	.word	0x00000147
+ 118:	00000157 	.word	0x00000157
+ 11c:	00000162 	.word	0x00000162
+ 120:	0000016b 	.word	0x0000016b
+ 124:	00000175 	.word	0x00000175
+ 128:	00000186 	.word	0x00000186
 
 Disassembly of section .text.cmdInit:
 
@@ -946,11 +1059,11 @@ cmdInit():
   32:	601a      	str	r2, [r3, #0]
   34:	f7ff bffe 	b.w	0 <print>
 	...
-  40:	00000133 	.word	0x00000133
+  40:	00000190 	.word	0x00000190
 	...
-  4c:	00000137 	.word	0x00000137
+  4c:	00000194 	.word	0x00000194
   50:	00000000 	.word	0x00000000
-  54:	00000141 	.word	0x00000141
+  54:	0000019e 	.word	0x0000019e
   58:	00000000 	.word	0x00000000
 
 Disassembly of section .text.cmdExecute:
@@ -1004,7 +1117,7 @@ cmdExecute():
   6e:	4638      	mov	r0, r7
   70:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
 	...
-  7c:	00000151 	.word	0x00000151
+  7c:	000001ae 	.word	0x000001ae
   80:	00000000 	.word	0x00000000
 
 Disassembly of section .text.cmdGetsCOM3:
@@ -1028,6 +1141,42 @@ cmdGetsCOM3():
   28:	bd10      	pop	{r4, pc}
   2a:	bf00      	nop
   2c:	00000000 	.word	0x00000000
+
+Disassembly of section .text.cmd_set_mcuid:
+
+00000000 <cmd_set_mcuid>:
+cmd_set_mcuid():
+   0:	4770      	bx	lr
+
+Disassembly of section .text.cmd_set_adcvoltage:
+
+00000000 <cmd_set_adcvoltage>:
+cmd_set_adcvoltage():
+   0:	4770      	bx	lr
+
+Disassembly of section .text.cmd_set_xtal:
+
+00000000 <cmd_set_xtal>:
+cmd_set_xtal():
+   0:	4770      	bx	lr
+
+Disassembly of section .text.cmd_set_platform:
+
+00000000 <cmd_set_platform>:
+cmd_set_platform():
+   0:	4770      	bx	lr
+
+Disassembly of section .text.cmd_set_delaytimer:
+
+00000000 <cmd_set_delaytimer>:
+cmd_set_delaytimer():
+   0:	4770      	bx	lr
+
+Disassembly of section .text.cmd_set_pwmtimer:
+
+00000000 <cmd_set_pwmtimer>:
+cmd_set_pwmtimer():
+   0:	4770      	bx	lr
 
 Disassembly of section .text.cmd_time:
 
@@ -1413,29 +1562,29 @@ cmd_port():
  220:	b047      	add	sp, #284	; 0x11c
  222:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
  226:	bf00      	nop
- 228:	00000152 	.word	0x00000152
- 22c:	00000160 	.word	0x00000160
- 230:	00000166 	.word	0x00000166
- 234:	00000017 	.word	0x00000017
- 238:	00000179 	.word	0x00000179
- 23c:	0000019b 	.word	0x0000019b
- 240:	0000019f 	.word	0x0000019f
- 244:	000001ac 	.word	0x000001ac
- 248:	000001b0 	.word	0x000001b0
- 24c:	000001bd 	.word	0x000001bd
- 250:	000001db 	.word	0x000001db
- 254:	000001ec 	.word	0x000001ec
- 258:	000001f3 	.word	0x000001f3
- 25c:	000001f9 	.word	0x000001f9
- 260:	0000001c 	.word	0x0000001c
- 264:	000001fe 	.word	0x000001fe
- 268:	00000202 	.word	0x00000202
- 26c:	00000234 	.word	0x00000234
- 270:	00000024 	.word	0x00000024
- 274:	0000023d 	.word	0x0000023d
- 278:	0000024a 	.word	0x0000024a
- 27c:	00000253 	.word	0x00000253
- 280:	0000025b 	.word	0x0000025b
+ 228:	000001af 	.word	0x000001af
+ 22c:	000001bd 	.word	0x000001bd
+ 230:	000001c3 	.word	0x000001c3
+ 234:	0000007b 	.word	0x0000007b
+ 238:	000001d6 	.word	0x000001d6
+ 23c:	000001f8 	.word	0x000001f8
+ 240:	000001fc 	.word	0x000001fc
+ 244:	00000209 	.word	0x00000209
+ 248:	0000020d 	.word	0x0000020d
+ 24c:	0000021a 	.word	0x0000021a
+ 250:	00000238 	.word	0x00000238
+ 254:	00000249 	.word	0x00000249
+ 258:	00000250 	.word	0x00000250
+ 25c:	00000256 	.word	0x00000256
+ 260:	00000080 	.word	0x00000080
+ 264:	0000025b 	.word	0x0000025b
+ 268:	0000025f 	.word	0x0000025f
+ 26c:	00000291 	.word	0x00000291
+ 270:	00000088 	.word	0x00000088
+ 274:	0000029a 	.word	0x0000029a
+ 278:	000002a7 	.word	0x000002a7
+ 27c:	000002b0 	.word	0x000002b0
+ 280:	000002b8 	.word	0x000002b8
 
 Disassembly of section .text.cmd_psend:
 

@@ -25,13 +25,18 @@
 #pragma once
 
 #define __PYGMYNEBULA
+//#define __PYGMYCOMMANDS
+//#define __PYGMYFILES
+//#define __PYGMYTASKS
+//#define __PYGMYSPRITES
+//#define __PYGMYMESSAGES
 
 #include "profiles/nebula/pygmy_nebula.h"
 
 #include "pygmy_sys.h"
 #include "pygmy_port.h"
 #include "pygmy_com.h"
-//#include "pygmy_audio.h"
+#include "pygmy_rf.h"
 //#include "pygmy_adc.h"
 #include "pygmy_file.h"
 //#include "pygmy_lcd.h"

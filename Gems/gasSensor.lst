@@ -1,0 +1,183 @@
+
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\gasSensor.o:     file format elf32-littlearm
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\gasSensor.o
+
+
+Disassembly of section .text.gasSensorInit:
+
+00000000 <gasSensorInit>:
+gasSensorInit():
+   0:	b51f      	push	{r0, r1, r2, r3, r4, lr}
+   2:	4b27      	ldr	r3, [pc, #156]	; (a0 <gasSensorInit+0xa0>)
+   4:	2401      	movs	r4, #1
+   6:	801c      	strh	r4, [r3, #0]
+   8:	2023      	movs	r0, #35	; 0x23
+   a:	2100      	movs	r1, #0
+   c:	f7ff fffe 	bl	0 <pinConfig>
+  10:	2018      	movs	r0, #24
+  12:	2103      	movs	r1, #3
+  14:	f7ff fffe 	bl	0 <pinConfig>
+  18:	2018      	movs	r0, #24
+  1a:	4621      	mov	r1, r4
+  1c:	f7ff fffe 	bl	0 <pinSet>
+  20:	2016      	movs	r0, #22
+  22:	2103      	movs	r1, #3
+  24:	f7ff fffe 	bl	0 <pinConfig>
+  28:	2016      	movs	r0, #22
+  2a:	2100      	movs	r1, #0
+  2c:	f7ff fffe 	bl	0 <pinSet>
+  30:	2008      	movs	r0, #8
+  32:	2103      	movs	r1, #3
+  34:	f7ff fffe 	bl	0 <pinConfig>
+  38:	2100      	movs	r1, #0
+  3a:	2008      	movs	r0, #8
+  3c:	f7ff fffe 	bl	0 <pinSet>
+  40:	2064      	movs	r0, #100	; 0x64
+  42:	f7ff fffe 	bl	0 <delay>
+  46:	2008      	movs	r0, #8
+  48:	4621      	mov	r1, r4
+  4a:	f7ff fffe 	bl	0 <pinSet>
+  4e:	2017      	movs	r0, #23
+  50:	2103      	movs	r1, #3
+  52:	f7ff fffe 	bl	0 <pinConfig>
+  56:	2017      	movs	r0, #23
+  58:	4621      	mov	r1, r4
+  5a:	f7ff fffe 	bl	0 <pinSet>
+  5e:	220a      	movs	r2, #10
+  60:	2050      	movs	r0, #80	; 0x50
+  62:	2109      	movs	r1, #9
+  64:	23ff      	movs	r3, #255	; 0xff
+  66:	f7ff fffe 	bl	0 <eepromOpen>
+  6a:	2000      	movs	r0, #0
+  6c:	490d      	ldr	r1, [pc, #52]	; (a4 <gasSensorInit+0xa4>)
+  6e:	f7ff fffe 	bl	0 <eepromPutString>
+  72:	2000      	movs	r0, #0
+  74:	a902      	add	r1, sp, #8
+  76:	2204      	movs	r2, #4
+  78:	f7ff fffe 	bl	0 <eepromGetBuffer>
+  7c:	2300      	movs	r3, #0
+  7e:	4620      	mov	r0, r4
+  80:	aa02      	add	r2, sp, #8
+  82:	4909      	ldr	r1, [pc, #36]	; (a8 <gasSensorInit+0xa8>)
+  84:	f88d 300c 	strb.w	r3, [sp, #12]
+  88:	f7ff fffe 	bl	0 <print>
+  8c:	2308      	movs	r3, #8
+  8e:	4807      	ldr	r0, [pc, #28]	; (ac <gasSensorInit+0xac>)
+  90:	9300      	str	r3, [sp, #0]
+  92:	2109      	movs	r1, #9
+  94:	220a      	movs	r2, #10
+  96:	3327      	adds	r3, #39	; 0x27
+  98:	f7ff fffe 	bl	0 <i2cConfig>
+  9c:	b004      	add	sp, #16
+  9e:	bd10      	pop	{r4, pc}
+	...
+  a8:	00000005 	.word	0x00000005
+  ac:	00000000 	.word	0x00000000
+
+Disassembly of section .text.gasSensorSetHeaterPWM:
+
+00000000 <gasSensorSetHeaterPWM>:
+gasSensorSetHeaterPWM():
+   0:	2864      	cmp	r0, #100	; 0x64
+   2:	b510      	push	{r4, lr}
+   4:	4604      	mov	r4, r0
+   6:	d819      	bhi.n	3c <gasSensorSetHeaterPWM+0x3c>
+   8:	b930      	cbnz	r0, 18 <gasSensorSetHeaterPWM+0x18>
+   a:	2017      	movs	r0, #23
+   c:	2103      	movs	r1, #3
+   e:	f7ff fffe 	bl	0 <pinConfig>
+  12:	2017      	movs	r0, #23
+  14:	4621      	mov	r1, r4
+  16:	e007      	b.n	28 <gasSensorSetHeaterPWM+0x28>
+  18:	2864      	cmp	r0, #100	; 0x64
+  1a:	d108      	bne.n	2e <gasSensorSetHeaterPWM+0x2e>
+  1c:	2017      	movs	r0, #23
+  1e:	2103      	movs	r1, #3
+  20:	f7ff fffe 	bl	0 <pinConfig>
+  24:	2017      	movs	r0, #23
+  26:	2101      	movs	r1, #1
+  28:	f7ff fffe 	bl	0 <pinSet>
+  2c:	e004      	b.n	38 <gasSensorSetHeaterPWM+0x38>
+  2e:	2017      	movs	r0, #23
+  30:	2164      	movs	r1, #100	; 0x64
+  32:	4622      	mov	r2, r4
+  34:	f7ff fffe 	bl	0 <pinPWM>
+  38:	2001      	movs	r0, #1
+  3a:	bd10      	pop	{r4, pc}
+  3c:	2000      	movs	r0, #0
+  3e:	bd10      	pop	{r4, pc}
+
+Disassembly of section .text.gasSensorBoostDisable:
+
+00000000 <gasSensorBoostDisable>:
+gasSensorBoostDisable():
+   0:	2018      	movs	r0, #24
+   2:	2100      	movs	r1, #0
+   4:	f7ff bffe 	b.w	0 <pinSet>
+
+Disassembly of section .text.gasSensorBoostEnable:
+
+00000000 <gasSensorBoostEnable>:
+gasSensorBoostEnable():
+   0:	2018      	movs	r0, #24
+   2:	2101      	movs	r1, #1
+   4:	f7ff bffe 	b.w	0 <pinSet>
+
+Disassembly of section .text.gasSensorGetGain:
+
+00000000 <gasSensorGetGain>:
+gasSensorGetGain():
+   0:	4601      	mov	r1, r0
+   2:	b508      	push	{r3, lr}
+   4:	4802      	ldr	r0, [pc, #8]	; (10 <gasSensorGetGain+0x10>)
+   6:	f7ff fffe 	bl	0 <digipotGetWiper>
+   a:	b2c0      	uxtb	r0, r0
+   c:	bd08      	pop	{r3, pc}
+   e:	bf00      	nop
+  10:	00000000 	.word	0x00000000
+
+Disassembly of section .text.gasSensorSetGain:
+
+00000000 <gasSensorSetGain>:
+gasSensorSetGain():
+   0:	48024602 	.word	0x48024602
+   4:	2103      	movs	r1, #3
+   6:	f7ff bffe 	b.w	0 <digipotSetWiper>
+   a:	bf00      	nop
+   c:	00000000 	.word	0x00000000
+
+Disassembly of section .text.gasSensorSetLoad:
+
+00000000 <gasSensorSetLoad>:
+gasSensorSetLoad():
+   0:	4602      	mov	r2, r0
+   2:	4802      	ldr	r0, [pc, #8]	; (c <gasSensorSetLoad+0xc>)
+   4:	2102      	movs	r1, #2
+   6:	f7ff bffe 	b.w	0 <digipotSetWiper>
+   a:	bf00      	nop
+   c:	00000000 	.word	0x00000000
+
+Disassembly of section .text.gasSensorRead:
+
+00000000 <gasSensorRead>:
+gasSensorRead():
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	2023      	movs	r0, #35	; 0x23
+   4:	f7ff fffe 	bl	0 <pinAnalog>
+   8:	4604      	mov	r4, r0
+   a:	4622      	mov	r2, r4
+   c:	2001      	movs	r0, #1
+   e:	4909      	ldr	r1, [pc, #36]	; (34 <gasSensorRead+0x34>)
+  10:	f7ff fffe 	bl	0 <print>
+  14:	f7ff fffe 	bl	0 <sysGetADCVoltage>
+  18:	f04f 5166 	mov.w	r1, #964689920	; 0x39800000
+  1c:	f7ff fffe 	bl	0 <__aeabi_fmul>
+  20:	4605      	mov	r5, r0
+  22:	4620      	mov	r0, r4
+  24:	f7ff fffe 	bl	0 <__aeabi_ui2f>
+  28:	4601      	mov	r1, r0
+  2a:	4628      	mov	r0, r5
+  2c:	f7ff fffe 	bl	0 <__aeabi_fmul>
+  30:	bd38      	pop	{r3, r4, r5, pc}
+  32:	bf00      	nop
+  34:	00000016 	.word	0x00000016

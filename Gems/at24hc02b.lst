@@ -8,7 +8,7 @@ Disassembly of section .text.eepromOpen:
 00000000 <eepromOpen>:
 eepromOpen():
    0:	b5f7      	push	{r0, r1, r2, r4, r5, r6, r7, lr}
-   2:	4f16      	ldr	r7, [pc, #88]	; (5c <eepromOpen+0x5c>)
+   2:	4f0c      	ldr	r7, [pc, #48]	; (34 <eepromOpen+0x34>)
    4:	2bff      	cmp	r3, #255	; 0xff
    6:	4604      	mov	r4, r0
    8:	460d      	mov	r5, r1
@@ -21,29 +21,15 @@ eepromOpen():
   18:	7838      	ldrb	r0, [r7, #0]
   1a:	2101      	movs	r1, #1
   1c:	f7ff fffe 	bl	0 <pinSet>
-  20:	2308      	movs	r3, #8
-  22:	4632      	mov	r2, r6
-  24:	4629      	mov	r1, r5
-  26:	9300      	str	r3, [sp, #0]
-  28:	480d      	ldr	r0, [pc, #52]	; (60 <eepromOpen+0x60>)
+  20:	2348      	movs	r3, #72	; 0x48
+  22:	9300      	str	r3, [sp, #0]
+  24:	4804      	ldr	r0, [pc, #16]	; (38 <eepromOpen+0x38>)
+  26:	4629      	mov	r1, r5
+  28:	4632      	mov	r2, r6
   2a:	4623      	mov	r3, r4
-  2c:	4c0c      	ldr	r4, [pc, #48]	; (60 <eepromOpen+0x60>)
-  2e:	f7ff fffe 	bl	0 <i2cConfig>
-  32:	480b      	ldr	r0, [pc, #44]	; (30 <i2cStart+0x30>)
-  34:	f7ff fffe 	bl	0 <i2cStart>
-  38:	78a1      	ldrb	r1, [r4, #2]
-  3a:	4620      	mov	r0, r4
-  3c:	f7ff fffe 	bl	0 <i2cWriteByte>
-  40:	21ff      	movs	r1, #255	; 0xff
-  42:	4620      	mov	r0, r4
-  44:	f7ff fffe 	bl	0 <i2cWriteByte>
-  48:	4620      	mov	r0, r4
-  4a:	2100      	movs	r1, #0
-  4c:	f7ff fffe 	bl	0 <i2cWriteByte>
-  50:	4620      	mov	r0, r4
-  52:	b003      	add	sp, #12
-  54:	e8bd 40f0 	ldmia.w	sp!, {r4, r5, r6, r7, lr}
-  58:	f7ff bffe 	b.w	0 <i2cStop>
+  2c:	f7ff fffe 	bl	0 <i2cConfig>
+  30:	bdfe      	pop	{r1, r2, r3, r4, r5, r6, r7, pc}
+  32:	bf00      	nop
 	...
 
 Disassembly of section .text.eepromEnableWP:
@@ -128,176 +114,78 @@ eepromGetAddress():
   2e:	bd38      	pop	{r3, r4, r5, pc}
   30:	00000000 	.word	0x00000000
 
-Disassembly of section .text.eepromPollAck:
-
-00000000 <eepromPollAck>:
-eepromPollAck():
-   0:	b570      	push	{r4, r5, r6, lr}
-   2:	f64f 74ff 	movw	r4, #65535	; 0xffff
-   6:	4d0a      	ldr	r5, [pc, #40]	; (30 <eepromPollAck+0x30>)
-   8:	4809      	ldr	r0, [pc, #36]	; (30 <eepromPollAck+0x30>)
-   a:	f7ff fffe 	bl	0 <i2cDelay>
-   e:	4808      	ldr	r0, [pc, #32]	; (24 <i2cStart+0x24>)
-  10:	f7ff fffe 	bl	0 <i2cStart>
-  14:	4628      	mov	r0, r5
-  16:	78a9      	ldrb	r1, [r5, #2]
-  18:	f7ff fffe 	bl	0 <i2cWriteByte>
-  1c:	4606      	mov	r6, r0
-  1e:	4628      	mov	r0, r5
-  20:	f7ff fffe 	bl	0 <i2cStop>
-  24:	b11e      	cbz	r6, 2e <eepromPollAck+0x2e>
-  26:	3c01      	subs	r4, #1
-  28:	b2a4      	uxth	r4, r4
-  2a:	2c00      	cmp	r4, #0
-  2c:	d1eb      	bne.n	6 <eepromPollAck+0x6>
-  2e:	bd70      	pop	{r4, r5, r6, pc}
-  30:	00000000 	.word	0x00000000
-
 Disassembly of section .text.eepromPutChar:
 
 00000000 <eepromPutChar>:
 eepromPutChar():
-   0:	4b0e      	ldr	r3, [pc, #56]	; (3c <eepromPutChar+0x3c>)
-   2:	b570      	push	{r4, r5, r6, lr}
-   4:	f64a 22aa 	movw	r2, #43690	; 0xaaaa
-   8:	4c0d      	ldr	r4, [pc, #52]	; (40 <eepromPutChar+0x40>)
-   a:	601a      	str	r2, [r3, #0]
-   c:	4606      	mov	r6, r0
-   e:	480c      	ldr	r0, [pc, #48]	; (40 <eepromPutChar+0x40>)
-  10:	460d      	mov	r5, r1
-  12:	f7ff fffe 	bl	0 <i2cStart>
-  16:	78a1      	ldrb	r1, [r4, #2]
-  18:	4620      	mov	r0, r4
-  1a:	f7ff fffe 	bl	0 <i2cWriteByte>
-  1e:	4631      	mov	r1, r6
-  20:	4620      	mov	r0, r4
-  22:	f7ff fffe 	bl	0 <i2cWriteByte>
-  26:	4629      	mov	r1, r5
-  28:	4620      	mov	r0, r4
-  2a:	f7ff fffe 	bl	0 <i2cWriteByte>
-  2e:	4620      	mov	r0, r4
-  30:	f7ff fffe 	bl	0 <i2cStop>
-  34:	f7ff fffe 	bl	0 <eepromPutChar>
-  38:	2001      	movs	r0, #1
-  3a:	bd70      	pop	{r4, r5, r6, pc}
-  3c:	40003000 	.word	0x40003000
-  40:	00000000 	.word	0x00000000
+   0:	48024603 	.word	0x48024603
+   4:	460a      	mov	r2, r1
+   6:	4619      	mov	r1, r3
+   8:	f7ff bffe 	b.w	0 <i2cPutChar>
+   c:	00000000 	.word	0x00000000
 
 Disassembly of section .text.eepromErase:
 
 00000000 <eepromErase>:
 eepromErase():
-   0:	2400b510 	.word	0x2400b510
-   4:	2100      	movs	r1, #0
-   6:	b2e0      	uxtb	r0, r4
-   8:	f7ff fffe 	bl	0 <eepromErase>
-   c:	f014 0003 	ands.w	r0, r4, #3
-  10:	d102      	bne.n	18 <eepromErase+0x18>
-  12:	4904      	ldr	r1, [pc, #16]	; (24 <eepromErase+0x24>)
-  14:	f7ff fffe 	bl	0 <print>
-  18:	3401      	adds	r4, #1
-  1a:	b2a4      	uxth	r4, r4
-  1c:	2cff      	cmp	r4, #255	; 0xff
-  1e:	d1f1      	bne.n	4 <eepromErase+0x4>
-  20:	bd10      	pop	{r4, pc}
-  22:	bf00      	nop
-  24:	00000000 	.word	0x00000000
+   0:	b510      	push	{r4, lr}
+   2:	2400      	movs	r4, #0
+   4:	b2e0      	uxtb	r0, r4
+   6:	3401      	adds	r4, #1
+   8:	2100      	movs	r1, #0
+   a:	b2a4      	uxth	r4, r4
+   c:	f7ff fffe 	bl	0 <eepromErase>
+  10:	f5b4 7f80 	cmp.w	r4, #256	; 0x100
+  14:	d1f6      	bne.n	4 <eepromErase+0x4>
+  16:	bd10      	pop	{r4, pc}
 
 Disassembly of section .text.eepromPutString:
 
 00000000 <eepromPutString>:
 eepromPutString():
-   0:	b538      	push	{r3, r4, r5, lr}
-   2:	4604      	mov	r4, r0
-   4:	460d      	mov	r5, r1
-   6:	e005      	b.n	14 <eepromPutString+0x14>
-   8:	4620      	mov	r0, r4
-   a:	f7ff fffe 	bl	0 <eepromPutString>
-   e:	b130      	cbz	r0, 1e <eepromPutString+0x1e>
-  10:	3401      	adds	r4, #1
-  12:	b2e4      	uxtb	r4, r4
-  14:	f815 1b01 	ldrb.w	r1, [r5], #1
-  18:	2900      	cmp	r1, #0
-  1a:	d1f5      	bne.n	8 <eepromPutString+0x8>
-  1c:	2001      	movs	r0, #1
-  1e:	bd38      	pop	{r3, r4, r5, pc}
+   0:	4603      	mov	r3, r0
+   2:	4802      	ldr	r0, [pc, #8]	; (c <eepromPutString+0xc>)
+   4:	460a      	mov	r2, r1
+   6:	4619      	mov	r1, r3
+   8:	f7ff bffe 	b.w	0 <i2cPutString>
+   c:	00000000 	.word	0x00000000
 
 Disassembly of section .text.eepromPutBuffer:
 
 00000000 <eepromPutBuffer>:
 eepromPutBuffer():
-   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+   0:	b530      	push	{r4, r5, lr}
    2:	4605      	mov	r5, r0
    4:	460c      	mov	r4, r1
-   6:	4617      	mov	r7, r2
-   8:	2600      	movs	r6, #0
-   a:	e007      	b.n	1c <eepromPutBuffer+0x1c>
-   c:	1970      	adds	r0, r6, r5
-   e:	b2c0      	uxtb	r0, r0
-  10:	7821      	ldrb	r1, [r4, #0]
-  12:	f7ff fffe 	bl	0 <eepromPutBuffer>
-  16:	b120      	cbz	r0, 22 <eepromPutBuffer+0x22>
-  18:	3601      	adds	r6, #1
-  1a:	b2f6      	uxtb	r6, r6
-  1c:	42be      	cmp	r6, r7
-  1e:	d3f5      	bcc.n	c <eepromPutBuffer+0xc>
-  20:	2001      	movs	r0, #1
-  22:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+   6:	4804      	ldr	r0, [pc, #16]	; (18 <eepromPutBuffer+0x18>)
+   8:	4613      	mov	r3, r2
+   a:	4629      	mov	r1, r5
+   c:	4622      	mov	r2, r4
+   e:	e8bd 4030 	ldmia.w	sp!, {r4, r5, lr}
+  12:	f7ff bffe 	b.w	0 <i2cPutBuffer>
+  16:	bf00      	nop
+  18:	00000000 	.word	0x00000000
 
 Disassembly of section .text.eepromGetChar:
 
 00000000 <eepromGetChar>:
 eepromGetChar():
-   0:	b538      	push	{r3, r4, r5, lr}
-   2:	4b13      	ldr	r3, [pc, #76]	; (50 <eepromGetChar+0x50>)
-   4:	f64a 22aa 	movw	r2, #43690	; 0xaaaa
-   8:	4c12      	ldr	r4, [pc, #72]	; (54 <eepromGetChar+0x54>)
-   a:	601a      	str	r2, [r3, #0]
-   c:	4605      	mov	r5, r0
-   e:	4811      	ldr	r0, [pc, #68]	; (54 <eepromGetChar+0x54>)
-  10:	f7ff fffe 	bl	0 <i2cStart>
-  14:	78a1      	ldrb	r1, [r4, #2]
-  16:	4620      	mov	r0, r4
-  18:	f7ff fffe 	bl	0 <i2cWriteByte>
-  1c:	4629      	mov	r1, r5
-  1e:	4620      	mov	r0, r4
-  20:	f7ff fffe 	bl	0 <i2cWriteByte>
-  24:	4620      	mov	r0, r4
-  26:	f7ff fffe 	bl	0 <i2cStart>
-  2a:	78a1      	ldrb	r1, [r4, #2]
-  2c:	4620      	mov	r0, r4
-  2e:	f041 0101 	orr.w	r1, r1, #1
-  32:	f7ff fffe 	bl	0 <i2cWriteByte>
-  36:	4620      	mov	r0, r4
-  38:	f7ff fffe 	bl	0 <i2cReadByte>
-  3c:	2101      	movs	r1, #1
-  3e:	4605      	mov	r5, r0
-  40:	4620      	mov	r0, r4
-  42:	f7ff fffe 	bl	0 <i2cWriteBit>
-  46:	4620      	mov	r0, r4
-  48:	f7ff fffe 	bl	0 <i2cStop>
-  4c:	4628      	mov	r0, r5
-  4e:	bd38      	pop	{r3, r4, r5, pc}
-  50:	40003000 	.word	0x40003000
-  54:	00000000 	.word	0x00000000
+   0:	48014601 	.word	0x48014601
+   4:	f7ff bffe 	b.w	0 <i2cGetChar>
+   8:	00000000 	.word	0x00000000
 
 Disassembly of section .text.eepromGetBuffer:
 
 00000000 <eepromGetBuffer>:
 eepromGetBuffer():
-   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
-   2:	4604      	mov	r4, r0
-   4:	460d      	mov	r5, r1
-   6:	4617      	mov	r7, r2
-   8:	2600      	movs	r6, #0
-   a:	e006      	b.n	1a <eepromGetBuffer+0x1a>
-   c:	4620      	mov	r0, r4
-   e:	f7ff fffe 	bl	0 <eepromGetBuffer>
-  12:	3401      	adds	r4, #1
-  14:	55a8      	strb	r0, [r5, r6]
-  16:	b2e4      	uxtb	r4, r4
-  18:	3601      	adds	r6, #1
-  1a:	b2f3      	uxtb	r3, r6
-  1c:	42bb      	cmp	r3, r7
-  1e:	d3f5      	bcc.n	c <eepromGetBuffer+0xc>
-  20:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+   0:	b530      	push	{r4, r5, lr}
+   2:	4605      	mov	r5, r0
+   4:	460c      	mov	r4, r1
+   6:	4804      	ldr	r0, [pc, #16]	; (18 <eepromGetBuffer+0x18>)
+   8:	4613      	mov	r3, r2
+   a:	4629      	mov	r1, r5
+   c:	4622      	mov	r2, r4
+   e:	e8bd 4030 	ldmia.w	sp!, {r4, r5, lr}
+  12:	f7ff bffe 	b.w	0 <i2cGetBuffer>
+  16:	bf00      	nop
+  18:	00000000 	.word	0x00000000

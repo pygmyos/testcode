@@ -24,6 +24,9 @@
 #include "fonts/orbitron18.h"
 #include "gems.h"
 
+#include "profiles/nebula/shields/gasSensor.h"
+#include "profiles/digipots/mcp443x.h"
+#include "profiles/eeprom/at24hc02b.h"
 
 PYGMYFILE fileFont;
 PYGMYFONT fontOrbitron18;
@@ -34,6 +37,7 @@ void threadRFHumidity( void );
 void threadRFHumiditySave( void );
 
 u8 globalHumidity[ 20 ];
+PYGMYI2CPORT globalGasSensorDigipot;
 
 void main( void )
 {
@@ -43,31 +47,21 @@ void main( void )
     socketInit();
     rfInit();
     print( COM3, "\rV2 RFID: 0x%X", socketGetID());
-    mpl115a2Init( TX1, RX1, NONE, NONE );
-    print( COM3, "\rPressure: %f", mpl115a2ReadkPa() );
-    print( COM3, "\rTemp: %f", mpl115a2ReadTemp() );
-    //
-    //fileDelete( "humidity.txt" );
-
-    //stopwatchStart();
-    //delay( 1000000 );
-    //print( COM3, "\rStopwatch %d", stopwatchGet() );
-    //stopwatchStart();
-    //delay( 200000 );
-    //print( COM3, "\rStopwatch %d", stopwatchGet() );
+    //mpl115a2Init( TX1, RX1, NONE, NONE );
+    //print( COM3, "\rPressure: %f", mpl115a2ReadkPa() );
+    //print( COM3, "\rTemp: %f", mpl115a2ReadTemp() );
+    //i2cConfig( &globalGasSensorDigipot, DIGIPOT_BASEADDRESS|3, TX1, RX1, I2CSPEEDFAST );
+    //digipotSetWiper( &globalGasSensorDigipot, 2, 0 );
+    //eepromOpen( 0x2F, TX1, RX1, NONE );
+    //eepromPutString( 0, "Test" );
     pinConfig( MCO, OUT );
     pinSet( MCO, HIGH );
-    /*eepromOpen( 0x51, TX1, RX1, NONE );
-    
-    ucEeproms = (u8*)eepromQueryBus();
-    for( i = 0; i < 8; i++ ){
-        if( ucEeproms[ i ] ){
-            print( COM3, "\rFound eeprom at address: 0x%02X", ucEeproms[ i ] );
-        } // if
-    } // for
-    
-    eepromPutString( 0, "test" );*/
-    
+    gasSensorInit();
+    //print( COM3, "\rGas Sensor: %f", gasSensorRead() );
+    //gasSensorSetGain( 0,0 );
+    //print( COM3, "\rGas Sensor: %f", gasSensorRead() );
+    //gasSensorSetGain( 200,200 );
+    //print( COM3, "\rGas Sensor: %f", gasSensorRead() );
     //eepromGetBuffer( 0, ucBuffer, len( "test" ) );
     //print( COM3, "\rEeprom: ucBuffer );
     //print( COM3, "\rEEPROM Direct Read: " );
@@ -80,9 +74,8 @@ void main( void )
         } // else
     } // for
     */
-    //ucBuffer[ len( "humidity" ) ] = '\0';
-    //print( COM3, "\rEEPROM: %s", ucBuffer );
-    //
+    /* 
+    // Test for LCD code
     if( isStringSame( ucBuffer, "<shield lcd>" ) ){
         print( COM3, "\rLCD Shield Detected" );
         fileOpenResource( &fileFont, (u8*)PYGMY_orbitron18 );
@@ -100,13 +93,7 @@ void main( void )
     } else{
         hih5030Init( A2, A3 );
     } // else
-    //convertFloatToString( 1489.01234567, "%5.10", ucBuffer );
-    //print( COM3, ucBuffer );
-    //print( COM3, "\r%1.10f", -1489.01234567 );
-    //print( COM3, "\r%1.10f", convertStringToFloat( "1489.01234567" ) );
-    //print( COM3, "\r%1.10f", convertStringToFloat( "+1489.01234567" ) );
-    //print( COM3, "\r%1.10f", convertStringToFloat( "-1489.01234567" ) );
-    
+    */
     
     //taskNewSimple( "humidity", 1000, (void*)threadRFHumiditySave );
     

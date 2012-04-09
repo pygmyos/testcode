@@ -6,12 +6,21 @@ It also includes the secondary/main linker script that is specified in the Ride 
 */
 
 SEARCH_DIR(".")
-SEARCH_DIR("C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot")
+SEARCH_DIR("C:\Users\MightyDubster\Documents\Projects\pygmyos.code\bootv2")
 SEARCH_DIR("C:\Program Files (x86)\Raisonance\Ride\Lib\ARM")
 STARTUP("C:\Program Files (x86)\Raisonance\Ride\lib\ARM\startup_stm32f10x_hd.o")
-INPUT("C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.o")
-INPUT("C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_file.o")
-INPUT("C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_fpec.o")
+INPUT("C:\Users\MightyDubster\Documents\Projects\pygmyos.code\bootv2\main.o")
+INPUT("C:\Users\MightyDubster\Documents\Projects\pygmyos.code\bootv2\pygmy_file.o")
+INPUT("C:\Users\MightyDubster\Documents\Projects\pygmyos.code\bootv2\pygmy_fpec.o")
+INPUT("C:\Users\MightyDubster\Documents\Projects\pygmyos.code\bootv2\pygmy_rf.o")
+INPUT("C:\Users\MightyDubster\Documents\Projects\pygmyos.code\bootv2\pygmy_sys.o")
+INPUT("C:\Users\MightyDubster\Documents\Projects\pygmyos.code\bootv2\pygmy_xmodem.o")
+INPUT("C:\Users\MightyDubster\Documents\Projects\pygmyos.code\bootv2\pygmy_rtc.o")
+INPUT("C:\Users\MightyDubster\Documents\Projects\pygmyos.code\bootv2\pygmy_com.o")
+INPUT("C:\Users\MightyDubster\Documents\Projects\pygmyos.code\bootv2\pygmy_port.o")
+INPUT("C:\Users\MightyDubster\Documents\Projects\pygmyos.code\bootv2\pygmy_string.o")
+INPUT("C:\Users\MightyDubster\Documents\Projects\pygmyos.code\bootv2\pygmy_nvic.o")
+INPUT("C:\Users\MightyDubster\Documents\Projects\pygmyos.code\bootv2\pygmy_socket.o")
 GROUP(
 "std_sbrk_thumb.lib"
 "smallprintf_thumb.a"
@@ -19,5 +28,5 @@ GROUP(
 "libm.a"
 
 )
-INCLUDE "C:\Users\MightyDubster\Ride7\Nebula\boot\STM32F100_64K_8K_FLASH.ld"
-OUTPUT("C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\Boot.elf")
+INCLUDE "C:\Users\MightyDubster\Documents\Projects\pygmyos.code\bootv2\STM32F103_1M_96K_FLASH_PygmyOS.ld"
+OUTPUT("C:\Users\MightyDubster\Documents\Projects\pygmyos.code\bootv2\Boot.elf")

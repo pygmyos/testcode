@@ -1,0 +1,253 @@
+
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\bootv2\pygmy_xmodem.o:     file format elf32-littlearm
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\bootv2\pygmy_xmodem.o
+
+
+Disassembly of section .text.xmodemRecv:
+
+00000000 <xmodemRecv>:
+xmodemRecv():
+   0:	b510      	push	{r4, lr}
+   2:	2202      	movs	r2, #2
+   4:	4604      	mov	r4, r0
+   6:	f7ff fffe 	bl	0 <fileOpen>
+   a:	b150      	cbz	r0, 22 <xmodemRecv+0x22>
+   c:	6aa3      	ldr	r3, [r4, #40]	; 0x28
+   e:	2001      	movs	r0, #1
+  10:	f043 0302 	orr.w	r3, r3, #2
+  14:	62a3      	str	r3, [r4, #40]	; 0x28
+  16:	f44f 737a 	mov.w	r3, #1000	; 0x3e8
+  1a:	62e3      	str	r3, [r4, #44]	; 0x2c
+  1c:	233c      	movs	r3, #60	; 0x3c
+  1e:	6323      	str	r3, [r4, #48]	; 0x30
+  20:	6360      	str	r0, [r4, #52]	; 0x34
+  22:	bd10      	pop	{r4, pc}
+
+Disassembly of section .text.xmodemSend:
+
+00000000 <xmodemSend>:
+xmodemSend():
+   0:	b510      	push	{r4, lr}
+   2:	2201      	movs	r2, #1
+   4:	4604      	mov	r4, r0
+   6:	f7ff fffe 	bl	0 <fileOpen>
+   a:	b140      	cbz	r0, 1e <xmodemSend+0x1e>
+   c:	f44f 737a 	mov.w	r3, #1000	; 0x3e8
+  10:	62e3      	str	r3, [r4, #44]	; 0x2c
+  12:	230a      	movs	r3, #10
+  14:	2001      	movs	r0, #1
+  16:	6323      	str	r3, [r4, #48]	; 0x30
+  18:	330e      	adds	r3, #14
+  1a:	6360      	str	r0, [r4, #52]	; 0x34
+  1c:	62a3      	str	r3, [r4, #40]	; 0x28
+  1e:	bd10      	pop	{r4, pc}
+
+Disassembly of section .text.xmodemWritePacket:
+
+00000000 <xmodemWritePacket>:
+xmodemWritePacket():
+   0:	b510      	push	{r4, lr}
+   2:	f890 303a 	ldrb.w	r3, [r0, #58]	; 0x3a
+   6:	f100 023a 	add.w	r2, r0, #58	; 0x3a
+   a:	2101      	movs	r1, #1
+   c:	5c54      	ldrb	r4, [r2, r1]
+   e:	3101      	adds	r1, #1
+  10:	b2c9      	uxtb	r1, r1
+  12:	191b      	adds	r3, r3, r4
+  14:	2980      	cmp	r1, #128	; 0x80
+  16:	b2db      	uxtb	r3, r3
+  18:	d1f8      	bne.n	c <xmodemWritePacket+0xc>
+  1a:	f890 40ba 	ldrb.w	r4, [r0, #186]	; 0xba
+  1e:	429c      	cmp	r4, r3
+  20:	d103      	bne.n	2a <xmodemWritePacket+0x2a>
+  22:	f7ff fffe 	bl	0 <filePutBuffer>
+  26:	2001      	movs	r0, #1
+  28:	bd10      	pop	{r4, pc}
+  2a:	2000      	movs	r0, #0
+  2c:	bd10      	pop	{r4, pc}
+
+Disassembly of section .text.xmodemSendPacket:
+
+00000000 <xmodemSendPacket>:
+xmodemSendPacket():
+   0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+   4:	4604      	mov	r4, r0
+   6:	f100 0538 	add.w	r5, r0, #56	; 0x38
+   a:	b9c9      	cbnz	r1, 40 <xmodemSendPacket+0x40>
+   c:	2301      	movs	r3, #1
+   e:	f880 3038 	strb.w	r3, [r0, #56]	; 0x38
+  12:	f890 3034 	ldrb.w	r3, [r0, #52]	; 0x34
+  16:	4606      	mov	r6, r0
+  18:	f880 3039 	strb.w	r3, [r0, #57]	; 0x39
+  1c:	43db      	mvns	r3, r3
+  1e:	f880 303a 	strb.w	r3, [r0, #58]	; 0x3a
+  22:	f100 0880 	add.w	r8, r0, #128	; 0x80
+  26:	460f      	mov	r7, r1
+  28:	4620      	mov	r0, r4
+  2a:	f7ff fffe 	bl	0 <fileGetChar>
+  2e:	f886 003b 	strb.w	r0, [r6, #59]	; 0x3b
+  32:	3601      	adds	r6, #1
+  34:	183f      	adds	r7, r7, r0
+  36:	4546      	cmp	r6, r8
+  38:	b2ff      	uxtb	r7, r7
+  3a:	d1f5      	bne.n	28 <xmodemSendPacket+0x28>
+  3c:	f884 70bb 	strb.w	r7, [r4, #187]	; 0xbb
+  40:	2084      	movs	r0, #132	; 0x84
+  42:	4629      	mov	r1, r5
+  44:	e8bd 41f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, lr}
+  48:	f7ff bffe 	b.w	0 <putBufferUSART3>
+
+Disassembly of section .text.xmodemProcessTimer:
+
+00000000 <xmodemProcessTimer>:
+xmodemProcessTimer():
+   0:	6a83      	ldr	r3, [r0, #40]	; 0x28
+   2:	b510      	push	{r4, lr}
+   4:	f013 0f02 	tst.w	r3, #2
+   8:	4604      	mov	r4, r0
+   a:	d00e      	beq.n	2a <xmodemProcessTimer+0x2a>
+   c:	6ac3      	ldr	r3, [r0, #44]	; 0x2c
+   e:	b98b      	cbnz	r3, 34 <xmodemProcessTimer+0x34>
+  10:	2015      	movs	r0, #21
+  12:	f7ff fffe 	bl	0 <putcUSART3>
+  16:	f44f 737a 	mov.w	r3, #1000	; 0x3e8
+  1a:	62e3      	str	r3, [r4, #44]	; 0x2c
+  1c:	6b23      	ldr	r3, [r4, #48]	; 0x30
+  1e:	b9a3      	cbnz	r3, 4a <xmodemProcessTimer+0x4a>
+  20:	6aa3      	ldr	r3, [r4, #40]	; 0x28
+  22:	f023 0306 	bic.w	r3, r3, #6
+  26:	62a3      	str	r3, [r4, #40]	; 0x28
+  28:	bd10      	pop	{r4, pc}
+  2a:	f013 0f08 	tst.w	r3, #8
+  2e:	d013      	beq.n	58 <xmodemProcessTimer+0x58>
+  30:	6ac3      	ldr	r3, [r0, #44]	; 0x2c
+  32:	b113      	cbz	r3, 3a <xmodemProcessTimer+0x3a>
+  34:	3b01      	subs	r3, #1
+  36:	62e3      	str	r3, [r4, #44]	; 0x2c
+  38:	bd10      	pop	{r4, pc}
+  3a:	2101      	movs	r1, #1
+  3c:	f7ff fffe 	bl	0 <xmodemProcessTimer>
+  40:	f44f 737a 	mov.w	r3, #1000	; 0x3e8
+  44:	62e3      	str	r3, [r4, #44]	; 0x2c
+  46:	6b23      	ldr	r3, [r4, #48]	; 0x30
+  48:	b113      	cbz	r3, 50 <xmodemProcessTimer+0x50>
+  4a:	3b01      	subs	r3, #1
+  4c:	6323      	str	r3, [r4, #48]	; 0x30
+  4e:	bd10      	pop	{r4, pc}
+  50:	6aa3      	ldr	r3, [r4, #40]	; 0x28
+  52:	f023 0328 	bic.w	r3, r3, #40	; 0x28
+  56:	62a3      	str	r3, [r4, #40]	; 0x28
+  58:	bd10      	pop	{r4, pc}
+
+Disassembly of section .text.xmodemProcess:
+
+00000000 <xmodemProcess>:
+xmodemProcess():
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	6a83      	ldr	r3, [r0, #40]	; 0x28
+   4:	460a      	mov	r2, r1
+   6:	f013 0102 	ands.w	r1, r3, #2
+   a:	4604      	mov	r4, r0
+   c:	d043      	beq.n	96 <xmodemProcess+0x96>
+   e:	f013 0f04 	tst.w	r3, #4
+  12:	d01f      	beq.n	54 <xmodemProcess+0x54>
+  14:	f890 10bc 	ldrb.w	r1, [r0, #188]	; 0xbc
+  18:	1845      	adds	r5, r0, r1
+  1a:	f885 2038 	strb.w	r2, [r5, #56]	; 0x38
+  1e:	1c4a      	adds	r2, r1, #1
+  20:	b2d2      	uxtb	r2, r2
+  22:	2a83      	cmp	r2, #131	; 0x83
+  24:	f880 20bc 	strb.w	r2, [r0, #188]	; 0xbc
+  28:	d16d      	bne.n	106 <xmodemProcess+0x106>
+  2a:	f023 0304 	bic.w	r3, r3, #4
+  2e:	6283      	str	r3, [r0, #40]	; 0x28
+  30:	6b42      	ldr	r2, [r0, #52]	; 0x34
+  32:	f890 3038 	ldrb.w	r3, [r0, #56]	; 0x38
+  36:	429a      	cmp	r2, r3
+  38:	d10a      	bne.n	50 <xmodemProcess+0x50>
+  3a:	f7ff fffe 	bl	0 <xmodemProcess>
+  3e:	b138      	cbz	r0, 50 <xmodemProcess+0x50>
+  40:	6b63      	ldr	r3, [r4, #52]	; 0x34
+  42:	2bff      	cmp	r3, #255	; 0xff
+  44:	d101      	bne.n	4a <xmodemProcess+0x4a>
+  46:	3bff      	subs	r3, #255	; 0xff
+  48:	e000      	b.n	4c <xmodemProcess+0x4c>
+  4a:	3301      	adds	r3, #1
+  4c:	6363      	str	r3, [r4, #52]	; 0x34
+  4e:	e057      	b.n	100 <xmodemProcess+0x100>
+  50:	2015      	movs	r0, #21
+  52:	e056      	b.n	102 <xmodemProcess+0x102>
+  54:	2a01      	cmp	r2, #1
+  56:	d108      	bne.n	6a <xmodemProcess+0x6a>
+  58:	f043 0304 	orr.w	r3, r3, #4
+  5c:	6283      	str	r3, [r0, #40]	; 0x28
+  5e:	f44f 737a 	mov.w	r3, #1000	; 0x3e8
+  62:	62c3      	str	r3, [r0, #44]	; 0x2c
+  64:	230a      	movs	r3, #10
+  66:	6303      	str	r3, [r0, #48]	; 0x30
+  68:	e011      	b.n	8e <xmodemProcess+0x8e>
+  6a:	2a04      	cmp	r2, #4
+  6c:	d001      	beq.n	72 <xmodemProcess+0x72>
+  6e:	2a18      	cmp	r2, #24
+  70:	d10d      	bne.n	8e <xmodemProcess+0x8e>
+  72:	2300      	movs	r3, #0
+  74:	62a3      	str	r3, [r4, #40]	; 0x28
+  76:	2180      	movs	r1, #128	; 0x80
+  78:	f104 0238 	add.w	r2, r4, #56	; 0x38
+  7c:	4620      	mov	r0, r4
+  7e:	f7ff fffe 	bl	0 <filePutBuffer>
+  82:	4620      	mov	r0, r4
+  84:	f7ff fffe 	bl	0 <fileClose>
+  88:	2006      	movs	r0, #6
+  8a:	f7ff fffe 	bl	0 <putcUSART3>
+  8e:	2300      	movs	r3, #0
+  90:	f884 30bc 	strb.w	r3, [r4, #188]	; 0xbc
+  94:	e037      	b.n	106 <xmodemProcess+0x106>
+  96:	f013 0508 	ands.w	r5, r3, #8
+  9a:	d035      	beq.n	108 <xmodemProcess+0x108>
+  9c:	2a06      	cmp	r2, #6
+  9e:	d117      	bne.n	d0 <xmodemProcess+0xd0>
+  a0:	f013 0220 	ands.w	r2, r3, #32
+  a4:	d001      	beq.n	aa <xmodemProcess+0xaa>
+  a6:	6281      	str	r1, [r0, #40]	; 0x28
+  a8:	bd38      	pop	{r3, r4, r5, pc}
+  aa:	f44f 717a 	mov.w	r1, #1000	; 0x3e8
+  ae:	62c1      	str	r1, [r0, #44]	; 0x2c
+  b0:	210a      	movs	r1, #10
+  b2:	6301      	str	r1, [r0, #48]	; 0x30
+  b4:	f990 1010 	ldrsb.w	r1, [r0, #16]
+  b8:	2900      	cmp	r1, #0
+  ba:	da04      	bge.n	c6 <xmodemProcess+0xc6>
+  bc:	f043 0320 	orr.w	r3, r3, #32
+  c0:	6283      	str	r3, [r0, #40]	; 0x28
+  c2:	2004      	movs	r0, #4
+  c4:	e01d      	b.n	102 <xmodemProcess+0x102>
+  c6:	6b43      	ldr	r3, [r0, #52]	; 0x34
+  c8:	4611      	mov	r1, r2
+  ca:	3301      	adds	r3, #1
+  cc:	6343      	str	r3, [r0, #52]	; 0x34
+  ce:	e011      	b.n	f4 <xmodemProcess+0xf4>
+  d0:	2a15      	cmp	r2, #21
+  d2:	d112      	bne.n	fa <xmodemProcess+0xfa>
+  d4:	f44f 727a 	mov.w	r2, #1000	; 0x3e8
+  d8:	62c2      	str	r2, [r0, #44]	; 0x2c
+  da:	220a      	movs	r2, #10
+  dc:	f013 0f10 	tst.w	r3, #16
+  e0:	6302      	str	r2, [r0, #48]	; 0x30
+  e2:	d006      	beq.n	f2 <xmodemProcess+0xf2>
+  e4:	f7ff fffe 	bl	0 <xmodemProcess>
+  e8:	6aa3      	ldr	r3, [r4, #40]	; 0x28
+  ea:	f023 0310 	bic.w	r3, r3, #16
+  ee:	62a3      	str	r3, [r4, #40]	; 0x28
+  f0:	e009      	b.n	106 <xmodemProcess+0x106>
+  f2:	2101      	movs	r1, #1
+  f4:	f7ff fffe 	bl	0 <xmodemProcess>
+  f8:	e005      	b.n	106 <xmodemProcess+0x106>
+  fa:	2a18      	cmp	r2, #24
+  fc:	d103      	bne.n	106 <xmodemProcess+0x106>
+  fe:	6281      	str	r1, [r0, #40]	; 0x28
+ 100:	2006      	movs	r0, #6
+ 102:	f7ff fffe 	bl	0 <putcUSART3>
+ 106:	2501      	movs	r5, #1
+ 108:	4628      	mov	r0, r5
+ 10a:	bd38      	pop	{r3, r4, r5, pc}

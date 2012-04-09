@@ -17,27 +17,15 @@
 ***************************************************************************/
 
 #include "pygmy_profile.h"
+#include "pygmy_xmodem.h"
 
 #define BOOT_BUILDVERSION   1300 // 1.0 = 1000, 1.1 = 1100
 
 #define VECT_TAB_OFFSET  0x1000
 //#define FLASH_BASE       ((u32)0x08000000)
 
-#define XMODEM_ACK          0x06
-#define XMODEM_NACK         0x15
-#define XMODEM_EOT          0x04
-//#define XMODEM_SOH          0x01
-#define XMODEM_CAN          0x18
-#define XMODEM_NEXT         0x00
-#define XMODEM_LAST         0x01
-#define XMODEM_RECV         BIT1
-#define XMODEM_MODE_SOH     BIT2
-#define XMODEM_SEND         BIT3
-#define XMODEM_SEND_WAIT    BIT4
-#define XMODEM_SEND_EOT     BIT5
 #define BOOT_CANCEL         BIT7
 #define BOOT_NOOS           BIT6
-
 #define BOOT_BAUDRATE       230400
 
 u16 generateBootBaud( void );
@@ -51,8 +39,8 @@ void putBufferUSART3( u16 uiLen, u8 *ucBuffer );
 void putcUSART3( u8 ucChar );
 void putstr( u8 *ucBuffer );
 void putIntUSART3( u32 ulData );
-u8 xmodemWritePacket( u8 *ucBuffer );
-void xmodemSendPacket( u8 ucLast );
+//u8 xmodemWritePacket( u8 *ucBuffer );
+//void xmodemSendPacket( u8 ucLast );
 
 s8 isQuote( u8 ucChar );
 s8 isNewline( u8 ucChar );
@@ -96,12 +84,18 @@ const PYGMYCMD BOOTCOMMANDS[] = {   {(u8*)"erase", cmdErase},
                                     {(u8*)"", NULL }//cmdNull} // No Commands after NULL
                                     }; 
 
+PYGMYXMODEM pygmyXModem;
 PYGMYFILE pygmyFile;
 u32 globalFileLen, globalXMTimeout, globalTransaction, globalXMCount;
 volatile u32 globalBootTimeout;
 volatile u32 globalPLL, globalID, globalXTAL, globalFreq, globalBaseAddress;
 volatile u8 globalStatus = 0, globalBootStatus = 0;
 volatile u8 *globalStrID;
+  
+void bootTimeout( void )
+{
+    ++globalBootTimeout;
+}
                                 
 int main( void )
 {    
@@ -109,10 +103,13 @@ int main( void )
     
     // First test the descriptor page ( last page in FLASH )
     // if configuration exists, use programmed ID, else query
-    // Degub registers for ID. This is a workaround for silicon
+    // Debug registers for ID. This is a workaround for silicon
     // issues in the F103 STM32s
-    
-    globalID = fpecGetID( );
+    taskInit();
+    socketInit();
+    rfInit();
+
+    //globalID = fpecGetID( );
     globalPLL = BIT16|BIT1;
     // First Init the Clocks
     if( globalID == 0x0416 ){
@@ -146,7 +143,6 @@ int main( void )
     while( !PYGMY_RCC_PLL_READY );
     // HSI Must be ON for Flash Program/Erase Operations
     // End Clock Init 
-
     // Configure Interrupts
     PYGMY_WATCHDOG_UNLOCK;
     PYGMY_WATCHDOG_PRESCALER( IWDT_PREDIV128 );
@@ -192,6 +188,8 @@ int main( void )
     // First allow 2 seconds for receipt of '+' char 
     // If received, cancel download sequence and wait for commands
     // Timeout is incremented every millisecond by SysTick
+    taskNewSimple( "xmodem", 1000, (void *)xmodemProcessTimer );
+    taskNewSimple( "boot", 1000, (void *)bootTimeout );
     for( globalBootTimeout = 0; globalBootTimeout < 2000; ){
         ;
     }
@@ -349,77 +347,17 @@ void putstr( u8 *ucBuffer )
 void USART3_IRQHandler( void )
 {
     static u8 ucBuffer[ 256 ], ucIndex = 0;
-    //u16 i, uiID;
-    u8 ucByte;//, *ucSubString;//, *ucParam1;
+    u8 ucByte;
 
     if( USART3->SR & USART_RXNE ) { 
         USART3->SR &= ~USART_RXNE;
         ucByte = USART3->DR ;
         
-        if( globalStatus & XMODEM_RECV ){ // RECV      
-            if( globalStatus & XMODEM_MODE_SOH ){ // Recieving Payload, after <SOH>
-                ucBuffer[ ucIndex++ ] = ucByte;
-                if( ucIndex == 131 ){
-                    globalStatus &= ~XMODEM_MODE_SOH; // Reset Packet Marker
-                    if( globalXMCount == ucBuffer[ 0 ] && 
-                        xmodemWritePacket( (u8*)(ucBuffer+2) ) ) { // Returns 1 if check sum correct, 0 if not
-                        if( globalXMCount + 1 == 256 ){
-                            globalXMCount = 0;
-                        } else{
-                            ++globalXMCount;
-						} // else
-                        putcUSART3( 0x06 );// Return ACK
-                    } else{
-                        putcUSART3( 0x15 );// Return NACK
-                    }  
-                } 
-            } else{
-                if( ucByte == 0x01 ){ // This is XModem <SOH>
-                    globalStatus |= XMODEM_MODE_SOH; // Set Packet Marker
-                    globalXMTimeout = 1000;
-                    globalTransaction = 10;
-                } else if( ucByte == 0x04 || ucByte == XMODEM_CAN ){ // 0x04 Marks End Of Transmission              
-                    globalStatus = 0;//&= ~( XMODEM_RECV );
-                    filePutBuffer( &pygmyFile, 128, ucBuffer );
-                    fileClose( &pygmyFile );
-                    putcUSART3( 0x06 ); // Send Ack to close connection
-                    putstr( "Done\r> " );
-                } // else if
-                ucIndex = 0;
-            }
-        } else if( globalStatus & XMODEM_SEND ){ // SEND
-            if( ucByte == XMODEM_ACK ){
-                if( globalStatus & XMODEM_SEND_EOT ){
-                    globalStatus = 0;
-                    putstr( (u8*)BOOT_PROMPT );
-                    return;
-                } // if
-                globalXMTimeout = 1000;
-                globalTransaction = 10;
-                if( pygmyFile.Attributes & EOF ){
-                    globalStatus |= XMODEM_SEND_EOT;
-                    putcUSART3( XMODEM_EOT );
-                } else{
-                    ++globalXMCount;
-                    xmodemSendPacket( XMODEM_NEXT ); // 0 = next pack
-                } // else
-            } else if( ucByte == XMODEM_NACK ) {//|| ucByte == XMODEM_CAN ){
-                globalXMTimeout = 1000;
-                globalTransaction = 10;
-                if( globalStatus & XMODEM_SEND_WAIT ){
-                    xmodemSendPacket( XMODEM_NEXT ); // 1 = next, in this case this is first
-                    globalStatus &= ~XMODEM_SEND_WAIT;
-                //    xmodemSendPacket( XMODEM_LAST ); // 0 = next pack
-                } else{
-                    xmodemSendPacket( XMODEM_LAST ); // 0 = next pack
-                } // else
-            } else if( ucByte == XMODEM_CAN ){
-                globalStatus = 0;
-                putcUSART3( 0x06 ); // Send Ack to close connection
-                putstr( (u8*)BOOT_PROMPT );
-            } // else if
+        if( xmodemProcess( &pygmyXModem, ucByte ) ){
+            return;
+        } // if
         
-        } else if( ucByte == '\r' || ( ucByte == '+' && !( globalBootStatus & BOOT_CANCEL ) ) ){
+        if( ucByte == '\r' || ( ucByte == '+' && !( globalBootStatus & BOOT_CANCEL ) ) ){
             
             ucBuffer[ ucIndex ] = '\0'; // Add NULL to terminate string
             ucIndex = 0;
@@ -449,76 +387,14 @@ void USART3_IRQHandler( void )
    
 }
 
-u8 xmodemWritePacket( u8 *ucBuffer )
-{
-    u8 i, ucSum;
 
-    // count ( 0-1 before calling this function ) must be validated by calling function 
-    // 0-127 are data bytes, 128 is checksum 
-    ucSum = ucBuffer[ 0 ];
-    for( i = 1; i < 128; i++ ){
-        ucSum += ucBuffer[ i ]; 
-    } // for  
-    if( ucSum == ucBuffer[ 128 ] ){
-        filePutBuffer( &pygmyFile, 128, ucBuffer );
-        return( 1 );
-    } // if
-	
-    return( 0 );
-}
-
-void xmodemSendPacket( u8 ucLast )
-{
-    static u8 ucBuffer[ 132 ];
-    u8 i, ucSum;
-    
-    if( !ucLast ){ // If not resend then make a new packet
-        ucBuffer[ 0 ] = 0x01; // <SOH>
-        ucBuffer[ 1 ] = globalXMCount; // Packet Count
-        ucBuffer[ 2 ] = 0xFF - globalXMCount; // Ones Complement of Count
-        for( ucSum = 0, i = 3; i < 131; i++ ){ // 128 bytes payload
-            ucBuffer[ i ] = fileGetChar( &pygmyFile );
-            ucSum += ucBuffer[ i ];
-        } // for
-        ucBuffer[ i ] = ucSum; // add the check sum as the final bytes    
-    } // if
-    
-    putBufferUSART3( 132, ucBuffer );
-}
-
+/*
 void SysTick_Handler( void )
 {   
     PYGMY_WATCHDOG_REFRESH;
-    ++globalBootTimeout;
-    if( globalStatus & XMODEM_RECV ){
-        if( globalXMTimeout ){
-            --globalXMTimeout;
-        } else{
-            putcUSART3( XMODEM_NACK );
-            globalXMTimeout = 1000;
-            if( globalTransaction ){
-                --globalTransaction;
-            } else{
-                globalStatus &= ~(XMODEM_RECV|XMODEM_MODE_SOH);
-                putstr( "Timeout\r> " );
-            } // lse
-        } // else
-    } else if( globalStatus & XMODEM_SEND ){
-        if( globalXMTimeout )
-            --globalXMTimeout;
-        else{
-            xmodemSendPacket( XMODEM_LAST );
-            globalXMTimeout = 1000;
-            if( globalTransaction )
-                --globalTransaction;
-            else{
-                globalStatus &= ~(XMODEM_SEND|XMODEM_SEND_EOT);
-                putstr( (u8*)BOOT_ERROR );
-            } // else
-        } // else
-    } // else if
     
-}
+    
+}*/
 
 u8 cmdErase( u8 *ucParams )
 {
@@ -541,7 +417,7 @@ u8 cmdRecv( u8 *ucParams )
     u8 *ucSubString;
     
     ucSubString = getNextSubString( ucParams, WHITESPACE|NEWLINE );
-    if( fileOpen( &pygmyFile, ucSubString, WRITE ) ){
+    /*if( fileOpen( &pygmyFile, ucSubString, WRITE ) ){
         globalStatus |= BIT1;       // BIT1 used to mark In XModem Status
         globalXMTimeout = 1000; // 10 seconds
         globalTransaction = 60;
@@ -549,7 +425,8 @@ u8 cmdRecv( u8 *ucParams )
         return( 1 );
     } // if
         
-    return( 0 );
+    return( 0 );*/
+    return( xmodemRecv( &pygmyXModem, ucSubString ) );
 }
 
 u8 cmdSend( u8 *ucParams )
@@ -557,7 +434,7 @@ u8 cmdSend( u8 *ucParams )
     u8 *ucSubString;
     
     ucSubString = getNextSubString( ucParams, WHITESPACE|NEWLINE );
-    if( fileOpen( &pygmyFile, ucSubString, READ ) ){
+    /*if( fileOpen( &pygmyFile, ucSubString, READ ) ){
         globalXMCount = 1;
         globalXMTimeout = 1000;
         globalTransaction = 10;
@@ -566,7 +443,8 @@ u8 cmdSend( u8 *ucParams )
         return( 1 );
      } // if
  
-    return( 0 );
+    return( 0 );*/
+    return( xmodemSend( &pygmyXModem, ucSubString ) );
 }
 
 u8 cmdRead( u8 *ucParams )
@@ -681,193 +559,3 @@ u8 executeCmd( u8 *ucBuffer, PYGMYCMD *pygmyCommands )
 
     return( 0 );
 }
-
-u16 convertHexEncodedStringToBuffer( u8 *ucString, u8 *ucBuffer )
-{
-    // HEX Encoded ASCII string to binary eqivalent
-    // Use: ( "01020A", ptr ) , ptr[ 0 ] = 1, ptr[ 1 ] = 2, ptr[ 3 ] = 10
-    // Note that input buffer may be used as output buffer since input is always
-    //  twice the length of the output
-    u16 uiLen;
-    u8 ucByte;
-
-    for( uiLen = 0; *ucString; ){
-        ucByte = convertHexCharToInteger( *(ucString++) ) * 16;
-        ucByte += convertHexCharToInteger( *(ucString++) );
-        ucBuffer[ uiLen++ ] = ucByte;
-    } // for
-        
-    return( uiLen );
-}
-
-
-
-u16 convertHexCharToInteger( u8 ucChar )
-{
-    const u8 PYGMYHEXCHARS[] = { '0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F' };
-    u16 i;
-
-    for( i = 0; i < 16; i++ ){ 
-        if( ucChar == PYGMYHEXCHARS[ i ] ){
-            break;
-        } // if
-    } // for
-
-    return( i );
-}
-void copyString( u8 *ucFrom, u8 *ucTo )
-{
-    for( ; *ucFrom; ){
-        *(ucTo++) = *(ucFrom++); 
-    } // for
-    *ucTo = '\0';
-}
-
-u8 *getNextSubString( u8 *ucBuffer, u8 ucMode )
-{
-    static u8 *ucIndex = NULL;
-    
-    if( *ucBuffer ){
-        ucIndex = ucBuffer;
-    } // if
-    if( ucIndex == NULL ){
-        return( NULL );
-    } // if
-    
-    for( ; *ucIndex;  ){
-        if( ( isWhitespace( *ucIndex ) ) || 
-            ( (ucMode & PUNCT) && isPunctuation( *ucIndex ) ) ){
-            //( (ucMode & SEPARATORS) && isSeparator( *ucIndex ) ) ||
-            //( (ucMode & QUOTES) && isQuote( *ucIndex ) ) ||
-            //( (ucMode & COMMA) && *ucIndex == ',' ) ){
-            ++ucIndex;
-            continue;
-            } // if
-        ucBuffer = ucIndex;
-        for( ; *ucIndex ; ){
-            if( ( (ucMode & WHITESPACE) && isWhitespace( *ucIndex ) ) || 
-                ( (ucMode & PUNCT) && isPunctuation( *ucIndex ) ) ||
-                //( (ucMode & SEPARATORS) && isSeparator( *ucIndex ) ) ||
-                //( (ucMode & QUOTES) && isQuote( *ucIndex ) ) ||
-                ( (ucMode & NEWLINE) && isNewline( *ucIndex ) ) ){
-                //( (ucMode & COMMA) && *ucIndex == ',' ) ){
-                break;
-            } // if
-            ++ucIndex;
-        } // for
-        if( *ucIndex ){
-            *(ucIndex++) = '\0';
-        } else{
-            ucIndex = NULL;
-        } // else
-    
-        return( ucBuffer );
-    } // for
-    
-    return( NULL );
-}
-
-s8 isStringSame( u8 *ucBuffer, u8 *ucString )
-{
-    if( len( ucBuffer ) != len( ucString ) ){
-        return ( 0 );
-    } // if
-
-    for( ; *ucBuffer; ){
-        if( *(ucBuffer++) != *(ucString++) ){
-            return( 0 );
-        } // if
-    } // for
-    
-    return( 1 );
-}
-
-u16 len( u8 *ucString )
-{
-    u16 i;
-    
-    for( i = 0; *(ucString++) ; i++ ){
-        if( i == 0xFFFF ){
-            break;
-        } // if
-    } // for
-    
-    return( i );
-}
-
-s8 isAlpha( u8 ucChar )
-{
-    if( ( ucChar > 64 && ucChar < 91 ) || ( ucChar > 96 && ucChar < 123 ) ){
-        return( 1 );
-    } // if
-    
-    return( 0 );
-}
-
-s8 isNumeric( u8 ucChar )
-{
-    if( ucChar > 47 && ucChar < 58 ){
-        return( 1 );
-    } // if
-        
-    return( 0 );
-}
-
-s8 isNewline( u8 ucChar )
-{
-    if( ucChar == 10 || ucChar == 12 || ucChar == 13 ){
-        return( 1 );
-    } // if
-        
-    return( 0 );
-}
-
-s8 isWhitespace( u8 ucChar )
-{
-    if( ( ucChar > 7 && ucChar < 33 ) ){
-        return( 1 );
-    } // if
-        
-    return( 0 );
-}
-
-s8 isQuote( u8 ucChar )
-{
-    if( ( ucChar == 34 ) || ( ucChar == 39 ) ){
-        return( 1 );
-    } // if
-    
-    return( 0 );
-    
-}
-
-s8 isSeparator( u8 ucChar )
-{
-    if( isCharInString( ucChar, "/\\{}[]-_+=@`|<>'\"" ) ){
-        return( 1 );
-    } // if
-    
-    return( 0 );
-}
-
-s8 isPunctuation( u8 ucChar )
-{
-    if( isCharInString( ucChar, "!?,.:;" ) ){
-        return( 1 );
-    } // if
-        
-    return( 0 );
-}
-
-s8 isCharInString( u8 ucChar, u8 *ucChars )
-{
-    for( ; *ucChars; ) {
-        if( ucChar == *(ucChars++) ){
-            return( 1 );
-        } // if
-    } // for
-    
-    return( 0 );
-}
-
-

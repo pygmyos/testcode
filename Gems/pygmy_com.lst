@@ -738,76 +738,6 @@ i2cStretch():
   10:	d1fa      	bne.n	8 <i2cStretch+0x8>
   12:	4770      	bx	lr
 
-Disassembly of section .text.i2cStart:
-
-00000000 <i2cStart>:
-i2cStart():
-   0:	b510      	push	{r4, lr}
-   2:	2118      	movs	r1, #24
-   4:	4604      	mov	r4, r0
-   6:	7840      	ldrb	r0, [r0, #1]
-   8:	f7ff fffe 	bl	0 <pinConfig>
-   c:	4620      	mov	r0, r4
-   e:	f7ff fffe 	bl	0 <i2cStart>
-  12:	7820      	ldrb	r0, [r4, #0]
-  14:	2118      	movs	r1, #24
-  16:	f7ff fffe 	bl	0 <pinConfig>
-  1a:	68a3      	ldr	r3, [r4, #8]
-  1c:	89e1      	ldrh	r1, [r4, #14]
-  1e:	689a      	ldr	r2, [r3, #8]
-  20:	68da      	ldr	r2, [r3, #12]
-  22:	ea22 0201 	bic.w	r2, r2, r1
-  26:	60da      	str	r2, [r3, #12]
-  28:	2103      	movs	r1, #3
-  2a:	7860      	ldrb	r0, [r4, #1]
-  2c:	f7ff fffe 	bl	0 <pinConfig>
-  30:	4620      	mov	r0, r4
-  32:	f7ff fffe 	bl	0 <i2cStart>
-  36:	6863      	ldr	r3, [r4, #4]
-  38:	89a1      	ldrh	r1, [r4, #12]
-  3a:	68da      	ldr	r2, [r3, #12]
-  3c:	ea22 0201 	bic.w	r2, r2, r1
-  40:	60da      	str	r2, [r3, #12]
-  42:	7820      	ldrb	r0, [r4, #0]
-  44:	2103      	movs	r1, #3
-  46:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
-  4a:	f7ff bffe 	b.w	0 <pinConfig>
-
-Disassembly of section .text.i2cStop:
-
-00000000 <i2cStop>:
-i2cStop():
-   0:	b510      	push	{r4, lr}
-   2:	6883      	ldr	r3, [r0, #8]
-   4:	89c1      	ldrh	r1, [r0, #14]
-   6:	68da      	ldr	r2, [r3, #12]
-   8:	4604      	mov	r4, r0
-   a:	ea22 0201 	bic.w	r2, r2, r1
-   e:	60da      	str	r2, [r3, #12]
-  10:	2103      	movs	r1, #3
-  12:	7840      	ldrb	r0, [r0, #1]
-  14:	f7ff fffe 	bl	0 <pinConfig>
-  18:	4620      	mov	r0, r4
-  1a:	f7ff fffe 	bl	0 <i2cStop>
-  1e:	2118      	movs	r1, #24
-  20:	7820      	ldrb	r0, [r4, #0]
-  22:	f7ff fffe 	bl	0 <pinConfig>
-  26:	2118      	movs	r1, #24
-  28:	7860      	ldrb	r0, [r4, #1]
-  2a:	f7ff fffe 	bl	0 <pinConfig>
-  2e:	68a3      	ldr	r3, [r4, #8]
-  30:	89e2      	ldrh	r2, [r4, #14]
-  32:	689b      	ldr	r3, [r3, #8]
-  34:	421a      	tst	r2, r3
-  36:	d105      	bne.n	44 <i2cStop+0x44>
-  38:	4903      	ldr	r1, [pc, #12]	; (48 <i2cStop+0x48>)
-  3a:	2001      	movs	r0, #1
-  3c:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
-  40:	f7ff bffe 	b.w	0 <print>
-  44:	bd10      	pop	{r4, pc}
-  46:	bf00      	nop
-  48:	00000000 	.word	0x00000000
-
 Disassembly of section .text.i2cWriteBit:
 
 00000000 <i2cWriteBit>:
@@ -832,23 +762,31 @@ i2cWriteBit():
   28:	7820      	ldrb	r0, [r4, #0]
   2a:	2118      	movs	r1, #24
   2c:	f7ff fffe 	bl	0 <pinConfig>
-  30:	b12d      	cbz	r5, 3e <i2cWriteBit+0x3e>
-  32:	7860      	ldrb	r0, [r4, #1]
-  34:	2118      	movs	r1, #24
+  30:	b165      	cbz	r5, 4c <i2cWriteBit+0x4c>
+  32:	2118      	movs	r1, #24
+  34:	7860      	ldrb	r0, [r4, #1]
   36:	f7ff fffe 	bl	0 <pinConfig>
   3a:	68a3      	ldr	r3, [r4, #8]
-  3c:	689b      	ldr	r3, [r3, #8]
-  3e:	4620      	mov	r0, r4
-  40:	f7ff fffe 	bl	0 <i2cWriteBit>
-  44:	6863      	ldr	r3, [r4, #4]
-  46:	89a1      	ldrh	r1, [r4, #12]
-  48:	68da      	ldr	r2, [r3, #12]
-  4a:	ea22 0201 	bic.w	r2, r2, r1
-  4e:	60da      	str	r2, [r3, #12]
-  50:	7820      	ldrb	r0, [r4, #0]
-  52:	2103      	movs	r1, #3
-  54:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
-  58:	f7ff bffe 	b.w	0 <pinConfig>
+  3c:	89e2      	ldrh	r2, [r4, #14]
+  3e:	689b      	ldr	r3, [r3, #8]
+  40:	421a      	tst	r2, r3
+  42:	d103      	bne.n	4c <i2cWriteBit+0x4c>
+  44:	2001      	movs	r0, #1
+  46:	4909      	ldr	r1, [pc, #36]	; (6c <i2cWriteBit+0x6c>)
+  48:	f7ff fffe 	bl	0 <print>
+  4c:	4620      	mov	r0, r4
+  4e:	f7ff fffe 	bl	0 <i2cWriteBit>
+  52:	6863      	ldr	r3, [r4, #4]
+  54:	89a1      	ldrh	r1, [r4, #12]
+  56:	68da      	ldr	r2, [r3, #12]
+  58:	ea22 0201 	bic.w	r2, r2, r1
+  5c:	60da      	str	r2, [r3, #12]
+  5e:	7820      	ldrb	r0, [r4, #0]
+  60:	2103      	movs	r1, #3
+  62:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+  66:	f7ff bffe 	b.w	0 <pinConfig>
+  6a:	bf00      	nop
+  6c:	00000000 	.word	0x00000000
 
 Disassembly of section .text.i2cReadBit:
 
@@ -910,6 +848,225 @@ i2cWriteByte():
   2a:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
   2e:	f7ff bffe 	b.w	0 <i2cWriteByte>
 
+Disassembly of section .text.i2cReadByte:
+
+00000000 <i2cReadByte>:
+i2cReadByte():
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	4606      	mov	r6, r0
+   4:	2508      	movs	r5, #8
+   6:	2400      	movs	r4, #0
+   8:	4630      	mov	r0, r6
+   a:	f7ff fffe 	bl	0 <i2cReadByte>
+   e:	3d01      	subs	r5, #1
+  10:	ea40 0444 	orr.w	r4, r0, r4, lsl #1
+  14:	b2ed      	uxtb	r5, r5
+  16:	b2e4      	uxtb	r4, r4
+  18:	2d00      	cmp	r5, #0
+  1a:	d1f5      	bne.n	8 <i2cReadByte+0x8>
+  1c:	4620      	mov	r0, r4
+  1e:	bd70      	pop	{r4, r5, r6, pc}
+
+Disassembly of section .text.i2cResetBus:
+
+00000000 <i2cResetBus>:
+i2cResetBus():
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	2103      	movs	r1, #3
+   4:	4604      	mov	r4, r0
+   6:	7800      	ldrb	r0, [r0, #0]
+   8:	f7ff fffe 	bl	0 <pinConfig>
+   c:	2509      	movs	r5, #9
+   e:	68a3      	ldr	r3, [r4, #8]
+  10:	89e1      	ldrh	r1, [r4, #14]
+  12:	68da      	ldr	r2, [r3, #12]
+  14:	ea41 0202 	orr.w	r2, r1, r2
+  18:	60da      	str	r2, [r3, #12]
+  1a:	2103      	movs	r1, #3
+  1c:	7860      	ldrb	r0, [r4, #1]
+  1e:	f7ff fffe 	bl	0 <pinConfig>
+  22:	68a3      	ldr	r3, [r4, #8]
+  24:	89e2      	ldrh	r2, [r4, #14]
+  26:	689b      	ldr	r3, [r3, #8]
+  28:	421a      	tst	r2, r3
+  2a:	d105      	bne.n	38 <i2cResetBus+0x38>
+  2c:	4620      	mov	r0, r4
+  2e:	f7ff fffe 	bl	0 <i2cResetBus>
+  32:	2001      	movs	r0, #1
+  34:	4913      	ldr	r1, [pc, #76]	; (84 <i2cResetBus+0x84>)
+  36:	e020      	b.n	7a <i2cResetBus+0x7a>
+  38:	4620      	mov	r0, r4
+  3a:	f7ff fffe 	bl	0 <i2cResetBus>
+  3e:	6863      	ldr	r3, [r4, #4]
+  40:	89a1      	ldrh	r1, [r4, #12]
+  42:	68da      	ldr	r2, [r3, #12]
+  44:	4620      	mov	r0, r4
+  46:	ea41 0202 	orr.w	r2, r1, r2
+  4a:	60da      	str	r2, [r3, #12]
+  4c:	f7ff fffe 	bl	0 <i2cResetBus>
+  50:	6863      	ldr	r3, [r4, #4]
+  52:	89a1      	ldrh	r1, [r4, #12]
+  54:	68da      	ldr	r2, [r3, #12]
+  56:	4620      	mov	r0, r4
+  58:	ea22 0201 	bic.w	r2, r2, r1
+  5c:	60da      	str	r2, [r3, #12]
+  5e:	f7ff fffe 	bl	0 <i2cResetBus>
+  62:	6863      	ldr	r3, [r4, #4]
+  64:	89a1      	ldrh	r1, [r4, #12]
+  66:	68da      	ldr	r2, [r3, #12]
+  68:	3d01      	subs	r5, #1
+  6a:	ea41 0202 	orr.w	r2, r1, r2
+  6e:	b2ed      	uxtb	r5, r5
+  70:	60da      	str	r2, [r3, #12]
+  72:	2d00      	cmp	r5, #0
+  74:	d1cb      	bne.n	e <i2cResetBus+0xe>
+  76:	4904      	ldr	r1, [pc, #16]	; (88 <i2cResetBus+0x88>)
+  78:	2001      	movs	r0, #1
+  7a:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+  7e:	f7ff bffe 	b.w	0 <print>
+  82:	bf00      	nop
+  84:	00000014 	.word	0x00000014
+  88:	00000023 	.word	0x00000023
+
+Disassembly of section .text.i2cStop:
+
+00000000 <i2cStop>:
+i2cStop():
+   0:	6883b510 	.word	0x6883b510
+   4:	89c1      	ldrh	r1, [r0, #14]
+   6:	68da      	ldr	r2, [r3, #12]
+   8:	4604      	mov	r4, r0
+   a:	ea22 0201 	bic.w	r2, r2, r1
+   e:	60da      	str	r2, [r3, #12]
+  10:	2103      	movs	r1, #3
+  12:	7840      	ldrb	r0, [r0, #1]
+  14:	f7ff fffe 	bl	0 <pinConfig>
+  18:	4620      	mov	r0, r4
+  1a:	f7ff fffe 	bl	0 <i2cStop>
+  1e:	2118      	movs	r1, #24
+  20:	7820      	ldrb	r0, [r4, #0]
+  22:	f7ff fffe 	bl	0 <pinConfig>
+  26:	2118      	movs	r1, #24
+  28:	7860      	ldrb	r0, [r4, #1]
+  2a:	f7ff fffe 	bl	0 <pinConfig>
+  2e:	4620      	mov	r0, r4
+  30:	f7ff fffe 	bl	0 <i2cStop>
+  34:	68a3      	ldr	r3, [r4, #8]
+  36:	89e2      	ldrh	r2, [r4, #14]
+  38:	689b      	ldr	r3, [r3, #8]
+  3a:	421a      	tst	r2, r3
+  3c:	d108      	bne.n	50 <i2cStop+0x50>
+  3e:	2001      	movs	r0, #1
+  40:	4904      	ldr	r1, [pc, #16]	; (54 <i2cStop+0x54>)
+  42:	f7ff fffe 	bl	0 <print>
+  46:	4620      	mov	r0, r4
+  48:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+  4c:	f7ff bffe 	b.w	0 <i2cStop>
+  50:	bd10      	pop	{r4, pc}
+  52:	bf00      	nop
+  54:	00000038 	.word	0x00000038
+
+Disassembly of section .text.i2cStart:
+
+00000000 <i2cStart>:
+i2cStart():
+   0:	b510      	push	{r4, lr}
+   2:	2118      	movs	r1, #24
+   4:	4604      	mov	r4, r0
+   6:	7840      	ldrb	r0, [r0, #1]
+   8:	f7ff fffe 	bl	0 <pinConfig>
+   c:	4620      	mov	r0, r4
+   e:	f7ff fffe 	bl	0 <i2cStart>
+  12:	2118      	movs	r1, #24
+  14:	7820      	ldrb	r0, [r4, #0]
+  16:	f7ff fffe 	bl	0 <pinConfig>
+  1a:	68a3      	ldr	r3, [r4, #8]
+  1c:	89e2      	ldrh	r2, [r4, #14]
+  1e:	689b      	ldr	r3, [r3, #8]
+  20:	421a      	tst	r2, r3
+  22:	d106      	bne.n	32 <i2cStart+0x32>
+  24:	2001      	movs	r0, #1
+  26:	490f      	ldr	r1, [pc, #60]	; (64 <i2cStart+0x64>)
+  28:	f7ff fffe 	bl	0 <print>
+  2c:	4620      	mov	r0, r4
+  2e:	f7ff fffe 	bl	0 <i2cStart>
+  32:	68a3      	ldr	r3, [r4, #8]
+  34:	89e1      	ldrh	r1, [r4, #14]
+  36:	68da      	ldr	r2, [r3, #12]
+  38:	ea22 0201 	bic.w	r2, r2, r1
+  3c:	60da      	str	r2, [r3, #12]
+  3e:	2103      	movs	r1, #3
+  40:	7860      	ldrb	r0, [r4, #1]
+  42:	f7ff fffe 	bl	0 <pinConfig>
+  46:	4620      	mov	r0, r4
+  48:	f7ff fffe 	bl	0 <i2cStart>
+  4c:	6863      	ldr	r3, [r4, #4]
+  4e:	89a1      	ldrh	r1, [r4, #12]
+  50:	68da      	ldr	r2, [r3, #12]
+  52:	ea22 0201 	bic.w	r2, r2, r1
+  56:	60da      	str	r2, [r3, #12]
+  58:	7820      	ldrb	r0, [r4, #0]
+  5a:	2103      	movs	r1, #3
+  5c:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+  60:	f7ff bffe 	b.w	0 <pinConfig>
+  64:	0000004b 	.word	0x0000004b
+
+Disassembly of section .text.i2cReadBuffer:
+
+00000000 <i2cReadBuffer>:
+i2cReadBuffer():
+   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+   2:	460d      	mov	r5, r1
+   4:	4604      	mov	r4, r0
+   6:	491e      	ldr	r1, [pc, #120]	; (80 <i2cReadBuffer+0x80>)
+   8:	2001      	movs	r0, #1
+   a:	4616      	mov	r6, r2
+   c:	462a      	mov	r2, r5
+   e:	461f      	mov	r7, r3
+  10:	f7ff fffe 	bl	0 <print>
+  14:	4620      	mov	r0, r4
+  16:	f7ff fffe 	bl	0 <i2cReadBuffer>
+  1a:	4620      	mov	r0, r4
+  1c:	78a1      	ldrb	r1, [r4, #2]
+  1e:	f7ff fffe 	bl	0 <i2cReadBuffer>
+  22:	8a63      	ldrh	r3, [r4, #18]
+  24:	f013 0f02 	tst.w	r3, #2
+  28:	d003      	beq.n	32 <i2cReadBuffer+0x32>
+  2a:	4620      	mov	r0, r4
+  2c:	0a29      	lsrs	r1, r5, #8
+  2e:	f7ff fffe 	bl	0 <i2cReadBuffer>
+  32:	b2e9      	uxtb	r1, r5
+  34:	4620      	mov	r0, r4
+  36:	f7ff fffe 	bl	0 <i2cReadBuffer>
+  3a:	4620      	mov	r0, r4
+  3c:	f7ff fffe 	bl	0 <i2cReadBuffer>
+  40:	78a1      	ldrb	r1, [r4, #2]
+  42:	4620      	mov	r0, r4
+  44:	f041 0101 	orr.w	r1, r1, #1
+  48:	f7ff fffe 	bl	0 <i2cReadBuffer>
+  4c:	2500      	movs	r5, #0
+  4e:	e00b      	b.n	68 <i2cReadBuffer+0x68>
+  50:	4620      	mov	r0, r4
+  52:	f7ff fffe 	bl	0 <i2cReadBuffer>
+  56:	3501      	adds	r5, #1
+  58:	42bd      	cmp	r5, r7
+  5a:	f806 0b01 	strb.w	r0, [r6], #1
+  5e:	da03      	bge.n	68 <i2cReadBuffer+0x68>
+  60:	4620      	mov	r0, r4
+  62:	2100      	movs	r1, #0
+  64:	f7ff fffe 	bl	0 <i2cReadBuffer>
+  68:	b2ab      	uxth	r3, r5
+  6a:	42bb      	cmp	r3, r7
+  6c:	d3f0      	bcc.n	50 <i2cReadBuffer+0x50>
+  6e:	4620      	mov	r0, r4
+  70:	2101      	movs	r1, #1
+  72:	f7ff fffe 	bl	0 <i2cReadBuffer>
+  76:	4620      	mov	r0, r4
+  78:	f7ff fffe 	bl	0 <i2cReadBuffer>
+  7c:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+  7e:	bf00      	nop
+  80:	0000005f 	.word	0x0000005f
+
 Disassembly of section .text.i2cWriteBuffer:
 
 00000000 <i2cWriteBuffer>:
@@ -945,82 +1102,189 @@ i2cWriteBuffer():
   46:	f7ff fffe 	bl	0 <i2cWriteBuffer>
   4a:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
 
-Disassembly of section .text.i2cReadByte:
+Disassembly of section .text.i2cGetChar:
 
-00000000 <i2cReadByte>:
-i2cReadByte():
+00000000 <i2cGetChar>:
+i2cGetChar():
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	4b17      	ldr	r3, [pc, #92]	; (60 <i2cGetChar+0x60>)
+   4:	f64a 22aa 	movw	r2, #43690	; 0xaaaa
+   8:	4604      	mov	r4, r0
+   a:	601a      	str	r2, [r3, #0]
+   c:	460d      	mov	r5, r1
+   e:	f7ff fffe 	bl	0 <i2cGetChar>
+  12:	4620      	mov	r0, r4
+  14:	78a1      	ldrb	r1, [r4, #2]
+  16:	f7ff fffe 	bl	0 <i2cGetChar>
+  1a:	8a63      	ldrh	r3, [r4, #18]
+  1c:	f013 0f02 	tst.w	r3, #2
+  20:	d003      	beq.n	2a <i2cGetChar+0x2a>
+  22:	4620      	mov	r0, r4
+  24:	0a29      	lsrs	r1, r5, #8
+  26:	f7ff fffe 	bl	0 <i2cGetChar>
+  2a:	b2e9      	uxtb	r1, r5
+  2c:	4620      	mov	r0, r4
+  2e:	f7ff fffe 	bl	0 <i2cGetChar>
+  32:	4620      	mov	r0, r4
+  34:	f7ff fffe 	bl	0 <i2cGetChar>
+  38:	78a1      	ldrb	r1, [r4, #2]
+  3a:	4620      	mov	r0, r4
+  3c:	f041 0101 	orr.w	r1, r1, #1
+  40:	f7ff fffe 	bl	0 <i2cGetChar>
+  44:	4620      	mov	r0, r4
+  46:	f7ff fffe 	bl	0 <i2cGetChar>
+  4a:	2101      	movs	r1, #1
+  4c:	4605      	mov	r5, r0
+  4e:	4620      	mov	r0, r4
+  50:	f7ff fffe 	bl	0 <i2cGetChar>
+  54:	4620      	mov	r0, r4
+  56:	f7ff fffe 	bl	0 <i2cGetChar>
+  5a:	4628      	mov	r0, r5
+  5c:	bd38      	pop	{r3, r4, r5, pc}
+  5e:	bf00      	nop
+  60:	40003000 	.word	0x40003000
+
+Disassembly of section .text.i2cGetBuffer:
+
+00000000 <i2cGetBuffer>:
+i2cGetBuffer():
+   0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+   4:	4605      	mov	r5, r0
+   6:	460c      	mov	r4, r1
+   8:	4616      	mov	r6, r2
+   a:	4698      	mov	r8, r3
+   c:	2700      	movs	r7, #0
+   e:	e007      	b.n	20 <i2cGetBuffer+0x20>
+  10:	1939      	adds	r1, r7, r4
+  12:	4628      	mov	r0, r5
+  14:	b289      	uxth	r1, r1
+  16:	f7ff fffe 	bl	0 <i2cGetBuffer>
+  1a:	55f0      	strb	r0, [r6, r7]
+  1c:	3701      	adds	r7, #1
+  1e:	b2ff      	uxtb	r7, r7
+  20:	4547      	cmp	r7, r8
+  22:	d3f5      	bcc.n	10 <i2cGetBuffer+0x10>
+  24:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+
+Disassembly of section .text.i2cPollAck:
+
+00000000 <i2cPollAck>:
+i2cPollAck():
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	4604      	mov	r4, r0
+   4:	f64f 75ff 	movw	r5, #65535	; 0xffff
+   8:	4620      	mov	r0, r4
+   a:	f7ff fffe 	bl	0 <i2cPollAck>
+   e:	4620      	mov	r0, r4
+  10:	f7ff fffe 	bl	0 <i2cPollAck>
+  14:	4620      	mov	r0, r4
+  16:	78a1      	ldrb	r1, [r4, #2]
+  18:	f7ff fffe 	bl	0 <i2cPollAck>
+  1c:	4606      	mov	r6, r0
+  1e:	4620      	mov	r0, r4
+  20:	f7ff fffe 	bl	0 <i2cPollAck>
+  24:	b11e      	cbz	r6, 2e <i2cPollAck+0x2e>
+  26:	3d01      	subs	r5, #1
+  28:	b2ad      	uxth	r5, r5
+  2a:	2d00      	cmp	r5, #0
+  2c:	d1ec      	bne.n	8 <i2cPollAck+0x8>
+  2e:	bd70      	pop	{r4, r5, r6, pc}
+
+Disassembly of section .text.i2cPutChar:
+
+00000000 <i2cPutChar>:
+i2cPutChar():
+   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+   2:	4b1c      	ldr	r3, [pc, #112]	; (74 <i2cPutChar+0x74>)
+   4:	4617      	mov	r7, r2
+   6:	f64a 22aa 	movw	r2, #43690	; 0xaaaa
+   a:	4604      	mov	r4, r0
+   c:	601a      	str	r2, [r3, #0]
+   e:	460d      	mov	r5, r1
+  10:	f7ff fffe 	bl	0 <i2cPutChar>
+  14:	4620      	mov	r0, r4
+  16:	78a1      	ldrb	r1, [r4, #2]
+  18:	f7ff fffe 	bl	0 <i2cPutChar>
+  1c:	8a63      	ldrh	r3, [r4, #18]
+  1e:	4606      	mov	r6, r0
+  20:	f013 0f02 	tst.w	r3, #2
+  24:	d006      	beq.n	34 <i2cPutChar+0x34>
+  26:	4620      	mov	r0, r4
+  28:	0a29      	lsrs	r1, r5, #8
+  2a:	f7ff fffe 	bl	0 <i2cPutChar>
+  2e:	ea40 0606 	orr.w	r6, r0, r6
+  32:	b2f6      	uxtb	r6, r6
+  34:	b2e9      	uxtb	r1, r5
+  36:	4620      	mov	r0, r4
+  38:	f7ff fffe 	bl	0 <i2cPutChar>
+  3c:	4639      	mov	r1, r7
+  3e:	ea40 0606 	orr.w	r6, r0, r6
+  42:	4620      	mov	r0, r4
+  44:	f7ff fffe 	bl	0 <i2cPutChar>
+  48:	b2f6      	uxtb	r6, r6
+  4a:	4605      	mov	r5, r0
+  4c:	432e      	orrs	r6, r5
+  4e:	4620      	mov	r0, r4
+  50:	f7ff fffe 	bl	0 <i2cPutChar>
+  54:	f016 0fff 	tst.w	r6, #255	; 0xff
+  58:	d108      	bne.n	6c <i2cPutChar+0x6c>
+  5a:	8a63      	ldrh	r3, [r4, #18]
+  5c:	f013 0f40 	tst.w	r3, #64	; 0x40
+  60:	d006      	beq.n	70 <i2cPutChar+0x70>
+  62:	4620      	mov	r0, r4
+  64:	f7ff fffe 	bl	0 <i2cPutChar>
+  68:	2001      	movs	r0, #1
+  6a:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+  6c:	2000      	movs	r0, #0
+  6e:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+  70:	2001      	movs	r0, #1
+  72:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+  74:	40003000 	.word	0x40003000
+
+Disassembly of section .text.i2cPutBuffer:
+
+00000000 <i2cPutBuffer>:
+i2cPutBuffer():
+   0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+   4:	4606      	mov	r6, r0
+   6:	460d      	mov	r5, r1
+   8:	4614      	mov	r4, r2
+   a:	4698      	mov	r8, r3
+   c:	2700      	movs	r7, #0
+   e:	e008      	b.n	22 <i2cPutBuffer+0x22>
+  10:	1979      	adds	r1, r7, r5
+  12:	4630      	mov	r0, r6
+  14:	b289      	uxth	r1, r1
+  16:	7822      	ldrb	r2, [r4, #0]
+  18:	f7ff fffe 	bl	0 <i2cPutBuffer>
+  1c:	b120      	cbz	r0, 28 <i2cPutBuffer+0x28>
+  1e:	3701      	adds	r7, #1
+  20:	b2bf      	uxth	r7, r7
+  22:	4547      	cmp	r7, r8
+  24:	d3f4      	bcc.n	10 <i2cPutBuffer+0x10>
+  26:	2001      	movs	r0, #1
+  28:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+
+Disassembly of section .text.i2cPutString:
+
+00000000 <i2cPutString>:
+i2cPutString():
    0:	b570      	push	{r4, r5, r6, lr}
    2:	4606      	mov	r6, r0
-   4:	2508      	movs	r5, #8
-   6:	2400      	movs	r4, #0
-   8:	4630      	mov	r0, r6
-   a:	f7ff fffe 	bl	0 <i2cReadByte>
-   e:	3d01      	subs	r5, #1
-  10:	ea40 0444 	orr.w	r4, r0, r4, lsl #1
-  14:	b2ed      	uxtb	r5, r5
-  16:	b2e4      	uxtb	r4, r4
-  18:	2d00      	cmp	r5, #0
-  1a:	d1f5      	bne.n	8 <i2cReadByte+0x8>
-  1c:	4630      	mov	r0, r6
-  1e:	4629      	mov	r1, r5
-  20:	f7ff fffe 	bl	0 <i2cReadByte>
-  24:	4620      	mov	r0, r4
-  26:	bd70      	pop	{r4, r5, r6, pc}
-
-Disassembly of section .text.i2cReadBuffer:
-
-00000000 <i2cReadBuffer>:
-i2cReadBuffer():
-   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
-   2:	4604      	mov	r4, r0
-   4:	461e      	mov	r6, r3
-   6:	2300      	movs	r3, #0
-   8:	4615      	mov	r5, r2
-   a:	f7ff fffe 	bl	0 <i2cReadBuffer>
-   e:	4620      	mov	r0, r4
-  10:	f7ff fffe 	bl	0 <i2cReadBuffer>
-  14:	78a1      	ldrb	r1, [r4, #2]
-  16:	4620      	mov	r0, r4
-  18:	f041 0101 	orr.w	r1, r1, #1
-  1c:	f7ff fffe 	bl	0 <i2cReadBuffer>
-  20:	2700      	movs	r7, #0
-  22:	e006      	b.n	32 <i2cReadBuffer+0x32>
-  24:	4620      	mov	r0, r4
-  26:	f7ff fffe 	bl	0 <i2cReadBuffer>
-  2a:	3701      	adds	r7, #1
-  2c:	f805 0b01 	strb.w	r0, [r5], #1
-  30:	b2bf      	uxth	r7, r7
-  32:	42b7      	cmp	r7, r6
-  34:	d3f6      	bcc.n	24 <i2cReadBuffer+0x24>
-  36:	4620      	mov	r0, r4
-  38:	2100      	movs	r1, #0
-  3a:	f7ff fffe 	bl	0 <i2cReadBuffer>
-  3e:	4620      	mov	r0, r4
-  40:	f7ff fffe 	bl	0 <i2cReadBuffer>
-  44:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
-
-Disassembly of section .text.i2cResetBus:
-
-00000000 <i2cResetBus>:
-i2cResetBus():
-   0:	b570      	push	{r4, r5, r6, lr}
-   2:	4604      	mov	r4, r0
-   4:	f7ff fffe 	bl	0 <i2cResetBus>
-   8:	2508      	movs	r5, #8
-   a:	3d01      	subs	r5, #1
-   c:	4620      	mov	r0, r4
-   e:	2101      	movs	r1, #1
-  10:	b2ed      	uxtb	r5, r5
-  12:	f7ff fffe 	bl	0 <i2cResetBus>
-  16:	2d00      	cmp	r5, #0
-  18:	d1f7      	bne.n	a <i2cResetBus+0xa>
-  1a:	4620      	mov	r0, r4
-  1c:	f7ff fffe 	bl	0 <i2cResetBus>
-  20:	4620      	mov	r0, r4
-  22:	f7ff fffe 	bl	0 <i2cResetBus>
-  26:	4620      	mov	r0, r4
-  28:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
-  2c:	f7ff bffe 	b.w	0 <i2cResetBus>
+   4:	460c      	mov	r4, r1
+   6:	4615      	mov	r5, r2
+   8:	e006      	b.n	18 <i2cPutString+0x18>
+   a:	4630      	mov	r0, r6
+   c:	4621      	mov	r1, r4
+   e:	f7ff fffe 	bl	0 <i2cPutString>
+  12:	b130      	cbz	r0, 22 <i2cPutString+0x22>
+  14:	3401      	adds	r4, #1
+  16:	b2a4      	uxth	r4, r4
+  18:	f815 2b01 	ldrb.w	r2, [r5], #1
+  1c:	2a00      	cmp	r2, #0
+  1e:	d1f4      	bne.n	a <i2cPutString+0xa>
+  20:	2001      	movs	r0, #1
+  22:	bd70      	pop	{r4, r5, r6, pc}
 
 Disassembly of section .text.streamReset:
 
@@ -1054,7 +1318,7 @@ streamReset():
   34:	2000      	movs	r0, #0
   36:	bd10      	pop	{r4, pc}
 	...
-  40:	0000000c 	.word	0x0000000c
+  40:	0000006b 	.word	0x0000006b
 
 Disassembly of section .text.streamInit:
 

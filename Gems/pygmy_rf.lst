@@ -637,7 +637,7 @@ rfPutTXBuffer():
   62:	b124      	cbz	r4, c <rfPutTXBuffer+0xc>
   64:	f7ff fffe 	bl	0 <rfPutTXBuffer>
   68:	f010 0f20 	tst.w	r0, #32
-  6c:	d0f4      	beq.n	ffffffec <socketGetID+0xffffffec>
+  6c:	d0f4      	beq.n	ffffffec <rfInit+0xffffffec>
   6e:	f7ff fffe 	bl	0 <rfPutTXBuffer>
   72:	f7ff fffe 	bl	0 <rfPutTXBuffer>
   76:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}

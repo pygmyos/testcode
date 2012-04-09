@@ -106,6 +106,29 @@ drawRFTest():
  114:	00000014 	.word	0x00000014
  118:	00000000 	.word	0x00000000
 
+Disassembly of section .text.main:
+
+00000000 <main>:
+main():
+   0:	f7ffb508 	.word	0xf7ffb508
+   4:	fffe f7ff 	vqshl.u64	<illegal reg q15.5>, <illegal reg q15.5>, #62	; 0x3e
+   8:	fffe f7ff 	vqshl.u64	<illegal reg q15.5>, <illegal reg q15.5>, #62	; 0x3e
+   c:	fffe f7ff 	vqshl.u64	<illegal reg q15.5>, <illegal reg q15.5>, #62	; 0x3e
+  10:	fffe 4908 	vtbl.8	d20, {d14-d15}, d8
+  14:	4602      	mov	r2, r0
+  16:	2001      	movs	r0, #1
+  18:	f7ff fffe 	bl	0 <print>
+  1c:	2008      	movs	r0, #8
+  1e:	2103      	movs	r1, #3
+  20:	f7ff fffe 	bl	0 <pinConfig>
+  24:	2008      	movs	r0, #8
+  26:	2101      	movs	r1, #1
+  28:	f7ff fffe 	bl	0 <pinSet>
+  2c:	f7ff fffe 	bl	0 <gasSensorInit>
+  30:	e7fe      	b.n	30 <main+0x30>
+  32:	bf00      	nop
+  34:	00000019 	.word	0x00000019
+
 Disassembly of section .text.drawMainMenu:
 
 00000000 <drawMainMenu>:
@@ -225,11 +248,11 @@ drawMainMenu():
 	...
  144:	00010055 	.word	0x00010055
  148:	00110151 	.word	0x00110151
- 14c:	00000019 	.word	0x00000019
+ 14c:	00000028 	.word	0x00000028
  150:	00000000 	.word	0x00000000
- 154:	00000024 	.word	0x00000024
+ 154:	00000033 	.word	0x00000033
  158:	00000000 	.word	0x00000000
- 15c:	0000002c 	.word	0x0000002c
+ 15c:	0000003b 	.word	0x0000003b
 
 Disassembly of section .text.eventRFBack:
 
@@ -241,102 +264,14 @@ eventRFBack():
    a:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
    e:	f7ff bffe 	b.w	0 <eventRFBack>
   12:	bf00      	nop
-  14:	00000035 	.word	0x00000035
-
-Disassembly of section .text.main:
-
-00000000 <main>:
-main():
-   0:	b500      	push	{lr}
-   2:	b08b      	sub	sp, #44	; 0x2c
-   4:	f7ff fffe 	bl	0 <sysInit>
-   8:	f7ff fffe 	bl	0 <socketInit>
-   c:	f7ff fffe 	bl	0 <rfInit>
-  10:	f7ff fffe 	bl	0 <socketGetID>
-  14:	492f      	ldr	r1, [pc, #188]	; (d4 <main+0xd4>)
-  16:	4602      	mov	r2, r0
-  18:	2001      	movs	r0, #1
-  1a:	f7ff fffe 	bl	0 <print>
-  1e:	22ff      	movs	r2, #255	; 0xff
-  20:	4613      	mov	r3, r2
-  22:	210a      	movs	r1, #10
-  24:	2009      	movs	r0, #9
-  26:	f7ff fffe 	bl	0 <mpl115a2Init>
-  2a:	f7ff fffe 	bl	0 <mpl115a2ReadkPa>
-  2e:	f7ff fffe 	bl	0 <__aeabi_f2d>
-  32:	4602      	mov	r2, r0
-  34:	460b      	mov	r3, r1
-  36:	2001      	movs	r0, #1
-  38:	4927      	ldr	r1, [pc, #156]	; (d8 <main+0xd8>)
-  3a:	f7ff fffe 	bl	0 <print>
-  3e:	f7ff fffe 	bl	0 <mpl115a2ReadTemp>
-  42:	f7ff fffe 	bl	0 <__aeabi_f2d>
-  46:	4602      	mov	r2, r0
-  48:	460b      	mov	r3, r1
-  4a:	2001      	movs	r0, #1
-  4c:	4923      	ldr	r1, [pc, #140]	; (dc <main+0xdc>)
-  4e:	f7ff fffe 	bl	0 <print>
-  52:	2008      	movs	r0, #8
-  54:	2103      	movs	r1, #3
-  56:	f7ff fffe 	bl	0 <pinConfig>
-  5a:	2008      	movs	r0, #8
-  5c:	2101      	movs	r1, #1
-  5e:	f7ff fffe 	bl	0 <pinSet>
-  62:	4668      	mov	r0, sp
-  64:	491e      	ldr	r1, [pc, #120]	; (e0 <main+0xe0>)
-  66:	f7ff fffe 	bl	0 <isStringSame>
-  6a:	b368      	cbz	r0, c8 <main+0xc8>
-  6c:	2001      	movs	r0, #1
-  6e:	491d      	ldr	r1, [pc, #116]	; (e4 <main+0xe4>)
-  70:	f7ff fffe 	bl	0 <print>
-  74:	491c      	ldr	r1, [pc, #112]	; (e8 <main+0xe8>)
-  76:	481d      	ldr	r0, [pc, #116]	; (ec <main+0xec>)
-  78:	f7ff fffe 	bl	0 <fileOpenResource>
-  7c:	491c      	ldr	r1, [pc, #112]	; (f0 <main+0xf0>)
-  7e:	481b      	ldr	r0, [pc, #108]	; (ec <main+0xec>)
-  80:	f7ff fffe 	bl	0 <fontLoad>
-  84:	481a      	ldr	r0, [pc, #104]	; (6c <fontSetAll+0x6c>)
-  86:	f7ff fffe 	bl	0 <fontSetAll>
-  8a:	2000      	movs	r0, #0
-  8c:	2118      	movs	r1, #24
-  8e:	f7ff fffe 	bl	0 <pinConfig>
-  92:	2028      	movs	r0, #40	; 0x28
-  94:	2118      	movs	r1, #24
-  96:	f7ff fffe 	bl	0 <pinConfig>
-  9a:	2006      	movs	r0, #6
-  9c:	2118      	movs	r1, #24
-  9e:	f7ff fffe 	bl	0 <pinConfig>
-  a2:	2004      	movs	r0, #4
-  a4:	2118      	movs	r1, #24
-  a6:	f7ff fffe 	bl	0 <pinConfig>
-  aa:	2005      	movs	r0, #5
-  ac:	2118      	movs	r1, #24
-  ae:	f7ff fffe 	bl	0 <pinConfig>
-  b2:	2002      	movs	r0, #2
-  b4:	2118      	movs	r1, #24
-  b6:	f7ff fffe 	bl	0 <pinConfig>
-  ba:	2003      	movs	r0, #3
-  bc:	2118      	movs	r1, #24
-  be:	f7ff fffe 	bl	0 <pinConfig>
-  c2:	f7ff fffe 	bl	0 <main>
-  c6:	e003      	b.n	d0 <main+0xd0>
-  c8:	2020      	movs	r0, #32
-  ca:	2121      	movs	r1, #33	; 0x21
-  cc:	f7ff fffe 	bl	0 <hih5030Init>
-  d0:	e7fe      	b.n	d0 <main+0xd0>
-  d2:	bf00      	nop
-  d4:	0000003e 	.word	0x0000003e
-  d8:	0000004d 	.word	0x0000004d
-  dc:	0000005b 	.word	0x0000005b
-  e0:	00000065 	.word	0x00000065
-  e4:	00000072 	.word	0x00000072
-	...
+  14:	00000044 	.word	0x00000044
 
 Disassembly of section .text.threadRFHumidity:
 
 00000000 <threadRFHumidity>:
 threadRFHumidity():
-   0:	4824b510 	.word	0x4824b510
+   0:	b510      	push	{r4, lr}
+   2:	4824      	ldr	r0, [pc, #144]	; (94 <threadRFHumidity+0x94>)
    4:	b08a      	sub	sp, #40	; 0x28
    6:	f04f 31ff 	mov.w	r1, #4294967295
    a:	f7ff fffe 	bl	0 <socketGet>
@@ -397,15 +332,15 @@ threadRFHumidity():
   90:	bd10      	pop	{r4, pc}
   92:	bf00      	nop
   94:	13480238 	.word	0x13480238
-  98:	00000087 	.word	0x00000087
-  9c:	00000094 	.word	0x00000094
+  98:	0000004d 	.word	0x0000004d
+  9c:	0000005a 	.word	0x0000005a
   a0:	00000000 	.word	0x00000000
-  a4:	000000a8 	.word	0x000000a8
-  a8:	000000ba 	.word	0x000000ba
-  ac:	000000d0 	.word	0x000000d0
-  b0:	000000e9 	.word	0x000000e9
+  a4:	0000006e 	.word	0x0000006e
+  a8:	00000080 	.word	0x00000080
+  ac:	00000096 	.word	0x00000096
+  b0:	000000af 	.word	0x000000af
   b4:	00000000 	.word	0x00000000
-  b8:	000000ed 	.word	0x000000ed
+  b8:	000000b3 	.word	0x000000b3
 
 Disassembly of section .text.threadRFHumiditySave:
 
@@ -464,12 +399,12 @@ threadRFHumiditySave():
   82:	b00a      	add	sp, #40	; 0x28
   84:	bd10      	pop	{r4, pc}
   86:	bf00      	nop
-  88:	00000035 	.word	0x00000035
-  8c:	00000101 	.word	0x00000101
-  90:	00000113 	.word	0x00000113
-  94:	00000116 	.word	0x00000116
-  98:	00000119 	.word	0x00000119
-  9c:	00000127 	.word	0x00000127
-  a0:	00000138 	.word	0x00000138
-  a4:	0000013b 	.word	0x0000013b
+  88:	00000044 	.word	0x00000044
+  8c:	000000c7 	.word	0x000000c7
+  90:	000000d9 	.word	0x000000d9
+  94:	000000dc 	.word	0x000000dc
+  98:	000000df 	.word	0x000000df
+  9c:	000000ed 	.word	0x000000ed
+  a0:	000000fe 	.word	0x000000fe
+  a4:	00000101 	.word	0x00000101
   a8:	00000000 	.word	0x00000000
