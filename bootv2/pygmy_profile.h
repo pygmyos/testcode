@@ -25,22 +25,28 @@
 #pragma once
 
 #define __PYGMYNEBULA
-//#define __PYGMYSTREAMS
-//    #define __PYGMYSTREAMCOM3
+#define __PYGMYSTREAMS
+    #define __PYGMYSTREAMCOM3
 //#define __PYGMYCOMMANDS
 //#define __PYGMYMESSAGES
 #define __PYGMYTASKS
 #define __PYGMYSOCKETS
+    //#define __PYGMYSOCKETS_CONTROL
+    #define __PYGMYSOCKETS_FILE
+    //#define __PYGMYSOCKETS_CMDLINE
+    //#define __PYGMYSOCKETS_AV
 #define __PYGMYFILES
 
 #include "profiles/nebula/pygmy_nebula.h"
 
 #include "pygmy_sys.h"
+#include "pygmy_type.h"
 #include "pygmy_port.h"
 #include "pygmy_com.h"
 #include "pygmy_rf.h"
 #include "pygmy_adc.h"
-#include "pygmy_file.h"
+#include "pygmy_pfat.h"
+//#include "pygmy_file.h"
 //#include "pygmy_lcd.h"
 //#include "pygmy_gui.h"
 #include "pygmy_nvic.h"
@@ -48,6 +54,7 @@
 #include "pygmy_string.h"
 #include "pygmy_fpec.h"
 
+#include "profiles/memory/sst25vf.h"
 
 
 //-------------------------------------------------------------------------------------

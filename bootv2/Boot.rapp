@@ -4,27 +4,18 @@
 		<Options/>
 												
 	</NodeC>
-	<NodeC Path="..\..\pygmyos\core\pygmy_file.c" Header="pygmy_file.c" Marker="-1" AsyncBuild="" OutputFile=".\pygmy_file.o" sate="0" />
 	<NodeC Path="..\..\pygmyos\core\pygmy_fpec.c" Header="pygmy_fpec.c" Marker="-1" AsyncBuild="" OutputFile=".\pygmy_fpec.o" sate="0" />
 	<NodeC Path="..\..\pygmyos\core\pygmy_rf.c" Header="pygmy_rf.c" Marker="-1" AsyncBuild="" OutputFile=".\pygmy_rf.o" sate="0" />
 	<NodeC Path="..\..\pygmyos\core\pygmy_sys.c" Header="pygmy_sys.c" Marker="-1" AsyncBuild="" OutputFile=".\pygmy_sys.o" sate="0" />
 	<NodeC Path="..\..\pygmyos\core\pygmy_xmodem.c" Header="pygmy_xmodem.c" Marker="-1" AsyncBuild="" OutputFile=".\pygmy_xmodem.o" sate="0" />
 	<NodeC Path="..\..\pygmyos\core\pygmy_rtc.c" Header="pygmy_rtc.c" Marker="-1" AsyncBuild="" OutputFile=".\pygmy_rtc.o" sate="0" />
-	<NodeC Path="..\..\pygmyos\core\pygmy_com.c" Header="pygmy_com.c" Marker="0" AsyncBuild="" OutputFile=".\pygmy_com.o" sate="0" >
-		<Options>
-			<Config Header="Standard" >
-				<Set Header="GCC" >
-					<Section Header="Defines" >
-						<Property Header="Defines" Value="__PYGMY_BOOT" Removable="1" />
-								
-					</Section>
-						
-				</Set>
-			</Config>
-		</Options>
+	<NodeC Path="..\..\pygmyos\core\pygmy_com.c" Header="pygmy_com.c" Marker="-1" AsyncBuild="" OutputFile=".\pygmy_com.o" sate="0" >
+		<Options/>
 	</NodeC>
 	<NodeC Path="..\..\pygmyos\core\pygmy_port.c" Header="pygmy_port.c" Marker="-1" AsyncBuild="" OutputFile=".\pygmy_port.o" sate="0" />
 	<NodeC Path="..\..\pygmyos\core\pygmy_string.c" Header="pygmy_string.c" Marker="-1" AsyncBuild="" OutputFile=".\pygmy_string.o" sate="0" />
+	<NodeC Path="..\..\pygmyos\core\pygmy_nvic.c" Header="pygmy_nvic.c" Marker="-1" AsyncBuild="" OutputFile=".\pygmy_nvic.o" sate="0" />
+	<NodeC Path="..\..\pygmyos\core\pygmy_socket.c" Header="pygmy_socket.c" Marker="-1" AsyncBuild="" OutputFile=".\pygmy_socket.o" sate="0" />
 	<Options>
 		<Config Header="Standard" >
 			<Set Header="ApplicationBuild" >
@@ -40,14 +31,14 @@
 			</Set>
 			<Set Header="Target" >
 				<Section Header="ProcessorARM" >
-					<Property Header="Processor" Value="STM32F100RB" />
-																																																																																								
+					<Property Header="Processor" Value="STM32F103RBT6" />
+							
 				</Section>
 				<Section Header="ToolSetARM" >
 					<Property Header="BuildToolSetARM" Value="ARM\GNU.config" Removable="1" />
 																																																																																								
 				</Section>
-																																																																				
+					
 			</Set>
 			<Set Header="LD" >
 				<Section Header="LIB" >
@@ -94,6 +85,6 @@
 			</Set>
 		</Config>
 	</Options>
-	<NodeC Path="..\..\pygmyos\core\pygmy_nvic.c" Header="pygmy_nvic.c" Marker="-1" AsyncBuild="" OutputFile=".\pygmy_nvic.o" sate="0" />
-	<NodeC Path="..\..\pygmyos\core\pygmy_socket.c" Header="pygmy_socket.c" Marker="-1" AsyncBuild="" OutputFile=".\pygmy_socket.o" sate="0" />
+	<NodeC Path="..\..\pygmyos\profiles\memory\sst25vf.c" Header="sst25vf.c" Marker="-1" AsyncBuild="" OutputFile=".\sst25vf.o" sate="0" />
+	<NodeC Path="..\..\pygmyos\core\pygmy_pfat.c" Header="pygmy_pfat.c" Marker="-1" AsyncBuild="" OutputFile=".\pygmy_pfat.o" sate="0" />
 </ApplicationBuild>

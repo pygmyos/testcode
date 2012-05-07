@@ -18,6 +18,7 @@
 
 #include "pygmy_profile.h"
 #include "pygmy_xmodem.h"
+//#include "profiles/memory/sst25vf.h"
 
 #define BOOT_BUILDVERSION   1300 // 1.0 = 1000, 1.1 = 1100
 
@@ -41,6 +42,7 @@ void putstr( u8 *ucBuffer );
 void putIntUSART3( u32 ulData );
 //u8 xmodemWritePacket( u8 *ucBuffer );
 //void xmodemSendPacket( u8 ucLast );
+void bootGetUSART3( void );
 
 s8 isQuote( u8 ucChar );
 s8 isNewline( u8 ucChar );
@@ -48,10 +50,17 @@ s8 isNewline( u8 ucChar );
 u8 cmdHandler( u8 ucByte );
 u8 cmdErase( u8 *ucParams );
 u8 cmdFormat( u8 *ucParams );
+u8 cmdRFGet( u8 *ucParams );
+u8 cmdRFPut( u8 *ucParams );
 u8 cmdRecv( u8 *ucParams );
 u8 cmdSend( u8 *ucParams );
 u8 cmdRead( u8 *ucParams );
 u8 cmdRm( u8 *ucParams );
+u8 cmd_cd( u8 *ucParams );
+u8 cmd_new( u8 *ucBuffer );
+u8 cmd_mkdir( u8 *ucBuffer );
+u8 cmd_rmdir( u8 *ucBuffer );
+u8 cmd_dump( u8 *ucBuffer );
 u8 cmdLs( u8 *ucParams );
 u8 cmdMv( u8 *ucParams );
 u8 cmdBoot( u8 *ucParams );
@@ -69,15 +78,22 @@ const u8 BOOT_ERROR[] = "\rERROR\r>";
 const u8 BOOT_PROMPT[] = "\r> ";
 const u8 BOOT_filename[] = "boot.hex";
 
-const PYGMYCMD BOOTCOMMANDS[] = {   {(u8*)"erase", cmdErase},
-                                    {(u8*)"format", cmdFormat},
-                                    {(u8*)"recv", cmdRecv},
-                                    {(u8*)"send", cmdSend},
-                                    {(u8*)"read", cmdRead},
-                                    {(u8*)"rm", cmdRm},
-                                    {(u8*)"ls", cmdLs},
-                                    {(u8*)"mv", cmdMv},
-                                    {(u8*)"boot", cmdBoot},
+const PYGMYCMD BOOTCOMMANDS[] = {   {(u8*)"erase",      cmdErase},
+                                    {(u8*)"format",     cmdFormat},
+                                    {(u8*)"recv",       cmdRecv},
+                                    {(u8*)"send",       cmdSend},
+                                    {(u8*)"rfget",      cmdRFGet},
+                                    {(u8*)"rfput",      cmdRFPut},
+                                    {(u8*)"read",       cmdRead},
+                                    {(u8*)"new",        cmd_new},
+                                    {(u8*)"mkdir",      cmd_mkdir},
+                                    {(u8*)"rmdir",      cmd_rmdir},
+                                    {(u8*)"rm",         cmdRm},
+                                    {(u8*)"cd",         cmd_cd},
+                                    {(u8*)"ls",         cmdLs},
+                                    {(u8*)"mv",         cmdMv},
+                                    {(u8*)"boot",       cmdBoot},
+                                    {(u8*)"dump",       cmd_dump},
                                     //{(u8*)"flash", cmdFlash},
                                     //{(u8*)"verify", cmdVerify},
                                     {(u8*)"reset", cmdReset},
@@ -94,22 +110,26 @@ volatile u8 *globalStrID;
   
 void bootTimeout( void )
 {
-    ++globalBootTimeout;
+    //static u8 ucFirstCall = 0;
+    
+    //if( ucFirstCall ){
+        bootBootOS(); 
+    //} // if
+    //ucFirstCall = TRUE;
 }
                                 
 int main( void )
-{    
+{   
+    PYGMYFILEVOLUME *pygmyVolume;
+    PYGMYFILEPROPERTIES pygmyEntry;
     u32 ulClock;
-    
+    u8 i, ucLen, *ucParams[32];
     // First test the descriptor page ( last page in FLASH )
     // if configuration exists, use programmed ID, else query
     // Debug registers for ID. This is a workaround for silicon
     // issues in the F103 STM32s
-    taskInit();
-    socketInit();
-    rfInit();
-
-    //globalID = fpecGetID( );
+    
+    globalID = fpecGetID( );
     globalPLL = BIT16|BIT1;
     // First Init the Clocks
     if( globalID == 0x0416 ){
@@ -177,25 +197,55 @@ int main( void )
     // End USART3 Init
         
     // Note: SST FLASH ICs must have write-protection removed by formatting before use
+    //taskInit();
+    //socketInit();
+    //rfInit();
+    streamInit();
+    //streamSetGet( COM3, cmdGetsCOM3 );
+    //streamEnableEcho( COM3 );
+    //streamEnableBackspace( COM3 );
+    //streamEnableActionChars( COM3 );
+    //streamSetRXBuffer( COM3, globalCOM3RXBuffer, __PYGMYCOM3BUFFERLEN );
+    streamSetPut( COM3, putsUSART3 );
+    streamSetGet( COM3, bootGetUSART3 );
+    streamDisableDefaultGet( COM3 );
+    fileMount( (PYGMYMEMIO *)&SST25VF, 0, "nebula", FLASH_CS, FLASH_SCK, FLASH_MISO, FLASH_MOSI );
+    //fileFormat( fileGetCurrentMountPoint( ), "nebula" );
+    //fileOpen( "/nebula/test", FOLDER|WRITE|READ, 0 );
+    //fileOpen( "/nebula/images", FOLDER|WRITE|READ, 0 );
+    //fileOpen( "/nebula/test/test.txt", WRITE|READ, 0 );
     
-    
-    putstr( "\rPygmy Boot V1.3\rMCU " );
-    putstr( (u8*)globalStrID );
-    putstr( "\rFLASH " );
-    putIntUSART3( SIZEREG->Pages );
-    putcUSART3( '\r' );
-    fileMountRoot();
+    //putstr( "\rSplit: " ); putstr( splitString( "/nebula/test.txt", '/', -1 ) );
+    //if( fileSeekPath( "/nebula", &pygmyEntry ) ){
+    //    filePrintProperties( &pygmyEntry );
+    //} // if
+    /*ucLen = getAllSubStrings( "/root/test/test/test.txt", ucParams, 32, FILESEPARATORS );
+    putstr( "\rParams Found: " ); putIntUSART3( ucLen );
+    for( i = 0; i < ucLen; i++ ){
+        putstr( "\rParam" ); putIntUSART3( i ); putstr( ": " ); putstr( ucParams[ i ] );
+    } // for
+    */
+    //putstr( "\rPygmy Boot V2.0\rMCU " );
+    print( COM3, "\rPygmy Boot V2.0\rMCU " );
+    //putstr( (u8*)globalStrID );
+    print( COM3, "%s\rFLASH %d\r", globalStrID, SIZEREG->Pages );
+    //putstr( "\rFLASH " );
+    //putIntUSART3( SIZEREG->Pages );
+    //putcUSART3( '\r' );
+    //fileMountRoot();
     // First allow 2 seconds for receipt of '+' char 
     // If received, cancel download sequence and wait for commands
     // Timeout is incremented every millisecond by SysTick
-    taskNewSimple( "xmodem", 1000, (void *)xmodemProcessTimer );
-    taskNewSimple( "boot", 1000, (void *)bootTimeout );
-    for( globalBootTimeout = 0; globalBootTimeout < 2000; ){
+    
+    //taskNewSimple( "xmodem", 1000, (void *)xmodemProcessTimer );
+    //taskNewSimple( "boot", 5000, (void *)bootTimeout );
+    
+    /*for( globalBootTimeout = 0; globalBootTimeout < 2000; ){
         ;
     }
     if( !(globalBootStatus & BOOT_CANCEL) ){
         bootBootOS();   
-    }
+    }*/
     while( 1 ){
         // Wait for commands
     }
@@ -205,13 +255,13 @@ u8 bootTest( void )
 {
     // This function pre-tests every row in firmware file for corruption before erase and program
     u32 i;
-    u8 ucBuffer[ 64 ], ucCalculatedSum, *ucSubString;
+    u8 ucBuffer[ 64 ], *ucSubString;//ucCalculatedSum, ;
 
-    if( !fileOpen( &pygmyFile, (u8*)BOOT_filename, READ ) ){
-        return( 0 );
-    }
+    //if( !fileOpen( &pygmyFile, (u8*)BOOT_filename, READ ) ){
+    //    return( FALSE );
+    //}
  
-    for( ; !( pygmyFile.Attributes & EOF ); ){
+    for( ; !( pygmyFile.Properties.Attributes & EOF ); ){
         // Get an IHEX packet
         for( i = 0; i < 64; i++ ){
             ucBuffer[ i ] = fileGetChar( &pygmyFile );
@@ -229,12 +279,13 @@ u8 bootTest( void )
         if( ucSubString[ 3 ] == IHEX_EOF ){
             break; // We have reached EOF without error
         }
-        for( i = 0, ucCalculatedSum = 0; i < ucSubString[ 0 ]+4; i++ ){
-            ucCalculatedSum += ucSubString[ i ];
-        } // for
-        ucCalculatedSum = 1 + ( 0xFF ^ (u8)ucCalculatedSum ); 
-        if( (u8)ucCalculatedSum != ucSubString[ i ] ){ // Last short is checksum
-            return( 0 ); // Corrupt HEX Row
+        //for( i = 0, ucCalculatedSum = 0; i < ucSubString[ 0 ]+4; i++ ){
+        //    ucCalculatedSum += ucSubString[ i ];
+        //} // for
+        //ucCalculatedSum = 1 + ( 0xFF ^ (u8)ucCalculatedSum ); 
+        //if( (u8)ucCalculatedSum != ucSubString[ i ] ){ // Last short is checksum
+        if( sysCRC8( ucSubString, ucSubString[ 0 ]+4 ) != ucSubString[ i ] ){ // Last short is checksum
+            return( FALSE ); // Corrupt HEX Row
         } // if
         i = ( (u16)ucSubString[ 1 ] << 8 ) + ucSubString[ 2 ];
         if( ucSubString[ 3 ] == IHEX_DATA && i < 0x2000 ){
@@ -242,8 +293,8 @@ u8 bootTest( void )
         } // if 
     } // for
 
-    putstr( (u8*)BOOT_OK );
-
+    //putstr( (u8*)BOOT_OK );
+    print( COM3, (u8*)BOOT_OK );
     return( 1 );
 }
 
@@ -253,16 +304,16 @@ u8 bootTestAndLoad( void )
     //u16 *uiAddress;
     u8 ucBuffer[ 64 ], ucStatus, *ucSubString;
 
-    putstr( "\rFlashing" );
-    
-    if( !fileOpen( &pygmyFile, (u8*)BOOT_filename, READ ) ){ // If file boot.hex exists then load
-        return( 0 );
-    } // if
+    //putstr( "\rFlashing" );
+    print( COM3, "\rFlashing" );
+    //if( !fileOpen( &pygmyFile, (u8*)BOOT_filename, READ ) ){ // If file boot.hex exists then load
+    //    return( 0 );
+    //} // if
     
     fpecEraseProgramMemory();
-    putstr( "..." );
-  
-    for( ucStatus = 0; !( pygmyFile.Attributes & EOF ) && ucStatus != 0xFF; ){
+    //putstr( "..." );
+    print( COM3, "..." );
+    for( ucStatus = 0; !( pygmyFile.Properties.Attributes & EOF ) && ucStatus != 0xFF; ){
         for( i = 0; i < 64; i++ ){
             ucBuffer[ i ] = fileGetChar( &pygmyFile );
             if( ucBuffer[ i ] == '\r' ){
@@ -281,10 +332,10 @@ u8 bootTestAndLoad( void )
     //fpecWriteLong( uiAddress + 4, globalFreq );
     //fpecWriteLong( uiAddress + 6, BOOT_BUILDVERSION );
     //PYGMY_WATCHDOG_REFRESH;
-    fpecWriteDescriptor( 0, globalID );
-    fpecWriteDescriptor( 1, globalXTAL );
-    fpecWriteDescriptor( 2, globalFreq );
-    fpecWriteDescriptor( 3, BOOT_BUILDVERSION );
+    //fpecWriteDescriptor( 0, globalID );
+    //fpecWriteDescriptor( 1, globalXTAL );
+    //fpecWriteDescriptor( 2, globalFreq );
+    //fpecWriteDescriptor( 3, BOOT_BUILDVERSION );
 
     return( 1 );
 }
@@ -294,16 +345,19 @@ void bootBootOS( void )
     PYGMYVOIDPTR pygmyMain;
     u32 *ulOS;
     
-    ulOS = (u32*)0x08002004; // Address is start vector table + 4 bytes
+    ulOS = (u32*)0x08004004; // Address is start vector table + 4 bytes
     if ( *ulOS != 0xFFFFFFFF ){
-        putstr( "\rBooting..." );
+        //putstr( "\rBooting..." );
+        print( COM3, "\rBooting..." );
         pygmyMain = (PYGMYVOIDPTR)*ulOS;
         RCC->CIR = 0x009F0000;
-        SCB->VTOR = ((u32)0x08002000 & (u32)0x1FFFFF80);
+        SCB->VTOR = ((u32)0x08004000 & (u32)0x1FFFFF80);
         pygmyMain(); // pass control to Pygmy OS
     } // if
     globalBootStatus = BOOT_CANCEL;
-    putstr( "\rNo OS\r> " );
+    taskDelete( "boot" );
+    //putstr( "\rNo OS\r> " );
+    print( COM3, "\rNo OS> " );
 } 
 
 void putBufferUSART3( u16 uiLen, u8 *ucBuffer )
@@ -311,14 +365,19 @@ void putBufferUSART3( u16 uiLen, u8 *ucBuffer )
     u16 i;
 
     for( i = 0; i < uiLen ; i++ ){
-        putcUSART3( ucBuffer[ i ] ) ;
-    }    
+        //putcUSART3( ucBuffer[ i ] ) ;
+        print( COM3, "%c", ucBuffer[ i ] ) ;
+    } // for   
 }
-
+/*
 void putIntUSART3( u32 ulData )
 {
     s32 i, iMagnitude, iValue;
-
+    
+    if( ulData & BIT31 ){
+        putstr( "ERROR" );
+        return;
+    }  // if  
     for( i = 0, iMagnitude = 1; ( iMagnitude * 10 ) <= ulData; i++ )
         iMagnitude *= 10;
     
@@ -342,9 +401,10 @@ void putstr( u8 *ucBuffer )
     for( ; *ucBuffer ; ){
         putcUSART3( *(ucBuffer++) );
     }
-}
+}*/
 
-void USART3_IRQHandler( void )
+void bootGetUSART3( void )
+//void USART3_IRQHandler( void )
 {
     static u8 ucBuffer[ 256 ], ucIndex = 0;
     u8 ucByte;
@@ -356,45 +416,76 @@ void USART3_IRQHandler( void )
         if( xmodemProcess( &pygmyXModem, ucByte ) ){
             return;
         } // if
-        
-        if( ucByte == '\r' || ( ucByte == '+' && !( globalBootStatus & BOOT_CANCEL ) ) ){
-            
-            ucBuffer[ ucIndex ] = '\0'; // Add NULL to terminate string
-            ucIndex = 0;
-            if( ucByte == '+' ){
-                putstr( (u8*)BOOT_ERROR );
-                globalBootStatus |= BOOT_CANCEL;
-                return;
-            } // return
-            if( executeCmd( ucBuffer, (PYGMYCMD *)BOOTCOMMANDS ) ){
-                putstr( (u8*)BOOT_PROMPT );
-                //putstr( "\r> " );
+        if( ucByte == '+' ){
+            taskDelete( "boot" );
+            globalBootStatus = BOOT_CANCEL;
+            //putstr( (u8*)BOOT_PROMPT );
+            print( COM3, BOOT_PROMPT );
+            return;
+        } // if
+        if( globalBootStatus & BOOT_CANCEL ){
+            if( ucByte == '\r' ){
+                ucBuffer[ ucIndex ] = '\0'; // Add NULL to terminate string
+                ucIndex = 0;
+                if( executeCmd( ucBuffer, (PYGMYCMD *)BOOTCOMMANDS ) ){
+                    //putstr( (u8*)BOOT_PROMPT );
+                    print( COM3, BOOT_PROMPT  ); 
+                } else{
+                    //putstr( (u8*)BOOT_ERROR );
+                    print( COM3, BOOT_ERROR ); 
+                } // else
             } else{
-                putstr( (u8*)BOOT_ERROR );
-                //putstr( "\rERROR\r> " );
+                //putcUSART3( ucByte );
+                //print( COM3, "%c", ucByte );
+                USART3->DR = ucByte;
+                if( ucByte == '\b'  ){
+                    if( ucIndex ){
+                        --ucIndex;
+                    } // if
+                } else {
+                    ucBuffer[ ucIndex++ ] = ucByte;
+                } // else
             } // else
-        } else if( globalBootStatus & BOOT_CANCEL ){
-            putcUSART3( ucByte );
-            if( ucByte == '\b'  ){
-                if( ucIndex ){
-                    --ucIndex;
-                } // if
-            } else {
-                ucBuffer[ ucIndex++ ] = ucByte;
-            } // else
-        } // else
+        } // if
     } // if
    
 }
 
+u8 cmd_dump( u8 *ucBuffer )
+{
+    PYGMYFILEVOLUME *pygmyVolume;
+    u32 i, ulAddress, ulReadLen;
+    
+    u8 ucData, ucLen, *ucParams[3];
 
-/*
-void SysTick_Handler( void )
-{   
-    PYGMY_WATCHDOG_REFRESH;
+    pygmyVolume = fileGetCurrentMountPoint( );
+    ucLen = getAllSubStrings( ucBuffer, ucParams, 3, WHITESPACE|NEWLINE );
+    if( !pygmyVolume || ucLen < 2 ){
+        return( FALSE );
+    } // if
     
-    
-}*/
+    if( isStringSameIgnoreCase( ucParams[ 0 ], "sector" ) ){
+        ulAddress = convertStringToInt( ucParams[ 1 ] );
+        ulReadLen = 4096;
+    } else{
+        ulAddress = convertStringToInt( ucParams[ 0 ] );
+        ulReadLen = convertStringToInt( ucParams[ 1 ] );
+    } // else
+    print( COM3, "\r" );
+    for( i = 0; i < ulReadLen; i++ ){
+        ucData = pygmyVolume->IO->GetChar( pygmyVolume->Port, ulAddress + i );
+        if( !(i % 16 ) ){
+            print( COM3, "\r" );
+        } // if
+        if( isPrintable( ucData ) ){
+            print( COM3, "\"%c\"", ucData );
+        } else{
+            print( COM3, "(%02X)", ucData );
+        } // else
+    } // for
+
+    return( TRUE );
+}
 
 u8 cmdErase( u8 *ucParams )
 {
@@ -406,10 +497,41 @@ u8 cmdErase( u8 *ucParams )
 
 u8 cmdFormat( u8 *ucParams )
 {
-    fileFormat( "" );
+    fileFormat( globalMountPoints, "nebula" );
+    //fileWriteNewTableEntry( globalMountPoints, "test", WRITE|READ, 0 );
     //fileMountRoot();
 
     return( 1 );
+}
+
+u8 cmdRFGet( u8 *ucParams )
+{
+   u8 *ucParam1, *ucParam2;
+    
+    ucParam1 = getNextSubString( ucParams, WHITESPACE|NEWLINE );
+    ucParam2 = getNextSubString( NULL, WHITESPACE|NEWLINE );
+    if( ucParam1 && ucParam2 ){
+        socketRequestFile( convertStringToInt( ucParam1 ), ucParam2 );
+        
+        return( TRUE );
+    } // if
+
+    return( FALSE );
+}
+
+u8 cmdRFPut( u8 *ucParams )
+{
+    u8 *ucParam1, *ucParam2;
+    
+    ucParam1 = getNextSubString( ucParams, WHITESPACE|NEWLINE );
+    ucParam2 = getNextSubString( NULL, WHITESPACE|NEWLINE );
+    if( ucParam1 && ucParam2 ){
+        socketSendFile( convertStringToInt( ucParam1 ), ucParam2 );
+        
+        return( TRUE );
+    } // if
+
+    return( FALSE );
 }
 
 u8 cmdRecv( u8 *ucParams )
@@ -417,6 +539,7 @@ u8 cmdRecv( u8 *ucParams )
     u8 *ucSubString;
     
     ucSubString = getNextSubString( ucParams, WHITESPACE|NEWLINE );
+    
     /*if( fileOpen( &pygmyFile, ucSubString, WRITE ) ){
         globalStatus |= BIT1;       // BIT1 used to mark In XModem Status
         globalXMTimeout = 1000; // 10 seconds
@@ -453,22 +576,25 @@ u8 cmdRead( u8 *ucParams )
     u8 *ucSubString, ucChar;
     
     ucSubString = getNextSubString( ucParams, WHITESPACE|NEWLINE );
-    if( ucSubString && fileOpen( &pygmyFile, ucSubString, READ ) ){
-        for( i = 0; !(pygmyFile.Attributes & EOF ); i++ ){
+    if( ucSubString ){//&& fileOpen( &pygmyFile, ucSubString, READ ) ){
+        for( i = 0; !(pygmyFile.Properties.Attributes & EOF ); i++ ){
             ucChar = fileGetChar( &pygmyFile );
-            if( !(pygmyFile.Attributes & EOF ) ){
+            if( !(pygmyFile.Properties.Attributes & EOF ) ){
                 if( ucChar == '\r' ){
                     i = 0;
                 } // if
                 if( !( i % 80 ) ){
-                    putcUSART3( '\r' );
+                    //putcUSART3( '\r' );
+                    print( COM3, "\r" );
                 } // if
                 if( ucChar != '\r' && ( ucChar < 32 || ucChar > 126 ) ){
-                    putcUSART3( '(' );
-                    putIntUSART3( ucChar );
-                    putcUSART3( ')' );
+                    //putcUSART3( '(' );
+                    //putIntUSART3( ucChar );
+                    //putcUSART3( ')' );
+                    print( COM3, "(%d)", ucChar );
                 } else{
-                    putcUSART3( ucChar );
+                    //putcUSART3( ucChar );
+                    print( COM3, "%c", ucChar );
                 } // else
             } // if
         } // 
@@ -482,27 +608,105 @@ u8 cmdRm( u8 *ucParams )
 {   
     return( fileDelete( getNextSubString( ucParams, WHITESPACE|NEWLINE ) ) );
 
-    return( 0 );
+    //return( 0 );
+}
+
+u8 cmd_new( u8 *ucBuffer )
+{
+    if( fileOpen( ucBuffer, WRITE|READ, 0 ) ){
+        return( TRUE );
+    } 
+    
+    return( FALSE );
+}
+
+u8 cmd_mkdir( u8 *ucBuffer )
+{
+    if( fileOpen( ucBuffer, FOLDER|WRITE|READ, 0 ) ){
+        return( TRUE );
+    } 
+    
+    return( FALSE );
+}
+
+u8 cmd_rmdir( u8 *ucBuffer )
+{
+
+}
+
+u8 cmd_cd( u8 *ucParams )
+{
+    u8 *ucParam;
+    
+    ucParam = getNextSubString( ucParams, NEWLINE );
+    return( fileChangeCurrentPath( ucParam ) );
 }
 
 u8 cmdLs( u8 *ucParams )
 {
-    u16 i, uiID;
-  
-    for( i = 4; i < pygmyRootVolume.MaxFiles+4; i++ ){
-        uiID = fileGetName( i, pygmyFile.Name );
-        if( uiID ){
-            putcUSART3( '\r' );
-            putstr( pygmyFile.Name );
-            putcUSART3( '\t' );
-            putIntUSART3( fileGetLength( uiID ) );
-        } // if
-    } // for
-    putstr( "\rFree:\t\t" );
-    putIntUSART3( fileGetFreeSpace() );
-    putcUSART3( '\r' );
+    PYGMYFILEVOLUME *pygmyVolume;
+    PYGMYFILEPROPERTIES pygmyEntry;
+    u16 i, ii, uiID;
+    u8 ucData, ucMountPoints;
+
+    pygmyVolume = fileGetCurrentMountPoint( );
     
-    return( 1 );
+    /*putstr( "\rListing for " ); 
+    if( !pygmyVolume ){
+        putstr( "/\r" );
+        ucMountPoints = fileGetMountPointCount( );
+        for( i = 0; i < ucMountPoints; i++ ){
+            pygmyVolume = fileGetMountPoint( i );
+            putstr( "\r<MNT> " ); putstr( pygmyVolume->Properties.Name ); putstr( ", " ); putstr( pygmyVolume->Properties.Path );
+        } // for
+    } else{
+        putstr( "\rVolPath: (" ); putstr( pygmyVolume->Properties.Path ); putstr( ")\r" );
+        //filePrintProperties( &pygmyVolume->Properties );
+        for( i = 0; i < 255; i++ ){
+            if( i == 0 ){
+                if( !fileList( pygmyVolume->Properties.Path, &pygmyEntry ) ){
+                    break;
+                } // if
+            } else{
+                if( !fileList( NULL, &pygmyEntry ) ){
+                    break;
+                } // if
+            } // else
+            if( pygmyEntry.Attributes & FOLDER ){
+                putstr( "\r<DIR> " );
+            } else{
+                putstr( "\r      " );
+            } // else
+            putstr( pygmyEntry.Name );
+        
+        } // for
+    } // else
+    */
+    //putcUSART3( '\r' );
+    print( COM3, "\r" );
+    for( i = 0; i < 6000; i++ ){
+        ucData = globalMountPoints->IO->GetChar( globalMountPoints->Port, i );
+        if( !( i % 16 ) ){
+            print( COM3, "\r%d ", i / 16 );
+            //putcUSART3( '\r' );
+            //putIntUSART3( i / 16 );
+            //putcUSART3( ' ' );
+        } // if
+        if( isPrintable( ucData ) ){
+            //putcUSART3( ucData );
+            print( COM3, "%c", ucData );
+        } else if( ucData != 0xFF ){
+            print( COM3, "(%d)", ucData );
+            //putcUSART3( '(' );
+            //putIntUSART3( ucData );
+            //putcUSART3( ')' );
+        } // else if
+    } // for
+    //putstr( "\r\rFree:\t\t" );
+    //putIntUSART3( fileGetFreeSpace( globalMountPoints ) );
+    //putcUSART3( '\r' );
+    
+    return( TRUE );
 }
 
 u8 cmdMv( u8 *ucParams )

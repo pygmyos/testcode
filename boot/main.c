@@ -609,6 +609,7 @@ u8 cmdRm( u8 *ucParams )
 
 u8 cmdLs( u8 *ucParams )
 {
+    PYGMYFILEVOLUME *pygmyVolume;
     u16 i, uiID;
   
     for( i = 4; i < pygmyRootVolume.MaxFiles+4; i++ ){

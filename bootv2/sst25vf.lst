@@ -1,0 +1,519 @@
+
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\bootv2\sst25vf.o:     file format elf32-littlearm
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\bootv2\sst25vf.o
+
+
+Disassembly of section .text.sst25vfStatus:
+
+00000000 <sst25vfStatus>:
+sst25vfStatus():
+   0:	6803      	ldr	r3, [r0, #0]
+   2:	8a02      	ldrh	r2, [r0, #16]
+   4:	b510      	push	{r4, lr}
+   6:	2105      	movs	r1, #5
+   8:	4604      	mov	r4, r0
+   a:	615a      	str	r2, [r3, #20]
+   c:	f7ff fffe 	bl	0 <spiWriteByte>
+  10:	4620      	mov	r0, r4
+  12:	f7ff fffe 	bl	0 <spiReadByte>
+  16:	6823      	ldr	r3, [r4, #0]
+  18:	8a22      	ldrh	r2, [r4, #16]
+  1a:	611a      	str	r2, [r3, #16]
+  1c:	bd10      	pop	{r4, pc}
+
+Disassembly of section .text.sst25vfDesc:
+
+00000000 <sst25vfDesc>:
+sst25vfDesc():
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	8a02      	ldrh	r2, [r0, #16]
+   4:	6803      	ldr	r3, [r0, #0]
+   6:	4605      	mov	r5, r0
+   8:	615a      	str	r2, [r3, #20]
+   a:	460c      	mov	r4, r1
+   c:	219f      	movs	r1, #159	; 0x9f
+   e:	f7ff fffe 	bl	0 <spiWriteByte>
+  12:	4628      	mov	r0, r5
+  14:	f7ff fffe 	bl	0 <spiReadByte>
+  18:	7260      	strb	r0, [r4, #9]
+  1a:	4628      	mov	r0, r5
+  1c:	f7ff fffe 	bl	0 <spiReadByte>
+  20:	4628      	mov	r0, r5
+  22:	f7ff fffe 	bl	0 <spiReadByte>
+  26:	f44f 5380 	mov.w	r3, #4096	; 0x1000
+  2a:	284a      	cmp	r0, #74	; 0x4a
+  2c:	72a0      	strb	r0, [r4, #10]
+  2e:	80e3      	strh	r3, [r4, #6]
+  30:	d102      	bne.n	38 <sst25vfDesc+0x38>
+  32:	f44f 6380 	mov.w	r3, #1024	; 0x400
+  36:	e00c      	b.n	52 <sst25vfDesc+0x52>
+  38:	2841      	cmp	r0, #65	; 0x41
+  3a:	d102      	bne.n	42 <sst25vfDesc+0x42>
+  3c:	f44f 7300 	mov.w	r3, #512	; 0x200
+  40:	e007      	b.n	52 <sst25vfDesc+0x52>
+  42:	288e      	cmp	r0, #142	; 0x8e
+  44:	d102      	bne.n	4c <sst25vfDesc+0x4c>
+  46:	f44f 7380 	mov.w	r3, #256	; 0x100
+  4a:	e002      	b.n	52 <sst25vfDesc+0x52>
+  4c:	288d      	cmp	r0, #141	; 0x8d
+  4e:	d101      	bne.n	54 <sst25vfDesc+0x54>
+  50:	2380      	movs	r3, #128	; 0x80
+  52:	80a3      	strh	r3, [r4, #4]
+  54:	88a3      	ldrh	r3, [r4, #4]
+  56:	88e2      	ldrh	r2, [r4, #6]
+  58:	2001      	movs	r0, #1
+  5a:	435a      	muls	r2, r3
+  5c:	230b      	movs	r3, #11
+  5e:	7223      	strb	r3, [r4, #8]
+  60:	682b      	ldr	r3, [r5, #0]
+  62:	8a29      	ldrh	r1, [r5, #16]
+  64:	6022      	str	r2, [r4, #0]
+  66:	6119      	str	r1, [r3, #16]
+  68:	490e      	ldr	r1, [pc, #56]	; (a4 <sst25vfDesc+0xa4>)
+  6a:	f7ff fffe 	bl	0 <print>
+  6e:	2001      	movs	r0, #1
+  70:	88a2      	ldrh	r2, [r4, #4]
+  72:	490d      	ldr	r1, [pc, #52]	; (a8 <sst25vfDesc+0xa8>)
+  74:	f7ff fffe 	bl	0 <print>
+  78:	2001      	movs	r0, #1
+  7a:	88e2      	ldrh	r2, [r4, #6]
+  7c:	490b      	ldr	r1, [pc, #44]	; (ac <sst25vfDesc+0xac>)
+  7e:	f7ff fffe 	bl	0 <print>
+  82:	2001      	movs	r0, #1
+  84:	7a22      	ldrb	r2, [r4, #8]
+  86:	490a      	ldr	r1, [pc, #40]	; (b0 <sst25vfDesc+0xb0>)
+  88:	f7ff fffe 	bl	0 <print>
+  8c:	2001      	movs	r0, #1
+  8e:	7a62      	ldrb	r2, [r4, #9]
+  90:	4908      	ldr	r1, [pc, #32]	; (b4 <sst25vfDesc+0xb4>)
+  92:	f7ff fffe 	bl	0 <print>
+  96:	2001      	movs	r0, #1
+  98:	4907      	ldr	r1, [pc, #28]	; (b8 <sst25vfDesc+0xb8>)
+  9a:	7aa2      	ldrb	r2, [r4, #10]
+  9c:	f7ff fffe 	bl	0 <print>
+  a0:	2001      	movs	r0, #1
+  a2:	bd38      	pop	{r3, r4, r5, pc}
+  a4:	00000000 	.word	0x00000000
+  a8:	0000000e 	.word	0x0000000e
+  ac:	0000001b 	.word	0x0000001b
+  b0:	0000002b 	.word	0x0000002b
+  b4:	0000003b 	.word	0x0000003b
+  b8:	0000004d 	.word	0x0000004d
+
+Disassembly of section .text.sst25vfClose:
+
+00000000 <sst25vfClose>:
+sst25vfClose():
+   0:	b508      	push	{r3, lr}
+   2:	6800      	ldr	r0, [r0, #0]
+   4:	f7ff fffe 	bl	0 <sysFree>
+   8:	2001      	movs	r0, #1
+   a:	bd08      	pop	{r3, pc}
+
+Disassembly of section .text.sst25vfVOpen:
+
+00000000 <sst25vfVOpen>:
+sst25vfVOpen():
+   0:	e92d 43f7 	stmdb	sp!, {r0, r1, r2, r4, r5, r6, r7, r8, r9, lr}
+   4:	9b0a      	ldr	r3, [sp, #40]	; 0x28
+   6:	4938      	ldr	r1, [pc, #224]	; (e8 <sst25vfVOpen+0xe8>)
+   8:	4681      	mov	r9, r0
+   a:	2001      	movs	r0, #1
+   c:	681e      	ldr	r6, [r3, #0]
+   e:	685d      	ldr	r5, [r3, #4]
+  10:	f8d3 8008 	ldr.w	r8, [r3, #8]
+  14:	68df      	ldr	r7, [r3, #12]
+  16:	f7ff fffe 	bl	0 <print>
+  1a:	201c      	movs	r0, #28
+  1c:	f7ff fffe 	bl	0 <sysAllocate>
+  20:	4604      	mov	r4, r0
+  22:	2800      	cmp	r0, #0
+  24:	d058      	beq.n	d8 <sst25vfVOpen+0xd8>
+  26:	4622      	mov	r2, r4
+  28:	f8c9 0000 	str.w	r0, [r9]
+  2c:	492f      	ldr	r1, [pc, #188]	; (ec <sst25vfVOpen+0xec>)
+  2e:	2001      	movs	r0, #1
+  30:	f7ff fffe 	bl	0 <print>
+  34:	b2f6      	uxtb	r6, r6
+  36:	492e      	ldr	r1, [pc, #184]	; (f0 <sst25vfVOpen+0xf0>)
+  38:	2001      	movs	r0, #1
+  3a:	f7ff fffe 	bl	0 <print>
+  3e:	4630      	mov	r0, r6
+  40:	f7ff fffe 	bl	0 <convertPinToString>
+  44:	b2ed      	uxtb	r5, r5
+  46:	4602      	mov	r2, r0
+  48:	492a      	ldr	r1, [pc, #168]	; (f4 <sst25vfVOpen+0xf4>)
+  4a:	4633      	mov	r3, r6
+  4c:	2001      	movs	r0, #1
+  4e:	f7ff fffe 	bl	0 <print>
+  52:	4628      	mov	r0, r5
+  54:	f7ff fffe 	bl	0 <convertPinToString>
+  58:	fa5f f888 	uxtb.w	r8, r8
+  5c:	4602      	mov	r2, r0
+  5e:	4926      	ldr	r1, [pc, #152]	; (f8 <sst25vfVOpen+0xf8>)
+  60:	462b      	mov	r3, r5
+  62:	2001      	movs	r0, #1
+  64:	f7ff fffe 	bl	0 <print>
+  68:	4640      	mov	r0, r8
+  6a:	f7ff fffe 	bl	0 <convertPinToString>
+  6e:	b2ff      	uxtb	r7, r7
+  70:	4602      	mov	r2, r0
+  72:	4922      	ldr	r1, [pc, #136]	; (fc <sst25vfVOpen+0xfc>)
+  74:	4643      	mov	r3, r8
+  76:	2001      	movs	r0, #1
+  78:	f7ff fffe 	bl	0 <print>
+  7c:	4638      	mov	r0, r7
+  7e:	f7ff fffe 	bl	0 <convertPinToString>
+  82:	491f      	ldr	r1, [pc, #124]	; (100 <sst25vfVOpen+0x100>)
+  84:	4602      	mov	r2, r0
+  86:	463b      	mov	r3, r7
+  88:	2001      	movs	r0, #1
+  8a:	f7ff fffe 	bl	0 <print>
+  8e:	230c      	movs	r3, #12
+  90:	462a      	mov	r2, r5
+  92:	9301      	str	r3, [sp, #4]
+  94:	4620      	mov	r0, r4
+  96:	4643      	mov	r3, r8
+  98:	4631      	mov	r1, r6
+  9a:	9700      	str	r7, [sp, #0]
+  9c:	f7ff fffe 	bl	0 <spiConfig>
+  a0:	2001      	movs	r0, #1
+  a2:	4918      	ldr	r1, [pc, #96]	; (104 <sst25vfVOpen+0x104>)
+  a4:	f7ff fffe 	bl	0 <print>
+  a8:	2106      	movs	r1, #6
+  aa:	4620      	mov	r0, r4
+  ac:	f7ff fffe 	bl	0 <spiPutCommand>
+  b0:	6823      	ldr	r3, [r4, #0]
+  b2:	8a22      	ldrh	r2, [r4, #16]
+  b4:	4620      	mov	r0, r4
+  b6:	615a      	str	r2, [r3, #20]
+  b8:	2101      	movs	r1, #1
+  ba:	f7ff fffe 	bl	0 <spiWriteByte>
+  be:	4620      	mov	r0, r4
+  c0:	2100      	movs	r1, #0
+  c2:	f7ff fffe 	bl	0 <spiWriteByte>
+  c6:	6823      	ldr	r3, [r4, #0]
+  c8:	8a22      	ldrh	r2, [r4, #16]
+  ca:	2001      	movs	r0, #1
+  cc:	611a      	str	r2, [r3, #16]
+  ce:	490e      	ldr	r1, [pc, #56]	; (108 <sst25vfVOpen+0x108>)
+  d0:	f7ff fffe 	bl	0 <print>
+  d4:	2001      	movs	r0, #1
+  d6:	e004      	b.n	e2 <sst25vfVOpen+0xe2>
+  d8:	2001      	movs	r0, #1
+  da:	490c      	ldr	r1, [pc, #48]	; (10c <sst25vfVOpen+0x10c>)
+  dc:	f7ff fffe 	bl	0 <print>
+  e0:	4620      	mov	r0, r4
+  e2:	e8bd 83fe 	ldmia.w	sp!, {r1, r2, r3, r4, r5, r6, r7, r8, r9, pc}
+  e6:	bf00      	nop
+  e8:	00000057 	.word	0x00000057
+  ec:	00000068 	.word	0x00000068
+  f0:	00000072 	.word	0x00000072
+  f4:	00000084 	.word	0x00000084
+  f8:	00000090 	.word	0x00000090
+  fc:	0000009d 	.word	0x0000009d
+ 100:	000000ab 	.word	0x000000ab
+ 104:	000000b9 	.word	0x000000b9
+ 108:	000000ca 	.word	0x000000ca
+ 10c:	000000d0 	.word	0x000000d0
+
+Disassembly of section .text.sst25vfOpen:
+
+00000000 <sst25vfOpen>:
+sst25vfOpen():
+   0:	b40c      	push	{r2, r3}
+   2:	b51f      	push	{r0, r1, r2, r3, r4, lr}
+   4:	a906      	add	r1, sp, #24
+   6:	e8f1 2302 	ldrd	r2, r3, [r1], #8
+   a:	9103      	str	r1, [sp, #12]
+   c:	9100      	str	r1, [sp, #0]
+   e:	f7ff fffe 	bl	0 <sst25vfOpen>
+  12:	b005      	add	sp, #20
+  14:	f85d eb04 	ldr.w	lr, [sp], #4
+  18:	b002      	add	sp, #8
+  1a:	4770      	bx	lr
+
+Disassembly of section .text.sst25vfGetBuffer:
+
+00000000 <sst25vfGetBuffer>:
+sst25vfGetBuffer():
+   0:	e92d 43f8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
+   4:	f04f 6430 	mov.w	r4, #184549376	; 0xb000000
+   8:	2500      	movs	r5, #0
+   a:	4607      	mov	r7, r0
+   c:	f8dd 8020 	ldr.w	r8, [sp, #32]
+  10:	f8bd 6024 	ldrh.w	r6, [sp, #36]	; 0x24
+  14:	4314      	orrs	r4, r2
+  16:	431d      	orrs	r5, r3
+  18:	f04f 0900 	mov.w	r9, #0
+  1c:	e008      	b.n	30 <sst25vfGetBuffer+0x30>
+  1e:	eb09 0104 	add.w	r1, r9, r4
+  22:	4638      	mov	r0, r7
+  24:	f7ff fffe 	bl	0 <spiGetChar>
+  28:	f808 0009 	strb.w	r0, [r8, r9]
+  2c:	f109 0901 	add.w	r9, r9, #1
+  30:	45b1      	cmp	r9, r6
+  32:	d3f4      	bcc.n	1e <sst25vfGetBuffer+0x1e>
+  34:	2001      	movs	r0, #1
+  36:	e8bd 83f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
+
+Disassembly of section .text.sst25vfGetChar:
+
+00000000 <sst25vfGetChar>:
+sst25vfGetChar():
+   0:	f042 6130 	orr.w	r1, r2, #184549376	; 0xb000000
+   4:	f7ff bffe 	b.w	0 <spiGetChar>
+
+Disassembly of section .text.sst25vfGetLong:
+
+00000000 <sst25vfGetLong>:
+sst25vfGetLong():
+   0:	e92d 4ff8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, lr}
+   4:	f04f 6430 	mov.w	r4, #184549376	; 0xb000000
+   8:	4322      	orrs	r2, r4
+   a:	2500      	movs	r5, #0
+   c:	2401      	movs	r4, #1
+   e:	432b      	orrs	r3, r5
+  10:	4611      	mov	r1, r2
+  12:	2500      	movs	r5, #0
+  14:	eb12 0a04 	adds.w	sl, r2, r4
+  18:	eb43 0b05 	adc.w	fp, r3, r5
+  1c:	4606      	mov	r6, r0
+  1e:	f7ff fffe 	bl	0 <spiGetChar>
+  22:	4651      	mov	r1, sl
+  24:	0607      	lsls	r7, r0, #24
+  26:	eb1a 0804 	adds.w	r8, sl, r4
+  2a:	4630      	mov	r0, r6
+  2c:	eb4b 0905 	adc.w	r9, fp, r5
+  30:	f7ff fffe 	bl	0 <spiGetChar>
+  34:	4641      	mov	r1, r8
+  36:	4683      	mov	fp, r0
+  38:	4630      	mov	r0, r6
+  3a:	f7ff fffe 	bl	0 <spiGetChar>
+  3e:	eb08 0104 	add.w	r1, r8, r4
+  42:	4682      	mov	sl, r0
+  44:	4630      	mov	r0, r6
+  46:	f7ff fffe 	bl	0 <spiGetChar>
+  4a:	ea47 470b 	orr.w	r7, r7, fp, lsl #16
+  4e:	ea47 0000 	orr.w	r0, r7, r0
+  52:	ea40 200a 	orr.w	r0, r0, sl, lsl #8
+  56:	e8bd 8ff8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}
+
+Disassembly of section .text.sst25vfGetWord:
+
+00000000 <sst25vfGetWord>:
+sst25vfGetWord():
+   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+   2:	f04f 6430 	mov.w	r4, #184549376	; 0xb000000
+   6:	4314      	orrs	r4, r2
+   8:	4621      	mov	r1, r4
+   a:	2500      	movs	r5, #0
+   c:	4606      	mov	r6, r0
+   e:	431d      	orrs	r5, r3
+  10:	f7ff fffe 	bl	0 <spiGetChar>
+  14:	4627      	mov	r7, r4
+  16:	0200      	lsls	r0, r0, #8
+  18:	b284      	uxth	r4, r0
+  1a:	1c79      	adds	r1, r7, #1
+  1c:	4630      	mov	r0, r6
+  1e:	f7ff fffe 	bl	0 <spiGetChar>
+  22:	ea44 0000 	orr.w	r0, r4, r0
+  26:	b280      	uxth	r0, r0
+  28:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+
+Disassembly of section .text.sst25vfID:
+
+00000000 <sst25vfID>:
+sst25vfID():
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	8a02      	ldrh	r2, [r0, #16]
+   4:	6803      	ldr	r3, [r0, #0]
+   6:	4604      	mov	r4, r0
+   8:	615a      	str	r2, [r3, #20]
+   a:	219f      	movs	r1, #159	; 0x9f
+   c:	f7ff fffe 	bl	0 <spiWriteByte>
+  10:	4620      	mov	r0, r4
+  12:	f7ff fffe 	bl	0 <spiReadByte>
+  16:	0405      	lsls	r5, r0, #16
+  18:	4620      	mov	r0, r4
+  1a:	f7ff fffe 	bl	0 <spiReadByte>
+  1e:	ea45 2500 	orr.w	r5, r5, r0, lsl #8
+  22:	4620      	mov	r0, r4
+  24:	f7ff fffe 	bl	0 <spiReadByte>
+  28:	6823      	ldr	r3, [r4, #0]
+  2a:	8a22      	ldrh	r2, [r4, #16]
+  2c:	ea45 0000 	orr.w	r0, r5, r0
+  30:	611a      	str	r2, [r3, #16]
+  32:	bd38      	pop	{r3, r4, r5, pc}
+
+Disassembly of section .text.sst25vfWaitForBusy:
+
+00000000 <sst25vfWaitForBusy>:
+sst25vfWaitForBusy():
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	8a02      	ldrh	r2, [r0, #16]
+   4:	6803      	ldr	r3, [r0, #0]
+   6:	2105      	movs	r1, #5
+   8:	615a      	str	r2, [r3, #20]
+   a:	4604      	mov	r4, r0
+   c:	f7ff fffe 	bl	0 <spiWriteByte>
+  10:	f64e 2560 	movw	r5, #60000	; 0xea60
+  14:	4620      	mov	r0, r4
+  16:	f7ff fffe 	bl	0 <spiReadByte>
+  1a:	f010 0f01 	tst.w	r0, #1
+  1e:	d003      	beq.n	28 <sst25vfWaitForBusy+0x28>
+  20:	3d01      	subs	r5, #1
+  22:	b2ad      	uxth	r5, r5
+  24:	2d00      	cmp	r5, #0
+  26:	d1f5      	bne.n	14 <sst25vfWaitForBusy+0x14>
+  28:	6823      	ldr	r3, [r4, #0]
+  2a:	8a22      	ldrh	r2, [r4, #16]
+  2c:	611a      	str	r2, [r3, #16]
+  2e:	bd38      	pop	{r3, r4, r5, pc}
+
+Disassembly of section .text.sst25vfPutChar:
+
+00000000 <sst25vfPutChar>:
+sst25vfPutChar():
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	f89d 6010 	ldrb.w	r6, [sp, #16]
+   6:	4604      	mov	r4, r0
+   8:	4615      	mov	r5, r2
+   a:	2106      	movs	r1, #6
+   c:	f7ff fffe 	bl	0 <spiPutCommand>
+  10:	4620      	mov	r0, r4
+  12:	f045 7100 	orr.w	r1, r5, #33554432	; 0x2000000
+  16:	4632      	mov	r2, r6
+  18:	f7ff fffe 	bl	0 <spiPutChar>
+  1c:	4620      	mov	r0, r4
+  1e:	f7ff fffe 	bl	0 <sst25vfPutChar>
+  22:	2001      	movs	r0, #1
+  24:	bd70      	pop	{r4, r5, r6, pc}
+
+Disassembly of section .text.sst25vfPutBuffer:
+
+00000000 <sst25vfPutBuffer>:
+sst25vfPutBuffer():
+   0:	e92d 43f7 	stmdb	sp!, {r0, r1, r2, r4, r5, r6, r7, r8, r9, lr}
+   4:	f8dd 9028 	ldr.w	r9, [sp, #40]	; 0x28
+   8:	4607      	mov	r7, r0
+   a:	4614      	mov	r4, r2
+   c:	461d      	mov	r5, r3
+   e:	f8bd 802c 	ldrh.w	r8, [sp, #44]	; 0x2c
+  12:	2600      	movs	r6, #0
+  14:	e00d      	b.n	32 <sst25vfPutBuffer+0x32>
+  16:	f819 3006 	ldrb.w	r3, [r9, r6]
+  1a:	4622      	mov	r2, r4
+  1c:	9300      	str	r3, [sp, #0]
+  1e:	4638      	mov	r0, r7
+  20:	462b      	mov	r3, r5
+  22:	f7ff fffe 	bl	0 <sst25vfPutBuffer>
+  26:	2201      	movs	r2, #1
+  28:	2300      	movs	r3, #0
+  2a:	3601      	adds	r6, #1
+  2c:	18a4      	adds	r4, r4, r2
+  2e:	eb45 0503 	adc.w	r5, r5, r3
+  32:	4546      	cmp	r6, r8
+  34:	d3ef      	bcc.n	16 <sst25vfPutBuffer+0x16>
+  36:	e8bd 83fe 	ldmia.w	sp!, {r1, r2, r3, r4, r5, r6, r7, r8, r9, pc}
+
+Disassembly of section .text.sst25vfPutLong:
+
+00000000 <sst25vfPutLong>:
+sst25vfPutLong():
+   0:	e92d 4ff7 	stmdb	sp!, {r0, r1, r2, r4, r5, r6, r7, r8, r9, sl, fp, lr}
+   4:	f8dd 8030 	ldr.w	r8, [sp, #48]	; 0x30
+   8:	2401      	movs	r4, #1
+   a:	ea4f 6118 	mov.w	r1, r8, lsr #24
+   e:	2500      	movs	r5, #0
+  10:	1916      	adds	r6, r2, r4
+  12:	eb43 0705 	adc.w	r7, r3, r5
+  16:	4681      	mov	r9, r0
+  18:	9100      	str	r1, [sp, #0]
+  1a:	f7ff fffe 	bl	0 <sst25vfPutLong>
+  1e:	ea4f 4318 	mov.w	r3, r8, lsr #16
+  22:	b2db      	uxtb	r3, r3
+  24:	eb16 0a04 	adds.w	sl, r6, r4
+  28:	9300      	str	r3, [sp, #0]
+  2a:	4632      	mov	r2, r6
+  2c:	463b      	mov	r3, r7
+  2e:	4648      	mov	r0, r9
+  30:	eb47 0b05 	adc.w	fp, r7, r5
+  34:	f7ff fffe 	bl	0 <sst25vfPutLong>
+  38:	ea4f 2318 	mov.w	r3, r8, lsr #8
+  3c:	b2db      	uxtb	r3, r3
+  3e:	9300      	str	r3, [sp, #0]
+  40:	4652      	mov	r2, sl
+  42:	465b      	mov	r3, fp
+  44:	4648      	mov	r0, r9
+  46:	f7ff fffe 	bl	0 <sst25vfPutLong>
+  4a:	eb1a 0204 	adds.w	r2, sl, r4
+  4e:	fa5f f388 	uxtb.w	r3, r8
+  52:	9300      	str	r3, [sp, #0]
+  54:	4648      	mov	r0, r9
+  56:	eb4b 0305 	adc.w	r3, fp, r5
+  5a:	f7ff fffe 	bl	0 <sst25vfPutLong>
+  5e:	2001      	movs	r0, #1
+  60:	e8bd 8ffe 	ldmia.w	sp!, {r1, r2, r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}
+
+Disassembly of section .text.sst25vfPutWord:
+
+00000000 <sst25vfPutWord>:
+sst25vfPutWord():
+   0:	b5f7      	push	{r0, r1, r2, r4, r5, r6, r7, lr}
+   2:	f8bd 6020 	ldrh.w	r6, [sp, #32]
+   6:	4614      	mov	r4, r2
+   8:	0a31      	lsrs	r1, r6, #8
+   a:	461d      	mov	r5, r3
+   c:	4607      	mov	r7, r0
+   e:	9100      	str	r1, [sp, #0]
+  10:	f7ff fffe 	bl	0 <sst25vfPutWord>
+  14:	2201      	movs	r2, #1
+  16:	2300      	movs	r3, #0
+  18:	1912      	adds	r2, r2, r4
+  1a:	b2f6      	uxtb	r6, r6
+  1c:	4638      	mov	r0, r7
+  1e:	eb43 0305 	adc.w	r3, r3, r5
+  22:	9608      	str	r6, [sp, #32]
+  24:	b003      	add	sp, #12
+  26:	e8bd 40f0 	ldmia.w	sp!, {r4, r5, r6, r7, lr}
+  2a:	f7ff bffe 	b.w	0 <sst25vfPutWord>
+
+Disassembly of section .text.sst25vfEraseAll:
+
+00000000 <sst25vfEraseAll>:
+sst25vfEraseAll():
+   0:	b510      	push	{r4, lr}
+   2:	2106      	movs	r1, #6
+   4:	4604      	mov	r4, r0
+   6:	f7ff fffe 	bl	0 <spiPutCommand>
+   a:	2160      	movs	r1, #96	; 0x60
+   c:	4620      	mov	r0, r4
+   e:	f7ff fffe 	bl	0 <spiPutCommand>
+  12:	4620      	mov	r0, r4
+  14:	f7ff fffe 	bl	0 <sst25vfEraseAll>
+  18:	2001      	movs	r0, #1
+  1a:	bd10      	pop	{r4, pc}
+
+Disassembly of section .text.sst25vfEraseSector:
+
+00000000 <sst25vfEraseSector>:
+sst25vfEraseSector():
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	2106      	movs	r1, #6
+   4:	4604      	mov	r4, r0
+   6:	4615      	mov	r5, r2
+   8:	f7ff fffe 	bl	0 <spiPutCommand>
+   c:	6823      	ldr	r3, [r4, #0]
+   e:	8a22      	ldrh	r2, [r4, #16]
+  10:	4620      	mov	r0, r4
+  12:	615a      	str	r2, [r3, #20]
+  14:	f045 5100 	orr.w	r1, r5, #536870912	; 0x20000000
+  18:	f7ff fffe 	bl	0 <spiWriteAddress>
+  1c:	6823      	ldr	r3, [r4, #0]
+  1e:	8a22      	ldrh	r2, [r4, #16]
+  20:	4620      	mov	r0, r4
+  22:	611a      	str	r2, [r3, #16]
+  24:	f7ff fffe 	bl	0 <sst25vfEraseSector>
+  28:	2001      	movs	r0, #1
+  2a:	bd38      	pop	{r3, r4, r5, pc}

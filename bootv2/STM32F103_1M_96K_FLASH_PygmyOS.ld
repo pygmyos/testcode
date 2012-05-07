@@ -19,8 +19,8 @@ PygmyOS Must be located at 0x08002000
 MEMORY
 {
   RAM (xrw) : ORIGIN =  0x20000000, LENGTH = 8K
-  FLASH (rx) : ORIGIN = 0x8000000, LENGTH = 20K
-  HEAP (xrw) : ORIGIN = 0x20001000, LENGTH = 4K
+  FLASH (rx) : ORIGIN = 0x08000000, LENGTH = 32K
+  HEAP (xrw) : ORIGIN = 0x20004000, LENGTH = 80K
   STARTFLASH (rx) : ORIGIN = 0x0, LENGTH = 0x0
   CRPPATCH (r) : ORIGIN = 0x0, LENGTH = 0
   FLASHPATCH (r) : ORIGIN = 0x00000000, LENGTH = 0
@@ -34,7 +34,7 @@ MEMORY
 
 /* higher address of the user mode stack */
 /* 0x20018000 for applications, 0x20002000 for bootloader */
-_estack = 0x20002000;
+_estack = 0x20014000;
 
 /* include the sections management sub-script for FLASH mode */
 INCLUDE "sections_FLASH.ld"

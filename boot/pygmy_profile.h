@@ -25,6 +25,10 @@
 #pragma once
 
 #define __PYGMYNEBULA
+#define __PYGMYSTREAMS
+    //#define __PYGMYSTREAMCOM1
+    //#define __PYGMYSTREAMCOM2
+    #define __PYGMYSTREAMCOM3
 //#define __PYGMYCOMMANDS
 //#define __PYGMYFILES
 //#define __PYGMYTASKS

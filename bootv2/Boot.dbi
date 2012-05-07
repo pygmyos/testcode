@@ -10,7 +10,7 @@ Target=ARM
 DebugTool=RLINK_CORTEX
 ApplicationComponents=
 [Device]
-Name=STM32F100RB
+Name=STM32F103RBT6
 [ARMSigDrv options]
 CXS=0
 [Debug]
@@ -23,4 +23,4 @@ Crystal=12.000
 [General]
 FreqXTal=12.000
 [SimFile]
-path=C:\Program Files (x86)\Raisonance\Ride\sim\ARM\STM32F100RB.sim
+path=C:\Program Files (x86)\Raisonance\Ride\sim\ARM\STM32F103RBT6.sim

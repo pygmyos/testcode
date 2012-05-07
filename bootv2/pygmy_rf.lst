@@ -56,15 +56,17 @@ Disassembly of section .text.rfGetStatus:
 
 00000000 <rfGetStatus>:
 rfGetStatus():
-   0:	b538      	push	{r3, r4, r5, lr}
-   2:	4c04      	ldr	r4, [pc, #16]	; (14 <rfGetStatus+0x14>)
-   4:	f44f 6500 	mov.w	r5, #2048	; 0x800
-   8:	6165      	str	r5, [r4, #20]
-   a:	4803      	ldr	r0, [pc, #12]	; (18 <rfGetStatus+0x18>)
+   0:	b510      	push	{r4, lr}
+   2:	4c05      	ldr	r4, [pc, #20]	; (18 <rfGetStatus+0x18>)
+   4:	6823      	ldr	r3, [r4, #0]
+   6:	8a22      	ldrh	r2, [r4, #16]
+   8:	4620      	mov	r0, r4
+   a:	615a      	str	r2, [r3, #20]
    c:	f7ff fffe 	bl	0 <spiReadByte>
-  10:	6125      	str	r5, [r4, #16]
-  12:	bd38      	pop	{r3, r4, r5, pc}
-  14:	40011000 	.word	0x40011000
+  10:	6823      	ldr	r3, [r4, #0]
+  12:	8a22      	ldrh	r2, [r4, #16]
+  14:	611a      	str	r2, [r3, #16]
+  16:	bd10      	pop	{r4, pc}
   18:	00000000 	.word	0x00000000
 
 Disassembly of section .text.rfGetRXPayloadLen:
@@ -150,8 +152,8 @@ Disassembly of section .text.rfPutTXBuffer:
 00000000 <rfPutTXBuffer>:
 rfPutTXBuffer():
    0:	b570      	push	{r4, r5, r6, lr}
-   2:	4604      	mov	r4, r0
-   4:	460d      	mov	r5, r1
+   2:	460c      	mov	r4, r1
+   4:	4605      	mov	r5, r0
    6:	f7ff fffe 	bl	0 <rfPutTXBuffer>
    a:	4623      	mov	r3, r4
    c:	480c      	ldr	r0, [pc, #48]	; (40 <rfPutTXBuffer+0x40>)
@@ -178,21 +180,23 @@ Disassembly of section .text.rfGetSignalQuality:
 
 00000000 <rfGetSignalQuality>:
 rfGetSignalQuality():
-   0:	4c09b570 	.word	0x4c09b570
-   4:	f44f 6500 	mov.w	r5, #2048	; 0x800
-   8:	2108      	movs	r1, #8
-   a:	6165      	str	r5, [r4, #20]
-   c:	4807      	ldr	r0, [pc, #28]	; (2c <rfGetSignalQuality+0x2c>)
+   0:	4c0ab538 	.word	0x4c0ab538
+   4:	2108      	movs	r1, #8
+   6:	6823      	ldr	r3, [r4, #0]
+   8:	8a22      	ldrh	r2, [r4, #16]
+   a:	4620      	mov	r0, r4
+   c:	615a      	str	r2, [r3, #20]
    e:	f7ff fffe 	bl	0 <spiWriteByte>
-  12:	4806      	ldr	r0, [pc, #24]	; (1c <spiReadByte+0x1c>)
+  12:	4620      	mov	r0, r4
   14:	f7ff fffe 	bl	0 <spiReadByte>
-  18:	6125      	str	r5, [r4, #16]
-  1a:	4606      	mov	r6, r0
-  1c:	f7ff fffe 	bl	0 <rfGetSignalQuality>
-  20:	43f0      	mvns	r0, r6
-  22:	f000 000f 	and.w	r0, r0, #15
-  26:	bd70      	pop	{r4, r5, r6, pc}
-  28:	40011000 	.word	0x40011000
+  18:	6823      	ldr	r3, [r4, #0]
+  1a:	8a22      	ldrh	r2, [r4, #16]
+  1c:	4605      	mov	r5, r0
+  1e:	611a      	str	r2, [r3, #16]
+  20:	f7ff fffe 	bl	0 <rfGetSignalQuality>
+  24:	43e8      	mvns	r0, r5
+  26:	f000 000f 	and.w	r0, r0, #15
+  2a:	bd38      	pop	{r3, r4, r5, pc}
   2c:	00000000 	.word	0x00000000
 
 Disassembly of section .text.rfRX:
