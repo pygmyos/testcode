@@ -1,0 +1,283 @@
+
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\gsm\pygmy_nvic.o:     file format elf32-littlearm
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\gsm\pygmy_nvic.o
+
+
+Disassembly of section .text.interruptGetTimerVector:
+
+00000000 <interruptGetTimerVector>:
+interruptGetTimerVector():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_nvic.c:36
+    TIM6_IRQ,   TIM7_IRQ,       0,              TIM9_L15X_IRQ,  TIM10_L15X_IRQ, TIM11_L15X_IRQ,
+    0,          0,              0,              0,              0,              0
+};
+
+u8 interruptGetTimerVector( u8 ucTimer )
+{
+   0:	b510      	push	{r4, lr}
+   2:	4604      	mov	r4, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_nvic.c:38
+    // return value of 0 means no timer present
+    if( descriptorGetID() == DESC_STM32L151 ){
+   4:	f7ff fffe 	bl	0 <descriptorGetID>
+   8:	f240 4316 	movw	r3, #1046	; 0x416
+   c:	4298      	cmp	r0, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_nvic.c:39
+        return( PYGMY_TIMERVECTORS_L15X[ ucTimer ] );
+   e:	f240 0300 	movw	r3, #0
+  12:	f2c0 0300 	movt	r3, #0
+  16:	bf0e      	itee	eq
+  18:	5d18      	ldrbeq	r0, [r3, r4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_nvic.c:41
+    } else{
+        return( PYGMY_TIMERVECTORS[ ucTimer ] );
+  1a:	191c      	addne	r4, r3, r4
+  1c:	7d20      	ldrbne	r0, [r4, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_nvic.c:44
+    } // else
+    
+}
+  1e:	bd10      	pop	{r4, pc}
+
+Disassembly of section .text.interruptEnable:
+
+00000000 <interruptEnable>:
+interruptEnable():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_nvic.c:50
+
+void interruptEnable( u32 ulVector )
+{
+    // The vectors are arranged 1 bit per vector in 32 groups
+    // The vector number must be decoded, first for which group, second the bit to set
+    if( ulVector > 63 ){
+   0:	283f      	cmp	r0, #63	; 0x3f
+   2:	d90b      	bls.n	1c <interruptEnable+0x1c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_nvic.c:51
+        NVIC->ISER[ 2 ] = 0x00000001 << ( ulVector - 64 );
+   4:	f1a0 0040 	sub.w	r0, r0, #64	; 0x40
+   8:	f04f 0301 	mov.w	r3, #1
+   c:	fa03 f000 	lsl.w	r0, r3, r0
+  10:	f44f 4361 	mov.w	r3, #57600	; 0xe100
+  14:	f2ce 0300 	movt	r3, #57344	; 0xe000
+  18:	6098      	str	r0, [r3, #8]
+  1a:	4770      	bx	lr
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_nvic.c:52
+    } else if( ulVector > 31 ){
+  1c:	281f      	cmp	r0, #31
+  1e:	d90b      	bls.n	38 <interruptEnable+0x38>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_nvic.c:53
+        NVIC->ISER[ 1 ] = 0x00000001 << ( ulVector - 32 );
+  20:	f1a0 0020 	sub.w	r0, r0, #32
+  24:	f04f 0301 	mov.w	r3, #1
+  28:	fa03 f000 	lsl.w	r0, r3, r0
+  2c:	f44f 4361 	mov.w	r3, #57600	; 0xe100
+  30:	f2ce 0300 	movt	r3, #57344	; 0xe000
+  34:	6058      	str	r0, [r3, #4]
+  36:	4770      	bx	lr
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_nvic.c:55
+    } else{
+        NVIC->ISER[ 0 ] = 0x00000001 << ulVector;
+  38:	f04f 0301 	mov.w	r3, #1
+  3c:	fa03 f000 	lsl.w	r0, r3, r0
+  40:	f44f 4361 	mov.w	r3, #57600	; 0xe100
+  44:	f2ce 0300 	movt	r3, #57344	; 0xe000
+  48:	6018      	str	r0, [r3, #0]
+  4a:	4770      	bx	lr
+
+Disassembly of section .text.interruptDisable:
+
+00000000 <interruptDisable>:
+interruptDisable():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_nvic.c:64
+void interruptDisable( u32 ulVector )
+{
+    // The vectors are arranged 1 bit per vector in 32 groups
+    // The vector number must be decoded, first for which group, second the bit to set
+    // Notice! Bits set in the ICER registers actually clear the interrupt vectors
+    if( ulVector > 63 ){
+   0:	283f      	cmp	r0, #63	; 0x3f
+   2:	d90c      	bls.n	1e <interruptDisable+0x1e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_nvic.c:65
+        NVIC->ICER[ 2 ] = 0x00000001 << ( ulVector - 64 );
+   4:	f1a0 0040 	sub.w	r0, r0, #64	; 0x40
+   8:	f04f 0301 	mov.w	r3, #1
+   c:	fa03 f000 	lsl.w	r0, r3, r0
+  10:	f44f 4361 	mov.w	r3, #57600	; 0xe100
+  14:	f2ce 0300 	movt	r3, #57344	; 0xe000
+  18:	f8c3 0088 	str.w	r0, [r3, #136]	; 0x88
+  1c:	4770      	bx	lr
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_nvic.c:66
+    } else if( ulVector > 31 ){
+  1e:	281f      	cmp	r0, #31
+  20:	d90c      	bls.n	3c <interruptDisable+0x3c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_nvic.c:67
+        NVIC->ICER[ 1 ] = 0x00000001 << ( ulVector - 32 );
+  22:	f1a0 0020 	sub.w	r0, r0, #32
+  26:	f04f 0301 	mov.w	r3, #1
+  2a:	fa03 f000 	lsl.w	r0, r3, r0
+  2e:	f44f 4361 	mov.w	r3, #57600	; 0xe100
+  32:	f2ce 0300 	movt	r3, #57344	; 0xe000
+  36:	f8c3 0084 	str.w	r0, [r3, #132]	; 0x84
+  3a:	4770      	bx	lr
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_nvic.c:69
+    } else{
+        NVIC->ICER[ 0 ] = 0x00000001 << ulVector;
+  3c:	f04f 0301 	mov.w	r3, #1
+  40:	fa03 f000 	lsl.w	r0, r3, r0
+  44:	f44f 4361 	mov.w	r3, #57600	; 0xe100
+  48:	f2ce 0300 	movt	r3, #57344	; 0xe000
+  4c:	f8c3 0080 	str.w	r0, [r3, #128]	; 0x80
+  50:	4770      	bx	lr
+  52:	bf00      	nop
+
+Disassembly of section .text.interruptSetPriority:
+
+00000000 <interruptSetPriority>:
+interruptSetPriority():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_nvic.c:74
+    }
+}
+
+void interruptSetPriority( u32 ulVector, u8 ucPriority )
+{
+   0:	b430      	push	{r4, r5}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_nvic.c:82
+    // To a corresponding Vector. Only the High nibble of each 8 bit group
+    // Is used to represent the priority from 0 - 15
+    // Note that some of the Vectors are dealt with in System Registers
+    // Those Vectors are all start at 0xF0 according to the system to allow
+    // Decoding, they are separated and handled individually below
+    if( ulVector > 0xEF ){
+   2:	28ef      	cmp	r0, #239	; 0xef
+   4:	d955      	bls.n	b2 <interruptSetPriority+0xb2>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_nvic.c:83
+        switch( ulVector ){
+   6:	f1a0 00f0 	sub.w	r0, r0, #240	; 0xf0
+   a:	2805      	cmp	r0, #5
+   c:	d86d      	bhi.n	ea <interruptSetPriority+0xea>
+   e:	e8df f000 	tbb	[pc, r0]
+  12:	0f03      	.short	0x0f03
+  14:	4336291c 	.word	0x4336291c
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_nvic.c:85
+            case MEMFAULT_IRQ:
+                SCB->SHPR[0] &= 0xFFFFFF0F;               // Clear nibble
+  18:	f44f 436d 	mov.w	r3, #60672	; 0xed00
+  1c:	f2ce 0300 	movt	r3, #57344	; 0xe000
+  20:	699a      	ldr	r2, [r3, #24]
+  22:	f022 02f0 	bic.w	r2, r2, #240	; 0xf0
+  26:	619a      	str	r2, [r3, #24]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_nvic.c:86
+                SCB->SHPR[0] |=  ( u32 ) ucPriority ;     // Write Priority
+  28:	699a      	ldr	r2, [r3, #24]
+  2a:	4311      	orrs	r1, r2
+  2c:	6199      	str	r1, [r3, #24]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_nvic.c:87
+            break;
+  2e:	e05c      	b.n	ea <interruptSetPriority+0xea>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_nvic.c:89
+            case BUSFAULT_IRQ:      
+                SCB->SHPR[0] &= 0xFFFF0FFF;               // Clear nibble
+  30:	f44f 436d 	mov.w	r3, #60672	; 0xed00
+  34:	f2ce 0300 	movt	r3, #57344	; 0xe000
+  38:	699a      	ldr	r2, [r3, #24]
+  3a:	f422 4270 	bic.w	r2, r2, #61440	; 0xf000
+  3e:	619a      	str	r2, [r3, #24]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_nvic.c:90
+                SCB->SHPR[0] |= ( u32 ) ucPriority << 8;  // Write Priority
+  40:	699a      	ldr	r2, [r3, #24]
+  42:	ea42 2101 	orr.w	r1, r2, r1, lsl #8
+  46:	6199      	str	r1, [r3, #24]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_nvic.c:91
+            break;
+  48:	e04f      	b.n	ea <interruptSetPriority+0xea>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_nvic.c:93
+            case USAGEFAULT_IRQ:
+                SCB->SHPR[0] &= 0xFF0FFFFF;               // Clear nibble
+  4a:	f44f 436d 	mov.w	r3, #60672	; 0xed00
+  4e:	f2ce 0300 	movt	r3, #57344	; 0xe000
+  52:	699a      	ldr	r2, [r3, #24]
+  54:	f422 0270 	bic.w	r2, r2, #15728640	; 0xf00000
+  58:	619a      	str	r2, [r3, #24]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_nvic.c:94
+                SCB->SHPR[0] |= ( u32 ) ucPriority << 16; // Write Priority
+  5a:	699a      	ldr	r2, [r3, #24]
+  5c:	ea42 4101 	orr.w	r1, r2, r1, lsl #16
+  60:	6199      	str	r1, [r3, #24]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_nvic.c:95
+            break;
+  62:	e042      	b.n	ea <interruptSetPriority+0xea>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_nvic.c:97
+            case SVCALL_IRQ:
+                SCB->SHPR[1] &= 0x0FFFFFFF;               // Clear nibble
+  64:	f44f 436d 	mov.w	r3, #60672	; 0xed00
+  68:	f2ce 0300 	movt	r3, #57344	; 0xe000
+  6c:	69da      	ldr	r2, [r3, #28]
+  6e:	f022 4270 	bic.w	r2, r2, #4026531840	; 0xf0000000
+  72:	61da      	str	r2, [r3, #28]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_nvic.c:98
+                SCB->SHPR[1] |= ( u32 ) ucPriority << 24; // Write Priority
+  74:	69da      	ldr	r2, [r3, #28]
+  76:	ea42 6101 	orr.w	r1, r2, r1, lsl #24
+  7a:	61d9      	str	r1, [r3, #28]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_nvic.c:99
+            break;
+  7c:	e035      	b.n	ea <interruptSetPriority+0xea>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_nvic.c:101
+            case PENDSVCALL_IRQ:
+                SCB->SHPR[1] &= 0xFF0FFFFF;               // Clear nibble
+  7e:	f44f 436d 	mov.w	r3, #60672	; 0xed00
+  82:	f2ce 0300 	movt	r3, #57344	; 0xe000
+  86:	69da      	ldr	r2, [r3, #28]
+  88:	f422 0270 	bic.w	r2, r2, #15728640	; 0xf00000
+  8c:	61da      	str	r2, [r3, #28]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_nvic.c:102
+                SCB->SHPR[1] |= ( u32 ) ucPriority << 16; // Write Priority
+  8e:	69da      	ldr	r2, [r3, #28]
+  90:	ea42 4101 	orr.w	r1, r2, r1, lsl #16
+  94:	61d9      	str	r1, [r3, #28]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_nvic.c:103
+            break;
+  96:	e028      	b.n	ea <interruptSetPriority+0xea>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_nvic.c:105
+            case SYSTICK_IRQ:
+                SCB->SHPR[2] &= 0x0FFFFFFF;               // Clear nibble
+  98:	f44f 436d 	mov.w	r3, #60672	; 0xed00
+  9c:	f2ce 0300 	movt	r3, #57344	; 0xe000
+  a0:	6a1a      	ldr	r2, [r3, #32]
+  a2:	f022 4270 	bic.w	r2, r2, #4026531840	; 0xf0000000
+  a6:	621a      	str	r2, [r3, #32]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_nvic.c:106
+                SCB->SHPR[2] |= ( u32 ) ucPriority << 24; // Write Priority
+  a8:	6a1a      	ldr	r2, [r3, #32]
+  aa:	ea42 6101 	orr.w	r1, r2, r1, lsl #24
+  ae:	6219      	str	r1, [r3, #32]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_nvic.c:107
+            break;
+  b0:	e01b      	b.n	ea <interruptSetPriority+0xea>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_nvic.c:110
+        }
+    } else{
+        NVIC->IPR[ ulVector / 4 ] &= ~( ( u32 )0xF0 ) << ( ( ulVector % 4 ) * 8 );      // Clear nibble
+  b2:	ea4f 0290 	mov.w	r2, r0, lsr #2
+  b6:	f44f 4361 	mov.w	r3, #57600	; 0xe100
+  ba:	f2ce 0300 	movt	r3, #57344	; 0xe000
+  be:	f102 02c0 	add.w	r2, r2, #192	; 0xc0
+  c2:	f853 5022 	ldr.w	r5, [r3, r2, lsl #2]
+  c6:	f000 0003 	and.w	r0, r0, #3
+  ca:	ea4f 00c0 	mov.w	r0, r0, lsl #3
+  ce:	f06f 04f0 	mvn.w	r4, #240	; 0xf0
+  d2:	fa04 f400 	lsl.w	r4, r4, r0
+  d6:	402c      	ands	r4, r5
+  d8:	f843 4022 	str.w	r4, [r3, r2, lsl #2]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_nvic.c:111
+        NVIC->IPR[ ulVector / 4 ] |= ( ( u32 )ucPriority ) << ( ( ulVector % 4 ) * 8 ); // Write Priority
+  dc:	f853 4022 	ldr.w	r4, [r3, r2, lsl #2]
+  e0:	fa01 f000 	lsl.w	r0, r1, r0
+  e4:	4320      	orrs	r0, r4
+  e6:	f843 0022 	str.w	r0, [r3, r2, lsl #2]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_nvic.c:113
+    } 
+}
+  ea:	bc30      	pop	{r4, r5}
+  ec:	4770      	bx	lr
+  ee:	bf00      	nop

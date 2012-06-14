@@ -19,10 +19,11 @@
 ***************************************************************************/
 #include <malloc.h>
 #include <stdlib.h>
-#include <math.h>
+#include <math.h> 
 #include "pygmy_profile.h"
 #include "fonts/orbitron18.h"
 #include "gems.h"
+#include "picon.h"
 
 #include "profiles/nebula/shields/gasSensor.h"
 #include "profiles/digipots/mcp443x.h"
@@ -36,27 +37,61 @@ void eventRFBack( void );
 void threadRFHumidity( void );
 void threadRFHumiditySave( void );
 
+void drawLogoCanvas( void );
+void drawLogoForm( void );
+
+void volumeSet( void );
+
 u8 globalHumidity[ 20 ];
 PYGMYI2CPORT globalGasSensorDigipot;
 
-void main( void )
+void main( void ) 
 {
     u8 i, ucChar, *ucEeproms, ucBuffer[ 40 ];
-
+ 
     sysInit();
-    socketInit();
+    //taskNewSimple( "volume", 5000, (void*)volumeSet );
+    taskNew( "volume", 5000, 20000, 0, (void*)volumeSet );
+    /*socketInit();
     rfInit();
+    guiInitSprites();
     print( COM3, "\rV2 RFID: 0x%X", socketGetID());
+    
+    
+    fileOpenResource( &fileFont, (u8*)PYGMY_orbitron18 );
+    fontLoad( &fileFont, &fontOrbitron18 );
+    fontSetAll( &fontOrbitron18 );
+    
+    drawLogoCanvas();
+    delay( 300000 );
+
+    pinConfig( A0, PULLUP );
+    pinConfig( D3, PULLUP );
+    pinConfig( TA0, PULLUP );
+    pinConfig( DAC1, PULLUP ); 
+    pinConfig( DAC2, PULLUP );
+    pinConfig( TX2, PULLUP );
+    pinConfig( RX2, PULLUP );
+    pinInterrupt( eventMouseMoveUp, A0, TRIGGER_RISING, 1 );
+    pinInterrupt( eventMouseMoveDown, D3, TRIGGER_RISING, 1 );
+    pinInterrupt( eventMouseMoveLeft, TA0, TRIGGER_RISING, 1 );
+    pinInterrupt( eventMouseMoveRight, DAC1, TRIGGER_RISING, 1 );
+    pinInterrupt( eventMouseClickLeft, DAC2, TRIGGER_RISING, 1 );
+    pinInterrupt( eventMouseClickCenter, TX2, TRIGGER_RISING, 1 );
+    pinInterrupt( eventMouseClickRight, RX2, TRIGGER_RISING, 1 );
+    drawMainMenu();
+    */
+    
     //mpl115a2Init( TX1, RX1, NONE, NONE );
-    //print( COM3, "\rPressure: %f", mpl115a2ReadkPa() );
+    //print( LCD, "\rPressure: %f", mpl115a2ReadkPa() );
     //print( COM3, "\rTemp: %f", mpl115a2ReadTemp() );
     //i2cConfig( &globalGasSensorDigipot, DIGIPOT_BASEADDRESS|3, TX1, RX1, I2CSPEEDFAST );
     //digipotSetWiper( &globalGasSensorDigipot, 2, 0 );
     //eepromOpen( 0x2F, TX1, RX1, NONE );
     //eepromPutString( 0, "Test" );
-    pinConfig( MCO, OUT );
-    pinSet( MCO, HIGH );
-    gasSensorInit();
+    //pinConfig( MCO, OUT );
+    //pinSet( MCO, HIGH );
+    //gasSensorInit();
     //print( COM3, "\rGas Sensor: %f", gasSensorRead() );
     //gasSensorSetGain( 0,0 );
     //print( COM3, "\rGas Sensor: %f", gasSensorRead() );
@@ -111,7 +146,7 @@ void main( void )
     //gemDrawMenu();
     //drawWidget( &btnOK );
     //gemInit();
-    
+     
     
     //sysFree( ucBuffer );
     //fileOpen( &pygmyFile, "jpeg", READ );
@@ -126,19 +161,137 @@ void main( void )
     while(1){;}
 }
 
+void volumeSet( void )
+{
+    PYGMYI2CPORT pygmyI2C;
+    
+    i2cConfig( &pygmyI2C, TX1, RX1, 0x49, I2CSPEEDFAST );
+    i2cStart( &pygmyI2C );
+    i2cWriteByte( &pygmyI2C, pygmyI2C.Address );
+    i2cWriteByte( &pygmyI2C, 44 );
+    i2cStop( &pygmyI2C );
+    print( COM3, "\rSet Volume" );
+}
+
+void drawReset( void )
+{
+    PYGMY_RESET;
+}
+
+void drawLogoCanvas( void )
+{
+    PYGMYFILE imageFile;
+    //PYGMYCOLOR pygmyColor = { 255, 255, 255 };
+
+    //guiClearArea( &pygmyColor, 0, 0, 127, 127 );
+    //if( fileOpen( &imageFile, "picon.pbm", READ ) ){
+    fileOpenResource( &imageFile, (u8*)PYGMY_picon );
+    drawImage( 0, 0, &imageFile, 0 ); 
+    //} //else{
+    //    print( COM3, "\rFile picon.pbm missing" );
+    //} // else
+}       
+
+void drawFormJerboa( void )   
+{
+    PYGMYFILE imageFile;
+    PYGMYWIDGET widgetButton; 
+
+    formFreeAll();
+    formNew( 0, 0, 128, 128 );
+    widgetButton.Type = CANVAS;
+    widgetButton.X = 0;
+    widgetButton.Y = 0;
+    widgetButton.Width = 128;
+    widgetButton.Height = 128;
+    widgetButton.String = ""; 
+    formAddWidget( &widgetButton );
+    widgetAddEventHandler( widgetGetCurrent(), drawMainMenu, SELECTED );
+    
+    if( fileOpen( &imageFile, "jerboa.pbm", READ ) ){
+        drawImage( 0, 0, &imageFile, 0 ); 
+    } else{
+        print( COM3, "\rFile jerboa.pbm missing" );
+    } // else
+    
+}
+
+
+void drawFormPeng( void )   
+{
+    PYGMYFILE imageFile;
+    PYGMYWIDGET widgetButton; 
+
+    
+    formFreeAll();
+    formNew( 0, 0, 128, 128 );
+    widgetButton.Type = CANVAS;
+    widgetButton.X = 0;
+    widgetButton.Y = 0;
+    widgetButton.Width = 128;
+    widgetButton.Height = 128;
+    widgetButton.String = ""; 
+    formAddWidget( &widgetButton );
+    widgetAddEventHandler( widgetGetCurrent(), drawFormJerboa, SELECTED );
+    
+    if( fileOpen( &imageFile, "peng.pbm", READ ) ){
+        drawImage( 0, 0, &imageFile, 0 ); 
+    } else{
+        print( COM3, "\rFile peng.pbm missing" );
+    } // else
+    
+}
+
+
+void drawToucanForm( void )   
+{
+    PYGMYFILE imageFile;
+    PYGMYWIDGET widgetButton; 
+
+    formFreeAll();
+    formNew( 0, 0, 128, 128 );
+    widgetButton.Type = CANVAS;
+    widgetButton.X = 0;
+    widgetButton.Y = 0;
+    widgetButton.Width = 128;
+    widgetButton.Height = 128;
+    widgetButton.String = ""; 
+    formAddWidget( &widgetButton );
+    widgetAddEventHandler( widgetGetCurrent(), drawFormPeng, SELECTED );
+    
+    if( fileOpen( &imageFile, "toucan.pbm", READ ) ){
+        drawImage( 0, 0, &imageFile, 0 ); 
+    } else{
+        print( COM3, "\rFile toucan.pbm missing" );
+    } // else
+    
+}
+
+void drawLogoForm( void )   
+{
+    PYGMYFILE imageFile;
+    PYGMYWIDGET widgetButton; 
+
+    formFreeAll();
+    formNew( 0, 0, 128, 128 );
+    widgetButton.Type = CANVAS;
+    widgetButton.X = 0;
+    widgetButton.Y = 0;
+    widgetButton.Width = 128;
+    widgetButton.Height = 128;
+    widgetButton.String = ""; 
+    formAddWidget( &widgetButton );
+    widgetAddEventHandler( widgetGetCurrent(), drawToucanForm, SELECTED );
+    
+    fileOpenResource( &imageFile, (u8*)PYGMY_picon );
+    drawImage( 0, 0, &imageFile, 0 ); 
+}
+
 void drawMainMenu( void )
 {
     PYGMYCOLOR pygmyColor;
     PYGMYFILE pygmyFile;
     PYGMYWIDGET widgetButton;
-
-    pinInterrupt( eventMouseMoveUp, A0, TRIGGER_RISING, 1 );
-    pinInterrupt( eventMouseMoveDown, D3, TRIGGER_RISING, 1 );
-    pinInterrupt( eventMouseMoveLeft, TA0, TRIGGER_RISING, 1 );
-    pinInterrupt( eventMouseMoveRight, DAC1, TRIGGER_RISING, 1 );
-    pinInterrupt( eventMouseClickLeft, DAC2, TRIGGER_RISING, 1 );
-    pinInterrupt( eventMouseClickCenter, TX2, TRIGGER_RISING, 1 );
-    pinInterrupt( eventMouseClickRight, RX2, TRIGGER_RISING, 1 );
 
     colorSetRGB( colorGetRootColor(), 0x65, 0xBE, 0xFF ); //0x48, 0x8E, 0xDF );
     colorSetRGB( colorGetRootBackColor(), 0x65, 0x65, 0x65 );
@@ -163,27 +316,23 @@ void drawMainMenu( void )
     widgetButton.Height = 36;
     widgetButton.String = "Start Game";
     formAddWidget( &widgetButton );
-    //widgetAddEventHandler( widgetGetCurrent(), eventGotFocus, GOTFOCUS );
-    //widgetAddEventHandler( widgetGetCurrent(), eventLostFocus, LOSTFOCUS );
     widgetAddEventHandler( widgetGetCurrent(), gemInit, SELECTED );
     
     widgetButton.Y = 46;
-    widgetButton.String = "RF Demo";
+    widgetButton.String = "Images";
+    formAddWidget( &widgetButton );
+    widgetAddEventHandler( widgetGetCurrent(), drawLogoForm, SELECTED );
+    
+    /*widgetButton.Y = 86;
+    widgetButton.String = "Reset";
     formAddWidget( &widgetButton );
     //widgetAddEventHandler( widgetGetCurrent(), eventGotFocus, GOTFOCUS );
     //widgetAddEventHandler( widgetGetCurrent(), eventLostFocus, LOSTFOCUS );
-    widgetAddEventHandler( widgetGetCurrent(), drawRFTest, SELECTED );
-    
-    widgetButton.Y = 86;
-    widgetButton.String = "Contrast";
-    formAddWidget( &widgetButton );
-    //widgetAddEventHandler( widgetGetCurrent(), eventGotFocus, GOTFOCUS );
-    //widgetAddEventHandler( widgetGetCurrent(), eventLostFocus, LOSTFOCUS );
-    //widgetAddEventHandler( widgetGetCurrent(), eventSelected, SELECTED );
-    
+    widgetAddEventHandler( widgetGetCurrent(), drawReset, SELECTED );
+    */
     drawForms( );
 }
-
+/*
 void drawRFTest( void )
 {
     //PYGMYCOLOR pygmyColor;
@@ -235,7 +384,8 @@ void drawRFTest( void )
     drawForms();
     //taskNewSimple( "humidity", 1000, (void*)threadRFHumidity );
 }
-
+*/
+/*
 void threadRFHumidity( void )
 {
     PYGMYWIDGET *pygmyWidget;
@@ -256,15 +406,7 @@ void threadRFHumidity( void )
             print( COM3, "\rLoaded value: %s", globalHumidity );
             fileDelete( "humidity.txt" );
             print( COM3, "\rDeleted humidity.txt" );
-        /*pygmyWidget = widgetGet( globalHumidity );
-        if( pygmyWidget ){
-            //pygmyWidget->Style = CAPTION|FILLED|VISIBLE|ROUNDED|BORDER|CENTERED;
-            guiClearArea( colorGetRootClearColor(), pygmyWidget->X, pygmyWidget->Y, pygmyWidget->X + pygmyWidget->Width,
-                pygmyWidget->Y+pygmyWidget->Height );
-            guiSetCursor( pygmyWidget->X+2, pygmyWidget->Y + 9 );
-            print( LCD, globalHumidity );
-        } // if
-        */
+        
         //drawRFTest( );
         drawForms();
         } // if
@@ -277,8 +419,8 @@ void threadRFHumidity( void )
     } else{
         print( COM3, "Testing for File..." );
     } // else
-}
-
+}*/
+/*
 void threadRFHumiditySave( void )
 {
     PYGMYMESSAGE pygmyMsg;
@@ -303,18 +445,8 @@ void threadRFHumiditySave( void )
             drawForms();
         } // else if
     }
-    
-    /*PYGMYFILE pygmyFile;
-    u8 ucBuffer[ 20 ];
-    
-    if( fileOpen( &pygmyFile, "humidity.txt", WRITE ) ){
-        convertIntToString( humidityRead(), "%d", ucBuffer );
-        filePutString( &pygmyFile, ucBuffer );
-        fileClose( &pygmyFile );
-    } // if
-    */
-}
-
+}*/
+/*
 void eventRFBack( void )
 {
     //formRemove();
@@ -322,4 +454,4 @@ void eventRFBack( void )
     //drawForms();
     taskDelete( "humidity", 0 );
     drawMainMenu();
-}
+}*/

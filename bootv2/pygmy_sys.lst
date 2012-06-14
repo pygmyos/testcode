@@ -695,44 +695,46 @@ Disassembly of section .text.sysInit:
 
 00000000 <sysInit>:
 sysInit():
-   0:	4b15      	ldr	r3, [pc, #84]	; (58 <sysInit+0x58>)
-   2:	f44f 6286 	mov.w	r2, #1072	; 0x430
-   6:	b510      	push	{r4, lr}
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	4b16      	ldr	r3, [pc, #88]	; (5c <sysInit+0x5c>)
+   4:	f240 4214 	movw	r2, #1044	; 0x414
    8:	829a      	strh	r2, [r3, #20]
-   a:	4a14      	ldr	r2, [pc, #80]	; (5c <sysInit+0x5c>)
+   a:	4a15      	ldr	r2, [pc, #84]	; (60 <sysInit+0x60>)
    c:	2400      	movs	r4, #0
    e:	605a      	str	r2, [r3, #4]
-  10:	4a13      	ldr	r2, [pc, #76]	; (60 <sysInit+0x60>)
-  12:	2009      	movs	r0, #9
+  10:	4a14      	ldr	r2, [pc, #80]	; (64 <sysInit+0x64>)
+  12:	2501      	movs	r5, #1
   14:	601a      	str	r2, [r3, #0]
-  16:	220a      	movs	r2, #10
+  16:	2208      	movs	r2, #8
   18:	60dc      	str	r4, [r3, #12]
-  1a:	75d8      	strb	r0, [r3, #23]
+  1a:	75dd      	strb	r5, [r3, #23]
   1c:	761a      	strb	r2, [r3, #24]
-  1e:	f7ff fffe 	bl	0 <sysInit>
-  22:	f7ff fffe 	bl	0 <streamInit>
-  26:	2280      	movs	r2, #128	; 0x80
-  28:	2001      	movs	r0, #1
-  2a:	490e      	ldr	r1, [pc, #56]	; (64 <sysInit+0x64>)
-  2c:	f7ff fffe 	bl	0 <streamSetRXBuffer>
-  30:	490d      	ldr	r1, [pc, #52]	; (68 <sysInit+0x68>)
-  32:	2001      	movs	r0, #1
-  34:	f7ff fffe 	bl	0 <streamSetPut>
-  38:	2001      	movs	r0, #1
-  3a:	f7ff fffe 	bl	0 <streamSetSTDIO>
-  3e:	f7ff fffe 	bl	0 <timeInit>
-  42:	f7ff fffe 	bl	0 <fileMountRoot>
-  46:	f7ff fffe 	bl	0 <sysInit>
-  4a:	4b08      	ldr	r3, [pc, #32]	; (6c <sysInit+0x6c>)
-  4c:	4620      	mov	r0, r4
-  4e:	601c      	str	r4, [r3, #0]
-  50:	605c      	str	r4, [r3, #4]
-  52:	609c      	str	r4, [r3, #8]
-  54:	60dc      	str	r4, [r3, #12]
-  56:	bd10      	pop	{r4, pc}
-  58:	00000000 	.word	0x00000000
-  5c:	00b71b00 	.word	0x00b71b00
-  60:	044aa200 	.word	0x044aa200
+  1e:	4628      	mov	r0, r5
+  20:	f7ff fffe 	bl	0 <sysInit>
+  24:	f7ff fffe 	bl	0 <streamInit>
+  28:	2280      	movs	r2, #128	; 0x80
+  2a:	4628      	mov	r0, r5
+  2c:	490e      	ldr	r1, [pc, #56]	; (68 <sysInit+0x68>)
+  2e:	f7ff fffe 	bl	0 <streamSetRXBuffer>
+  32:	490e      	ldr	r1, [pc, #56]	; (6c <sysInit+0x6c>)
+  34:	4628      	mov	r0, r5
+  36:	f7ff fffe 	bl	0 <streamSetPut>
+  3a:	4628      	mov	r0, r5
+  3c:	f7ff fffe 	bl	0 <streamSetSTDIO>
+  40:	f7ff fffe 	bl	0 <timeInit>
+  44:	f7ff fffe 	bl	0 <fileMountRoot>
+  48:	f7ff fffe 	bl	0 <sysInit>
+  4c:	4b08      	ldr	r3, [pc, #32]	; (70 <sysInit+0x70>)
+  4e:	4620      	mov	r0, r4
+  50:	601c      	str	r4, [r3, #0]
+  52:	605c      	str	r4, [r3, #4]
+  54:	609c      	str	r4, [r3, #8]
+  56:	60dc      	str	r4, [r3, #12]
+  58:	bd38      	pop	{r3, r4, r5, pc}
+  5a:	bf00      	nop
+  5c:	00000000 	.word	0x00000000
+  60:	00b71b00 	.word	0x00b71b00
+  64:	044aa200 	.word	0x044aa200
 	...
 
 Disassembly of section .text.taskIsRunning:
@@ -1331,89 +1333,96 @@ Disassembly of section .text.delay:
 
 00000000 <delay>:
 delay():
-   0:	b570      	push	{r4, r5, r6, lr}
-   2:	4d2b      	ldr	r5, [pc, #172]	; (b0 <delay+0xb0>)
-   4:	4606      	mov	r6, r0
-   6:	7de8      	ldrb	r0, [r5, #23]
-   8:	4c2a      	ldr	r4, [pc, #168]	; (b4 <delay+0xb4>)
-   a:	2801      	cmp	r0, #1
-   c:	d128      	bne.n	60 <delay+0x60>
-   e:	69a3      	ldr	r3, [r4, #24]
-  10:	2200      	movs	r2, #0
-  12:	f443 6300 	orr.w	r3, r3, #2048	; 0x800
-  16:	61a3      	str	r3, [r4, #24]
-  18:	4b27      	ldr	r3, [pc, #156]	; (b8 <delay+0xb8>)
-  1a:	6829      	ldr	r1, [r5, #0]
-  1c:	801a      	strh	r2, [r3, #0]
-  1e:	4a27      	ldr	r2, [pc, #156]	; (bc <delay+0xbc>)
-  20:	fbb1 f2f2 	udiv	r2, r1, r2
-  24:	4356      	muls	r6, r2
-  26:	f5b6 3f80 	cmp.w	r6, #65536	; 0x10000
-  2a:	d304      	bcc.n	36 <delay+0x36>
-  2c:	0c31      	lsrs	r1, r6, #16
-  2e:	434a      	muls	r2, r1
-  30:	b292      	uxth	r2, r2
-  32:	851a      	strh	r2, [r3, #40]	; 0x28
-  34:	b2b6      	uxth	r6, r6
-  36:	2e3b      	cmp	r6, #59	; 0x3b
-  38:	bf98      	it	ls
-  3a:	263c      	movls	r6, #60	; 0x3c
-  3c:	4b1e      	ldr	r3, [pc, #120]	; (b8 <delay+0xb8>)
-  3e:	3e3c      	subs	r6, #60	; 0x3c
-  40:	2200      	movs	r2, #0
-  42:	b2b6      	uxth	r6, r6
-  44:	809a      	strh	r2, [r3, #4]
-  46:	811a      	strh	r2, [r3, #8]
-  48:	819a      	strh	r2, [r3, #12]
-  4a:	849a      	strh	r2, [r3, #36]	; 0x24
-  4c:	859e      	strh	r6, [r3, #44]	; 0x2c
-  4e:	821a      	strh	r2, [r3, #16]
-  50:	2289      	movs	r2, #137	; 0x89
-  52:	801a      	strh	r2, [r3, #0]
-  54:	4b18      	ldr	r3, [pc, #96]	; (b8 <delay+0xb8>)
-  56:	881b      	ldrh	r3, [r3, #0]
-  58:	f013 0f01 	tst.w	r3, #1
-  5c:	d1fa      	bne.n	54 <delay+0x54>
-  5e:	bd70      	pop	{r4, r5, r6, pc}
-  60:	f7ff fffe 	bl	0 <delay>
-  64:	69a3      	ldr	r3, [r4, #24]
-  66:	f443 2300 	orr.w	r3, r3, #524288	; 0x80000
-  6a:	61a3      	str	r3, [r4, #24]
-  6c:	2300      	movs	r3, #0
-  6e:	8003      	strh	r3, [r0, #0]
-  70:	682a      	ldr	r2, [r5, #0]
-  72:	4b12      	ldr	r3, [pc, #72]	; (bc <delay+0xbc>)
-  74:	fbb2 f3f3 	udiv	r3, r2, r3
-  78:	435e      	muls	r6, r3
-  7a:	f5b6 3f80 	cmp.w	r6, #65536	; 0x10000
-  7e:	d304      	bcc.n	8a <delay+0x8a>
-  80:	0c32      	lsrs	r2, r6, #16
-  82:	4353      	muls	r3, r2
-  84:	b29b      	uxth	r3, r3
-  86:	8503      	strh	r3, [r0, #40]	; 0x28
-  88:	b2b6      	uxth	r6, r6
-  8a:	2e3b      	cmp	r6, #59	; 0x3b
-  8c:	bf98      	it	ls
-  8e:	263c      	movls	r6, #60	; 0x3c
-  90:	3e3c      	subs	r6, #60	; 0x3c
-  92:	2200      	movs	r2, #0
-  94:	b2b6      	uxth	r6, r6
-  96:	2389      	movs	r3, #137	; 0x89
-  98:	8082      	strh	r2, [r0, #4]
-  9a:	8102      	strh	r2, [r0, #8]
-  9c:	8182      	strh	r2, [r0, #12]
-  9e:	8482      	strh	r2, [r0, #36]	; 0x24
-  a0:	8586      	strh	r6, [r0, #44]	; 0x2c
-  a2:	8202      	strh	r2, [r0, #16]
-  a4:	8003      	strh	r3, [r0, #0]
-  a6:	8803      	ldrh	r3, [r0, #0]
-  a8:	f013 0f01 	tst.w	r3, #1
-  ac:	d1fb      	bne.n	a6 <delay+0xa6>
-  ae:	bd70      	pop	{r4, r5, r6, pc}
-  b0:	00000000 	.word	0x00000000
-  b4:	40021000 	.word	0x40021000
-  b8:	40012c00 	.word	0x40012c00
-  bc:	000f4240 	.word	0x000f4240
+   0:	4b2f      	ldr	r3, [pc, #188]	; (c0 <delay+0xc0>)
+   2:	b570      	push	{r4, r5, r6, lr}
+   4:	f64a 22aa 	movw	r2, #43690	; 0xaaaa
+   8:	4d2e      	ldr	r5, [pc, #184]	; (c4 <delay+0xc4>)
+   a:	601a      	str	r2, [r3, #0]
+   c:	4606      	mov	r6, r0
+   e:	7de8      	ldrb	r0, [r5, #23]
+  10:	4c2d      	ldr	r4, [pc, #180]	; (c8 <delay+0xc8>)
+  12:	2801      	cmp	r0, #1
+  14:	d128      	bne.n	68 <delay+0x68>
+  16:	69a3      	ldr	r3, [r4, #24]
+  18:	2200      	movs	r2, #0
+  1a:	f443 6300 	orr.w	r3, r3, #2048	; 0x800
+  1e:	61a3      	str	r3, [r4, #24]
+  20:	4b2a      	ldr	r3, [pc, #168]	; (cc <delay+0xcc>)
+  22:	6829      	ldr	r1, [r5, #0]
+  24:	801a      	strh	r2, [r3, #0]
+  26:	4a2a      	ldr	r2, [pc, #168]	; (d0 <delay+0xd0>)
+  28:	fbb1 f2f2 	udiv	r2, r1, r2
+  2c:	4356      	muls	r6, r2
+  2e:	f5b6 3f80 	cmp.w	r6, #65536	; 0x10000
+  32:	d304      	bcc.n	3e <delay+0x3e>
+  34:	0c31      	lsrs	r1, r6, #16
+  36:	434a      	muls	r2, r1
+  38:	b292      	uxth	r2, r2
+  3a:	851a      	strh	r2, [r3, #40]	; 0x28
+  3c:	b2b6      	uxth	r6, r6
+  3e:	2e3b      	cmp	r6, #59	; 0x3b
+  40:	bf98      	it	ls
+  42:	263c      	movls	r6, #60	; 0x3c
+  44:	4b21      	ldr	r3, [pc, #132]	; (cc <delay+0xcc>)
+  46:	3e3c      	subs	r6, #60	; 0x3c
+  48:	2200      	movs	r2, #0
+  4a:	b2b6      	uxth	r6, r6
+  4c:	809a      	strh	r2, [r3, #4]
+  4e:	811a      	strh	r2, [r3, #8]
+  50:	819a      	strh	r2, [r3, #12]
+  52:	849a      	strh	r2, [r3, #36]	; 0x24
+  54:	859e      	strh	r6, [r3, #44]	; 0x2c
+  56:	821a      	strh	r2, [r3, #16]
+  58:	2289      	movs	r2, #137	; 0x89
+  5a:	801a      	strh	r2, [r3, #0]
+  5c:	4b1b      	ldr	r3, [pc, #108]	; (cc <delay+0xcc>)
+  5e:	881b      	ldrh	r3, [r3, #0]
+  60:	f013 0f01 	tst.w	r3, #1
+  64:	d1fa      	bne.n	5c <delay+0x5c>
+  66:	e026      	b.n	b6 <delay+0xb6>
+  68:	f7ff fffe 	bl	0 <delay>
+  6c:	69a3      	ldr	r3, [r4, #24]
+  6e:	f443 2300 	orr.w	r3, r3, #524288	; 0x80000
+  72:	61a3      	str	r3, [r4, #24]
+  74:	2300      	movs	r3, #0
+  76:	8003      	strh	r3, [r0, #0]
+  78:	682a      	ldr	r2, [r5, #0]
+  7a:	4b15      	ldr	r3, [pc, #84]	; (d0 <delay+0xd0>)
+  7c:	fbb2 f3f3 	udiv	r3, r2, r3
+  80:	435e      	muls	r6, r3
+  82:	f5b6 3f80 	cmp.w	r6, #65536	; 0x10000
+  86:	d304      	bcc.n	92 <delay+0x92>
+  88:	0c32      	lsrs	r2, r6, #16
+  8a:	4353      	muls	r3, r2
+  8c:	b29b      	uxth	r3, r3
+  8e:	8503      	strh	r3, [r0, #40]	; 0x28
+  90:	b2b6      	uxth	r6, r6
+  92:	2e3b      	cmp	r6, #59	; 0x3b
+  94:	bf98      	it	ls
+  96:	263c      	movls	r6, #60	; 0x3c
+  98:	3e3c      	subs	r6, #60	; 0x3c
+  9a:	2200      	movs	r2, #0
+  9c:	b2b6      	uxth	r6, r6
+  9e:	2389      	movs	r3, #137	; 0x89
+  a0:	8082      	strh	r2, [r0, #4]
+  a2:	8102      	strh	r2, [r0, #8]
+  a4:	8182      	strh	r2, [r0, #12]
+  a6:	8482      	strh	r2, [r0, #36]	; 0x24
+  a8:	8586      	strh	r6, [r0, #44]	; 0x2c
+  aa:	8202      	strh	r2, [r0, #16]
+  ac:	8003      	strh	r3, [r0, #0]
+  ae:	8803      	ldrh	r3, [r0, #0]
+  b0:	f013 0f01 	tst.w	r3, #1
+  b4:	d1fb      	bne.n	ae <delay+0xae>
+  b6:	4b02      	ldr	r3, [pc, #8]	; (c0 <delay+0xc0>)
+  b8:	f64a 22aa 	movw	r2, #43690	; 0xaaaa
+  bc:	601a      	str	r2, [r3, #0]
+  be:	bd70      	pop	{r4, r5, r6, pc}
+  c0:	40003000 	.word	0x40003000
+  c4:	00000000 	.word	0x00000000
+  c8:	40021000 	.word	0x40021000
+  cc:	40012c00 	.word	0x40012c00
+  d0:	000f4240 	.word	0x000f4240
 
 Disassembly of section .text.delayms:
 

@@ -3,11 +3,11 @@ C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\main.o:     file for
 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\main.o
 
 
-Disassembly of section .text.drawRFTest:
+Disassembly of section .text.drawMainMenu:
 
-00000000 <drawRFTest>:
-drawRFTest():
-   0:	b5f0      	push	{r4, r5, r6, r7, lr}
+00000000 <drawMainMenu>:
+drawMainMenu():
+   0:	b500      	push	{lr}
    2:	b093      	sub	sp, #76	; 0x4c
    4:	f7ff fffe 	bl	0 <colorGetRootColor>
    8:	2165      	movs	r1, #101	; 0x65
@@ -36,7 +36,7 @@ drawRFTest():
   46:	f7ff fffe 	bl	0 <colorSetRGB>
   4a:	2008      	movs	r0, #8
   4c:	f7ff fffe 	bl	0 <guiSetRadius>
-  50:	4829      	ldr	r0, [pc, #164]	; (a8 <guiSetStyle+0xa8>)
+  50:	481c      	ldr	r0, [pc, #112]	; (74 <guiSetStyle+0x74>)
   52:	f7ff fffe 	bl	0 <guiSetStyle>
   56:	f7ff fffe 	bl	0 <formFreeAll>
   5a:	2280      	movs	r2, #128	; 0x80
@@ -44,367 +44,306 @@ drawRFTest():
   5e:	4613      	mov	r3, r2
   60:	4601      	mov	r1, r0
   62:	f7ff fffe 	bl	0 <formNew>
-  66:	4b25      	ldr	r3, [pc, #148]	; (fc <drawRFTest+0xfc>)
-  68:	2705      	movs	r7, #5
+  66:	4b18      	ldr	r3, [pc, #96]	; (c8 <drawMainMenu+0xc8>)
+  68:	4668      	mov	r0, sp
   6a:	9307      	str	r3, [sp, #28]
-  6c:	2306      	movs	r3, #6
-  6e:	f8ad 3016 	strh.w	r3, [sp, #22]
-  72:	4b23      	ldr	r3, [pc, #140]	; (100 <drawRFTest+0x100>)
-  74:	2600      	movs	r6, #0
-  76:	257f      	movs	r5, #127	; 0x7f
-  78:	2424      	movs	r4, #36	; 0x24
-  7a:	4668      	mov	r0, sp
-  7c:	9309      	str	r3, [sp, #36]	; 0x24
-  7e:	f88d 7020 	strb.w	r7, [sp, #32]
-  82:	f8ad 6014 	strh.w	r6, [sp, #20]
-  86:	f8ad 5018 	strh.w	r5, [sp, #24]
-  8a:	f8ad 401a 	strh.w	r4, [sp, #26]
+  6c:	2305      	movs	r3, #5
+  6e:	f88d 3020 	strb.w	r3, [sp, #32]
+  72:	2300      	movs	r3, #0
+  74:	f8ad 3014 	strh.w	r3, [sp, #20]
+  78:	2306      	movs	r3, #6
+  7a:	f8ad 3016 	strh.w	r3, [sp, #22]
+  7e:	237f      	movs	r3, #127	; 0x7f
+  80:	f8ad 3018 	strh.w	r3, [sp, #24]
+  84:	2324      	movs	r3, #36	; 0x24
+  86:	f8ad 301a 	strh.w	r3, [sp, #26]
+  8a:	4b10      	ldr	r3, [pc, #64]	; (cc <drawMainMenu+0xcc>)
+  8c:	9309      	str	r3, [sp, #36]	; 0x24
   8e:	f7ff fffe 	bl	0 <formAddWidget>
-  92:	4b1c      	ldr	r3, [pc, #112]	; (104 <drawRFTest+0x104>)
-  94:	491c      	ldr	r1, [pc, #112]	; (108 <drawRFTest+0x108>)
-  96:	9307      	str	r3, [sp, #28]
-  98:	481c      	ldr	r0, [pc, #112]	; (10c <drawRFTest+0x10c>)
-  9a:	232e      	movs	r3, #46	; 0x2e
-  9c:	f8ad 3016 	strh.w	r3, [sp, #22]
-  a0:	f88d 7020 	strb.w	r7, [sp, #32]
-  a4:	f8ad 6014 	strh.w	r6, [sp, #20]
-  a8:	f8ad 5018 	strh.w	r5, [sp, #24]
-  ac:	f8ad 401a 	strh.w	r4, [sp, #26]
-  b0:	f7ff fffe 	bl	0 <copyString>
-  b4:	4b14      	ldr	r3, [pc, #80]	; (108 <drawRFTest+0x108>)
-  b6:	4668      	mov	r0, sp
-  b8:	9309      	str	r3, [sp, #36]	; 0x24
-  ba:	f7ff fffe 	bl	0 <formAddWidget>
-  be:	4b14      	ldr	r3, [pc, #80]	; (110 <drawRFTest+0x110>)
-  c0:	4668      	mov	r0, sp
-  c2:	9307      	str	r3, [sp, #28]
-  c4:	2304      	movs	r3, #4
-  c6:	f88d 3020 	strb.w	r3, [sp, #32]
-  ca:	2356      	movs	r3, #86	; 0x56
-  cc:	f8ad 3016 	strh.w	r3, [sp, #22]
-  d0:	4b10      	ldr	r3, [pc, #64]	; (114 <drawRFTest+0x114>)
-  d2:	9309      	str	r3, [sp, #36]	; 0x24
-  d4:	f7ff fffe 	bl	0 <formAddWidget>
-  d8:	f7ff fffe 	bl	0 <formGetWidgetCount>
-  dc:	3801      	subs	r0, #1
-  de:	b280      	uxth	r0, r0
-  e0:	f7ff fffe 	bl	0 <formSetFocus>
-  e4:	f7ff fffe 	bl	0 <widgetGetCurrent>
-  e8:	490b      	ldr	r1, [pc, #44]	; (118 <drawRFTest+0x118>)
-  ea:	220b      	movs	r2, #11
-  ec:	f7ff fffe 	bl	0 <widgetAddEventHandler>
-  f0:	f7ff fffe 	bl	0 <drawForms>
-  f4:	b013      	add	sp, #76	; 0x4c
-  f6:	bdf0      	pop	{r4, r5, r6, r7, pc}
-  f8:	00010055 	.word	0x00010055
-  fc:	00110051 	.word	0x00110051
- 100:	00000000 	.word	0x00000000
- 104:	00100041 	.word	0x00100041
- 108:	00000000 	.word	0x00000000
- 10c:	00000009 	.word	0x00000009
- 110:	00110151 	.word	0x00110151
- 114:	00000014 	.word	0x00000014
- 118:	00000000 	.word	0x00000000
+  92:	f7ff fffe 	bl	0 <widgetGetCurrent>
+  96:	220b      	movs	r2, #11
+  98:	490d      	ldr	r1, [pc, #52]	; (d0 <drawMainMenu+0xd0>)
+  9a:	f7ff fffe 	bl	0 <widgetAddEventHandler>
+  9e:	232e      	movs	r3, #46	; 0x2e
+  a0:	f8ad 3016 	strh.w	r3, [sp, #22]
+  a4:	4b0b      	ldr	r3, [pc, #44]	; (d4 <drawMainMenu+0xd4>)
+  a6:	4668      	mov	r0, sp
+  a8:	9309      	str	r3, [sp, #36]	; 0x24
+  aa:	f7ff fffe 	bl	0 <formAddWidget>
+  ae:	f7ff fffe 	bl	0 <widgetGetCurrent>
+  b2:	4909      	ldr	r1, [pc, #36]	; (d8 <drawMainMenu+0xd8>)
+  b4:	220b      	movs	r2, #11
+  b6:	f7ff fffe 	bl	0 <widgetAddEventHandler>
+  ba:	f7ff fffe 	bl	0 <drawForms>
+  be:	b013      	add	sp, #76	; 0x4c
+  c0:	bd00      	pop	{pc}
+  c2:	bf00      	nop
+  c4:	00010055 	.word	0x00010055
+  c8:	00110151 	.word	0x00110151
+	...
+  d4:	0000000b 	.word	0x0000000b
+  d8:	00000000 	.word	0x00000000
+
+Disassembly of section .text.drawLogoForm:
+
+00000000 <drawLogoForm>:
+drawLogoForm():
+   0:	b09cb510 	.word	0xb09cb510
+   4:	f7ff fffe 	bl	0 <formFreeAll>
+   8:	2280      	movs	r2, #128	; 0x80
+   a:	2000      	movs	r0, #0
+   c:	4613      	mov	r3, r2
+   e:	4601      	mov	r1, r0
+  10:	f7ff fffe 	bl	0 <formNew>
+  14:	2303      	movs	r3, #3
+  16:	f88d 3020 	strb.w	r3, [sp, #32]
+  1a:	337d      	adds	r3, #125	; 0x7d
+  1c:	f8ad 3018 	strh.w	r3, [sp, #24]
+  20:	f8ad 301a 	strh.w	r3, [sp, #26]
+  24:	4b0d      	ldr	r3, [pc, #52]	; (5c <drawLogoForm+0x5c>)
+  26:	2400      	movs	r4, #0
+  28:	4668      	mov	r0, sp
+  2a:	9309      	str	r3, [sp, #36]	; 0x24
+  2c:	f8ad 4014 	strh.w	r4, [sp, #20]
+  30:	f8ad 4016 	strh.w	r4, [sp, #22]
+  34:	f7ff fffe 	bl	0 <formAddWidget>
+  38:	f7ff fffe 	bl	0 <widgetGetCurrent>
+  3c:	220b      	movs	r2, #11
+  3e:	4908      	ldr	r1, [pc, #32]	; (60 <drawLogoForm+0x60>)
+  40:	f7ff fffe 	bl	0 <widgetAddEventHandler>
+  44:	a812      	add	r0, sp, #72	; 0x48
+  46:	4907      	ldr	r1, [pc, #28]	; (64 <drawLogoForm+0x64>)
+  48:	f7ff fffe 	bl	0 <fileOpenResource>
+  4c:	4620      	mov	r0, r4
+  4e:	4621      	mov	r1, r4
+  50:	aa12      	add	r2, sp, #72	; 0x48
+  52:	4623      	mov	r3, r4
+  54:	f7ff fffe 	bl	0 <drawImage>
+  58:	b01c      	add	sp, #112	; 0x70
+  5a:	bd10      	pop	{r4, pc}
+  5c:	00000012 	.word	0x00000012
+	...
+
+Disassembly of section .text.drawToucanForm:
+
+00000000 <drawToucanForm>:
+drawToucanForm():
+   0:	b500      	push	{lr}
+   2:	b09d      	sub	sp, #116	; 0x74
+   4:	f7ff fffe 	bl	0 <formFreeAll>
+   8:	2280      	movs	r2, #128	; 0x80
+   a:	2000      	movs	r0, #0
+   c:	4613      	mov	r3, r2
+   e:	4601      	mov	r1, r0
+  10:	f7ff fffe 	bl	0 <formNew>
+  14:	2303      	movs	r3, #3
+  16:	f88d 3020 	strb.w	r3, [sp, #32]
+  1a:	2300      	movs	r3, #0
+  1c:	f8ad 3014 	strh.w	r3, [sp, #20]
+  20:	f8ad 3016 	strh.w	r3, [sp, #22]
+  24:	2380      	movs	r3, #128	; 0x80
+  26:	f8ad 3018 	strh.w	r3, [sp, #24]
+  2a:	f8ad 301a 	strh.w	r3, [sp, #26]
+  2e:	4b0f      	ldr	r3, [pc, #60]	; (6c <drawToucanForm+0x6c>)
+  30:	4668      	mov	r0, sp
+  32:	9309      	str	r3, [sp, #36]	; 0x24
+  34:	f7ff fffe 	bl	0 <formAddWidget>
+  38:	f7ff fffe 	bl	0 <widgetGetCurrent>
+  3c:	490c      	ldr	r1, [pc, #48]	; (70 <drawToucanForm+0x70>)
+  3e:	220b      	movs	r2, #11
+  40:	f7ff fffe 	bl	0 <widgetAddEventHandler>
+  44:	a812      	add	r0, sp, #72	; 0x48
+  46:	490b      	ldr	r1, [pc, #44]	; (74 <drawToucanForm+0x74>)
+  48:	2201      	movs	r2, #1
+  4a:	f7ff fffe 	bl	0 <fileOpen>
+  4e:	b130      	cbz	r0, 5e <drawToucanForm+0x5e>
+  50:	2000      	movs	r0, #0
+  52:	4601      	mov	r1, r0
+  54:	aa12      	add	r2, sp, #72	; 0x48
+  56:	4603      	mov	r3, r0
+  58:	f7ff fffe 	bl	0 <drawImage>
+  5c:	e003      	b.n	66 <drawToucanForm+0x66>
+  5e:	2001      	movs	r0, #1
+  60:	4905      	ldr	r1, [pc, #20]	; (78 <drawToucanForm+0x78>)
+  62:	f7ff fffe 	bl	0 <print>
+  66:	b01d      	add	sp, #116	; 0x74
+  68:	bd00      	pop	{pc}
+  6a:	bf00      	nop
+  6c:	00000012 	.word	0x00000012
+  70:	00000000 	.word	0x00000000
+  74:	00000013 	.word	0x00000013
+  78:	0000001e 	.word	0x0000001e
+
+Disassembly of section .text.drawFormPeng:
+
+00000000 <drawFormPeng>:
+drawFormPeng():
+   0:	b500      	push	{lr}
+   2:	b09d      	sub	sp, #116	; 0x74
+   4:	f7ff fffe 	bl	0 <formFreeAll>
+   8:	2280      	movs	r2, #128	; 0x80
+   a:	2000      	movs	r0, #0
+   c:	4613      	mov	r3, r2
+   e:	4601      	mov	r1, r0
+  10:	f7ff fffe 	bl	0 <formNew>
+  14:	2303      	movs	r3, #3
+  16:	f88d 3020 	strb.w	r3, [sp, #32]
+  1a:	2300      	movs	r3, #0
+  1c:	f8ad 3014 	strh.w	r3, [sp, #20]
+  20:	f8ad 3016 	strh.w	r3, [sp, #22]
+  24:	2380      	movs	r3, #128	; 0x80
+  26:	f8ad 3018 	strh.w	r3, [sp, #24]
+  2a:	f8ad 301a 	strh.w	r3, [sp, #26]
+  2e:	4b0f      	ldr	r3, [pc, #60]	; (6c <drawFormPeng+0x6c>)
+  30:	4668      	mov	r0, sp
+  32:	9309      	str	r3, [sp, #36]	; 0x24
+  34:	f7ff fffe 	bl	0 <formAddWidget>
+  38:	f7ff fffe 	bl	0 <widgetGetCurrent>
+  3c:	490c      	ldr	r1, [pc, #48]	; (70 <drawFormPeng+0x70>)
+  3e:	220b      	movs	r2, #11
+  40:	f7ff fffe 	bl	0 <widgetAddEventHandler>
+  44:	a812      	add	r0, sp, #72	; 0x48
+  46:	490b      	ldr	r1, [pc, #44]	; (74 <drawFormPeng+0x74>)
+  48:	2201      	movs	r2, #1
+  4a:	f7ff fffe 	bl	0 <fileOpen>
+  4e:	b130      	cbz	r0, 5e <drawFormPeng+0x5e>
+  50:	2000      	movs	r0, #0
+  52:	4601      	mov	r1, r0
+  54:	aa12      	add	r2, sp, #72	; 0x48
+  56:	4603      	mov	r3, r0
+  58:	f7ff fffe 	bl	0 <drawImage>
+  5c:	e003      	b.n	66 <drawFormPeng+0x66>
+  5e:	2001      	movs	r0, #1
+  60:	4905      	ldr	r1, [pc, #20]	; (78 <drawFormPeng+0x78>)
+  62:	f7ff fffe 	bl	0 <print>
+  66:	b01d      	add	sp, #116	; 0x74
+  68:	bd00      	pop	{pc}
+  6a:	bf00      	nop
+  6c:	00000012 	.word	0x00000012
+  70:	00000000 	.word	0x00000000
+  74:	00000037 	.word	0x00000037
+  78:	00000040 	.word	0x00000040
+
+Disassembly of section .text.drawFormJerboa:
+
+00000000 <drawFormJerboa>:
+drawFormJerboa():
+   0:	b500      	push	{lr}
+   2:	b09d      	sub	sp, #116	; 0x74
+   4:	f7ff fffe 	bl	0 <formFreeAll>
+   8:	2280      	movs	r2, #128	; 0x80
+   a:	2000      	movs	r0, #0
+   c:	4613      	mov	r3, r2
+   e:	4601      	mov	r1, r0
+  10:	f7ff fffe 	bl	0 <formNew>
+  14:	2303      	movs	r3, #3
+  16:	f88d 3020 	strb.w	r3, [sp, #32]
+  1a:	2300      	movs	r3, #0
+  1c:	f8ad 3014 	strh.w	r3, [sp, #20]
+  20:	f8ad 3016 	strh.w	r3, [sp, #22]
+  24:	2380      	movs	r3, #128	; 0x80
+  26:	f8ad 3018 	strh.w	r3, [sp, #24]
+  2a:	f8ad 301a 	strh.w	r3, [sp, #26]
+  2e:	4b0f      	ldr	r3, [pc, #60]	; (6c <drawFormJerboa+0x6c>)
+  30:	4668      	mov	r0, sp
+  32:	9309      	str	r3, [sp, #36]	; 0x24
+  34:	f7ff fffe 	bl	0 <formAddWidget>
+  38:	f7ff fffe 	bl	0 <widgetGetCurrent>
+  3c:	490c      	ldr	r1, [pc, #48]	; (70 <drawFormJerboa+0x70>)
+  3e:	220b      	movs	r2, #11
+  40:	f7ff fffe 	bl	0 <widgetAddEventHandler>
+  44:	a812      	add	r0, sp, #72	; 0x48
+  46:	490b      	ldr	r1, [pc, #44]	; (74 <drawFormJerboa+0x74>)
+  48:	2201      	movs	r2, #1
+  4a:	f7ff fffe 	bl	0 <fileOpen>
+  4e:	b130      	cbz	r0, 5e <drawFormJerboa+0x5e>
+  50:	2000      	movs	r0, #0
+  52:	4601      	mov	r1, r0
+  54:	aa12      	add	r2, sp, #72	; 0x48
+  56:	4603      	mov	r3, r0
+  58:	f7ff fffe 	bl	0 <drawImage>
+  5c:	e003      	b.n	66 <drawFormJerboa+0x66>
+  5e:	2001      	movs	r0, #1
+  60:	4905      	ldr	r1, [pc, #20]	; (78 <drawFormJerboa+0x78>)
+  62:	f7ff fffe 	bl	0 <print>
+  66:	b01d      	add	sp, #116	; 0x74
+  68:	bd00      	pop	{pc}
+  6a:	bf00      	nop
+  6c:	00000012 	.word	0x00000012
+  70:	00000000 	.word	0x00000000
+  74:	00000057 	.word	0x00000057
+  78:	00000062 	.word	0x00000062
+
+Disassembly of section .text.volumeSet:
+
+00000000 <volumeSet>:
+volumeSet():
+   0:	2308b500 	.word	0x2308b500
+   4:	b089      	sub	sp, #36	; 0x24
+   6:	220a      	movs	r2, #10
+   8:	2109      	movs	r1, #9
+   a:	9300      	str	r3, [sp, #0]
+   c:	a803      	add	r0, sp, #12
+   e:	3341      	adds	r3, #65	; 0x41
+  10:	f7ff fffe 	bl	0 <i2cConfig>
+  14:	a803      	add	r0, sp, #12
+  16:	f7ff fffe 	bl	0 <i2cStart>
+  1a:	f89d 100e 	ldrb.w	r1, [sp, #14]
+  1e:	a803      	add	r0, sp, #12
+  20:	f7ff fffe 	bl	0 <i2cWriteByte>
+  24:	212c      	movs	r1, #44	; 0x2c
+  26:	a803      	add	r0, sp, #12
+  28:	f7ff fffe 	bl	0 <i2cWriteByte>
+  2c:	a803      	add	r0, sp, #12
+  2e:	f7ff fffe 	bl	0 <i2cStop>
+  32:	2001      	movs	r0, #1
+  34:	4902      	ldr	r1, [pc, #8]	; (40 <volumeSet+0x40>)
+  36:	f7ff fffe 	bl	0 <print>
+  3a:	b009      	add	sp, #36	; 0x24
+  3c:	bd00      	pop	{pc}
+  3e:	bf00      	nop
+  40:	0000007b 	.word	0x0000007b
 
 Disassembly of section .text.main:
 
 00000000 <main>:
 main():
-   0:	f7ffb508 	.word	0xf7ffb508
-   4:	fffe f7ff 	vqshl.u64	<illegal reg q15.5>, <illegal reg q15.5>, #62	; 0x3e
-   8:	fffe f7ff 	vqshl.u64	<illegal reg q15.5>, <illegal reg q15.5>, #62	; 0x3e
-   c:	fffe f7ff 	vqshl.u64	<illegal reg q15.5>, <illegal reg q15.5>, #62	; 0x3e
-  10:	fffe 4908 	vtbl.8	d20, {d14-d15}, d8
-  14:	4602      	mov	r2, r0
-  16:	2001      	movs	r0, #1
-  18:	f7ff fffe 	bl	0 <print>
-  1c:	2008      	movs	r0, #8
-  1e:	2103      	movs	r1, #3
-  20:	f7ff fffe 	bl	0 <pinConfig>
-  24:	2008      	movs	r0, #8
-  26:	2101      	movs	r1, #1
-  28:	f7ff fffe 	bl	0 <pinSet>
-  2c:	f7ff fffe 	bl	0 <gasSensorInit>
-  30:	e7fe      	b.n	30 <main+0x30>
-  32:	bf00      	nop
-  34:	00000019 	.word	0x00000019
+   0:	f7ffb507 	.word	0xf7ffb507
+   4:	fffe 4b05 	vtbl.8	d20, {d14-d17}, d5
+   8:	4805      	ldr	r0, [pc, #20]	; (20 <main+0x20>)
+   a:	9300      	str	r3, [sp, #0]
+   c:	f241 3188 	movw	r1, #5000	; 0x1388
+  10:	f644 6220 	movw	r2, #20000	; 0x4e20
+  14:	2300      	movs	r3, #0
+  16:	f7ff fffe 	bl	0 <taskNew>
+  1a:	e7fe      	b.n	0 <main>
+  1c:	00000000 	.word	0x00000000
+  20:	00000087 	.word	0x00000087
 
-Disassembly of section .text.drawMainMenu:
+Disassembly of section .text.drawReset:
 
-00000000 <drawMainMenu>:
-drawMainMenu():
+00000000 <drawReset>:
+drawReset():
+   0:	4b024a01 	.word	0x4b024a01
+   4:	60da      	str	r2, [r3, #12]
+   6:	4770      	bx	lr
+   8:	05fa0004 	.word	0x05fa0004
+   c:	e000ed00 	.word	0xe000ed00
+
+Disassembly of section .text.drawLogoCanvas:
+
+00000000 <drawLogoCanvas>:
+drawLogoCanvas():
    0:	b500      	push	{lr}
-   2:	2100      	movs	r1, #0
-   4:	b093      	sub	sp, #76	; 0x4c
-   6:	2202      	movs	r2, #2
-   8:	2301      	movs	r3, #1
-   a:	4847      	ldr	r0, [pc, #284]	; (128 <drawMainMenu+0x128>)
-   c:	f7ff fffe 	bl	0 <pinInterrupt>
-  10:	2128      	movs	r1, #40	; 0x28
-  12:	2202      	movs	r2, #2
-  14:	2301      	movs	r3, #1
-  16:	4845      	ldr	r0, [pc, #276]	; (12c <drawMainMenu+0x12c>)
-  18:	f7ff fffe 	bl	0 <pinInterrupt>
-  1c:	2106      	movs	r1, #6
-  1e:	2202      	movs	r2, #2
-  20:	2301      	movs	r3, #1
-  22:	4843      	ldr	r0, [pc, #268]	; (130 <drawMainMenu+0x130>)
-  24:	f7ff fffe 	bl	0 <pinInterrupt>
-  28:	2104      	movs	r1, #4
-  2a:	2202      	movs	r2, #2
-  2c:	2301      	movs	r3, #1
-  2e:	4841      	ldr	r0, [pc, #260]	; (134 <drawMainMenu+0x134>)
-  30:	f7ff fffe 	bl	0 <pinInterrupt>
-  34:	2105      	movs	r1, #5
-  36:	2202      	movs	r2, #2
-  38:	2301      	movs	r3, #1
-  3a:	483f      	ldr	r0, [pc, #252]	; (138 <drawMainMenu+0x138>)
-  3c:	f7ff fffe 	bl	0 <pinInterrupt>
-  40:	2102      	movs	r1, #2
-  42:	460a      	mov	r2, r1
-  44:	2301      	movs	r3, #1
-  46:	483d      	ldr	r0, [pc, #244]	; (13c <drawMainMenu+0x13c>)
-  48:	f7ff fffe 	bl	0 <pinInterrupt>
-  4c:	2103      	movs	r1, #3
-  4e:	2202      	movs	r2, #2
-  50:	2301      	movs	r3, #1
-  52:	483b      	ldr	r0, [pc, #236]	; (140 <drawMainMenu+0x140>)
-  54:	f7ff fffe 	bl	0 <pinInterrupt>
-  58:	f7ff fffe 	bl	0 <colorGetRootColor>
-  5c:	22be      	movs	r2, #190	; 0xbe
-  5e:	23ff      	movs	r3, #255	; 0xff
-  60:	2165      	movs	r1, #101	; 0x65
-  62:	f7ff fffe 	bl	0 <colorSetRGB>
-  66:	f7ff fffe 	bl	0 <colorGetRootBackColor>
-  6a:	2165      	movs	r1, #101	; 0x65
-  6c:	460a      	mov	r2, r1
-  6e:	460b      	mov	r3, r1
-  70:	f7ff fffe 	bl	0 <colorSetRGB>
-  74:	f7ff fffe 	bl	0 <colorGetRootFocusColor>
-  78:	2165      	movs	r1, #101	; 0x65
-  7a:	460a      	mov	r2, r1
-  7c:	460b      	mov	r3, r1
-  7e:	f7ff fffe 	bl	0 <colorSetRGB>
-  82:	f7ff fffe 	bl	0 <colorGetRootFocusBackColor>
-  86:	2165      	movs	r1, #101	; 0x65
-  88:	228e      	movs	r2, #142	; 0x8e
-  8a:	23df      	movs	r3, #223	; 0xdf
-  8c:	f7ff fffe 	bl	0 <colorSetRGB>
-  90:	f7ff fffe 	bl	0 <colorGetRootClearColor>
-  94:	21ff      	movs	r1, #255	; 0xff
-  96:	220e      	movs	r2, #14
-  98:	23e0      	movs	r3, #224	; 0xe0
-  9a:	f7ff fffe 	bl	0 <colorSetRGB>
-  9e:	2008      	movs	r0, #8
-  a0:	f7ff fffe 	bl	0 <guiSetRadius>
-  a4:	4827      	ldr	r0, [pc, #156]	; (a0 <guiSetStyle+0xa0>)
-  a6:	f7ff fffe 	bl	0 <guiSetStyle>
-  aa:	f7ff fffe 	bl	0 <formFreeAll>
-  ae:	2280      	movs	r2, #128	; 0x80
-  b0:	2000      	movs	r0, #0
-  b2:	4613      	mov	r3, r2
-  b4:	4601      	mov	r1, r0
-  b6:	f7ff fffe 	bl	0 <formNew>
-  ba:	4b23      	ldr	r3, [pc, #140]	; (148 <drawMainMenu+0x148>)
-  bc:	4668      	mov	r0, sp
-  be:	9307      	str	r3, [sp, #28]
-  c0:	2304      	movs	r3, #4
-  c2:	f88d 3020 	strb.w	r3, [sp, #32]
-  c6:	2300      	movs	r3, #0
-  c8:	f8ad 3014 	strh.w	r3, [sp, #20]
-  cc:	2306      	movs	r3, #6
-  ce:	f8ad 3016 	strh.w	r3, [sp, #22]
-  d2:	237f      	movs	r3, #127	; 0x7f
-  d4:	f8ad 3018 	strh.w	r3, [sp, #24]
-  d8:	2324      	movs	r3, #36	; 0x24
-  da:	f8ad 301a 	strh.w	r3, [sp, #26]
-  de:	4b1b      	ldr	r3, [pc, #108]	; (14c <drawMainMenu+0x14c>)
-  e0:	9309      	str	r3, [sp, #36]	; 0x24
-  e2:	f7ff fffe 	bl	0 <formAddWidget>
-  e6:	f7ff fffe 	bl	0 <widgetGetCurrent>
-  ea:	4919      	ldr	r1, [pc, #100]	; (150 <drawMainMenu+0x150>)
-  ec:	220b      	movs	r2, #11
-  ee:	f7ff fffe 	bl	0 <widgetAddEventHandler>
-  f2:	232e      	movs	r3, #46	; 0x2e
-  f4:	f8ad 3016 	strh.w	r3, [sp, #22]
-  f8:	4b16      	ldr	r3, [pc, #88]	; (154 <drawMainMenu+0x154>)
-  fa:	4668      	mov	r0, sp
-  fc:	9309      	str	r3, [sp, #36]	; 0x24
-  fe:	f7ff fffe 	bl	0 <formAddWidget>
- 102:	f7ff fffe 	bl	0 <widgetGetCurrent>
- 106:	4914      	ldr	r1, [pc, #80]	; (158 <drawMainMenu+0x158>)
- 108:	220b      	movs	r2, #11
- 10a:	f7ff fffe 	bl	0 <widgetAddEventHandler>
- 10e:	2356      	movs	r3, #86	; 0x56
- 110:	f8ad 3016 	strh.w	r3, [sp, #22]
- 114:	4b11      	ldr	r3, [pc, #68]	; (15c <drawMainMenu+0x15c>)
- 116:	4668      	mov	r0, sp
- 118:	9309      	str	r3, [sp, #36]	; 0x24
- 11a:	f7ff fffe 	bl	0 <formAddWidget>
- 11e:	f7ff fffe 	bl	0 <drawForms>
- 122:	b013      	add	sp, #76	; 0x4c
- 124:	bd00      	pop	{pc}
- 126:	bf00      	nop
-	...
- 144:	00010055 	.word	0x00010055
- 148:	00110151 	.word	0x00110151
- 14c:	00000028 	.word	0x00000028
- 150:	00000000 	.word	0x00000000
- 154:	00000033 	.word	0x00000033
- 158:	00000000 	.word	0x00000000
- 15c:	0000003b 	.word	0x0000003b
-
-Disassembly of section .text.eventRFBack:
-
-00000000 <eventRFBack>:
-eventRFBack():
-   0:	2100b510 	.word	0x2100b510
-   4:	4803      	ldr	r0, [pc, #12]	; (10 <taskDelete+0x10>)
-   6:	f7ff fffe 	bl	0 <taskDelete>
-   a:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
-   e:	f7ff bffe 	b.w	0 <eventRFBack>
-  12:	bf00      	nop
-  14:	00000044 	.word	0x00000044
-
-Disassembly of section .text.threadRFHumidity:
-
-00000000 <threadRFHumidity>:
-threadRFHumidity():
-   0:	b510      	push	{r4, lr}
-   2:	4824      	ldr	r0, [pc, #144]	; (94 <threadRFHumidity+0x94>)
-   4:	b08a      	sub	sp, #40	; 0x28
-   6:	f04f 31ff 	mov.w	r1, #4294967295
-   a:	f7ff fffe 	bl	0 <socketGet>
-   e:	4604      	mov	r4, r0
-  10:	2800      	cmp	r0, #0
-  12:	d12e      	bne.n	72 <threadRFHumidity+0x72>
-  14:	4668      	mov	r0, sp
-  16:	4920      	ldr	r1, [pc, #128]	; (98 <threadRFHumidity+0x98>)
-  18:	2201      	movs	r2, #1
-  1a:	f7ff fffe 	bl	0 <fileOpen>
-  1e:	b1e8      	cbz	r0, 5c <threadRFHumidity+0x5c>
-  20:	2001      	movs	r0, #1
-  22:	491e      	ldr	r1, [pc, #120]	; (9c <threadRFHumidity+0x9c>)
-  24:	f7ff fffe 	bl	0 <print>
-  28:	2114      	movs	r1, #20
-  2a:	4a1d      	ldr	r2, [pc, #116]	; (a0 <threadRFHumidity+0xa0>)
-  2c:	4668      	mov	r0, sp
-  2e:	f7ff fffe 	bl	0 <fileGetBuffer>
-  32:	1e43      	subs	r3, r0, #1
-  34:	b29b      	uxth	r3, r3
-  36:	2b06      	cmp	r3, #6
-  38:	bf98      	it	ls
-  3a:	4b19      	ldrls	r3, [pc, #100]	; (a0 <threadRFHumidity+0xa0>)
-  3c:	4919      	ldr	r1, [pc, #100]	; (a4 <threadRFHumidity+0xa4>)
-  3e:	bf98      	it	ls
-  40:	541c      	strbls	r4, [r3, r0]
-  42:	4a17      	ldr	r2, [pc, #92]	; (a0 <threadRFHumidity+0xa0>)
-  44:	2001      	movs	r0, #1
-  46:	f7ff fffe 	bl	0 <print>
-  4a:	4813      	ldr	r0, [pc, #76]	; (50 <fileDelete+0x50>)
-  4c:	f7ff fffe 	bl	0 <fileDelete>
-  50:	2001      	movs	r0, #1
-  52:	4915      	ldr	r1, [pc, #84]	; (a8 <threadRFHumidity+0xa8>)
-  54:	f7ff fffe 	bl	0 <print>
-  58:	f7ff fffe 	bl	0 <drawForms>
-  5c:	2001      	movs	r0, #1
-  5e:	4913      	ldr	r1, [pc, #76]	; (ac <threadRFHumidity+0xac>)
-  60:	f7ff fffe 	bl	0 <print>
-  64:	490c      	ldr	r1, [pc, #48]	; (98 <threadRFHumidity+0x98>)
-  66:	480b      	ldr	r0, [pc, #44]	; (94 <threadRFHumidity+0x94>)
-  68:	f7ff fffe 	bl	0 <socketRequestFile>
-  6c:	2001      	movs	r0, #1
-  6e:	4910      	ldr	r1, [pc, #64]	; (b0 <threadRFHumidity+0xb0>)
-  70:	e00b      	b.n	8a <threadRFHumidity+0x8a>
-  72:	4b10      	ldr	r3, [pc, #64]	; (b4 <threadRFHumidity+0xb4>)
-  74:	681a      	ldr	r2, [r3, #0]
-  76:	b932      	cbnz	r2, 86 <threadRFHumidity+0x86>
-  78:	3201      	adds	r2, #1
-  7a:	601a      	str	r2, [r3, #0]
-  7c:	4906      	ldr	r1, [pc, #24]	; (98 <threadRFHumidity+0x98>)
-  7e:	4805      	ldr	r0, [pc, #20]	; (94 <threadRFHumidity+0x94>)
-  80:	f7ff fffe 	bl	0 <socketRequestFile>
-  84:	e003      	b.n	8e <threadRFHumidity+0x8e>
-  86:	490c      	ldr	r1, [pc, #48]	; (b8 <threadRFHumidity+0xb8>)
-  88:	2001      	movs	r0, #1
-  8a:	f7ff fffe 	bl	0 <print>
-  8e:	b00a      	add	sp, #40	; 0x28
-  90:	bd10      	pop	{r4, pc}
-  92:	bf00      	nop
-  94:	13480238 	.word	0x13480238
-  98:	0000004d 	.word	0x0000004d
-  9c:	0000005a 	.word	0x0000005a
-  a0:	00000000 	.word	0x00000000
-  a4:	0000006e 	.word	0x0000006e
-  a8:	00000080 	.word	0x00000080
-  ac:	00000096 	.word	0x00000096
-  b0:	000000af 	.word	0x000000af
-  b4:	00000000 	.word	0x00000000
-  b8:	000000b3 	.word	0x000000b3
-
-Disassembly of section .text.threadRFHumiditySave:
-
-00000000 <threadRFHumiditySave>:
-threadRFHumiditySave():
-   0:	b08ab510 	.word	0xb08ab510
-   4:	4820      	ldr	r0, [pc, #128]	; (88 <threadRFHumiditySave+0x88>)
-   6:	f24f 0101 	movw	r1, #61441	; 0xf001
-   a:	aa05      	add	r2, sp, #20
-   c:	f7ff fffe 	bl	0 <msgGet>
-  10:	2800      	cmp	r0, #0
-  12:	d036      	beq.n	82 <threadRFHumiditySave+0x82>
-  14:	2001      	movs	r0, #1
-  16:	491d      	ldr	r1, [pc, #116]	; (8c <threadRFHumiditySave+0x8c>)
-  18:	f7ff fffe 	bl	0 <print>
-  1c:	9807      	ldr	r0, [sp, #28]
-  1e:	491c      	ldr	r1, [pc, #112]	; (90 <threadRFHumiditySave+0x90>)
-  20:	f7ff fffe 	bl	0 <isStringSame>
-  24:	4604      	mov	r4, r0
-  26:	b1d0      	cbz	r0, 5e <threadRFHumiditySave+0x5e>
-  28:	f7ff fffe 	bl	0 <humidityRead>
-  2c:	4a19      	ldr	r2, [pc, #100]	; (94 <threadRFHumiditySave+0x94>)
-  2e:	17c1      	asrs	r1, r0, #31
-  30:	466b      	mov	r3, sp
-  32:	f7ff fffe 	bl	0 <convertIntToString>
-  36:	9808      	ldr	r0, [sp, #32]
-  38:	4601      	mov	r1, r0
-  3a:	f7ff fffe 	bl	0 <socketGet>
-  3e:	4604      	mov	r4, r0
-  40:	b140      	cbz	r0, 54 <threadRFHumiditySave+0x54>
-  42:	2001      	movs	r0, #1
-  44:	4914      	ldr	r1, [pc, #80]	; (98 <threadRFHumiditySave+0x98>)
-  46:	f7ff fffe 	bl	0 <print>
-  4a:	4620      	mov	r0, r4
-  4c:	4669      	mov	r1, sp
-  4e:	f7ff fffe 	bl	0 <socketSendDataFromString>
-  52:	e016      	b.n	82 <threadRFHumiditySave+0x82>
-  54:	2001      	movs	r0, #1
-  56:	4911      	ldr	r1, [pc, #68]	; (9c <threadRFHumiditySave+0x9c>)
-  58:	f7ff fffe 	bl	0 <print>
-  5c:	e011      	b.n	82 <threadRFHumiditySave+0x82>
-  5e:	9807      	ldr	r0, [sp, #28]
-  60:	490f      	ldr	r1, [pc, #60]	; (a0 <threadRFHumiditySave+0xa0>)
-  62:	f7ff fffe 	bl	0 <isStringSame>
-  66:	b160      	cbz	r0, 82 <threadRFHumiditySave+0x82>
-  68:	2001      	movs	r0, #1
-  6a:	490e      	ldr	r1, [pc, #56]	; (a4 <threadRFHumiditySave+0xa4>)
-  6c:	9a08      	ldr	r2, [sp, #32]
-  6e:	f7ff fffe 	bl	0 <print>
-  72:	9808      	ldr	r0, [sp, #32]
-  74:	4621      	mov	r1, r4
-  76:	4a07      	ldr	r2, [pc, #28]	; (94 <threadRFHumiditySave+0x94>)
-  78:	4b0b      	ldr	r3, [pc, #44]	; (a8 <threadRFHumiditySave+0xa8>)
-  7a:	f7ff fffe 	bl	0 <convertIntToString>
-  7e:	f7ff fffe 	bl	0 <drawForms>
-  82:	b00a      	add	sp, #40	; 0x28
-  84:	bd10      	pop	{r4, pc}
-  86:	bf00      	nop
-  88:	00000044 	.word	0x00000044
-  8c:	000000c7 	.word	0x000000c7
-  90:	000000d9 	.word	0x000000d9
-  94:	000000dc 	.word	0x000000dc
-  98:	000000df 	.word	0x000000df
-  9c:	000000ed 	.word	0x000000ed
-  a0:	000000fe 	.word	0x000000fe
-  a4:	00000101 	.word	0x00000101
-  a8:	00000000 	.word	0x00000000
+   2:	b08b      	sub	sp, #44	; 0x2c
+   4:	4668      	mov	r0, sp
+   6:	4905      	ldr	r1, [pc, #20]	; (1c <drawLogoCanvas+0x1c>)
+   8:	f7ff fffe 	bl	0 <fileOpenResource>
+   c:	2000      	movs	r0, #0
+   e:	4601      	mov	r1, r0
+  10:	466a      	mov	r2, sp
+  12:	4603      	mov	r3, r0
+  14:	f7ff fffe 	bl	0 <drawImage>
+  18:	b00b      	add	sp, #44	; 0x2c
+  1a:	bd00      	pop	{pc}
+  1c:	00000000 	.word	0x00000000

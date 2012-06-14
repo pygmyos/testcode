@@ -8,22 +8,32 @@ Disassembly of section .text.rfSetTXPower:
 00000000 <rfSetTXPower>:
 rfSetTXPower():
    0:	2801      	cmp	r0, #1
-   2:	460a      	mov	r2, r1
-   4:	d004      	beq.n	10 <rfSetTXPower+0x10>
-   6:	2802      	cmp	r0, #2
-   8:	bf14      	ite	ne
-   a:	2308      	movne	r3, #8
-   c:	2300      	moveq	r3, #0
-   e:	e000      	b.n	12 <rfSetTXPower+0x12>
-  10:	2320      	movs	r3, #32
-  12:	4804      	ldr	r0, [pc, #16]	; (24 <rfSetTXPower+0x24>)
-  14:	2126      	movs	r1, #38	; 0x26
-  16:	2a03      	cmp	r2, #3
-  18:	bf94      	ite	ls
-  1a:	431a      	orrls	r2, r3
-  1c:	f043 0203 	orrhi.w	r2, r3, #3
-  20:	f7ff bffe 	b.w	0 <spiPutChar>
-  24:	00000000 	.word	0x00000000
+   2:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+   4:	460f      	mov	r7, r1
+   6:	d004      	beq.n	12 <rfSetTXPower+0x12>
+   8:	2802      	cmp	r0, #2
+   a:	bf14      	ite	ne
+   c:	2608      	movne	r6, #8
+   e:	2600      	moveq	r6, #0
+  10:	e000      	b.n	14 <rfSetTXPower+0x14>
+  12:	2620      	movs	r6, #32
+  14:	4c09      	ldr	r4, [pc, #36]	; (3c <rfSetTXPower+0x3c>)
+  16:	f44f 6500 	mov.w	r5, #2048	; 0x800
+  1a:	4809      	ldr	r0, [pc, #36]	; (40 <rfSetTXPower+0x40>)
+  1c:	2126      	movs	r1, #38	; 0x26
+  1e:	6165      	str	r5, [r4, #20]
+  20:	f7ff fffe 	bl	0 <spiWriteByte>
+  24:	4806      	ldr	r0, [pc, #24]	; (40 <rfSetTXPower+0x40>)
+  26:	2f03      	cmp	r7, #3
+  28:	bf94      	ite	ls
+  2a:	ea46 0107 	orrls.w	r1, r6, r7
+  2e:	f046 0103 	orrhi.w	r1, r6, #3
+  32:	f7ff fffe 	bl	0 <spiWriteByte>
+  36:	6125      	str	r5, [r4, #16]
+  38:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+  3a:	bf00      	nop
+  3c:	40011000 	.word	0x40011000
+  40:	00000000 	.word	0x00000000
 
 Disassembly of section .text.rfGetTX:
 
@@ -39,142 +49,201 @@ Disassembly of section .text.rfFlushTX:
 
 00000000 <rfFlushTX>:
 rfFlushTX():
-   0:	21e14801 	.word	0x21e14801
-   4:	f7ff bffe 	b.w	0 <spiPutCommand>
-   8:	00000000 	.word	0x00000000
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	4c05      	ldr	r4, [pc, #20]	; (18 <rfFlushTX+0x18>)
+   4:	f44f 6500 	mov.w	r5, #2048	; 0x800
+   8:	6165      	str	r5, [r4, #20]
+   a:	4804      	ldr	r0, [pc, #16]	; (1c <rfFlushTX+0x1c>)
+   c:	21e1      	movs	r1, #225	; 0xe1
+   e:	f7ff fffe 	bl	0 <spiWriteByte>
+  12:	6125      	str	r5, [r4, #16]
+  14:	bd38      	pop	{r3, r4, r5, pc}
+  16:	bf00      	nop
+  18:	40011000 	.word	0x40011000
+  1c:	00000000 	.word	0x00000000
 
 Disassembly of section .text.rfFlushRX:
 
 00000000 <rfFlushRX>:
 rfFlushRX():
-   0:	4801      	ldr	r0, [pc, #4]	; (8 <rfFlushRX+0x8>)
-   2:	21e2      	movs	r1, #226	; 0xe2
-   4:	f7ff bffe 	b.w	0 <spiPutCommand>
-   8:	00000000 	.word	0x00000000
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	4c05      	ldr	r4, [pc, #20]	; (18 <rfFlushRX+0x18>)
+   4:	f44f 6500 	mov.w	r5, #2048	; 0x800
+   8:	6165      	str	r5, [r4, #20]
+   a:	4804      	ldr	r0, [pc, #16]	; (1c <rfFlushRX+0x1c>)
+   c:	21e2      	movs	r1, #226	; 0xe2
+   e:	f7ff fffe 	bl	0 <spiWriteByte>
+  12:	6125      	str	r5, [r4, #16]
+  14:	bd38      	pop	{r3, r4, r5, pc}
+  16:	bf00      	nop
+  18:	40011000 	.word	0x40011000
+  1c:	00000000 	.word	0x00000000
 
 Disassembly of section .text.rfGetStatus:
 
 00000000 <rfGetStatus>:
 rfGetStatus():
-   0:	b510      	push	{r4, lr}
-   2:	4c05      	ldr	r4, [pc, #20]	; (18 <rfGetStatus+0x18>)
-   4:	6823      	ldr	r3, [r4, #0]
-   6:	8a22      	ldrh	r2, [r4, #16]
-   8:	4620      	mov	r0, r4
-   a:	615a      	str	r2, [r3, #20]
+   0:	4c04b538 	.word	0x4c04b538
+   4:	f44f 6500 	mov.w	r5, #2048	; 0x800
+   8:	6165      	str	r5, [r4, #20]
+   a:	4803      	ldr	r0, [pc, #12]	; (18 <rfGetStatus+0x18>)
    c:	f7ff fffe 	bl	0 <spiReadByte>
-  10:	6823      	ldr	r3, [r4, #0]
-  12:	8a22      	ldrh	r2, [r4, #16]
-  14:	611a      	str	r2, [r3, #16]
-  16:	bd10      	pop	{r4, pc}
+  10:	6125      	str	r5, [r4, #16]
+  12:	bd38      	pop	{r3, r4, r5, pc}
+  14:	40011000 	.word	0x40011000
   18:	00000000 	.word	0x00000000
 
 Disassembly of section .text.rfGetRXPayloadLen:
 
 00000000 <rfGetRXPayloadLen>:
 rfGetRXPayloadLen():
-   0:	21604801 	.word	0x21604801
-   4:	f7ff bffe 	b.w	0 <spiGetChar>
-   8:	00000000 	.word	0x00000000
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	4c06      	ldr	r4, [pc, #24]	; (1c <rfGetRXPayloadLen+0x1c>)
+   4:	f44f 6500 	mov.w	r5, #2048	; 0x800
+   8:	2160      	movs	r1, #96	; 0x60
+   a:	6165      	str	r5, [r4, #20]
+   c:	4804      	ldr	r0, [pc, #16]	; (20 <rfGetRXPayloadLen+0x20>)
+   e:	f7ff fffe 	bl	0 <spiWriteByte>
+  12:	4803      	ldr	r0, [pc, #12]	; (10 <spiReadByte+0x10>)
+  14:	f7ff fffe 	bl	0 <spiReadByte>
+  18:	6125      	str	r5, [r4, #16]
+  1a:	bd38      	pop	{r3, r4, r5, pc}
+  1c:	40011000 	.word	0x40011000
+  20:	00000000 	.word	0x00000000
 
 Disassembly of section .text.rfIsRXFIFOEmpty:
 
 00000000 <rfIsRXFIFOEmpty>:
 rfIsRXFIFOEmpty():
-   0:	b508      	push	{r3, lr}
-   2:	2117      	movs	r1, #23
-   4:	4802      	ldr	r0, [pc, #8]	; (10 <rfIsRXFIFOEmpty+0x10>)
-   6:	f7ff fffe 	bl	0 <spiGetChar>
-   a:	f000 0001 	and.w	r0, r0, #1
-   e:	bd08      	pop	{r3, pc}
-  10:	00000000 	.word	0x00000000
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	4c07      	ldr	r4, [pc, #28]	; (20 <rfIsRXFIFOEmpty+0x20>)
+   4:	f44f 6500 	mov.w	r5, #2048	; 0x800
+   8:	2117      	movs	r1, #23
+   a:	6165      	str	r5, [r4, #20]
+   c:	4805      	ldr	r0, [pc, #20]	; (24 <rfIsRXFIFOEmpty+0x24>)
+   e:	f7ff fffe 	bl	0 <spiWriteByte>
+  12:	4804      	ldr	r0, [pc, #16]	; (14 <spiReadByte+0x14>)
+  14:	f7ff fffe 	bl	0 <spiReadByte>
+  18:	6125      	str	r5, [r4, #16]
+  1a:	f000 0001 	and.w	r0, r0, #1
+  1e:	bd38      	pop	{r3, r4, r5, pc}
+  20:	40011000 	.word	0x40011000
+  24:	00000000 	.word	0x00000000
 
 Disassembly of section .text.rfClearStatus:
 
 00000000 <rfClearStatus>:
 rfClearStatus():
-   0:	21274802 	.word	0x21274802
-   4:	2270      	movs	r2, #112	; 0x70
-   6:	f7ff bffe 	b.w	0 <spiPutChar>
-   a:	bf00      	nop
-   c:	00000000 	.word	0x00000000
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	4c07      	ldr	r4, [pc, #28]	; (20 <rfClearStatus+0x20>)
+   4:	f44f 6500 	mov.w	r5, #2048	; 0x800
+   8:	4806      	ldr	r0, [pc, #24]	; (24 <rfClearStatus+0x24>)
+   a:	2127      	movs	r1, #39	; 0x27
+   c:	6165      	str	r5, [r4, #20]
+   e:	f7ff fffe 	bl	0 <spiWriteByte>
+  12:	4804      	ldr	r0, [pc, #16]	; (24 <rfClearStatus+0x24>)
+  14:	2170      	movs	r1, #112	; 0x70
+  16:	f7ff fffe 	bl	0 <spiWriteByte>
+  1a:	6125      	str	r5, [r4, #16]
+  1c:	bd38      	pop	{r3, r4, r5, pc}
+  1e:	bf00      	nop
+  20:	40011000 	.word	0x40011000
+  24:	00000000 	.word	0x00000000
 
 Disassembly of section .text.rfSetRX:
 
 00000000 <rfSetRX>:
 rfSetRX():
-   0:	b538      	push	{r3, r4, r5, lr}
-   2:	4b09      	ldr	r3, [pc, #36]	; (28 <rfSetRX+0x28>)
-   4:	4c09      	ldr	r4, [pc, #36]	; (2c <rfSetRX+0x2c>)
-   6:	681a      	ldr	r2, [r3, #0]
-   8:	f44f 6580 	mov.w	r5, #1024	; 0x400
-   c:	f022 0201 	bic.w	r2, r2, #1
-  10:	601a      	str	r2, [r3, #0]
-  12:	4807      	ldr	r0, [pc, #28]	; (30 <rfSetRX+0x30>)
-  14:	2120      	movs	r1, #32
-  16:	223b      	movs	r2, #59	; 0x3b
+   0:	4b0c      	ldr	r3, [pc, #48]	; (34 <rfSetRX+0x34>)
+   2:	b570      	push	{r4, r5, r6, lr}
+   4:	681a      	ldr	r2, [r3, #0]
+   6:	4c0c      	ldr	r4, [pc, #48]	; (38 <rfSetRX+0x38>)
+   8:	f022 0201 	bic.w	r2, r2, #1
+   c:	f44f 6580 	mov.w	r5, #1024	; 0x400
+  10:	f44f 6600 	mov.w	r6, #2048	; 0x800
+  14:	601a      	str	r2, [r3, #0]
+  16:	2120      	movs	r1, #32
   18:	6165      	str	r5, [r4, #20]
-  1a:	f7ff fffe 	bl	0 <spiPutChar>
-  1e:	f7ff fffe 	bl	0 <rfSetRX>
-  22:	6125      	str	r5, [r4, #16]
-  24:	bd38      	pop	{r3, r4, r5, pc}
-  26:	bf00      	nop
-  28:	00000000 	.word	0x00000000
-  2c:	40011000 	.word	0x40011000
-  30:	00000000 	.word	0x00000000
+  1a:	4808      	ldr	r0, [pc, #32]	; (3c <rfSetRX+0x3c>)
+  1c:	6166      	str	r6, [r4, #20]
+  1e:	f7ff fffe 	bl	0 <spiWriteByte>
+  22:	4806      	ldr	r0, [pc, #24]	; (3c <rfSetRX+0x3c>)
+  24:	213b      	movs	r1, #59	; 0x3b
+  26:	f7ff fffe 	bl	0 <spiWriteByte>
+  2a:	6126      	str	r6, [r4, #16]
+  2c:	f7ff fffe 	bl	0 <rfSetRX>
+  30:	6125      	str	r5, [r4, #16]
+  32:	bd70      	pop	{r4, r5, r6, pc}
+  34:	00000000 	.word	0x00000000
+  38:	40011000 	.word	0x40011000
+  3c:	00000000 	.word	0x00000000
 
 Disassembly of section .text.rfSetTX:
 
 00000000 <rfSetTX>:
 rfSetTX():
-   0:	b538      	push	{r3, r4, r5, lr}
-   2:	4b09      	ldr	r3, [pc, #36]	; (28 <rfSetTX+0x28>)
-   4:	4c09      	ldr	r4, [pc, #36]	; (2c <rfSetTX+0x2c>)
-   6:	681a      	ldr	r2, [r3, #0]
-   8:	f44f 6580 	mov.w	r5, #1024	; 0x400
-   c:	f042 0201 	orr.w	r2, r2, #1
-  10:	601a      	str	r2, [r3, #0]
-  12:	4807      	ldr	r0, [pc, #28]	; (30 <rfSetTX+0x30>)
-  14:	2120      	movs	r1, #32
-  16:	223a      	movs	r2, #58	; 0x3a
+   0:	4b0c      	ldr	r3, [pc, #48]	; (34 <rfSetTX+0x34>)
+   2:	b570      	push	{r4, r5, r6, lr}
+   4:	681a      	ldr	r2, [r3, #0]
+   6:	4c0c      	ldr	r4, [pc, #48]	; (38 <rfSetTX+0x38>)
+   8:	f042 0201 	orr.w	r2, r2, #1
+   c:	f44f 6580 	mov.w	r5, #1024	; 0x400
+  10:	f44f 6600 	mov.w	r6, #2048	; 0x800
+  14:	601a      	str	r2, [r3, #0]
+  16:	2120      	movs	r1, #32
   18:	6165      	str	r5, [r4, #20]
-  1a:	f7ff fffe 	bl	0 <spiPutChar>
-  1e:	f7ff fffe 	bl	0 <rfSetTX>
-  22:	6125      	str	r5, [r4, #16]
-  24:	bd38      	pop	{r3, r4, r5, pc}
-  26:	bf00      	nop
-  28:	00000000 	.word	0x00000000
-  2c:	40011000 	.word	0x40011000
-  30:	00000000 	.word	0x00000000
+  1a:	4808      	ldr	r0, [pc, #32]	; (3c <rfSetTX+0x3c>)
+  1c:	6166      	str	r6, [r4, #20]
+  1e:	f7ff fffe 	bl	0 <spiWriteByte>
+  22:	4806      	ldr	r0, [pc, #24]	; (3c <rfSetTX+0x3c>)
+  24:	213a      	movs	r1, #58	; 0x3a
+  26:	f7ff fffe 	bl	0 <spiWriteByte>
+  2a:	6126      	str	r6, [r4, #16]
+  2c:	f7ff fffe 	bl	0 <rfSetTX>
+  30:	6125      	str	r5, [r4, #16]
+  32:	bd70      	pop	{r4, r5, r6, pc}
+  34:	00000000 	.word	0x00000000
+  38:	40011000 	.word	0x40011000
+  3c:	00000000 	.word	0x00000000
 
 Disassembly of section .text.rfPutTXBuffer:
 
 00000000 <rfPutTXBuffer>:
 rfPutTXBuffer():
    0:	b570      	push	{r4, r5, r6, lr}
-   2:	460c      	mov	r4, r1
+   2:	460e      	mov	r6, r1
    4:	4605      	mov	r5, r0
    6:	f7ff fffe 	bl	0 <rfPutTXBuffer>
-   a:	4623      	mov	r3, r4
-   c:	480c      	ldr	r0, [pc, #48]	; (40 <rfPutTXBuffer+0x40>)
-   e:	21a0      	movs	r1, #160	; 0xa0
-  10:	462a      	mov	r2, r5
-  12:	f7ff fffe 	bl	0 <spiPutBuffer>
-  16:	2428      	movs	r4, #40	; 0x28
-  18:	e005      	b.n	26 <rfPutTXBuffer+0x26>
-  1a:	3c01      	subs	r4, #1
-  1c:	2064      	movs	r0, #100	; 0x64
-  1e:	b2e4      	uxtb	r4, r4
-  20:	f7ff fffe 	bl	0 <delay>
-  24:	b124      	cbz	r4, c <rfPutTXBuffer+0xc>
-  26:	f7ff fffe 	bl	0 <rfPutTXBuffer>
-  2a:	f010 0f20 	tst.w	r0, #32
-  2e:	d0f4      	beq.n	ffffffec <rfSetTXPower+0xffffffec>
-  30:	f7ff fffe 	bl	0 <rfPutTXBuffer>
-  34:	f7ff fffe 	bl	0 <rfPutTXBuffer>
-  38:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
-  3c:	f7ff bffe 	b.w	0 <rfPutTXBuffer>
-  40:	00000000 	.word	0x00000000
+   a:	4b13      	ldr	r3, [pc, #76]	; (58 <rfPutTXBuffer+0x58>)
+   c:	f44f 6200 	mov.w	r2, #2048	; 0x800
+  10:	615a      	str	r2, [r3, #20]
+  12:	4812      	ldr	r0, [pc, #72]	; (5c <rfPutTXBuffer+0x5c>)
+  14:	21a0      	movs	r1, #160	; 0xa0
+  16:	f7ff fffe 	bl	0 <spiWriteByte>
+  1a:	2400      	movs	r4, #0
+  1c:	e006      	b.n	2c <rfPutTXBuffer+0x2c>
+  1e:	480f      	ldr	r0, [pc, #60]	; (5c <rfPutTXBuffer+0x5c>)
+  20:	f815 1b01 	ldrb.w	r1, [r5], #1
+  24:	f7ff fffe 	bl	0 <spiWriteByte>
+  28:	3401      	adds	r4, #1
+  2a:	b2e4      	uxtb	r4, r4
+  2c:	42b4      	cmp	r4, r6
+  2e:	d3f6      	bcc.n	1e <rfPutTXBuffer+0x1e>
+  30:	4b09      	ldr	r3, [pc, #36]	; (58 <rfPutTXBuffer+0x58>)
+  32:	f44f 6200 	mov.w	r2, #2048	; 0x800
+  36:	611a      	str	r2, [r3, #16]
+  38:	f7ff fffe 	bl	0 <rfPutTXBuffer>
+  3c:	f010 0f20 	tst.w	r0, #32
+  40:	d0fa      	beq.n	38 <rfPutTXBuffer+0x38>
+  42:	2c14      	cmp	r4, #20
+  44:	d101      	bne.n	4a <rfPutTXBuffer+0x4a>
+  46:	f7ff fffe 	bl	0 <rfPutTXBuffer>
+  4a:	f7ff fffe 	bl	0 <rfPutTXBuffer>
+  4e:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+  52:	f7ff bffe 	b.w	0 <rfPutTXBuffer>
+  56:	bf00      	nop
+  58:	40011000 	.word	0x40011000
+  5c:	00000000 	.word	0x00000000
 
 Disassembly of section .text.rfGetSignalQuality:
 
@@ -203,52 +272,80 @@ Disassembly of section .text.rfRX:
 
 00000000 <rfRX>:
 rfRX():
-   0:	b510      	push	{r4, lr}
-   2:	4b11      	ldr	r3, [pc, #68]	; (48 <rfRX+0x48>)
+   0:	b5f0      	push	{r4, r5, r6, r7, lr}
+   2:	4b1b      	ldr	r3, [pc, #108]	; (70 <rfRX+0x70>)
    4:	f64a 22aa 	movw	r2, #43690	; 0xaaaa
-   8:	b088      	sub	sp, #32
+   8:	b089      	sub	sp, #36	; 0x24
    a:	601a      	str	r2, [r3, #0]
    c:	f7ff fffe 	bl	0 <rfRX>
   10:	f010 0f40 	tst.w	r0, #64	; 0x40
   14:	4604      	mov	r4, r0
-  16:	d010      	beq.n	3a <rfRX+0x3a>
+  16:	d024      	beq.n	62 <rfRX+0x62>
   18:	f000 030e 	and.w	r3, r0, #14
   1c:	2b0e      	cmp	r3, #14
-  1e:	d011      	beq.n	44 <rfRX+0x44>
+  1e:	d025      	beq.n	6c <rfRX+0x6c>
   20:	f7ff fffe 	bl	0 <rfRX>
-  24:	2161      	movs	r1, #97	; 0x61
-  26:	4603      	mov	r3, r0
-  28:	466a      	mov	r2, sp
-  2a:	4808      	ldr	r0, [pc, #32]	; (4c <rfRX+0x4c>)
-  2c:	f7ff fffe 	bl	0 <spiGetBuffer>
-  30:	4668      	mov	r0, sp
-  32:	f7ff fffe 	bl	0 <socketHandler>
-  36:	f7ff fffe 	bl	0 <rfRX>
-  3a:	f014 0f20 	tst.w	r4, #32
-  3e:	d001      	beq.n	6 <rfRX+0x6>
-  40:	f7ff fffe 	bl	0 <rfRX>
-  44:	b008      	add	sp, #32
-  46:	bd10      	pop	{r4, pc}
-  48:	40003000 	.word	0x40003000
-  4c:	00000000 	.word	0x00000000
+  24:	4b13      	ldr	r3, [pc, #76]	; (74 <rfRX+0x74>)
+  26:	f44f 6200 	mov.w	r2, #2048	; 0x800
+  2a:	4605      	mov	r5, r0
+  2c:	615a      	str	r2, [r3, #20]
+  2e:	4812      	ldr	r0, [pc, #72]	; (78 <rfRX+0x78>)
+  30:	2161      	movs	r1, #97	; 0x61
+  32:	f7ff fffe 	bl	0 <spiWriteByte>
+  36:	f10d 37ff 	add.w	r7, sp, #4294967295
+  3a:	2600      	movs	r6, #0
+  3c:	e006      	b.n	4c <rfRX+0x4c>
+  3e:	480e      	ldr	r0, [pc, #56]	; (78 <rfRX+0x78>)
+  40:	f7ff fffe 	bl	0 <spiReadByte>
+  44:	3601      	adds	r6, #1
+  46:	f807 0f01 	strb.w	r0, [r7, #1]!
+  4a:	b2f6      	uxtb	r6, r6
+  4c:	42ae      	cmp	r6, r5
+  4e:	d3f6      	bcc.n	3e <rfRX+0x3e>
+  50:	4b08      	ldr	r3, [pc, #32]	; (74 <rfRX+0x74>)
+  52:	f44f 6200 	mov.w	r2, #2048	; 0x800
+  56:	611a      	str	r2, [r3, #16]
+  58:	4668      	mov	r0, sp
+  5a:	f7ff fffe 	bl	0 <socketHandler>
+  5e:	f7ff fffe 	bl	0 <rfRX>
+  62:	f014 0f20 	tst.w	r4, #32
+  66:	d001      	beq.n	6 <rfRX+0x6>
+  68:	f7ff fffe 	bl	0 <rfRX>
+  6c:	b009      	add	sp, #36	; 0x24
+  6e:	bdf0      	pop	{r4, r5, r6, r7, pc}
+  70:	40003000 	.word	0x40003000
+  74:	40011000 	.word	0x40011000
+  78:	00000000 	.word	0x00000000
 
 Disassembly of section .text.rfWriteAddress:
 
 00000000 <rfWriteAddress>:
 rfWriteAddress():
-   0:	f040460a 	.word	0xf040460a
-   4:	0120      	lsls	r0, r4, #4
-   6:	4802      	ldr	r0, [pc, #8]	; (10 <rfWriteAddress+0x10>)
-   8:	2305      	movs	r3, #5
-   a:	f7ff bffe 	b.w	0 <spiPutBuffer>
-   e:	bf00      	nop
-  10:	00000000 	.word	0x00000000
+   0:	4b0bb538 	.word	0x4b0bb538
+   4:	f44f 6200 	mov.w	r2, #2048	; 0x800
+   8:	460d      	mov	r5, r1
+   a:	615a      	str	r2, [r3, #20]
+   c:	f040 0120 	orr.w	r1, r0, #32
+  10:	4808      	ldr	r0, [pc, #32]	; (24 <spiWriteByte+0x24>)
+  12:	f7ff fffe 	bl	0 <spiWriteByte>
+  16:	1d6c      	adds	r4, r5, #5
+  18:	f814 1d01 	ldrb.w	r1, [r4, #-1]!
+  1c:	4805      	ldr	r0, [pc, #20]	; (18 <spiWriteByte+0x18>)
+  1e:	f7ff fffe 	bl	0 <spiWriteByte>
+  22:	42ac      	cmp	r4, r5
+  24:	d1f8      	bne.n	18 <rfWriteAddress+0x18>
+  26:	4b02      	ldr	r3, [pc, #8]	; (30 <rfWriteAddress+0x30>)
+  28:	f44f 6200 	mov.w	r2, #2048	; 0x800
+  2c:	611a      	str	r2, [r3, #16]
+  2e:	bd38      	pop	{r3, r4, r5, pc}
+  30:	40011000 	.word	0x40011000
+  34:	00000000 	.word	0x00000000
 
 Disassembly of section .text.rfInit:
 
 00000000 <rfInit>:
 rfInit():
-   0:	b513      	push	{r0, r1, r4, lr}
+   0:	b537      	push	{r0, r1, r2, r4, r5, lr}
    2:	2312      	movs	r3, #18
    4:	9300      	str	r3, [sp, #0]
    6:	3b12      	subs	r3, #18
@@ -256,54 +353,76 @@ rfInit():
    a:	9301      	str	r3, [sp, #4]
    c:	212b      	movs	r1, #43	; 0x2b
    e:	3311      	adds	r3, #17
-  10:	481f      	ldr	r0, [pc, #124]	; (90 <rfInit+0x90>)
-  12:	f7ff fffe 	bl	0 <spiConfig>
-  16:	202a      	movs	r0, #42	; 0x2a
-  18:	2103      	movs	r1, #3
-  1a:	f7ff fffe 	bl	0 <pinConfig>
-  1e:	4b1d      	ldr	r3, [pc, #116]	; (94 <rfInit+0x94>)
-  20:	f44f 6280 	mov.w	r2, #1024	; 0x400
-  24:	615a      	str	r2, [r3, #20]
+  10:	482d      	ldr	r0, [pc, #180]	; (c8 <rfInit+0xc8>)
+  12:	4c2e      	ldr	r4, [pc, #184]	; (cc <rfInit+0xcc>)
+  14:	f7ff fffe 	bl	0 <spiConfig>
+  18:	202a      	movs	r0, #42	; 0x2a
+  1a:	2103      	movs	r1, #3
+  1c:	f7ff fffe 	bl	0 <pinConfig>
+  20:	f44f 6380 	mov.w	r3, #1024	; 0x400
+  24:	6163      	str	r3, [r4, #20]
   26:	2029      	movs	r0, #41	; 0x29
   28:	2118      	movs	r1, #24
-  2a:	f7ff fffe 	bl	0 <pinConfig>
-  2e:	2303      	movs	r3, #3
-  30:	2129      	movs	r1, #41	; 0x29
+  2a:	f44f 6500 	mov.w	r5, #2048	; 0x800
+  2e:	f7ff fffe 	bl	0 <pinConfig>
   32:	2201      	movs	r2, #1
-  34:	4818      	ldr	r0, [pc, #96]	; (98 <rfInit+0x98>)
-  36:	f7ff fffe 	bl	0 <pinInterrupt>
-  3a:	2124      	movs	r1, #36	; 0x24
-  3c:	220f      	movs	r2, #15
-  3e:	4814      	ldr	r0, [pc, #80]	; (90 <rfInit+0x90>)
-  40:	f7ff fffe 	bl	0 <spiPutChar>
-  44:	2122      	movs	r1, #34	; 0x22
-  46:	2201      	movs	r2, #1
-  48:	4811      	ldr	r0, [pc, #68]	; (90 <rfInit+0x90>)
-  4a:	f7ff fffe 	bl	0 <spiPutChar>
-  4e:	213c      	movs	r1, #60	; 0x3c
-  50:	2201      	movs	r2, #1
-  52:	480f      	ldr	r0, [pc, #60]	; (90 <rfInit+0x90>)
-  54:	f7ff fffe 	bl	0 <spiPutChar>
-  58:	4c10      	ldr	r4, [pc, #64]	; (9c <rfInit+0x9c>)
-  5a:	213d      	movs	r1, #61	; 0x3d
-  5c:	2204      	movs	r2, #4
-  5e:	480c      	ldr	r0, [pc, #48]	; (90 <rfInit+0x90>)
-  60:	f7ff fffe 	bl	0 <spiPutChar>
-  64:	2201      	movs	r2, #1
-  66:	2121      	movs	r1, #33	; 0x21
-  68:	4809      	ldr	r0, [pc, #36]	; (90 <rfInit+0x90>)
-  6a:	f7ff fffe 	bl	0 <spiPutChar>
-  6e:	f7ff fffe 	bl	0 <rfInit>
-  72:	f7ff fffe 	bl	0 <rfInit>
-  76:	2010      	movs	r0, #16
-  78:	4621      	mov	r1, r4
-  7a:	f7ff fffe 	bl	0 <rfInit>
-  7e:	200a      	movs	r0, #10
-  80:	4621      	mov	r1, r4
-  82:	f7ff fffe 	bl	0 <rfInit>
-  86:	b002      	add	sp, #8
-  88:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
-  8c:	f7ff bffe 	b.w	0 <rfInit>
-  90:	00000000 	.word	0x00000000
-  94:	40011000 	.word	0x40011000
+  34:	2303      	movs	r3, #3
+  36:	2129      	movs	r1, #41	; 0x29
+  38:	4825      	ldr	r0, [pc, #148]	; (d0 <rfInit+0xd0>)
+  3a:	f7ff fffe 	bl	0 <pinInterrupt>
+  3e:	6165      	str	r5, [r4, #20]
+  40:	2124      	movs	r1, #36	; 0x24
+  42:	4821      	ldr	r0, [pc, #132]	; (c8 <rfInit+0xc8>)
+  44:	f7ff fffe 	bl	0 <spiWriteByte>
+  48:	210f      	movs	r1, #15
+  4a:	481f      	ldr	r0, [pc, #124]	; (c8 <rfInit+0xc8>)
+  4c:	f7ff fffe 	bl	0 <spiWriteByte>
+  50:	6125      	str	r5, [r4, #16]
+  52:	2122      	movs	r1, #34	; 0x22
+  54:	6165      	str	r5, [r4, #20]
+  56:	481c      	ldr	r0, [pc, #112]	; (c8 <rfInit+0xc8>)
+  58:	f7ff fffe 	bl	0 <spiWriteByte>
+  5c:	2101      	movs	r1, #1
+  5e:	481a      	ldr	r0, [pc, #104]	; (c8 <rfInit+0xc8>)
+  60:	f7ff fffe 	bl	0 <spiWriteByte>
+  64:	6125      	str	r5, [r4, #16]
+  66:	213c      	movs	r1, #60	; 0x3c
+  68:	6165      	str	r5, [r4, #20]
+  6a:	4817      	ldr	r0, [pc, #92]	; (c8 <rfInit+0xc8>)
+  6c:	f7ff fffe 	bl	0 <spiWriteByte>
+  70:	2101      	movs	r1, #1
+  72:	4815      	ldr	r0, [pc, #84]	; (c8 <rfInit+0xc8>)
+  74:	f7ff fffe 	bl	0 <spiWriteByte>
+  78:	6125      	str	r5, [r4, #16]
+  7a:	213d      	movs	r1, #61	; 0x3d
+  7c:	6165      	str	r5, [r4, #20]
+  7e:	4812      	ldr	r0, [pc, #72]	; (c8 <rfInit+0xc8>)
+  80:	f7ff fffe 	bl	0 <spiWriteByte>
+  84:	2104      	movs	r1, #4
+  86:	4810      	ldr	r0, [pc, #64]	; (c8 <rfInit+0xc8>)
+  88:	f7ff fffe 	bl	0 <spiWriteByte>
+  8c:	6125      	str	r5, [r4, #16]
+  8e:	480e      	ldr	r0, [pc, #56]	; (c8 <rfInit+0xc8>)
+  90:	6165      	str	r5, [r4, #20]
+  92:	2121      	movs	r1, #33	; 0x21
+  94:	f7ff fffe 	bl	0 <spiWriteByte>
+  98:	2101      	movs	r1, #1
+  9a:	480b      	ldr	r0, [pc, #44]	; (c8 <rfInit+0xc8>)
+  9c:	f7ff fffe 	bl	0 <spiWriteByte>
+  a0:	6125      	str	r5, [r4, #16]
+  a2:	4c0c      	ldr	r4, [pc, #48]	; (d4 <rfInit+0xd4>)
+  a4:	f7ff fffe 	bl	0 <rfInit>
+  a8:	f7ff fffe 	bl	0 <rfInit>
+  ac:	2010      	movs	r0, #16
+  ae:	4621      	mov	r1, r4
+  b0:	f7ff fffe 	bl	0 <rfInit>
+  b4:	200a      	movs	r0, #10
+  b6:	4621      	mov	r1, r4
+  b8:	f7ff fffe 	bl	0 <rfInit>
+  bc:	b003      	add	sp, #12
+  be:	e8bd 4030 	ldmia.w	sp!, {r4, r5, lr}
+  c2:	f7ff bffe 	b.w	0 <rfInit>
+  c6:	bf00      	nop
+  c8:	00000000 	.word	0x00000000
+  cc:	40011000 	.word	0x40011000
 	...

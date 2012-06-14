@@ -22,13 +22,20 @@
 			
 	</Flags>
 	<Views>
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\main.c" Line="608" Index="0" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\pygmy_nebula.h" Line="0" Index="1" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="618" Index="2" focus="1" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.c" Line="216" Index="3" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.h" Line="114" Index="4" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\boot\pygmy_profile.h" Line="19" Index="5" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="131" Index="6" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\bootv2\main.c" Line="743" Index="0" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\memory\sst25vf.c" Line="253" Index="1" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_pfat.c" Line="887" Index="2" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_pfat.h" Line="14" Index="3" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.h" Line="598" Index="4" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="1239" Index="5" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\bootv2\pygmy_profile.h" Line="0" Index="6" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_xmodem.c" Line="102" Index="7" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\bootv2\STM32F103_1M_96K_FLASH_PygmyOS.ld" Line="34" Index="8" focus="1" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="0" Index="9" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" Line="23" Index="10" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="665" Index="11" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1408" Index="12" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.h" Line="221" Index="13" />
 	</Views>
 	<Grep>
 		<GrepIncludeSub>yes</GrepIncludeSub>
@@ -57,6 +64,24 @@
 		</GrepReplaceWhat>
 	</Grep>
 	<FindStrings>
+		<Find>Building Address</Find>
+		<Find>fileOpen</Find>
+		<Find>cmd_new</Find>
+		<Find>convertIntToString</Find>
+		<Find>fileLoadEntry</Find>
+		<Find>fileLoadAddress</Find>
+		<Find>fileSeekChunk</Find>
+		<Find>fileGetEntry</Find>
+		<Find>Sector Groups</Find>
+		<Find>cmd_dump</Find>
+		<Find>putc</Find>
+		<Find>bootGetUSART3</Find>
+		<Find>putcUSART3</Find>
+		<Find>fileWriteEntry</Find>
+		<Find>streamGetPut</Find>
+		<Find>Sorting Sectors</Find>
+		<Find>filePrintAddress</Find>
+		<Find>sorting sector</Find>
 		<Find>fileGetName</Find>
 		<Find>cmdLs</Find>
 		<Find>XMODEM_SEND</Find>

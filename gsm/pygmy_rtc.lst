@@ -1,0 +1,701 @@
+
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\gsm\pygmy_rtc.o:     file format elf32-littlearm
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\gsm\pygmy_rtc.o
+
+
+Disassembly of section .text.resetBackupDomain:
+
+00000000 <resetBackupDomain>:
+resetBackupDomain():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:28
+//-------------------------------------------------------------------------------------
+//------------------------------------Pygmy OS Time------------------------------------
+
+void resetBackupDomain( void )
+{
+    RCC->BDCR = BIT16; // Sets reset bit, BDCR will be 0 after reset
+   0:	f44f 5380 	mov.w	r3, #4096	; 0x1000
+   4:	f2c4 0302 	movt	r3, #16386	; 0x4002
+   8:	f44f 3280 	mov.w	r2, #65536	; 0x10000
+   c:	621a      	str	r2, [r3, #32]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:29
+}
+   e:	4770      	bx	lr
+
+Disassembly of section .text.timeInit:
+
+00000000 <timeInit>:
+timeInit():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:43
+    // 4. Clear the CNF bit to exit configuration mode
+    //5. Poll RTOFF, wait until its value goes to ‘1’ to check the end of the write operation.
+    
+    // Use the following line as a Macro if needed
+        //RCC->BDCR &= ~BIT16; // Reset Backup Domain
+    PYGMY_RCC_PWR_ENABLE;
+   0:	f44f 5380 	mov.w	r3, #4096	; 0x1000
+   4:	f2c4 0302 	movt	r3, #16386	; 0x4002
+   8:	69da      	ldr	r2, [r3, #28]
+   a:	f042 5280 	orr.w	r2, r2, #268435456	; 0x10000000
+   e:	61da      	str	r2, [r3, #28]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:44
+    PYGMY_RCC_BKP_ENABLE;
+  10:	69da      	ldr	r2, [r3, #28]
+  12:	f042 6200 	orr.w	r2, r2, #134217728	; 0x8000000
+  16:	61da      	str	r2, [r3, #28]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:45
+    PWR->CR |= BIT8;     // Disables Backup Domain/ RTC register write protection
+  18:	f44f 42e0 	mov.w	r2, #28672	; 0x7000
+  1c:	f2c4 0200 	movt	r2, #16384	; 0x4000
+  20:	6811      	ldr	r1, [r2, #0]
+  22:	f441 7180 	orr.w	r1, r1, #256	; 0x100
+  26:	6011      	str	r1, [r2, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:46
+    PYGMY_RCC_LSE_ENABLE;
+  28:	681a      	ldr	r2, [r3, #0]
+  2a:	f042 0201 	orr.w	r2, r2, #1
+  2e:	601a      	str	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:47
+    RCC->BDCR |= ( BIT0 | BIT8 | BIT15 );
+  30:	6a19      	ldr	r1, [r3, #32]
+  32:	f248 1201 	movw	r2, #33025	; 0x8101
+  36:	ea41 0202 	orr.w	r2, r1, r2
+  3a:	621a      	str	r2, [r3, #32]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:48
+    for( i = 0; !(RCC->BDCR & BIT1) && i < 20; i++ ){;} // wait for LSE clock to stabilize
+  3c:	6a1b      	ldr	r3, [r3, #32]
+  3e:	f013 0f02 	tst.w	r3, #2
+  42:	d109      	bne.n	58 <timeInit+0x58>
+  44:	f04f 0314 	mov.w	r3, #20
+  48:	f44f 5180 	mov.w	r1, #4096	; 0x1000
+  4c:	f2c4 0102 	movt	r1, #16386	; 0x4002
+  50:	6a0a      	ldr	r2, [r1, #32]
+  52:	f012 0f02 	tst.w	r2, #2
+  56:	d00f      	beq.n	78 <timeInit+0x78>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:49
+    for( i = 0; !( RTC->CRL & RTC_RTOFF) && i < 500; i++ ){;}       // don't access registers until RTC sets RTOFF to 1
+  58:	f44f 5320 	mov.w	r3, #10240	; 0x2800
+  5c:	f2c4 0300 	movt	r3, #16384	; 0x4000
+  60:	889b      	ldrh	r3, [r3, #4]
+  62:	f013 0f20 	tst.w	r3, #32
+  66:	bf02      	ittt	eq
+  68:	f44f 73fa 	moveq.w	r3, #500	; 0x1f4
+  6c:	f44f 5120 	moveq.w	r1, #10240	; 0x2800
+  70:	f2c4 0100 	movteq	r1, #16384	; 0x4000
+  74:	d006      	beq.n	84 <timeInit+0x84>
+  76:	e00e      	b.n	96 <timeInit+0x96>
+  78:	f103 33ff 	add.w	r3, r3, #4294967295
+  7c:	b29b      	uxth	r3, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:48
+    PYGMY_RCC_PWR_ENABLE;
+    PYGMY_RCC_BKP_ENABLE;
+    PWR->CR |= BIT8;     // Disables Backup Domain/ RTC register write protection
+    PYGMY_RCC_LSE_ENABLE;
+    RCC->BDCR |= ( BIT0 | BIT8 | BIT15 );
+    for( i = 0; !(RCC->BDCR & BIT1) && i < 20; i++ ){;} // wait for LSE clock to stabilize
+  7e:	2b00      	cmp	r3, #0
+  80:	d1e6      	bne.n	50 <timeInit+0x50>
+  82:	e7e9      	b.n	58 <timeInit+0x58>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:49
+    for( i = 0; !( RTC->CRL & RTC_RTOFF) && i < 500; i++ ){;}       // don't access registers until RTC sets RTOFF to 1
+  84:	888a      	ldrh	r2, [r1, #4]
+  86:	f012 0f20 	tst.w	r2, #32
+  8a:	d104      	bne.n	96 <timeInit+0x96>
+  8c:	f103 33ff 	add.w	r3, r3, #4294967295
+  90:	b29b      	uxth	r3, r3
+  92:	2b00      	cmp	r3, #0
+  94:	d1f6      	bne.n	84 <timeInit+0x84>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:50
+    RTC->CRL    |=  RTC_CNF;                // Enter configuration mode 
+  96:	f44f 5320 	mov.w	r3, #10240	; 0x2800
+  9a:	f2c4 0300 	movt	r3, #16384	; 0x4000
+  9e:	889a      	ldrh	r2, [r3, #4]
+  a0:	b292      	uxth	r2, r2
+  a2:	f042 0210 	orr.w	r2, r2, #16
+  a6:	809a      	strh	r2, [r3, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:51
+    RTC->CRH    |=  BIT0;                 // Clear and set BIT0, second interrupt bit
+  a8:	881a      	ldrh	r2, [r3, #0]
+  aa:	b292      	uxth	r2, r2
+  ac:	f042 0201 	orr.w	r2, r2, #1
+  b0:	801a      	strh	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:52
+    RTC->CRL    &=  ~( RTC_RSF | RTC_OWF | RTC_ALRF | RTC_SECF ); // Clear any set flags
+  b2:	889a      	ldrh	r2, [r3, #4]
+  b4:	f022 020f 	bic.w	r2, r2, #15
+  b8:	ea4f 4202 	mov.w	r2, r2, lsl #16
+  bc:	ea4f 4212 	mov.w	r2, r2, lsr #16
+  c0:	809a      	strh	r2, [r3, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:53
+    RTC->PRLH   =   0x0000;                 // MSBs, not used with LSE
+  c2:	f04f 0200 	mov.w	r2, #0
+  c6:	811a      	strh	r2, [r3, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:54
+    RTC->PRLL   =   0x7FFF;                 // Prescale value for 32.768KHz LSE, see device reference
+  c8:	f647 72ff 	movw	r2, #32767	; 0x7fff
+  cc:	819a      	strh	r2, [r3, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:57
+    //RTC->CNTH   =   0;//( ulTime >> 16 );  // RTC Time register is divided into 16 bits MSBs
+    //RTC->CNTL   =   0;//(u16)( ulTime );        // and 16 bits LSBs
+    RTC->CRL    &=  ~RTC_CNF;                // Exit config mode for RTC to update registers
+  ce:	889a      	ldrh	r2, [r3, #4]
+  d0:	f022 0210 	bic.w	r2, r2, #16
+  d4:	ea4f 4202 	mov.w	r2, r2, lsl #16
+  d8:	ea4f 4212 	mov.w	r2, r2, lsr #16
+  dc:	809a      	strh	r2, [r3, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:58
+}
+  de:	4770      	bx	lr
+
+Disassembly of section .text.rtcClearFlags:
+
+00000000 <rtcClearFlags>:
+rtcClearFlags():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:64
+
+void rtcClearFlags( void )
+{
+    u16 i;
+
+    for( i = 0; !( RTC->CRL & RTC_RTOFF) && i < 500; i++ ){;}       // don't access registers until RTC sets RTOFF to 1
+   0:	f44f 5320 	mov.w	r3, #10240	; 0x2800
+   4:	f2c4 0300 	movt	r3, #16384	; 0x4000
+   8:	889b      	ldrh	r3, [r3, #4]
+   a:	f013 0f20 	tst.w	r3, #32
+   e:	d10e      	bne.n	2e <rtcClearFlags+0x2e>
+  10:	f44f 73fa 	mov.w	r3, #500	; 0x1f4
+  14:	f44f 5120 	mov.w	r1, #10240	; 0x2800
+  18:	f2c4 0100 	movt	r1, #16384	; 0x4000
+  1c:	888a      	ldrh	r2, [r1, #4]
+  1e:	f012 0f20 	tst.w	r2, #32
+  22:	d104      	bne.n	2e <rtcClearFlags+0x2e>
+  24:	f103 33ff 	add.w	r3, r3, #4294967295
+  28:	b29b      	uxth	r3, r3
+  2a:	2b00      	cmp	r3, #0
+  2c:	d1f6      	bne.n	1c <rtcClearFlags+0x1c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:65
+    RTC->CRL    |=  RTC_CNF;                // Enter configuration mode 
+  2e:	f44f 5320 	mov.w	r3, #10240	; 0x2800
+  32:	f2c4 0300 	movt	r3, #16384	; 0x4000
+  36:	889a      	ldrh	r2, [r3, #4]
+  38:	b292      	uxth	r2, r2
+  3a:	f042 0210 	orr.w	r2, r2, #16
+  3e:	809a      	strh	r2, [r3, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:66
+    RTC->CRL    &=  ~( RTC_RSF | RTC_OWF | RTC_ALRF | RTC_SECF ); // Clear any set flags
+  40:	889a      	ldrh	r2, [r3, #4]
+  42:	f022 020f 	bic.w	r2, r2, #15
+  46:	ea4f 4202 	mov.w	r2, r2, lsl #16
+  4a:	ea4f 4212 	mov.w	r2, r2, lsr #16
+  4e:	809a      	strh	r2, [r3, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:67
+    RTC->CRL    &=  ~RTC_CNF;                // Exit config mode for RTC to update registers
+  50:	889a      	ldrh	r2, [r3, #4]
+  52:	f022 0210 	bic.w	r2, r2, #16
+  56:	ea4f 4202 	mov.w	r2, r2, lsl #16
+  5a:	ea4f 4212 	mov.w	r2, r2, lsr #16
+  5e:	809a      	strh	r2, [r3, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:68
+}
+  60:	4770      	bx	lr
+  62:	bf00      	nop
+
+Disassembly of section .text.timeSet:
+
+00000000 <timeSet>:
+timeSet():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:75
+void timeSet( u32 ulTime )
+{
+    // Sets time in seconds
+    u16 i;
+
+    for( i = 0; !( RTC->CRL & RTC_RTOFF) && i < 500; i++ ){;}      // don't access registers until RTC sets RTOFF to 1
+   0:	f44f 5320 	mov.w	r3, #10240	; 0x2800
+   4:	f2c4 0300 	movt	r3, #16384	; 0x4000
+   8:	889b      	ldrh	r3, [r3, #4]
+   a:	f013 0f20 	tst.w	r3, #32
+   e:	d10e      	bne.n	2e <timeSet+0x2e>
+  10:	f44f 73fa 	mov.w	r3, #500	; 0x1f4
+  14:	f44f 5120 	mov.w	r1, #10240	; 0x2800
+  18:	f2c4 0100 	movt	r1, #16384	; 0x4000
+  1c:	888a      	ldrh	r2, [r1, #4]
+  1e:	f012 0f20 	tst.w	r2, #32
+  22:	d104      	bne.n	2e <timeSet+0x2e>
+  24:	f103 33ff 	add.w	r3, r3, #4294967295
+  28:	b29b      	uxth	r3, r3
+  2a:	2b00      	cmp	r3, #0
+  2c:	d1f6      	bne.n	1c <timeSet+0x1c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:76
+    RTC->CRL    |=  RTC_CNF;                // Enter configuration mode 
+  2e:	f44f 5320 	mov.w	r3, #10240	; 0x2800
+  32:	f2c4 0300 	movt	r3, #16384	; 0x4000
+  36:	889a      	ldrh	r2, [r3, #4]
+  38:	b292      	uxth	r2, r2
+  3a:	f042 0210 	orr.w	r2, r2, #16
+  3e:	809a      	strh	r2, [r3, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:77
+    RTC->CNTH   =   ( ulTime >> 16 );  // RTC Time register is divided into 16 bits MSBs
+  40:	ea4f 4210 	mov.w	r2, r0, lsr #16
+  44:	831a      	strh	r2, [r3, #24]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:78
+    RTC->CNTL   =   (u16)( ulTime );        // and 16 bits LSBs
+  46:	b280      	uxth	r0, r0
+  48:	8398      	strh	r0, [r3, #28]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:79
+    RTC->CRL    &=  ~RTC_CNF;               // Exit config mode for RTC to update registers
+  4a:	889a      	ldrh	r2, [r3, #4]
+  4c:	f022 0210 	bic.w	r2, r2, #16
+  50:	ea4f 4202 	mov.w	r2, r2, lsl #16
+  54:	ea4f 4212 	mov.w	r2, r2, lsr #16
+  58:	809a      	strh	r2, [r3, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:80
+}
+  5a:	4770      	bx	lr
+
+Disassembly of section .text.timeGet:
+
+00000000 <timeGet>:
+timeGet():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:87
+u32 timeGet( void )
+{
+    // Gets time in seconds
+    u32 ulTime;
+
+    ulTime  =   RTC->CNTH;
+   0:	f44f 5320 	mov.w	r3, #10240	; 0x2800
+   4:	f2c4 0300 	movt	r3, #16384	; 0x4000
+   8:	8b18      	ldrh	r0, [r3, #24]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:89
+    ulTime  <<= 16;
+    ulTime  |=  RTC->CNTL;
+   a:	8b9b      	ldrh	r3, [r3, #28]
+   c:	b29b      	uxth	r3, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:92
+    
+    return( ulTime );
+}
+   e:	ea43 4000 	orr.w	r0, r3, r0, lsl #16
+  12:	4770      	bx	lr
+
+Disassembly of section .text.convertSystemTimeToSeconds:
+
+00000000 <convertSystemTimeToSeconds>:
+convertSystemTimeToSeconds():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:95
+
+u32 convertSystemTimeToSeconds( PYGMYTIME *pygmyTime )
+{
+   0:	e92d 03f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:98
+    u32 i, ulSeconds;
+    
+    for( i = 1970, ulSeconds = 0; i < pygmyTime->Year; i++ ){ 
+   4:	8805      	ldrh	r5, [r0, #0]
+   6:	f240 73b2 	movw	r3, #1970	; 0x7b2
+   a:	429d      	cmp	r5, r3
+   c:	bf98      	it	ls
+   e:	2200      	movls	r2, #0
+  10:	d929      	bls.n	66 <convertSystemTimeToSeconds+0x66>
+  12:	f04f 0200 	mov.w	r2, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:99
+        if( !( i % 100 ) && ( i % 400 ||  i % 4 ) ){
+  16:	f248 541f 	movw	r4, #34079	; 0x851f
+  1a:	f2c5 14eb 	movt	r4, #20971	; 0x51eb
+  1e:	f04f 0664 	mov.w	r6, #100	; 0x64
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:102
+            ulSeconds += PYGMY_SECONDS_LEAPYEAR;
+        } else{
+            ulSeconds += PYGMY_SECONDS_COMMONYEAR;
+  22:	f44f 574e 	mov.w	r7, #13184	; 0x3380
+  26:	f2c0 17e1 	movt	r7, #481	; 0x1e1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:99
+u32 convertSystemTimeToSeconds( PYGMYTIME *pygmyTime )
+{
+    u32 i, ulSeconds;
+    
+    for( i = 1970, ulSeconds = 0; i < pygmyTime->Year; i++ ){ 
+        if( !( i % 100 ) && ( i % 400 ||  i % 4 ) ){
+  2a:	f44f 7cc8 	mov.w	ip, #400	; 0x190
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:100
+            ulSeconds += PYGMY_SECONDS_LEAPYEAR;
+  2e:	f44f 4805 	mov.w	r8, #34048	; 0x8500
+  32:	f2c0 18e2 	movt	r8, #482	; 0x1e2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:99
+u32 convertSystemTimeToSeconds( PYGMYTIME *pygmyTime )
+{
+    u32 i, ulSeconds;
+    
+    for( i = 1970, ulSeconds = 0; i < pygmyTime->Year; i++ ){ 
+        if( !( i % 100 ) && ( i % 400 ||  i % 4 ) ){
+  36:	fba4 9103 	umull	r9, r1, r4, r3
+  3a:	ea4f 1151 	mov.w	r1, r1, lsr #5
+  3e:	fb06 3111 	mls	r1, r6, r1, r3
+  42:	b959      	cbnz	r1, 5c <convertSystemTimeToSeconds+0x5c>
+  44:	fba4 9103 	umull	r9, r1, r4, r3
+  48:	ea4f 11d1 	mov.w	r1, r1, lsr #7
+  4c:	fb0c 3111 	mls	r1, ip, r1, r3
+  50:	b911      	cbnz	r1, 58 <convertSystemTimeToSeconds+0x58>
+  52:	f013 0f03 	tst.w	r3, #3
+  56:	d001      	beq.n	5c <convertSystemTimeToSeconds+0x5c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:100
+            ulSeconds += PYGMY_SECONDS_LEAPYEAR;
+  58:	4442      	add	r2, r8
+  5a:	e000      	b.n	5e <convertSystemTimeToSeconds+0x5e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:102
+        } else{
+            ulSeconds += PYGMY_SECONDS_COMMONYEAR;
+  5c:	19d2      	adds	r2, r2, r7
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:98
+
+u32 convertSystemTimeToSeconds( PYGMYTIME *pygmyTime )
+{
+    u32 i, ulSeconds;
+    
+    for( i = 1970, ulSeconds = 0; i < pygmyTime->Year; i++ ){ 
+  5e:	f103 0301 	add.w	r3, r3, #1
+  62:	42ab      	cmp	r3, r5
+  64:	d3e7      	bcc.n	36 <convertSystemTimeToSeconds+0x36>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:105
+            ulSeconds += PYGMY_SECONDS_LEAPYEAR;
+        } else{
+            ulSeconds += PYGMY_SECONDS_COMMONYEAR;
+        } // else
+    } // for
+    if( pygmyTime->Month < 1 ){
+  66:	7883      	ldrb	r3, [r0, #2]
+  68:	b91b      	cbnz	r3, 72 <convertSystemTimeToSeconds+0x72>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:106
+        pygmyTime->Month = 1;
+  6a:	f04f 0301 	mov.w	r3, #1
+  6e:	7083      	strb	r3, [r0, #2]
+  70:	e01c      	b.n	ac <convertSystemTimeToSeconds+0xac>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:108
+    } // if
+    if( pygmyTime->Month > 12 ){
+  72:	2b0c      	cmp	r3, #12
+  74:	d90f      	bls.n	96 <convertSystemTimeToSeconds+0x96>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:109
+        pygmyTime->Month = 12;
+  76:	f04f 030c 	mov.w	r3, #12
+  7a:	7083      	strb	r3, [r0, #2]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:111
+    } // if
+    for( i = 0; i < pygmyTime->Month - 1; i++ ){
+  7c:	f04f 060b 	mov.w	r6, #11
+  80:	f04f 0300 	mov.w	r3, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:112
+        ulSeconds += PYGMY_DAYSINMONTH[ i ] * PYGMY_SECONDS_DAY;
+  84:	f240 0400 	movw	r4, #0
+  88:	f2c0 0400 	movt	r4, #0
+  8c:	f44f 45a3 	mov.w	r5, #20864	; 0x5180
+  90:	f2c0 0501 	movt	r5, #1
+  94:	e003      	b.n	9e <convertSystemTimeToSeconds+0x9e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:111
+        pygmyTime->Month = 1;
+    } // if
+    if( pygmyTime->Month > 12 ){
+        pygmyTime->Month = 12;
+    } // if
+    for( i = 0; i < pygmyTime->Month - 1; i++ ){
+  96:	7886      	ldrb	r6, [r0, #2]
+  98:	3e01      	subs	r6, #1
+  9a:	d1f1      	bne.n	80 <convertSystemTimeToSeconds+0x80>
+  9c:	e006      	b.n	ac <convertSystemTimeToSeconds+0xac>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:112
+        ulSeconds += PYGMY_DAYSINMONTH[ i ] * PYGMY_SECONDS_DAY;
+  9e:	5d19      	ldrb	r1, [r3, r4]
+  a0:	fb05 2201 	mla	r2, r5, r1, r2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:111
+        pygmyTime->Month = 1;
+    } // if
+    if( pygmyTime->Month > 12 ){
+        pygmyTime->Month = 12;
+    } // if
+    for( i = 0; i < pygmyTime->Month - 1; i++ ){
+  a4:	f103 0301 	add.w	r3, r3, #1
+  a8:	429e      	cmp	r6, r3
+  aa:	d8f8      	bhi.n	9e <convertSystemTimeToSeconds+0x9e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:116
+        ulSeconds += PYGMY_DAYSINMONTH[ i ] * PYGMY_SECONDS_DAY;
+    } // for
+    
+    ulSeconds += ( pygmyTime->Day - 1 ) * PYGMY_SECONDS_DAY;
+    ulSeconds += ( ( pygmyTime->Hour * 60 ) * 60 ) + ( pygmyTime->Minute * 60 ) + pygmyTime->Second;
+  ac:	7904      	ldrb	r4, [r0, #4]
+  ae:	7943      	ldrb	r3, [r0, #5]
+  b0:	ebc3 1303 	rsb	r3, r3, r3, lsl #4
+  b4:	ea4f 0383 	mov.w	r3, r3, lsl #2
+  b8:	f44f 6161 	mov.w	r1, #3600	; 0xe10
+  bc:	fb01 3104 	mla	r1, r1, r4, r3
+  c0:	7984      	ldrb	r4, [r0, #6]
+  c2:	1909      	adds	r1, r1, r4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:115
+    } // if
+    for( i = 0; i < pygmyTime->Month - 1; i++ ){
+        ulSeconds += PYGMY_DAYSINMONTH[ i ] * PYGMY_SECONDS_DAY;
+    } // for
+    
+    ulSeconds += ( pygmyTime->Day - 1 ) * PYGMY_SECONDS_DAY;
+  c4:	78c0      	ldrb	r0, [r0, #3]
+  c6:	f100 30ff 	add.w	r0, r0, #4294967295
+  ca:	f44f 43a3 	mov.w	r3, #20864	; 0x5180
+  ce:	f2c0 0301 	movt	r3, #1
+  d2:	fb03 1300 	mla	r3, r3, r0, r1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:119
+    ulSeconds += ( ( pygmyTime->Hour * 60 ) * 60 ) + ( pygmyTime->Minute * 60 ) + pygmyTime->Second;
+    
+    return( ulSeconds );
+}
+  d6:	1898      	adds	r0, r3, r2
+  d8:	e8bd 03f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9}
+  dc:	4770      	bx	lr
+  de:	bf00      	nop
+
+Disassembly of section .text.convertSecondsToSystemTime:
+
+00000000 <convertSecondsToSystemTime>:
+convertSecondsToSystemTime():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:122
+
+void convertSecondsToSystemTime( u32 ulSeconds, PYGMYTIME *pygmyTime )
+{
+   0:	e92d 03f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:125
+    u32 i;
+
+    i = 1970 + ( ulSeconds / PYGMY_SECONDS_AVERAGEYEAR );
+   4:	f242 25ef 	movw	r5, #8943	; 0x22ef
+   8:	f6c8 051a 	movt	r5, #34842	; 0x881a
+   c:	fba5 2500 	umull	r2, r5, r5, r0
+  10:	ea4f 6515 	mov.w	r5, r5, lsr #24
+  14:	f505 65f6 	add.w	r5, r5, #1968	; 0x7b0
+  18:	f105 0502 	add.w	r5, r5, #2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:126
+    for( pygmyTime->Year = 1970; pygmyTime->Year < i ; pygmyTime->Year++ ){
+  1c:	f240 73b2 	movw	r3, #1970	; 0x7b2
+  20:	800b      	strh	r3, [r1, #0]
+  22:	429d      	cmp	r5, r3
+  24:	d92b      	bls.n	7e <convertSecondsToSystemTime+0x7e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:127
+        if( !( pygmyTime->Year % 100 ) && ( pygmyTime->Year % 400 ||  pygmyTime->Year % 4 ) ){
+  26:	f248 541f 	movw	r4, #34079	; 0x851f
+  2a:	f2c5 14eb 	movt	r4, #20971	; 0x51eb
+  2e:	f04f 0664 	mov.w	r6, #100	; 0x64
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:130
+            ulSeconds -= PYGMY_SECONDS_LEAPYEAR;
+        } else{
+            ulSeconds -= PYGMY_SECONDS_COMMONYEAR;
+  32:	f64c 4780 	movw	r7, #52352	; 0xcc80
+  36:	f6cf 671e 	movt	r7, #65054	; 0xfe1e
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:127
+{
+    u32 i;
+
+    i = 1970 + ( ulSeconds / PYGMY_SECONDS_AVERAGEYEAR );
+    for( pygmyTime->Year = 1970; pygmyTime->Year < i ; pygmyTime->Year++ ){
+        if( !( pygmyTime->Year % 100 ) && ( pygmyTime->Year % 400 ||  pygmyTime->Year % 4 ) ){
+  3a:	f44f 7cc8 	mov.w	ip, #400	; 0x190
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:128
+            ulSeconds -= PYGMY_SECONDS_LEAPYEAR;
+  3e:	f44f 48f6 	mov.w	r8, #31488	; 0x7b00
+  42:	f6cf 681d 	movt	r8, #65053	; 0xfe1d
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:127
+{
+    u32 i;
+
+    i = 1970 + ( ulSeconds / PYGMY_SECONDS_AVERAGEYEAR );
+    for( pygmyTime->Year = 1970; pygmyTime->Year < i ; pygmyTime->Year++ ){
+        if( !( pygmyTime->Year % 100 ) && ( pygmyTime->Year % 400 ||  pygmyTime->Year % 4 ) ){
+  46:	fba4 9203 	umull	r9, r2, r4, r3
+  4a:	ea4f 1252 	mov.w	r2, r2, lsr #5
+  4e:	fb06 3212 	mls	r2, r6, r2, r3
+  52:	b292      	uxth	r2, r2
+  54:	b962      	cbnz	r2, 70 <convertSecondsToSystemTime+0x70>
+  56:	fba4 9203 	umull	r9, r2, r4, r3
+  5a:	ea4f 12d2 	mov.w	r2, r2, lsr #7
+  5e:	fb0c 3212 	mls	r2, ip, r2, r3
+  62:	b292      	uxth	r2, r2
+  64:	b912      	cbnz	r2, 6c <convertSecondsToSystemTime+0x6c>
+  66:	f013 0f03 	tst.w	r3, #3
+  6a:	d001      	beq.n	70 <convertSecondsToSystemTime+0x70>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:128
+            ulSeconds -= PYGMY_SECONDS_LEAPYEAR;
+  6c:	4440      	add	r0, r8
+  6e:	e000      	b.n	72 <convertSecondsToSystemTime+0x72>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:130
+        } else{
+            ulSeconds -= PYGMY_SECONDS_COMMONYEAR;
+  70:	19c0      	adds	r0, r0, r7
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:126
+void convertSecondsToSystemTime( u32 ulSeconds, PYGMYTIME *pygmyTime )
+{
+    u32 i;
+
+    i = 1970 + ( ulSeconds / PYGMY_SECONDS_AVERAGEYEAR );
+    for( pygmyTime->Year = 1970; pygmyTime->Year < i ; pygmyTime->Year++ ){
+  72:	f103 0301 	add.w	r3, r3, #1
+  76:	b29b      	uxth	r3, r3
+  78:	429d      	cmp	r5, r3
+  7a:	d8e4      	bhi.n	46 <convertSecondsToSystemTime+0x46>
+  7c:	800b      	strh	r3, [r1, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:133
+            ulSeconds -= PYGMY_SECONDS_LEAPYEAR;
+        } else{
+            ulSeconds -= PYGMY_SECONDS_COMMONYEAR;
+        } // else
+    } // for
+    i = ulSeconds / PYGMY_SECONDS_AVERAGEMONTH;
+  7e:	f64b 4351 	movw	r3, #48209	; 0xbc51
+  82:	f6c9 0393 	movt	r3, #39059	; 0x9893
+  86:	fba3 2300 	umull	r2, r3, r3, r0
+  8a:	1ac5      	subs	r5, r0, r3
+  8c:	eb03 0555 	add.w	r5, r3, r5, lsr #1
+  90:	ea4f 5555 	mov.w	r5, r5, lsr #21
+  94:	2d0b      	cmp	r5, #11
+  96:	bf28      	it	cs
+  98:	250b      	movcs	r5, #11
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:137
+    if( i > 11 ){
+        i = 11;
+    } // if
+    for( pygmyTime->Month = 0; pygmyTime->Month < i  ; pygmyTime->Month++ ){ 
+  9a:	f04f 0300 	mov.w	r3, #0
+  9e:	708b      	strb	r3, [r1, #2]
+  a0:	b185      	cbz	r5, c4 <convertSecondsToSystemTime+0xc4>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:138
+        ulSeconds -= PYGMY_DAYSINMONTH[ pygmyTime->Month ] * PYGMY_SECONDS_DAY; 
+  a2:	f240 0400 	movw	r4, #0
+  a6:	f2c0 0400 	movt	r4, #0
+  aa:	f64a 6680 	movw	r6, #44672	; 0xae80
+  ae:	f6cf 76fe 	movt	r6, #65534	; 0xfffe
+  b2:	5ce2      	ldrb	r2, [r4, r3]
+  b4:	fb06 0002 	mla	r0, r6, r2, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:137
+    } // for
+    i = ulSeconds / PYGMY_SECONDS_AVERAGEMONTH;
+    if( i > 11 ){
+        i = 11;
+    } // if
+    for( pygmyTime->Month = 0; pygmyTime->Month < i  ; pygmyTime->Month++ ){ 
+  b8:	f103 0301 	add.w	r3, r3, #1
+  bc:	b2db      	uxtb	r3, r3
+  be:	42ab      	cmp	r3, r5
+  c0:	d3f7      	bcc.n	b2 <convertSecondsToSystemTime+0xb2>
+  c2:	e001      	b.n	c8 <convertSecondsToSystemTime+0xc8>
+  c4:	f04f 0300 	mov.w	r3, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:140
+        ulSeconds -= PYGMY_DAYSINMONTH[ pygmyTime->Month ] * PYGMY_SECONDS_DAY; 
+    } // for
+    ++pygmyTime->Month;
+  c8:	f103 0301 	add.w	r3, r3, #1
+  cc:	708b      	strb	r3, [r1, #2]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:141
+    pygmyTime->Day = ulSeconds / PYGMY_SECONDS_DAY ;
+  ce:	f244 5207 	movw	r2, #17671	; 0x4507
+  d2:	f2cc 222e 	movt	r2, #49710	; 0xc22e
+  d6:	fba2 3200 	umull	r3, r2, r2, r0
+  da:	f3c2 4207 	ubfx	r2, r2, #16, #8
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:142
+    ulSeconds -= pygmyTime->Day * PYGMY_SECONDS_DAY;
+  de:	f64a 6380 	movw	r3, #44672	; 0xae80
+  e2:	f6cf 73fe 	movt	r3, #65534	; 0xfffe
+  e6:	fb03 0302 	mla	r3, r3, r2, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:143
+    ++pygmyTime->Day;
+  ea:	f102 0201 	add.w	r2, r2, #1
+  ee:	70ca      	strb	r2, [r1, #3]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:144
+    pygmyTime->Hour = ulSeconds / PYGMY_SECONDS_HOUR;
+  f0:	f24b 30c5 	movw	r0, #46021	; 0xb3c5
+  f4:	f2c9 10a2 	movt	r0, #37282	; 0x91a2
+  f8:	fba0 9003 	umull	r9, r0, r0, r3
+  fc:	f3c0 20c7 	ubfx	r0, r0, #11, #8
+ 100:	7108      	strb	r0, [r1, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:145
+    ulSeconds -= pygmyTime->Hour * PYGMY_SECONDS_HOUR;
+ 102:	f24f 12f0 	movw	r2, #61936	; 0xf1f0
+ 106:	f6cf 72ff 	movt	r2, #65535	; 0xffff
+ 10a:	fb02 3000 	mla	r0, r2, r0, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:146
+    pygmyTime->Minute = ulSeconds / PYGMY_SECONDS_MINUTE;
+ 10e:	f648 0389 	movw	r3, #34953	; 0x8889
+ 112:	f6c8 0388 	movt	r3, #34952	; 0x8888
+ 116:	fba3 2300 	umull	r2, r3, r3, r0
+ 11a:	ea4f 1353 	mov.w	r3, r3, lsr #5
+ 11e:	714b      	strb	r3, [r1, #5]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:147
+    pygmyTime->Second = ulSeconds % PYGMY_SECONDS_MINUTE;
+ 120:	ebc3 1303 	rsb	r3, r3, r3, lsl #4
+ 124:	eba0 0083 	sub.w	r0, r0, r3, lsl #2
+ 128:	7188      	strb	r0, [r1, #6]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:148
+} 
+ 12a:	e8bd 03f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9}
+ 12e:	4770      	bx	lr
+
+Disassembly of section .text.setSysTick:
+
+00000000 <setSysTick>:
+setSysTick():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:153
+
+void setSysTick( u32 ulSystemClock, u32 ulTicksPerSecond )
+{
+    // Based on  ( 2X the System Clock ) / 1000
+    SYSTICK->CTRL = 0;
+   0:	f24e 0310 	movw	r3, #57360	; 0xe010
+   4:	f2ce 0300 	movt	r3, #57344	; 0xe000
+   8:	f04f 0200 	mov.w	r2, #0
+   c:	601a      	str	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:154
+    SYSTICK->LOAD = ( ulSystemClock / ulTicksPerSecond ) * 2;
+   e:	fbb0 f1f1 	udiv	r1, r0, r1
+  12:	ea4f 0141 	mov.w	r1, r1, lsl #1
+  16:	6059      	str	r1, [r3, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:155
+    SYSTICK->VAL = ( ulSystemClock / ulTicksPerSecond ) * 2;
+  18:	6099      	str	r1, [r3, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:156
+    SYSTICK->CTRL = 0x07;   // Enable system timer
+  1a:	f04f 0207 	mov.w	r2, #7
+  1e:	601a      	str	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:157
+}
+  20:	4770      	bx	lr
+  22:	bf00      	nop
+
+Disassembly of section .text.enableSysTick:
+
+00000000 <enableSysTick>:
+enableSysTick():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:161
+
+void enableSysTick( void )
+{
+    SYSTICK->CTRL = 0x07;   // Enable system timer
+   0:	f24e 0310 	movw	r3, #57360	; 0xe010
+   4:	f2ce 0300 	movt	r3, #57344	; 0xe000
+   8:	f04f 0207 	mov.w	r2, #7
+   c:	601a      	str	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:162
+}
+   e:	4770      	bx	lr
+
+Disassembly of section .text.disableSysTick:
+
+00000000 <disableSysTick>:
+disableSysTick():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:166
+
+void disableSysTick( void )
+{
+    SYSTICK->CTRL = 0;
+   0:	f24e 0310 	movw	r3, #57360	; 0xe010
+   4:	f2ce 0300 	movt	r3, #57344	; 0xe000
+   8:	f04f 0200 	mov.w	r2, #0
+   c:	601a      	str	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_rtc.c:167
+}
+   e:	4770      	bx	lr

@@ -613,6 +613,7 @@ u8 cmdRm( u8 *ucParams )
 
 u8 cmd_new( u8 *ucBuffer )
 {
+    print( COM3, "\rucBuffer: (%s)", ucBuffer );
     if( fileOpen( ucBuffer, WRITE|READ, 0 ) ){
         return( TRUE );
     } 
@@ -753,7 +754,7 @@ u8 executeCmd( u8 *ucBuffer, PYGMYCMD *pygmyCommands )
             return( 0 );
         } // if
         if( isStringSame( ucCommand, pygmyCommands[ i ].Name ) ){
-            if( pygmyCommands[ i ].Call( "" ) ){
+            if( pygmyCommands[ i ].Call( ucBuffer ) ){
                 return( 1 );
             } else{
                 return( 0 );

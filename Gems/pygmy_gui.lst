@@ -162,59 +162,25 @@ Disassembly of section .text.fontSetColor:
 00000000 <fontSetColor>:
 fontSetColor():
    0:	4603      	mov	r3, r0
-   2:	b507      	push	{r0, r1, r2, lr}
-   4:	4608      	mov	r0, r1
-   6:	4619      	mov	r1, r3
-   8:	f7ff fffe 	bl	0 <fontSetColor>
-   c:	2001      	movs	r0, #1
-   e:	4907      	ldr	r1, [pc, #28]	; (2c <fontSetColor+0x2c>)
-  10:	f7ff fffe 	bl	0 <print>
-  14:	4b06      	ldr	r3, [pc, #24]	; (30 <fontSetColor+0x30>)
-  16:	2001      	movs	r0, #1
-  18:	6819      	ldr	r1, [r3, #0]
-  1a:	780a      	ldrb	r2, [r1, #0]
-  1c:	784b      	ldrb	r3, [r1, #1]
-  1e:	7889      	ldrb	r1, [r1, #2]
-  20:	9100      	str	r1, [sp, #0]
-  22:	4904      	ldr	r1, [pc, #16]	; (34 <fontSetColor+0x34>)
-  24:	f7ff fffe 	bl	0 <print>
-  28:	bd0e      	pop	{r1, r2, r3, pc}
-  2a:	bf00      	nop
-	...
-  34:	00000019 	.word	0x00000019
+   2:	4608      	mov	r0, r1
+   4:	4619      	mov	r1, r3
+   6:	f7ff bffe 	b.w	0 <fontSetColor>
 
 Disassembly of section .text.fontSetBackColor:
 
 00000000 <fontSetBackColor>:
 fontSetBackColor():
    0:	1d03      	adds	r3, r0, #4
-   2:	b507      	push	{r0, r1, r2, lr}
-   4:	4608      	mov	r0, r1
-   6:	4619      	mov	r1, r3
-   8:	f7ff fffe 	bl	0 <fontSetBackColor>
-   c:	2001      	movs	r0, #1
-   e:	4907      	ldr	r1, [pc, #28]	; (2c <fontSetBackColor+0x2c>)
-  10:	f7ff fffe 	bl	0 <print>
-  14:	4b06      	ldr	r3, [pc, #24]	; (30 <fontSetBackColor+0x30>)
-  16:	2001      	movs	r0, #1
-  18:	6819      	ldr	r1, [r3, #0]
-  1a:	790a      	ldrb	r2, [r1, #4]
-  1c:	794b      	ldrb	r3, [r1, #5]
-  1e:	7989      	ldrb	r1, [r1, #6]
-  20:	9100      	str	r1, [sp, #0]
-  22:	4904      	ldr	r1, [pc, #16]	; (34 <fontSetBackColor+0x34>)
-  24:	f7ff fffe 	bl	0 <print>
-  28:	bd0e      	pop	{r1, r2, r3, pc}
-  2a:	bf00      	nop
-  2c:	0000002e 	.word	0x0000002e
-  30:	00000000 	.word	0x00000000
-  34:	00000019 	.word	0x00000019
+   2:	4608      	mov	r0, r1
+   4:	4619      	mov	r1, r3
+   6:	f7ff bffe 	b.w	0 <fontSetBackColor>
 
 Disassembly of section .text.fontGetActive:
 
 00000000 <fontGetActive>:
 fontGetActive():
-   0:	68184b01 	.word	0x68184b01
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <fontGetActive+0x8>)
+   2:	6818      	ldr	r0, [r3, #0]
    4:	4770      	bx	lr
    6:	bf00      	nop
    8:	00000000 	.word	0x00000000
@@ -584,89 +550,75 @@ guiSaveScreen():
    c:	f7ff fffe 	bl	0 <lcdGetHeight>
   10:	4607      	mov	r7, r0
   12:	f7ff fffe 	bl	0 <timeGet>
-  16:	4a31      	ldr	r2, [pc, #196]	; (dc <guiSaveScreen+0xdc>)
+  16:	4a2a      	ldr	r2, [pc, #168]	; (c0 <guiSaveScreen+0xc0>)
   18:	17c1      	asrs	r1, r0, #31
   1a:	ab0c      	add	r3, sp, #48	; 0x30
   1c:	f7ff fffe 	bl	0 <convertIntToString>
-  20:	482f      	ldr	r0, [pc, #188]	; (e0 <guiSaveScreen+0xe0>)
+  20:	4828      	ldr	r0, [pc, #160]	; (c4 <guiSaveScreen+0xc4>)
   22:	a90e      	add	r1, sp, #56	; 0x38
   24:	f7ff fffe 	bl	0 <copyString>
-  28:	2001      	movs	r0, #1
-  2a:	492e      	ldr	r1, [pc, #184]	; (e4 <guiSaveScreen+0xe4>)
-  2c:	aa0c      	add	r2, sp, #48	; 0x30
-  2e:	4633      	mov	r3, r6
-  30:	9700      	str	r7, [sp, #0]
-  32:	f7ff fffe 	bl	0 <print>
-  36:	a802      	add	r0, sp, #8
-  38:	492b      	ldr	r1, [pc, #172]	; (e8 <guiSaveScreen+0xe8>)
-  3a:	2202      	movs	r2, #2
-  3c:	f7ff fffe 	bl	0 <fileOpen>
-  40:	4604      	mov	r4, r0
-  42:	b928      	cbnz	r0, 50 <guiSaveScreen+0x50>
-  44:	2001      	movs	r0, #1
-  46:	4929      	ldr	r1, [pc, #164]	; (ec <guiSaveScreen+0xec>)
-  48:	f7ff fffe 	bl	0 <print>
-  4c:	4620      	mov	r0, r4
-  4e:	e041      	b.n	d4 <guiSaveScreen+0xd4>
-  50:	2180      	movs	r1, #128	; 0x80
-  52:	a802      	add	r0, sp, #8
-  54:	460a      	mov	r2, r1
-  56:	2318      	movs	r3, #24
-  58:	f7ff fffe 	bl	0 <guiSaveScreen>
-  5c:	f006 0803 	and.w	r8, r6, #3
-  60:	2400      	movs	r4, #0
-  62:	e02f      	b.n	c4 <guiSaveScreen+0xc4>
-  64:	1e79      	subs	r1, r7, #1
-  66:	1b09      	subs	r1, r1, r4
-  68:	4628      	mov	r0, r5
-  6a:	b289      	uxth	r1, r1
-  6c:	f7ff fffe 	bl	0 <lcdGetPixel>
-  70:	f10d 033d 	add.w	r3, sp, #61	; 0x3d
-  74:	f10d 023f 	add.w	r2, sp, #63	; 0x3f
-  78:	9300      	str	r3, [sp, #0]
-  7a:	b280      	uxth	r0, r0
-  7c:	f10d 033e 	add.w	r3, sp, #62	; 0x3e
-  80:	2118      	movs	r1, #24
-  82:	f7ff fffe 	bl	0 <lcdGetRGB>
-  86:	f89d 103f 	ldrb.w	r1, [sp, #63]	; 0x3f
-  8a:	a802      	add	r0, sp, #8
-  8c:	f7ff fffe 	bl	0 <filePutChar>
-  90:	f89d 103e 	ldrb.w	r1, [sp, #62]	; 0x3e
-  94:	a802      	add	r0, sp, #8
-  96:	f7ff fffe 	bl	0 <filePutChar>
-  9a:	a802      	add	r0, sp, #8
-  9c:	f89d 103d 	ldrb.w	r1, [sp, #61]	; 0x3d
-  a0:	f7ff fffe 	bl	0 <filePutChar>
-  a4:	3501      	adds	r5, #1
-  a6:	b2ad      	uxth	r5, r5
-  a8:	42b5      	cmp	r5, r6
-  aa:	d3db      	bcc.n	64 <guiSaveScreen+0x64>
-  ac:	2500      	movs	r5, #0
-  ae:	e005      	b.n	bc <guiSaveScreen+0xbc>
-  b0:	a802      	add	r0, sp, #8
-  b2:	2100      	movs	r1, #0
-  b4:	f7ff fffe 	bl	0 <filePutChar>
-  b8:	3501      	adds	r5, #1
-  ba:	b2ad      	uxth	r5, r5
-  bc:	4545      	cmp	r5, r8
-  be:	d3f7      	bcc.n	b0 <guiSaveScreen+0xb0>
-  c0:	3401      	adds	r4, #1
-  c2:	b2a4      	uxth	r4, r4
-  c4:	42bc      	cmp	r4, r7
-  c6:	d201      	bcs.n	cc <guiSaveScreen+0xcc>
-  c8:	2500      	movs	r5, #0
-  ca:	e7ed      	b.n	a8 <guiSaveScreen+0xa8>
-  cc:	a802      	add	r0, sp, #8
-  ce:	f7ff fffe 	bl	0 <fileClose>
-  d2:	2001      	movs	r0, #1
-  d4:	b010      	add	sp, #64	; 0x40
-  d6:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
-  da:	bf00      	nop
-  dc:	0000004b 	.word	0x0000004b
-  e0:	0000004f 	.word	0x0000004f
-  e4:	00000054 	.word	0x00000054
-  e8:	00000079 	.word	0x00000079
-  ec:	00000084 	.word	0x00000084
+  28:	a802      	add	r0, sp, #8
+  2a:	4927      	ldr	r1, [pc, #156]	; (c8 <guiSaveScreen+0xc8>)
+  2c:	2202      	movs	r2, #2
+  2e:	f7ff fffe 	bl	0 <fileOpen>
+  32:	2800      	cmp	r0, #0
+  34:	d041      	beq.n	ba <guiSaveScreen+0xba>
+  36:	2180      	movs	r1, #128	; 0x80
+  38:	a802      	add	r0, sp, #8
+  3a:	460a      	mov	r2, r1
+  3c:	2318      	movs	r3, #24
+  3e:	f7ff fffe 	bl	0 <guiSaveScreen>
+  42:	f006 0803 	and.w	r8, r6, #3
+  46:	2400      	movs	r4, #0
+  48:	e02f      	b.n	aa <guiSaveScreen+0xaa>
+  4a:	1e79      	subs	r1, r7, #1
+  4c:	1b09      	subs	r1, r1, r4
+  4e:	4628      	mov	r0, r5
+  50:	b289      	uxth	r1, r1
+  52:	f7ff fffe 	bl	0 <lcdGetPixel>
+  56:	f10d 033d 	add.w	r3, sp, #61	; 0x3d
+  5a:	f10d 023f 	add.w	r2, sp, #63	; 0x3f
+  5e:	9300      	str	r3, [sp, #0]
+  60:	b280      	uxth	r0, r0
+  62:	f10d 033e 	add.w	r3, sp, #62	; 0x3e
+  66:	2118      	movs	r1, #24
+  68:	f7ff fffe 	bl	0 <lcdGetRGB>
+  6c:	f89d 103f 	ldrb.w	r1, [sp, #63]	; 0x3f
+  70:	a802      	add	r0, sp, #8
+  72:	f7ff fffe 	bl	0 <filePutChar>
+  76:	f89d 103e 	ldrb.w	r1, [sp, #62]	; 0x3e
+  7a:	a802      	add	r0, sp, #8
+  7c:	f7ff fffe 	bl	0 <filePutChar>
+  80:	a802      	add	r0, sp, #8
+  82:	f89d 103d 	ldrb.w	r1, [sp, #61]	; 0x3d
+  86:	f7ff fffe 	bl	0 <filePutChar>
+  8a:	3501      	adds	r5, #1
+  8c:	b2ad      	uxth	r5, r5
+  8e:	42b5      	cmp	r5, r6
+  90:	d3db      	bcc.n	4a <guiSaveScreen+0x4a>
+  92:	2500      	movs	r5, #0
+  94:	e005      	b.n	a2 <guiSaveScreen+0xa2>
+  96:	a802      	add	r0, sp, #8
+  98:	2100      	movs	r1, #0
+  9a:	f7ff fffe 	bl	0 <filePutChar>
+  9e:	3501      	adds	r5, #1
+  a0:	b2ad      	uxth	r5, r5
+  a2:	4545      	cmp	r5, r8
+  a4:	d3f7      	bcc.n	96 <guiSaveScreen+0x96>
+  a6:	3401      	adds	r4, #1
+  a8:	b2a4      	uxth	r4, r4
+  aa:	42bc      	cmp	r4, r7
+  ac:	d201      	bcs.n	b2 <guiSaveScreen+0xb2>
+  ae:	2500      	movs	r5, #0
+  b0:	e7ed      	b.n	8e <guiSaveScreen+0x8e>
+  b2:	a802      	add	r0, sp, #8
+  b4:	f7ff fffe 	bl	0 <fileClose>
+  b8:	2001      	movs	r0, #1
+  ba:	b010      	add	sp, #64	; 0x40
+  bc:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  c0:	00000000 	.word	0x00000000
+  c4:	00000004 	.word	0x00000004
+  c8:	00000009 	.word	0x00000009
 
 Disassembly of section .text.drawBitmap:
 
@@ -1364,211 +1316,113 @@ Disassembly of section .text.drawJPEG:
 
 00000000 <drawJPEG>:
 drawJPEG():
-   0:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+   0:	b513      	push	{r0, r1, r4, lr}
+   2:	4604      	mov	r4, r0
    4:	2100      	movs	r1, #0
-   6:	b085      	sub	sp, #20
-   8:	4604      	mov	r4, r0
-   a:	f7ff fffe 	bl	0 <fileGetWord>
-   e:	2100      	movs	r1, #0
-  10:	4680      	mov	r8, r0
-  12:	4620      	mov	r0, r4
-  14:	f7ff fffe 	bl	0 <fileGetWord>
-  18:	2100      	movs	r1, #0
-  1a:	4607      	mov	r7, r0
-  1c:	4620      	mov	r0, r4
-  1e:	f7ff fffe 	bl	0 <fileGetWord>
-  22:	aa02      	add	r2, sp, #8
-  24:	4681      	mov	r9, r0
-  26:	2105      	movs	r1, #5
-  28:	4620      	mov	r0, r4
-  2a:	f7ff fffe 	bl	0 <fileGetBuffer>
-  2e:	2100      	movs	r1, #0
-  30:	4620      	mov	r0, r4
-  32:	f7ff fffe 	bl	0 <fileGetWord>
-  36:	2100      	movs	r1, #0
-  38:	4606      	mov	r6, r0
-  3a:	4620      	mov	r0, r4
-  3c:	f7ff fffe 	bl	0 <fileGetWord>
-  40:	2100      	movs	r1, #0
-  42:	4620      	mov	r0, r4
-  44:	f7ff fffe 	bl	0 <fileGetWord>
-  48:	2100      	movs	r1, #0
-  4a:	4605      	mov	r5, r0
+   6:	f7ff fffe 	bl	0 <fileGetWord>
+   a:	2100      	movs	r1, #0
+   c:	4620      	mov	r0, r4
+   e:	f7ff fffe 	bl	0 <fileGetWord>
+  12:	2100      	movs	r1, #0
+  14:	4620      	mov	r0, r4
+  16:	f7ff fffe 	bl	0 <fileGetWord>
+  1a:	466a      	mov	r2, sp
+  1c:	2105      	movs	r1, #5
+  1e:	4620      	mov	r0, r4
+  20:	f7ff fffe 	bl	0 <fileGetBuffer>
+  24:	2100      	movs	r1, #0
+  26:	4620      	mov	r0, r4
+  28:	f7ff fffe 	bl	0 <fileGetWord>
+  2c:	2100      	movs	r1, #0
+  2e:	4620      	mov	r0, r4
+  30:	f7ff fffe 	bl	0 <fileGetWord>
+  34:	2100      	movs	r1, #0
+  36:	4620      	mov	r0, r4
+  38:	f7ff fffe 	bl	0 <fileGetWord>
+  3c:	2100      	movs	r1, #0
+  3e:	4620      	mov	r0, r4
+  40:	f7ff fffe 	bl	0 <fileGetWord>
+  44:	2100      	movs	r1, #0
+  46:	4620      	mov	r0, r4
+  48:	f7ff fffe 	bl	0 <fileGetWord>
   4c:	4620      	mov	r0, r4
-  4e:	f7ff fffe 	bl	0 <fileGetWord>
-  52:	2100      	movs	r1, #0
-  54:	4682      	mov	sl, r0
-  56:	4620      	mov	r0, r4
-  58:	f7ff fffe 	bl	0 <fileGetWord>
-  5c:	2100      	movs	r1, #0
-  5e:	4683      	mov	fp, r0
-  60:	4620      	mov	r0, r4
-  62:	f7ff fffe 	bl	0 <fileGetWord>
-  66:	4642      	mov	r2, r8
-  68:	4604      	mov	r4, r0
-  6a:	463b      	mov	r3, r7
-  6c:	2001      	movs	r0, #1
-  6e:	490d      	ldr	r1, [pc, #52]	; (a4 <drawJPEG+0xa4>)
-  70:	f8cd 9000 	str.w	r9, [sp]
-  74:	f7ff fffe 	bl	0 <print>
-  78:	2001      	movs	r0, #1
-  7a:	aa02      	add	r2, sp, #8
-  7c:	4633      	mov	r3, r6
-  7e:	490a      	ldr	r1, [pc, #40]	; (a8 <drawJPEG+0xa8>)
-  80:	f7ff fffe 	bl	0 <print>
-  84:	2001      	movs	r0, #1
-  86:	462a      	mov	r2, r5
-  88:	4653      	mov	r3, sl
-  8a:	4908      	ldr	r1, [pc, #32]	; (ac <drawJPEG+0xac>)
-  8c:	f7ff fffe 	bl	0 <print>
-  90:	2001      	movs	r0, #1
-  92:	4907      	ldr	r1, [pc, #28]	; (b0 <drawJPEG+0xb0>)
-  94:	465a      	mov	r2, fp
-  96:	4623      	mov	r3, r4
-  98:	f7ff fffe 	bl	0 <print>
-  9c:	b005      	add	sp, #20
-  9e:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
-  a2:	bf00      	nop
-  a4:	00000090 	.word	0x00000090
-  a8:	000000b4 	.word	0x000000b4
-  ac:	000000c8 	.word	0x000000c8
-  b0:	000000de 	.word	0x000000de
+  4e:	2100      	movs	r1, #0
+  50:	f7ff fffe 	bl	0 <fileGetWord>
+  54:	bd1c      	pop	{r2, r3, r4, pc}
 
 Disassembly of section .text.drawPNG:
 
 00000000 <drawPNG>:
 drawPNG():
-   0:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
-   4:	b089      	sub	sp, #36	; 0x24
-   6:	2108      	movs	r1, #8
-   8:	aa03      	add	r2, sp, #12
-   a:	4604      	mov	r4, r0
-   c:	f7ff fffe 	bl	0 <fileGetBuffer>
-  10:	2300      	movs	r3, #0
-  12:	f88d 3013 	strb.w	r3, [sp, #19]
-  16:	e07f      	b.n	118 <drawPNG+0x118>
-  18:	2101      	movs	r1, #1
-  1a:	4620      	mov	r0, r4
-  1c:	f7ff fffe 	bl	0 <fileGetLong>
-  20:	2104      	movs	r1, #4
-  22:	4681      	mov	r9, r0
-  24:	aa06      	add	r2, sp, #24
-  26:	4620      	mov	r0, r4
-  28:	f7ff fffe 	bl	0 <fileGetBuffer>
-  2c:	483f      	ldr	r0, [pc, #252]	; (12c <drawPNG+0x12c>)
-  2e:	a906      	add	r1, sp, #24
-  30:	f88d 501c 	strb.w	r5, [sp, #28]
-  34:	f7ff fffe 	bl	0 <isStringSame>
-  38:	2800      	cmp	r0, #0
-  3a:	d047      	beq.n	cc <drawPNG+0xcc>
-  3c:	2101      	movs	r1, #1
-  3e:	4620      	mov	r0, r4
-  40:	f7ff fffe 	bl	0 <fileGetLong>
-  44:	2101      	movs	r1, #1
-  46:	4607      	mov	r7, r0
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	b086      	sub	sp, #24
+   4:	2108      	movs	r1, #8
+   6:	aa01      	add	r2, sp, #4
+   8:	4604      	mov	r4, r0
+   a:	f7ff fffe 	bl	0 <fileGetBuffer>
+   e:	2300      	movs	r3, #0
+  10:	f88d 300b 	strb.w	r3, [sp, #11]
+  14:	e040      	b.n	98 <drawPNG+0x98>
+  16:	2101      	movs	r1, #1
+  18:	4620      	mov	r0, r4
+  1a:	f7ff fffe 	bl	0 <fileGetLong>
+  1e:	2104      	movs	r1, #4
+  20:	4605      	mov	r5, r0
+  22:	aa04      	add	r2, sp, #16
+  24:	4620      	mov	r0, r4
+  26:	f7ff fffe 	bl	0 <fileGetBuffer>
+  2a:	481f      	ldr	r0, [pc, #124]	; (a8 <drawPNG+0xa8>)
+  2c:	a904      	add	r1, sp, #16
+  2e:	f88d 6014 	strb.w	r6, [sp, #20]
+  32:	f7ff fffe 	bl	0 <isStringSame>
+  36:	b1b8      	cbz	r0, 68 <drawPNG+0x68>
+  38:	2101      	movs	r1, #1
+  3a:	4620      	mov	r0, r4
+  3c:	f7ff fffe 	bl	0 <fileGetLong>
+  40:	2101      	movs	r1, #1
+  42:	4620      	mov	r0, r4
+  44:	f7ff fffe 	bl	0 <fileGetLong>
   48:	4620      	mov	r0, r4
-  4a:	f7ff fffe 	bl	0 <fileGetLong>
-  4e:	4606      	mov	r6, r0
-  50:	4620      	mov	r0, r4
-  52:	f7ff fffe 	bl	0 <fileGetChar>
-  56:	4605      	mov	r5, r0
-  58:	4620      	mov	r0, r4
-  5a:	f7ff fffe 	bl	0 <fileGetChar>
-  5e:	4680      	mov	r8, r0
+  4a:	f7ff fffe 	bl	0 <fileGetChar>
+  4e:	4620      	mov	r0, r4
+  50:	f7ff fffe 	bl	0 <fileGetChar>
+  54:	4620      	mov	r0, r4
+  56:	f7ff fffe 	bl	0 <fileGetChar>
+  5a:	4620      	mov	r0, r4
+  5c:	f7ff fffe 	bl	0 <fileGetChar>
   60:	4620      	mov	r0, r4
   62:	f7ff fffe 	bl	0 <fileGetChar>
-  66:	4682      	mov	sl, r0
-  68:	4620      	mov	r0, r4
-  6a:	f7ff fffe 	bl	0 <fileGetChar>
-  6e:	4683      	mov	fp, r0
-  70:	4620      	mov	r0, r4
-  72:	f7ff fffe 	bl	0 <fileGetChar>
-  76:	aa06      	add	r2, sp, #24
-  78:	4684      	mov	ip, r0
-  7a:	464b      	mov	r3, r9
-  7c:	2001      	movs	r0, #1
-  7e:	492c      	ldr	r1, [pc, #176]	; (130 <drawPNG+0x130>)
-  80:	f8cd c004 	str.w	ip, [sp, #4]
-  84:	f7ff fffe 	bl	0 <print>
-  88:	4633      	mov	r3, r6
-  8a:	2001      	movs	r0, #1
-  8c:	463a      	mov	r2, r7
-  8e:	4929      	ldr	r1, [pc, #164]	; (134 <drawPNG+0x134>)
-  90:	f7ff fffe 	bl	0 <print>
-  94:	2001      	movs	r0, #1
-  96:	462a      	mov	r2, r5
-  98:	4927      	ldr	r1, [pc, #156]	; (138 <drawPNG+0x138>)
-  9a:	f7ff fffe 	bl	0 <print>
-  9e:	2001      	movs	r0, #1
-  a0:	4642      	mov	r2, r8
-  a2:	4926      	ldr	r1, [pc, #152]	; (13c <drawPNG+0x13c>)
-  a4:	f7ff fffe 	bl	0 <print>
-  a8:	2001      	movs	r0, #1
-  aa:	4652      	mov	r2, sl
-  ac:	4924      	ldr	r1, [pc, #144]	; (140 <drawPNG+0x140>)
-  ae:	f7ff fffe 	bl	0 <print>
-  b2:	2001      	movs	r0, #1
-  b4:	465a      	mov	r2, fp
-  b6:	4923      	ldr	r1, [pc, #140]	; (144 <drawPNG+0x144>)
-  b8:	f7ff fffe 	bl	0 <print>
-  bc:	f8dd c004 	ldr.w	ip, [sp, #4]
-  c0:	2001      	movs	r0, #1
-  c2:	4921      	ldr	r1, [pc, #132]	; (148 <drawPNG+0x148>)
-  c4:	4662      	mov	r2, ip
-  c6:	f7ff fffe 	bl	0 <print>
-  ca:	e021      	b.n	110 <drawPNG+0x110>
-  cc:	481f      	ldr	r0, [pc, #124]	; (14c <drawPNG+0x14c>)
-  ce:	a906      	add	r1, sp, #24
-  d0:	f7ff fffe 	bl	0 <isStringSame>
-  d4:	b110      	cbz	r0, dc <drawPNG+0xdc>
-  d6:	2001      	movs	r0, #1
-  d8:	491d      	ldr	r1, [pc, #116]	; (150 <drawPNG+0x150>)
-  da:	e006      	b.n	ea <drawPNG+0xea>
-  dc:	481d      	ldr	r0, [pc, #116]	; (154 <drawPNG+0x154>)
-  de:	a906      	add	r1, sp, #24
-  e0:	f7ff fffe 	bl	0 <isStringSame>
-  e4:	b128      	cbz	r0, f2 <drawPNG+0xf2>
-  e6:	491c      	ldr	r1, [pc, #112]	; (158 <drawPNG+0x158>)
-  e8:	2001      	movs	r0, #1
-  ea:	464a      	mov	r2, r9
-  ec:	f7ff fffe 	bl	0 <print>
-  f0:	e009      	b.n	106 <drawPNG+0x106>
-  f2:	481a      	ldr	r0, [pc, #104]	; (15c <drawPNG+0x15c>)
-  f4:	a906      	add	r1, sp, #24
-  f6:	f7ff fffe 	bl	0 <isStringSame>
-  fa:	b120      	cbz	r0, 106 <drawPNG+0x106>
-  fc:	2001      	movs	r0, #1
-  fe:	4918      	ldr	r1, [pc, #96]	; (160 <drawPNG+0x160>)
- 100:	f7ff fffe 	bl	0 <print>
- 104:	e00f      	b.n	126 <drawPNG+0x126>
- 106:	4620      	mov	r0, r4
- 108:	2102      	movs	r1, #2
- 10a:	464a      	mov	r2, r9
- 10c:	f7ff fffe 	bl	0 <fileSetPosition>
- 110:	4620      	mov	r0, r4
- 112:	2101      	movs	r1, #1
- 114:	f7ff fffe 	bl	0 <fileGetLong>
- 118:	4620      	mov	r0, r4
- 11a:	f7ff fffe 	bl	0 <fileIsEOF>
- 11e:	4605      	mov	r5, r0
- 120:	2800      	cmp	r0, #0
- 122:	f43f af79 	beq.w	18 <drawPNG+0x18>
- 126:	b009      	add	sp, #36	; 0x24
- 128:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
- 12c:	000000fe 	.word	0x000000fe
- 130:	00000103 	.word	0x00000103
- 134:	000000c8 	.word	0x000000c8
- 138:	00000117 	.word	0x00000117
- 13c:	00000120 	.word	0x00000120
- 140:	0000012b 	.word	0x0000012b
- 144:	0000013c 	.word	0x0000013c
- 148:	00000148 	.word	0x00000148
- 14c:	00000157 	.word	0x00000157
- 150:	0000015c 	.word	0x0000015c
- 154:	00000169 	.word	0x00000169
- 158:	0000016e 	.word	0x0000016e
- 15c:	00000178 	.word	0x00000178
- 160:	0000017d 	.word	0x0000017d
+  66:	e013      	b.n	90 <drawPNG+0x90>
+  68:	4810      	ldr	r0, [pc, #64]	; (ac <drawPNG+0xac>)
+  6a:	a904      	add	r1, sp, #16
+  6c:	f7ff fffe 	bl	0 <isStringSame>
+  70:	b948      	cbnz	r0, 86 <drawPNG+0x86>
+  72:	480f      	ldr	r0, [pc, #60]	; (b0 <drawPNG+0xb0>)
+  74:	a904      	add	r1, sp, #16
+  76:	f7ff fffe 	bl	0 <isStringSame>
+  7a:	b920      	cbnz	r0, 86 <drawPNG+0x86>
+  7c:	480d      	ldr	r0, [pc, #52]	; (b4 <drawPNG+0xb4>)
+  7e:	a904      	add	r1, sp, #16
+  80:	f7ff fffe 	bl	0 <isStringSame>
+  84:	b970      	cbnz	r0, a4 <drawPNG+0xa4>
+  86:	4620      	mov	r0, r4
+  88:	2102      	movs	r1, #2
+  8a:	462a      	mov	r2, r5
+  8c:	f7ff fffe 	bl	0 <fileSetPosition>
+  90:	4620      	mov	r0, r4
+  92:	2101      	movs	r1, #1
+  94:	f7ff fffe 	bl	0 <fileGetLong>
+  98:	4620      	mov	r0, r4
+  9a:	f7ff fffe 	bl	0 <fileIsEOF>
+  9e:	4606      	mov	r6, r0
+  a0:	2800      	cmp	r0, #0
+  a2:	d0b8      	beq.n	16 <drawPNG+0x16>
+  a4:	b006      	add	sp, #24
+  a6:	bd70      	pop	{r4, r5, r6, pc}
+  a8:	00000014 	.word	0x00000014
+  ac:	00000019 	.word	0x00000019
+  b0:	0000001e 	.word	0x0000001e
+  b4:	00000023 	.word	0x00000023
 
 Disassembly of section .text.widgetAdd:
 
@@ -1580,121 +1434,96 @@ Disassembly of section .text.formNew:
 
 00000000 <formNew>:
 formNew():
-   0:	e92d 4ff8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, lr}
-   4:	4605      	mov	r5, r0
-   6:	460c      	mov	r4, r1
-   8:	2001      	movs	r0, #1
-   a:	4943      	ldr	r1, [pc, #268]	; (118 <formNew+0x118>)
-   c:	4616      	mov	r6, r2
-   e:	469b      	mov	fp, r3
-  10:	f7ff fffe 	bl	0 <print>
-  14:	4b41      	ldr	r3, [pc, #260]	; (11c <formNew+0x11c>)
-  16:	791a      	ldrb	r2, [r3, #4]
-  18:	4698      	mov	r8, r3
-  1a:	b172      	cbz	r2, 3a <formNew+0x3a>
-  1c:	2001      	movs	r0, #1
-  1e:	4940      	ldr	r1, [pc, #256]	; (120 <formNew+0x120>)
-  20:	f7ff fffe 	bl	0 <print>
-  24:	f898 3005 	ldrb.w	r3, [r8, #5]
-  28:	2148      	movs	r1, #72	; 0x48
-  2a:	4359      	muls	r1, r3
-  2c:	4b3d      	ldr	r3, [pc, #244]	; (124 <formNew+0x124>)
-  2e:	3101      	adds	r1, #1
-  30:	6818      	ldr	r0, [r3, #0]
-  32:	f7ff fffe 	bl	0 <sysReallocate>
-  36:	4682      	mov	sl, r0
-  38:	e00a      	b.n	50 <formNew+0x50>
-  3a:	2001      	movs	r0, #1
-  3c:	493a      	ldr	r1, [pc, #232]	; (128 <formNew+0x128>)
-  3e:	f7ff fffe 	bl	0 <print>
-  42:	2048      	movs	r0, #72	; 0x48
-  44:	f7ff fffe 	bl	0 <sysAllocate>
-  48:	2301      	movs	r3, #1
-  4a:	4682      	mov	sl, r0
-  4c:	f888 3004 	strb.w	r3, [r8, #4]
-  50:	f1ba 0f00 	cmp.w	sl, #0
-  54:	d102      	bne.n	5c <formNew+0x5c>
-  56:	2001      	movs	r0, #1
-  58:	4934      	ldr	r1, [pc, #208]	; (12c <formNew+0x12c>)
-  5a:	e013      	b.n	84 <formNew+0x84>
-  5c:	f898 3005 	ldrb.w	r3, [r8, #5]
-  60:	f04f 0848 	mov.w	r8, #72	; 0x48
-  64:	fb08 a303 	mla	r3, r8, r3, sl
-  68:	2200      	movs	r2, #0
-  6a:	f8df 90b8 	ldr.w	r9, [pc, #184]	; 124 <formNew+0x124>
-  6e:	841a      	strh	r2, [r3, #32]
-  70:	4640      	mov	r0, r8
-  72:	f8c9 a000 	str.w	sl, [r9]
-  76:	f7ff fffe 	bl	0 <sysAllocate>
-  7a:	4f28      	ldr	r7, [pc, #160]	; (11c <formNew+0x11c>)
-  7c:	4682      	mov	sl, r0
-  7e:	b920      	cbnz	r0, 8a <formNew+0x8a>
-  80:	492b      	ldr	r1, [pc, #172]	; (130 <formNew+0x130>)
-  82:	2001      	movs	r0, #1
-  84:	f7ff fffe 	bl	0 <print>
-  88:	e042      	b.n	110 <formNew+0x110>
-  8a:	f8d9 3000 	ldr.w	r3, [r9]
-  8e:	7979      	ldrb	r1, [r7, #5]
-  90:	f04f 0a01 	mov.w	sl, #1
-  94:	fb08 3101 	mla	r1, r8, r1, r3
-  98:	2300      	movs	r3, #0
-  9a:	62c8      	str	r0, [r1, #44]	; 0x2c
-  9c:	844b      	strh	r3, [r1, #34]	; 0x22
-  9e:	830d      	strh	r5, [r1, #24]
-  a0:	834c      	strh	r4, [r1, #26]
-  a2:	838e      	strh	r6, [r1, #28]
-  a4:	f8a1 b01e 	strh.w	fp, [r1, #30]
-  a8:	4822      	ldr	r0, [pc, #136]	; (134 <formNew+0x134>)
-  aa:	3104      	adds	r1, #4
+   0:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
+   4:	469a      	mov	sl, r3
+   6:	4b37      	ldr	r3, [pc, #220]	; (e4 <formNew+0xe4>)
+   8:	4616      	mov	r6, r2
+   a:	791a      	ldrb	r2, [r3, #4]
+   c:	4605      	mov	r5, r0
+   e:	460c      	mov	r4, r1
+  10:	4698      	mov	r8, r3
+  12:	b142      	cbz	r2, 26 <formNew+0x26>
+  14:	795b      	ldrb	r3, [r3, #5]
+  16:	2148      	movs	r1, #72	; 0x48
+  18:	4359      	muls	r1, r3
+  1a:	4b33      	ldr	r3, [pc, #204]	; (e8 <formNew+0xe8>)
+  1c:	3101      	adds	r1, #1
+  1e:	6818      	ldr	r0, [r3, #0]
+  20:	f7ff fffe 	bl	0 <sysReallocate>
+  24:	e005      	b.n	32 <formNew+0x32>
+  26:	2048      	movs	r0, #72	; 0x48
+  28:	f7ff fffe 	bl	0 <sysAllocate>
+  2c:	2301      	movs	r3, #1
+  2e:	f888 3004 	strb.w	r3, [r8, #4]
+  32:	2800      	cmp	r0, #0
+  34:	d053      	beq.n	de <formNew+0xde>
+  36:	f898 3005 	ldrb.w	r3, [r8, #5]
+  3a:	f8df 90ac 	ldr.w	r9, [pc, #172]	; e8 <formNew+0xe8>
+  3e:	f04f 0848 	mov.w	r8, #72	; 0x48
+  42:	f8c9 0000 	str.w	r0, [r9]
+  46:	fb08 0003 	mla	r0, r8, r3, r0
+  4a:	2300      	movs	r3, #0
+  4c:	8403      	strh	r3, [r0, #32]
+  4e:	4640      	mov	r0, r8
+  50:	4f24      	ldr	r7, [pc, #144]	; (e4 <formNew+0xe4>)
+  52:	f7ff fffe 	bl	0 <sysAllocate>
+  56:	2800      	cmp	r0, #0
+  58:	d041      	beq.n	de <formNew+0xde>
+  5a:	f8d9 3000 	ldr.w	r3, [r9]
+  5e:	7979      	ldrb	r1, [r7, #5]
+  60:	fb08 3101 	mla	r1, r8, r1, r3
+  64:	2300      	movs	r3, #0
+  66:	62c8      	str	r0, [r1, #44]	; 0x2c
+  68:	844b      	strh	r3, [r1, #34]	; 0x22
+  6a:	830d      	strh	r5, [r1, #24]
+  6c:	834c      	strh	r4, [r1, #26]
+  6e:	838e      	strh	r6, [r1, #28]
+  70:	f8a1 a01e 	strh.w	sl, [r1, #30]
+  74:	481d      	ldr	r0, [pc, #116]	; (ec <formNew+0xec>)
+  76:	3104      	adds	r1, #4
+  78:	f7ff fffe 	bl	0 <formNew>
+  7c:	f8d9 3000 	ldr.w	r3, [r9]
+  80:	7979      	ldrb	r1, [r7, #5]
+  82:	481b      	ldr	r0, [pc, #108]	; (f0 <formNew+0xf0>)
+  84:	fb08 3101 	mla	r1, r8, r1, r3
+  88:	3108      	adds	r1, #8
+  8a:	f7ff fffe 	bl	0 <formNew>
+  8e:	f8d9 3000 	ldr.w	r3, [r9]
+  92:	7979      	ldrb	r1, [r7, #5]
+  94:	4817      	ldr	r0, [pc, #92]	; (f4 <formNew+0xf4>)
+  96:	fb08 3101 	mla	r1, r8, r1, r3
+  9a:	f7ff fffe 	bl	0 <formNew>
+  9e:	f8d9 3000 	ldr.w	r3, [r9]
+  a2:	7979      	ldrb	r1, [r7, #5]
+  a4:	4814      	ldr	r0, [pc, #80]	; (f8 <formNew+0xf8>)
+  a6:	fb08 3101 	mla	r1, r8, r1, r3
+  aa:	310c      	adds	r1, #12
   ac:	f7ff fffe 	bl	0 <formNew>
   b0:	f8d9 3000 	ldr.w	r3, [r9]
   b4:	7979      	ldrb	r1, [r7, #5]
-  b6:	4820      	ldr	r0, [pc, #128]	; (138 <formNew+0x138>)
+  b6:	4811      	ldr	r0, [pc, #68]	; (fc <formNew+0xfc>)
   b8:	fb08 3101 	mla	r1, r8, r1, r3
-  bc:	3108      	adds	r1, #8
+  bc:	3110      	adds	r1, #16
   be:	f7ff fffe 	bl	0 <formNew>
   c2:	f8d9 3000 	ldr.w	r3, [r9]
-  c6:	7979      	ldrb	r1, [r7, #5]
-  c8:	481c      	ldr	r0, [pc, #112]	; (13c <formNew+0x13c>)
-  ca:	fb08 3101 	mla	r1, r8, r1, r3
-  ce:	f7ff fffe 	bl	0 <formNew>
-  d2:	f8d9 3000 	ldr.w	r3, [r9]
-  d6:	7979      	ldrb	r1, [r7, #5]
-  d8:	4819      	ldr	r0, [pc, #100]	; (140 <formNew+0x140>)
-  da:	fb08 3101 	mla	r1, r8, r1, r3
-  de:	310c      	adds	r1, #12
-  e0:	f7ff fffe 	bl	0 <formNew>
-  e4:	f8d9 3000 	ldr.w	r3, [r9]
-  e8:	7979      	ldrb	r1, [r7, #5]
-  ea:	4816      	ldr	r0, [pc, #88]	; (144 <formNew+0x144>)
-  ec:	fb08 3101 	mla	r1, r8, r1, r3
-  f0:	3110      	adds	r1, #16
-  f2:	f7ff fffe 	bl	0 <formNew>
-  f6:	f8d9 3000 	ldr.w	r3, [r9]
-  fa:	797a      	ldrb	r2, [r7, #5]
-  fc:	4812      	ldr	r0, [pc, #72]	; (148 <formNew+0x148>)
-  fe:	fb08 3802 	mla	r8, r8, r2, r3
- 102:	f108 0114 	add.w	r1, r8, #20
- 106:	f7ff fffe 	bl	0 <formNew>
- 10a:	797b      	ldrb	r3, [r7, #5]
- 10c:	3301      	adds	r3, #1
- 10e:	717b      	strb	r3, [r7, #5]
- 110:	4650      	mov	r0, sl
- 112:	e8bd 8ff8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}
- 116:	bf00      	nop
- 118:	00000182 	.word	0x00000182
- 11c:	00000000 	.word	0x00000000
- 120:	00000194 	.word	0x00000194
- 124:	00000000 	.word	0x00000000
- 128:	000001ad 	.word	0x000001ad
- 12c:	000001c4 	.word	0x000001c4
- 130:	000001e3 	.word	0x000001e3
- 134:	00000018 	.word	0x00000018
- 138:	0000001c 	.word	0x0000001c
- 13c:	00000014 	.word	0x00000014
- 140:	00000020 	.word	0x00000020
- 144:	00000024 	.word	0x00000024
- 148:	00000028 	.word	0x00000028
+  c6:	797a      	ldrb	r2, [r7, #5]
+  c8:	480d      	ldr	r0, [pc, #52]	; (100 <formNew+0x100>)
+  ca:	fb08 3802 	mla	r8, r8, r2, r3
+  ce:	f108 0114 	add.w	r1, r8, #20
+  d2:	f7ff fffe 	bl	0 <formNew>
+  d6:	797b      	ldrb	r3, [r7, #5]
+  d8:	2001      	movs	r0, #1
+  da:	3301      	adds	r3, #1
+  dc:	717b      	strb	r3, [r7, #5]
+  de:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+  e2:	bf00      	nop
+	...
+  ec:	00000018 	.word	0x00000018
+  f0:	0000001c 	.word	0x0000001c
+  f4:	00000014 	.word	0x00000014
+  f8:	00000020 	.word	0x00000020
+  fc:	00000024 	.word	0x00000024
+ 100:	00000028 	.word	0x00000028
 
 Disassembly of section .text.formRemove:
 
@@ -1970,139 +1799,125 @@ Disassembly of section .text.formAddWidget:
 
 00000000 <formAddWidget>:
 formAddWidget():
-   0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
-   4:	4b39      	ldr	r3, [pc, #228]	; (ec <formAddWidget+0xec>)
-   6:	f04f 0848 	mov.w	r8, #72	; 0x48
-   a:	7959      	ldrb	r1, [r3, #5]
-   c:	4e38      	ldr	r6, [pc, #224]	; (f0 <formAddWidget+0xf0>)
-   e:	1e4d      	subs	r5, r1, #1
-  10:	b2ad      	uxth	r5, r5
-  12:	fb08 f505 	mul.w	r5, r8, r5
-  16:	6833      	ldr	r3, [r6, #0]
-  18:	3101      	adds	r1, #1
-  1a:	195b      	adds	r3, r3, r5
-  1c:	4604      	mov	r4, r0
-  1e:	fb08 f101 	mul.w	r1, r8, r1
-  22:	6ad8      	ldr	r0, [r3, #44]	; 0x2c
-  24:	f7ff fffe 	bl	0 <sysReallocate>
-  28:	4607      	mov	r7, r0
-  2a:	b930      	cbnz	r0, 3a <formAddWidget+0x3a>
-  2c:	2001      	movs	r0, #1
-  2e:	4931      	ldr	r1, [pc, #196]	; (f4 <formAddWidget+0xf4>)
-  30:	f7ff fffe 	bl	0 <print>
-  34:	4638      	mov	r0, r7
-  36:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
-  3a:	6830      	ldr	r0, [r6, #0]
-  3c:	6923      	ldr	r3, [r4, #16]
-  3e:	1940      	adds	r0, r0, r5
-  40:	8c02      	ldrh	r2, [r0, #32]
-  42:	62c7      	str	r7, [r0, #44]	; 0x2c
-  44:	fb08 7702 	mla	r7, r8, r2, r7
-  48:	613b      	str	r3, [r7, #16]
-  4a:	8aa3      	ldrh	r3, [r4, #20]
-  4c:	82bb      	strh	r3, [r7, #20]
-  4e:	8ae3      	ldrh	r3, [r4, #22]
-  50:	82fb      	strh	r3, [r7, #22]
-  52:	8b23      	ldrh	r3, [r4, #24]
-  54:	833b      	strh	r3, [r7, #24]
-  56:	8b63      	ldrh	r3, [r4, #26]
-  58:	837b      	strh	r3, [r7, #26]
-  5a:	69e3      	ldr	r3, [r4, #28]
-  5c:	b90a      	cbnz	r2, 62 <formAddWidget+0x62>
-  5e:	f043 0302 	orr.w	r3, r3, #2
-  62:	61fb      	str	r3, [r7, #28]
-  64:	f894 3020 	ldrb.w	r3, [r4, #32]
-  68:	f887 3020 	strb.w	r3, [r7, #32]
-  6c:	6ac3      	ldr	r3, [r0, #44]	; 0x2c
-  6e:	8c01      	ldrh	r1, [r0, #32]
-  70:	2748      	movs	r7, #72	; 0x48
-  72:	fb07 3101 	mla	r1, r7, r1, r3
-  76:	6a63      	ldr	r3, [r4, #36]	; 0x24
-  78:	300c      	adds	r0, #12
-  7a:	624b      	str	r3, [r1, #36]	; 0x24
-  7c:	2300      	movs	r3, #0
-  7e:	640b      	str	r3, [r1, #64]	; 0x40
-  80:	644b      	str	r3, [r1, #68]	; 0x44
-  82:	62cb      	str	r3, [r1, #44]	; 0x2c
-  84:	634b      	str	r3, [r1, #52]	; 0x34
-  86:	638b      	str	r3, [r1, #56]	; 0x38
-  88:	630b      	str	r3, [r1, #48]	; 0x30
-  8a:	628b      	str	r3, [r1, #40]	; 0x28
-  8c:	63cb      	str	r3, [r1, #60]	; 0x3c
+   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+   2:	4b32      	ldr	r3, [pc, #200]	; (cc <formAddWidget+0xcc>)
+   4:	2748      	movs	r7, #72	; 0x48
+   6:	7959      	ldrb	r1, [r3, #5]
+   8:	4e31      	ldr	r6, [pc, #196]	; (d0 <formAddWidget+0xd0>)
+   a:	1e4d      	subs	r5, r1, #1
+   c:	b2ad      	uxth	r5, r5
+   e:	437d      	muls	r5, r7
+  10:	6833      	ldr	r3, [r6, #0]
+  12:	3101      	adds	r1, #1
+  14:	195b      	adds	r3, r3, r5
+  16:	4604      	mov	r4, r0
+  18:	4379      	muls	r1, r7
+  1a:	6ad8      	ldr	r0, [r3, #44]	; 0x2c
+  1c:	f7ff fffe 	bl	0 <sysReallocate>
+  20:	2800      	cmp	r0, #0
+  22:	d051      	beq.n	c8 <formAddWidget+0xc8>
+  24:	6832      	ldr	r2, [r6, #0]
+  26:	6923      	ldr	r3, [r4, #16]
+  28:	1952      	adds	r2, r2, r5
+  2a:	8c11      	ldrh	r1, [r2, #32]
+  2c:	62d0      	str	r0, [r2, #44]	; 0x2c
+  2e:	fb07 0701 	mla	r7, r7, r1, r0
+  32:	613b      	str	r3, [r7, #16]
+  34:	8aa3      	ldrh	r3, [r4, #20]
+  36:	82bb      	strh	r3, [r7, #20]
+  38:	8ae3      	ldrh	r3, [r4, #22]
+  3a:	82fb      	strh	r3, [r7, #22]
+  3c:	8b23      	ldrh	r3, [r4, #24]
+  3e:	833b      	strh	r3, [r7, #24]
+  40:	8b63      	ldrh	r3, [r4, #26]
+  42:	837b      	strh	r3, [r7, #26]
+  44:	69e3      	ldr	r3, [r4, #28]
+  46:	b909      	cbnz	r1, 4c <formAddWidget+0x4c>
+  48:	f043 0302 	orr.w	r3, r3, #2
+  4c:	61fb      	str	r3, [r7, #28]
+  4e:	f894 3020 	ldrb.w	r3, [r4, #32]
+  52:	f102 000c 	add.w	r0, r2, #12
+  56:	f887 3020 	strb.w	r3, [r7, #32]
+  5a:	6ad3      	ldr	r3, [r2, #44]	; 0x2c
+  5c:	8c11      	ldrh	r1, [r2, #32]
+  5e:	2748      	movs	r7, #72	; 0x48
+  60:	fb07 3101 	mla	r1, r7, r1, r3
+  64:	6a63      	ldr	r3, [r4, #36]	; 0x24
+  66:	624b      	str	r3, [r1, #36]	; 0x24
+  68:	2300      	movs	r3, #0
+  6a:	640b      	str	r3, [r1, #64]	; 0x40
+  6c:	644b      	str	r3, [r1, #68]	; 0x44
+  6e:	62cb      	str	r3, [r1, #44]	; 0x2c
+  70:	634b      	str	r3, [r1, #52]	; 0x34
+  72:	638b      	str	r3, [r1, #56]	; 0x38
+  74:	630b      	str	r3, [r1, #48]	; 0x30
+  76:	628b      	str	r3, [r1, #40]	; 0x28
+  78:	63cb      	str	r3, [r1, #60]	; 0x3c
+  7a:	f7ff fffe 	bl	0 <formAddWidget>
+  7e:	6830      	ldr	r0, [r6, #0]
+  80:	1940      	adds	r0, r0, r5
+  82:	6ac3      	ldr	r3, [r0, #44]	; 0x2c
+  84:	8c01      	ldrh	r1, [r0, #32]
+  86:	3008      	adds	r0, #8
+  88:	fb07 3101 	mla	r1, r7, r1, r3
+  8c:	3104      	adds	r1, #4
   8e:	f7ff fffe 	bl	0 <formAddWidget>
   92:	6830      	ldr	r0, [r6, #0]
   94:	1940      	adds	r0, r0, r5
   96:	6ac3      	ldr	r3, [r0, #44]	; 0x2c
   98:	8c01      	ldrh	r1, [r0, #32]
-  9a:	3008      	adds	r0, #8
+  9a:	3010      	adds	r0, #16
   9c:	fb07 3101 	mla	r1, r7, r1, r3
-  a0:	3104      	adds	r1, #4
+  a0:	3108      	adds	r1, #8
   a2:	f7ff fffe 	bl	0 <formAddWidget>
   a6:	6830      	ldr	r0, [r6, #0]
   a8:	1940      	adds	r0, r0, r5
   aa:	6ac3      	ldr	r3, [r0, #44]	; 0x2c
-  ac:	8c01      	ldrh	r1, [r0, #32]
-  ae:	3010      	adds	r0, #16
-  b0:	fb07 3101 	mla	r1, r7, r1, r3
-  b4:	3108      	adds	r1, #8
-  b6:	f7ff fffe 	bl	0 <formAddWidget>
-  ba:	6830      	ldr	r0, [r6, #0]
-  bc:	1940      	adds	r0, r0, r5
-  be:	8c02      	ldrh	r2, [r0, #32]
-  c0:	6ac3      	ldr	r3, [r0, #44]	; 0x2c
-  c2:	3014      	adds	r0, #20
-  c4:	fb07 3702 	mla	r7, r7, r2, r3
-  c8:	f107 010c 	add.w	r1, r7, #12
-  cc:	f7ff fffe 	bl	0 <formAddWidget>
-  d0:	6833      	ldr	r3, [r6, #0]
-  d2:	2001      	movs	r0, #1
-  d4:	195d      	adds	r5, r3, r5
-  d6:	8c2a      	ldrh	r2, [r5, #32]
-  d8:	4907      	ldr	r1, [pc, #28]	; (f8 <formAddWidget+0xf8>)
-  da:	3201      	adds	r2, #1
-  dc:	b292      	uxth	r2, r2
-  de:	842a      	strh	r2, [r5, #32]
-  e0:	f7ff fffe 	bl	0 <print>
-  e4:	2001      	movs	r0, #1
-  e6:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
-  ea:	bf00      	nop
+  ac:	8c02      	ldrh	r2, [r0, #32]
+  ae:	3014      	adds	r0, #20
+  b0:	fb07 3702 	mla	r7, r7, r2, r3
+  b4:	f107 010c 	add.w	r1, r7, #12
+  b8:	f7ff fffe 	bl	0 <formAddWidget>
+  bc:	6833      	ldr	r3, [r6, #0]
+  be:	2001      	movs	r0, #1
+  c0:	195d      	adds	r5, r3, r5
+  c2:	8c2b      	ldrh	r3, [r5, #32]
+  c4:	3301      	adds	r3, #1
+  c6:	842b      	strh	r3, [r5, #32]
+  c8:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+  ca:	bf00      	nop
 	...
-  f4:	000001e3 	.word	0x000001e3
-  f8:	000001f1 	.word	0x000001f1
 
 Disassembly of section .text.formFreeAll:
 
 00000000 <formFreeAll>:
 formFreeAll():
-   0:	4d0fb570 	.word	0x4d0fb570
-   4:	4c0f      	ldr	r4, [pc, #60]	; (44 <formFreeAll+0x44>)
-   6:	682b      	ldr	r3, [r5, #0]
-   8:	b1ab      	cbz	r3, 36 <formFreeAll+0x36>
-   a:	2001      	movs	r0, #1
-   c:	490e      	ldr	r1, [pc, #56]	; (48 <formFreeAll+0x48>)
-   e:	f7ff fffe 	bl	0 <print>
-  12:	2600      	movs	r6, #0
-  14:	e009      	b.n	2a <formFreeAll+0x2a>
-  16:	682b      	ldr	r3, [r5, #0]
-  18:	2248      	movs	r2, #72	; 0x48
-  1a:	fb02 3306 	mla	r3, r2, r6, r3
-  1e:	6ad8      	ldr	r0, [r3, #44]	; 0x2c
-  20:	b108      	cbz	r0, 26 <formFreeAll+0x26>
-  22:	f7ff fffe 	bl	0 <sysFree>
-  26:	3601      	adds	r6, #1
-  28:	b2b6      	uxth	r6, r6
-  2a:	7963      	ldrb	r3, [r4, #5]
-  2c:	42b3      	cmp	r3, r6
-  2e:	d8f2      	bhi.n	16 <formFreeAll+0x16>
-  30:	6828      	ldr	r0, [r5, #0]
-  32:	f7ff fffe 	bl	0 <sysFree>
-  36:	2300      	movs	r3, #0
-  38:	602b      	str	r3, [r5, #0]
-  3a:	7123      	strb	r3, [r4, #4]
-  3c:	7163      	strb	r3, [r4, #5]
-  3e:	bd70      	pop	{r4, r5, r6, pc}
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	4e0d      	ldr	r6, [pc, #52]	; (38 <formFreeAll+0x38>)
+   4:	4d0d      	ldr	r5, [pc, #52]	; (3c <formFreeAll+0x3c>)
+   6:	6833      	ldr	r3, [r6, #0]
+   8:	b18b      	cbz	r3, 2e <formFreeAll+0x2e>
+   a:	2400      	movs	r4, #0
+   c:	e009      	b.n	22 <formFreeAll+0x22>
+   e:	6833      	ldr	r3, [r6, #0]
+  10:	2248      	movs	r2, #72	; 0x48
+  12:	fb02 3304 	mla	r3, r2, r4, r3
+  16:	6ad8      	ldr	r0, [r3, #44]	; 0x2c
+  18:	b108      	cbz	r0, 1e <formFreeAll+0x1e>
+  1a:	f7ff fffe 	bl	0 <sysFree>
+  1e:	3401      	adds	r4, #1
+  20:	b2a4      	uxth	r4, r4
+  22:	796b      	ldrb	r3, [r5, #5]
+  24:	42a3      	cmp	r3, r4
+  26:	d8f2      	bhi.n	e <formFreeAll+0xe>
+  28:	6830      	ldr	r0, [r6, #0]
+  2a:	f7ff fffe 	bl	0 <sysFree>
+  2e:	2300      	movs	r3, #0
+  30:	6033      	str	r3, [r6, #0]
+  32:	712b      	strb	r3, [r5, #4]
+  34:	716b      	strb	r3, [r5, #5]
+  36:	bd70      	pop	{r4, r5, r6, pc}
 	...
-  48:	000001fe 	.word	0x000001fe
 
 Disassembly of section .text.drawFill:
 
@@ -2837,509 +2652,457 @@ drawWidget():
    6:	b086      	sub	sp, #24
    8:	f013 0f01 	tst.w	r3, #1
    c:	4604      	mov	r4, r0
-   e:	d102      	bne.n	16 <drawWidget+0x16>
-  10:	2001      	movs	r0, #1
-  12:	499a      	ldr	r1, [pc, #616]	; (27c <drawWidget+0x27c>)
-  14:	e24d      	b.n	4b2 <drawWidget+0x4b2>
-  16:	4e9a      	ldr	r6, [pc, #616]	; (280 <drawWidget+0x280>)
-  18:	f413 6f80 	tst.w	r3, #1024	; 0x400
-  1c:	f896 5040 	ldrb.w	r5, [r6, #64]	; 0x40
-  20:	d01a      	beq.n	58 <drawWidget+0x58>
-  22:	2001      	movs	r0, #1
-  24:	4997      	ldr	r1, [pc, #604]	; (284 <drawWidget+0x284>)
-  26:	f7ff fffe 	bl	0 <print>
-  2a:	69e3      	ldr	r3, [r4, #28]
-  2c:	f013 0f02 	tst.w	r3, #2
-  30:	d00b      	beq.n	4a <drawWidget+0x4a>
-  32:	2001      	movs	r0, #1
-  34:	4994      	ldr	r1, [pc, #592]	; (288 <drawWidget+0x288>)
-  36:	f7ff fffe 	bl	0 <print>
-  3a:	f104 0008 	add.w	r0, r4, #8
-  3e:	a904      	add	r1, sp, #16
-  40:	f7ff fffe 	bl	0 <drawWidget>
-  44:	f104 000c 	add.w	r0, r4, #12
-  48:	e004      	b.n	54 <drawWidget+0x54>
-  4a:	4620      	mov	r0, r4
-  4c:	a904      	add	r1, sp, #16
-  4e:	f7ff fffe 	bl	0 <drawWidget>
-  52:	1d20      	adds	r0, r4, #4
-  54:	a905      	add	r1, sp, #20
-  56:	e013      	b.n	80 <drawWidget+0x80>
-  58:	f013 0f02 	tst.w	r3, #2
-  5c:	d00b      	beq.n	76 <drawWidget+0x76>
-  5e:	2001      	movs	r0, #1
-  60:	4989      	ldr	r1, [pc, #548]	; (288 <drawWidget+0x288>)
-  62:	f7ff fffe 	bl	0 <print>
-  66:	f104 0008 	add.w	r0, r4, #8
-  6a:	a905      	add	r1, sp, #20
+   e:	f000 8212 	beq.w	436 <drawWidget+0x436>
+  12:	4e80      	ldr	r6, [pc, #512]	; (214 <drawWidget+0x214>)
+  14:	f413 6f80 	tst.w	r3, #1024	; 0x400
+  18:	f896 5040 	ldrb.w	r5, [r6, #64]	; 0x40
+  1c:	f003 0302 	and.w	r3, r3, #2
+  20:	d00d      	beq.n	3e <drawWidget+0x3e>
+  22:	b133      	cbz	r3, 32 <drawWidget+0x32>
+  24:	3008      	adds	r0, #8
+  26:	a904      	add	r1, sp, #16
+  28:	f7ff fffe 	bl	0 <drawWidget>
+  2c:	f104 000c 	add.w	r0, r4, #12
+  30:	e003      	b.n	3a <drawWidget+0x3a>
+  32:	a904      	add	r1, sp, #16
+  34:	f7ff fffe 	bl	0 <drawWidget>
+  38:	1d20      	adds	r0, r4, #4
+  3a:	a905      	add	r1, sp, #20
+  3c:	e00c      	b.n	58 <drawWidget+0x58>
+  3e:	b133      	cbz	r3, 4e <drawWidget+0x4e>
+  40:	3008      	adds	r0, #8
+  42:	a905      	add	r1, sp, #20
+  44:	f7ff fffe 	bl	0 <drawWidget>
+  48:	f104 000c 	add.w	r0, r4, #12
+  4c:	e003      	b.n	56 <drawWidget+0x56>
+  4e:	a905      	add	r1, sp, #20
+  50:	f7ff fffe 	bl	0 <drawWidget>
+  54:	1d20      	adds	r0, r4, #4
+  56:	a904      	add	r1, sp, #16
+  58:	f7ff fffe 	bl	0 <drawWidget>
+  5c:	f7ff fffe 	bl	0 <drawWidget>
+  60:	a905      	add	r1, sp, #20
+  62:	f7ff fffe 	bl	0 <drawWidget>
+  66:	f7ff fffe 	bl	0 <drawWidget>
+  6a:	a904      	add	r1, sp, #16
   6c:	f7ff fffe 	bl	0 <drawWidget>
-  70:	f104 000c 	add.w	r0, r4, #12
-  74:	e003      	b.n	7e <drawWidget+0x7e>
-  76:	a905      	add	r1, sp, #20
-  78:	f7ff fffe 	bl	0 <drawWidget>
-  7c:	1d20      	adds	r0, r4, #4
-  7e:	a904      	add	r1, sp, #16
-  80:	f7ff fffe 	bl	0 <drawWidget>
-  84:	f7ff fffe 	bl	0 <drawWidget>
-  88:	a905      	add	r1, sp, #20
-  8a:	f7ff fffe 	bl	0 <drawWidget>
-  8e:	f7ff fffe 	bl	0 <drawWidget>
-  92:	a904      	add	r1, sp, #16
-  94:	f7ff fffe 	bl	0 <drawWidget>
-  98:	69e0      	ldr	r0, [r4, #28]
-  9a:	f010 0f10 	tst.w	r0, #16
-  9e:	d014      	beq.n	ca <drawWidget+0xca>
-  a0:	8aa1      	ldrh	r1, [r4, #20]
-  a2:	8ae2      	ldrh	r2, [r4, #22]
-  a4:	8b23      	ldrh	r3, [r4, #24]
-  a6:	f8b4 e01a 	ldrh.w	lr, [r4, #26]
-  aa:	18cb      	adds	r3, r1, r3
-  ac:	4496      	add	lr, r2
-  ae:	f420 7080 	bic.w	r0, r0, #256	; 0x100
-  b2:	fa0f fe8e 	sxth.w	lr, lr
-  b6:	9001      	str	r0, [sp, #4]
-  b8:	b209      	sxth	r1, r1
-  ba:	a805      	add	r0, sp, #20
-  bc:	b212      	sxth	r2, r2
-  be:	b21b      	sxth	r3, r3
-  c0:	f8cd e000 	str.w	lr, [sp]
-  c4:	9502      	str	r5, [sp, #8]
-  c6:	f7ff fffe 	bl	0 <drawWidget>
-  ca:	f894 3020 	ldrb.w	r3, [r4, #32]
-  ce:	1f1a      	subs	r2, r3, #4
-  d0:	b2d2      	uxtb	r2, r2
-  d2:	2a01      	cmp	r2, #1
-  d4:	d860      	bhi.n	198 <drawWidget+0x198>
-  d6:	69e3      	ldr	r3, [r4, #28]
-  d8:	f413 7f80 	tst.w	r3, #256	; 0x100
-  dc:	d02a      	beq.n	134 <drawWidget+0x134>
-  de:	2001      	movs	r0, #1
-  e0:	496a      	ldr	r1, [pc, #424]	; (28c <drawWidget+0x28c>)
-  e2:	f7ff fffe 	bl	0 <print>
-  e6:	2001      	movs	r0, #1
-  e8:	4969      	ldr	r1, [pc, #420]	; (290 <drawWidget+0x290>)
-  ea:	f89d 2010 	ldrb.w	r2, [sp, #16]
-  ee:	f7ff fffe 	bl	0 <print>
-  f2:	2001      	movs	r0, #1
-  f4:	4967      	ldr	r1, [pc, #412]	; (294 <drawWidget+0x294>)
-  f6:	f89d 2011 	ldrb.w	r2, [sp, #17]
-  fa:	f7ff fffe 	bl	0 <print>
-  fe:	2001      	movs	r0, #1
- 100:	4965      	ldr	r1, [pc, #404]	; (298 <drawWidget+0x298>)
- 102:	f89d 2012 	ldrb.w	r2, [sp, #18]
- 106:	f7ff fffe 	bl	0 <print>
- 10a:	8aa3      	ldrh	r3, [r4, #20]
- 10c:	8b27      	ldrh	r7, [r4, #24]
- 10e:	8ae0      	ldrh	r0, [r4, #22]
- 110:	1c59      	adds	r1, r3, #1
- 112:	19db      	adds	r3, r3, r7
- 114:	8b67      	ldrh	r7, [r4, #26]
- 116:	1c42      	adds	r2, r0, #1
- 118:	19c0      	adds	r0, r0, r7
- 11a:	3801      	subs	r0, #1
- 11c:	b200      	sxth	r0, r0
- 11e:	9000      	str	r0, [sp, #0]
- 120:	69e0      	ldr	r0, [r4, #28]
- 122:	3b01      	subs	r3, #1
- 124:	9001      	str	r0, [sp, #4]
- 126:	b209      	sxth	r1, r1
- 128:	a804      	add	r0, sp, #16
- 12a:	b212      	sxth	r2, r2
- 12c:	b21b      	sxth	r3, r3
- 12e:	9502      	str	r5, [sp, #8]
- 130:	f7ff fffe 	bl	0 <drawWidget>
- 134:	69e7      	ldr	r7, [r4, #28]
- 136:	f417 3780 	ands.w	r7, r7, #65536	; 0x10000
- 13a:	d022      	beq.n	182 <drawWidget+0x182>
- 13c:	2001      	movs	r0, #1
- 13e:	4957      	ldr	r1, [pc, #348]	; (29c <drawWidget+0x29c>)
- 140:	f7ff fffe 	bl	0 <print>
- 144:	6833      	ldr	r3, [r6, #0]
- 146:	6a60      	ldr	r0, [r4, #36]	; 0x24
- 148:	89dd      	ldrh	r5, [r3, #14]
- 14a:	f8b4 801a 	ldrh.w	r8, [r4, #26]
- 14e:	8b26      	ldrh	r6, [r4, #24]
- 150:	f7ff fffe 	bl	0 <len>
- 154:	ebc5 0808 	rsb	r8, r5, r8
- 158:	f1c5 0507 	rsb	r5, r5, #7
- 15c:	fb05 6500 	mla	r5, r5, r0, r6
- 160:	eb05 75d5 	add.w	r5, r5, r5, lsr #31
- 164:	106f      	asrs	r7, r5, #1
- 166:	3702      	adds	r7, #2
- 168:	b2bf      	uxth	r7, r7
- 16a:	eb08 78d8 	add.w	r8, r8, r8, lsr #31
- 16e:	ea4f 0868 	mov.w	r8, r8, asr #1
- 172:	2001      	movs	r0, #1
- 174:	494a      	ldr	r1, [pc, #296]	; (2a0 <drawWidget+0x2a0>)
- 176:	463a      	mov	r2, r7
- 178:	fa1f f888 	uxth.w	r8, r8
- 17c:	f7ff fffe 	bl	0 <print>
- 180:	e186      	b.n	490 <drawWidget+0x490>
- 182:	6833      	ldr	r3, [r6, #0]
- 184:	f8b4 801a 	ldrh.w	r8, [r4, #26]
- 188:	89db      	ldrh	r3, [r3, #14]
- 18a:	ebc3 0808 	rsb	r8, r3, r8
- 18e:	eb08 78d8 	add.w	r8, r8, r8, lsr #31
- 192:	ea4f 0868 	mov.w	r8, r8, asr #1
- 196:	e048      	b.n	22a <drawWidget+0x22a>
- 198:	2b07      	cmp	r3, #7
- 19a:	d149      	bne.n	230 <drawWidget+0x230>
- 19c:	8aa1      	ldrh	r1, [r4, #20]
- 19e:	8ae2      	ldrh	r2, [r4, #22]
- 1a0:	8b60      	ldrh	r0, [r4, #26]
- 1a2:	9502      	str	r5, [sp, #8]
- 1a4:	1843      	adds	r3, r0, r1
- 1a6:	1880      	adds	r0, r0, r2
- 1a8:	b200      	sxth	r0, r0
- 1aa:	9000      	str	r0, [sp, #0]
- 1ac:	69e0      	ldr	r0, [r4, #28]
- 1ae:	b21b      	sxth	r3, r3
- 1b0:	9001      	str	r0, [sp, #4]
- 1b2:	b209      	sxth	r1, r1
- 1b4:	a805      	add	r0, sp, #20
- 1b6:	b212      	sxth	r2, r2
- 1b8:	f7ff fffe 	bl	0 <drawWidget>
- 1bc:	6923      	ldr	r3, [r4, #16]
- 1be:	b333      	cbz	r3, 20e <drawWidget+0x20e>
- 1c0:	8ae5      	ldrh	r5, [r4, #22]
- 1c2:	8b60      	ldrh	r0, [r4, #26]
- 1c4:	8aa3      	ldrh	r3, [r4, #20]
- 1c6:	0847      	lsrs	r7, r0, #1
- 1c8:	1828      	adds	r0, r5, r0
- 1ca:	3801      	subs	r0, #1
- 1cc:	b200      	sxth	r0, r0
- 1ce:	9000      	str	r0, [sp, #0]
- 1d0:	69e0      	ldr	r0, [r4, #28]
- 1d2:	1c59      	adds	r1, r3, #1
- 1d4:	197a      	adds	r2, r7, r5
- 1d6:	18fb      	adds	r3, r7, r3
- 1d8:	9001      	str	r0, [sp, #4]
- 1da:	b209      	sxth	r1, r1
- 1dc:	4620      	mov	r0, r4
- 1de:	b212      	sxth	r2, r2
- 1e0:	b21b      	sxth	r3, r3
- 1e2:	f7ff fffe 	bl	0 <drawWidget>
- 1e6:	8b63      	ldrh	r3, [r4, #26]
- 1e8:	8ae0      	ldrh	r0, [r4, #22]
- 1ea:	8aa5      	ldrh	r5, [r4, #20]
- 1ec:	181a      	adds	r2, r3, r0
- 1ee:	3801      	subs	r0, #1
- 1f0:	b200      	sxth	r0, r0
- 1f2:	eb05 0153 	add.w	r1, r5, r3, lsr #1
- 1f6:	9000      	str	r0, [sp, #0]
- 1f8:	18eb      	adds	r3, r5, r3
- 1fa:	69e0      	ldr	r0, [r4, #28]
- 1fc:	3a01      	subs	r2, #1
- 1fe:	3b01      	subs	r3, #1
- 200:	9001      	str	r0, [sp, #4]
+  70:	69e0      	ldr	r0, [r4, #28]
+  72:	f010 0f10 	tst.w	r0, #16
+  76:	d014      	beq.n	a2 <drawWidget+0xa2>
+  78:	8aa1      	ldrh	r1, [r4, #20]
+  7a:	8ae2      	ldrh	r2, [r4, #22]
+  7c:	8b23      	ldrh	r3, [r4, #24]
+  7e:	f8b4 e01a 	ldrh.w	lr, [r4, #26]
+  82:	18cb      	adds	r3, r1, r3
+  84:	4496      	add	lr, r2
+  86:	f420 7080 	bic.w	r0, r0, #256	; 0x100
+  8a:	fa0f fe8e 	sxth.w	lr, lr
+  8e:	9001      	str	r0, [sp, #4]
+  90:	b209      	sxth	r1, r1
+  92:	a805      	add	r0, sp, #20
+  94:	b212      	sxth	r2, r2
+  96:	b21b      	sxth	r3, r3
+  98:	f8cd e000 	str.w	lr, [sp]
+  9c:	9502      	str	r5, [sp, #8]
+  9e:	f7ff fffe 	bl	0 <drawWidget>
+  a2:	f894 3020 	ldrb.w	r3, [r4, #32]
+  a6:	1f5a      	subs	r2, r3, #5
+  a8:	b2d2      	uxtb	r2, r2
+  aa:	2a01      	cmp	r2, #1
+  ac:	d840      	bhi.n	130 <drawWidget+0x130>
+  ae:	69e0      	ldr	r0, [r4, #28]
+  b0:	f410 7f80 	tst.w	r0, #256	; 0x100
+  b4:	d015      	beq.n	e2 <drawWidget+0xe2>
+  b6:	8aa3      	ldrh	r3, [r4, #20]
+  b8:	f8b4 e018 	ldrh.w	lr, [r4, #24]
+  bc:	8ae7      	ldrh	r7, [r4, #22]
+  be:	1c59      	adds	r1, r3, #1
+  c0:	4473      	add	r3, lr
+  c2:	f8b4 e01a 	ldrh.w	lr, [r4, #26]
+  c6:	1c7a      	adds	r2, r7, #1
+  c8:	4477      	add	r7, lr
+  ca:	3b01      	subs	r3, #1
+  cc:	3f01      	subs	r7, #1
+  ce:	b23f      	sxth	r7, r7
+  d0:	9001      	str	r0, [sp, #4]
+  d2:	b209      	sxth	r1, r1
+  d4:	a804      	add	r0, sp, #16
+  d6:	b212      	sxth	r2, r2
+  d8:	b21b      	sxth	r3, r3
+  da:	9700      	str	r7, [sp, #0]
+  dc:	9502      	str	r5, [sp, #8]
+  de:	f7ff fffe 	bl	0 <drawWidget>
+  e2:	69e7      	ldr	r7, [r4, #28]
+  e4:	f8b4 801a 	ldrh.w	r8, [r4, #26]
+  e8:	f417 3780 	ands.w	r7, r7, #65536	; 0x10000
+  ec:	d017      	beq.n	11e <drawWidget+0x11e>
+  ee:	6833      	ldr	r3, [r6, #0]
+  f0:	6a60      	ldr	r0, [r4, #36]	; 0x24
+  f2:	89dd      	ldrh	r5, [r3, #14]
+  f4:	8b26      	ldrh	r6, [r4, #24]
+  f6:	f7ff fffe 	bl	0 <len>
+  fa:	ebc5 0808 	rsb	r8, r5, r8
+  fe:	f1c5 0507 	rsb	r5, r5, #7
+ 102:	fb05 6500 	mla	r5, r5, r0, r6
+ 106:	eb05 75d5 	add.w	r5, r5, r5, lsr #31
+ 10a:	eb08 78d8 	add.w	r8, r8, r8, lsr #31
+ 10e:	106f      	asrs	r7, r5, #1
+ 110:	ea4f 0868 	mov.w	r8, r8, asr #1
+ 114:	3702      	adds	r7, #2
+ 116:	fa1f f888 	uxth.w	r8, r8
+ 11a:	b2bf      	uxth	r7, r7
+ 11c:	e16e      	b.n	3fc <drawWidget+0x3fc>
+ 11e:	6833      	ldr	r3, [r6, #0]
+ 120:	89db      	ldrh	r3, [r3, #14]
+ 122:	ebc3 0808 	rsb	r8, r3, r8
+ 126:	eb08 78d8 	add.w	r8, r8, r8, lsr #31
+ 12a:	ea4f 0868 	mov.w	r8, r8, asr #1
+ 12e:	e048      	b.n	1c2 <drawWidget+0x1c2>
+ 130:	2b08      	cmp	r3, #8
+ 132:	d149      	bne.n	1c8 <drawWidget+0x1c8>
+ 134:	8aa1      	ldrh	r1, [r4, #20]
+ 136:	8ae2      	ldrh	r2, [r4, #22]
+ 138:	8b60      	ldrh	r0, [r4, #26]
+ 13a:	9502      	str	r5, [sp, #8]
+ 13c:	1843      	adds	r3, r0, r1
+ 13e:	1880      	adds	r0, r0, r2
+ 140:	b200      	sxth	r0, r0
+ 142:	9000      	str	r0, [sp, #0]
+ 144:	69e0      	ldr	r0, [r4, #28]
+ 146:	b21b      	sxth	r3, r3
+ 148:	9001      	str	r0, [sp, #4]
+ 14a:	b209      	sxth	r1, r1
+ 14c:	a805      	add	r0, sp, #20
+ 14e:	b212      	sxth	r2, r2
+ 150:	f7ff fffe 	bl	0 <drawWidget>
+ 154:	6923      	ldr	r3, [r4, #16]
+ 156:	b333      	cbz	r3, 1a6 <drawWidget+0x1a6>
+ 158:	8ae5      	ldrh	r5, [r4, #22]
+ 15a:	8b60      	ldrh	r0, [r4, #26]
+ 15c:	8aa3      	ldrh	r3, [r4, #20]
+ 15e:	0847      	lsrs	r7, r0, #1
+ 160:	1828      	adds	r0, r5, r0
+ 162:	3801      	subs	r0, #1
+ 164:	b200      	sxth	r0, r0
+ 166:	9000      	str	r0, [sp, #0]
+ 168:	69e0      	ldr	r0, [r4, #28]
+ 16a:	1c59      	adds	r1, r3, #1
+ 16c:	197a      	adds	r2, r7, r5
+ 16e:	18fb      	adds	r3, r7, r3
+ 170:	9001      	str	r0, [sp, #4]
+ 172:	b209      	sxth	r1, r1
+ 174:	4620      	mov	r0, r4
+ 176:	b212      	sxth	r2, r2
+ 178:	b21b      	sxth	r3, r3
+ 17a:	f7ff fffe 	bl	0 <drawWidget>
+ 17e:	8b63      	ldrh	r3, [r4, #26]
+ 180:	8ae0      	ldrh	r0, [r4, #22]
+ 182:	8aa5      	ldrh	r5, [r4, #20]
+ 184:	181a      	adds	r2, r3, r0
+ 186:	3801      	subs	r0, #1
+ 188:	b200      	sxth	r0, r0
+ 18a:	eb05 0153 	add.w	r1, r5, r3, lsr #1
+ 18e:	9000      	str	r0, [sp, #0]
+ 190:	18eb      	adds	r3, r5, r3
+ 192:	69e0      	ldr	r0, [r4, #28]
+ 194:	3a01      	subs	r2, #1
+ 196:	3b01      	subs	r3, #1
+ 198:	9001      	str	r0, [sp, #4]
+ 19a:	b209      	sxth	r1, r1
+ 19c:	a805      	add	r0, sp, #20
+ 19e:	b212      	sxth	r2, r2
+ 1a0:	b21b      	sxth	r3, r3
+ 1a2:	f7ff fffe 	bl	0 <drawWidget>
+ 1a6:	6832      	ldr	r2, [r6, #0]
+ 1a8:	8b63      	ldrh	r3, [r4, #26]
+ 1aa:	f8b2 800e 	ldrh.w	r8, [r2, #14]
+ 1ae:	1c9f      	adds	r7, r3, #2
+ 1b0:	ebc8 0803 	rsb	r8, r8, r3
+ 1b4:	eb08 78d8 	add.w	r8, r8, r8, lsr #31
+ 1b8:	ea4f 0868 	mov.w	r8, r8, asr #1
+ 1bc:	b2bf      	uxth	r7, r7
+ 1be:	f108 0802 	add.w	r8, r8, #2
+ 1c2:	fa1f f888 	uxth.w	r8, r8
+ 1c6:	e119      	b.n	3fc <drawWidget+0x3fc>
+ 1c8:	2b0c      	cmp	r3, #12
+ 1ca:	d125      	bne.n	218 <drawWidget+0x218>
+ 1cc:	8aa1      	ldrh	r1, [r4, #20]
+ 1ce:	8ae2      	ldrh	r2, [r4, #22]
+ 1d0:	8b60      	ldrh	r0, [r4, #26]
+ 1d2:	9502      	str	r5, [sp, #8]
+ 1d4:	1843      	adds	r3, r0, r1
+ 1d6:	1880      	adds	r0, r0, r2
+ 1d8:	b200      	sxth	r0, r0
+ 1da:	9000      	str	r0, [sp, #0]
+ 1dc:	69e0      	ldr	r0, [r4, #28]
+ 1de:	b209      	sxth	r1, r1
+ 1e0:	9001      	str	r0, [sp, #4]
+ 1e2:	b212      	sxth	r2, r2
+ 1e4:	a805      	add	r0, sp, #20
+ 1e6:	b21b      	sxth	r3, r3
+ 1e8:	f7ff fffe 	bl	0 <drawWidget>
+ 1ec:	8b22      	ldrh	r2, [r4, #24]
+ 1ee:	8aa3      	ldrh	r3, [r4, #20]
+ 1f0:	8b60      	ldrh	r0, [r4, #26]
+ 1f2:	18d3      	adds	r3, r2, r3
+ 1f4:	8ae2      	ldrh	r2, [r4, #22]
+ 1f6:	b29b      	uxth	r3, r3
+ 1f8:	1a19      	subs	r1, r3, r0
+ 1fa:	1810      	adds	r0, r2, r0
+ 1fc:	b200      	sxth	r0, r0
+ 1fe:	9000      	str	r0, [sp, #0]
+ 200:	69e0      	ldr	r0, [r4, #28]
  202:	b209      	sxth	r1, r1
- 204:	a805      	add	r0, sp, #20
+ 204:	9001      	str	r0, [sp, #4]
  206:	b212      	sxth	r2, r2
- 208:	b21b      	sxth	r3, r3
- 20a:	f7ff fffe 	bl	0 <drawWidget>
- 20e:	6832      	ldr	r2, [r6, #0]
- 210:	8b63      	ldrh	r3, [r4, #26]
- 212:	f8b2 800e 	ldrh.w	r8, [r2, #14]
- 216:	1c9f      	adds	r7, r3, #2
- 218:	ebc8 0803 	rsb	r8, r8, r3
- 21c:	eb08 78d8 	add.w	r8, r8, r8, lsr #31
- 220:	ea4f 0868 	mov.w	r8, r8, asr #1
- 224:	b2bf      	uxth	r7, r7
- 226:	f108 0802 	add.w	r8, r8, #2
- 22a:	fa1f f888 	uxth.w	r8, r8
- 22e:	e12f      	b.n	490 <drawWidget+0x490>
- 230:	2b0b      	cmp	r3, #11
- 232:	d137      	bne.n	2a4 <drawWidget+0x2a4>
- 234:	8aa1      	ldrh	r1, [r4, #20]
- 236:	8ae2      	ldrh	r2, [r4, #22]
- 238:	8b60      	ldrh	r0, [r4, #26]
- 23a:	9502      	str	r5, [sp, #8]
- 23c:	1843      	adds	r3, r0, r1
- 23e:	1880      	adds	r0, r0, r2
- 240:	b200      	sxth	r0, r0
- 242:	9000      	str	r0, [sp, #0]
- 244:	69e0      	ldr	r0, [r4, #28]
- 246:	b209      	sxth	r1, r1
- 248:	9001      	str	r0, [sp, #4]
- 24a:	b212      	sxth	r2, r2
- 24c:	a805      	add	r0, sp, #20
- 24e:	b21b      	sxth	r3, r3
- 250:	f7ff fffe 	bl	0 <drawWidget>
- 254:	8b22      	ldrh	r2, [r4, #24]
- 256:	8aa3      	ldrh	r3, [r4, #20]
- 258:	8b60      	ldrh	r0, [r4, #26]
- 25a:	18d3      	adds	r3, r2, r3
- 25c:	8ae2      	ldrh	r2, [r4, #22]
- 25e:	b29b      	uxth	r3, r3
- 260:	1a19      	subs	r1, r3, r0
- 262:	1810      	adds	r0, r2, r0
- 264:	b200      	sxth	r0, r0
- 266:	9000      	str	r0, [sp, #0]
- 268:	69e0      	ldr	r0, [r4, #28]
- 26a:	b209      	sxth	r1, r1
- 26c:	9001      	str	r0, [sp, #4]
- 26e:	b212      	sxth	r2, r2
- 270:	a805      	add	r0, sp, #20
- 272:	b21b      	sxth	r3, r3
- 274:	9502      	str	r5, [sp, #8]
- 276:	f7ff fffe 	bl	0 <drawWidget>
- 27a:	e109      	b.n	216 <drawWidget+0x216>
- 27c:	00000211 	.word	0x00000211
- 280:	00000000 	.word	0x00000000
- 284:	00000225 	.word	0x00000225
- 288:	0000022e 	.word	0x0000022e
- 28c:	00000237 	.word	0x00000237
- 290:	00000246 	.word	0x00000246
- 294:	00000251 	.word	0x00000251
- 298:	0000025c 	.word	0x0000025c
- 29c:	00000267 	.word	0x00000267
- 2a0:	00000271 	.word	0x00000271
- 2a4:	2b0c      	cmp	r3, #12
- 2a6:	f040 80f3 	bne.w	490 <drawWidget+0x490>
- 2aa:	2001      	movs	r0, #1
- 2ac:	4988      	ldr	r1, [pc, #544]	; (4d0 <drawWidget+0x4d0>)
- 2ae:	f7ff fffe 	bl	0 <print>
- 2b2:	8aa1      	ldrh	r1, [r4, #20]
- 2b4:	8ae2      	ldrh	r2, [r4, #22]
- 2b6:	8b60      	ldrh	r0, [r4, #26]
- 2b8:	9502      	str	r5, [sp, #8]
- 2ba:	1843      	adds	r3, r0, r1
- 2bc:	1880      	adds	r0, r0, r2
- 2be:	b200      	sxth	r0, r0
- 2c0:	9000      	str	r0, [sp, #0]
- 2c2:	69e0      	ldr	r0, [r4, #28]
- 2c4:	b209      	sxth	r1, r1
- 2c6:	9001      	str	r0, [sp, #4]
- 2c8:	b212      	sxth	r2, r2
- 2ca:	a805      	add	r0, sp, #20
- 2cc:	b21b      	sxth	r3, r3
- 2ce:	f7ff fffe 	bl	0 <drawWidget>
- 2d2:	8b22      	ldrh	r2, [r4, #24]
- 2d4:	8aa3      	ldrh	r3, [r4, #20]
- 2d6:	8b60      	ldrh	r0, [r4, #26]
- 2d8:	18d3      	adds	r3, r2, r3
- 2da:	8ae2      	ldrh	r2, [r4, #22]
- 2dc:	b29b      	uxth	r3, r3
- 2de:	1a19      	subs	r1, r3, r0
- 2e0:	1810      	adds	r0, r2, r0
- 2e2:	b200      	sxth	r0, r0
- 2e4:	9000      	str	r0, [sp, #0]
- 2e6:	69e0      	ldr	r0, [r4, #28]
- 2e8:	b209      	sxth	r1, r1
- 2ea:	9001      	str	r0, [sp, #4]
- 2ec:	b212      	sxth	r2, r2
- 2ee:	a805      	add	r0, sp, #20
- 2f0:	b21b      	sxth	r3, r3
- 2f2:	9502      	str	r5, [sp, #8]
- 2f4:	f7ff fffe 	bl	0 <drawWidget>
- 2f8:	f8b4 e016 	ldrh.w	lr, [r4, #22]
- 2fc:	8b60      	ldrh	r0, [r4, #26]
- 2fe:	8aa3      	ldrh	r3, [r4, #20]
- 300:	086e      	lsrs	r6, r5, #1
- 302:	eb0e 0250 	add.w	r2, lr, r0, lsr #1
- 306:	1c99      	adds	r1, r3, #2
- 308:	181b      	adds	r3, r3, r0
- 30a:	4470      	add	r0, lr
- 30c:	1b80      	subs	r0, r0, r6
- 30e:	b200      	sxth	r0, r0
- 310:	9000      	str	r0, [sp, #0]
- 312:	69e0      	ldr	r0, [r4, #28]
- 314:	3b04      	subs	r3, #4
- 316:	9001      	str	r0, [sp, #4]
- 318:	b209      	sxth	r1, r1
- 31a:	a805      	add	r0, sp, #20
- 31c:	b212      	sxth	r2, r2
- 31e:	b21b      	sxth	r3, r3
- 320:	f7ff fffe 	bl	0 <drawWidget>
- 324:	8ae0      	ldrh	r0, [r4, #22]
- 326:	8b63      	ldrh	r3, [r4, #26]
- 328:	f8b4 e014 	ldrh.w	lr, [r4, #20]
- 32c:	eb00 0253 	add.w	r2, r0, r3, lsr #1
- 330:	1830      	adds	r0, r6, r0
- 332:	b200      	sxth	r0, r0
- 334:	4473      	add	r3, lr
- 336:	9000      	str	r0, [sp, #0]
- 338:	69e0      	ldr	r0, [r4, #28]
- 33a:	f10e 0102 	add.w	r1, lr, #2
- 33e:	3b04      	subs	r3, #4
- 340:	9001      	str	r0, [sp, #4]
- 342:	b209      	sxth	r1, r1
- 344:	a805      	add	r0, sp, #20
- 346:	b212      	sxth	r2, r2
- 348:	b21b      	sxth	r3, r3
- 34a:	f7ff fffe 	bl	0 <drawWidget>
- 34e:	8ae3      	ldrh	r3, [r4, #22]
- 350:	8b62      	ldrh	r2, [r4, #26]
- 352:	8aa1      	ldrh	r1, [r4, #20]
- 354:	a805      	add	r0, sp, #20
- 356:	1851      	adds	r1, r2, r1
- 358:	18d2      	adds	r2, r2, r3
- 35a:	18f3      	adds	r3, r6, r3
- 35c:	b21b      	sxth	r3, r3
- 35e:	9300      	str	r3, [sp, #0]
- 360:	3904      	subs	r1, #4
- 362:	69e3      	ldr	r3, [r4, #28]
- 364:	b209      	sxth	r1, r1
- 366:	1b92      	subs	r2, r2, r6
- 368:	9301      	str	r3, [sp, #4]
- 36a:	b212      	sxth	r2, r2
- 36c:	460b      	mov	r3, r1
- 36e:	f7ff fffe 	bl	0 <drawWidget>
- 372:	8b22      	ldrh	r2, [r4, #24]
- 374:	8aa3      	ldrh	r3, [r4, #20]
- 376:	f8b4 e016 	ldrh.w	lr, [r4, #22]
- 37a:	8b60      	ldrh	r0, [r4, #26]
- 37c:	18d3      	adds	r3, r2, r3
- 37e:	b29b      	uxth	r3, r3
- 380:	eb0e 0250 	add.w	r2, lr, r0, lsr #1
- 384:	1f19      	subs	r1, r3, #4
- 386:	1a1b      	subs	r3, r3, r0
- 388:	4470      	add	r0, lr
- 38a:	1b80      	subs	r0, r0, r6
- 38c:	b200      	sxth	r0, r0
- 38e:	9000      	str	r0, [sp, #0]
- 390:	69e0      	ldr	r0, [r4, #28]
- 392:	3304      	adds	r3, #4
- 394:	9001      	str	r0, [sp, #4]
- 396:	b209      	sxth	r1, r1
- 398:	a805      	add	r0, sp, #20
- 39a:	b212      	sxth	r2, r2
- 39c:	b21b      	sxth	r3, r3
- 39e:	f7ff fffe 	bl	0 <drawWidget>
- 3a2:	f8b4 e018 	ldrh.w	lr, [r4, #24]
- 3a6:	8aa3      	ldrh	r3, [r4, #20]
- 3a8:	8ae0      	ldrh	r0, [r4, #22]
- 3aa:	4473      	add	r3, lr
- 3ac:	f8b4 e01a 	ldrh.w	lr, [r4, #26]
- 3b0:	b29b      	uxth	r3, r3
- 3b2:	eb00 025e 	add.w	r2, r0, lr, lsr #1
- 3b6:	1830      	adds	r0, r6, r0
- 3b8:	b200      	sxth	r0, r0
- 3ba:	1f19      	subs	r1, r3, #4
- 3bc:	9000      	str	r0, [sp, #0]
- 3be:	ebce 0303 	rsb	r3, lr, r3
- 3c2:	69e0      	ldr	r0, [r4, #28]
- 3c4:	3304      	adds	r3, #4
- 3c6:	9001      	str	r0, [sp, #4]
- 3c8:	b209      	sxth	r1, r1
- 3ca:	a805      	add	r0, sp, #20
- 3cc:	b212      	sxth	r2, r2
- 3ce:	b21b      	sxth	r3, r3
- 3d0:	f7ff fffe 	bl	0 <drawWidget>
- 3d4:	8aa0      	ldrh	r0, [r4, #20]
- 3d6:	8b21      	ldrh	r1, [r4, #24]
- 3d8:	8ae3      	ldrh	r3, [r4, #22]
- 3da:	8b62      	ldrh	r2, [r4, #26]
- 3dc:	1841      	adds	r1, r0, r1
- 3de:	3104      	adds	r1, #4
- 3e0:	1a89      	subs	r1, r1, r2
- 3e2:	18d2      	adds	r2, r2, r3
- 3e4:	18f3      	adds	r3, r6, r3
+ 208:	a805      	add	r0, sp, #20
+ 20a:	b21b      	sxth	r3, r3
+ 20c:	9502      	str	r5, [sp, #8]
+ 20e:	f7ff fffe 	bl	0 <drawWidget>
+ 212:	e0f3      	b.n	24e <drawWidget+0x24e>
+ 214:	00000000 	.word	0x00000000
+ 218:	2b0d      	cmp	r3, #13
+ 21a:	f040 80ef 	bne.w	3fc <drawWidget+0x3fc>
+ 21e:	8aa1      	ldrh	r1, [r4, #20]
+ 220:	8ae2      	ldrh	r2, [r4, #22]
+ 222:	8b60      	ldrh	r0, [r4, #26]
+ 224:	9502      	str	r5, [sp, #8]
+ 226:	1843      	adds	r3, r0, r1
+ 228:	1880      	adds	r0, r0, r2
+ 22a:	b200      	sxth	r0, r0
+ 22c:	9000      	str	r0, [sp, #0]
+ 22e:	69e0      	ldr	r0, [r4, #28]
+ 230:	b209      	sxth	r1, r1
+ 232:	9001      	str	r0, [sp, #4]
+ 234:	b212      	sxth	r2, r2
+ 236:	a805      	add	r0, sp, #20
+ 238:	b21b      	sxth	r3, r3
+ 23a:	f7ff fffe 	bl	0 <drawWidget>
+ 23e:	8b22      	ldrh	r2, [r4, #24]
+ 240:	8aa3      	ldrh	r3, [r4, #20]
+ 242:	8b60      	ldrh	r0, [r4, #26]
+ 244:	18d3      	adds	r3, r2, r3
+ 246:	8ae2      	ldrh	r2, [r4, #22]
+ 248:	b29b      	uxth	r3, r3
+ 24a:	1a19      	subs	r1, r3, r0
+ 24c:	1810      	adds	r0, r2, r0
+ 24e:	b200      	sxth	r0, r0
+ 250:	9000      	str	r0, [sp, #0]
+ 252:	69e0      	ldr	r0, [r4, #28]
+ 254:	b209      	sxth	r1, r1
+ 256:	9001      	str	r0, [sp, #4]
+ 258:	b212      	sxth	r2, r2
+ 25a:	a805      	add	r0, sp, #20
+ 25c:	b21b      	sxth	r3, r3
+ 25e:	9502      	str	r5, [sp, #8]
+ 260:	f7ff fffe 	bl	0 <drawWidget>
+ 264:	f8b4 e016 	ldrh.w	lr, [r4, #22]
+ 268:	8b60      	ldrh	r0, [r4, #26]
+ 26a:	8aa3      	ldrh	r3, [r4, #20]
+ 26c:	086e      	lsrs	r6, r5, #1
+ 26e:	eb0e 0250 	add.w	r2, lr, r0, lsr #1
+ 272:	1c99      	adds	r1, r3, #2
+ 274:	181b      	adds	r3, r3, r0
+ 276:	4470      	add	r0, lr
+ 278:	1b80      	subs	r0, r0, r6
+ 27a:	b200      	sxth	r0, r0
+ 27c:	9000      	str	r0, [sp, #0]
+ 27e:	69e0      	ldr	r0, [r4, #28]
+ 280:	3b04      	subs	r3, #4
+ 282:	9001      	str	r0, [sp, #4]
+ 284:	b209      	sxth	r1, r1
+ 286:	a805      	add	r0, sp, #20
+ 288:	b212      	sxth	r2, r2
+ 28a:	b21b      	sxth	r3, r3
+ 28c:	f7ff fffe 	bl	0 <drawWidget>
+ 290:	8ae0      	ldrh	r0, [r4, #22]
+ 292:	8b63      	ldrh	r3, [r4, #26]
+ 294:	f8b4 e014 	ldrh.w	lr, [r4, #20]
+ 298:	eb00 0253 	add.w	r2, r0, r3, lsr #1
+ 29c:	1830      	adds	r0, r6, r0
+ 29e:	b200      	sxth	r0, r0
+ 2a0:	4473      	add	r3, lr
+ 2a2:	9000      	str	r0, [sp, #0]
+ 2a4:	69e0      	ldr	r0, [r4, #28]
+ 2a6:	f10e 0102 	add.w	r1, lr, #2
+ 2aa:	3b04      	subs	r3, #4
+ 2ac:	9001      	str	r0, [sp, #4]
+ 2ae:	b209      	sxth	r1, r1
+ 2b0:	a805      	add	r0, sp, #20
+ 2b2:	b212      	sxth	r2, r2
+ 2b4:	b21b      	sxth	r3, r3
+ 2b6:	f7ff fffe 	bl	0 <drawWidget>
+ 2ba:	8ae3      	ldrh	r3, [r4, #22]
+ 2bc:	8b62      	ldrh	r2, [r4, #26]
+ 2be:	8aa1      	ldrh	r1, [r4, #20]
+ 2c0:	a805      	add	r0, sp, #20
+ 2c2:	1851      	adds	r1, r2, r1
+ 2c4:	18d2      	adds	r2, r2, r3
+ 2c6:	18f3      	adds	r3, r6, r3
+ 2c8:	b21b      	sxth	r3, r3
+ 2ca:	9300      	str	r3, [sp, #0]
+ 2cc:	3904      	subs	r1, #4
+ 2ce:	69e3      	ldr	r3, [r4, #28]
+ 2d0:	b209      	sxth	r1, r1
+ 2d2:	1b92      	subs	r2, r2, r6
+ 2d4:	9301      	str	r3, [sp, #4]
+ 2d6:	b212      	sxth	r2, r2
+ 2d8:	460b      	mov	r3, r1
+ 2da:	f7ff fffe 	bl	0 <drawWidget>
+ 2de:	8b22      	ldrh	r2, [r4, #24]
+ 2e0:	8aa3      	ldrh	r3, [r4, #20]
+ 2e2:	f8b4 e016 	ldrh.w	lr, [r4, #22]
+ 2e6:	8b60      	ldrh	r0, [r4, #26]
+ 2e8:	18d3      	adds	r3, r2, r3
+ 2ea:	b29b      	uxth	r3, r3
+ 2ec:	eb0e 0250 	add.w	r2, lr, r0, lsr #1
+ 2f0:	1f19      	subs	r1, r3, #4
+ 2f2:	1a1b      	subs	r3, r3, r0
+ 2f4:	4470      	add	r0, lr
+ 2f6:	1b80      	subs	r0, r0, r6
+ 2f8:	b200      	sxth	r0, r0
+ 2fa:	9000      	str	r0, [sp, #0]
+ 2fc:	69e0      	ldr	r0, [r4, #28]
+ 2fe:	3304      	adds	r3, #4
+ 300:	9001      	str	r0, [sp, #4]
+ 302:	b209      	sxth	r1, r1
+ 304:	a805      	add	r0, sp, #20
+ 306:	b212      	sxth	r2, r2
+ 308:	b21b      	sxth	r3, r3
+ 30a:	f7ff fffe 	bl	0 <drawWidget>
+ 30e:	f8b4 e018 	ldrh.w	lr, [r4, #24]
+ 312:	8aa3      	ldrh	r3, [r4, #20]
+ 314:	8ae0      	ldrh	r0, [r4, #22]
+ 316:	4473      	add	r3, lr
+ 318:	f8b4 e01a 	ldrh.w	lr, [r4, #26]
+ 31c:	b29b      	uxth	r3, r3
+ 31e:	eb00 025e 	add.w	r2, r0, lr, lsr #1
+ 322:	1830      	adds	r0, r6, r0
+ 324:	b200      	sxth	r0, r0
+ 326:	1f19      	subs	r1, r3, #4
+ 328:	9000      	str	r0, [sp, #0]
+ 32a:	ebce 0303 	rsb	r3, lr, r3
+ 32e:	69e0      	ldr	r0, [r4, #28]
+ 330:	3304      	adds	r3, #4
+ 332:	9001      	str	r0, [sp, #4]
+ 334:	b209      	sxth	r1, r1
+ 336:	a805      	add	r0, sp, #20
+ 338:	b212      	sxth	r2, r2
+ 33a:	b21b      	sxth	r3, r3
+ 33c:	f7ff fffe 	bl	0 <drawWidget>
+ 340:	8aa0      	ldrh	r0, [r4, #20]
+ 342:	8b21      	ldrh	r1, [r4, #24]
+ 344:	8ae3      	ldrh	r3, [r4, #22]
+ 346:	8b62      	ldrh	r2, [r4, #26]
+ 348:	1841      	adds	r1, r0, r1
+ 34a:	3104      	adds	r1, #4
+ 34c:	1a89      	subs	r1, r1, r2
+ 34e:	18d2      	adds	r2, r2, r3
+ 350:	18f3      	adds	r3, r6, r3
+ 352:	b21b      	sxth	r3, r3
+ 354:	9300      	str	r3, [sp, #0]
+ 356:	69e3      	ldr	r3, [r4, #28]
+ 358:	b209      	sxth	r1, r1
+ 35a:	1b92      	subs	r2, r2, r6
+ 35c:	9301      	str	r3, [sp, #4]
+ 35e:	a805      	add	r0, sp, #20
+ 360:	460b      	mov	r3, r1
+ 362:	b212      	sxth	r2, r2
+ 364:	f7ff fffe 	bl	0 <drawWidget>
+ 368:	6923      	ldr	r3, [r4, #16]
+ 36a:	b133      	cbz	r3, 37a <drawWidget+0x37a>
+ 36c:	8b26      	ldrh	r6, [r4, #24]
+ 36e:	2264      	movs	r2, #100	; 0x64
+ 370:	fbb2 f3f3 	udiv	r3, r2, r3
+ 374:	fbb6 f6f3 	udiv	r6, r6, r3
+ 378:	e000      	b.n	37c <drawWidget+0x37c>
+ 37a:	8b66      	ldrh	r6, [r4, #26]
+ 37c:	8b60      	ldrh	r0, [r4, #26]
+ 37e:	8ae2      	ldrh	r2, [r4, #22]
+ 380:	0843      	lsrs	r3, r0, #1
+ 382:	1810      	adds	r0, r2, r0
+ 384:	b200      	sxth	r0, r0
+ 386:	9000      	str	r0, [sp, #0]
+ 388:	69e0      	ldr	r0, [r4, #28]
+ 38a:	1af1      	subs	r1, r6, r3
+ 38c:	18f3      	adds	r3, r6, r3
+ 38e:	9001      	str	r0, [sp, #4]
+ 390:	b209      	sxth	r1, r1
+ 392:	a805      	add	r0, sp, #20
+ 394:	b212      	sxth	r2, r2
+ 396:	b21b      	sxth	r3, r3
+ 398:	9502      	str	r5, [sp, #8]
+ 39a:	f7ff fffe 	bl	0 <drawWidget>
+ 39e:	8ae3      	ldrh	r3, [r4, #22]
+ 3a0:	8b60      	ldrh	r0, [r4, #26]
+ 3a2:	1d1a      	adds	r2, r3, #4
+ 3a4:	181b      	adds	r3, r3, r0
+ 3a6:	3b04      	subs	r3, #4
+ 3a8:	b21b      	sxth	r3, r3
+ 3aa:	9300      	str	r3, [sp, #0]
+ 3ac:	69e3      	ldr	r3, [r4, #28]
+ 3ae:	b231      	sxth	r1, r6
+ 3b0:	9301      	str	r3, [sp, #4]
+ 3b2:	a805      	add	r0, sp, #20
+ 3b4:	460b      	mov	r3, r1
+ 3b6:	b212      	sxth	r2, r2
+ 3b8:	f7ff fffe 	bl	0 <drawWidget>
+ 3bc:	8ae3      	ldrh	r3, [r4, #22]
+ 3be:	8b60      	ldrh	r0, [r4, #26]
+ 3c0:	1d9a      	adds	r2, r3, #6
+ 3c2:	181b      	adds	r3, r3, r0
+ 3c4:	3b06      	subs	r3, #6
+ 3c6:	b21b      	sxth	r3, r3
+ 3c8:	1f31      	subs	r1, r6, #4
+ 3ca:	9300      	str	r3, [sp, #0]
+ 3cc:	69e3      	ldr	r3, [r4, #28]
+ 3ce:	b209      	sxth	r1, r1
+ 3d0:	9301      	str	r3, [sp, #4]
+ 3d2:	a805      	add	r0, sp, #20
+ 3d4:	460b      	mov	r3, r1
+ 3d6:	b212      	sxth	r2, r2
+ 3d8:	f7ff fffe 	bl	0 <drawWidget>
+ 3dc:	8ae3      	ldrh	r3, [r4, #22]
+ 3de:	8b60      	ldrh	r0, [r4, #26]
+ 3e0:	1d9a      	adds	r2, r3, #6
+ 3e2:	181b      	adds	r3, r3, r0
+ 3e4:	3b06      	subs	r3, #6
  3e6:	b21b      	sxth	r3, r3
- 3e8:	9300      	str	r3, [sp, #0]
- 3ea:	69e3      	ldr	r3, [r4, #28]
- 3ec:	b209      	sxth	r1, r1
- 3ee:	1b92      	subs	r2, r2, r6
+ 3e8:	3604      	adds	r6, #4
+ 3ea:	9300      	str	r3, [sp, #0]
+ 3ec:	69e3      	ldr	r3, [r4, #28]
+ 3ee:	b231      	sxth	r1, r6
  3f0:	9301      	str	r3, [sp, #4]
  3f2:	a805      	add	r0, sp, #20
- 3f4:	460b      	mov	r3, r1
- 3f6:	b212      	sxth	r2, r2
+ 3f4:	b212      	sxth	r2, r2
+ 3f6:	460b      	mov	r3, r1
  3f8:	f7ff fffe 	bl	0 <drawWidget>
- 3fc:	6923      	ldr	r3, [r4, #16]
- 3fe:	b133      	cbz	r3, 40e <drawWidget+0x40e>
- 400:	8b26      	ldrh	r6, [r4, #24]
- 402:	2264      	movs	r2, #100	; 0x64
- 404:	fbb2 f3f3 	udiv	r3, r2, r3
- 408:	fbb6 f6f3 	udiv	r6, r6, r3
- 40c:	e000      	b.n	410 <drawWidget+0x410>
- 40e:	8b66      	ldrh	r6, [r4, #26]
- 410:	8b60      	ldrh	r0, [r4, #26]
- 412:	8ae2      	ldrh	r2, [r4, #22]
- 414:	0843      	lsrs	r3, r0, #1
- 416:	1810      	adds	r0, r2, r0
- 418:	b200      	sxth	r0, r0
- 41a:	9000      	str	r0, [sp, #0]
- 41c:	69e0      	ldr	r0, [r4, #28]
- 41e:	1af1      	subs	r1, r6, r3
- 420:	18f3      	adds	r3, r6, r3
- 422:	9001      	str	r0, [sp, #4]
- 424:	b209      	sxth	r1, r1
- 426:	a805      	add	r0, sp, #20
- 428:	b212      	sxth	r2, r2
- 42a:	b21b      	sxth	r3, r3
- 42c:	9502      	str	r5, [sp, #8]
- 42e:	f7ff fffe 	bl	0 <drawWidget>
- 432:	8ae3      	ldrh	r3, [r4, #22]
- 434:	8b60      	ldrh	r0, [r4, #26]
- 436:	1d1a      	adds	r2, r3, #4
- 438:	181b      	adds	r3, r3, r0
- 43a:	3b04      	subs	r3, #4
- 43c:	b21b      	sxth	r3, r3
- 43e:	9300      	str	r3, [sp, #0]
- 440:	69e3      	ldr	r3, [r4, #28]
- 442:	b231      	sxth	r1, r6
- 444:	9301      	str	r3, [sp, #4]
- 446:	a805      	add	r0, sp, #20
- 448:	460b      	mov	r3, r1
- 44a:	b212      	sxth	r2, r2
- 44c:	f7ff fffe 	bl	0 <drawWidget>
- 450:	8ae3      	ldrh	r3, [r4, #22]
- 452:	8b60      	ldrh	r0, [r4, #26]
- 454:	1d9a      	adds	r2, r3, #6
- 456:	181b      	adds	r3, r3, r0
- 458:	3b06      	subs	r3, #6
- 45a:	b21b      	sxth	r3, r3
- 45c:	1f31      	subs	r1, r6, #4
- 45e:	9300      	str	r3, [sp, #0]
- 460:	69e3      	ldr	r3, [r4, #28]
- 462:	b209      	sxth	r1, r1
- 464:	9301      	str	r3, [sp, #4]
- 466:	a805      	add	r0, sp, #20
- 468:	460b      	mov	r3, r1
- 46a:	b212      	sxth	r2, r2
- 46c:	f7ff fffe 	bl	0 <drawWidget>
- 470:	8ae3      	ldrh	r3, [r4, #22]
- 472:	8b60      	ldrh	r0, [r4, #26]
- 474:	1d9a      	adds	r2, r3, #6
- 476:	181b      	adds	r3, r3, r0
- 478:	3b06      	subs	r3, #6
- 47a:	b21b      	sxth	r3, r3
- 47c:	3604      	adds	r6, #4
- 47e:	9300      	str	r3, [sp, #0]
- 480:	69e3      	ldr	r3, [r4, #28]
- 482:	b231      	sxth	r1, r6
- 484:	9301      	str	r3, [sp, #4]
- 486:	a805      	add	r0, sp, #20
- 488:	b212      	sxth	r2, r2
- 48a:	460b      	mov	r3, r1
- 48c:	f7ff fffe 	bl	0 <drawWidget>
- 490:	69e3      	ldr	r3, [r4, #28]
- 492:	f413 1f80 	tst.w	r3, #1048576	; 0x100000
- 496:	d018      	beq.n	4ca <drawWidget+0x4ca>
- 498:	6a63      	ldr	r3, [r4, #36]	; 0x24
- 49a:	b16b      	cbz	r3, 4b8 <drawWidget+0x4b8>
- 49c:	8aa3      	ldrh	r3, [r4, #20]
- 49e:	18ff      	adds	r7, r7, r3
- 4a0:	8ae3      	ldrh	r3, [r4, #22]
- 4a2:	b2b8      	uxth	r0, r7
- 4a4:	4498      	add	r8, r3
- 4a6:	fa1f f188 	uxth.w	r1, r8
- 4aa:	f7ff fffe 	bl	0 <drawWidget>
- 4ae:	6a61      	ldr	r1, [r4, #36]	; 0x24
- 4b0:	2003      	movs	r0, #3
- 4b2:	f7ff fffe 	bl	0 <print>
- 4b6:	e008      	b.n	4ca <drawWidget+0x4ca>
- 4b8:	8aa0      	ldrh	r0, [r4, #20]
- 4ba:	8ae1      	ldrh	r1, [r4, #22]
- 4bc:	f7ff fffe 	bl	0 <drawWidget>
- 4c0:	2003      	movs	r0, #3
- 4c2:	4904      	ldr	r1, [pc, #16]	; (4d4 <drawWidget+0x4d4>)
- 4c4:	6922      	ldr	r2, [r4, #16]
- 4c6:	f7ff fffe 	bl	0 <print>
- 4ca:	b006      	add	sp, #24
- 4cc:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
- 4d0:	0000027a 	.word	0x0000027a
- 4d4:	00000284 	.word	0x00000284
+ 3fc:	69e3      	ldr	r3, [r4, #28]
+ 3fe:	f413 1f80 	tst.w	r3, #1048576	; 0x100000
+ 402:	d018      	beq.n	436 <drawWidget+0x436>
+ 404:	6a63      	ldr	r3, [r4, #36]	; 0x24
+ 406:	b16b      	cbz	r3, 424 <drawWidget+0x424>
+ 408:	8aa3      	ldrh	r3, [r4, #20]
+ 40a:	18ff      	adds	r7, r7, r3
+ 40c:	8ae3      	ldrh	r3, [r4, #22]
+ 40e:	b2b8      	uxth	r0, r7
+ 410:	4498      	add	r8, r3
+ 412:	fa1f f188 	uxth.w	r1, r8
+ 416:	f7ff fffe 	bl	0 <drawWidget>
+ 41a:	2003      	movs	r0, #3
+ 41c:	6a61      	ldr	r1, [r4, #36]	; 0x24
+ 41e:	f7ff fffe 	bl	0 <print>
+ 422:	e008      	b.n	436 <drawWidget+0x436>
+ 424:	8aa0      	ldrh	r0, [r4, #20]
+ 426:	8ae1      	ldrh	r1, [r4, #22]
+ 428:	f7ff fffe 	bl	0 <drawWidget>
+ 42c:	2003      	movs	r0, #3
+ 42e:	4903      	ldr	r1, [pc, #12]	; (43c <drawWidget+0x43c>)
+ 430:	6922      	ldr	r2, [r4, #16]
+ 432:	f7ff fffe 	bl	0 <print>
+ 436:	b006      	add	sp, #24
+ 438:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+ 43c:	00000028 	.word	0x00000028
 
 Disassembly of section .text.drawForms:
 
@@ -3394,243 +3157,145 @@ Disassembly of section .text.drawCurrentForm:
 
 00000000 <drawCurrentForm>:
 drawCurrentForm():
-   0:	e92d 41f3 	stmdb	sp!, {r0, r1, r4, r5, r6, r7, r8, lr}
-   4:	2500      	movs	r5, #0
-   6:	e04d      	b.n	a4 <drawCurrentForm+0xa4>
-   8:	2448      	movs	r4, #72	; 0x48
-   a:	4f29      	ldr	r7, [pc, #164]	; (b0 <drawCurrentForm+0xb0>)
-   c:	436c      	muls	r4, r5
-   e:	2001      	movs	r0, #1
-  10:	4928      	ldr	r1, [pc, #160]	; (b4 <drawCurrentForm+0xb4>)
-  12:	462a      	mov	r2, r5
-  14:	f7ff fffe 	bl	0 <print>
-  18:	683b      	ldr	r3, [r7, #0]
-  1a:	2001      	movs	r0, #1
-  1c:	191b      	adds	r3, r3, r4
-  1e:	8c1a      	ldrh	r2, [r3, #32]
-  20:	4925      	ldr	r1, [pc, #148]	; (b8 <drawCurrentForm+0xb8>)
-  22:	f7ff fffe 	bl	0 <print>
-  26:	683b      	ldr	r3, [r7, #0]
-  28:	2001      	movs	r0, #1
-  2a:	191b      	adds	r3, r3, r4
-  2c:	8b1a      	ldrh	r2, [r3, #24]
-  2e:	4923      	ldr	r1, [pc, #140]	; (bc <drawCurrentForm+0xbc>)
-  30:	8b5b      	ldrh	r3, [r3, #26]
-  32:	f7ff fffe 	bl	0 <print>
-  36:	683b      	ldr	r3, [r7, #0]
-  38:	2001      	movs	r0, #1
-  3a:	191b      	adds	r3, r3, r4
-  3c:	8b9a      	ldrh	r2, [r3, #28]
-  3e:	4920      	ldr	r1, [pc, #128]	; (c0 <drawCurrentForm+0xc0>)
-  40:	8bdb      	ldrh	r3, [r3, #30]
-  42:	f7ff fffe 	bl	0 <print>
-  46:	6838      	ldr	r0, [r7, #0]
-  48:	46b8      	mov	r8, r7
-  4a:	1900      	adds	r0, r0, r4
-  4c:	8b01      	ldrh	r1, [r0, #24]
-  4e:	8b42      	ldrh	r2, [r0, #26]
-  50:	8b83      	ldrh	r3, [r0, #28]
-  52:	8bc6      	ldrh	r6, [r0, #30]
-  54:	18cb      	adds	r3, r1, r3
-  56:	1996      	adds	r6, r2, r6
-  58:	b2b6      	uxth	r6, r6
-  5a:	b29b      	uxth	r3, r3
-  5c:	9600      	str	r6, [sp, #0]
-  5e:	f7ff fffe 	bl	0 <drawCurrentForm>
-  62:	2600      	movs	r6, #0
-  64:	e016      	b.n	94 <drawCurrentForm+0x94>
-  66:	2748      	movs	r7, #72	; 0x48
-  68:	4377      	muls	r7, r6
-  6a:	6adb      	ldr	r3, [r3, #44]	; 0x2c
-  6c:	4a15      	ldr	r2, [pc, #84]	; (c4 <drawCurrentForm+0xc4>)
-  6e:	f64a 21aa 	movw	r1, #43690	; 0xaaaa
-  72:	19db      	adds	r3, r3, r7
-  74:	6011      	str	r1, [r2, #0]
-  76:	2001      	movs	r0, #1
-  78:	4632      	mov	r2, r6
-  7a:	4913      	ldr	r1, [pc, #76]	; (c8 <drawCurrentForm+0xc8>)
-  7c:	6a5b      	ldr	r3, [r3, #36]	; 0x24
-  7e:	f7ff fffe 	bl	0 <print>
-  82:	4b0b      	ldr	r3, [pc, #44]	; (b0 <drawCurrentForm+0xb0>)
-  84:	3601      	adds	r6, #1
-  86:	681b      	ldr	r3, [r3, #0]
-  88:	b2b6      	uxth	r6, r6
-  8a:	191b      	adds	r3, r3, r4
-  8c:	6ad8      	ldr	r0, [r3, #44]	; 0x2c
-  8e:	19c0      	adds	r0, r0, r7
-  90:	f7ff fffe 	bl	0 <drawCurrentForm>
-  94:	f8d8 3000 	ldr.w	r3, [r8]
-  98:	191b      	adds	r3, r3, r4
-  9a:	8c1a      	ldrh	r2, [r3, #32]
-  9c:	42b2      	cmp	r2, r6
-  9e:	d8e2      	bhi.n	66 <drawCurrentForm+0x66>
-  a0:	3501      	adds	r5, #1
-  a2:	b2ad      	uxth	r5, r5
-  a4:	4b09      	ldr	r3, [pc, #36]	; (cc <drawCurrentForm+0xcc>)
-  a6:	795b      	ldrb	r3, [r3, #5]
-  a8:	42ab      	cmp	r3, r5
-  aa:	d8ad      	bhi.n	8 <drawCurrentForm+0x8>
-  ac:	e8bd 81fc 	ldmia.w	sp!, {r2, r3, r4, r5, r6, r7, r8, pc}
-  b0:	00000000 	.word	0x00000000
-  b4:	00000287 	.word	0x00000287
-  b8:	00000299 	.word	0x00000299
-  bc:	000002a3 	.word	0x000002a3
-  c0:	000002b0 	.word	0x000002b0
-  c4:	40003000 	.word	0x40003000
-  c8:	000002c6 	.word	0x000002c6
-  cc:	00000000 	.word	0x00000000
+   0:	b5f7      	push	{r0, r1, r2, r4, r5, r6, r7, lr}
+   2:	2400      	movs	r4, #0
+   4:	e024      	b.n	50 <drawCurrentForm+0x50>
+   6:	2648      	movs	r6, #72	; 0x48
+   8:	4366      	muls	r6, r4
+   a:	4d14      	ldr	r5, [pc, #80]	; (5c <drawCurrentForm+0x5c>)
+   c:	6828      	ldr	r0, [r5, #0]
+   e:	1980      	adds	r0, r0, r6
+  10:	8b01      	ldrh	r1, [r0, #24]
+  12:	8b42      	ldrh	r2, [r0, #26]
+  14:	8b83      	ldrh	r3, [r0, #28]
+  16:	8bc7      	ldrh	r7, [r0, #30]
+  18:	18cb      	adds	r3, r1, r3
+  1a:	19d7      	adds	r7, r2, r7
+  1c:	b2bf      	uxth	r7, r7
+  1e:	b29b      	uxth	r3, r3
+  20:	9700      	str	r7, [sp, #0]
+  22:	f7ff fffe 	bl	0 <drawCurrentForm>
+  26:	2700      	movs	r7, #0
+  28:	e00b      	b.n	42 <drawCurrentForm+0x42>
+  2a:	4a0d      	ldr	r2, [pc, #52]	; (60 <drawCurrentForm+0x60>)
+  2c:	6adb      	ldr	r3, [r3, #44]	; 0x2c
+  2e:	f64a 21aa 	movw	r1, #43690	; 0xaaaa
+  32:	2048      	movs	r0, #72	; 0x48
+  34:	fb00 3007 	mla	r0, r0, r7, r3
+  38:	6011      	str	r1, [r2, #0]
+  3a:	f7ff fffe 	bl	0 <drawCurrentForm>
+  3e:	3701      	adds	r7, #1
+  40:	b2bf      	uxth	r7, r7
+  42:	682b      	ldr	r3, [r5, #0]
+  44:	199b      	adds	r3, r3, r6
+  46:	8c1a      	ldrh	r2, [r3, #32]
+  48:	42ba      	cmp	r2, r7
+  4a:	d8ee      	bhi.n	2a <drawCurrentForm+0x2a>
+  4c:	3401      	adds	r4, #1
+  4e:	b2a4      	uxth	r4, r4
+  50:	4b04      	ldr	r3, [pc, #16]	; (64 <drawCurrentForm+0x64>)
+  52:	795b      	ldrb	r3, [r3, #5]
+  54:	42a3      	cmp	r3, r4
+  56:	d8d6      	bhi.n	6 <drawCurrentForm+0x6>
+  58:	bdfe      	pop	{r1, r2, r3, r4, r5, r6, r7, pc}
+  5a:	bf00      	nop
+  5c:	00000000 	.word	0x00000000
+  60:	40003000 	.word	0x40003000
+  64:	00000000 	.word	0x00000000
 
 Disassembly of section .text.formEventHandler:
 
 00000000 <formEventHandler>:
 formEventHandler():
    0:	b570      	push	{r4, r5, r6, lr}
-   2:	4604      	mov	r4, r0
-   4:	2001      	movs	r0, #1
-   6:	4950      	ldr	r1, [pc, #320]	; (148 <formEventHandler+0x148>)
-   8:	4622      	mov	r2, r4
-   a:	f7ff fffe 	bl	0 <print>
-   e:	f7ff fffe 	bl	0 <formEventHandler>
-  12:	4605      	mov	r5, r0
-  14:	b910      	cbnz	r0, 1c <formEventHandler+0x1c>
-  16:	2001      	movs	r0, #1
-  18:	494c      	ldr	r1, [pc, #304]	; (14c <formEventHandler+0x14c>)
-  1a:	e090      	b.n	13e <formEventHandler+0x13e>
-  1c:	2c0d      	cmp	r4, #13
-  1e:	d110      	bne.n	42 <formEventHandler+0x42>
-  20:	2001      	movs	r0, #1
-  22:	494b      	ldr	r1, [pc, #300]	; (150 <formEventHandler+0x150>)
-  24:	f7ff fffe 	bl	0 <print>
-  28:	6aab      	ldr	r3, [r5, #40]	; 0x28
-  2a:	2b00      	cmp	r3, #0
-  2c:	f040 8083 	bne.w	136 <formEventHandler+0x136>
-  30:	2001      	movs	r0, #1
-  32:	4948      	ldr	r1, [pc, #288]	; (154 <formEventHandler+0x154>)
-  34:	f7ff fffe 	bl	0 <print>
-  38:	4628      	mov	r0, r5
-  3a:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
-  3e:	f7ff bffe 	b.w	0 <formEventHandler>
-  42:	2c01      	cmp	r4, #1
-  44:	d119      	bne.n	7a <formEventHandler+0x7a>
-  46:	4620      	mov	r0, r4
-  48:	4943      	ldr	r1, [pc, #268]	; (158 <formEventHandler+0x158>)
-  4a:	f7ff fffe 	bl	0 <print>
-  4e:	6aeb      	ldr	r3, [r5, #44]	; 0x2c
-  50:	2b00      	cmp	r3, #0
-  52:	d170      	bne.n	136 <formEventHandler+0x136>
-  54:	4620      	mov	r0, r4
-  56:	493f      	ldr	r1, [pc, #252]	; (154 <formEventHandler+0x154>)
-  58:	f7ff fffe 	bl	0 <print>
-  5c:	4b3f      	ldr	r3, [pc, #252]	; (15c <formEventHandler+0x15c>)
-  5e:	f893 3044 	ldrb.w	r3, [r3, #68]	; 0x44
-  62:	3b03      	subs	r3, #3
-  64:	b2db      	uxtb	r3, r3
-  66:	2b01      	cmp	r3, #1
-  68:	d803      	bhi.n	72 <formEventHandler+0x72>
-  6a:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
-  6e:	f7ff bffe 	b.w	0 <formEventHandler>
-  72:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
-  76:	f7ff bffe 	b.w	0 <formEventHandler>
-  7a:	2c0c      	cmp	r4, #12
-  7c:	d102      	bne.n	84 <formEventHandler+0x84>
-  7e:	2001      	movs	r0, #1
-  80:	4937      	ldr	r1, [pc, #220]	; (160 <formEventHandler+0x160>)
-  82:	e05c      	b.n	13e <formEventHandler+0x13e>
-  84:	2c06      	cmp	r4, #6
-  86:	d11b      	bne.n	c0 <formEventHandler+0xc0>
-  88:	2001      	movs	r0, #1
-  8a:	4936      	ldr	r1, [pc, #216]	; (164 <formEventHandler+0x164>)
-  8c:	f7ff fffe 	bl	0 <print>
-  90:	6b2b      	ldr	r3, [r5, #48]	; 0x30
-  92:	b113      	cbz	r3, 9a <formEventHandler+0x9a>
-  94:	4798      	blx	r3
-  96:	3405      	adds	r4, #5
-  98:	e7b4      	b.n	4 <formEventHandler+0x4>
-  9a:	69eb      	ldr	r3, [r5, #28]
-  9c:	200d      	movs	r0, #13
-  9e:	f443 6380 	orr.w	r3, r3, #1024	; 0x400
-  a2:	61eb      	str	r3, [r5, #28]
-  a4:	f7ff fffe 	bl	0 <formEventHandler>
-  a8:	482f      	ldr	r0, [pc, #188]	; (c0 <delay+0xc0>)
-  aa:	f7ff fffe 	bl	0 <delay>
-  ae:	69eb      	ldr	r3, [r5, #28]
-  b0:	200d      	movs	r0, #13
-  b2:	f423 6380 	bic.w	r3, r3, #1024	; 0x400
-  b6:	61eb      	str	r3, [r5, #28]
-  b8:	f7ff fffe 	bl	0 <formEventHandler>
-  bc:	240b      	movs	r4, #11
-  be:	e7a1      	b.n	4 <formEventHandler+0x4>
-  c0:	2c08      	cmp	r4, #8
-  c2:	d10e      	bne.n	e2 <formEventHandler+0xe2>
-  c4:	2001      	movs	r0, #1
-  c6:	4929      	ldr	r1, [pc, #164]	; (16c <formEventHandler+0x16c>)
-  c8:	f7ff fffe 	bl	0 <print>
-  cc:	6b6b      	ldr	r3, [r5, #52]	; 0x34
-  ce:	2b00      	cmp	r3, #0
-  d0:	d131      	bne.n	136 <formEventHandler+0x136>
-  d2:	2001      	movs	r0, #1
-  d4:	491f      	ldr	r1, [pc, #124]	; (154 <formEventHandler+0x154>)
-  d6:	f7ff fffe 	bl	0 <print>
-  da:	69eb      	ldr	r3, [r5, #28]
-  dc:	f043 0302 	orr.w	r3, r3, #2
-  e0:	e00e      	b.n	100 <formEventHandler+0x100>
-  e2:	2c09      	cmp	r4, #9
-  e4:	d10f      	bne.n	106 <formEventHandler+0x106>
-  e6:	2001      	movs	r0, #1
-  e8:	4921      	ldr	r1, [pc, #132]	; (170 <formEventHandler+0x170>)
-  ea:	f7ff fffe 	bl	0 <print>
-  ee:	6bab      	ldr	r3, [r5, #56]	; 0x38
-  f0:	bb0b      	cbnz	r3, 136 <formEventHandler+0x136>
-  f2:	2001      	movs	r0, #1
-  f4:	4917      	ldr	r1, [pc, #92]	; (154 <formEventHandler+0x154>)
-  f6:	f7ff fffe 	bl	0 <print>
-  fa:	69eb      	ldr	r3, [r5, #28]
-  fc:	f023 0302 	bic.w	r3, r3, #2
- 100:	61eb      	str	r3, [r5, #28]
- 102:	240d      	movs	r4, #13
- 104:	e77e      	b.n	4 <formEventHandler+0x4>
- 106:	2c0b      	cmp	r4, #11
- 108:	d105      	bne.n	116 <formEventHandler+0x116>
- 10a:	2001      	movs	r0, #1
- 10c:	4919      	ldr	r1, [pc, #100]	; (174 <formEventHandler+0x174>)
- 10e:	f7ff fffe 	bl	0 <print>
- 112:	6beb      	ldr	r3, [r5, #60]	; 0x3c
- 114:	e00e      	b.n	134 <formEventHandler+0x134>
- 116:	2c0e      	cmp	r4, #14
- 118:	d105      	bne.n	126 <formEventHandler+0x126>
- 11a:	2001      	movs	r0, #1
- 11c:	4916      	ldr	r1, [pc, #88]	; (178 <formEventHandler+0x178>)
- 11e:	f7ff fffe 	bl	0 <print>
- 122:	6c2b      	ldr	r3, [r5, #64]	; 0x40
- 124:	e006      	b.n	134 <formEventHandler+0x134>
- 126:	2c0f      	cmp	r4, #15
- 128:	d10d      	bne.n	146 <formEventHandler+0x146>
- 12a:	2001      	movs	r0, #1
- 12c:	4913      	ldr	r1, [pc, #76]	; (17c <formEventHandler+0x17c>)
- 12e:	f7ff fffe 	bl	0 <print>
- 132:	6c6b      	ldr	r3, [r5, #68]	; 0x44
- 134:	b10b      	cbz	r3, 13a <formEventHandler+0x13a>
- 136:	4798      	blx	r3
- 138:	bd70      	pop	{r4, r5, r6, pc}
- 13a:	4906      	ldr	r1, [pc, #24]	; (154 <formEventHandler+0x154>)
- 13c:	2001      	movs	r0, #1
- 13e:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
- 142:	f7ff bffe 	b.w	0 <print>
- 146:	bd70      	pop	{r4, r5, r6, pc}
- 148:	000002dd 	.word	0x000002dd
- 14c:	000002ec 	.word	0x000002ec
- 150:	000002fc 	.word	0x000002fc
- 154:	00000302 	.word	0x00000302
- 158:	0000030b 	.word	0x0000030b
- 15c:	00000000 	.word	0x00000000
- 160:	00000316 	.word	0x00000316
- 164:	0000031e 	.word	0x0000031e
- 168:	0007a120 	.word	0x0007a120
- 16c:	0000032a 	.word	0x0000032a
- 170:	00000333 	.word	0x00000333
- 174:	0000033d 	.word	0x0000033d
- 178:	00000347 	.word	0x00000347
- 17c:	0000034f 	.word	0x0000034f
+   2:	4605      	mov	r5, r0
+   4:	f7ff fffe 	bl	0 <formEventHandler>
+   8:	4604      	mov	r4, r0
+   a:	2800      	cmp	r0, #0
+   c:	d05d      	beq.n	ca <formEventHandler+0xca>
+   e:	2d0d      	cmp	r5, #13
+  10:	d106      	bne.n	20 <formEventHandler+0x20>
+  12:	6a83      	ldr	r3, [r0, #40]	; 0x28
+  14:	2b00      	cmp	r3, #0
+  16:	d151      	bne.n	bc <formEventHandler+0xbc>
+  18:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+  1c:	f7ff bffe 	b.w	0 <formEventHandler>
+  20:	2d01      	cmp	r5, #1
+  22:	d111      	bne.n	48 <formEventHandler+0x48>
+  24:	6ac3      	ldr	r3, [r0, #44]	; 0x2c
+  26:	2b00      	cmp	r3, #0
+  28:	d148      	bne.n	bc <formEventHandler+0xbc>
+  2a:	4b28      	ldr	r3, [pc, #160]	; (cc <formEventHandler+0xcc>)
+  2c:	f893 3044 	ldrb.w	r3, [r3, #68]	; 0x44
+  30:	3b03      	subs	r3, #3
+  32:	b2db      	uxtb	r3, r3
+  34:	2b01      	cmp	r3, #1
+  36:	d803      	bhi.n	40 <formEventHandler+0x40>
+  38:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+  3c:	f7ff bffe 	b.w	0 <formEventHandler>
+  40:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+  44:	f7ff bffe 	b.w	0 <formEventHandler>
+  48:	2d0c      	cmp	r5, #12
+  4a:	d03e      	beq.n	ca <formEventHandler+0xca>
+  4c:	2d06      	cmp	r5, #6
+  4e:	d11b      	bne.n	88 <formEventHandler+0x88>
+  50:	6b03      	ldr	r3, [r0, #48]	; 0x30
+  52:	b113      	cbz	r3, 5a <formEventHandler+0x5a>
+  54:	4798      	blx	r3
+  56:	3505      	adds	r5, #5
+  58:	e7d4      	b.n	4 <formEventHandler+0x4>
+  5a:	69c3      	ldr	r3, [r0, #28]
+  5c:	f443 6380 	orr.w	r3, r3, #1024	; 0x400
+  60:	61c3      	str	r3, [r0, #28]
+  62:	6a83      	ldr	r3, [r0, #40]	; 0x28
+  64:	b10b      	cbz	r3, 6a <formEventHandler+0x6a>
+  66:	4798      	blx	r3
+  68:	e001      	b.n	6e <formEventHandler+0x6e>
+  6a:	f7ff fffe 	bl	0 <formEventHandler>
+  6e:	69e3      	ldr	r3, [r4, #28]
+  70:	f423 6380 	bic.w	r3, r3, #1024	; 0x400
+  74:	61e3      	str	r3, [r4, #28]
+  76:	6aa3      	ldr	r3, [r4, #40]	; 0x28
+  78:	b10b      	cbz	r3, 7e <formEventHandler+0x7e>
+  7a:	4798      	blx	r3
+  7c:	e002      	b.n	84 <formEventHandler+0x84>
+  7e:	4620      	mov	r0, r4
+  80:	f7ff fffe 	bl	0 <formEventHandler>
+  84:	250b      	movs	r5, #11
+  86:	e7bd      	b.n	4 <formEventHandler+0x4>
+  88:	2d08      	cmp	r5, #8
+  8a:	d105      	bne.n	98 <formEventHandler+0x98>
+  8c:	6b43      	ldr	r3, [r0, #52]	; 0x34
+  8e:	b9ab      	cbnz	r3, bc <formEventHandler+0xbc>
+  90:	69c3      	ldr	r3, [r0, #28]
+  92:	f043 0302 	orr.w	r3, r3, #2
+  96:	e006      	b.n	a6 <formEventHandler+0xa6>
+  98:	2d09      	cmp	r5, #9
+  9a:	d107      	bne.n	ac <formEventHandler+0xac>
+  9c:	6b83      	ldr	r3, [r0, #56]	; 0x38
+  9e:	b96b      	cbnz	r3, bc <formEventHandler+0xbc>
+  a0:	69c3      	ldr	r3, [r0, #28]
+  a2:	f023 0302 	bic.w	r3, r3, #2
+  a6:	61e3      	str	r3, [r4, #28]
+  a8:	250d      	movs	r5, #13
+  aa:	e7ab      	b.n	4 <formEventHandler+0x4>
+  ac:	2d0b      	cmp	r5, #11
+  ae:	d101      	bne.n	b4 <formEventHandler+0xb4>
+  b0:	6bc3      	ldr	r3, [r0, #60]	; 0x3c
+  b2:	e002      	b.n	ba <formEventHandler+0xba>
+  b4:	2d0e      	cmp	r5, #14
+  b6:	d103      	bne.n	c0 <formEventHandler+0xc0>
+  b8:	6c03      	ldr	r3, [r0, #64]	; 0x40
+  ba:	b133      	cbz	r3, ca <formEventHandler+0xca>
+  bc:	4798      	blx	r3
+  be:	bd70      	pop	{r4, r5, r6, pc}
+  c0:	2d0f      	cmp	r5, #15
+  c2:	d102      	bne.n	ca <formEventHandler+0xca>
+  c4:	6c43      	ldr	r3, [r0, #68]	; 0x44
+  c6:	b103      	cbz	r3, ca <formEventHandler+0xca>
+  c8:	4798      	blx	r3
+  ca:	bd70      	pop	{r4, r5, r6, pc}
+  cc:	00000000 	.word	0x00000000
 
 Disassembly of section .text.eventSelected:
 
@@ -3810,7 +3475,7 @@ formFocusPrevious():
   2e:	2548      	movs	r5, #72	; 0x48
   30:	fb05 cc04 	mla	ip, r5, r4, ip
   34:	f89c c020 	ldrb.w	ip, [ip, #32]
-  38:	f1bc 0f04 	cmp.w	ip, #4
+  38:	f1bc 0f05 	cmp.w	ip, #5
   3c:	d10d      	bne.n	5a <formFocusPrevious+0x5a>
   3e:	2009      	movs	r0, #9
   40:	f7ff fffe 	bl	0 <formFocusPrevious>
@@ -3837,58 +3502,54 @@ Disassembly of section .text.formFocusNext:
 00000000 <formFocusNext>:
 formFocusNext():
    0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
-   4:	4f19      	ldr	r7, [pc, #100]	; (6c <formFocusNext+0x6c>)
-   6:	491a      	ldr	r1, [pc, #104]	; (70 <formFocusNext+0x70>)
-   8:	2001      	movs	r0, #1
-   a:	4e1a      	ldr	r6, [pc, #104]	; (74 <formFocusNext+0x74>)
-   c:	f7ff fffe 	bl	0 <print>
-  10:	797a      	ldrb	r2, [r7, #5]
-  12:	6833      	ldr	r3, [r6, #0]
-  14:	2148      	movs	r1, #72	; 0x48
-  16:	3a01      	subs	r2, #1
-  18:	fb01 3202 	mla	r2, r1, r2, r3
-  1c:	2300      	movs	r3, #0
-  1e:	8c54      	ldrh	r4, [r2, #34]	; 0x22
-  20:	8c11      	ldrh	r1, [r2, #32]
-  22:	e01d      	b.n	60 <formFocusNext+0x60>
-  24:	428c      	cmp	r4, r1
-  26:	d202      	bcs.n	2e <formFocusNext+0x2e>
-  28:	3401      	adds	r4, #1
-  2a:	b2a4      	uxth	r4, r4
-  2c:	e000      	b.n	30 <formFocusNext+0x30>
-  2e:	2400      	movs	r4, #0
-  30:	6ad0      	ldr	r0, [r2, #44]	; 0x2c
-  32:	2548      	movs	r5, #72	; 0x48
-  34:	fb05 0004 	mla	r0, r5, r4, r0
-  38:	f890 0020 	ldrb.w	r0, [r0, #32]
-  3c:	2804      	cmp	r0, #4
-  3e:	d10d      	bne.n	5c <formFocusNext+0x5c>
-  40:	3005      	adds	r0, #5
-  42:	f7ff fffe 	bl	0 <formFocusNext>
-  46:	797a      	ldrb	r2, [r7, #5]
-  48:	6833      	ldr	r3, [r6, #0]
-  4a:	3a01      	subs	r2, #1
-  4c:	fb05 3502 	mla	r5, r5, r2, r3
-  50:	2008      	movs	r0, #8
-  52:	846c      	strh	r4, [r5, #34]	; 0x22
-  54:	e8bd 41f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, lr}
-  58:	f7ff bffe 	b.w	0 <formFocusNext>
-  5c:	3301      	adds	r3, #1
-  5e:	b29b      	uxth	r3, r3
-  60:	428b      	cmp	r3, r1
-  62:	d201      	bcs.n	68 <formFocusNext+0x68>
-  64:	2bff      	cmp	r3, #255	; 0xff
-  66:	d1dd      	bne.n	24 <formFocusNext+0x24>
-  68:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
-  6c:	00000000 	.word	0x00000000
-  70:	00000359 	.word	0x00000359
-  74:	00000000 	.word	0x00000000
+   4:	4f17      	ldr	r7, [pc, #92]	; (64 <formFocusNext+0x64>)
+   6:	4e18      	ldr	r6, [pc, #96]	; (68 <formFocusNext+0x68>)
+   8:	797a      	ldrb	r2, [r7, #5]
+   a:	6833      	ldr	r3, [r6, #0]
+   c:	2148      	movs	r1, #72	; 0x48
+   e:	3a01      	subs	r2, #1
+  10:	fb01 3202 	mla	r2, r1, r2, r3
+  14:	2300      	movs	r3, #0
+  16:	8c54      	ldrh	r4, [r2, #34]	; 0x22
+  18:	8c11      	ldrh	r1, [r2, #32]
+  1a:	e01d      	b.n	58 <formFocusNext+0x58>
+  1c:	428c      	cmp	r4, r1
+  1e:	d202      	bcs.n	26 <formFocusNext+0x26>
+  20:	3401      	adds	r4, #1
+  22:	b2a4      	uxth	r4, r4
+  24:	e000      	b.n	28 <formFocusNext+0x28>
+  26:	2400      	movs	r4, #0
+  28:	6ad0      	ldr	r0, [r2, #44]	; 0x2c
+  2a:	2548      	movs	r5, #72	; 0x48
+  2c:	fb05 0004 	mla	r0, r5, r4, r0
+  30:	f890 0020 	ldrb.w	r0, [r0, #32]
+  34:	2805      	cmp	r0, #5
+  36:	d10d      	bne.n	54 <formFocusNext+0x54>
+  38:	3004      	adds	r0, #4
+  3a:	f7ff fffe 	bl	0 <formFocusNext>
+  3e:	797a      	ldrb	r2, [r7, #5]
+  40:	6833      	ldr	r3, [r6, #0]
+  42:	3a01      	subs	r2, #1
+  44:	fb05 3502 	mla	r5, r5, r2, r3
+  48:	2008      	movs	r0, #8
+  4a:	846c      	strh	r4, [r5, #34]	; 0x22
+  4c:	e8bd 41f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, lr}
+  50:	f7ff bffe 	b.w	0 <formFocusNext>
+  54:	3301      	adds	r3, #1
+  56:	b29b      	uxth	r3, r3
+  58:	428b      	cmp	r3, r1
+  5a:	d201      	bcs.n	60 <formFocusNext+0x60>
+  5c:	2bff      	cmp	r3, #255	; 0xff
+  5e:	d1dd      	bne.n	1c <formFocusNext+0x1c>
+  60:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+	...
 
 Disassembly of section .text.formSetFocus:
 
 00000000 <formSetFocus>:
 formSetFocus():
-   0:	4604b510 	.word	0x4604b510
+   0:	b510      	push	{r4, lr}
+   2:	4604      	mov	r4, r0
    4:	2009      	movs	r0, #9
    6:	f7ff fffe 	bl	0 <formSetFocus>
    a:	4b08      	ldr	r3, [pc, #32]	; (2c <formSetFocus+0x2c>)

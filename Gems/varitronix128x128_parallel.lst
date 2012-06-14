@@ -273,7 +273,7 @@ lcdDrawPixel():
   8e:	60eb      	str	r3, [r5, #12]
   90:	4b0c      	ldr	r3, [pc, #48]	; (c4 <lcdDrawPixel+0xc4>)
   92:	68ea      	ldr	r2, [r5, #12]
-  94:	7859      	ldrb	r1, [r3, #1]
+  94:	7819      	ldrb	r1, [r3, #0]
   96:	ea41 0202 	orr.w	r2, r1, r2
   9a:	60ea      	str	r2, [r5, #12]
   9c:	6166      	str	r6, [r4, #20]
@@ -282,7 +282,7 @@ lcdDrawPixel():
   a2:	f402 427f 	and.w	r2, r2, #65280	; 0xff00
   a6:	60ea      	str	r2, [r5, #12]
   a8:	68ea      	ldr	r2, [r5, #12]
-  aa:	781b      	ldrb	r3, [r3, #0]
+  aa:	785b      	ldrb	r3, [r3, #1]
   ac:	4313      	orrs	r3, r2
   ae:	60eb      	str	r3, [r5, #12]
   b0:	6166      	str	r6, [r4, #20]
@@ -363,31 +363,34 @@ Disassembly of section .text.lcdSetColor:
 00000000 <lcdSetColor>:
 lcdSetColor():
    0:	b510      	push	{r4, lr}
-   2:	4b0f      	ldr	r3, [pc, #60]	; (40 <lcdSetColor+0x40>)
+   2:	4b11      	ldr	r3, [pc, #68]	; (48 <lcdSetColor+0x48>)
    4:	781b      	ldrb	r3, [r3, #0]
    6:	2b02      	cmp	r3, #2
-   8:	d108      	bne.n	1c <lcdSetColor+0x1c>
-   a:	eb00 0040 	add.w	r0, r0, r0, lsl #1
-   e:	0049      	lsls	r1, r1, #1
-  10:	eb02 0242 	add.w	r2, r2, r2, lsl #1
-  14:	b2c0      	uxtb	r0, r0
-  16:	b2c9      	uxtb	r1, r1
-  18:	b2d2      	uxtb	r2, r2
-  1a:	e004      	b.n	26 <lcdSetColor+0x26>
-  1c:	2b05      	cmp	r3, #5
-  1e:	d102      	bne.n	26 <lcdSetColor+0x26>
-  20:	08c0      	lsrs	r0, r0, #3
-  22:	0889      	lsrs	r1, r1, #2
-  24:	08d2      	lsrs	r2, r2, #3
-  26:	08cc      	lsrs	r4, r1, #3
-  28:	4b06      	ldr	r3, [pc, #24]	; (44 <lcdSetColor+0x44>)
-  2a:	f004 0407 	and.w	r4, r4, #7
-  2e:	f002 021f 	and.w	r2, r2, #31
-  32:	ea44 00c0 	orr.w	r0, r4, r0, lsl #3
-  36:	ea42 1141 	orr.w	r1, r2, r1, lsl #5
-  3a:	7018      	strb	r0, [r3, #0]
-  3c:	7059      	strb	r1, [r3, #1]
-  3e:	bd10      	pop	{r4, pc}
+   8:	d01c      	beq.n	44 <lcdSetColor+0x44>
+   a:	2b04      	cmp	r3, #4
+   c:	d000      	beq.n	10 <lcdSetColor+0x10>
+   e:	b963      	cbnz	r3, 2a <lcdSetColor+0x2a>
+  10:	08cc      	lsrs	r4, r1, #3
+  12:	4b0e      	ldr	r3, [pc, #56]	; (4c <lcdSetColor+0x4c>)
+  14:	f004 0407 	and.w	r4, r4, #7
+  18:	f002 021f 	and.w	r2, r2, #31
+  1c:	ea44 00c0 	orr.w	r0, r4, r0, lsl #3
+  20:	ea42 1141 	orr.w	r1, r2, r1, lsl #5
+  24:	7058      	strb	r0, [r3, #1]
+  26:	7019      	strb	r1, [r3, #0]
+  28:	bd10      	pop	{r4, pc}
+  2a:	2b05      	cmp	r3, #5
+  2c:	d10a      	bne.n	44 <lcdSetColor+0x44>
+  2e:	0889      	lsrs	r1, r1, #2
+  30:	4b06      	ldr	r3, [pc, #24]	; (4c <lcdSetColor+0x4c>)
+  32:	f000 00f8 	and.w	r0, r0, #248	; 0xf8
+  36:	08d2      	lsrs	r2, r2, #3
+  38:	ea40 00d1 	orr.w	r0, r0, r1, lsr #3
+  3c:	ea42 1141 	orr.w	r1, r2, r1, lsl #5
+  40:	7018      	strb	r0, [r3, #0]
+  42:	7059      	strb	r1, [r3, #1]
+  44:	bd10      	pop	{r4, pc}
+  46:	bf00      	nop
 	...
 
 Disassembly of section .text.lcdGetRGB:

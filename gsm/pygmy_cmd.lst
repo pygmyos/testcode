@@ -1,0 +1,3414 @@
+
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\gsm\pygmy_cmd.o:     file format elf32-littlearm
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\gsm\pygmy_cmd.o
+
+
+Disassembly of section .text.cmdNull:
+
+00000000 <cmdNull>:
+cmdNull():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:354
+#endif // __PYGMYMODEMSHIELD
+
+u8 cmdNull( u8 *ucBuffer )
+{
+    return( 0 ); // No command, return error
+}
+   0:	f04f 0000 	mov.w	r0, #0
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+
+Disassembly of section .text.cmd_reset:
+
+00000000 <cmd_reset>:
+cmd_reset():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:358
+
+u8 cmd_reset( u8 *ucBuffer )
+{
+    PYGMY_RESET;
+   0:	f44f 436d 	mov.w	r3, #60672	; 0xed00
+   4:	f2ce 0300 	movt	r3, #57344	; 0xe000
+   8:	f04f 0204 	mov.w	r2, #4
+   c:	f2c0 52fa 	movt	r2, #1530	; 0x5fa
+  10:	60da      	str	r2, [r3, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:361
+
+    return( 0 ); // If reached, error has occurred
+}
+  12:	f04f 0000 	mov.w	r0, #0
+  16:	4770      	bx	lr
+
+Disassembly of section .text.cmd_peek:
+
+00000000 <cmd_peek>:
+cmd_peek():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:367
+
+u8 cmd_peek( u8 *ucBuffer )
+{
+
+    return( 0 );
+}
+   0:	f04f 0000 	mov.w	r0, #0
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+
+Disassembly of section .text.cmd_poke:
+
+00000000 <cmd_poke>:
+cmd_poke():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:373
+
+u8 cmd_poke( u8 *ucBuffer )
+{
+
+    return( 0 );
+}
+   0:	f04f 0000 	mov.w	r0, #0
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+
+Disassembly of section .text.cmd_kill:
+
+00000000 <cmd_kill>:
+cmd_kill():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:432
+
+u8 cmd_kill( u8 *ucBuffer )
+{
+
+    return( 0 );
+}
+   0:	f04f 0000 	mov.w	r0, #0
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+
+Disassembly of section .text.cmd_set:
+
+00000000 <cmd_set>:
+cmd_set():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:247
+//--------------------------------------------------------------------------------------------
+
+//--------------------------------------Standard Commands-------------------------------------
+//--------------------------------------------------------------------------------------------
+u8 cmd_set( u8 *ucBuffer )
+{
+   0:	b500      	push	{lr}
+   2:	b089      	sub	sp, #36	; 0x24
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:250
+    u8 ucLen, *ucParams[8];
+    
+    ucLen = getAllSubStrings( ucBuffer, ucParams, 8, WHITESPACE );
+   4:	4669      	mov	r1, sp
+   6:	f04f 0208 	mov.w	r2, #8
+   a:	f04f 0302 	mov.w	r3, #2
+   e:	f7ff fffe 	bl	0 <getAllSubStrings>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:254
+    //if( isStringSame( 
+
+    return( TRUE );
+}
+  12:	f04f 0001 	mov.w	r0, #1
+  16:	b009      	add	sp, #36	; 0x24
+  18:	bd00      	pop	{pc}
+  1a:	bf00      	nop
+
+Disassembly of section .text.cmd_write:
+
+00000000 <cmd_write>:
+cmd_write():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:614
+
+    return( 0 );
+}
+
+u8 cmd_write( u8 *ucBuffer )
+{
+   0:	b508      	push	{r3, lr}
+   2:	4601      	mov	r1, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:615
+    print( FILE, ucBuffer );
+   4:	f04f 0003 	mov.w	r0, #3
+   8:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:618
+
+    return( 1 );
+}
+   c:	f04f 0001 	mov.w	r0, #1
+  10:	bd08      	pop	{r3, pc}
+  12:	bf00      	nop
+
+Disassembly of section .text.cmd_cp:
+
+00000000 <cmd_cp>:
+cmd_cp():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:673
+
+    return( fileRename( ucParams[ 1 ], ucParams[ 2 ] ) );
+}
+
+u8 cmd_cp( u8 *ucBuffer )
+{
+   0:	b500      	push	{lr}
+   2:	b083      	sub	sp, #12
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:676
+    u8 *ucParams[ 2 ];
+    
+    getAllSubStrings( ucBuffer, ucParams, 2, WHITESPACE );
+   4:	4669      	mov	r1, sp
+   6:	f04f 0202 	mov.w	r2, #2
+   a:	4613      	mov	r3, r2
+   c:	f7ff fffe 	bl	0 <getAllSubStrings>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:677
+    return( fileCopy( ucParams[ 0 ], ucParams[ 1 ] ) );
+  10:	9800      	ldr	r0, [sp, #0]
+  12:	9901      	ldr	r1, [sp, #4]
+  14:	f7ff fffe 	bl	0 <fileCopy>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:678
+}
+  18:	b2c0      	uxtb	r0, r0
+  1a:	b003      	add	sp, #12
+  1c:	bd00      	pop	{pc}
+  1e:	bf00      	nop
+
+Disassembly of section .text.cmd_mv:
+
+00000000 <cmd_mv>:
+cmd_mv():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:664
+
+    return( fileOpen( pygmyFile, ucParams[ 0 ], ucMode ) );
+}
+
+u8 cmd_mv( u8 *ucBuffer )
+{
+   0:	b500      	push	{lr}
+   2:	b083      	sub	sp, #12
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:667
+    u8 *ucParams[ 2 ], *ucParam2;
+
+    getAllSubStrings( ucBuffer, ucParams, 2, WHITESPACE );
+   4:	4669      	mov	r1, sp
+   6:	f04f 0202 	mov.w	r2, #2
+   a:	4613      	mov	r3, r2
+   c:	f7ff fffe 	bl	0 <getAllSubStrings>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:669
+
+    return( fileRename( ucParams[ 1 ], ucParams[ 2 ] ) );
+  10:	9801      	ldr	r0, [sp, #4]
+  12:	9902      	ldr	r1, [sp, #8]
+  14:	f7ff fffe 	bl	0 <fileRename>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:670
+}
+  18:	b003      	add	sp, #12
+  1a:	bd00      	pop	{pc}
+
+Disassembly of section .text.cmd_open:
+
+00000000 <cmd_open>:
+cmd_open():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:642
+
+    return( TRUE );
+}
+
+u8 cmd_open( u8 *ucBuffer )
+{
+   0:	b510      	push	{r4, lr}
+   2:	b082      	sub	sp, #8
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:646
+    PYGMYFILE *pygmyFile;
+    u8 *ucParams[ 2 ], ucMode;
+    
+    getAllSubStrings( ucBuffer, ucParams, 2, WHITESPACE );
+   4:	4669      	mov	r1, sp
+   6:	f04f 0202 	mov.w	r2, #2
+   a:	4613      	mov	r3, r2
+   c:	f7ff fffe 	bl	0 <getAllSubStrings>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:648
+    
+    if( ucParams[ 1 ][ 0 ] == '-' ){
+  10:	9b01      	ldr	r3, [sp, #4]
+  12:	781a      	ldrb	r2, [r3, #0]
+  14:	2a2d      	cmp	r2, #45	; 0x2d
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:649
+        ++ucParams[ 1 ];
+  16:	bf04      	itt	eq
+  18:	3301      	addeq	r3, #1
+  1a:	9301      	streq	r3, [sp, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:651
+    } // if
+    if( isCharInString( *ucParams[ 1 ], "rR" ) ){
+  1c:	9b01      	ldr	r3, [sp, #4]
+  1e:	7818      	ldrb	r0, [r3, #0]
+  20:	f240 0100 	movw	r1, #0
+  24:	f2c0 0100 	movt	r1, #0
+  28:	f7ff fffe 	bl	0 <isCharInString>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:652
+        ucMode = READ;
+  2c:	f04f 0401 	mov.w	r4, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:651
+    getAllSubStrings( ucBuffer, ucParams, 2, WHITESPACE );
+    
+    if( ucParams[ 1 ][ 0 ] == '-' ){
+        ++ucParams[ 1 ];
+    } // if
+    if( isCharInString( *ucParams[ 1 ], "rR" ) ){
+  30:	b9b0      	cbnz	r0, 60 <cmd_open+0x60>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:653
+        ucMode = READ;
+    } else if( isCharInString( *ucParams[ 1 ], "aA" ) ){
+  32:	9b01      	ldr	r3, [sp, #4]
+  34:	7818      	ldrb	r0, [r3, #0]
+  36:	f240 0100 	movw	r1, #0
+  3a:	f2c0 0100 	movt	r1, #0
+  3e:	f7ff fffe 	bl	0 <isCharInString>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:654
+        ucMode = APPEND;
+  42:	f04f 0404 	mov.w	r4, #4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:653
+    if( ucParams[ 1 ][ 0 ] == '-' ){
+        ++ucParams[ 1 ];
+    } // if
+    if( isCharInString( *ucParams[ 1 ], "rR" ) ){
+        ucMode = READ;
+    } else if( isCharInString( *ucParams[ 1 ], "aA" ) ){
+  46:	b958      	cbnz	r0, 60 <cmd_open+0x60>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:655
+        ucMode = APPEND;
+    } else if( isCharInString( *ucParams[ 1 ], "wW" ) ){
+  48:	9b01      	ldr	r3, [sp, #4]
+  4a:	7818      	ldrb	r0, [r3, #0]
+  4c:	f240 0100 	movw	r1, #0
+  50:	f2c0 0100 	movt	r1, #0
+  54:	f7ff fffe 	bl	0 <isCharInString>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:656
+        ucMode = WRITE;
+  58:	2800      	cmp	r0, #0
+  5a:	bf14      	ite	ne
+  5c:	2402      	movne	r4, #2
+  5e:	2400      	moveq	r4, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:658
+    } // else if
+    pygmyFile = ( PYGMYFILE *)sysGetFile();
+  60:	f7ff fffe 	bl	0 <sysGetFile>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:660
+
+    return( fileOpen( pygmyFile, ucParams[ 0 ], ucMode ) );
+  64:	9900      	ldr	r1, [sp, #0]
+  66:	4622      	mov	r2, r4
+  68:	f7ff fffe 	bl	0 <fileOpen>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:661
+}
+  6c:	b002      	add	sp, #8
+  6e:	bd10      	pop	{r4, pc}
+
+Disassembly of section .text.cmd_close:
+
+00000000 <cmd_close>:
+cmd_close():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:632
+{
+    return( fileDelete( getNextSubString( ucBuffer, WHITESPACE ) ) );
+}
+
+u8 cmd_close( u8 *ucBuffer )
+{
+   0:	b508      	push	{r3, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:635
+    PYGMYFILE *pygmyFile;
+    
+    pygmyFile = ( PYGMYFILE *)sysGetFile();
+   2:	f7ff fffe 	bl	0 <sysGetFile>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:636
+    fileClose( pygmyFile );
+   6:	f7ff fffe 	bl	0 <fileClose>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:639
+
+    return( TRUE );
+}
+   a:	f04f 0001 	mov.w	r0, #1
+   e:	bd08      	pop	{r3, pc}
+
+Disassembly of section .text.cmd_rm:
+
+00000000 <cmd_rm>:
+cmd_rm():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:627
+    filePrintList( STDIO );
+    return( 1 );
+}
+
+u8 cmd_rm( u8 *ucBuffer )
+{
+   0:	b508      	push	{r3, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:628
+    return( fileDelete( getNextSubString( ucBuffer, WHITESPACE ) ) );
+   2:	f04f 0102 	mov.w	r1, #2
+   6:	f7ff fffe 	bl	0 <getNextSubString>
+   a:	f7ff fffe 	bl	0 <fileDelete>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:629
+}
+   e:	bd08      	pop	{r3, pc}
+
+Disassembly of section .text.cmd_ls:
+
+00000000 <cmd_ls>:
+cmd_ls():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:621
+
+    return( 1 );
+}
+
+u8 cmd_ls( u8 *ucBuffer )
+{
+   0:	b508      	push	{r3, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:622
+    filePrintList( STDIO );
+   2:	f04f 0000 	mov.w	r0, #0
+   6:	f7ff fffe 	bl	0 <filePrintList>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:624
+    return( 1 );
+}
+   a:	f04f 0001 	mov.w	r0, #1
+   e:	bd08      	pop	{r3, pc}
+
+Disassembly of section .text.cmd_read:
+
+00000000 <cmd_read>:
+cmd_read():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:584
+
+    return( 1 );
+}
+
+u8 cmd_read( u8 *ucBuffer )
+{
+   0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+   4:	b08a      	sub	sp, #40	; 0x28
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:589
+    PYGMYFILE pygmyFile;
+    u16 i;
+    u8 *ucParam, ucChar;
+    
+    ucParam = getNextSubString( ucParam, WHITESPACE|NEWLINE );
+   6:	f04f 0000 	mov.w	r0, #0
+   a:	f04f 0106 	mov.w	r1, #6
+   e:	f7ff fffe 	bl	0 <getNextSubString>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:590
+    if( ucParam && fileOpen( &pygmyFile, ucParam, READ ) ){
+  12:	4601      	mov	r1, r0
+  14:	2800      	cmp	r0, #0
+  16:	d05b      	beq.n	d0 <cmd_read+0xd0>
+  18:	4668      	mov	r0, sp
+  1a:	f04f 0201 	mov.w	r2, #1
+  1e:	f7ff fffe 	bl	0 <fileOpen>
+  22:	2800      	cmp	r0, #0
+  24:	d057      	beq.n	d6 <cmd_read+0xd6>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:591
+        for( i = 0; !(pygmyFile.Attributes & EOF ); i++ ){
+  26:	f99d 3010 	ldrsb.w	r3, [sp, #16]
+  2a:	2b00      	cmp	r3, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:607
+                } else{
+                    print( STDIO, "%c", ucChar );
+                } // else
+            } // if
+        } // 
+        return( 1 );
+  2c:	bfb8      	it	lt
+  2e:	2001      	movlt	r0, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:591
+    u16 i;
+    u8 *ucParam, ucChar;
+    
+    ucParam = getNextSubString( ucParam, WHITESPACE|NEWLINE );
+    if( ucParam && fileOpen( &pygmyFile, ucParam, READ ) ){
+        for( i = 0; !(pygmyFile.Attributes & EOF ); i++ ){
+  30:	db59      	blt.n	e6 <cmd_read+0xe6>
+  32:	f04f 0500 	mov.w	r5, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:598
+            if( !(pygmyFile.Attributes & EOF ) ){
+                if( ucChar == '\r' ){
+                    i = 0;
+                } // if
+                if( !( i % 80 ) ){
+                    print( STDIO, "\r" );
+  36:	f240 0800 	movw	r8, #0
+  3a:	f2c0 0800 	movt	r8, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:597
+            ucChar = fileGetChar( &pygmyFile );
+            if( !(pygmyFile.Attributes & EOF ) ){
+                if( ucChar == '\r' ){
+                    i = 0;
+                } // if
+                if( !( i % 80 ) ){
+  3e:	f64c 46cd 	movw	r6, #52429	; 0xcccd
+  42:	f6cc 46cc 	movt	r6, #52428	; 0xcccc
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:603
+                    print( STDIO, "\r" );
+                } // if
+                if( ucChar != '\r' && ( ucChar < 32 || ucChar > 126 ) ){
+                    print( STDIO, "(%d)", ucChar );
+                } else{
+                    print( STDIO, "%c", ucChar );
+  46:	f240 0700 	movw	r7, #0
+  4a:	f2c0 0700 	movt	r7, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:592
+    u8 *ucParam, ucChar;
+    
+    ucParam = getNextSubString( ucParam, WHITESPACE|NEWLINE );
+    if( ucParam && fileOpen( &pygmyFile, ucParam, READ ) ){
+        for( i = 0; !(pygmyFile.Attributes & EOF ); i++ ){
+            ucChar = fileGetChar( &pygmyFile );
+  4e:	4668      	mov	r0, sp
+  50:	f7ff fffe 	bl	0 <fileGetChar>
+  54:	4604      	mov	r4, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:593
+            if( !(pygmyFile.Attributes & EOF ) ){
+  56:	f99d 3010 	ldrsb.w	r3, [sp, #16]
+  5a:	2b00      	cmp	r3, #0
+  5c:	db3e      	blt.n	dc <cmd_read+0xdc>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:594
+                if( ucChar == '\r' ){
+  5e:	280d      	cmp	r0, #13
+  60:	d00a      	beq.n	78 <cmd_read+0x78>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:597
+                    i = 0;
+                } // if
+                if( !( i % 80 ) ){
+  62:	fba6 2305 	umull	r2, r3, r6, r5
+  66:	ea4f 1393 	mov.w	r3, r3, lsr #6
+  6a:	eb03 0383 	add.w	r3, r3, r3, lsl #2
+  6e:	eba5 1303 	sub.w	r3, r5, r3, lsl #4
+  72:	b29b      	uxth	r3, r3
+  74:	b93b      	cbnz	r3, 86 <cmd_read+0x86>
+  76:	e001      	b.n	7c <cmd_read+0x7c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:595
+    if( ucParam && fileOpen( &pygmyFile, ucParam, READ ) ){
+        for( i = 0; !(pygmyFile.Attributes & EOF ); i++ ){
+            ucChar = fileGetChar( &pygmyFile );
+            if( !(pygmyFile.Attributes & EOF ) ){
+                if( ucChar == '\r' ){
+                    i = 0;
+  78:	f04f 0500 	mov.w	r5, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:598
+                } // if
+                if( !( i % 80 ) ){
+                    print( STDIO, "\r" );
+  7c:	f04f 0000 	mov.w	r0, #0
+  80:	4641      	mov	r1, r8
+  82:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:600
+                } // if
+                if( ucChar != '\r' && ( ucChar < 32 || ucChar > 126 ) ){
+  86:	f1a4 0320 	sub.w	r3, r4, #32
+  8a:	b2db      	uxtb	r3, r3
+  8c:	2b5e      	cmp	r3, #94	; 0x5e
+  8e:	bf94      	ite	ls
+  90:	2300      	movls	r3, #0
+  92:	2301      	movhi	r3, #1
+  94:	2c0d      	cmp	r4, #13
+  96:	bf0c      	ite	eq
+  98:	2300      	moveq	r3, #0
+  9a:	f003 0301 	andne.w	r3, r3, #1
+  9e:	b14b      	cbz	r3, b4 <cmd_read+0xb4>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:601
+                    print( STDIO, "(%d)", ucChar );
+  a0:	f04f 0000 	mov.w	r0, #0
+  a4:	f240 0100 	movw	r1, #0
+  a8:	f2c0 0100 	movt	r1, #0
+  ac:	4622      	mov	r2, r4
+  ae:	f7ff fffe 	bl	0 <print>
+  b2:	e005      	b.n	c0 <cmd_read+0xc0>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:603
+                } else{
+                    print( STDIO, "%c", ucChar );
+  b4:	f04f 0000 	mov.w	r0, #0
+  b8:	4639      	mov	r1, r7
+  ba:	4622      	mov	r2, r4
+  bc:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:591
+    u16 i;
+    u8 *ucParam, ucChar;
+    
+    ucParam = getNextSubString( ucParam, WHITESPACE|NEWLINE );
+    if( ucParam && fileOpen( &pygmyFile, ucParam, READ ) ){
+        for( i = 0; !(pygmyFile.Attributes & EOF ); i++ ){
+  c0:	f99d 3010 	ldrsb.w	r3, [sp, #16]
+  c4:	2b00      	cmp	r3, #0
+  c6:	db0c      	blt.n	e2 <cmd_read+0xe2>
+  c8:	f105 0501 	add.w	r5, r5, #1
+  cc:	b2ad      	uxth	r5, r5
+  ce:	e7be      	b.n	4e <cmd_read+0x4e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:610
+            } // if
+        } // 
+        return( 1 );
+    } // if
+
+    return( 0 );
+  d0:	f04f 0000 	mov.w	r0, #0
+  d4:	e007      	b.n	e6 <cmd_read+0xe6>
+  d6:	f04f 0000 	mov.w	r0, #0
+  da:	e004      	b.n	e6 <cmd_read+0xe6>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:607
+                } else{
+                    print( STDIO, "%c", ucChar );
+                } // else
+            } // if
+        } // 
+        return( 1 );
+  dc:	f04f 0001 	mov.w	r0, #1
+  e0:	e001      	b.n	e6 <cmd_read+0xe6>
+  e2:	f04f 0001 	mov.w	r0, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:611
+    } // if
+
+    return( 0 );
+}
+  e6:	b00a      	add	sp, #40	; 0x28
+  e8:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+
+Disassembly of section .text.cmd_format:
+
+00000000 <cmd_format>:
+cmd_format():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:574
+    
+    return( 0 );
+}
+
+u8 cmd_format( u8 *ucBuffer )
+{
+   0:	b508      	push	{r3, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:577
+    u8 *ucParam;
+    
+    ucParam = getNextSubString( ucBuffer, WHITESPACE );
+   2:	f04f 0102 	mov.w	r1, #2
+   6:	f7ff fffe 	bl	0 <getNextSubString>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:578
+    fileFormat( ucParam );
+   a:	f7ff fffe 	bl	0 <fileFormat>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:581
+
+    return( 1 );
+}
+   e:	f04f 0001 	mov.w	r0, #1
+  12:	bd08      	pop	{r3, pc}
+
+Disassembly of section .text.cmd_mnt:
+
+00000000 <cmd_mnt>:
+cmd_mnt():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:567
+
+//------------------------------------Basic File Commands-------------------------------------
+//--------------------------------------------------------------------------------------------
+#ifdef __PYGMYSTREAMFILE
+u8 cmd_mnt( u8 *ucBuffer )
+{
+   0:	b508      	push	{r3, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:568
+    fileMountRoot();
+   2:	f7ff fffe 	bl	0 <fileMountRoot>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:571
+    
+    return( 0 );
+}
+   6:	f04f 0000 	mov.w	r0, #0
+   a:	bd08      	pop	{r3, pc}
+
+Disassembly of section .text.cmd_pinconfig:
+
+00000000 <cmd_pinconfig>:
+cmd_pinconfig():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:537
+
+    return( TRUE );
+}
+
+u8 cmd_pinconfig( u8 *ucBuffer )
+{
+   0:	b510      	push	{r4, lr}
+   2:	b082      	sub	sp, #8
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:540
+    u8 *ucParams[ 2 ], ucPin, ucMode;
+
+    getAllSubStrings( ucBuffer, ucParams, 2, WHITESPACE );
+   4:	4669      	mov	r1, sp
+   6:	f04f 0202 	mov.w	r2, #2
+   a:	4613      	mov	r3, r2
+   c:	f7ff fffe 	bl	0 <getAllSubStrings>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:541
+    ucPin = convertStringToPin( ucParams[ 0 ] );
+  10:	9800      	ldr	r0, [sp, #0]
+  12:	f7ff fffe 	bl	0 <convertStringToPin>
+  16:	4604      	mov	r4, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:542
+    if( isStringSameIgnoreCase( ucParams[ 1 ], "in" ) ){
+  18:	9801      	ldr	r0, [sp, #4]
+  1a:	f240 0100 	movw	r1, #0
+  1e:	f2c0 0100 	movt	r1, #0
+  22:	f7ff fffe 	bl	0 <isStringSameIgnoreCase>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:543
+        ucMode = IN;
+  26:	f04f 0104 	mov.w	r1, #4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:542
+{
+    u8 *ucParams[ 2 ], ucPin, ucMode;
+
+    getAllSubStrings( ucBuffer, ucParams, 2, WHITESPACE );
+    ucPin = convertStringToPin( ucParams[ 0 ] );
+    if( isStringSameIgnoreCase( ucParams[ 1 ], "in" ) ){
+  2a:	bb38      	cbnz	r0, 7c <cmd_pinconfig+0x7c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:544
+        ucMode = IN;
+    } else if( isStringSameIgnoreCase( ucParams[ 1 ], "out" ) ){
+  2c:	9801      	ldr	r0, [sp, #4]
+  2e:	f240 0100 	movw	r1, #0
+  32:	f2c0 0100 	movt	r1, #0
+  36:	f7ff fffe 	bl	0 <isStringSameIgnoreCase>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:545
+        ucMode = OUT;
+  3a:	f04f 0103 	mov.w	r1, #3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:544
+
+    getAllSubStrings( ucBuffer, ucParams, 2, WHITESPACE );
+    ucPin = convertStringToPin( ucParams[ 0 ] );
+    if( isStringSameIgnoreCase( ucParams[ 1 ], "in" ) ){
+        ucMode = IN;
+    } else if( isStringSameIgnoreCase( ucParams[ 1 ], "out" ) ){
+  3e:	b9e8      	cbnz	r0, 7c <cmd_pinconfig+0x7c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:546
+        ucMode = OUT;
+    } else if( isStringSameIgnoreCase( ucParams[ 1 ], "analog" ) ){
+  40:	9801      	ldr	r0, [sp, #4]
+  42:	f240 0100 	movw	r1, #0
+  46:	f2c0 0100 	movt	r1, #0
+  4a:	f7ff fffe 	bl	0 <isStringSameIgnoreCase>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:547
+        ucMode = ANALOG;
+  4e:	f04f 0100 	mov.w	r1, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:546
+    ucPin = convertStringToPin( ucParams[ 0 ] );
+    if( isStringSameIgnoreCase( ucParams[ 1 ], "in" ) ){
+        ucMode = IN;
+    } else if( isStringSameIgnoreCase( ucParams[ 1 ], "out" ) ){
+        ucMode = OUT;
+    } else if( isStringSameIgnoreCase( ucParams[ 1 ], "analog" ) ){
+  52:	b998      	cbnz	r0, 7c <cmd_pinconfig+0x7c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:548
+        ucMode = ANALOG;
+    } else if( isStringSameIgnoreCase( ucParams[ 1 ], "pullup" ) ){
+  54:	9801      	ldr	r0, [sp, #4]
+  56:	f240 0100 	movw	r1, #0
+  5a:	f2c0 0100 	movt	r1, #0
+  5e:	f7ff fffe 	bl	0 <isStringSameIgnoreCase>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:549
+        ucMode = PULLUP;
+  62:	f04f 0118 	mov.w	r1, #24
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:548
+        ucMode = IN;
+    } else if( isStringSameIgnoreCase( ucParams[ 1 ], "out" ) ){
+        ucMode = OUT;
+    } else if( isStringSameIgnoreCase( ucParams[ 1 ], "analog" ) ){
+        ucMode = ANALOG;
+    } else if( isStringSameIgnoreCase( ucParams[ 1 ], "pullup" ) ){
+  66:	b948      	cbnz	r0, 7c <cmd_pinconfig+0x7c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:550
+        ucMode = PULLUP;
+    } else if( isStringSameIgnoreCase( ucParams[ 1 ], "pulldown" ) ){
+  68:	9801      	ldr	r0, [sp, #4]
+  6a:	f240 0100 	movw	r1, #0
+  6e:	f2c0 0100 	movt	r1, #0
+  72:	f7ff fffe 	bl	0 <isStringSameIgnoreCase>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:551
+        ucMode = PULLDOWN;
+  76:	f04f 0128 	mov.w	r1, #40	; 0x28
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:550
+        ucMode = OUT;
+    } else if( isStringSameIgnoreCase( ucParams[ 1 ], "analog" ) ){
+        ucMode = ANALOG;
+    } else if( isStringSameIgnoreCase( ucParams[ 1 ], "pullup" ) ){
+        ucMode = PULLUP;
+    } else if( isStringSameIgnoreCase( ucParams[ 1 ], "pulldown" ) ){
+  7a:	b128      	cbz	r0, 88 <cmd_pinconfig+0x88>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:555
+        ucMode = PULLDOWN;
+    } else{
+        return( 0 );
+    } // else
+    pinConfig( ucPin, ucMode );
+  7c:	4620      	mov	r0, r4
+  7e:	f7ff fffe 	bl	0 <pinConfig>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:557
+
+    return( 1 );
+  82:	f04f 0001 	mov.w	r0, #1
+  86:	e001      	b.n	8c <cmd_pinconfig+0x8c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:553
+    } else if( isStringSameIgnoreCase( ucParams[ 1 ], "pullup" ) ){
+        ucMode = PULLUP;
+    } else if( isStringSameIgnoreCase( ucParams[ 1 ], "pulldown" ) ){
+        ucMode = PULLDOWN;
+    } else{
+        return( 0 );
+  88:	f04f 0000 	mov.w	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:558
+    } // else
+    pinConfig( ucPin, ucMode );
+
+    return( 1 );
+}
+  8c:	b002      	add	sp, #8
+  8e:	bd10      	pop	{r4, pc}
+
+Disassembly of section .text.cmd_pinpwm:
+
+00000000 <cmd_pinpwm>:
+cmd_pinpwm():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:524
+
+    return( TRUE );
+}
+
+u8 cmd_pinpwm( u8 *ucBuffer )
+{
+   0:	b530      	push	{r4, r5, lr}
+   2:	b085      	sub	sp, #20
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:527
+    u8 *ucParams[ 3 ], ucPin, ucDutyCycle, ucFreq;
+
+    getAllSubStrings( ucBuffer, ucParams, 3, WHITESPACE );
+   4:	a901      	add	r1, sp, #4
+   6:	f04f 0203 	mov.w	r2, #3
+   a:	f04f 0302 	mov.w	r3, #2
+   e:	f7ff fffe 	bl	0 <getAllSubStrings>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:528
+    ucPin = convertStringToPin( ucParams[ 0 ] );
+  12:	9801      	ldr	r0, [sp, #4]
+  14:	f7ff fffe 	bl	0 <convertStringToPin>
+  18:	4605      	mov	r5, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:529
+    ucFreq = convertStringToInt( ucParams[ 1 ] );
+  1a:	9802      	ldr	r0, [sp, #8]
+  1c:	f7ff fffe 	bl	0 <convertStringToInt>
+  20:	4604      	mov	r4, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:530
+    ucDutyCycle = convertStringToInt( ucParams[ 2 ] );
+  22:	9803      	ldr	r0, [sp, #12]
+  24:	f7ff fffe 	bl	0 <convertStringToInt>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:531
+    pinPWM( ucPin, ucFreq, ucDutyCycle );
+  28:	b2c2      	uxtb	r2, r0
+  2a:	4628      	mov	r0, r5
+  2c:	b2e1      	uxtb	r1, r4
+  2e:	f7ff fffe 	bl	0 <pinPWM>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:534
+
+    return( TRUE );
+}
+  32:	f04f 0001 	mov.w	r0, #1
+  36:	b005      	add	sp, #20
+  38:	bd30      	pop	{r4, r5, pc}
+  3a:	bf00      	nop
+
+Disassembly of section .text.cmd_pinanalog:
+
+00000000 <cmd_pinanalog>:
+cmd_pinanalog():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:514
+
+    return( 1 );
+}
+
+u8 cmd_pinanalog( u8 *ucBuffer )
+{
+   0:	b510      	push	{r4, lr}
+   2:	4604      	mov	r4, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:515
+    if( !adcGetStatus( ) ){
+   4:	f7ff fffe 	bl	0 <adcGetStatus>
+   8:	b908      	cbnz	r0, 6 <adcSingleSampleInit+0x6>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:516
+        adcSingleSampleInit();
+   a:	f7ff fffe 	bl	0 <adcSingleSampleInit>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:518
+    } // if
+    print( STDIO, "\r%d", adcSingleSample( convertStringToPin( getNextSubString( ucBuffer, WHITESPACE ) ) ) );
+   e:	4620      	mov	r0, r4
+  10:	f04f 0102 	mov.w	r1, #2
+  14:	f7ff fffe 	bl	0 <getNextSubString>
+  18:	f7ff fffe 	bl	0 <convertStringToPin>
+  1c:	f7ff fffe 	bl	0 <adcSingleSample>
+  20:	4602      	mov	r2, r0
+  22:	f04f 0000 	mov.w	r0, #0
+  26:	f240 0100 	movw	r1, #0
+  2a:	f2c0 0100 	movt	r1, #0
+  2e:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:521
+
+    return( TRUE );
+}
+  32:	f04f 0001 	mov.w	r0, #1
+  36:	bd10      	pop	{r4, pc}
+
+Disassembly of section .text.cmd_pinget:
+
+00000000 <cmd_pinget>:
+cmd_pinget():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:507
+    return( TRUE );
+}
+
+
+u8 cmd_pinget( u8 *ucBuffer )
+{
+   0:	b508      	push	{r3, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:508
+    print( STDIO, "\r%d", pinGet( convertStringToPin( getNextSubString( ucBuffer, WHITESPACE ) ) ) );
+   2:	f04f 0102 	mov.w	r1, #2
+   6:	f7ff fffe 	bl	0 <getNextSubString>
+   a:	f7ff fffe 	bl	0 <convertStringToPin>
+   e:	f7ff fffe 	bl	0 <pinGet>
+  12:	4602      	mov	r2, r0
+  14:	f04f 0000 	mov.w	r0, #0
+  18:	f240 0100 	movw	r1, #0
+  1c:	f2c0 0100 	movt	r1, #0
+  20:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:511
+
+    return( 1 );
+}
+  24:	f04f 0001 	mov.w	r0, #1
+  28:	bd08      	pop	{r3, pc}
+  2a:	bf00      	nop
+
+Disassembly of section .text.cmd_pinset:
+
+00000000 <cmd_pinset>:
+cmd_pinset():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:487
+
+    return( TRUE );
+}
+
+u8 cmd_pinset( u8 *ucBuffer )
+{
+   0:	b510      	push	{r4, lr}
+   2:	b082      	sub	sp, #8
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:490
+    u8 *ucParams[ 2 ], ucPin;
+    
+    getAllSubStrings( ucBuffer, ucParams, 2, WHITESPACE );
+   4:	4669      	mov	r1, sp
+   6:	f04f 0202 	mov.w	r2, #2
+   a:	4613      	mov	r3, r2
+   c:	f7ff fffe 	bl	0 <getAllSubStrings>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:491
+    ucPin = convertStringToPin( ucParams[ 0 ] );
+  10:	9800      	ldr	r0, [sp, #0]
+  12:	f7ff fffe 	bl	0 <convertStringToPin>
+  16:	4604      	mov	r4, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:492
+    if( isStringSameIgnoreCase( ucParams[ 1 ], "high" ) || isStringSame( ucParams[ 1 ], "1" )
+  18:	9801      	ldr	r0, [sp, #4]
+  1a:	f240 0100 	movw	r1, #0
+  1e:	f2c0 0100 	movt	r1, #0
+  22:	f7ff fffe 	bl	0 <isStringSameIgnoreCase>
+  26:	b978      	cbnz	r0, 48 <cmd_pinset+0x48>
+  28:	9801      	ldr	r0, [sp, #4]
+  2a:	f240 0100 	movw	r1, #0
+  2e:	f2c0 0100 	movt	r1, #0
+  32:	f7ff fffe 	bl	0 <isStringSame>
+  36:	b938      	cbnz	r0, 48 <cmd_pinset+0x48>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:493
+        || isStringSameIgnoreCase( ucParams[ 1 ], "on" ) ){
+  38:	9801      	ldr	r0, [sp, #4]
+  3a:	f240 0100 	movw	r1, #0
+  3e:	f2c0 0100 	movt	r1, #0
+  42:	f7ff fffe 	bl	0 <isStringSameIgnoreCase>
+  46:	b138      	cbz	r0, 58 <cmd_pinset+0x58>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:494
+        pinSet( ucPin, 1 );
+  48:	4620      	mov	r0, r4
+  4a:	f04f 0101 	mov.w	r1, #1
+  4e:	f7ff fffe 	bl	0 <pinSet>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:502
+        pinSet( ucPin, 0 );
+    } else{
+        return( FALSE );
+    } // else
+
+    return( TRUE );
+  52:	f04f 0001 	mov.w	r0, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:494
+    
+    getAllSubStrings( ucBuffer, ucParams, 2, WHITESPACE );
+    ucPin = convertStringToPin( ucParams[ 0 ] );
+    if( isStringSameIgnoreCase( ucParams[ 1 ], "high" ) || isStringSame( ucParams[ 1 ], "1" )
+        || isStringSameIgnoreCase( ucParams[ 1 ], "on" ) ){
+        pinSet( ucPin, 1 );
+  56:	e021      	b.n	9c <cmd_pinset+0x9c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:495
+    } else if( isStringSameIgnoreCase( ucParams[ 1 ], "low" ) || isStringSame( ucParams[ 1 ], "0" )
+  58:	9801      	ldr	r0, [sp, #4]
+  5a:	f240 0100 	movw	r1, #0
+  5e:	f2c0 0100 	movt	r1, #0
+  62:	f7ff fffe 	bl	0 <isStringSameIgnoreCase>
+  66:	b978      	cbnz	r0, 88 <cmd_pinset+0x88>
+  68:	9801      	ldr	r0, [sp, #4]
+  6a:	f240 0100 	movw	r1, #0
+  6e:	f2c0 0100 	movt	r1, #0
+  72:	f7ff fffe 	bl	0 <isStringSame>
+  76:	b938      	cbnz	r0, 88 <cmd_pinset+0x88>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:496
+        || isStringSameIgnoreCase( ucParams[ 1 ], "off" ) ){
+  78:	9801      	ldr	r0, [sp, #4]
+  7a:	f240 0100 	movw	r1, #0
+  7e:	f2c0 0100 	movt	r1, #0
+  82:	f7ff fffe 	bl	0 <isStringSameIgnoreCase>
+  86:	b138      	cbz	r0, 98 <cmd_pinset+0x98>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:497
+        pinSet( ucPin, 0 );
+  88:	4620      	mov	r0, r4
+  8a:	f04f 0100 	mov.w	r1, #0
+  8e:	f7ff fffe 	bl	0 <pinSet>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:502
+    } else{
+        return( FALSE );
+    } // else
+
+    return( TRUE );
+  92:	f04f 0001 	mov.w	r0, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:497
+    if( isStringSameIgnoreCase( ucParams[ 1 ], "high" ) || isStringSame( ucParams[ 1 ], "1" )
+        || isStringSameIgnoreCase( ucParams[ 1 ], "on" ) ){
+        pinSet( ucPin, 1 );
+    } else if( isStringSameIgnoreCase( ucParams[ 1 ], "low" ) || isStringSame( ucParams[ 1 ], "0" )
+        || isStringSameIgnoreCase( ucParams[ 1 ], "off" ) ){
+        pinSet( ucPin, 0 );
+  96:	e001      	b.n	9c <cmd_pinset+0x9c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:499
+    } else{
+        return( FALSE );
+  98:	f04f 0000 	mov.w	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:503
+    } // else
+
+    return( TRUE );
+}
+  9c:	b002      	add	sp, #8
+  9e:	bd10      	pop	{r4, pc}
+
+Disassembly of section .text.cmd_pinevent:
+
+00000000 <cmd_pinevent>:
+cmd_pinevent():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:471
+        } // if
+    } // for
+}
+
+u8 cmd_pinevent( u8 *ucBuffer )
+{
+   0:	b530      	push	{r4, r5, lr}
+   2:	b083      	sub	sp, #12
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:474
+    u8 *ucParams[ 2 ], ucLen, ucPin;
+
+    ucLen = getAllSubStrings( ucBuffer, ucParams, 2, WHITESPACE );
+   4:	4669      	mov	r1, sp
+   6:	f04f 0202 	mov.w	r2, #2
+   a:	4613      	mov	r3, r2
+   c:	f7ff fffe 	bl	0 <getAllSubStrings>
+  10:	4604      	mov	r4, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:475
+    ucPin = convertStringToPin( ucParams[ 0 ] );
+  12:	9800      	ldr	r0, [sp, #0]
+  14:	f7ff fffe 	bl	0 <convertStringToPin>
+  18:	4605      	mov	r5, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:476
+    if( ucLen > 1 && isStringSameIgnoreCase( ucParams[ 1 ], "off" ) ){
+  1a:	b2e4      	uxtb	r4, r4
+  1c:	2c01      	cmp	r4, #1
+  1e:	d913      	bls.n	48 <cmd_pinevent+0x48>
+  20:	9801      	ldr	r0, [sp, #4]
+  22:	f240 0100 	movw	r1, #0
+  26:	f2c0 0100 	movt	r1, #0
+  2a:	f7ff fffe 	bl	0 <isStringSameIgnoreCase>
+  2e:	b158      	cbz	r0, 1a <cmd_pinevent+0x1a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:478
+        // if second parameter is included and is "off"
+        pinInterrupt( cmdPinEvent, ucPin, 0, 5 );
+  30:	f240 0000 	movw	r0, #0
+  34:	f2c0 0000 	movt	r0, #0
+  38:	4629      	mov	r1, r5
+  3a:	f04f 0200 	mov.w	r2, #0
+  3e:	f04f 0305 	mov.w	r3, #5
+  42:	f7ff fffe 	bl	0 <pinInterrupt>
+  46:	e00a      	b.n	18 <cmd_pinevent+0x18>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:480
+    } else{
+        pinInterrupt( cmdPinEvent, ucPin, TRIGGER_RISING|TRIGGER_FALLING, 5 );
+  48:	f240 0000 	movw	r0, #0
+  4c:	f2c0 0000 	movt	r0, #0
+  50:	4629      	mov	r1, r5
+  52:	f04f 0203 	mov.w	r2, #3
+  56:	f04f 0305 	mov.w	r3, #5
+  5a:	f7ff fffe 	bl	0 <pinInterrupt>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:484
+    } // else
+
+    return( TRUE );
+}
+  5e:	f04f 0001 	mov.w	r0, #1
+  62:	b003      	add	sp, #12
+  64:	bd30      	pop	{r4, r5, pc}
+  66:	bf00      	nop
+
+Disassembly of section .text.cmdPinEvent:
+
+00000000 <cmdPinEvent>:
+cmdPinEvent():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:453
+
+//---------------------------------------Debug Commands-------------------------------------
+//--------------------------------------------------------------------------------------------
+
+void cmdPinEvent( void )
+{
+   0:	e92d 43f8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:457
+    u16 uiPR;
+    u8 i, ucPin;
+
+    uiPR = pinGetIRQPR();
+   4:	f7ff fffe 	bl	0 <pinGetIRQPR>
+   8:	4605      	mov	r5, r0
+   a:	f04f 0400 	mov.w	r4, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:464
+        if( uiPR & ( BIT0 << i ) ){
+            ucPin = pinGetIRQPin( i );
+            if( pinGet( ucPin ) ){
+                print( STDIO, "\r%s HIGH%s", convertPinToString( ucPin ),  globalCMDPrompt );
+            } else{
+                print( STDIO, "\r%s LOW%s", convertPinToString( ucPin ), globalCMDPrompt );
+   e:	f240 0800 	movw	r8, #0
+  12:	f2c0 0800 	movt	r8, #0
+  16:	f240 0700 	movw	r7, #0
+  1a:	f2c0 0700 	movt	r7, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:462
+    uiPR = pinGetIRQPR();
+    for( i = 0; i < 16; i++ ){
+        if( uiPR & ( BIT0 << i ) ){
+            ucPin = pinGetIRQPin( i );
+            if( pinGet( ucPin ) ){
+                print( STDIO, "\r%s HIGH%s", convertPinToString( ucPin ),  globalCMDPrompt );
+  1e:	f240 0900 	movw	r9, #0
+  22:	f2c0 0900 	movt	r9, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:457
+void cmdPinEvent( void )
+{
+    u16 uiPR;
+    u8 i, ucPin;
+
+    uiPR = pinGetIRQPR();
+  26:	b2e0      	uxtb	r0, r4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:459
+    for( i = 0; i < 16; i++ ){
+        if( uiPR & ( BIT0 << i ) ){
+  28:	fa45 f304 	asr.w	r3, r5, r4
+  2c:	f013 0f01 	tst.w	r3, #1
+  30:	d01a      	beq.n	38 <pinGetIRQPin+0x38>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:460
+            ucPin = pinGetIRQPin( i );
+  32:	f7ff fffe 	bl	0 <pinGetIRQPin>
+  36:	4606      	mov	r6, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:461
+            if( pinGet( ucPin ) ){
+  38:	f7ff fffe 	bl	0 <pinGet>
+  3c:	b150      	cbz	r0, 54 <cmdPinEvent+0x54>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:462
+                print( STDIO, "\r%s HIGH%s", convertPinToString( ucPin ),  globalCMDPrompt );
+  3e:	4630      	mov	r0, r6
+  40:	f7ff fffe 	bl	0 <convertPinToString>
+  44:	4602      	mov	r2, r0
+  46:	f04f 0000 	mov.w	r0, #0
+  4a:	4649      	mov	r1, r9
+  4c:	683b      	ldr	r3, [r7, #0]
+  4e:	f7ff fffe 	bl	0 <print>
+  52:	e009      	b.n	68 <cmdPinEvent+0x68>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:464
+            } else{
+                print( STDIO, "\r%s LOW%s", convertPinToString( ucPin ), globalCMDPrompt );
+  54:	4630      	mov	r0, r6
+  56:	f7ff fffe 	bl	0 <convertPinToString>
+  5a:	4602      	mov	r2, r0
+  5c:	f04f 0000 	mov.w	r0, #0
+  60:	4641      	mov	r1, r8
+  62:	683b      	ldr	r3, [r7, #0]
+  64:	f7ff fffe 	bl	0 <print>
+  68:	f104 0401 	add.w	r4, r4, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:458
+{
+    u16 uiPR;
+    u8 i, ucPin;
+
+    uiPR = pinGetIRQPR();
+    for( i = 0; i < 16; i++ ){
+  6c:	2c10      	cmp	r4, #16
+  6e:	d1da      	bne.n	26 <cmdPinEvent+0x26>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:468
+            } else{
+                print( STDIO, "\r%s LOW%s", convertPinToString( ucPin ), globalCMDPrompt );
+            } // else
+        } // if
+    } // for
+}
+  70:	e8bd 83f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
+
+Disassembly of section .text.cmd_ps:
+
+00000000 <cmd_ps>:
+cmd_ps():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:376
+
+    return( 0 );
+}
+
+u8 cmd_ps( u8 *ucBuffer )
+{
+   0:	e92d 43f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, lr}
+   4:	b089      	sub	sp, #36	; 0x24
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:383
+    PYGMYMESSAGE pygmyMsg;
+    PYGMYTASK pygmyTask;
+    u16 i, ii;
+    u8 *ucParam;
+
+    ucParam = getNextSubString( ucBuffer, WHITESPACE );
+   6:	f04f 0102 	mov.w	r1, #2
+   a:	f7ff fffe 	bl	0 <getNextSubString>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:384
+    if( ucParam ){
+   e:	4604      	mov	r4, r0
+  10:	b170      	cbz	r0, 30 <cmd_ps+0x30>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:385
+        if( isStringSame( ucParam, "-s" ) || isStringSame( ucParam, "--sockets" ) ){
+  12:	f240 0100 	movw	r1, #0
+  16:	f2c0 0100 	movt	r1, #0
+  1a:	f7ff fffe 	bl	0 <isStringSame>
+  1e:	b938      	cbnz	r0, 30 <cmd_ps+0x30>
+  20:	4620      	mov	r0, r4
+  22:	f240 0100 	movw	r1, #0
+  26:	f2c0 0100 	movt	r1, #0
+  2a:	f7ff fffe 	bl	0 <isStringSame>
+  2e:	b150      	cbz	r0, 46 <cmd_ps+0x46>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:389
+            //rfListSockets();
+        } else if( isStringSame( ucParam, "-m" ) || isStringSame( ucParam, "--messages" ) ){
+            print( COM3, "\rMessages\r" );
+            for( i = 0; i < PYGMY_MAXTASKS; i++ ){
+  30:	f04f 0800 	mov.w	r8, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:415
+        
+        pygmyQueue = cmdListQueue( i );
+        if( !pygmyQueue ){
+            continue;
+        } // if
+        print( STDIO, "\rCommand Queue\r\r" );
+  34:	f240 0900 	movw	r9, #0
+  38:	f2c0 0900 	movt	r9, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:418
+        for( ii = 0; ii < PYGMY_MAXCOMMANDS; ii++ ){
+            if( pygmyQueue->Commands[ ii ].Status ){
+                print( STDIO, "\r%s %d %t", pygmyQueue->Commands[ ii ].Name, 
+  3c:	f240 0700 	movw	r7, #0
+  40:	f2c0 0700 	movt	r7, #0
+  44:	e051      	b.n	ea <cmd_ps+0xea>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:387
+
+    ucParam = getNextSubString( ucBuffer, WHITESPACE );
+    if( ucParam ){
+        if( isStringSame( ucParam, "-s" ) || isStringSame( ucParam, "--sockets" ) ){
+            //rfListSockets();
+        } else if( isStringSame( ucParam, "-m" ) || isStringSame( ucParam, "--messages" ) ){
+  46:	4620      	mov	r0, r4
+  48:	f240 0100 	movw	r1, #0
+  4c:	f2c0 0100 	movt	r1, #0
+  50:	f7ff fffe 	bl	0 <isStringSame>
+  54:	b940      	cbnz	r0, 68 <cmd_ps+0x68>
+  56:	4620      	mov	r0, r4
+  58:	f240 0100 	movw	r1, #0
+  5c:	f2c0 0100 	movt	r1, #0
+  60:	f7ff fffe 	bl	0 <isStringSame>
+  64:	2800      	cmp	r0, #0
+  66:	d0e3      	beq.n	30 <cmd_ps+0x30>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:388
+            print( COM3, "\rMessages\r" );
+  68:	f04f 0002 	mov.w	r0, #2
+  6c:	f240 0100 	movw	r1, #0
+  70:	f2c0 0100 	movt	r1, #0
+  74:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:389
+            for( i = 0; i < PYGMY_MAXTASKS; i++ ){
+  78:	f04f 0400 	mov.w	r4, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:392
+                msgList( &pygmyMsg, i );
+                if( pygmyMsg.DestID != PYGMY_BLANKID || pygmyMsg.DestName[ 0 ] ){
+                    print( COM3, "\rMessage To: %s", pygmyMsg.DestName );
+  7c:	f240 0500 	movw	r5, #0
+  80:	f2c0 0500 	movt	r5, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:393
+                    print( COM3, "\r\tMessage: %s", pygmyMsg.Message );
+  84:	f240 0600 	movw	r6, #0
+  88:	f2c0 0600 	movt	r6, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:394
+                    print( COM3, "\r\tValue: 0x%08X", pygmyMsg.Value );
+  8c:	f240 0700 	movw	r7, #0
+  90:	f2c0 0700 	movt	r7, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:390
+        if( isStringSame( ucParam, "-s" ) || isStringSame( ucParam, "--sockets" ) ){
+            //rfListSockets();
+        } else if( isStringSame( ucParam, "-m" ) || isStringSame( ucParam, "--messages" ) ){
+            print( COM3, "\rMessages\r" );
+            for( i = 0; i < PYGMY_MAXTASKS; i++ ){
+                msgList( &pygmyMsg, i );
+  94:	a803      	add	r0, sp, #12
+  96:	4621      	mov	r1, r4
+  98:	f7ff fffe 	bl	0 <msgList>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:391
+                if( pygmyMsg.DestID != PYGMY_BLANKID || pygmyMsg.DestName[ 0 ] ){
+  9c:	f8bd 300c 	ldrh.w	r3, [sp, #12]
+  a0:	b913      	cbnz	r3, a8 <cmd_ps+0xa8>
+  a2:	9b04      	ldr	r3, [sp, #16]
+  a4:	781b      	ldrb	r3, [r3, #0]
+  a6:	b1d3      	cbz	r3, de <cmd_ps+0xde>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:392
+                    print( COM3, "\rMessage To: %s", pygmyMsg.DestName );
+  a8:	f04f 0002 	mov.w	r0, #2
+  ac:	4629      	mov	r1, r5
+  ae:	9a04      	ldr	r2, [sp, #16]
+  b0:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:393
+                    print( COM3, "\r\tMessage: %s", pygmyMsg.Message );
+  b4:	f04f 0002 	mov.w	r0, #2
+  b8:	4631      	mov	r1, r6
+  ba:	9a05      	ldr	r2, [sp, #20]
+  bc:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:394
+                    print( COM3, "\r\tValue: 0x%08X", pygmyMsg.Value );
+  c0:	f04f 0002 	mov.w	r0, #2
+  c4:	4639      	mov	r1, r7
+  c6:	9a06      	ldr	r2, [sp, #24]
+  c8:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:395
+                    print( COM3, "\r\tTime: %t", pygmyMsg.TimeStamp );
+  cc:	f04f 0002 	mov.w	r0, #2
+  d0:	f240 0100 	movw	r1, #0
+  d4:	f2c0 0100 	movt	r1, #0
+  d8:	9a07      	ldr	r2, [sp, #28]
+  da:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:389
+    if( ucParam ){
+        if( isStringSame( ucParam, "-s" ) || isStringSame( ucParam, "--sockets" ) ){
+            //rfListSockets();
+        } else if( isStringSame( ucParam, "-m" ) || isStringSame( ucParam, "--messages" ) ){
+            print( COM3, "\rMessages\r" );
+            for( i = 0; i < PYGMY_MAXTASKS; i++ ){
+  de:	f104 0401 	add.w	r4, r4, #1
+  e2:	b2a4      	uxth	r4, r4
+  e4:	2c0f      	cmp	r4, #15
+  e6:	d1d5      	bne.n	94 <cmd_ps+0x94>
+  e8:	e7a2      	b.n	30 <cmd_ps+0x30>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:411
+    } // for
+    */
+    
+    for( i = 0; i < PYGMY_MAXQUEUES; i++ ){
+        
+        pygmyQueue = cmdListQueue( i );
+  ea:	4640      	mov	r0, r8
+  ec:	f7ff fffe 	bl	0 <cmdListQueue>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:412
+        if( !pygmyQueue ){
+  f0:	4605      	mov	r5, r0
+  f2:	b1b8      	cbz	r0, 124 <cmd_ps+0x124>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:415
+            continue;
+        } // if
+        print( STDIO, "\rCommand Queue\r\r" );
+  f4:	f04f 0000 	mov.w	r0, #0
+  f8:	4649      	mov	r1, r9
+  fa:	f7ff fffe 	bl	0 <print>
+  fe:	462c      	mov	r4, r5
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:375
+{
+
+    return( 0 );
+}
+
+u8 cmd_ps( u8 *ucBuffer )
+ 100:	f505 75f0 	add.w	r5, r5, #480	; 0x1e0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:418
+            continue;
+        } // if
+        print( STDIO, "\rCommand Queue\r\r" );
+        for( ii = 0; ii < PYGMY_MAXCOMMANDS; ii++ ){
+            if( pygmyQueue->Commands[ ii ].Status ){
+                print( STDIO, "\r%s %d %t", pygmyQueue->Commands[ ii ].Name, 
+ 104:	f04f 0600 	mov.w	r6, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:417
+        if( !pygmyQueue ){
+            continue;
+        } // if
+        print( STDIO, "\rCommand Queue\r\r" );
+        for( ii = 0; ii < PYGMY_MAXCOMMANDS; ii++ ){
+            if( pygmyQueue->Commands[ ii ].Status ){
+ 108:	7923      	ldrb	r3, [r4, #4]
+ 10a:	b13b      	cbz	r3, 11c <cmd_ps+0x11c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:418
+                print( STDIO, "\r%s %d %t", pygmyQueue->Commands[ ii ].Name, 
+ 10c:	68a2      	ldr	r2, [r4, #8]
+ 10e:	7963      	ldrb	r3, [r4, #5]
+ 110:	6961      	ldr	r1, [r4, #20]
+ 112:	9100      	str	r1, [sp, #0]
+ 114:	4630      	mov	r0, r6
+ 116:	4639      	mov	r1, r7
+ 118:	f7ff fffe 	bl	0 <print>
+ 11c:	f104 0418 	add.w	r4, r4, #24
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:416
+        pygmyQueue = cmdListQueue( i );
+        if( !pygmyQueue ){
+            continue;
+        } // if
+        print( STDIO, "\rCommand Queue\r\r" );
+        for( ii = 0; ii < PYGMY_MAXCOMMANDS; ii++ ){
+ 120:	42ac      	cmp	r4, r5
+ 122:	d1f1      	bne.n	108 <cmd_ps+0x108>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:409
+            println( STDIO, "%4d %s %t", pygmyTask.ID, pygmyTask.Name, pygmyTask.TimeStamp );
+        }
+    } // for
+    */
+    
+    for( i = 0; i < PYGMY_MAXQUEUES; i++ ){
+ 124:	f108 0801 	add.w	r8, r8, #1
+ 128:	fa1f f888 	uxth.w	r8, r8
+ 12c:	f1b8 0f04 	cmp.w	r8, #4
+ 130:	d1db      	bne.n	ea <cmd_ps+0xea>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:426
+        } // for
+         
+    } // for
+
+    return( 1 );
+}
+ 132:	f04f 0001 	mov.w	r0, #1
+ 136:	b009      	add	sp, #36	; 0x24
+ 138:	e8bd 83f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, pc}
+
+Disassembly of section .text.cmdInit:
+
+00000000 <cmdInit>:
+cmdInit():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:190
+    streamSetSTDIO
+}
+#endif // __PYGMYSTREAMSOCKET
+
+void cmdInit( void )
+{
+   0:	b508      	push	{r3, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:197
+
+    #ifndef __PYGMYCMDMAXLISTS
+        #define __PYGMYCMDMAXLISTS 1
+    #endif // __PYGMYCMDMAXLISTS
+    for( i = 0; i < __PYGMY_MAXCOMMANDPORTS; i++ ){
+        globalCMDPorts[ i ].SPI = 0xFF;
+   2:	f240 0200 	movw	r2, #0
+   6:	f2c0 0200 	movt	r2, #0
+   a:	f04f 03ff 	mov.w	r3, #255	; 0xff
+   e:	7013      	strb	r3, [r2, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:198
+        globalCMDPorts[ i ].I2C = 0xFF;
+  10:	7053      	strb	r3, [r2, #1]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:197
+
+    #ifndef __PYGMYCMDMAXLISTS
+        #define __PYGMYCMDMAXLISTS 1
+    #endif // __PYGMYCMDMAXLISTS
+    for( i = 0; i < __PYGMY_MAXCOMMANDPORTS; i++ ){
+        globalCMDPorts[ i ].SPI = 0xFF;
+  12:	7093      	strb	r3, [r2, #2]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:198
+        globalCMDPorts[ i ].I2C = 0xFF;
+  14:	70d3      	strb	r3, [r2, #3]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:197
+
+    #ifndef __PYGMYCMDMAXLISTS
+        #define __PYGMYCMDMAXLISTS 1
+    #endif // __PYGMYCMDMAXLISTS
+    for( i = 0; i < __PYGMY_MAXCOMMANDPORTS; i++ ){
+        globalCMDPorts[ i ].SPI = 0xFF;
+  16:	7113      	strb	r3, [r2, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:198
+        globalCMDPorts[ i ].I2C = 0xFF;
+  18:	7153      	strb	r3, [r2, #5]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:197
+
+    #ifndef __PYGMYCMDMAXLISTS
+        #define __PYGMYCMDMAXLISTS 1
+    #endif // __PYGMYCMDMAXLISTS
+    for( i = 0; i < __PYGMY_MAXCOMMANDPORTS; i++ ){
+        globalCMDPorts[ i ].SPI = 0xFF;
+  1a:	7193      	strb	r3, [r2, #6]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:198
+        globalCMDPorts[ i ].I2C = 0xFF;
+  1c:	71d3      	strb	r3, [r2, #7]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:201
+    } // for
+    for( i = 0; i < __PYGMY_MAXCOMMANDSPIPORTS; i++ ){
+        globalSPIPorts[ i ].CR = 0xFF;
+  1e:	f240 0200 	movw	r2, #0
+  22:	f2c0 0200 	movt	r2, #0
+  26:	8313      	strh	r3, [r2, #24]
+  28:	8693      	strh	r3, [r2, #52]	; 0x34
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:204
+    } // for
+    for( i = 0; i < __PYGMY_MAXCOMMANDI2CPORTS; i++ ){
+        globalI2CPorts[ i ].CR = 0xFF;
+  2a:	f240 0200 	movw	r2, #0
+  2e:	f2c0 0200 	movt	r2, #0
+  32:	8253      	strh	r3, [r2, #18]
+  34:	84d3      	strh	r3, [r2, #38]	; 0x26
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:206
+    } // for
+    globalCMDPrompt = "\r> ";
+  36:	f240 0100 	movw	r1, #0
+  3a:	f2c0 0100 	movt	r1, #0
+  3e:	f240 0300 	movw	r3, #0
+  42:	f2c0 0300 	movt	r3, #0
+  46:	6019      	str	r1, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:207
+    globalCMDError = "\rerror\r> ";
+  48:	f240 0300 	movw	r3, #0
+  4c:	f2c0 0300 	movt	r3, #0
+  50:	f240 0200 	movw	r2, #0
+  54:	f2c0 0200 	movt	r2, #0
+  58:	601a      	str	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:208
+    globalCMDUnsupported = "\runsupported\r> ";
+  5a:	f240 0300 	movw	r3, #0
+  5e:	f2c0 0300 	movt	r3, #0
+  62:	f240 0200 	movw	r2, #0
+  66:	f2c0 0200 	movt	r2, #0
+  6a:	601a      	str	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:209
+    print( STDIO, globalCMDPrompt );
+  6c:	f04f 0000 	mov.w	r0, #0
+  70:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:210
+}
+  74:	bd08      	pop	{r3, pc}
+  76:	bf00      	nop
+
+Disassembly of section .text.cmdExecute:
+
+00000000 <cmdExecute>:
+cmdExecute():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:213
+
+u8 cmdExecute( u8 *ucBuffer, PYGMYCMD *pygmyCmds )
+{
+   0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+   4:	460e      	mov	r6, r1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:217
+    u16 ii;
+    u8 *ucCommand;
+    
+    ucCommand = getNextSubString( ucBuffer, WHITESPACE|PUNCT );
+   6:	f04f 0103 	mov.w	r1, #3
+   a:	f7ff fffe 	bl	0 <getNextSubString>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:218
+    if( !ucCommand ){
+   e:	4680      	mov	r8, r0
+  10:	b950      	cbnz	r0, 28 <cmdExecute+0x28>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:219
+        print( STDIO, globalCMDPrompt );
+  12:	f240 0300 	movw	r3, #0
+  16:	f2c0 0300 	movt	r3, #0
+  1a:	6819      	ldr	r1, [r3, #0]
+  1c:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:220
+        return( 0 );
+  20:	f04f 0000 	mov.w	r0, #0
+  24:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:218
+{
+    u16 ii;
+    u8 *ucCommand;
+    
+    ucCommand = getNextSubString( ucBuffer, WHITESPACE|PUNCT );
+    if( !ucCommand ){
+  28:	f04f 0400 	mov.w	r4, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:224
+        print( STDIO, globalCMDPrompt );
+        return( 0 );
+    } // if
+        
+    for( ii = 0; 1; ii++ ){
+        if( isStringSame( NULL, pygmyCmds[ ii ].Name ) ){
+  2c:	4627      	mov	r7, r4
+  2e:	eb06 05c4 	add.w	r5, r6, r4, lsl #3
+  32:	4638      	mov	r0, r7
+  34:	f856 1034 	ldr.w	r1, [r6, r4, lsl #3]
+  38:	f7ff fffe 	bl	0 <isStringSame>
+  3c:	b160      	cbz	r0, 20 <cmdExecute+0x20>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:225
+            print( STDIO, globalCMDUnsupported);
+  3e:	f240 0300 	movw	r3, #0
+  42:	f2c0 0300 	movt	r3, #0
+  46:	f04f 0000 	mov.w	r0, #0
+  4a:	6819      	ldr	r1, [r3, #0]
+  4c:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:226
+            return( 0 );
+  50:	f04f 0000 	mov.w	r0, #0
+  54:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:228
+        } // if
+        if( isStringSame( ucCommand, pygmyCmds[ ii ].Name ) ){
+  58:	4640      	mov	r0, r8
+  5a:	f856 1034 	ldr.w	r1, [r6, r4, lsl #3]
+  5e:	f7ff fffe 	bl	0 <isStringSame>
+  62:	b300      	cbz	r0, a6 <cmdExecute+0xa6>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:230
+            // Parameters should not be passed here, they are passed using getNextSubString
+            if( pygmyCmds[ ii ].Call( (u8*)"" ) ){
+  64:	686b      	ldr	r3, [r5, #4]
+  66:	f240 0000 	movw	r0, #0
+  6a:	f2c0 0000 	movt	r0, #0
+  6e:	4798      	blx	r3
+  70:	b160      	cbz	r0, 8c <cmdExecute+0x8c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:231
+                print( STDIO, globalCMDPrompt );
+  72:	f240 0300 	movw	r3, #0
+  76:	f2c0 0300 	movt	r3, #0
+  7a:	f04f 0000 	mov.w	r0, #0
+  7e:	6819      	ldr	r1, [r3, #0]
+  80:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:232
+                return( 1 );
+  84:	f04f 0001 	mov.w	r0, #1
+  88:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:234
+            }else{
+                print( STDIO, globalCMDError );
+  8c:	f240 0300 	movw	r3, #0
+  90:	f2c0 0300 	movt	r3, #0
+  94:	f04f 0000 	mov.w	r0, #0
+  98:	6819      	ldr	r1, [r3, #0]
+  9a:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:235
+                return( 0 );
+  9e:	f04f 0000 	mov.w	r0, #0
+  a2:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:223
+    if( !ucCommand ){
+        print( STDIO, globalCMDPrompt );
+        return( 0 );
+    } // if
+        
+    for( ii = 0; 1; ii++ ){
+  a6:	f104 0401 	add.w	r4, r4, #1
+  aa:	b2a4      	uxth	r4, r4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:238
+            }else{
+                print( STDIO, globalCMDError );
+                return( 0 );
+            } // else
+        } // if
+    } // for
+  ac:	e7bf      	b.n	2e <cmdExecute+0x2e>
+  ae:	bf00      	nop
+
+Disassembly of section .text.cmdGetsCOM3:
+
+00000000 <cmdGetsCOM3>:
+cmdGetsCOM3():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:138
+}
+#endif // __PYGMYSTREAMCOM2
+
+#ifdef __PYGMYSTREAMCOM3
+void cmdGetsCOM3( void )
+{
+   0:	b510      	push	{r4, lr}
+   2:	b0a0      	sub	sp, #128	; 0x80
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:141
+    u8 pygmySTDIO, ucBuffer[ __PYGMYCOM3BUFFERLEN ];
+
+    pygmySTDIO = streamGetSTDIO( );
+   4:	f7ff fffe 	bl	0 <streamGetSTDIO>
+   8:	4604      	mov	r4, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:142
+    streamSetSTDIO( COM3 );
+   a:	f04f 0002 	mov.w	r0, #2
+   e:	f7ff fffe 	bl	0 <streamSetSTDIO>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:143
+    streamFIFOToString( COM3, ucBuffer );
+  12:	f04f 0002 	mov.w	r0, #2
+  16:	4669      	mov	r1, sp
+  18:	f7ff fffe 	bl	0 <streamFIFOToString>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:144
+    cmdExecute( ucBuffer, (PYGMYCMD*)PYGMYSTDCOMMANDS );
+  1c:	4668      	mov	r0, sp
+  1e:	f240 0100 	movw	r1, #0
+  22:	f2c0 0100 	movt	r1, #0
+  26:	f7ff fffe 	bl	0 <cmdGetsCOM3>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:145
+    streamSetSTDIO( pygmySTDIO ); 
+  2a:	4620      	mov	r0, r4
+  2c:	f7ff fffe 	bl	0 <streamSetSTDIO>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:146
+}
+  30:	b020      	add	sp, #128	; 0x80
+  32:	bd10      	pop	{r4, pc}
+
+Disassembly of section .text.cmdGetsCOM2:
+
+00000000 <cmdGetsCOM2>:
+cmdGetsCOM2():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:125
+}
+#endif // __PYGMYSTREAMCOM1
+
+#ifdef __PYGMYSTREAMCOM2
+void cmdGetsCOM2( void )
+{
+   0:	b510      	push	{r4, lr}
+   2:	b0a0      	sub	sp, #128	; 0x80
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:128
+    u8 pygmySTDIO, ucBuffer[ __PYGMYCOM2BUFFERLEN ];
+
+    pygmySTDIO = streamGetSTDIO( );
+   4:	f7ff fffe 	bl	0 <streamGetSTDIO>
+   8:	4604      	mov	r4, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:129
+    streamSetSTDIO( COM2 );
+   a:	f04f 0001 	mov.w	r0, #1
+   e:	f7ff fffe 	bl	0 <streamSetSTDIO>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:130
+    streamFIFOToString( COM2, ucBuffer );
+  12:	f04f 0001 	mov.w	r0, #1
+  16:	4669      	mov	r1, sp
+  18:	f7ff fffe 	bl	0 <streamFIFOToString>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:131
+    cmdExecute( ucBuffer, (PYGMYCMD*)PYGMYSTDCOMMANDS );
+  1c:	4668      	mov	r0, sp
+  1e:	f240 0100 	movw	r1, #0
+  22:	f2c0 0100 	movt	r1, #0
+  26:	f7ff fffe 	bl	0 <cmdGetsCOM2>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:132
+    streamSetSTDIO( pygmySTDIO ); 
+  2a:	4620      	mov	r0, r4
+  2c:	f7ff fffe 	bl	0 <streamSetSTDIO>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:133
+}
+  30:	b020      	add	sp, #128	; 0x80
+  32:	bd10      	pop	{r4, pc}
+
+Disassembly of section .text.cmd_set_mcuid:
+
+00000000 <cmd_set_mcuid>:
+cmd_set_mcuid():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:259
+}
+
+u8 cmd_set_mcuid( u8 *ucBuffer )
+{
+
+}
+   0:	4770      	bx	lr
+   2:	bf00      	nop
+
+Disassembly of section .text.cmd_set_adcvoltage:
+
+00000000 <cmd_set_adcvoltage>:
+cmd_set_adcvoltage():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:264
+
+u8 cmd_set_adcvoltage( u8 *ucBuffer )
+{
+
+}
+   0:	4770      	bx	lr
+   2:	bf00      	nop
+
+Disassembly of section .text.cmd_set_xtal:
+
+00000000 <cmd_set_xtal>:
+cmd_set_xtal():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:269
+
+u8 cmd_set_xtal( u8 *ucBuffer )
+{
+
+}
+   0:	4770      	bx	lr
+   2:	bf00      	nop
+
+Disassembly of section .text.cmd_set_platform:
+
+00000000 <cmd_set_platform>:
+cmd_set_platform():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:274
+
+u8 cmd_set_platform( u8 *ucBuffer )
+{
+
+}
+   0:	4770      	bx	lr
+   2:	bf00      	nop
+
+Disassembly of section .text.cmd_set_delaytimer:
+
+00000000 <cmd_set_delaytimer>:
+cmd_set_delaytimer():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:279
+
+u8 cmd_set_delaytimer( u8 *ucBuffer )
+{
+
+}
+   0:	4770      	bx	lr
+   2:	bf00      	nop
+
+Disassembly of section .text.cmd_set_pwmtimer:
+
+00000000 <cmd_set_pwmtimer>:
+cmd_set_pwmtimer():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:284
+
+u8 cmd_set_pwmtimer( u8 *ucBuffer )
+{
+
+}
+   0:	4770      	bx	lr
+   2:	bf00      	nop
+
+Disassembly of section .text.cmd_time:
+
+00000000 <cmd_time>:
+cmd_time():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:438
+
+u8 cmd_time( u8 *ucBuffer )
+{
+
+    return( 0 );
+}
+   0:	f04f 0000 	mov.w	r0, #0
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+
+Disassembly of section .text.cmd_pipe:
+
+00000000 <cmd_pipe>:
+cmd_pipe():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:444
+
+u8 cmd_pipe( u8 *ucBuffer )
+{
+    
+    return( 0 );
+}
+   0:	f04f 0000 	mov.w	r0, #0
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+
+Disassembly of section .text.cmdOpenPort:
+
+00000000 <cmdOpenPort>:
+cmdOpenPort():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:687
+//--------------------------------------------------------------------------------------------
+
+//----------------------------------------Port Commands---------------------------------------
+//--------------------------------------------------------------------------------------------
+u8 cmdOpenPort( u8 ucProtocol, u8 ucPin0, u8 ucPin1, u8 ucPin2, u8 ucPin3, u8 ucAddress )
+{
+   0:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
+   4:	b082      	sub	sp, #8
+   6:	f89d 6028 	ldrb.w	r6, [sp, #40]	; 0x28
+   a:	f89d 502c 	ldrb.w	r5, [sp, #44]	; 0x2c
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:690
+    u8 i, ii;
+
+    if( ucProtocol ){
+   e:	2800      	cmp	r0, #0
+  10:	d043      	beq.n	9a <cmdOpenPort+0x9a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:694
+        for( i = 0; i < __PYGMY_MAXCOMMANDPORTS; i++ ){
+            if( globalCMDPorts[ i ].SPI == 0xFF && globalCMDPorts[ i ].I2C == 0xFF ){
+                for( ii = 0; ii < __PYGMY_MAXCOMMANDSPIPORTS; ii++ ){
+                    if( globalSPIPorts[ ii ].CR == 0xFF ){
+  12:	f240 0000 	movw	r0, #0
+  16:	f2c0 0000 	movt	r0, #0
+  1a:	f8b0 9018 	ldrh.w	r9, [r0, #24]
+  1e:	f8b0 a034 	ldrh.w	sl, [r0, #52]	; 0x34
+  22:	f04f 0000 	mov.w	r0, #0
+  26:	4605      	mov	r5, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:692
+{
+    u8 i, ii;
+
+    if( ucProtocol ){
+        for( i = 0; i < __PYGMY_MAXCOMMANDPORTS; i++ ){
+            if( globalCMDPorts[ i ].SPI == 0xFF && globalCMDPorts[ i ].I2C == 0xFF ){
+  28:	f240 0c00 	movw	ip, #0
+  2c:	f2c0 0c00 	movt	ip, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:694
+                for( ii = 0; ii < __PYGMY_MAXCOMMANDSPIPORTS; ii++ ){
+                    if( globalSPIPorts[ ii ].CR == 0xFF ){
+  30:	b2ec      	uxtb	r4, r5
+  32:	46a8      	mov	r8, r5
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:692
+{
+    u8 i, ii;
+
+    if( ucProtocol ){
+        for( i = 0; i < __PYGMY_MAXCOMMANDPORTS; i++ ){
+            if( globalCMDPorts[ i ].SPI == 0xFF && globalCMDPorts[ i ].I2C == 0xFF ){
+  34:	f810 700c 	ldrb.w	r7, [r0, ip]
+  38:	2fff      	cmp	r7, #255	; 0xff
+  3a:	d125      	bne.n	88 <cmdOpenPort+0x88>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:686
+//----------------------------------End Basic File Commands-----------------------------------
+//--------------------------------------------------------------------------------------------
+
+//----------------------------------------Port Commands---------------------------------------
+//--------------------------------------------------------------------------------------------
+u8 cmdOpenPort( u8 ucProtocol, u8 ucPin0, u8 ucPin1, u8 ucPin2, u8 ucPin3, u8 ucAddress )
+  3c:	eb00 070c 	add.w	r7, r0, ip
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:692
+{
+    u8 i, ii;
+
+    if( ucProtocol ){
+        for( i = 0; i < __PYGMY_MAXCOMMANDPORTS; i++ ){
+            if( globalCMDPorts[ i ].SPI == 0xFF && globalCMDPorts[ i ].I2C == 0xFF ){
+  40:	787f      	ldrb	r7, [r7, #1]
+  42:	2fff      	cmp	r7, #255	; 0xff
+  44:	d120      	bne.n	88 <cmdOpenPort+0x88>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:694
+                for( ii = 0; ii < __PYGMY_MAXCOMMANDSPIPORTS; ii++ ){
+                    if( globalSPIPorts[ ii ].CR == 0xFF ){
+  46:	f1b9 0fff 	cmp.w	r9, #255	; 0xff
+  4a:	d005      	beq.n	58 <cmdOpenPort+0x58>
+  4c:	f1ba 0fff 	cmp.w	sl, #255	; 0xff
+  50:	d11a      	bne.n	88 <cmdOpenPort+0x88>
+  52:	f04f 0001 	mov.w	r0, #1
+  56:	e001      	b.n	5c <cmdOpenPort+0x5c>
+  58:	f04f 0000 	mov.w	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:695
+                        globalCMDPorts[ i ].SPI = ii;
+  5c:	f240 0500 	movw	r5, #0
+  60:	f2c0 0500 	movt	r5, #0
+  64:	f805 0018 	strb.w	r0, [r5, r8, lsl #1]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:696
+                        spiConfig( &globalSPIPorts[ globalCMDPorts[ i ].SPI ] , ucPin0, ucPin1, ucPin2, ucPin3, 0 );
+  68:	ea4f 05c0 	mov.w	r5, r0, lsl #3
+  6c:	1a28      	subs	r0, r5, r0
+  6e:	f240 0500 	movw	r5, #0
+  72:	f2c0 0500 	movt	r5, #0
+  76:	9600      	str	r6, [sp, #0]
+  78:	f04f 0600 	mov.w	r6, #0
+  7c:	9601      	str	r6, [sp, #4]
+  7e:	eb05 0080 	add.w	r0, r5, r0, lsl #2
+  82:	f7ff fffe 	bl	0 <spiConfig>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:697
+                        return( i );
+  86:	e04a      	b.n	11e <cmdOpenPort+0x11e>
+  88:	f105 0501 	add.w	r5, r5, #1
+  8c:	f100 0002 	add.w	r0, r0, #2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:691
+u8 cmdOpenPort( u8 ucProtocol, u8 ucPin0, u8 ucPin1, u8 ucPin2, u8 ucPin3, u8 ucAddress )
+{
+    u8 i, ii;
+
+    if( ucProtocol ){
+        for( i = 0; i < __PYGMY_MAXCOMMANDPORTS; i++ ){
+  90:	2808      	cmp	r0, #8
+  92:	d1cd      	bne.n	30 <cmdOpenPort+0x30>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:719
+        } // if
+        //print( STDIO, "\rPort opened for address %d", ucAddress );
+        //i2cConfig( &globalI2CPort, ucPin0, ucPin1, ucAddress, 0  );
+    } // else
+
+    return( 0xFF );
+  94:	f04f 04ff 	mov.w	r4, #255	; 0xff
+  98:	e041      	b.n	ae <cmdOpenPort+0xae>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:706
+        } // if  
+    } else{
+        for( i = 0; i < __PYGMY_MAXCOMMANDPORTS; i++ ){
+            if( globalCMDPorts[ i ].SPI == 0xFF && globalCMDPorts[ i ].I2C == 0xFF ){
+                for( ii = 0; ii < __PYGMY_MAXCOMMANDI2CPORTS; ii++ ){
+                    if( globalI2CPorts[ ii ].CR == 0xFF ){
+  9a:	f240 0300 	movw	r3, #0
+  9e:	f2c0 0300 	movt	r3, #0
+  a2:	f8b3 8012 	ldrh.w	r8, [r3, #18]
+  a6:	f8b3 9026 	ldrh.w	r9, [r3, #38]	; 0x26
+  aa:	f04f 0300 	mov.w	r3, #0
+  ae:	4618      	mov	r0, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:704
+                } // for
+            } // 
+        } // if  
+    } else{
+        for( i = 0; i < __PYGMY_MAXCOMMANDPORTS; i++ ){
+            if( globalCMDPorts[ i ].SPI == 0xFF && globalCMDPorts[ i ].I2C == 0xFF ){
+  b0:	f240 0700 	movw	r7, #0
+  b4:	f2c0 0700 	movt	r7, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:706
+                for( ii = 0; ii < __PYGMY_MAXCOMMANDI2CPORTS; ii++ ){
+                    if( globalI2CPorts[ ii ].CR == 0xFF ){
+  b8:	b2c4      	uxtb	r4, r0
+  ba:	4684      	mov	ip, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:704
+                } // for
+            } // 
+        } // if  
+    } else{
+        for( i = 0; i < __PYGMY_MAXCOMMANDPORTS; i++ ){
+            if( globalCMDPorts[ i ].SPI == 0xFF && globalCMDPorts[ i ].I2C == 0xFF ){
+  bc:	5dde      	ldrb	r6, [r3, r7]
+  be:	2eff      	cmp	r6, #255	; 0xff
+  c0:	d125      	bne.n	10e <cmdOpenPort+0x10e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:686
+//----------------------------------End Basic File Commands-----------------------------------
+//--------------------------------------------------------------------------------------------
+
+//----------------------------------------Port Commands---------------------------------------
+//--------------------------------------------------------------------------------------------
+u8 cmdOpenPort( u8 ucProtocol, u8 ucPin0, u8 ucPin1, u8 ucPin2, u8 ucPin3, u8 ucAddress )
+  c2:	19de      	adds	r6, r3, r7
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:704
+                } // for
+            } // 
+        } // if  
+    } else{
+        for( i = 0; i < __PYGMY_MAXCOMMANDPORTS; i++ ){
+            if( globalCMDPorts[ i ].SPI == 0xFF && globalCMDPorts[ i ].I2C == 0xFF ){
+  c4:	7876      	ldrb	r6, [r6, #1]
+  c6:	2eff      	cmp	r6, #255	; 0xff
+  c8:	d121      	bne.n	10e <cmdOpenPort+0x10e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:706
+                for( ii = 0; ii < __PYGMY_MAXCOMMANDI2CPORTS; ii++ ){
+                    if( globalI2CPorts[ ii ].CR == 0xFF ){
+  ca:	f1b8 0fff 	cmp.w	r8, #255	; 0xff
+  ce:	d005      	beq.n	dc <cmdOpenPort+0xdc>
+  d0:	f1b9 0fff 	cmp.w	r9, #255	; 0xff
+  d4:	d11b      	bne.n	10e <cmdOpenPort+0x10e>
+  d6:	f04f 0301 	mov.w	r3, #1
+  da:	e001      	b.n	e0 <cmdOpenPort+0xe0>
+  dc:	f04f 0300 	mov.w	r3, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:707
+                        globalCMDPorts[ i ].I2C = ii;
+  e0:	f240 0000 	movw	r0, #0
+  e4:	f2c0 0000 	movt	r0, #0
+  e8:	eb00 004c 	add.w	r0, r0, ip, lsl #1
+  ec:	7043      	strb	r3, [r0, #1]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:709
+                        //print( STDIO, "\rOpening i2c on %d %d @ %d", ucPin0, ucPin1, ucAddress );
+                        i2cConfig( &globalI2CPorts[ globalCMDPorts[ i ].I2C ] , ucPin0, ucPin1, ucAddress, 0 );
+  ee:	ea4f 0083 	mov.w	r0, r3, lsl #2
+  f2:	18c3      	adds	r3, r0, r3
+  f4:	f240 0000 	movw	r0, #0
+  f8:	f2c0 0000 	movt	r0, #0
+  fc:	f04f 0600 	mov.w	r6, #0
+ 100:	9600      	str	r6, [sp, #0]
+ 102:	eb00 0083 	add.w	r0, r0, r3, lsl #2
+ 106:	462b      	mov	r3, r5
+ 108:	f7ff fffe 	bl	0 <i2cConfig>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:710
+                        return( i );
+ 10c:	e007      	b.n	11e <cmdOpenPort+0x11e>
+ 10e:	f100 0001 	add.w	r0, r0, #1
+ 112:	f103 0302 	add.w	r3, r3, #2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:703
+                    } // if
+                } // for
+            } // 
+        } // if  
+    } else{
+        for( i = 0; i < __PYGMY_MAXCOMMANDPORTS; i++ ){
+ 116:	2b08      	cmp	r3, #8
+ 118:	d1ce      	bne.n	b8 <cmdOpenPort+0xb8>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:719
+        } // if
+        //print( STDIO, "\rPort opened for address %d", ucAddress );
+        //i2cConfig( &globalI2CPort, ucPin0, ucPin1, ucAddress, 0  );
+    } // else
+
+    return( 0xFF );
+ 11a:	f04f 04ff 	mov.w	r4, #255	; 0xff
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:720
+}
+ 11e:	4620      	mov	r0, r4
+ 120:	b002      	add	sp, #8
+ 122:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+ 126:	bf00      	nop
+
+Disassembly of section .text.cmdWritePort:
+
+00000000 <cmdWritePort>:
+cmdWritePort():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:723
+
+u8 cmdWritePort( u8 ucCOM, u32 ulAddress, u8 *ucBuffer, u16 uiLen )
+{
+   0:	b538      	push	{r3, r4, r5, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:724
+    ucCOM -= __PYGMY_FIRSTUSERCOMPORT;
+   2:	f1a0 0014 	sub.w	r0, r0, #20
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:725
+    if( globalCMDPorts[ ucCOM ].SPI != 0xFF ){
+   6:	b2c5      	uxtb	r5, r0
+   8:	f240 0400 	movw	r4, #0
+   c:	f2c0 0400 	movt	r4, #0
+  10:	f814 0015 	ldrb.w	r0, [r4, r5, lsl #1]
+  14:	28ff      	cmp	r0, #255	; 0xff
+  16:	d00c      	beq.n	32 <cmdWritePort+0x32>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:726
+        spiPutBuffer( &globalSPIPorts[ globalCMDPorts[ ucCOM ].SPI ], ulAddress, ucBuffer, uiLen );
+  18:	ebc0 00c0 	rsb	r0, r0, r0, lsl #3
+  1c:	f240 0400 	movw	r4, #0
+  20:	f2c0 0400 	movt	r4, #0
+  24:	eb04 0080 	add.w	r0, r4, r0, lsl #2
+  28:	f7ff fffe 	bl	0 <spiPutBuffer>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:727
+        return( 1 );
+  2c:	f04f 0001 	mov.w	r0, #1
+  30:	bd38      	pop	{r3, r4, r5, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:728
+    } else if( globalCMDPorts[ ucCOM ].I2C != 0xFF ){
+  32:	f240 0000 	movw	r0, #0
+  36:	f2c0 0000 	movt	r0, #0
+  3a:	eb00 0545 	add.w	r5, r0, r5, lsl #1
+  3e:	7868      	ldrb	r0, [r5, #1]
+  40:	28ff      	cmp	r0, #255	; 0xff
+  42:	d00d      	beq.n	60 <cmdWritePort+0x60>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:729
+        i2cPutBuffer( &globalI2CPorts[ globalCMDPorts[ ucCOM ].I2C ], (u8)ulAddress, ucBuffer, uiLen );
+  44:	eb00 0080 	add.w	r0, r0, r0, lsl #2
+  48:	f240 0400 	movw	r4, #0
+  4c:	f2c0 0400 	movt	r4, #0
+  50:	eb04 0080 	add.w	r0, r4, r0, lsl #2
+  54:	b2c9      	uxtb	r1, r1
+  56:	f7ff fffe 	bl	0 <i2cPutBuffer>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:730
+        return( 1 );
+  5a:	f04f 0001 	mov.w	r0, #1
+  5e:	bd38      	pop	{r3, r4, r5, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:733
+    } // else if
+    
+    return( 0 );
+  60:	f04f 0000 	mov.w	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:734
+}
+  64:	bd38      	pop	{r3, r4, r5, pc}
+  66:	bf00      	nop
+
+Disassembly of section .text.cmdReadPort:
+
+00000000 <cmdReadPort>:
+cmdReadPort():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:737
+
+u8 cmdReadPort( u8 ucCOM, u32 ulAddress, u8 *ucBuffer, u16 uiLen )
+{
+   0:	b538      	push	{r3, r4, r5, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:738
+    ucCOM -= __PYGMY_FIRSTUSERCOMPORT;
+   2:	f1a0 0014 	sub.w	r0, r0, #20
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:739
+    if( globalCMDPorts[ ucCOM ].SPI != 0xFF ){
+   6:	b2c5      	uxtb	r5, r0
+   8:	f240 0400 	movw	r4, #0
+   c:	f2c0 0400 	movt	r4, #0
+  10:	f814 0015 	ldrb.w	r0, [r4, r5, lsl #1]
+  14:	28ff      	cmp	r0, #255	; 0xff
+  16:	d00e      	beq.n	36 <cmdReadPort+0x36>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:740
+        spiReadBuffer( &globalSPIPorts[ globalCMDPorts[ ucCOM ].SPI ], ucBuffer, uiLen );
+  18:	ebc0 00c0 	rsb	r0, r0, r0, lsl #3
+  1c:	f240 0100 	movw	r1, #0
+  20:	f2c0 0100 	movt	r1, #0
+  24:	eb01 0080 	add.w	r0, r1, r0, lsl #2
+  28:	4611      	mov	r1, r2
+  2a:	461a      	mov	r2, r3
+  2c:	f7ff fffe 	bl	0 <spiReadBuffer>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:741
+        return( 1 );
+  30:	f04f 0001 	mov.w	r0, #1
+  34:	bd38      	pop	{r3, r4, r5, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:742
+    } else if( globalCMDPorts[ ucCOM ].I2C != 0xFF ){
+  36:	f240 0000 	movw	r0, #0
+  3a:	f2c0 0000 	movt	r0, #0
+  3e:	eb00 0545 	add.w	r5, r0, r5, lsl #1
+  42:	7868      	ldrb	r0, [r5, #1]
+  44:	28ff      	cmp	r0, #255	; 0xff
+  46:	d00d      	beq.n	64 <cmdReadPort+0x64>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:743
+        i2cGetBuffer( &globalI2CPorts[ globalCMDPorts[ ucCOM ].I2C ], (u8)ulAddress, ucBuffer, uiLen );
+  48:	eb00 0080 	add.w	r0, r0, r0, lsl #2
+  4c:	f240 0400 	movw	r4, #0
+  50:	f2c0 0400 	movt	r4, #0
+  54:	eb04 0080 	add.w	r0, r4, r0, lsl #2
+  58:	b2c9      	uxtb	r1, r1
+  5a:	f7ff fffe 	bl	0 <i2cGetBuffer>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:744
+        return( 1 );
+  5e:	f04f 0001 	mov.w	r0, #1
+  62:	bd38      	pop	{r3, r4, r5, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:747
+    } // else if
+    
+    return( 0 );
+  64:	f04f 0000 	mov.w	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:748
+}
+  68:	bd38      	pop	{r3, r4, r5, pc}
+  6a:	bf00      	nop
+
+Disassembly of section .text.cmd_port:
+
+00000000 <cmd_port>:
+cmd_port():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:751
+
+u8 cmd_port( u8 *ucBuffer )
+{
+   0:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+   4:	b0c9      	sub	sp, #292	; 0x124
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:756
+    u8 ucData[4], ucAction, ucAddress, ucCOM, ucProtocol, ucPin0, ucPin1, ucPin2, ucPin3, *ucParam;
+    u16 i, uiLen;
+    u8 *ucStrings[ 64 ];
+    
+    uiLen = getAllSubStrings( ucBuffer, ucStrings, 64, WHITESPACE ); 
+   6:	a907      	add	r1, sp, #28
+   8:	f04f 0240 	mov.w	r2, #64	; 0x40
+   c:	f04f 0302 	mov.w	r3, #2
+  10:	f7ff fffe 	bl	0 <getAllSubStrings>
+  14:	4606      	mov	r6, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:757
+    print( STDIO, "\r%d strings: ", uiLen );
+  16:	f04f 0000 	mov.w	r0, #0
+  1a:	f240 0100 	movw	r1, #0
+  1e:	f2c0 0100 	movt	r1, #0
+  22:	4632      	mov	r2, r6
+  24:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:758
+    for( i = 0; i < uiLen; i++ ){
+  28:	b196      	cbz	r6, 50 <cmd_port+0x50>
+  2a:	ad06      	add	r5, sp, #24
+  2c:	f04f 0400 	mov.w	r4, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:759
+        print( STDIO, " (%s)", ucStrings[ i ] );
+  30:	f240 0700 	movw	r7, #0
+  34:	f2c0 0700 	movt	r7, #0
+  38:	46a0      	mov	r8, r4
+  3a:	4640      	mov	r0, r8
+  3c:	4639      	mov	r1, r7
+  3e:	f855 2f04 	ldr.w	r2, [r5, #4]!
+  42:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:758
+    u16 i, uiLen;
+    u8 *ucStrings[ 64 ];
+    
+    uiLen = getAllSubStrings( ucBuffer, ucStrings, 64, WHITESPACE ); 
+    print( STDIO, "\r%d strings: ", uiLen );
+    for( i = 0; i < uiLen; i++ ){
+  46:	f104 0401 	add.w	r4, r4, #1
+  4a:	b2a4      	uxth	r4, r4
+  4c:	42a6      	cmp	r6, r4
+  4e:	d8f4      	bhi.n	3a <cmd_port+0x3a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:761
+        print( STDIO, " (%s)", ucStrings[ i ] );
+    } // for
+    print( STDIO, "\rTesting action..." );
+  50:	f04f 0000 	mov.w	r0, #0
+  54:	f240 0100 	movw	r1, #0
+  58:	f2c0 0100 	movt	r1, #0
+  5c:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:762
+    if( isStringSameIgnoreCase( ucStrings[ 0 ], "open" ) ){
+  60:	9807      	ldr	r0, [sp, #28]
+  62:	f240 0100 	movw	r1, #0
+  66:	f2c0 0100 	movt	r1, #0
+  6a:	f7ff fffe 	bl	0 <isStringSameIgnoreCase>
+  6e:	2800      	cmp	r0, #0
+  70:	d07b      	beq.n	16a <cmd_port+0x16a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:763
+        print( STDIO, "Open detected\rTesting protocol..." );
+  72:	f04f 0000 	mov.w	r0, #0
+  76:	f240 0100 	movw	r1, #0
+  7a:	f2c0 0100 	movt	r1, #0
+  7e:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:764
+        if( isStringSameIgnoreCase( ucStrings[ 1 ], "i2c" ) ){
+  82:	9808      	ldr	r0, [sp, #32]
+  84:	f240 0100 	movw	r1, #0
+  88:	f2c0 0100 	movt	r1, #0
+  8c:	f7ff fffe 	bl	0 <isStringSameIgnoreCase>
+  90:	b1b8      	cbz	r0, c2 <cmd_port+0xc2>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:765
+            print( STDIO, "i2c detected" );
+  92:	f04f 0000 	mov.w	r0, #0
+  96:	f240 0100 	movw	r1, #0
+  9a:	f2c0 0100 	movt	r1, #0
+  9e:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:767
+            ucProtocol = 0;
+            ucPin0 = convertStringToPin( ucStrings[ 2 ] );
+  a2:	9809      	ldr	r0, [sp, #36]	; 0x24
+  a4:	f7ff fffe 	bl	0 <convertStringToPin>
+  a8:	4681      	mov	r9, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:768
+            ucPin1 = convertStringToPin( ucStrings[ 3 ] );
+  aa:	980a      	ldr	r0, [sp, #40]	; 0x28
+  ac:	f7ff fffe 	bl	0 <convertStringToPin>
+  b0:	4682      	mov	sl, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:769
+            ucAddress = convertStringToInt( ucStrings[ 4 ] );
+  b2:	980b      	ldr	r0, [sp, #44]	; 0x2c
+  b4:	f7ff fffe 	bl	0 <convertStringToInt>
+  b8:	b2c0      	uxtb	r0, r0
+  ba:	9003      	str	r0, [sp, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:766
+    print( STDIO, "\rTesting action..." );
+    if( isStringSameIgnoreCase( ucStrings[ 0 ], "open" ) ){
+        print( STDIO, "Open detected\rTesting protocol..." );
+        if( isStringSameIgnoreCase( ucStrings[ 1 ], "i2c" ) ){
+            print( STDIO, "i2c detected" );
+            ucProtocol = 0;
+  bc:	f04f 0b00 	mov.w	fp, #0
+  c0:	e02e      	b.n	120 <cmd_port+0x120>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:770
+            ucPin0 = convertStringToPin( ucStrings[ 2 ] );
+            ucPin1 = convertStringToPin( ucStrings[ 3 ] );
+            ucAddress = convertStringToInt( ucStrings[ 4 ] );
+        } else if( isStringSameIgnoreCase( ucStrings[ 1 ], "spi" ) ){
+  c2:	9808      	ldr	r0, [sp, #32]
+  c4:	f240 0100 	movw	r1, #0
+  c8:	f2c0 0100 	movt	r1, #0
+  cc:	f7ff fffe 	bl	0 <isStringSameIgnoreCase>
+  d0:	b330      	cbz	r0, 120 <cmd_port+0x120>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:771
+            print( STDIO, "spi detected" );
+  d2:	f04f 0000 	mov.w	r0, #0
+  d6:	f240 0100 	movw	r1, #0
+  da:	f2c0 0100 	movt	r1, #0
+  de:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:773
+            ucProtocol = 1;
+            ucPin0 = convertStringToPin( ucStrings[ 2 ] );
+  e2:	9809      	ldr	r0, [sp, #36]	; 0x24
+  e4:	f7ff fffe 	bl	0 <convertStringToPin>
+  e8:	4681      	mov	r9, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:774
+            ucPin1 = convertStringToPin( ucStrings[ 3 ] );
+  ea:	980a      	ldr	r0, [sp, #40]	; 0x28
+  ec:	f7ff fffe 	bl	0 <convertStringToPin>
+  f0:	4682      	mov	sl, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:775
+            ucPin2 = convertStringToPin( ucStrings[ 4 ] );
+  f2:	980b      	ldr	r0, [sp, #44]	; 0x2c
+  f4:	f7ff fffe 	bl	0 <convertStringToPin>
+  f8:	9004      	str	r0, [sp, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:776
+            ucPin3 = convertStringToPin( ucStrings[ 5 ] );
+  fa:	980c      	ldr	r0, [sp, #48]	; 0x30
+  fc:	f7ff fffe 	bl	0 <convertStringToPin>
+ 100:	9005      	str	r0, [sp, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:777
+            print( STDIO, "\rCS=%d SCK=%d MISO=%d MOSI=%d", ucPin0, ucPin1, ucPin2, ucPin3 );
+ 102:	9904      	ldr	r1, [sp, #16]
+ 104:	9100      	str	r1, [sp, #0]
+ 106:	9001      	str	r0, [sp, #4]
+ 108:	f04f 0000 	mov.w	r0, #0
+ 10c:	f240 0100 	movw	r1, #0
+ 110:	f2c0 0100 	movt	r1, #0
+ 114:	464a      	mov	r2, r9
+ 116:	4653      	mov	r3, sl
+ 118:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:772
+            ucPin0 = convertStringToPin( ucStrings[ 2 ] );
+            ucPin1 = convertStringToPin( ucStrings[ 3 ] );
+            ucAddress = convertStringToInt( ucStrings[ 4 ] );
+        } else if( isStringSameIgnoreCase( ucStrings[ 1 ], "spi" ) ){
+            print( STDIO, "spi detected" );
+            ucProtocol = 1;
+ 11c:	f04f 0b01 	mov.w	fp, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:779
+            ucPin1 = convertStringToPin( ucStrings[ 3 ] );
+            ucPin2 = convertStringToPin( ucStrings[ 4 ] );
+            ucPin3 = convertStringToPin( ucStrings[ 5 ] );
+            print( STDIO, "\rCS=%d SCK=%d MISO=%d MOSI=%d", ucPin0, ucPin1, ucPin2, ucPin3 );
+        } // else if
+        print( STDIO, "\rOpening port..." );
+ 120:	f04f 0000 	mov.w	r0, #0
+ 124:	f240 0100 	movw	r1, #0
+ 128:	f2c0 0100 	movt	r1, #0
+ 12c:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:780
+        ucCOM = cmdOpenPort( ucProtocol, ucPin0, ucPin1, ucPin2, ucPin3, ucAddress );
+ 130:	9905      	ldr	r1, [sp, #20]
+ 132:	9100      	str	r1, [sp, #0]
+ 134:	9b03      	ldr	r3, [sp, #12]
+ 136:	9301      	str	r3, [sp, #4]
+ 138:	4658      	mov	r0, fp
+ 13a:	4649      	mov	r1, r9
+ 13c:	4652      	mov	r2, sl
+ 13e:	9b04      	ldr	r3, [sp, #16]
+ 140:	f7ff fffe 	bl	0 <cmd_port>
+ 144:	4602      	mov	r2, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:781
+        if( ucCOM != 0xFF ){
+ 146:	28ff      	cmp	r0, #255	; 0xff
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:822
+            print( STDIO, " (%d)", ucData[ i ] );
+        } //for
+        return( 1 );
+    } // else if
+    
+    return( 0 );
+ 148:	bf08      	it	eq
+ 14a:	2000      	moveq	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:781
+            ucPin3 = convertStringToPin( ucStrings[ 5 ] );
+            print( STDIO, "\rCS=%d SCK=%d MISO=%d MOSI=%d", ucPin0, ucPin1, ucPin2, ucPin3 );
+        } // else if
+        print( STDIO, "\rOpening port..." );
+        ucCOM = cmdOpenPort( ucProtocol, ucPin0, ucPin1, ucPin2, ucPin3, ucAddress );
+        if( ucCOM != 0xFF ){
+ 14c:	f000 80db 	beq.w	306 <cmd_port+0x306>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:782
+            print( STDIO, "\rCOM%d", __PYGMY_FIRSTUSERCOMPORT + ucCOM );
+ 150:	f04f 0000 	mov.w	r0, #0
+ 154:	f240 0100 	movw	r1, #0
+ 158:	f2c0 0100 	movt	r1, #0
+ 15c:	f102 0214 	add.w	r2, r2, #20
+ 160:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:783
+            return( 1 );
+ 164:	f04f 0001 	mov.w	r0, #1
+ 168:	e0cd      	b.n	306 <cmd_port+0x306>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:785
+        } // else
+    } else if( isStringSameIgnoreCase( ucStrings[ 0 ], "close" ) ){
+ 16a:	9807      	ldr	r0, [sp, #28]
+ 16c:	f240 0100 	movw	r1, #0
+ 170:	f2c0 0100 	movt	r1, #0
+ 174:	f7ff fffe 	bl	0 <isStringSameIgnoreCase>
+ 178:	b128      	cbz	r0, 186 <cmd_port+0x186>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:786
+        ucCOM = convertStringToInt( ucStrings[ 1 ] );
+ 17a:	9808      	ldr	r0, [sp, #32]
+ 17c:	f7ff fffe 	bl	0 <convertStringToInt>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:822
+            print( STDIO, " (%d)", ucData[ i ] );
+        } //for
+        return( 1 );
+    } // else if
+    
+    return( 0 );
+ 180:	f04f 0000 	mov.w	r0, #0
+ 184:	e0bf      	b.n	306 <cmd_port+0x306>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:787
+            print( STDIO, "\rCOM%d", __PYGMY_FIRSTUSERCOMPORT + ucCOM );
+            return( 1 );
+        } // else
+    } else if( isStringSameIgnoreCase( ucStrings[ 0 ], "close" ) ){
+        ucCOM = convertStringToInt( ucStrings[ 1 ] );
+    } else if( isStringSameIgnoreCase( ucStrings[ 0 ], "send" ) || isStringSameIgnoreCase( ucStrings[ 0 ], "write" ) ){
+ 186:	9807      	ldr	r0, [sp, #28]
+ 188:	f240 0100 	movw	r1, #0
+ 18c:	f2c0 0100 	movt	r1, #0
+ 190:	f7ff fffe 	bl	0 <isStringSameIgnoreCase>
+ 194:	b940      	cbnz	r0, 1a8 <cmd_port+0x1a8>
+ 196:	9807      	ldr	r0, [sp, #28]
+ 198:	f240 0100 	movw	r1, #0
+ 19c:	f2c0 0100 	movt	r1, #0
+ 1a0:	f7ff fffe 	bl	0 <isStringSameIgnoreCase>
+ 1a4:	2800      	cmp	r0, #0
+ 1a6:	d051      	beq.n	24c <cmd_port+0x24c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:788
+        if( uiLen < 3 ){
+ 1a8:	2e02      	cmp	r6, #2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:789
+            return( FALSE );
+ 1aa:	bf98      	it	ls
+ 1ac:	2000      	movls	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:788
+            return( 1 );
+        } // else
+    } else if( isStringSameIgnoreCase( ucStrings[ 0 ], "close" ) ){
+        ucCOM = convertStringToInt( ucStrings[ 1 ] );
+    } else if( isStringSameIgnoreCase( ucStrings[ 0 ], "send" ) || isStringSameIgnoreCase( ucStrings[ 0 ], "write" ) ){
+        if( uiLen < 3 ){
+ 1ae:	f240 80aa 	bls.w	306 <cmd_port+0x306>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:791
+            return( FALSE );
+        } // if
+        replaceChars( ucStrings[ 1 ], "COM", ' ' );
+ 1b2:	9808      	ldr	r0, [sp, #32]
+ 1b4:	f240 0100 	movw	r1, #0
+ 1b8:	f2c0 0100 	movt	r1, #0
+ 1bc:	f04f 0220 	mov.w	r2, #32
+ 1c0:	f7ff fffe 	bl	0 <replaceChars>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:792
+        ucCOM = convertStringToInt( ucStrings[ 1 ] );
+ 1c4:	9808      	ldr	r0, [sp, #32]
+ 1c6:	f7ff fffe 	bl	0 <convertStringToInt>
+ 1ca:	fa5f fb80 	uxtb.w	fp, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:793
+        ucAddress = convertStringToInt( ucStrings[ 2 ] );
+ 1ce:	9809      	ldr	r0, [sp, #36]	; 0x24
+ 1d0:	f7ff fffe 	bl	0 <convertStringToInt>
+ 1d4:	b2c0      	uxtb	r0, r0
+ 1d6:	9003      	str	r0, [sp, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:794
+        print( STDIO, "\rSending %d Data Bytes to COM: %d, Address: %d, \r", uiLen - 3, ucCOM, ucAddress );
+ 1d8:	f1a6 0703 	sub.w	r7, r6, #3
+ 1dc:	9000      	str	r0, [sp, #0]
+ 1de:	f04f 0000 	mov.w	r0, #0
+ 1e2:	f240 0100 	movw	r1, #0
+ 1e6:	f2c0 0100 	movt	r1, #0
+ 1ea:	463a      	mov	r2, r7
+ 1ec:	465b      	mov	r3, fp
+ 1ee:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:795
+        for( i = 0; i < uiLen - 3; i++ ){
+ 1f2:	2f00      	cmp	r7, #0
+ 1f4:	dd1f      	ble.n	236 <cmd_port+0x236>
+ 1f6:	f04f 0400 	mov.w	r4, #0
+ 1fa:	4625      	mov	r5, r4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:796
+            ucData[ i ] = convertStringToInt( ucStrings[ i + 3 ] );
+ 1fc:	f10d 091c 	add.w	r9, sp, #28
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:797
+            print( STDIO, "%d (%d)\r", i, ucData[ i ] );
+ 200:	f240 0800 	movw	r8, #0
+ 204:	f2c0 0800 	movt	r8, #0
+ 208:	46a2      	mov	sl, r4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:796
+        replaceChars( ucStrings[ 1 ], "COM", ' ' );
+        ucCOM = convertStringToInt( ucStrings[ 1 ] );
+        ucAddress = convertStringToInt( ucStrings[ 2 ] );
+        print( STDIO, "\rSending %d Data Bytes to COM: %d, Address: %d, \r", uiLen - 3, ucCOM, ucAddress );
+        for( i = 0; i < uiLen - 3; i++ ){
+            ucData[ i ] = convertStringToInt( ucStrings[ i + 3 ] );
+ 20a:	f104 0303 	add.w	r3, r4, #3
+ 20e:	f859 0023 	ldr.w	r0, [r9, r3, lsl #2]
+ 212:	f7ff fffe 	bl	0 <convertStringToInt>
+ 216:	b2c3      	uxtb	r3, r0
+ 218:	a948      	add	r1, sp, #288	; 0x120
+ 21a:	190a      	adds	r2, r1, r4
+ 21c:	f802 3c04 	strb.w	r3, [r2, #-4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:797
+            print( STDIO, "%d (%d)\r", i, ucData[ i ] );
+ 220:	4650      	mov	r0, sl
+ 222:	4641      	mov	r1, r8
+ 224:	4622      	mov	r2, r4
+ 226:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:795
+        } // if
+        replaceChars( ucStrings[ 1 ], "COM", ' ' );
+        ucCOM = convertStringToInt( ucStrings[ 1 ] );
+        ucAddress = convertStringToInt( ucStrings[ 2 ] );
+        print( STDIO, "\rSending %d Data Bytes to COM: %d, Address: %d, \r", uiLen - 3, ucCOM, ucAddress );
+        for( i = 0; i < uiLen - 3; i++ ){
+ 22a:	f105 0501 	add.w	r5, r5, #1
+ 22e:	b2ad      	uxth	r5, r5
+ 230:	462c      	mov	r4, r5
+ 232:	42af      	cmp	r7, r5
+ 234:	dce9      	bgt.n	20a <cmd_port+0x20a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:799
+            ucData[ i ] = convertStringToInt( ucStrings[ i + 3 ] );
+            print( STDIO, "%d (%d)\r", i, ucData[ i ] );
+        } // for
+        cmdWritePort( ucCOM, ucAddress, ucData, uiLen - 3 );
+ 236:	f1a6 0303 	sub.w	r3, r6, #3
+ 23a:	4658      	mov	r0, fp
+ 23c:	9903      	ldr	r1, [sp, #12]
+ 23e:	aa47      	add	r2, sp, #284	; 0x11c
+ 240:	b29b      	uxth	r3, r3
+ 242:	f7ff fffe 	bl	0 <cmd_port>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:801
+           
+        return( 1 );
+ 246:	f04f 0001 	mov.w	r0, #1
+ 24a:	e05c      	b.n	306 <cmd_port+0x306>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:802
+    } else if( isStringSameIgnoreCase( ucStrings[ 0 ], "read" ) ){
+ 24c:	9807      	ldr	r0, [sp, #28]
+ 24e:	f240 0100 	movw	r1, #0
+ 252:	f2c0 0100 	movt	r1, #0
+ 256:	f7ff fffe 	bl	0 <isStringSameIgnoreCase>
+ 25a:	2800      	cmp	r0, #0
+ 25c:	d051      	beq.n	302 <cmd_port+0x302>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:803
+        if( uiLen < 4 ){
+ 25e:	2e03      	cmp	r6, #3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:804
+            return( FALSE );
+ 260:	bf98      	it	ls
+ 262:	2000      	movls	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:803
+        } // for
+        cmdWritePort( ucCOM, ucAddress, ucData, uiLen - 3 );
+           
+        return( 1 );
+    } else if( isStringSameIgnoreCase( ucStrings[ 0 ], "read" ) ){
+        if( uiLen < 4 ){
+ 264:	d94f      	bls.n	306 <cmd_port+0x306>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:806
+            return( FALSE );
+        } // if
+        replaceChars( ucStrings[ 1 ], "COM", ' ' );
+ 266:	9808      	ldr	r0, [sp, #32]
+ 268:	f240 0100 	movw	r1, #0
+ 26c:	f2c0 0100 	movt	r1, #0
+ 270:	f04f 0220 	mov.w	r2, #32
+ 274:	f7ff fffe 	bl	0 <replaceChars>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:807
+        ucCOM = convertStringToInt( ucStrings[ 1 ] );
+ 278:	9808      	ldr	r0, [sp, #32]
+ 27a:	f7ff fffe 	bl	0 <convertStringToInt>
+ 27e:	4606      	mov	r6, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:809
+        
+        ucAddress = convertStringToInt( ucStrings[ 2 ] );
+ 280:	9809      	ldr	r0, [sp, #36]	; 0x24
+ 282:	f7ff fffe 	bl	0 <convertStringToInt>
+ 286:	b2c4      	uxtb	r4, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:810
+        print( STDIO, "\rAddress: %d", ucAddress );
+ 288:	f04f 0000 	mov.w	r0, #0
+ 28c:	f240 0100 	movw	r1, #0
+ 290:	f2c0 0100 	movt	r1, #0
+ 294:	4622      	mov	r2, r4
+ 296:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:811
+        uiLen = convertStringToInt( ucStrings[ 3 ] );
+ 29a:	980a      	ldr	r0, [sp, #40]	; 0x28
+ 29c:	f7ff fffe 	bl	0 <convertStringToInt>
+ 2a0:	b285      	uxth	r5, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:812
+        print( STDIO, "\rLen: %d", uiLen );
+ 2a2:	f04f 0000 	mov.w	r0, #0
+ 2a6:	f240 0100 	movw	r1, #0
+ 2aa:	f2c0 0100 	movt	r1, #0
+ 2ae:	462a      	mov	r2, r5
+ 2b0:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:814
+            
+        cmdReadPort( ucCOM, ucAddress, ucData, uiLen );
+ 2b4:	b2f0      	uxtb	r0, r6
+ 2b6:	4621      	mov	r1, r4
+ 2b8:	aa47      	add	r2, sp, #284	; 0x11c
+ 2ba:	462b      	mov	r3, r5
+ 2bc:	f7ff fffe 	bl	0 <cmd_port>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:815
+        print( STDIO, "\rData: " );
+ 2c0:	f04f 0000 	mov.w	r0, #0
+ 2c4:	f240 0100 	movw	r1, #0
+ 2c8:	f2c0 0100 	movt	r1, #0
+ 2cc:	f7ff fffe 	bl	0 <print>
+ 2d0:	af46      	add	r7, sp, #280	; 0x118
+ 2d2:	f107 0703 	add.w	r7, r7, #3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:816
+        for( i = 0; i < uiLen; i++ ){
+ 2d6:	f04f 0400 	mov.w	r4, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:817
+            print( STDIO, " (%d)", ucData[ i ] );
+ 2da:	f240 0600 	movw	r6, #0
+ 2de:	f2c0 0600 	movt	r6, #0
+ 2e2:	46a0      	mov	r8, r4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:816
+        uiLen = convertStringToInt( ucStrings[ 3 ] );
+        print( STDIO, "\rLen: %d", uiLen );
+            
+        cmdReadPort( ucCOM, ucAddress, ucData, uiLen );
+        print( STDIO, "\rData: " );
+        for( i = 0; i < uiLen; i++ ){
+ 2e4:	e008      	b.n	2f8 <cmd_port+0x2f8>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:817
+            print( STDIO, " (%d)", ucData[ i ] );
+ 2e6:	4640      	mov	r0, r8
+ 2e8:	4631      	mov	r1, r6
+ 2ea:	f817 2f01 	ldrb.w	r2, [r7, #1]!
+ 2ee:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:816
+        uiLen = convertStringToInt( ucStrings[ 3 ] );
+        print( STDIO, "\rLen: %d", uiLen );
+            
+        cmdReadPort( ucCOM, ucAddress, ucData, uiLen );
+        print( STDIO, "\rData: " );
+        for( i = 0; i < uiLen; i++ ){
+ 2f2:	f104 0401 	add.w	r4, r4, #1
+ 2f6:	b2a4      	uxth	r4, r4
+ 2f8:	42ac      	cmp	r4, r5
+ 2fa:	d3f4      	bcc.n	2e6 <cmd_port+0x2e6>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:819
+            print( STDIO, " (%d)", ucData[ i ] );
+        } //for
+        return( 1 );
+ 2fc:	f04f 0001 	mov.w	r0, #1
+ 300:	e001      	b.n	306 <cmd_port+0x306>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:822
+    } // else if
+    
+    return( 0 );
+ 302:	f04f 0000 	mov.w	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:823
+}
+ 306:	b049      	add	sp, #292	; 0x124
+ 308:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+
+Disassembly of section .text.cmd_humidity:
+
+00000000 <cmd_humidity>:
+cmd_humidity():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:826
+
+u8 cmd_humidity( u8 *ucBuffer )
+{
+   0:	b500      	push	{lr}
+   2:	b083      	sub	sp, #12
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:829
+    u8 ucLen, *ucParams[ 2 ];
+    
+    ucLen = getAllSubStrings( ucBuffer, ucParams, 2, WHITESPACE );
+   4:	4669      	mov	r1, sp
+   6:	f04f 0202 	mov.w	r2, #2
+   a:	4613      	mov	r3, r2
+   c:	f7ff fffe 	bl	0 <getAllSubStrings>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:830
+    if( ucLen > 1 ){
+  10:	b2c0      	uxtb	r0, r0
+  12:	2801      	cmp	r0, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:845
+        convertIntToString( humidityRead(), "%d", ucBuf );
+        filePutString( &pygmyFile, ucBuf );
+        fileClose( &pygmyFile );
+    } // if*/
+
+    return( FALSE );
+  14:	bf98      	it	ls
+  16:	2000      	movls	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:830
+u8 cmd_humidity( u8 *ucBuffer )
+{
+    u8 ucLen, *ucParams[ 2 ];
+    
+    ucLen = getAllSubStrings( ucBuffer, ucParams, 2, WHITESPACE );
+    if( ucLen > 1 ){
+  18:	d907      	bls.n	2a <cmd_humidity+0x2a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:831
+        socketSendControl( convertStringToInt( ucParams[ 0 ] ), ucParams[ 1 ] );
+  1a:	9800      	ldr	r0, [sp, #0]
+  1c:	f7ff fffe 	bl	0 <convertStringToInt>
+  20:	9901      	ldr	r1, [sp, #4]
+  22:	f7ff fffe 	bl	0 <socketSendControl>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:833
+    
+        return( TRUE );
+  26:	f04f 0001 	mov.w	r0, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:846
+        filePutString( &pygmyFile, ucBuf );
+        fileClose( &pygmyFile );
+    } // if*/
+
+    return( FALSE );
+}
+  2a:	b003      	add	sp, #12
+  2c:	bd00      	pop	{pc}
+  2e:	bf00      	nop
+
+Disassembly of section .text.cmd_psend:
+
+00000000 <cmd_psend>:
+cmd_psend():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:853
+u8 cmd_psend( u8 *ucBuffer )
+{
+    
+
+    return( 1 );
+}
+   0:	f04f 0001 	mov.w	r0, #1
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+
+Disassembly of section .text.cmd_eeprom:
+
+00000000 <cmd_eeprom>:
+cmd_eeprom():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:948
+#endif // __PYGMYSOCKETS
+//------------------------------------End Basic RFCommands------------------------------------
+//--------------------------------------------------------------------------------------------
+
+u8 cmd_eeprom( u8 *ucBuffer )
+{
+   0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+   4:	b084      	sub	sp, #16
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:951
+    u8 i, ucChar, ucLen, ucMemory[ 128 ], *ucParams[ 4 ], *ucEeproms;
+    
+    ucLen = getAllSubStrings( ucBuffer, ucParams, 6, WHITESPACE );
+   6:	4669      	mov	r1, sp
+   8:	f04f 0206 	mov.w	r2, #6
+   c:	f04f 0302 	mov.w	r3, #2
+  10:	f7ff fffe 	bl	0 <getAllSubStrings>
+  14:	b2c7      	uxtb	r7, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:953
+    if( !ucLen ){
+        return( FALSE );
+  16:	f04f 0000 	mov.w	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:952
+u8 cmd_eeprom( u8 *ucBuffer )
+{
+    u8 i, ucChar, ucLen, ucMemory[ 128 ], *ucParams[ 4 ], *ucEeproms;
+    
+    ucLen = getAllSubStrings( ucBuffer, ucParams, 6, WHITESPACE );
+    if( !ucLen ){
+  1a:	2f00      	cmp	r7, #0
+  1c:	f000 80fc 	beq.w	218 <cmd_eeprom+0x218>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:955
+        return( FALSE );
+    } // if
+    if( isStringSame( ucParams[ 0 ], "list" ) ){
+  20:	9800      	ldr	r0, [sp, #0]
+  22:	f240 0100 	movw	r1, #0
+  26:	f2c0 0100 	movt	r1, #0
+  2a:	f7ff fffe 	bl	0 <isStringSame>
+  2e:	2800      	cmp	r0, #0
+  30:	d047      	beq.n	c2 <cmd_eeprom+0xc2>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:956
+        if( ucLen == 3 ){
+  32:	2f03      	cmp	r7, #3
+  34:	d10f      	bne.n	56 <cmd_eeprom+0x56>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:957
+            eepromOpen( 0x50, convertStringToPin( ucParams[ 1 ] ), 
+  36:	9801      	ldr	r0, [sp, #4]
+  38:	f7ff fffe 	bl	0 <convertStringToPin>
+  3c:	4604      	mov	r4, r0
+  3e:	9802      	ldr	r0, [sp, #8]
+  40:	f7ff fffe 	bl	0 <convertStringToPin>
+  44:	4602      	mov	r2, r0
+  46:	f04f 0050 	mov.w	r0, #80	; 0x50
+  4a:	4621      	mov	r1, r4
+  4c:	f04f 03ff 	mov.w	r3, #255	; 0xff
+  50:	f7ff fffe 	bl	0 <eepromOpen>
+  54:	e016      	b.n	84 <cmd_eeprom+0x84>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:959
+                convertStringToPin( ucParams[ 2 ] ), NONE );
+        } else if( ucLen == 4 ){
+  56:	2f04      	cmp	r7, #4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:963
+            eepromOpen( convertStringToInt( ucParams[ 1 ] ), convertStringToPin( ucParams[ 2 ] ), 
+                convertStringToPin( ucParams[ 3 ] ), NONE );
+        } else{
+            return( FALSE );
+  58:	bf18      	it	ne
+  5a:	2000      	movne	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:959
+    } // if
+    if( isStringSame( ucParams[ 0 ], "list" ) ){
+        if( ucLen == 3 ){
+            eepromOpen( 0x50, convertStringToPin( ucParams[ 1 ] ), 
+                convertStringToPin( ucParams[ 2 ] ), NONE );
+        } else if( ucLen == 4 ){
+  5c:	f040 80dc 	bne.w	218 <cmd_eeprom+0x218>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:960
+            eepromOpen( convertStringToInt( ucParams[ 1 ] ), convertStringToPin( ucParams[ 2 ] ), 
+  60:	9801      	ldr	r0, [sp, #4]
+  62:	f7ff fffe 	bl	0 <convertStringToInt>
+  66:	4605      	mov	r5, r0
+  68:	9802      	ldr	r0, [sp, #8]
+  6a:	f7ff fffe 	bl	0 <convertStringToPin>
+  6e:	4604      	mov	r4, r0
+  70:	9803      	ldr	r0, [sp, #12]
+  72:	f7ff fffe 	bl	0 <convertStringToPin>
+  76:	4602      	mov	r2, r0
+  78:	b2e8      	uxtb	r0, r5
+  7a:	4621      	mov	r1, r4
+  7c:	f04f 03ff 	mov.w	r3, #255	; 0xff
+  80:	f7ff fffe 	bl	0 <eepromOpen>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:966
+                convertStringToPin( ucParams[ 3 ] ), NONE );
+        } else{
+            return( FALSE );
+        } // else
+        
+        print( STDIO, "\rEEPROMs:" );
+  84:	f04f 0000 	mov.w	r0, #0
+  88:	f240 0100 	movw	r1, #0
+  8c:	f2c0 0100 	movt	r1, #0
+  90:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:967
+        ucEeproms = eepromQueryBus();
+  94:	f7ff fffe 	bl	0 <eepromQueryBus>
+  98:	4604      	mov	r4, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:947
+}
+#endif // __PYGMYSOCKETS
+//------------------------------------End Basic RFCommands------------------------------------
+//--------------------------------------------------------------------------------------------
+
+u8 cmd_eeprom( u8 *ucBuffer )
+  9a:	f100 0508 	add.w	r5, r0, #8
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:970
+        
+        print( STDIO, "\rEEPROMs:" );
+        ucEeproms = eepromQueryBus();
+        for( i = 0; i < 8; i++ ){
+            if( ucEeproms[ i ] ){
+                print( STDIO, "\r0x%02X", ucEeproms[ i ] );
+  9e:	f240 0600 	movw	r6, #0
+  a2:	f2c0 0600 	movt	r6, #0
+  a6:	f04f 0700 	mov.w	r7, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:969
+        } // else
+        
+        print( STDIO, "\rEEPROMs:" );
+        ucEeproms = eepromQueryBus();
+        for( i = 0; i < 8; i++ ){
+            if( ucEeproms[ i ] ){
+  aa:	f814 2b01 	ldrb.w	r2, [r4], #1
+  ae:	b11a      	cbz	r2, b8 <cmd_eeprom+0xb8>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:970
+                print( STDIO, "\r0x%02X", ucEeproms[ i ] );
+  b0:	4638      	mov	r0, r7
+  b2:	4631      	mov	r1, r6
+  b4:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:968
+            return( FALSE );
+        } // else
+        
+        print( STDIO, "\rEEPROMs:" );
+        ucEeproms = eepromQueryBus();
+        for( i = 0; i < 8; i++ ){
+  b8:	42ac      	cmp	r4, r5
+  ba:	d1f6      	bne.n	aa <cmd_eeprom+0xaa>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:1011
+        eepromErase( );
+    } else{
+        return( FALSE );
+    } // else
+
+    return( TRUE );
+  bc:	f04f 0001 	mov.w	r0, #1
+  c0:	e0aa      	b.n	218 <cmd_eeprom+0x218>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:973
+        for( i = 0; i < 8; i++ ){
+            if( ucEeproms[ i ] ){
+                print( STDIO, "\r0x%02X", ucEeproms[ i ] );
+            } // if
+        } // for
+    } else if( isStringSame( ucParams[ 0 ], "open" ) ){
+  c2:	9800      	ldr	r0, [sp, #0]
+  c4:	f240 0100 	movw	r1, #0
+  c8:	f2c0 0100 	movt	r1, #0
+  cc:	f7ff fffe 	bl	0 <isStringSame>
+  d0:	b1c8      	cbz	r0, 106 <cmd_eeprom+0x106>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:974
+        if( ucLen < 4 ){
+  d2:	2f03      	cmp	r7, #3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:975
+            return( FALSE );
+  d4:	bf98      	it	ls
+  d6:	2000      	movls	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:974
+            if( ucEeproms[ i ] ){
+                print( STDIO, "\r0x%02X", ucEeproms[ i ] );
+            } // if
+        } // for
+    } else if( isStringSame( ucParams[ 0 ], "open" ) ){
+        if( ucLen < 4 ){
+  d8:	f240 809e 	bls.w	218 <cmd_eeprom+0x218>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:977
+            return( FALSE );
+        } // if
+        eepromOpen( convertStringToInt( ucParams[ 1 ] ), convertStringToPin( ucParams[ 2 ] ), 
+  dc:	9801      	ldr	r0, [sp, #4]
+  de:	f7ff fffe 	bl	0 <convertStringToInt>
+  e2:	4605      	mov	r5, r0
+  e4:	9802      	ldr	r0, [sp, #8]
+  e6:	f7ff fffe 	bl	0 <convertStringToPin>
+  ea:	4604      	mov	r4, r0
+  ec:	9803      	ldr	r0, [sp, #12]
+  ee:	f7ff fffe 	bl	0 <convertStringToPin>
+  f2:	4602      	mov	r2, r0
+  f4:	b2e8      	uxtb	r0, r5
+  f6:	4621      	mov	r1, r4
+  f8:	f04f 03ff 	mov.w	r3, #255	; 0xff
+  fc:	f7ff fffe 	bl	0 <eepromOpen>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:1011
+        eepromErase( );
+    } else{
+        return( FALSE );
+    } // else
+
+    return( TRUE );
+ 100:	f04f 0001 	mov.w	r0, #1
+ 104:	e088      	b.n	218 <cmd_eeprom+0x218>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:979
+        if( ucLen < 4 ){
+            return( FALSE );
+        } // if
+        eepromOpen( convertStringToInt( ucParams[ 1 ] ), convertStringToPin( ucParams[ 2 ] ), 
+            convertStringToPin( ucParams[ 3 ] ), NONE );
+    } else if( isStringSame( ucParams[ 0 ], "write" ) ){
+ 106:	9800      	ldr	r0, [sp, #0]
+ 108:	f240 0100 	movw	r1, #0
+ 10c:	f2c0 0100 	movt	r1, #0
+ 110:	f7ff fffe 	bl	0 <isStringSame>
+ 114:	2800      	cmp	r0, #0
+ 116:	d032      	beq.n	17e <cmd_eeprom+0x17e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:980
+        if( ucLen < 3 ){
+ 118:	2f02      	cmp	r7, #2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:981
+            return( FALSE );
+ 11a:	bf98      	it	ls
+ 11c:	2000      	movls	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:980
+            return( FALSE );
+        } // if
+        eepromOpen( convertStringToInt( ucParams[ 1 ] ), convertStringToPin( ucParams[ 2 ] ), 
+            convertStringToPin( ucParams[ 3 ] ), NONE );
+    } else if( isStringSame( ucParams[ 0 ], "write" ) ){
+        if( ucLen < 3 ){
+ 11e:	d97b      	bls.n	218 <cmd_eeprom+0x218>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:983
+            return( FALSE );
+        } // if
+        eepromPutString( convertStringToInt( ucParams[ 1 ] ), ucParams[ 2 ] );
+ 120:	9801      	ldr	r0, [sp, #4]
+ 122:	f7ff fffe 	bl	0 <convertStringToInt>
+ 126:	b2c0      	uxtb	r0, r0
+ 128:	9902      	ldr	r1, [sp, #8]
+ 12a:	f7ff fffe 	bl	0 <eepromPutString>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:984
+        for( i = 0; i < ucLen - 3; i++ ){
+ 12e:	f1a7 0703 	sub.w	r7, r7, #3
+ 132:	2f00      	cmp	r7, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:1011
+        eepromErase( );
+    } else{
+        return( FALSE );
+    } // else
+
+    return( TRUE );
+ 134:	bfd8      	it	le
+ 136:	2001      	movle	r0, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:984
+    } else if( isStringSame( ucParams[ 0 ], "write" ) ){
+        if( ucLen < 3 ){
+            return( FALSE );
+        } // if
+        eepromPutString( convertStringToInt( ucParams[ 1 ] ), ucParams[ 2 ] );
+        for( i = 0; i < ucLen - 3; i++ ){
+ 138:	dd6e      	ble.n	218 <cmd_eeprom+0x218>
+ 13a:	f04f 0500 	mov.w	r5, #0
+ 13e:	462c      	mov	r4, r5
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:985
+            eepromPutString( convertStringToInt( ucParams[ 1 ] ), " " );
+ 140:	f240 0600 	movw	r6, #0
+ 144:	f2c0 0600 	movt	r6, #0
+ 148:	9801      	ldr	r0, [sp, #4]
+ 14a:	f7ff fffe 	bl	0 <convertStringToInt>
+ 14e:	b2c0      	uxtb	r0, r0
+ 150:	4631      	mov	r1, r6
+ 152:	f7ff fffe 	bl	0 <eepromPutString>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:986
+            eepromPutString( convertStringToInt( ucParams[ 1 ] ), ucParams[ 2 + i ] );
+ 156:	9801      	ldr	r0, [sp, #4]
+ 158:	f7ff fffe 	bl	0 <convertStringToInt>
+ 15c:	ab04      	add	r3, sp, #16
+ 15e:	eb03 0585 	add.w	r5, r3, r5, lsl #2
+ 162:	b2c0      	uxtb	r0, r0
+ 164:	f855 1c08 	ldr.w	r1, [r5, #-8]
+ 168:	f7ff fffe 	bl	0 <eepromPutString>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:984
+    } else if( isStringSame( ucParams[ 0 ], "write" ) ){
+        if( ucLen < 3 ){
+            return( FALSE );
+        } // if
+        eepromPutString( convertStringToInt( ucParams[ 1 ] ), ucParams[ 2 ] );
+        for( i = 0; i < ucLen - 3; i++ ){
+ 16c:	f104 0401 	add.w	r4, r4, #1
+ 170:	b2e4      	uxtb	r4, r4
+ 172:	4625      	mov	r5, r4
+ 174:	42bc      	cmp	r4, r7
+ 176:	dbe7      	blt.n	148 <cmd_eeprom+0x148>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:1011
+        eepromErase( );
+    } else{
+        return( FALSE );
+    } // else
+
+    return( TRUE );
+ 178:	f04f 0001 	mov.w	r0, #1
+ 17c:	e04c      	b.n	218 <cmd_eeprom+0x218>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:988
+        eepromPutString( convertStringToInt( ucParams[ 1 ] ), ucParams[ 2 ] );
+        for( i = 0; i < ucLen - 3; i++ ){
+            eepromPutString( convertStringToInt( ucParams[ 1 ] ), " " );
+            eepromPutString( convertStringToInt( ucParams[ 1 ] ), ucParams[ 2 + i ] );
+        } // for
+    } else if( isStringSame( ucParams[ 0 ], "read" ) ){
+ 17e:	9800      	ldr	r0, [sp, #0]
+ 180:	f240 0100 	movw	r1, #0
+ 184:	f2c0 0100 	movt	r1, #0
+ 188:	f7ff fffe 	bl	0 <isStringSame>
+ 18c:	2800      	cmp	r0, #0
+ 18e:	d034      	beq.n	1fa <cmd_eeprom+0x1fa>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:990
+        i = 0;
+        if( ucLen == 2 ){
+ 190:	2f02      	cmp	r7, #2
+ 192:	d10a      	bne.n	1aa <cmd_eeprom+0x1aa>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:991
+            ucLen = convertStringToInt( ucParams[ 1 ] );
+ 194:	9801      	ldr	r0, [sp, #4]
+ 196:	f7ff fffe 	bl	0 <convertStringToInt>
+ 19a:	b2c6      	uxtb	r6, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:989
+        for( i = 0; i < ucLen - 3; i++ ){
+            eepromPutString( convertStringToInt( ucParams[ 1 ] ), " " );
+            eepromPutString( convertStringToInt( ucParams[ 1 ] ), ucParams[ 2 + i ] );
+        } // for
+    } else if( isStringSame( ucParams[ 0 ], "read" ) ){
+        i = 0;
+ 19c:	f04f 0400 	mov.w	r4, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:999
+            ucLen = convertStringToInt( ucParams[ 2 ] );
+        } else{
+            ucLen = 255;
+        } // else
+        //eepromGetBuffer( 0, ucMemory, 256 );
+        for( ; i < ucLen; i++ ){
+ 1a0:	42a6      	cmp	r6, r4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:1011
+        eepromErase( );
+    } else{
+        return( FALSE );
+    } // else
+
+    return( TRUE );
+ 1a2:	bf98      	it	ls
+ 1a4:	2001      	movls	r0, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:999
+            ucLen = convertStringToInt( ucParams[ 2 ] );
+        } else{
+            ucLen = 255;
+        } // else
+        //eepromGetBuffer( 0, ucMemory, 256 );
+        for( ; i < ucLen; i++ ){
+ 1a6:	d80e      	bhi.n	1c6 <cmd_eeprom+0x1c6>
+ 1a8:	e036      	b.n	218 <cmd_eeprom+0x218>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:992
+        } // for
+    } else if( isStringSame( ucParams[ 0 ], "read" ) ){
+        i = 0;
+        if( ucLen == 2 ){
+            ucLen = convertStringToInt( ucParams[ 1 ] );
+        } else if( ucLen == 3 ){
+ 1aa:	2f03      	cmp	r7, #3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:996
+            i = convertStringToInt( ucParams[ 1 ] );
+            ucLen = convertStringToInt( ucParams[ 2 ] );
+        } else{
+            ucLen = 255;
+ 1ac:	bf1c      	itt	ne
+ 1ae:	26ff      	movne	r6, #255	; 0xff
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:989
+        for( i = 0; i < ucLen - 3; i++ ){
+            eepromPutString( convertStringToInt( ucParams[ 1 ] ), " " );
+            eepromPutString( convertStringToInt( ucParams[ 1 ] ), ucParams[ 2 + i ] );
+        } // for
+    } else if( isStringSame( ucParams[ 0 ], "read" ) ){
+        i = 0;
+ 1b0:	2400      	movne	r4, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:992
+        if( ucLen == 2 ){
+            ucLen = convertStringToInt( ucParams[ 1 ] );
+        } else if( ucLen == 3 ){
+ 1b2:	d108      	bne.n	1c6 <cmd_eeprom+0x1c6>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:993
+            i = convertStringToInt( ucParams[ 1 ] );
+ 1b4:	9801      	ldr	r0, [sp, #4]
+ 1b6:	f7ff fffe 	bl	0 <convertStringToInt>
+ 1ba:	b2c4      	uxtb	r4, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:994
+            ucLen = convertStringToInt( ucParams[ 2 ] );
+ 1bc:	9802      	ldr	r0, [sp, #8]
+ 1be:	f7ff fffe 	bl	0 <convertStringToInt>
+ 1c2:	b2c6      	uxtb	r6, r0
+ 1c4:	e7ec      	b.n	1a0 <cmd_eeprom+0x1a0>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:1002
+        } // else
+        //eepromGetBuffer( 0, ucMemory, 256 );
+        for( ; i < ucLen; i++ ){
+            ucChar = eepromGetChar( i );
+            if( isPrintable( ucChar ) ){
+                print( STDIO, "%c", ucChar );
+ 1c6:	f240 0700 	movw	r7, #0
+ 1ca:	f2c0 0700 	movt	r7, #0
+ 1ce:	f04f 0800 	mov.w	r8, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:1000
+        } else{
+            ucLen = 255;
+        } // else
+        //eepromGetBuffer( 0, ucMemory, 256 );
+        for( ; i < ucLen; i++ ){
+            ucChar = eepromGetChar( i );
+ 1d2:	4620      	mov	r0, r4
+ 1d4:	f7ff fffe 	bl	0 <eepromGetChar>
+ 1d8:	4605      	mov	r5, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:1001
+            if( isPrintable( ucChar ) ){
+ 1da:	f7ff fffe 	bl	0 <isPrintable>
+ 1de:	b120      	cbz	r0, 1ea <cmd_eeprom+0x1ea>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:1002
+                print( STDIO, "%c", ucChar );
+ 1e0:	4640      	mov	r0, r8
+ 1e2:	4639      	mov	r1, r7
+ 1e4:	462a      	mov	r2, r5
+ 1e6:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:999
+            ucLen = convertStringToInt( ucParams[ 2 ] );
+        } else{
+            ucLen = 255;
+        } // else
+        //eepromGetBuffer( 0, ucMemory, 256 );
+        for( ; i < ucLen; i++ ){
+ 1ea:	f104 0401 	add.w	r4, r4, #1
+ 1ee:	b2e4      	uxtb	r4, r4
+ 1f0:	42a6      	cmp	r6, r4
+ 1f2:	d8ee      	bhi.n	1d2 <cmd_eeprom+0x1d2>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:1011
+        eepromErase( );
+    } else{
+        return( FALSE );
+    } // else
+
+    return( TRUE );
+ 1f4:	f04f 0001 	mov.w	r0, #1
+ 1f8:	e00e      	b.n	218 <cmd_eeprom+0x218>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:1005
+            ucChar = eepromGetChar( i );
+            if( isPrintable( ucChar ) ){
+                print( STDIO, "%c", ucChar );
+            } // if
+        } // for
+    } else if( isStringSame( ucParams[ 0 ], "erase" ) ){
+ 1fa:	9800      	ldr	r0, [sp, #0]
+ 1fc:	f240 0100 	movw	r1, #0
+ 200:	f2c0 0100 	movt	r1, #0
+ 204:	f7ff fffe 	bl	0 <isStringSame>
+ 208:	b120      	cbz	r0, c <eepromErase+0xc>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:1006
+        eepromErase( );
+ 20a:	f7ff fffe 	bl	0 <eepromErase>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:1011
+    } else{
+        return( FALSE );
+    } // else
+
+    return( TRUE );
+ 20e:	f04f 0001 	mov.w	r0, #1
+ 212:	e001      	b.n	218 <cmd_eeprom+0x218>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:1008
+            } // if
+        } // for
+    } else if( isStringSame( ucParams[ 0 ], "erase" ) ){
+        eepromErase( );
+    } else{
+        return( FALSE );
+ 214:	f04f 0000 	mov.w	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:1012
+    } // else
+
+    return( TRUE );
+}
+ 218:	b004      	add	sp, #16
+ 21a:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+ 21e:	bf00      	nop
+
+Disassembly of section .text.cmd_gassensor:
+
+00000000 <cmd_gassensor>:
+cmd_gassensor():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:1015
+
+u8 cmd_gassensor( u8 *ucBuffer )
+{
+   0:	b510      	push	{r4, lr}
+   2:	b082      	sub	sp, #8
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:1018
+    u8 ucWiper, ucLen, *ucParams[2];
+
+    ucLen = getAllSubStrings( ucBuffer, ucParams, 2, WHITESPACE );
+   4:	4669      	mov	r1, sp
+   6:	f04f 0202 	mov.w	r2, #2
+   a:	4613      	mov	r3, r2
+   c:	f7ff fffe 	bl	0 <getAllSubStrings>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:1019
+    if( ucLen ){
+  10:	b2c0      	uxtb	r0, r0
+  12:	2800      	cmp	r0, #0
+  14:	d073      	beq.n	fe <cmd_gassensor+0xfe>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:1020
+        if( isStringSameIgnoreCase( "on", ucParams[ 0 ] ) ){
+  16:	f240 0000 	movw	r0, #0
+  1a:	f2c0 0000 	movt	r0, #0
+  1e:	9900      	ldr	r1, [sp, #0]
+  20:	f7ff fffe 	bl	0 <isStringSameIgnoreCase>
+  24:	b150      	cbz	r0, 3c <cmd_gassensor+0x3c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:1021
+            print( STDIO, "\rBoost ON" );
+  26:	f04f 0000 	mov.w	r0, #0
+  2a:	f240 0100 	movw	r1, #0
+  2e:	f2c0 0100 	movt	r1, #0
+  32:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:1022
+            gasSensorBoostEnable();
+  36:	f7ff fffe 	bl	0 <gasSensorBoostEnable>
+  3a:	e060      	b.n	120 <cmd_gassensor+0x120>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:1023
+        } else if( isStringSameIgnoreCase( "off", ucParams[ 0 ] ) ){
+  3c:	f240 0000 	movw	r0, #0
+  40:	f2c0 0000 	movt	r0, #0
+  44:	9900      	ldr	r1, [sp, #0]
+  46:	f7ff fffe 	bl	0 <isStringSameIgnoreCase>
+  4a:	b150      	cbz	r0, 62 <cmd_gassensor+0x62>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:1024
+            print( STDIO, "\rBoost OFF" );
+  4c:	f04f 0000 	mov.w	r0, #0
+  50:	f240 0100 	movw	r1, #0
+  54:	f2c0 0100 	movt	r1, #0
+  58:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:1025
+            gasSensorBoostDisable();
+  5c:	f7ff fffe 	bl	0 <gasSensorBoostDisable>
+  60:	e04d      	b.n	34e <.LC71+0x5e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:1026
+        } else if( isStringSame( "pwm", ucParams[ 0 ] ) ){
+  62:	f240 0000 	movw	r0, #0
+  66:	f2c0 0000 	movt	r0, #0
+  6a:	9900      	ldr	r1, [sp, #0]
+  6c:	f7ff fffe 	bl	0 <isStringSame>
+  70:	b170      	cbz	r0, 90 <cmd_gassensor+0x90>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:1027
+            print( STDIO, "\rHeater PWM set" );
+  72:	f04f 0000 	mov.w	r0, #0
+  76:	f240 0100 	movw	r1, #0
+  7a:	f2c0 0100 	movt	r1, #0
+  7e:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:1028
+            gasSensorSetHeaterPWM( convertStringToInt( ucParams[ 1 ] ) );
+  82:	9801      	ldr	r0, [sp, #4]
+  84:	f7ff fffe 	bl	0 <convertStringToInt>
+  88:	b2c0      	uxtb	r0, r0
+  8a:	f7ff fffe 	bl	0 <gasSensorSetHeaterPWM>
+  8e:	e036      	b.n	334 <.LC71+0x44>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:1029
+        } else if( isStringSame( "gain", ucParams[ 0 ] ) ){
+  90:	f240 0000 	movw	r0, #0
+  94:	f2c0 0000 	movt	r0, #0
+  98:	9900      	ldr	r1, [sp, #0]
+  9a:	f7ff fffe 	bl	0 <isStringSame>
+  9e:	b130      	cbz	r0, ae <cmd_gassensor+0xae>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:1030
+            gasSensorSetGain( convertStringToInt( ucParams[ 1 ] ) );//, convertStringToInt( ucParams[ 2 ] ) );
+  a0:	9801      	ldr	r0, [sp, #4]
+  a2:	f7ff fffe 	bl	0 <convertStringToInt>
+  a6:	b2c0      	uxtb	r0, r0
+  a8:	f7ff fffe 	bl	0 <gasSensorSetGain>
+  ac:	e027      	b.n	31e <.LC71+0x2e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:1032
+            //print( STDIO, "\rChanged gain" );
+        } else if( isStringSame( "load", ucParams[ 0 ] ) ){
+  ae:	f240 0000 	movw	r0, #0
+  b2:	f2c0 0000 	movt	r0, #0
+  b6:	9900      	ldr	r1, [sp, #0]
+  b8:	f7ff fffe 	bl	0 <isStringSame>
+  bc:	b130      	cbz	r0, cc <cmd_gassensor+0xcc>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:1033
+            gasSensorSetLoad( convertStringToInt( ucParams[ 1 ] ) );
+  be:	9801      	ldr	r0, [sp, #4]
+  c0:	f7ff fffe 	bl	0 <convertStringToInt>
+  c4:	b2c0      	uxtb	r0, r0
+  c6:	f7ff fffe 	bl	0 <gasSensorSetLoad>
+  ca:	e018      	b.n	308 <.LC71+0x18>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:1034
+        } else if( isStringSame( "wiper", ucParams[ 0 ] ) ){
+  cc:	f240 0000 	movw	r0, #0
+  d0:	f2c0 0000 	movt	r0, #0
+  d4:	9900      	ldr	r1, [sp, #0]
+  d6:	f7ff fffe 	bl	0 <isStringSame>
+  da:	b180      	cbz	r0, fe <cmd_gassensor+0xfe>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:1035
+            ucWiper = convertStringToInt( ucParams[ 1 ] );
+  dc:	9801      	ldr	r0, [sp, #4]
+  de:	f7ff fffe 	bl	0 <convertStringToInt>
+  e2:	b2c4      	uxtb	r4, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:1036
+            print( STDIO, "\rWiper%d: 0x%02X", ucWiper, gasSensorGetGain( ucWiper ) );
+  e4:	4620      	mov	r0, r4
+  e6:	f7ff fffe 	bl	0 <gasSensorGetGain>
+  ea:	4603      	mov	r3, r0
+  ec:	f04f 0000 	mov.w	r0, #0
+  f0:	f240 0100 	movw	r1, #0
+  f4:	f2c0 0100 	movt	r1, #0
+  f8:	4622      	mov	r2, r4
+  fa:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:1039
+        } // else if
+    } // if
+    print( COM3, "\rGas Sensor: %1.3f", gasSensorRead() );
+  fe:	f7ff fffe 	bl	0 <gasSensorRead>
+ 102:	f7ff fffe 	bl	0 <__aeabi_f2d>
+ 106:	4602      	mov	r2, r0
+ 108:	460b      	mov	r3, r1
+ 10a:	f04f 0002 	mov.w	r0, #2
+ 10e:	f240 0100 	movw	r1, #0
+ 112:	f2c0 0100 	movt	r1, #0
+ 116:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_cmd.c:1042
+    
+    return( TRUE );
+}
+ 11a:	f04f 0001 	mov.w	r0, #1
+ 11e:	b002      	add	sp, #8
+ 120:	bd10      	pop	{r4, pc}
+ 122:	bf00      	nop

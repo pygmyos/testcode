@@ -131,15 +131,16 @@ void gemDrawGameOver( void )
     PYGMYCOLOR pygmyColor = { 0xFF, 0x00, 0x20 };
 
     //guiSaveScreen();
-    taskDelete( "gemgrav", 0 );
+    taskDelete( "gemgrav" );
     guiInitSprites( );
     guiClearScreen( &pygmyColor);
     guiSetCursor( 8, 55 );
-    fontSetColor( fontGetActive(), colorGetRootColor() );
+    fontSetColor( fontGetActive(), (PYGMYCOLOR *)colorGetRootColor() );
     print( LCD, "Game Over" );
-    PYGMY_WATCHDOG_REFRESH;
-    delay( 4000000 );
+    
+    delay( 30000 );
     gemDrawEndMenu();
+    PYGMY_WATCHDOG_REFRESH;
 }
 
 void gemResetCursor( void )
@@ -203,7 +204,7 @@ u8 gemAdd( u16 uiX, u16 uiY, u8 ucGem )
     globalGems[ uiX ][ uiY ] = ucGem;
     pygmySprite->Coords[ pygmySprite->Len++ ] = uiX * 16;
     pygmySprite->Coords[ pygmySprite->Len++ ] = uiY * 16;
-    print( COM3, "\rAdded Gem %d at X %d Y %d", globalGems[ uiX ][ uiY ], uiX, uiY );
+    //print( COM3, "\rAdded Gem %d at X %d Y %d", globalGems[ uiX ][ uiY ], uiX, uiY );
 
     return( TRUE );
 }
@@ -376,9 +377,10 @@ void gemDrawEndMenu( void )
 {
     PYGMYWIDGET widgetButton;
 
-    taskDelete( "gemgrav", 0 );
+    if( taskIsRunning( "gemgrav" ) ){
+        taskDelete( "gemgrav" );
+    }
     guiInitSprites( );
-
     pinInterrupt( eventMouseMoveUp, A0, TRIGGER_RISING, 1 );
     pinInterrupt( eventMouseMoveDown, D3, TRIGGER_RISING, 1 );
     pinInterrupt( eventMouseMoveLeft, TA0, TRIGGER_RISING, 1 );
@@ -386,7 +388,7 @@ void gemDrawEndMenu( void )
     pinInterrupt( eventMouseClickLeft, DAC2, TRIGGER_RISING, 1 );
     pinInterrupt( eventMouseClickCenter, TX2, TRIGGER_RISING, 1 );
     pinInterrupt( eventMouseClickRight, RX2, TRIGGER_RISING, 1 );
-
+    
     colorSetRGB( colorGetRootColor(), 0x65, 0xBE, 0xFF ); //0x48, 0x8E, 0xDF );
     colorSetRGB( colorGetRootBackColor(), 0x65, 0x65, 0x65 );
     colorSetRGB( colorGetRootFocusColor(), 0x65, 0x65, 0x65 );//0x38, 0x6E, 0xBF  );

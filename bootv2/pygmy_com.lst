@@ -369,6 +369,28 @@ spiWriteByte():
   22:	d1f2      	bne.n	a <spiWriteByte+0xa>
   24:	bd70      	pop	{r4, r5, r6, pc}
 
+Disassembly of section .text.spiWriteLong:
+
+00000000 <spiWriteLong>:
+spiWriteLong():
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	460c      	mov	r4, r1
+   4:	0e09      	lsrs	r1, r1, #24
+   6:	4605      	mov	r5, r0
+   8:	f7ff fffe 	bl	0 <spiWriteLong>
+   c:	0c21      	lsrs	r1, r4, #16
+   e:	4628      	mov	r0, r5
+  10:	b2c9      	uxtb	r1, r1
+  12:	f7ff fffe 	bl	0 <spiWriteLong>
+  16:	0a21      	lsrs	r1, r4, #8
+  18:	4628      	mov	r0, r5
+  1a:	b2c9      	uxtb	r1, r1
+  1c:	f7ff fffe 	bl	0 <spiWriteLong>
+  20:	4628      	mov	r0, r5
+  22:	b2e1      	uxtb	r1, r4
+  24:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+  28:	f7ff bffe 	b.w	0 <spiWriteLong>
+
 Disassembly of section .text.spiWriteAddress:
 
 00000000 <spiWriteAddress>:
@@ -884,53 +906,51 @@ i2cConfig():
   2a:	6060      	str	r0, [r4, #4]
   2c:	4630      	mov	r0, r6
   2e:	f7ff fffe 	bl	0 <pinGetPort>
-  32:	4b1b      	ldr	r3, [pc, #108]	; (a0 <i2cConfig+0xa0>)
-  34:	f005 050f 	and.w	r5, r5, #15
+  32:	f005 050f 	and.w	r5, r5, #15
+  36:	2301      	movs	r3, #1
   38:	f006 060f 	and.w	r6, r6, #15
-  3c:	f833 5025 	ldrh.w	r5, [r3, r5, lsl #2]
-  40:	f833 6026 	ldrh.w	r6, [r3, r6, lsl #2]
-  44:	ea4f 0848 	mov.w	r8, r8, lsl #1
-  48:	60a0      	str	r0, [r4, #8]
-  4a:	81a5      	strh	r5, [r4, #12]
-  4c:	81e6      	strh	r6, [r4, #14]
-  4e:	f884 8002 	strb.w	r8, [r4, #2]
-  52:	b10f      	cbz	r7, 58 <i2cConfig+0x58>
-  54:	8267      	strh	r7, [r4, #18]
-  56:	e001      	b.n	5c <i2cConfig+0x5c>
-  58:	2308      	movs	r3, #8
-  5a:	8263      	strh	r3, [r4, #18]
-  5c:	f7ff fffe 	bl	0 <sysGetMainClock>
-  60:	4b10      	ldr	r3, [pc, #64]	; (a4 <i2cConfig+0xa4>)
-  62:	8a62      	ldrh	r2, [r4, #18]
-  64:	4298      	cmp	r0, r3
-  66:	bf38      	it	cc
-  68:	4603      	movcc	r3, r0
-  6a:	f012 0f04 	tst.w	r2, #4
-  6e:	d001      	beq.n	74 <i2cConfig+0x74>
-  70:	4a0d      	ldr	r2, [pc, #52]	; (a8 <i2cConfig+0xa8>)
-  72:	e00f      	b.n	94 <i2cConfig+0x94>
-  74:	f012 0f08 	tst.w	r2, #8
-  78:	d001      	beq.n	7e <i2cConfig+0x7e>
-  7a:	4a0c      	ldr	r2, [pc, #48]	; (ac <i2cConfig+0xac>)
-  7c:	e00a      	b.n	94 <i2cConfig+0x94>
-  7e:	f012 0f10 	tst.w	r2, #16
-  82:	d001      	beq.n	88 <i2cConfig+0x88>
-  84:	4a0a      	ldr	r2, [pc, #40]	; (b0 <i2cConfig+0xb0>)
-  86:	e005      	b.n	94 <i2cConfig+0x94>
-  88:	f012 0f20 	tst.w	r2, #32
-  8c:	bf14      	ite	ne
-  8e:	4a09      	ldrne	r2, [pc, #36]	; (b4 <i2cConfig+0xb4>)
-  90:	f649 4240 	movweq	r2, #40000	; 0x9c40
-  94:	fbb3 f3f2 	udiv	r3, r3, r2
-  98:	8223      	strh	r3, [r4, #16]
-  9a:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
-  9e:	bf00      	nop
-  a0:	00000000 	.word	0x00000000
-  a4:	02faf080 	.word	0x02faf080
-  a8:	00061a80 	.word	0x00061a80
-  ac:	00186a00 	.word	0x00186a00
-  b0:	003d0900 	.word	0x003d0900
-  b4:	00cf8500 	.word	0x00cf8500
+  3c:	fa13 f505 	lsls.w	r5, r3, r5
+  40:	40b3      	lsls	r3, r6
+  42:	ea4f 0848 	mov.w	r8, r8, lsl #1
+  46:	60a0      	str	r0, [r4, #8]
+  48:	81a5      	strh	r5, [r4, #12]
+  4a:	81e3      	strh	r3, [r4, #14]
+  4c:	f884 8002 	strb.w	r8, [r4, #2]
+  50:	b10f      	cbz	r7, 56 <i2cConfig+0x56>
+  52:	8267      	strh	r7, [r4, #18]
+  54:	e001      	b.n	5a <i2cConfig+0x5a>
+  56:	2308      	movs	r3, #8
+  58:	8263      	strh	r3, [r4, #18]
+  5a:	f7ff fffe 	bl	0 <sysGetMainClock>
+  5e:	4b0f      	ldr	r3, [pc, #60]	; (9c <i2cConfig+0x9c>)
+  60:	8a62      	ldrh	r2, [r4, #18]
+  62:	4298      	cmp	r0, r3
+  64:	bf38      	it	cc
+  66:	4603      	movcc	r3, r0
+  68:	f012 0f04 	tst.w	r2, #4
+  6c:	d001      	beq.n	72 <i2cConfig+0x72>
+  6e:	4a0c      	ldr	r2, [pc, #48]	; (a0 <i2cConfig+0xa0>)
+  70:	e00f      	b.n	92 <i2cConfig+0x92>
+  72:	f012 0f08 	tst.w	r2, #8
+  76:	d001      	beq.n	7c <i2cConfig+0x7c>
+  78:	4a0a      	ldr	r2, [pc, #40]	; (a4 <i2cConfig+0xa4>)
+  7a:	e00a      	b.n	92 <i2cConfig+0x92>
+  7c:	f012 0f10 	tst.w	r2, #16
+  80:	d001      	beq.n	86 <i2cConfig+0x86>
+  82:	4a09      	ldr	r2, [pc, #36]	; (a8 <i2cConfig+0xa8>)
+  84:	e005      	b.n	92 <i2cConfig+0x92>
+  86:	f012 0f20 	tst.w	r2, #32
+  8a:	bf14      	ite	ne
+  8c:	4a07      	ldrne	r2, [pc, #28]	; (ac <i2cConfig+0xac>)
+  8e:	f649 4240 	movweq	r2, #40000	; 0x9c40
+  92:	fbb3 f3f2 	udiv	r3, r3, r2
+  96:	8223      	strh	r3, [r4, #16]
+  98:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  9c:	02faf080 	.word	0x02faf080
+  a0:	00061a80 	.word	0x00061a80
+  a4:	00186a00 	.word	0x00186a00
+  a8:	003d0900 	.word	0x003d0900
+  ac:	00cf8500 	.word	0x00cf8500
 
 Disassembly of section .text.i2cDelay:
 

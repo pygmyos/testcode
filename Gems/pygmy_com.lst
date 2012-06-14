@@ -349,75 +349,91 @@ Disassembly of section .text.spiWriteByte:
 
 00000000 <spiWriteByte>:
 spiWriteByte():
-   0:	b5f0      	push	{r4, r5, r6, r7, lr}
+   0:	b570      	push	{r4, r5, r6, lr}
    2:	6842      	ldr	r2, [r0, #4]
    4:	8a44      	ldrh	r4, [r0, #18]
-   6:	4b08      	ldr	r3, [pc, #32]	; (28 <spiWriteByte+0x28>)
+   6:	2300      	movs	r3, #0
    8:	6154      	str	r4, [r2, #20]
-   a:	f103 0720 	add.w	r7, r3, #32
-   e:	f853 5b04 	ldr.w	r5, [r3], #4
-  12:	8a86      	ldrh	r6, [r0, #20]
-  14:	4229      	tst	r1, r5
-  16:	6885      	ldr	r5, [r0, #8]
-  18:	bf14      	ite	ne
-  1a:	612e      	strne	r6, [r5, #16]
-  1c:	616e      	streq	r6, [r5, #20]
-  1e:	42bb      	cmp	r3, r7
-  20:	6114      	str	r4, [r2, #16]
-  22:	6154      	str	r4, [r2, #20]
-  24:	d1f3      	bne.n	e <spiWriteByte+0xe>
-  26:	bdf0      	pop	{r4, r5, r6, r7, pc}
-  28:	00000060 	.word	0x00000060
-
-Disassembly of section .text.spiWriteWord:
-
-00000000 <spiWriteWord>:
-spiWriteWord():
-   0:	b5f0      	push	{r4, r5, r6, r7, lr}
-   2:	6842      	ldr	r2, [r0, #4]
-   4:	8a44      	ldrh	r4, [r0, #18]
-   6:	4b08      	ldr	r3, [pc, #32]	; (28 <spiWriteWord+0x28>)
-   8:	6154      	str	r4, [r2, #20]
-   a:	f103 0740 	add.w	r7, r3, #64	; 0x40
-   e:	f853 5b04 	ldr.w	r5, [r3], #4
-  12:	8a86      	ldrh	r6, [r0, #20]
-  14:	4229      	tst	r1, r5
-  16:	6885      	ldr	r5, [r0, #8]
-  18:	bf14      	ite	ne
-  1a:	612e      	strne	r6, [r5, #16]
-  1c:	616e      	streq	r6, [r5, #20]
-  1e:	42bb      	cmp	r3, r7
-  20:	6114      	str	r4, [r2, #16]
-  22:	6154      	str	r4, [r2, #20]
-  24:	d1f3      	bne.n	e <spiWriteWord+0xe>
-  26:	bdf0      	pop	{r4, r5, r6, r7, pc}
-  28:	00000040 	.word	0x00000040
+   a:	2580      	movs	r5, #128	; 0x80
+   c:	411d      	asrs	r5, r3
+   e:	8a86      	ldrh	r6, [r0, #20]
+  10:	420d      	tst	r5, r1
+  12:	6885      	ldr	r5, [r0, #8]
+  14:	bf14      	ite	ne
+  16:	612e      	strne	r6, [r5, #16]
+  18:	616e      	streq	r6, [r5, #20]
+  1a:	3301      	adds	r3, #1
+  1c:	2b08      	cmp	r3, #8
+  1e:	6114      	str	r4, [r2, #16]
+  20:	6154      	str	r4, [r2, #20]
+  22:	d1f2      	bne.n	a <spiWriteByte+0xa>
+  24:	bd70      	pop	{r4, r5, r6, pc}
 
 Disassembly of section .text.spiWriteLong:
 
 00000000 <spiWriteLong>:
 spiWriteLong():
    0:	b570      	push	{r4, r5, r6, lr}
-   2:	6842      	ldr	r2, [r0, #4]
-   4:	8a44      	ldrh	r4, [r0, #18]
-   6:	2300      	movs	r3, #0
-   8:	6154      	str	r4, [r2, #20]
-   a:	4d07      	ldr	r5, [pc, #28]	; (28 <spiWriteLong+0x28>)
-   c:	8a86      	ldrh	r6, [r0, #20]
-   e:	595d      	ldr	r5, [r3, r5]
-  10:	4229      	tst	r1, r5
-  12:	6885      	ldr	r5, [r0, #8]
-  14:	bf14      	ite	ne
-  16:	612e      	strne	r6, [r5, #16]
-  18:	616e      	streq	r6, [r5, #20]
-  1a:	3304      	adds	r3, #4
-  1c:	2b80      	cmp	r3, #128	; 0x80
-  1e:	6114      	str	r4, [r2, #16]
-  20:	6154      	str	r4, [r2, #20]
-  22:	d1f2      	bne.n	a <spiWriteLong+0xa>
-  24:	bd70      	pop	{r4, r5, r6, pc}
-  26:	bf00      	nop
-  28:	00000000 	.word	0x00000000
+   2:	460c      	mov	r4, r1
+   4:	0e09      	lsrs	r1, r1, #24
+   6:	4605      	mov	r5, r0
+   8:	f7ff fffe 	bl	0 <spiWriteLong>
+   c:	0c21      	lsrs	r1, r4, #16
+   e:	4628      	mov	r0, r5
+  10:	b2c9      	uxtb	r1, r1
+  12:	f7ff fffe 	bl	0 <spiWriteLong>
+  16:	0a21      	lsrs	r1, r4, #8
+  18:	4628      	mov	r0, r5
+  1a:	b2c9      	uxtb	r1, r1
+  1c:	f7ff fffe 	bl	0 <spiWriteLong>
+  20:	4628      	mov	r0, r5
+  22:	b2e1      	uxtb	r1, r4
+  24:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+  28:	f7ff bffe 	b.w	0 <spiWriteLong>
+
+Disassembly of section .text.spiWriteAddress:
+
+00000000 <spiWriteAddress>:
+spiWriteAddress():
+   0:	8b03      	ldrh	r3, [r0, #24]
+   2:	b570      	push	{r4, r5, r6, lr}
+   4:	f013 0f04 	tst.w	r3, #4
+   8:	4605      	mov	r5, r0
+   a:	460c      	mov	r4, r1
+   c:	d00a      	beq.n	24 <spiWriteAddress+0x24>
+   e:	0e09      	lsrs	r1, r1, #24
+  10:	f7ff fffe 	bl	0 <spiWriteAddress>
+  14:	0c21      	lsrs	r1, r4, #16
+  16:	4628      	mov	r0, r5
+  18:	b2c9      	uxtb	r1, r1
+  1a:	f7ff fffe 	bl	0 <spiWriteAddress>
+  1e:	0a21      	lsrs	r1, r4, #8
+  20:	4628      	mov	r0, r5
+  22:	e003      	b.n	2c <spiWriteAddress+0x2c>
+  24:	f013 0f02 	tst.w	r3, #2
+  28:	d003      	beq.n	32 <spiWriteAddress+0x32>
+  2a:	0a09      	lsrs	r1, r1, #8
+  2c:	b2c9      	uxtb	r1, r1
+  2e:	f7ff fffe 	bl	0 <spiWriteAddress>
+  32:	4628      	mov	r0, r5
+  34:	b2e1      	uxtb	r1, r4
+  36:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+  3a:	f7ff bffe 	b.w	0 <spiWriteAddress>
+
+Disassembly of section .text.spiPutCommand:
+
+00000000 <spiPutCommand>:
+spiPutCommand():
+   0:	6803      	ldr	r3, [r0, #0]
+   2:	8a02      	ldrh	r2, [r0, #16]
+   4:	b510      	push	{r4, lr}
+   6:	4604      	mov	r4, r0
+   8:	615a      	str	r2, [r3, #20]
+   a:	f7ff fffe 	bl	0 <spiPutCommand>
+   e:	6823      	ldr	r3, [r4, #0]
+  10:	8a22      	ldrh	r2, [r4, #16]
+  12:	611a      	str	r2, [r3, #16]
+  14:	bd10      	pop	{r4, pc}
 
 Disassembly of section .text.spiReadByte:
 
@@ -425,25 +441,255 @@ Disassembly of section .text.spiReadByte:
 spiReadByte():
    0:	6842      	ldr	r2, [r0, #4]
    2:	8a41      	ldrh	r1, [r0, #18]
-   4:	4b09      	ldr	r3, [pc, #36]	; (2c <spiReadByte+0x2c>)
-   6:	b5f0      	push	{r4, r5, r6, r7, lr}
-   8:	68c6      	ldr	r6, [r0, #12]
-   a:	8ac5      	ldrh	r5, [r0, #22]
+   4:	2300      	movs	r3, #0
+   6:	b570      	push	{r4, r5, r6, lr}
+   8:	68c5      	ldr	r5, [r0, #12]
+   a:	8ac4      	ldrh	r4, [r0, #22]
    c:	6151      	str	r1, [r2, #20]
-   e:	f103 0420 	add.w	r4, r3, #32
-  12:	2000      	movs	r0, #0
-  14:	6111      	str	r1, [r2, #16]
-  16:	68b7      	ldr	r7, [r6, #8]
-  18:	6151      	str	r1, [r2, #20]
-  1a:	423d      	tst	r5, r7
-  1c:	bf1c      	itt	ne
-  1e:	f893 7060 	ldrbne.w	r7, [r3, #96]	; 0x60
-  22:	4338      	orrne	r0, r7
-  24:	3304      	adds	r3, #4
-  26:	42a3      	cmp	r3, r4
-  28:	d1f4      	bne.n	14 <spiReadByte+0x14>
-  2a:	bdf0      	pop	{r4, r5, r6, r7, pc}
-  2c:	00000000 	.word	0x00000000
+   e:	4618      	mov	r0, r3
+  10:	6111      	str	r1, [r2, #16]
+  12:	68ae      	ldr	r6, [r5, #8]
+  14:	4234      	tst	r4, r6
+  16:	d004      	beq.n	22 <spiReadByte+0x22>
+  18:	2680      	movs	r6, #128	; 0x80
+  1a:	411e      	asrs	r6, r3
+  1c:	ea46 0000 	orr.w	r0, r6, r0
+  20:	b2c0      	uxtb	r0, r0
+  22:	3301      	adds	r3, #1
+  24:	2b08      	cmp	r3, #8
+  26:	6151      	str	r1, [r2, #20]
+  28:	d1f2      	bne.n	10 <spiReadByte+0x10>
+  2a:	bd70      	pop	{r4, r5, r6, pc}
+
+Disassembly of section .text.spiGetBuffer:
+
+00000000 <spiGetBuffer>:
+spiGetBuffer():
+   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+   2:	4615      	mov	r5, r2
+   4:	461e      	mov	r6, r3
+   6:	8a02      	ldrh	r2, [r0, #16]
+   8:	6803      	ldr	r3, [r0, #0]
+   a:	4604      	mov	r4, r0
+   c:	615a      	str	r2, [r3, #20]
+   e:	f7ff fffe 	bl	0 <spiGetBuffer>
+  12:	8b23      	ldrh	r3, [r4, #24]
+  14:	f013 0f08 	tst.w	r3, #8
+  18:	d002      	beq.n	20 <spiGetBuffer+0x20>
+  1a:	4620      	mov	r0, r4
+  1c:	f7ff fffe 	bl	0 <spiGetBuffer>
+  20:	2700      	movs	r7, #0
+  22:	e004      	b.n	2e <spiGetBuffer+0x2e>
+  24:	4620      	mov	r0, r4
+  26:	f7ff fffe 	bl	0 <spiGetBuffer>
+  2a:	55e8      	strb	r0, [r5, r7]
+  2c:	3701      	adds	r7, #1
+  2e:	42b7      	cmp	r7, r6
+  30:	d3f8      	bcc.n	24 <spiGetBuffer+0x24>
+  32:	6823      	ldr	r3, [r4, #0]
+  34:	8a22      	ldrh	r2, [r4, #16]
+  36:	611a      	str	r2, [r3, #16]
+  38:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+
+Disassembly of section .text.spiGetLong:
+
+00000000 <spiGetLong>:
+spiGetLong():
+   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+   2:	8a02      	ldrh	r2, [r0, #16]
+   4:	6803      	ldr	r3, [r0, #0]
+   6:	4604      	mov	r4, r0
+   8:	615a      	str	r2, [r3, #20]
+   a:	f7ff fffe 	bl	0 <spiGetLong>
+   e:	8b23      	ldrh	r3, [r4, #24]
+  10:	f013 0f08 	tst.w	r3, #8
+  14:	d002      	beq.n	1c <spiGetLong+0x1c>
+  16:	4620      	mov	r0, r4
+  18:	f7ff fffe 	bl	0 <spiGetLong>
+  1c:	4620      	mov	r0, r4
+  1e:	f7ff fffe 	bl	0 <spiGetLong>
+  22:	0606      	lsls	r6, r0, #24
+  24:	4620      	mov	r0, r4
+  26:	f7ff fffe 	bl	0 <spiGetLong>
+  2a:	4607      	mov	r7, r0
+  2c:	4620      	mov	r0, r4
+  2e:	f7ff fffe 	bl	0 <spiGetLong>
+  32:	4605      	mov	r5, r0
+  34:	4620      	mov	r0, r4
+  36:	f7ff fffe 	bl	0 <spiGetLong>
+  3a:	ea46 4307 	orr.w	r3, r6, r7, lsl #16
+  3e:	ea43 0000 	orr.w	r0, r3, r0
+  42:	8a22      	ldrh	r2, [r4, #16]
+  44:	6823      	ldr	r3, [r4, #0]
+  46:	ea40 2005 	orr.w	r0, r0, r5, lsl #8
+  4a:	611a      	str	r2, [r3, #16]
+  4c:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+
+Disassembly of section .text.spiGetWord:
+
+00000000 <spiGetWord>:
+spiGetWord():
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	8a02      	ldrh	r2, [r0, #16]
+   4:	6803      	ldr	r3, [r0, #0]
+   6:	4604      	mov	r4, r0
+   8:	615a      	str	r2, [r3, #20]
+   a:	f7ff fffe 	bl	0 <spiGetWord>
+   e:	8b23      	ldrh	r3, [r4, #24]
+  10:	f013 0f08 	tst.w	r3, #8
+  14:	d002      	beq.n	1c <spiGetWord+0x1c>
+  16:	4620      	mov	r0, r4
+  18:	f7ff fffe 	bl	0 <spiGetWord>
+  1c:	4620      	mov	r0, r4
+  1e:	f7ff fffe 	bl	0 <spiGetWord>
+  22:	0200      	lsls	r0, r0, #8
+  24:	b285      	uxth	r5, r0
+  26:	4620      	mov	r0, r4
+  28:	f7ff fffe 	bl	0 <spiGetWord>
+  2c:	6823      	ldr	r3, [r4, #0]
+  2e:	8a22      	ldrh	r2, [r4, #16]
+  30:	ea45 0000 	orr.w	r0, r5, r0
+  34:	611a      	str	r2, [r3, #16]
+  36:	b280      	uxth	r0, r0
+  38:	bd38      	pop	{r3, r4, r5, pc}
+
+Disassembly of section .text.spiGetChar:
+
+00000000 <spiGetChar>:
+spiGetChar():
+   0:	6803      	ldr	r3, [r0, #0]
+   2:	8a02      	ldrh	r2, [r0, #16]
+   4:	b510      	push	{r4, lr}
+   6:	4604      	mov	r4, r0
+   8:	615a      	str	r2, [r3, #20]
+   a:	f7ff fffe 	bl	0 <spiGetChar>
+   e:	8b23      	ldrh	r3, [r4, #24]
+  10:	f013 0f08 	tst.w	r3, #8
+  14:	d002      	beq.n	1c <spiGetChar+0x1c>
+  16:	4620      	mov	r0, r4
+  18:	f7ff fffe 	bl	0 <spiGetChar>
+  1c:	4620      	mov	r0, r4
+  1e:	f7ff fffe 	bl	0 <spiGetChar>
+  22:	6823      	ldr	r3, [r4, #0]
+  24:	8a22      	ldrh	r2, [r4, #16]
+  26:	611a      	str	r2, [r3, #16]
+  28:	bd10      	pop	{r4, pc}
+
+Disassembly of section .text.spiPutBuffer:
+
+00000000 <spiPutBuffer>:
+spiPutBuffer():
+   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+   2:	4615      	mov	r5, r2
+   4:	461f      	mov	r7, r3
+   6:	8a02      	ldrh	r2, [r0, #16]
+   8:	6803      	ldr	r3, [r0, #0]
+   a:	4604      	mov	r4, r0
+   c:	615a      	str	r2, [r3, #20]
+   e:	f7ff fffe 	bl	0 <spiPutBuffer>
+  12:	8b23      	ldrh	r3, [r4, #24]
+  14:	f013 0f10 	tst.w	r3, #16
+  18:	d002      	beq.n	20 <spiPutBuffer+0x20>
+  1a:	4620      	mov	r0, r4
+  1c:	f7ff fffe 	bl	0 <spiPutBuffer>
+  20:	2600      	movs	r6, #0
+  22:	e004      	b.n	2e <spiPutBuffer+0x2e>
+  24:	5da9      	ldrb	r1, [r5, r6]
+  26:	4620      	mov	r0, r4
+  28:	f7ff fffe 	bl	0 <spiPutBuffer>
+  2c:	3601      	adds	r6, #1
+  2e:	42be      	cmp	r6, r7
+  30:	d3f8      	bcc.n	24 <spiPutBuffer+0x24>
+  32:	6823      	ldr	r3, [r4, #0]
+  34:	8a22      	ldrh	r2, [r4, #16]
+  36:	611a      	str	r2, [r3, #16]
+  38:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+
+Disassembly of section .text.spiPutLong:
+
+00000000 <spiPutLong>:
+spiPutLong():
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	6803      	ldr	r3, [r0, #0]
+   4:	4615      	mov	r5, r2
+   6:	8a02      	ldrh	r2, [r0, #16]
+   8:	4604      	mov	r4, r0
+   a:	615a      	str	r2, [r3, #20]
+   c:	f7ff fffe 	bl	0 <spiPutLong>
+  10:	8b23      	ldrh	r3, [r4, #24]
+  12:	f013 0f10 	tst.w	r3, #16
+  16:	d002      	beq.n	1e <spiPutLong+0x1e>
+  18:	4620      	mov	r0, r4
+  1a:	f7ff fffe 	bl	0 <spiPutLong>
+  1e:	4620      	mov	r0, r4
+  20:	0e29      	lsrs	r1, r5, #24
+  22:	f7ff fffe 	bl	0 <spiPutLong>
+  26:	0c29      	lsrs	r1, r5, #16
+  28:	4620      	mov	r0, r4
+  2a:	b2c9      	uxtb	r1, r1
+  2c:	f7ff fffe 	bl	0 <spiPutLong>
+  30:	0a29      	lsrs	r1, r5, #8
+  32:	4620      	mov	r0, r4
+  34:	b2c9      	uxtb	r1, r1
+  36:	f7ff fffe 	bl	0 <spiPutLong>
+  3a:	4620      	mov	r0, r4
+  3c:	b2e9      	uxtb	r1, r5
+  3e:	f7ff fffe 	bl	0 <spiPutLong>
+  42:	6823      	ldr	r3, [r4, #0]
+  44:	8a22      	ldrh	r2, [r4, #16]
+  46:	611a      	str	r2, [r3, #16]
+  48:	bd38      	pop	{r3, r4, r5, pc}
+
+Disassembly of section .text.spiPutWord:
+
+00000000 <spiPutWord>:
+spiPutWord():
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	6803      	ldr	r3, [r0, #0]
+   4:	4615      	mov	r5, r2
+   6:	8a02      	ldrh	r2, [r0, #16]
+   8:	4604      	mov	r4, r0
+   a:	615a      	str	r2, [r3, #20]
+   c:	f7ff fffe 	bl	0 <spiPutWord>
+  10:	8b23      	ldrh	r3, [r4, #24]
+  12:	f013 0f10 	tst.w	r3, #16
+  16:	d002      	beq.n	1e <spiPutWord+0x1e>
+  18:	4620      	mov	r0, r4
+  1a:	f7ff fffe 	bl	0 <spiPutWord>
+  1e:	4620      	mov	r0, r4
+  20:	0a29      	lsrs	r1, r5, #8
+  22:	f7ff fffe 	bl	0 <spiPutWord>
+  26:	4620      	mov	r0, r4
+  28:	b2e9      	uxtb	r1, r5
+  2a:	f7ff fffe 	bl	0 <spiPutWord>
+  2e:	6823      	ldr	r3, [r4, #0]
+  30:	8a22      	ldrh	r2, [r4, #16]
+  32:	611a      	str	r2, [r3, #16]
+  34:	bd38      	pop	{r3, r4, r5, pc}
+
+Disassembly of section .text.spiPutChar:
+
+00000000 <spiPutChar>:
+spiPutChar():
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	6803      	ldr	r3, [r0, #0]
+   4:	4615      	mov	r5, r2
+   6:	8a02      	ldrh	r2, [r0, #16]
+   8:	4604      	mov	r4, r0
+   a:	615a      	str	r2, [r3, #20]
+   c:	f7ff fffe 	bl	0 <spiPutChar>
+  10:	8b23      	ldrh	r3, [r4, #24]
+  12:	f013 0f10 	tst.w	r3, #16
+  16:	d002      	beq.n	1e <spiPutChar+0x1e>
+  18:	4620      	mov	r0, r4
+  1a:	f7ff fffe 	bl	0 <spiPutChar>
+  1e:	4620      	mov	r0, r4
+  20:	4629      	mov	r1, r5
+  22:	f7ff fffe 	bl	0 <spiPutChar>
+  26:	6823      	ldr	r3, [r4, #0]
+  28:	8a22      	ldrh	r2, [r4, #16]
+  2a:	611a      	str	r2, [r3, #16]
+  2c:	bd38      	pop	{r3, r4, r5, pc}
 
 Disassembly of section .text.spiReadBuffer:
 
@@ -501,68 +747,66 @@ Disassembly of section .text.spiConfig:
 spiConfig():
    0:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
    4:	4616      	mov	r6, r2
-   6:	f89d 9020 	ldrb.w	r9, [sp, #32]
+   6:	f89d 8020 	ldrb.w	r8, [sp, #32]
    a:	4604      	mov	r4, r0
    c:	460d      	mov	r5, r1
    e:	4608      	mov	r0, r1
   10:	2103      	movs	r1, #3
-  12:	4698      	mov	r8, r3
-  14:	f7ff fffe 	bl	0 <pinConfig>
-  18:	2103      	movs	r1, #3
-  1a:	4630      	mov	r0, r6
-  1c:	f7ff fffe 	bl	0 <pinConfig>
-  20:	f1b9 0fff 	cmp.w	r9, #255	; 0xff
-  24:	4f1f      	ldr	r7, [pc, #124]	; (a4 <spiConfig+0xa4>)
-  26:	d00d      	beq.n	44 <spiConfig+0x44>
-  28:	4648      	mov	r0, r9
+  12:	461f      	mov	r7, r3
+  14:	f89d 9024 	ldrb.w	r9, [sp, #36]	; 0x24
+  18:	f7ff fffe 	bl	0 <pinConfig>
+  1c:	2103      	movs	r1, #3
+  1e:	4630      	mov	r0, r6
+  20:	f7ff fffe 	bl	0 <pinConfig>
+  24:	f1b8 0fff 	cmp.w	r8, #255	; 0xff
+  28:	d00c      	beq.n	44 <spiConfig+0x44>
   2a:	2103      	movs	r1, #3
-  2c:	f7ff fffe 	bl	0 <pinConfig>
-  30:	4648      	mov	r0, r9
-  32:	f7ff fffe 	bl	0 <pinGetPort>
-  36:	f009 090f 	and.w	r9, r9, #15
-  3a:	f837 9029 	ldrh.w	r9, [r7, r9, lsl #2]
-  3e:	60a0      	str	r0, [r4, #8]
-  40:	f8a4 9014 	strh.w	r9, [r4, #20]
-  44:	f1b8 0fff 	cmp.w	r8, #255	; 0xff
-  48:	d00d      	beq.n	66 <spiConfig+0x66>
-  4a:	4640      	mov	r0, r8
-  4c:	2104      	movs	r1, #4
-  4e:	f7ff fffe 	bl	0 <pinConfig>
-  52:	4640      	mov	r0, r8
-  54:	f7ff fffe 	bl	0 <pinGetPort>
-  58:	f008 080f 	and.w	r8, r8, #15
-  5c:	f837 8028 	ldrh.w	r8, [r7, r8, lsl #2]
-  60:	60e0      	str	r0, [r4, #12]
-  62:	f8a4 8016 	strh.w	r8, [r4, #22]
-  66:	4628      	mov	r0, r5
-  68:	f7ff fffe 	bl	0 <pinGetPort>
-  6c:	6020      	str	r0, [r4, #0]
-  6e:	4630      	mov	r0, r6
-  70:	f7ff fffe 	bl	0 <pinGetPort>
-  74:	f005 030f 	and.w	r3, r5, #15
-  78:	f837 3023 	ldrh.w	r3, [r7, r3, lsl #2]
-  7c:	6060      	str	r0, [r4, #4]
-  7e:	8223      	strh	r3, [r4, #16]
-  80:	f006 030f 	and.w	r3, r6, #15
-  84:	f837 7023 	ldrh.w	r7, [r7, r3, lsl #2]
-  88:	23ff      	movs	r3, #255	; 0xff
-  8a:	4630      	mov	r0, r6
-  8c:	2100      	movs	r1, #0
-  8e:	8267      	strh	r7, [r4, #18]
-  90:	8323      	strh	r3, [r4, #24]
-  92:	f7ff fffe 	bl	0 <pinSet>
-  96:	4628      	mov	r0, r5
-  98:	2101      	movs	r1, #1
-  9a:	e8bd 47f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
-  9e:	f7ff bffe 	b.w	0 <pinSet>
-  a2:	bf00      	nop
-  a4:	00000000 	.word	0x00000000
+  2c:	4640      	mov	r0, r8
+  2e:	f7ff fffe 	bl	0 <pinConfig>
+  32:	4640      	mov	r0, r8
+  34:	f7ff fffe 	bl	0 <pinGetPort>
+  38:	60a0      	str	r0, [r4, #8]
+  3a:	f008 000f 	and.w	r0, r8, #15
+  3e:	f7ff fffe 	bl	0 <sysGenerateBit>
+  42:	82a0      	strh	r0, [r4, #20]
+  44:	2fff      	cmp	r7, #255	; 0xff
+  46:	d00c      	beq.n	62 <spiConfig+0x62>
+  48:	2104      	movs	r1, #4
+  4a:	4638      	mov	r0, r7
+  4c:	f7ff fffe 	bl	0 <pinConfig>
+  50:	4638      	mov	r0, r7
+  52:	f7ff fffe 	bl	0 <pinGetPort>
+  56:	60e0      	str	r0, [r4, #12]
+  58:	f007 000f 	and.w	r0, r7, #15
+  5c:	f7ff fffe 	bl	0 <sysGenerateBit>
+  60:	82e0      	strh	r0, [r4, #22]
+  62:	4628      	mov	r0, r5
+  64:	f7ff fffe 	bl	0 <pinGetPort>
+  68:	6020      	str	r0, [r4, #0]
+  6a:	4630      	mov	r0, r6
+  6c:	f7ff fffe 	bl	0 <pinGetPort>
+  70:	6060      	str	r0, [r4, #4]
+  72:	f005 000f 	and.w	r0, r5, #15
+  76:	f7ff fffe 	bl	0 <sysGenerateBit>
+  7a:	8220      	strh	r0, [r4, #16]
+  7c:	f006 000f 	and.w	r0, r6, #15
+  80:	f7ff fffe 	bl	0 <sysGenerateBit>
+  84:	2100      	movs	r1, #0
+  86:	8260      	strh	r0, [r4, #18]
+  88:	f8a4 9018 	strh.w	r9, [r4, #24]
+  8c:	4630      	mov	r0, r6
+  8e:	f7ff fffe 	bl	0 <pinSet>
+  92:	4628      	mov	r0, r5
+  94:	2101      	movs	r1, #1
+  96:	e8bd 47f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
+  9a:	f7ff bffe 	b.w	0 <pinSet>
 
 Disassembly of section .text.i2cInit:
 
 00000000 <i2cInit>:
 i2cInit():
-   0:	2100b538 	.word	0x2100b538
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	2100      	movs	r1, #0
    4:	4c0f      	ldr	r4, [pc, #60]	; (44 <i2cInit+0x44>)
    6:	4605      	mov	r5, r0
    8:	2210      	movs	r2, #16
@@ -662,53 +906,51 @@ i2cConfig():
   2a:	6060      	str	r0, [r4, #4]
   2c:	4630      	mov	r0, r6
   2e:	f7ff fffe 	bl	0 <pinGetPort>
-  32:	4b1b      	ldr	r3, [pc, #108]	; (a0 <i2cConfig+0xa0>)
-  34:	f005 050f 	and.w	r5, r5, #15
+  32:	f005 050f 	and.w	r5, r5, #15
+  36:	2301      	movs	r3, #1
   38:	f006 060f 	and.w	r6, r6, #15
-  3c:	f833 5025 	ldrh.w	r5, [r3, r5, lsl #2]
-  40:	f833 6026 	ldrh.w	r6, [r3, r6, lsl #2]
-  44:	ea4f 0848 	mov.w	r8, r8, lsl #1
-  48:	60a0      	str	r0, [r4, #8]
-  4a:	81a5      	strh	r5, [r4, #12]
-  4c:	81e6      	strh	r6, [r4, #14]
-  4e:	f884 8002 	strb.w	r8, [r4, #2]
-  52:	b10f      	cbz	r7, 58 <i2cConfig+0x58>
-  54:	8267      	strh	r7, [r4, #18]
-  56:	e001      	b.n	5c <i2cConfig+0x5c>
-  58:	2308      	movs	r3, #8
-  5a:	8263      	strh	r3, [r4, #18]
-  5c:	f7ff fffe 	bl	0 <sysGetMainClock>
-  60:	4b10      	ldr	r3, [pc, #64]	; (a4 <i2cConfig+0xa4>)
-  62:	8a62      	ldrh	r2, [r4, #18]
-  64:	4298      	cmp	r0, r3
-  66:	bf38      	it	cc
-  68:	4603      	movcc	r3, r0
-  6a:	f012 0f04 	tst.w	r2, #4
-  6e:	d001      	beq.n	74 <i2cConfig+0x74>
-  70:	4a0d      	ldr	r2, [pc, #52]	; (a8 <i2cConfig+0xa8>)
-  72:	e00f      	b.n	94 <i2cConfig+0x94>
-  74:	f012 0f08 	tst.w	r2, #8
-  78:	d001      	beq.n	7e <i2cConfig+0x7e>
-  7a:	4a0c      	ldr	r2, [pc, #48]	; (ac <i2cConfig+0xac>)
-  7c:	e00a      	b.n	94 <i2cConfig+0x94>
-  7e:	f012 0f10 	tst.w	r2, #16
-  82:	d001      	beq.n	88 <i2cConfig+0x88>
-  84:	4a0a      	ldr	r2, [pc, #40]	; (b0 <i2cConfig+0xb0>)
-  86:	e005      	b.n	94 <i2cConfig+0x94>
-  88:	f012 0f20 	tst.w	r2, #32
-  8c:	bf14      	ite	ne
-  8e:	4a09      	ldrne	r2, [pc, #36]	; (b4 <i2cConfig+0xb4>)
-  90:	f649 4240 	movweq	r2, #40000	; 0x9c40
-  94:	fbb3 f3f2 	udiv	r3, r3, r2
-  98:	8223      	strh	r3, [r4, #16]
-  9a:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
-  9e:	bf00      	nop
-  a0:	00000000 	.word	0x00000000
-  a4:	02faf080 	.word	0x02faf080
-  a8:	00061a80 	.word	0x00061a80
-  ac:	00186a00 	.word	0x00186a00
-  b0:	003d0900 	.word	0x003d0900
-  b4:	00cf8500 	.word	0x00cf8500
+  3c:	fa13 f505 	lsls.w	r5, r3, r5
+  40:	40b3      	lsls	r3, r6
+  42:	ea4f 0848 	mov.w	r8, r8, lsl #1
+  46:	60a0      	str	r0, [r4, #8]
+  48:	81a5      	strh	r5, [r4, #12]
+  4a:	81e3      	strh	r3, [r4, #14]
+  4c:	f884 8002 	strb.w	r8, [r4, #2]
+  50:	b10f      	cbz	r7, 56 <i2cConfig+0x56>
+  52:	8267      	strh	r7, [r4, #18]
+  54:	e001      	b.n	5a <i2cConfig+0x5a>
+  56:	2308      	movs	r3, #8
+  58:	8263      	strh	r3, [r4, #18]
+  5a:	f7ff fffe 	bl	0 <sysGetMainClock>
+  5e:	4b0f      	ldr	r3, [pc, #60]	; (9c <i2cConfig+0x9c>)
+  60:	8a62      	ldrh	r2, [r4, #18]
+  62:	4298      	cmp	r0, r3
+  64:	bf38      	it	cc
+  66:	4603      	movcc	r3, r0
+  68:	f012 0f04 	tst.w	r2, #4
+  6c:	d001      	beq.n	72 <i2cConfig+0x72>
+  6e:	4a0c      	ldr	r2, [pc, #48]	; (a0 <i2cConfig+0xa0>)
+  70:	e00f      	b.n	92 <i2cConfig+0x92>
+  72:	f012 0f08 	tst.w	r2, #8
+  76:	d001      	beq.n	7c <i2cConfig+0x7c>
+  78:	4a0a      	ldr	r2, [pc, #40]	; (a4 <i2cConfig+0xa4>)
+  7a:	e00a      	b.n	92 <i2cConfig+0x92>
+  7c:	f012 0f10 	tst.w	r2, #16
+  80:	d001      	beq.n	86 <i2cConfig+0x86>
+  82:	4a09      	ldr	r2, [pc, #36]	; (a8 <i2cConfig+0xa8>)
+  84:	e005      	b.n	92 <i2cConfig+0x92>
+  86:	f012 0f20 	tst.w	r2, #32
+  8a:	bf14      	ite	ne
+  8c:	4a07      	ldrne	r2, [pc, #28]	; (ac <i2cConfig+0xac>)
+  8e:	f649 4240 	movweq	r2, #40000	; 0x9c40
+  92:	fbb3 f3f2 	udiv	r3, r3, r2
+  96:	8223      	strh	r3, [r4, #16]
+  98:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  9c:	02faf080 	.word	0x02faf080
+  a0:	00061a80 	.word	0x00061a80
+  a4:	00186a00 	.word	0x00186a00
+  a8:	003d0900 	.word	0x003d0900
+  ac:	00cf8500 	.word	0x00cf8500
 
 Disassembly of section .text.i2cDelay:
 
@@ -730,13 +972,15 @@ Disassembly of section .text.i2cStretch:
 i2cStretch():
    0:	6841      	ldr	r1, [r0, #4]
    2:	8982      	ldrh	r2, [r0, #12]
-   4:	f64f 73ff 	movw	r3, #65535	; 0xffff
+   4:	f64e 2360 	movw	r3, #60000	; 0xea60
    8:	6888      	ldr	r0, [r1, #8]
    a:	4202      	tst	r2, r0
-   c:	d101      	bne.n	12 <i2cStretch+0x12>
+   c:	d103      	bne.n	16 <i2cStretch+0x16>
    e:	3b01      	subs	r3, #1
-  10:	d1fa      	bne.n	8 <i2cStretch+0x8>
-  12:	4770      	bx	lr
+  10:	b29b      	uxth	r3, r3
+  12:	2b00      	cmp	r3, #0
+  14:	d1f8      	bne.n	8 <i2cStretch+0x8>
+  16:	4770      	bx	lr
 
 Disassembly of section .text.i2cWriteBit:
 
@@ -762,31 +1006,23 @@ i2cWriteBit():
   28:	7820      	ldrb	r0, [r4, #0]
   2a:	2118      	movs	r1, #24
   2c:	f7ff fffe 	bl	0 <pinConfig>
-  30:	b165      	cbz	r5, 4c <i2cWriteBit+0x4c>
-  32:	2118      	movs	r1, #24
-  34:	7860      	ldrb	r0, [r4, #1]
+  30:	b12d      	cbz	r5, 3e <i2cWriteBit+0x3e>
+  32:	7860      	ldrb	r0, [r4, #1]
+  34:	2118      	movs	r1, #24
   36:	f7ff fffe 	bl	0 <pinConfig>
   3a:	68a3      	ldr	r3, [r4, #8]
-  3c:	89e2      	ldrh	r2, [r4, #14]
-  3e:	689b      	ldr	r3, [r3, #8]
-  40:	421a      	tst	r2, r3
-  42:	d103      	bne.n	4c <i2cWriteBit+0x4c>
-  44:	2001      	movs	r0, #1
-  46:	4909      	ldr	r1, [pc, #36]	; (6c <i2cWriteBit+0x6c>)
-  48:	f7ff fffe 	bl	0 <print>
-  4c:	4620      	mov	r0, r4
-  4e:	f7ff fffe 	bl	0 <i2cWriteBit>
-  52:	6863      	ldr	r3, [r4, #4]
-  54:	89a1      	ldrh	r1, [r4, #12]
-  56:	68da      	ldr	r2, [r3, #12]
-  58:	ea22 0201 	bic.w	r2, r2, r1
-  5c:	60da      	str	r2, [r3, #12]
-  5e:	7820      	ldrb	r0, [r4, #0]
-  60:	2103      	movs	r1, #3
-  62:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
-  66:	f7ff bffe 	b.w	0 <pinConfig>
-  6a:	bf00      	nop
-  6c:	00000000 	.word	0x00000000
+  3c:	689b      	ldr	r3, [r3, #8]
+  3e:	4620      	mov	r0, r4
+  40:	f7ff fffe 	bl	0 <i2cWriteBit>
+  44:	6863      	ldr	r3, [r4, #4]
+  46:	89a1      	ldrh	r1, [r4, #12]
+  48:	68da      	ldr	r2, [r3, #12]
+  4a:	ea22 0201 	bic.w	r2, r2, r1
+  4e:	60da      	str	r2, [r3, #12]
+  50:	7820      	ldrb	r0, [r4, #0]
+  52:	2103      	movs	r1, #3
+  54:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+  58:	f7ff bffe 	b.w	0 <pinConfig>
 
 Disassembly of section .text.i2cReadBit:
 
@@ -889,50 +1125,43 @@ i2cResetBus():
   24:	89e2      	ldrh	r2, [r4, #14]
   26:	689b      	ldr	r3, [r3, #8]
   28:	421a      	tst	r2, r3
-  2a:	d105      	bne.n	38 <i2cResetBus+0x38>
+  2a:	d104      	bne.n	36 <i2cResetBus+0x36>
   2c:	4620      	mov	r0, r4
-  2e:	f7ff fffe 	bl	0 <i2cResetBus>
-  32:	2001      	movs	r0, #1
-  34:	4913      	ldr	r1, [pc, #76]	; (84 <i2cResetBus+0x84>)
-  36:	e020      	b.n	7a <i2cResetBus+0x7a>
-  38:	4620      	mov	r0, r4
-  3a:	f7ff fffe 	bl	0 <i2cResetBus>
-  3e:	6863      	ldr	r3, [r4, #4]
-  40:	89a1      	ldrh	r1, [r4, #12]
-  42:	68da      	ldr	r2, [r3, #12]
-  44:	4620      	mov	r0, r4
-  46:	ea41 0202 	orr.w	r2, r1, r2
-  4a:	60da      	str	r2, [r3, #12]
-  4c:	f7ff fffe 	bl	0 <i2cResetBus>
-  50:	6863      	ldr	r3, [r4, #4]
-  52:	89a1      	ldrh	r1, [r4, #12]
-  54:	68da      	ldr	r2, [r3, #12]
-  56:	4620      	mov	r0, r4
-  58:	ea22 0201 	bic.w	r2, r2, r1
-  5c:	60da      	str	r2, [r3, #12]
-  5e:	f7ff fffe 	bl	0 <i2cResetBus>
-  62:	6863      	ldr	r3, [r4, #4]
-  64:	89a1      	ldrh	r1, [r4, #12]
-  66:	68da      	ldr	r2, [r3, #12]
-  68:	3d01      	subs	r5, #1
-  6a:	ea41 0202 	orr.w	r2, r1, r2
-  6e:	b2ed      	uxtb	r5, r5
-  70:	60da      	str	r2, [r3, #12]
-  72:	2d00      	cmp	r5, #0
-  74:	d1cb      	bne.n	e <i2cResetBus+0xe>
-  76:	4904      	ldr	r1, [pc, #16]	; (88 <i2cResetBus+0x88>)
-  78:	2001      	movs	r0, #1
-  7a:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
-  7e:	f7ff bffe 	b.w	0 <print>
-  82:	bf00      	nop
-  84:	00000014 	.word	0x00000014
-  88:	00000023 	.word	0x00000023
+  2e:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+  32:	f7ff bffe 	b.w	0 <i2cResetBus>
+  36:	4620      	mov	r0, r4
+  38:	f7ff fffe 	bl	0 <i2cResetBus>
+  3c:	6863      	ldr	r3, [r4, #4]
+  3e:	89a1      	ldrh	r1, [r4, #12]
+  40:	68da      	ldr	r2, [r3, #12]
+  42:	4620      	mov	r0, r4
+  44:	ea41 0202 	orr.w	r2, r1, r2
+  48:	60da      	str	r2, [r3, #12]
+  4a:	f7ff fffe 	bl	0 <i2cResetBus>
+  4e:	6863      	ldr	r3, [r4, #4]
+  50:	89a1      	ldrh	r1, [r4, #12]
+  52:	68da      	ldr	r2, [r3, #12]
+  54:	4620      	mov	r0, r4
+  56:	ea22 0201 	bic.w	r2, r2, r1
+  5a:	60da      	str	r2, [r3, #12]
+  5c:	f7ff fffe 	bl	0 <i2cResetBus>
+  60:	6863      	ldr	r3, [r4, #4]
+  62:	89a1      	ldrh	r1, [r4, #12]
+  64:	68da      	ldr	r2, [r3, #12]
+  66:	3d01      	subs	r5, #1
+  68:	ea41 0202 	orr.w	r2, r1, r2
+  6c:	b2ed      	uxtb	r5, r5
+  6e:	60da      	str	r2, [r3, #12]
+  70:	2d00      	cmp	r5, #0
+  72:	d1cc      	bne.n	e <i2cResetBus+0xe>
+  74:	bd70      	pop	{r4, r5, r6, pc}
 
 Disassembly of section .text.i2cStop:
 
 00000000 <i2cStop>:
 i2cStop():
-   0:	6883b510 	.word	0x6883b510
+   0:	b510      	push	{r4, lr}
+   2:	6883      	ldr	r3, [r0, #8]
    4:	89c1      	ldrh	r1, [r0, #14]
    6:	68da      	ldr	r2, [r3, #12]
    8:	4604      	mov	r4, r0
@@ -955,16 +1184,11 @@ i2cStop():
   36:	89e2      	ldrh	r2, [r4, #14]
   38:	689b      	ldr	r3, [r3, #8]
   3a:	421a      	tst	r2, r3
-  3c:	d108      	bne.n	50 <i2cStop+0x50>
-  3e:	2001      	movs	r0, #1
-  40:	4904      	ldr	r1, [pc, #16]	; (54 <i2cStop+0x54>)
-  42:	f7ff fffe 	bl	0 <print>
-  46:	4620      	mov	r0, r4
-  48:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
-  4c:	f7ff bffe 	b.w	0 <i2cStop>
-  50:	bd10      	pop	{r4, pc}
-  52:	bf00      	nop
-  54:	00000038 	.word	0x00000038
+  3c:	d104      	bne.n	48 <i2cStop+0x48>
+  3e:	4620      	mov	r0, r4
+  40:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+  44:	f7ff bffe 	b.w	0 <i2cStop>
+  48:	bd10      	pop	{r4, pc}
 
 Disassembly of section .text.i2cStart:
 
@@ -984,123 +1208,28 @@ i2cStart():
   1c:	89e2      	ldrh	r2, [r4, #14]
   1e:	689b      	ldr	r3, [r3, #8]
   20:	421a      	tst	r2, r3
-  22:	d106      	bne.n	32 <i2cStart+0x32>
-  24:	2001      	movs	r0, #1
-  26:	490f      	ldr	r1, [pc, #60]	; (64 <i2cStart+0x64>)
-  28:	f7ff fffe 	bl	0 <print>
-  2c:	4620      	mov	r0, r4
-  2e:	f7ff fffe 	bl	0 <i2cStart>
-  32:	68a3      	ldr	r3, [r4, #8]
-  34:	89e1      	ldrh	r1, [r4, #14]
-  36:	68da      	ldr	r2, [r3, #12]
-  38:	ea22 0201 	bic.w	r2, r2, r1
-  3c:	60da      	str	r2, [r3, #12]
-  3e:	2103      	movs	r1, #3
-  40:	7860      	ldrb	r0, [r4, #1]
-  42:	f7ff fffe 	bl	0 <pinConfig>
-  46:	4620      	mov	r0, r4
-  48:	f7ff fffe 	bl	0 <i2cStart>
-  4c:	6863      	ldr	r3, [r4, #4]
-  4e:	89a1      	ldrh	r1, [r4, #12]
-  50:	68da      	ldr	r2, [r3, #12]
-  52:	ea22 0201 	bic.w	r2, r2, r1
-  56:	60da      	str	r2, [r3, #12]
-  58:	7820      	ldrb	r0, [r4, #0]
-  5a:	2103      	movs	r1, #3
-  5c:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
-  60:	f7ff bffe 	b.w	0 <pinConfig>
-  64:	0000004b 	.word	0x0000004b
-
-Disassembly of section .text.i2cReadBuffer:
-
-00000000 <i2cReadBuffer>:
-i2cReadBuffer():
-   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
-   2:	460d      	mov	r5, r1
-   4:	4604      	mov	r4, r0
-   6:	491e      	ldr	r1, [pc, #120]	; (80 <i2cReadBuffer+0x80>)
-   8:	2001      	movs	r0, #1
-   a:	4616      	mov	r6, r2
-   c:	462a      	mov	r2, r5
-   e:	461f      	mov	r7, r3
-  10:	f7ff fffe 	bl	0 <print>
-  14:	4620      	mov	r0, r4
-  16:	f7ff fffe 	bl	0 <i2cReadBuffer>
-  1a:	4620      	mov	r0, r4
-  1c:	78a1      	ldrb	r1, [r4, #2]
-  1e:	f7ff fffe 	bl	0 <i2cReadBuffer>
-  22:	8a63      	ldrh	r3, [r4, #18]
-  24:	f013 0f02 	tst.w	r3, #2
-  28:	d003      	beq.n	32 <i2cReadBuffer+0x32>
-  2a:	4620      	mov	r0, r4
-  2c:	0a29      	lsrs	r1, r5, #8
-  2e:	f7ff fffe 	bl	0 <i2cReadBuffer>
-  32:	b2e9      	uxtb	r1, r5
-  34:	4620      	mov	r0, r4
-  36:	f7ff fffe 	bl	0 <i2cReadBuffer>
-  3a:	4620      	mov	r0, r4
-  3c:	f7ff fffe 	bl	0 <i2cReadBuffer>
-  40:	78a1      	ldrb	r1, [r4, #2]
-  42:	4620      	mov	r0, r4
-  44:	f041 0101 	orr.w	r1, r1, #1
-  48:	f7ff fffe 	bl	0 <i2cReadBuffer>
-  4c:	2500      	movs	r5, #0
-  4e:	e00b      	b.n	68 <i2cReadBuffer+0x68>
-  50:	4620      	mov	r0, r4
-  52:	f7ff fffe 	bl	0 <i2cReadBuffer>
-  56:	3501      	adds	r5, #1
-  58:	42bd      	cmp	r5, r7
-  5a:	f806 0b01 	strb.w	r0, [r6], #1
-  5e:	da03      	bge.n	68 <i2cReadBuffer+0x68>
-  60:	4620      	mov	r0, r4
-  62:	2100      	movs	r1, #0
-  64:	f7ff fffe 	bl	0 <i2cReadBuffer>
-  68:	b2ab      	uxth	r3, r5
-  6a:	42bb      	cmp	r3, r7
-  6c:	d3f0      	bcc.n	50 <i2cReadBuffer+0x50>
-  6e:	4620      	mov	r0, r4
-  70:	2101      	movs	r1, #1
-  72:	f7ff fffe 	bl	0 <i2cReadBuffer>
-  76:	4620      	mov	r0, r4
-  78:	f7ff fffe 	bl	0 <i2cReadBuffer>
-  7c:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
-  7e:	bf00      	nop
-  80:	0000005f 	.word	0x0000005f
-
-Disassembly of section .text.i2cWriteBuffer:
-
-00000000 <i2cWriteBuffer>:
-i2cWriteBuffer():
-   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
-   2:	4604      	mov	r4, r0
-   4:	461f      	mov	r7, r3
-   6:	460d      	mov	r5, r1
-   8:	4616      	mov	r6, r2
-   a:	f7ff fffe 	bl	0 <i2cWriteBuffer>
-   e:	4620      	mov	r0, r4
-  10:	78a1      	ldrb	r1, [r4, #2]
-  12:	f7ff fffe 	bl	0 <i2cWriteBuffer>
-  16:	8a63      	ldrh	r3, [r4, #18]
-  18:	f013 0f02 	tst.w	r3, #2
-  1c:	d003      	beq.n	26 <i2cWriteBuffer+0x26>
-  1e:	4620      	mov	r0, r4
-  20:	0a29      	lsrs	r1, r5, #8
-  22:	f7ff fffe 	bl	0 <i2cWriteBuffer>
-  26:	b2e9      	uxtb	r1, r5
-  28:	4620      	mov	r0, r4
-  2a:	f7ff fffe 	bl	0 <i2cWriteBuffer>
-  2e:	2500      	movs	r5, #0
-  30:	e006      	b.n	40 <i2cWriteBuffer+0x40>
-  32:	4620      	mov	r0, r4
-  34:	f816 1b01 	ldrb.w	r1, [r6], #1
-  38:	f7ff fffe 	bl	0 <i2cWriteBuffer>
-  3c:	3501      	adds	r5, #1
-  3e:	b2ad      	uxth	r5, r5
-  40:	42bd      	cmp	r5, r7
-  42:	d3f6      	bcc.n	32 <i2cWriteBuffer+0x32>
-  44:	4620      	mov	r0, r4
-  46:	f7ff fffe 	bl	0 <i2cWriteBuffer>
-  4a:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+  22:	d102      	bne.n	2a <i2cStart+0x2a>
+  24:	4620      	mov	r0, r4
+  26:	f7ff fffe 	bl	0 <i2cStart>
+  2a:	68a3      	ldr	r3, [r4, #8]
+  2c:	89e1      	ldrh	r1, [r4, #14]
+  2e:	68da      	ldr	r2, [r3, #12]
+  30:	ea22 0201 	bic.w	r2, r2, r1
+  34:	60da      	str	r2, [r3, #12]
+  36:	2103      	movs	r1, #3
+  38:	7860      	ldrb	r0, [r4, #1]
+  3a:	f7ff fffe 	bl	0 <pinConfig>
+  3e:	4620      	mov	r0, r4
+  40:	f7ff fffe 	bl	0 <i2cStart>
+  44:	6863      	ldr	r3, [r4, #4]
+  46:	89a1      	ldrh	r1, [r4, #12]
+  48:	68da      	ldr	r2, [r3, #12]
+  4a:	ea22 0201 	bic.w	r2, r2, r1
+  4e:	60da      	str	r2, [r3, #12]
+  50:	7820      	ldrb	r0, [r4, #0]
+  52:	2103      	movs	r1, #3
+  54:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+  58:	f7ff bffe 	b.w	0 <pinConfig>
 
 Disassembly of section .text.i2cGetChar:
 
@@ -1318,7 +1447,6 @@ streamReset():
   34:	2000      	movs	r0, #0
   36:	bd10      	pop	{r4, pc}
 	...
-  40:	0000006b 	.word	0x0000006b
 
 Disassembly of section .text.streamInit:
 
@@ -1724,12 +1852,39 @@ streamSetActionChars():
    a:	4770      	bx	lr
    c:	00000000 	.word	0x00000000
 
+Disassembly of section .text.streamDisableDefaultGet:
+
+00000000 <streamDisableDefaultGet>:
+streamDisableDefaultGet():
+   0:	4b05      	ldr	r3, [pc, #20]	; (18 <streamDisableDefaultGet+0x18>)
+   2:	2224      	movs	r2, #36	; 0x24
+   4:	fb02 3300 	mla	r3, r2, r0, r3
+   8:	f893 2020 	ldrb.w	r2, [r3, #32]
+   c:	f042 0220 	orr.w	r2, r2, #32
+  10:	f883 2020 	strb.w	r2, [r3, #32]
+  14:	4770      	bx	lr
+  16:	bf00      	nop
+  18:	00000000 	.word	0x00000000
+
+Disassembly of section .text.streamEnableDefaultGet:
+
+00000000 <streamEnableDefaultGet>:
+streamEnableDefaultGet():
+   0:	4b05      	ldr	r3, [pc, #20]	; (18 <streamEnableDefaultGet+0x18>)
+   2:	2224      	movs	r2, #36	; 0x24
+   4:	fb02 3300 	mla	r3, r2, r0, r3
+   8:	f893 2020 	ldrb.w	r2, [r3, #32]
+   c:	f022 0220 	bic.w	r2, r2, #32
+  10:	f883 2020 	strb.w	r2, [r3, #32]
+  14:	4770      	bx	lr
+  16:	bf00      	nop
+  18:	00000000 	.word	0x00000000
+
 Disassembly of section .text.streamGetEcho:
 
 00000000 <streamGetEcho>:
 streamGetEcho():
-   0:	4b04      	ldr	r3, [pc, #16]	; (14 <streamGetEcho+0x14>)
-   2:	2224      	movs	r2, #36	; 0x24
+   0:	22244b04 	.word	0x22244b04
    4:	fb02 3300 	mla	r3, r2, r0, r3
    8:	f893 0020 	ldrb.w	r0, [r3, #32]
    c:	f000 0002 	and.w	r0, r0, #2
@@ -1872,20 +2027,33 @@ Disassembly of section .text.USART3_IRQHandler:
 
 00000000 <USART3_IRQHandler>:
 USART3_IRQHandler():
-   0:	4b07b508 	.word	0x4b07b508
+   0:	4b0fb510 	.word	0x4b0fb510
    4:	881a      	ldrh	r2, [r3, #0]
    6:	f012 0f20 	tst.w	r2, #32
-   a:	d004      	beq.n	16 <USART3_IRQHandler+0x16>
-   c:	8899      	ldrh	r1, [r3, #4]
-   e:	2001      	movs	r0, #1
-  10:	b2c9      	uxtb	r1, r1
-  12:	f7ff fffe 	bl	0 <USART3_IRQHandler>
-  16:	4b02      	ldr	r3, [pc, #8]	; (20 <USART3_IRQHandler+0x20>)
-  18:	2200      	movs	r2, #0
-  1a:	801a      	strh	r2, [r3, #0]
-  1c:	bd08      	pop	{r3, pc}
-  1e:	bf00      	nop
-  20:	40004800 	.word	0x40004800
+   a:	d00d      	beq.n	28 <USART3_IRQHandler+0x28>
+   c:	4a0d      	ldr	r2, [pc, #52]	; (44 <USART3_IRQHandler+0x44>)
+   e:	f892 1044 	ldrb.w	r1, [r2, #68]	; 0x44
+  12:	f011 0f20 	tst.w	r1, #32
+  16:	d002      	beq.n	1e <USART3_IRQHandler+0x1e>
+  18:	6b53      	ldr	r3, [r2, #52]	; 0x34
+  1a:	4798      	blx	r3
+  1c:	e004      	b.n	28 <USART3_IRQHandler+0x28>
+  1e:	8899      	ldrh	r1, [r3, #4]
+  20:	2001      	movs	r0, #1
+  22:	b2c9      	uxtb	r1, r1
+  24:	f7ff fffe 	bl	0 <USART3_IRQHandler>
+  28:	4c05      	ldr	r4, [pc, #20]	; (40 <USART3_IRQHandler+0x40>)
+  2a:	8823      	ldrh	r3, [r4, #0]
+  2c:	f013 0f80 	tst.w	r3, #128	; 0x80
+  30:	d003      	beq.n	3a <USART3_IRQHandler+0x3a>
+  32:	2001      	movs	r0, #1
+  34:	4621      	mov	r1, r4
+  36:	f7ff fffe 	bl	0 <USART3_IRQHandler>
+  3a:	2300      	movs	r3, #0
+  3c:	8023      	strh	r3, [r4, #0]
+  3e:	bd10      	pop	{r4, pc}
+  40:	40004800 	.word	0x40004800
+  44:	00000000 	.word	0x00000000
 
 Disassembly of section .text.putsUSART3:
 

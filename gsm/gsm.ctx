@@ -1,0 +1,226 @@
+
+<Debug>
+	<Flags>
+		<Report>
+			<Def Header="FlagReport" NbCol="9" >
+				<Col Type="PT_BOOL" Header="Check" sizeCache="18" AutoSize="0" Edit="1" Sortable="1" Icon="C:\Program Files (x86)\Raisonance\Ride\Config\Resources\check.bmp" />
+				<Col Type="PT_STRING" Header="Kind" sizeCache="DDDDDDDDDDD" AutoSize="1" Edit="0" Sortable="1" />
+				<Col Type="PT_STRING" Header="KindID" sizeCache="DD" AutoSize="1" Edit="0" Sortable="1" Visible="0" />
+				<Col Type="PT_STRING" Header="Space" sizeCache="DDDDDD" AutoSize="1" Edit="0" Sortable="1" />
+				<Col Type="PT_STRING" Header="SpaceID" sizeCache="DD" AutoSize="0" Edit="0" Sortable="0" Visible="0" />
+				<Col Type="PT_STRING" Header="Line" sizeCache="DDDDDDDDD" AutoSize="1" Edit="0" Sortable="1" Visible="1" />
+				<Col Type="PT_STRING" Header="File" sizeCache="DDDDDDDDDDDDDDDDDDDD" AutoSize="1" Edit="0" Sortable="1" Visible="1" />
+				<Col Type="PT_STRING" Header="Path" sizeCache="DDDDDDDDDDDDDDDDDDDD" AutoSize="1" Edit="0" Sortable="0" Visible="0" />
+				<Col Type="PT_STRING" Header="Condition" sizeCache="DDDDDDDDDDDDDDDDDDDDDDDD" AutoSize="1" Edit="0" Sortable="0" />
+				<Col Type="PT_STRING" Header="Condexpr" sizeCache="DD" AutoSize="1" Edit="0" Sortable="0" Visible="0" />
+				<Col Type="PT_STRING" Header="Condcount" sizeCache="DD" AutoSize="1" Edit="0" Sortable="0" Visible="0" />
+							
+			</Def>
+			<Rows/>
+					
+		</Report>
+			
+	</Flags>
+	<Views>
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\gsm\main.c" Line="0" Index="0" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" Line="193" Index="1" focus="1" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="318" Index="2" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="1391" Index="3" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\gsm\pygmy_profile.h" Line="34" Index="4" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" Line="98" Index="5" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="724" Index="6" />
+	</Views>
+	<Grep>
+		<GrepIncludeSub>yes</GrepIncludeSub>
+		<GrepMatchCase>no</GrepMatchCase>
+		<GrepMatchWhole>no</GrepMatchWhole>
+		<GrepRegExp>no</GrepRegExp>
+		<GrepReplaceMode>no</GrepReplaceMode>
+		<GrepFileTypes>
+			<GrepFileTypesValue>*.c;*.h</GrepFileTypesValue>
+			<GrepFileType>*.c;*.h</GrepFileType>
+		</GrepFileTypes>
+		<GrepFindWhat>
+			<GrepFindWhatValue/>
+			<GrepFindStr>#include</GrepFindStr>
+			<GrepFindStr>ui</GrepFindStr>
+		</GrepFindWhat>
+		<GrepFindWhere>
+			<GrepFindWhereValue/>
+			<GrepPathStr>Application Files</GrepPathStr>
+			<GrepPathStr>Application Path</GrepPathStr>
+			<GrepPathStr>C:\Users\MightyDubster\Ride7\Backlink</GrepPathStr>
+			<GrepPathStr>C:\Users\MightyDubster\Ride7\Boot</GrepPathStr>
+		</GrepFindWhere>
+		<GrepReplaceWhat>
+			<GrepReplaceWhatValue/>
+		</GrepReplaceWhat>
+	</Grep>
+	<FindStrings>
+		<Find>i2cReadBuffer</Find>
+		<Find>i2cWriteBuffer</Find>
+		<Find>taskList</Find>
+		<Find>spiPutLong</Find>
+		<Find>spiWriteLong</Find>
+		<Find>i2cConfig</Find>
+		<Find>pinInterrupt</Find>
+		<Find>spiConfig</Find>
+		<Find>convertIntToString</Find>
+		<Find>fileLoadEntry</Find>
+		<Find>fileLoadAddress</Find>
+		<Find>fileSeekChunk</Find>
+		<Find>fileGetEntry</Find>
+		<Find>Sector Groups</Find>
+		<Find>cmd_dump</Find>
+		<Find>putc</Find>
+		<Find>bootGetUSART3</Find>
+		<Find>putcUSART3</Find>
+		<Find>fileWriteEntry</Find>
+		<Find>streamGetPut</Find>
+		<Find>Sorting Sectors</Find>
+		<Find>filePrintAddress</Find>
+		<Find>sorting sector</Find>
+		<Find>fileGetName</Find>
+		<Find>cmdLs</Find>
+		<Find>XMODEM_SEND</Find>
+		<Find>cmdSend</Find>
+		<Find>cmd_send</Find>
+		<Find>COMMA</Find>
+		<Find>QUOTES</Find>
+		<Find>SEPARATORS</Find>
+		<Find>PUNCT</Find>
+		<Find>Flashing</Find>
+		<Find>VOLUMEFULL</Find>
+		<Find>VOLUMERROR</Find>
+		<Find>isCharInString</Find>
+		<Find>isPunctuation</Find>
+		<Find>fpecEraseProgramMemory</Find>
+		<Find>globalBaseAddress</Find>
+		<Find>BOOT_CANCEL</Find>
+		<Find>fileGetFreeFATEntry</Find>
+		<Find>bootTestAndLoad</Find>
+		<Find>bootTest</Find>
+		<Find>BOOT_ERROR</Find>
+		<Find>scb</Find>
+		<Find>fileAllocateFAT</Find>
+		<Find>filePutChar</Find>
+		<Find>fileMount</Find>
+		<Find>cmdRecv</Find>
+		<Find>PYGMY_RCC_HSE_READY</Find>
+		<Find>mountRoot</Find>
+		<Find>getFileName</Find>
+		<Find>generateBaud</Find>
+		<Find>cmdTest</Find>
+		<Find>putUSART3</Find>
+		<Find>putstr</Find>
+		<Find>flashReadDouble</Find>
+		<Find>PYGMY_FILE_FATSECTORS</Find>
+		<Find>cmdFormat</Find>
+		<Find>PYGMY_BITMASKS</Find>
+		<Find>getFreeSpace</Find>
+		<Find>pygmyFlashSPI</Find>
+		<Find>spi</Find>
+		<Find>fileGetCharDirect</Find>
+		<Find>putstrtr</Find>
+		<Find>convertSecondsToSystemTime</Find>
+		<Find>puts</Find>
+		<Find>fileGetChar</Find>
+		<Find>getNextSubString</Find>
+		<Find>executeCmd</Find>
+		<Find>putsUSART3</Find>
+		<Find>cmdPeek</Find>
+		<Find>INVBITMASKS</Find>
+		<Find>PutBuffer</Find>
+		<Find>fileFormat</Find>
+		<Find>TestString</Find>
+		<Find>GetChar</Find>
+		<Find>Format</Find>
+		<Find>XMODEM_RECV</Find>
+		<Find>backlinkData</Find>
+		<Find>ERRO</Find>
+		<Find>FAT:</Find>
+		<Find>FAT: 0</Find>
+		<Find>FAT</Find>
+		<Find>StringCopyToString</Find>
+		<Find>ulAddrOffset</Find>
+		<Find>uiData</Find>
+		<Find>Pygmy_FILE_FindName</Find>
+		<Find>Pygmy_FLASH_WriteString</Find>
+		<Find>ucXMCount</Find>
+		<Find>Pygmy_STRING_HexEncodedStringToBuffer</Find>
+		<Find>LCD_HEXCHARS</Find>
+		<Find>Pygmy_FILE_GetActiveFAT</Find>
+		<Find>GetActiveFAT</Find>
+		<Find>Files_A</Find>
+		<Find>Pygmy_FILE_GetFAT</Find>
+		<Find>ID_File</Find>
+		<Find>Close</Find>
+		<Find>Pygmy_FILE_GetActiveFiles</Find>
+		<Find>Pygmy_FILE_GetFreeFileEntry</Find>
+		<Find>ulEntrySlot</Find>
+		<Find>Pygmy_FLASH_WriteBuffer</Find>
+		<Find>Pygmy_FLASH_WriteEnable</Find>
+		<Find>ucByte</Find>
+		<Find>pygmyGlobalData</Find>
+		<Find>VECT_TAB_OFFSE</Find>
+		<Find>FLASH</Find>
+		<Find>get_voltage</Find>
+		<Find>get_group</Find>
+		<Find>Pygmy_SYS_PrintString</Find>
+		<Find>DriverThread</Find>
+		<Find>AT_FTPRECV</Find>
+		<Find>AT_RECV</Find>
+		<Find>cell_at</Find>
+		<Find>Pygmy_SYS_RXBufferToString</Find>
+		<Find>AT_CSCA</Find>
+		<Find>cell_csq</Find>
+		<Find>while</Find>
+		<Find>AT_FTPCLOSE</Find>
+		<Find>file_delete</Find>
+		<Find>file_open</Find>
+		<Find>cell_email(</Find>
+		<Find>cell_suspend</Find>
+		<Find>cell_email</Find>
+		<Find>AT_FTPGETPKT_QUERY</Find>
+		<Find>print_FTPGETPKT</Find>
+		<Find>cell_ftp</Find>
+		<Find>SGACT</Find>
+		<Find>cell_close</Find>
+		<Find>cell_sd</Find>
+		<Find>print_CGDCONT</Find>
+		<Find>print_SD</Find>
+		<Find>cell_http</Find>
+		<Find>AT_SGACT</Find>
+		<Find>Pygmy_SYS_PushString</Find>
+		<Find>cell_echo</Find>
+		<Find>CGDCONT</Find>
+		<Find>cell_portal</Find>
+		<Find>PYGMY_CMD_IP</Find>
+		<Find>pygmyRootVolume->Sectors</Find>
+		<Find>pygmyFile->Sector</Find>
+		<Find>127</Find>
+		<Find>128</Find>
+		<Find>Pygmy_GUI_DrawAll</Find>
+		<Find>Pygmy_FILE_GetFileLength</Find>
+		<Find>PYGMYFILE</Find>
+		<Find>pygmyFileVolume->ActiveFAT</Find>
+		<Find>print_status</Find>
+		<Find>PYGMY_CMD_CRLF</Find>
+		<Find>print_statusmessage</Find>
+		<Find>cell_email_STARTTLS</Find>
+		<Find>cell_onoff</Find>
+		<Find>DAC2</Find>
+		<Find>cell_get</Find>
+		<Find>Pygmy_CMD_ps</Find>
+		<Find>Pygmy_SYS_Print</Find>
+		<Find>RCC_PLLSource_HSE_Div1</Find>
+		<Find>PYGSYS_BITS</Find>
+	</FindStrings>
+	<ReplaceStrings>
+		<Find>fileGetChar</Find>
+		<Find>putstr</Find>
+		<Find>fileGetCharDirect</Find>
+		<Find>puts</Find>
+		<Find>globalXMCount</Find>
+	</ReplaceStrings>
+</Debug>

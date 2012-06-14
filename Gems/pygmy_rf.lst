@@ -3,391 +3,6 @@ C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o:     file
 C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_rf.o
 
 
-Disassembly of section .text.socketGetID:
-
-00000000 <socketGetID>:
-socketGetID():
-   0:	4b01      	ldr	r3, [pc, #4]	; (8 <socketGetID+0x8>)
-   2:	6818      	ldr	r0, [r3, #0]
-   4:	4770      	bx	lr
-   6:	bf00      	nop
-   8:	00000000 	.word	0x00000000
-
-Disassembly of section .text.putsSOCKET:
-
-00000000 <putsSOCKET>:
-putsSOCKET():
-   0:	4770      	bx	lr
-
-Disassembly of section .text.socketInit:
-
-00000000 <socketInit>:
-socketInit():
-   0:	b510      	push	{r4, lr}
-   2:	2074      	movs	r0, #116	; 0x74
-   4:	f7ff fffe 	bl	0 <sysAllocate>
-   8:	4b06      	ldr	r3, [pc, #24]	; (24 <socketInit+0x24>)
-   a:	2200      	movs	r2, #0
-   c:	6018      	str	r0, [r3, #0]
-   e:	4b06      	ldr	r3, [pc, #24]	; (28 <socketInit+0x28>)
-  10:	4806      	ldr	r0, [pc, #24]	; (2c <socketInit+0x2c>)
-  12:	701a      	strb	r2, [r3, #0]
-  14:	4a06      	ldr	r2, [pc, #24]	; (30 <socketInit+0x30>)
-  16:	f241 3188 	movw	r1, #5000	; 0x1388
-  1a:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
-  1e:	f7ff bffe 	b.w	0 <taskNewSimple>
-  22:	bf00      	nop
-	...
-
-Disassembly of section .text.socketList:
-
-00000000 <socketList>:
-socketList():
-   0:	b538      	push	{r3, r4, r5, lr}
-   2:	2001      	movs	r0, #1
-   4:	492a      	ldr	r1, [pc, #168]	; (b0 <socketList+0xb0>)
-   6:	f7ff fffe 	bl	0 <print>
-   a:	2500      	movs	r5, #0
-   c:	e04b      	b.n	a6 <socketList+0xa6>
-   e:	4b29      	ldr	r3, [pc, #164]	; (b4 <socketList+0xb4>)
-  10:	2474      	movs	r4, #116	; 0x74
-  12:	681b      	ldr	r3, [r3, #0]
-  14:	2001      	movs	r0, #1
-  16:	fb04 3405 	mla	r4, r4, r5, r3
-  1a:	4927      	ldr	r1, [pc, #156]	; (b8 <socketList+0xb8>)
-  1c:	6ba3      	ldr	r3, [r4, #56]	; 0x38
-  1e:	6b62      	ldr	r2, [r4, #52]	; 0x34
-  20:	f7ff fffe 	bl	0 <print>
-  24:	2001      	movs	r0, #1
-  26:	4925      	ldr	r1, [pc, #148]	; (bc <socketList+0xbc>)
-  28:	6aa2      	ldr	r2, [r4, #40]	; 0x28
-  2a:	f7ff fffe 	bl	0 <print>
-  2e:	2001      	movs	r0, #1
-  30:	4923      	ldr	r1, [pc, #140]	; (c0 <socketList+0xc0>)
-  32:	6ae2      	ldr	r2, [r4, #44]	; 0x2c
-  34:	f7ff fffe 	bl	0 <print>
-  38:	2001      	movs	r0, #1
-  3a:	4922      	ldr	r1, [pc, #136]	; (c4 <socketList+0xc4>)
-  3c:	f894 203d 	ldrb.w	r2, [r4, #61]	; 0x3d
-  40:	f7ff fffe 	bl	0 <print>
-  44:	2001      	movs	r0, #1
-  46:	4920      	ldr	r1, [pc, #128]	; (c8 <socketList+0xc8>)
-  48:	f894 203c 	ldrb.w	r2, [r4, #60]	; 0x3c
-  4c:	f7ff fffe 	bl	0 <print>
-  50:	2001      	movs	r0, #1
-  52:	491e      	ldr	r1, [pc, #120]	; (cc <socketList+0xcc>)
-  54:	f894 203e 	ldrb.w	r2, [r4, #62]	; 0x3e
-  58:	f7ff fffe 	bl	0 <print>
-  5c:	2001      	movs	r0, #1
-  5e:	491c      	ldr	r1, [pc, #112]	; (d0 <socketList+0xd0>)
-  60:	f894 203f 	ldrb.w	r2, [r4, #63]	; 0x3f
-  64:	f7ff fffe 	bl	0 <print>
-  68:	2001      	movs	r0, #1
-  6a:	491a      	ldr	r1, [pc, #104]	; (d4 <socketList+0xd4>)
-  6c:	f894 2040 	ldrb.w	r2, [r4, #64]	; 0x40
-  70:	f7ff fffe 	bl	0 <print>
-  74:	f894 303d 	ldrb.w	r3, [r4, #61]	; 0x3d
-  78:	f003 037f 	and.w	r3, r3, #127	; 0x7f
-  7c:	2b02      	cmp	r3, #2
-  7e:	d110      	bne.n	a2 <socketList+0xa2>
-  80:	2001      	movs	r0, #1
-  82:	4915      	ldr	r1, [pc, #84]	; (d8 <socketList+0xd8>)
-  84:	f104 0218 	add.w	r2, r4, #24
-  88:	f7ff fffe 	bl	0 <print>
-  8c:	f994 303d 	ldrsb.w	r3, [r4, #61]	; 0x3d
-  90:	2b00      	cmp	r3, #0
-  92:	da02      	bge.n	9a <socketList+0x9a>
-  94:	2001      	movs	r0, #1
-  96:	4911      	ldr	r1, [pc, #68]	; (dc <socketList+0xdc>)
-  98:	e001      	b.n	9e <socketList+0x9e>
-  9a:	4911      	ldr	r1, [pc, #68]	; (e0 <socketList+0xe0>)
-  9c:	2001      	movs	r0, #1
-  9e:	f7ff fffe 	bl	0 <print>
-  a2:	3501      	adds	r5, #1
-  a4:	b2ed      	uxtb	r5, r5
-  a6:	4b0f      	ldr	r3, [pc, #60]	; (e4 <socketList+0xe4>)
-  a8:	781b      	ldrb	r3, [r3, #0]
-  aa:	42ab      	cmp	r3, r5
-  ac:	d8af      	bhi.n	e <socketList+0xe>
-  ae:	bd38      	pop	{r3, r4, r5, pc}
-  b0:	00000008 	.word	0x00000008
-  b4:	00000000 	.word	0x00000000
-  b8:	00000017 	.word	0x00000017
-  bc:	00000031 	.word	0x00000031
-  c0:	0000003d 	.word	0x0000003d
-  c4:	0000004a 	.word	0x0000004a
-  c8:	00000059 	.word	0x00000059
-  cc:	0000006a 	.word	0x0000006a
-  d0:	0000007a 	.word	0x0000007a
-  d4:	00000088 	.word	0x00000088
-  d8:	00000094 	.word	0x00000094
-  dc:	00000098 	.word	0x00000098
-  e0:	0000009c 	.word	0x0000009c
-  e4:	00000000 	.word	0x00000000
-
-Disassembly of section .text.socketGet:
-
-00000000 <socketGet>:
-socketGet():
-   0:	4a0eb570 	.word	0x4a0eb570
-   4:	4603      	mov	r3, r0
-   6:	f64a 20aa 	movw	r0, #43690	; 0xaaaa
-   a:	6010      	str	r0, [r2, #0]
-   c:	4a0c      	ldr	r2, [pc, #48]	; (40 <socketGet+0x40>)
-   e:	2400      	movs	r4, #0
-  10:	7816      	ldrb	r6, [r2, #0]
-  12:	4a0c      	ldr	r2, [pc, #48]	; (44 <socketGet+0x44>)
-  14:	6812      	ldr	r2, [r2, #0]
-  16:	e00d      	b.n	34 <socketGet+0x34>
-  18:	6b55      	ldr	r5, [r2, #52]	; 0x34
-  1a:	4610      	mov	r0, r2
-  1c:	429d      	cmp	r5, r3
-  1e:	d00c      	beq.n	3a <socketGet+0x3a>
-  20:	428d      	cmp	r5, r1
-  22:	d00a      	beq.n	3a <socketGet+0x3a>
-  24:	6b95      	ldr	r5, [r2, #56]	; 0x38
-  26:	429d      	cmp	r5, r3
-  28:	d007      	beq.n	3a <socketGet+0x3a>
-  2a:	3274      	adds	r2, #116	; 0x74
-  2c:	428d      	cmp	r5, r1
-  2e:	d004      	beq.n	3a <socketGet+0x3a>
-  30:	3401      	adds	r4, #1
-  32:	b2e4      	uxtb	r4, r4
-  34:	42b4      	cmp	r4, r6
-  36:	d3ef      	bcc.n	18 <socketGet+0x18>
-  38:	2000      	movs	r0, #0
-  3a:	bd70      	pop	{r4, r5, r6, pc}
-  3c:	40003000 	.word	0x40003000
-	...
-
-Disassembly of section .text.socketOpenFromPacket:
-
-00000000 <socketOpenFromPacket>:
-socketOpenFromPacket():
-   0:	4b2d      	ldr	r3, [pc, #180]	; (b8 <socketOpenFromPacket+0xb8>)
-   2:	f64a 22aa 	movw	r2, #43690	; 0xaaaa
-   6:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
-   a:	601a      	str	r2, [r3, #0]
-   c:	4606      	mov	r6, r0
-   e:	6871      	ldr	r1, [r6, #4]
-  10:	6800      	ldr	r0, [r0, #0]
-  12:	f7ff fffe 	bl	0 <socketOpenFromPacket>
-  16:	4605      	mov	r5, r0
-  18:	2800      	cmp	r0, #0
-  1a:	d149      	bne.n	b0 <socketOpenFromPacket+0xb0>
-  1c:	4f27      	ldr	r7, [pc, #156]	; (bc <socketOpenFromPacket+0xbc>)
-  1e:	f8df 80a4 	ldr.w	r8, [pc, #164]	; c4 <socketOpenFromPacket+0xc4>
-  22:	783b      	ldrb	r3, [r7, #0]
-  24:	2174      	movs	r1, #116	; 0x74
-  26:	3301      	adds	r3, #1
-  28:	f8d8 0000 	ldr.w	r0, [r8]
-  2c:	4359      	muls	r1, r3
-  2e:	f7ff fffe 	bl	0 <sysReallocate>
-  32:	4604      	mov	r4, r0
-  34:	2800      	cmp	r0, #0
-  36:	d03c      	beq.n	b2 <socketOpenFromPacket+0xb2>
-  38:	f8c8 0000 	str.w	r0, [r8]
-  3c:	f7ff fffe 	bl	0 <timeGet>
-  40:	4a1f      	ldr	r2, [pc, #124]	; (c0 <socketOpenFromPacket+0xc0>)
-  42:	6833      	ldr	r3, [r6, #0]
-  44:	6812      	ldr	r2, [r2, #0]
-  46:	6363      	str	r3, [r4, #52]	; 0x34
-  48:	f022 02ff 	bic.w	r2, r2, #255	; 0xff
-  4c:	f003 03ff 	and.w	r3, r3, #255	; 0xff
-  50:	62a0      	str	r0, [r4, #40]	; 0x28
-  52:	62e0      	str	r0, [r4, #44]	; 0x2c
-  54:	4313      	orrs	r3, r2
-  56:	300a      	adds	r0, #10
-  58:	6320      	str	r0, [r4, #48]	; 0x30
-  5a:	63a3      	str	r3, [r4, #56]	; 0x38
-  5c:	7ab3      	ldrb	r3, [r6, #10]
-  5e:	f884 303c 	strb.w	r3, [r4, #60]	; 0x3c
-  62:	7b73      	ldrb	r3, [r6, #13]
-  64:	f884 503e 	strb.w	r5, [r4, #62]	; 0x3e
-  68:	f884 303d 	strb.w	r3, [r4, #61]	; 0x3d
-  6c:	2304      	movs	r3, #4
-  6e:	f884 5040 	strb.w	r5, [r4, #64]	; 0x40
-  72:	f884 3041 	strb.w	r3, [r4, #65]	; 0x41
-  76:	6465      	str	r5, [r4, #68]	; 0x44
-  78:	f884 5048 	strb.w	r5, [r4, #72]	; 0x48
-  7c:	f884 5049 	strb.w	r5, [r4, #73]	; 0x49
-  80:	f884 5070 	strb.w	r5, [r4, #112]	; 0x70
-  84:	7b73      	ldrb	r3, [r6, #13]
-  86:	2b04      	cmp	r3, #4
-  88:	d10d      	bne.n	a6 <socketOpenFromPacket+0xa6>
-  8a:	360e      	adds	r6, #14
-  8c:	4630      	mov	r0, r6
-  8e:	f7ff fffe 	bl	0 <len>
-  92:	3001      	adds	r0, #1
-  94:	f7ff fffe 	bl	0 <sysAllocate>
-  98:	4601      	mov	r1, r0
-  9a:	64e0      	str	r0, [r4, #76]	; 0x4c
-  9c:	b120      	cbz	r0, a8 <socketOpenFromPacket+0xa8>
-  9e:	4630      	mov	r0, r6
-  a0:	f7ff fffe 	bl	0 <copyString>
-  a4:	e000      	b.n	a8 <socketOpenFromPacket+0xa8>
-  a6:	64e5      	str	r5, [r4, #76]	; 0x4c
-  a8:	783b      	ldrb	r3, [r7, #0]
-  aa:	3301      	adds	r3, #1
-  ac:	703b      	strb	r3, [r7, #0]
-  ae:	e000      	b.n	b2 <socketOpenFromPacket+0xb2>
-  b0:	2400      	movs	r4, #0
-  b2:	4620      	mov	r0, r4
-  b4:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
-  b8:	40003000 	.word	0x40003000
-	...
-
-Disassembly of section .text.socketOpen:
-
-00000000 <socketOpen>:
-socketOpen():
-   0:	b08bb500 	.word	0xb08bb500
-   4:	4602      	mov	r2, r0
-   6:	9000      	str	r0, [sp, #0]
-   8:	2300      	movs	r3, #0
-   a:	f88d 100d 	strb.w	r1, [sp, #13]
-   e:	2001      	movs	r0, #1
-  10:	4904      	ldr	r1, [pc, #16]	; (24 <socketOpen+0x24>)
-  12:	9301      	str	r3, [sp, #4]
-  14:	f7ff fffe 	bl	0 <print>
-  18:	4668      	mov	r0, sp
-  1a:	f7ff fffe 	bl	0 <socketOpen>
-  1e:	b00b      	add	sp, #44	; 0x2c
-  20:	bd00      	pop	{pc}
-  22:	bf00      	nop
-  24:	000000a0 	.word	0x000000a0
-
-Disassembly of section .text.socketCopy:
-
-00000000 <socketCopy>:
-socketCopy():
-   0:	b538      	push	{r3, r4, r5, lr}
-   2:	4b23      	ldr	r3, [pc, #140]	; (90 <socketCopy+0x90>)
-   4:	f64a 22aa 	movw	r2, #43690	; 0xaaaa
-   8:	4605      	mov	r5, r0
-   a:	601a      	str	r2, [r3, #0]
-   c:	460c      	mov	r4, r1
-   e:	f7ff fffe 	bl	0 <fileCopyHandle>
-  12:	6aab      	ldr	r3, [r5, #40]	; 0x28
-  14:	62a3      	str	r3, [r4, #40]	; 0x28
-  16:	6aeb      	ldr	r3, [r5, #44]	; 0x2c
-  18:	62e3      	str	r3, [r4, #44]	; 0x2c
-  1a:	6b2b      	ldr	r3, [r5, #48]	; 0x30
-  1c:	6323      	str	r3, [r4, #48]	; 0x30
-  1e:	6b6b      	ldr	r3, [r5, #52]	; 0x34
-  20:	6363      	str	r3, [r4, #52]	; 0x34
-  22:	6bab      	ldr	r3, [r5, #56]	; 0x38
-  24:	63a3      	str	r3, [r4, #56]	; 0x38
-  26:	f895 303c 	ldrb.w	r3, [r5, #60]	; 0x3c
-  2a:	f884 303c 	strb.w	r3, [r4, #60]	; 0x3c
-  2e:	f895 303d 	ldrb.w	r3, [r5, #61]	; 0x3d
-  32:	f884 303d 	strb.w	r3, [r4, #61]	; 0x3d
-  36:	f895 303e 	ldrb.w	r3, [r5, #62]	; 0x3e
-  3a:	f884 303e 	strb.w	r3, [r4, #62]	; 0x3e
-  3e:	f895 303f 	ldrb.w	r3, [r5, #63]	; 0x3f
-  42:	f884 303f 	strb.w	r3, [r4, #63]	; 0x3f
-  46:	f895 3040 	ldrb.w	r3, [r5, #64]	; 0x40
-  4a:	f884 3040 	strb.w	r3, [r4, #64]	; 0x40
-  4e:	f895 3041 	ldrb.w	r3, [r5, #65]	; 0x41
-  52:	f884 3041 	strb.w	r3, [r4, #65]	; 0x41
-  56:	f895 3042 	ldrb.w	r3, [r5, #66]	; 0x42
-  5a:	f884 3042 	strb.w	r3, [r4, #66]	; 0x42
-  5e:	6c6b      	ldr	r3, [r5, #68]	; 0x44
-  60:	6463      	str	r3, [r4, #68]	; 0x44
-  62:	f895 3048 	ldrb.w	r3, [r5, #72]	; 0x48
-  66:	f884 3048 	strb.w	r3, [r4, #72]	; 0x48
-  6a:	f895 3049 	ldrb.w	r3, [r5, #73]	; 0x49
-  6e:	f884 3049 	strb.w	r3, [r4, #73]	; 0x49
-  72:	f895 3070 	ldrb.w	r3, [r5, #112]	; 0x70
-  76:	f884 3070 	strb.w	r3, [r4, #112]	; 0x70
-  7a:	2300      	movs	r3, #0
-  7c:	18e9      	adds	r1, r5, r3
-  7e:	18e2      	adds	r2, r4, r3
-  80:	f891 1050 	ldrb.w	r1, [r1, #80]	; 0x50
-  84:	3301      	adds	r3, #1
-  86:	2b20      	cmp	r3, #32
-  88:	f882 1050 	strb.w	r1, [r2, #80]	; 0x50
-  8c:	d1f6      	bne.n	7c <socketCopy+0x7c>
-  8e:	bd38      	pop	{r3, r4, r5, pc}
-  90:	40003000 	.word	0x40003000
-
-Disassembly of section .text.socketClose:
-
-00000000 <socketClose>:
-socketClose():
-   0:	4b1cb5f8 	.word	0x4b1cb5f8
-   4:	f64a 22aa 	movw	r2, #43690	; 0xaaaa
-   8:	601a      	str	r2, [r3, #0]
-   a:	f890 303d 	ldrb.w	r3, [r0, #61]	; 0x3d
-   e:	4604      	mov	r4, r0
-  10:	f003 037f 	and.w	r3, r3, #127	; 0x7f
-  14:	2b02      	cmp	r3, #2
-  16:	d101      	bne.n	1c <socketClose+0x1c>
-  18:	f7ff fffe 	bl	0 <fileClose>
-  1c:	6ce0      	ldr	r0, [r4, #76]	; 0x4c
-  1e:	2300      	movs	r3, #0
-  20:	6363      	str	r3, [r4, #52]	; 0x34
-  22:	63a3      	str	r3, [r4, #56]	; 0x38
-  24:	b108      	cbz	r0, 2a <socketClose+0x2a>
-  26:	f7ff fffe 	bl	0 <sysFree>
-  2a:	6c60      	ldr	r0, [r4, #68]	; 0x44
-  2c:	b108      	cbz	r0, 32 <socketClose+0x32>
-  2e:	f7ff fffe 	bl	0 <sysFree>
-  32:	4e11      	ldr	r6, [pc, #68]	; (78 <socketClose+0x78>)
-  34:	7830      	ldrb	r0, [r6, #0]
-  36:	b1e0      	cbz	r0, 72 <socketClose+0x72>
-  38:	2374      	movs	r3, #116	; 0x74
-  3a:	3801      	subs	r0, #1
-  3c:	4358      	muls	r0, r3
-  3e:	f7ff fffe 	bl	0 <sysAllocate>
-  42:	4605      	mov	r5, r0
-  44:	b1a8      	cbz	r0, 72 <socketClose+0x72>
-  46:	7833      	ldrb	r3, [r6, #0]
-  48:	2400      	movs	r4, #0
-  4a:	3b01      	subs	r3, #1
-  4c:	7033      	strb	r3, [r6, #0]
-  4e:	e008      	b.n	62 <socketClose+0x62>
-  50:	2174      	movs	r1, #116	; 0x74
-  52:	4361      	muls	r1, r4
-  54:	6838      	ldr	r0, [r7, #0]
-  56:	3401      	adds	r4, #1
-  58:	1840      	adds	r0, r0, r1
-  5a:	1869      	adds	r1, r5, r1
-  5c:	f7ff fffe 	bl	0 <socketClose>
-  60:	b2e4      	uxtb	r4, r4
-  62:	7833      	ldrb	r3, [r6, #0]
-  64:	4f05      	ldr	r7, [pc, #20]	; (7c <socketClose+0x7c>)
-  66:	42a3      	cmp	r3, r4
-  68:	d8f2      	bhi.n	50 <socketClose+0x50>
-  6a:	6838      	ldr	r0, [r7, #0]
-  6c:	f7ff fffe 	bl	0 <sysFree>
-  70:	603d      	str	r5, [r7, #0]
-  72:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
-  74:	40003000 	.word	0x40003000
-	...
-
-Disassembly of section .text.socketSaveData:
-
-00000000 <socketSaveData>:
-socketSaveData():
-   0:	460a4b06 	.word	0x460a4b06
-   4:	f64a 21aa 	movw	r1, #43690	; 0xaaaa
-   8:	6019      	str	r1, [r3, #0]
-   a:	7b13      	ldrb	r3, [r2, #12]
-   c:	3301      	adds	r3, #1
-   e:	f880 303e 	strb.w	r3, [r0, #62]	; 0x3e
-  12:	7ad1      	ldrb	r1, [r2, #11]
-  14:	320e      	adds	r2, #14
-  16:	f7ff bffe 	b.w	0 <filePutBuffer>
-  1a:	bf00      	nop
-  1c:	40003000 	.word	0x40003000
-
-Disassembly of section .text.socketRequestCommandLine:
-
-00000000 <socketRequestCommandLine>:
-socketRequestCommandLine():
-   0:	4770      	bx	lr
-
 Disassembly of section .text.rfSetTXPower:
 
 00000000 <rfSetTXPower>:
@@ -596,1131 +211,73 @@ Disassembly of section .text.rfPutTXBuffer:
 00000000 <rfPutTXBuffer>:
 rfPutTXBuffer():
    0:	b570      	push	{r4, r5, r6, lr}
-   2:	4606      	mov	r6, r0
-   4:	4632      	mov	r2, r6
+   2:	4605      	mov	r5, r0
+   4:	460e      	mov	r6, r1
    6:	2001      	movs	r0, #1
-   8:	460d      	mov	r5, r1
-   a:	491d      	ldr	r1, [pc, #116]	; (80 <rfPutTXBuffer+0x80>)
-   c:	f7ff fffe 	bl	0 <print>
-  10:	f7ff fffe 	bl	0 <rfPutTXBuffer>
-  14:	4b1b      	ldr	r3, [pc, #108]	; (84 <rfPutTXBuffer+0x84>)
-  16:	f44f 6200 	mov.w	r2, #2048	; 0x800
-  1a:	615a      	str	r2, [r3, #20]
-  1c:	481a      	ldr	r0, [pc, #104]	; (88 <rfPutTXBuffer+0x88>)
-  1e:	21a0      	movs	r1, #160	; 0xa0
-  20:	f7ff fffe 	bl	0 <spiWriteByte>
-  24:	2001      	movs	r0, #1
-  26:	4919      	ldr	r1, [pc, #100]	; (8c <rfPutTXBuffer+0x8c>)
-  28:	f7ff fffe 	bl	0 <print>
-  2c:	2400      	movs	r4, #0
-  2e:	e00b      	b.n	48 <rfPutTXBuffer+0x48>
-  30:	782a      	ldrb	r2, [r5, #0]
-  32:	2001      	movs	r0, #1
-  34:	4916      	ldr	r1, [pc, #88]	; (90 <rfPutTXBuffer+0x90>)
-  36:	f7ff fffe 	bl	0 <print>
-  3a:	4813      	ldr	r0, [pc, #76]	; (88 <rfPutTXBuffer+0x88>)
-  3c:	f815 1b01 	ldrb.w	r1, [r5], #1
-  40:	f7ff fffe 	bl	0 <spiWriteByte>
-  44:	3401      	adds	r4, #1
-  46:	b2e4      	uxtb	r4, r4
-  48:	42b4      	cmp	r4, r6
-  4a:	d3f1      	bcc.n	30 <rfPutTXBuffer+0x30>
-  4c:	4b0d      	ldr	r3, [pc, #52]	; (84 <rfPutTXBuffer+0x84>)
-  4e:	f44f 6200 	mov.w	r2, #2048	; 0x800
-  52:	611a      	str	r2, [r3, #16]
-  54:	2428      	movs	r4, #40	; 0x28
-  56:	e005      	b.n	64 <rfPutTXBuffer+0x64>
-  58:	3c01      	subs	r4, #1
-  5a:	2064      	movs	r0, #100	; 0x64
-  5c:	b2e4      	uxtb	r4, r4
-  5e:	f7ff fffe 	bl	0 <delay>
-  62:	b124      	cbz	r4, c <rfPutTXBuffer+0xc>
+   8:	4919      	ldr	r1, [pc, #100]	; (70 <rfPutTXBuffer+0x70>)
+   a:	f7ff fffe 	bl	0 <print>
+   e:	f7ff fffe 	bl	0 <rfPutTXBuffer>
+  12:	4b18      	ldr	r3, [pc, #96]	; (74 <rfPutTXBuffer+0x74>)
+  14:	f44f 6200 	mov.w	r2, #2048	; 0x800
+  18:	615a      	str	r2, [r3, #20]
+  1a:	4817      	ldr	r0, [pc, #92]	; (78 <rfPutTXBuffer+0x78>)
+  1c:	21a0      	movs	r1, #160	; 0xa0
+  1e:	f7ff fffe 	bl	0 <spiWriteByte>
+  22:	2400      	movs	r4, #0
+  24:	e00b      	b.n	3e <rfPutTXBuffer+0x3e>
+  26:	782a      	ldrb	r2, [r5, #0]
+  28:	2001      	movs	r0, #1
+  2a:	4914      	ldr	r1, [pc, #80]	; (7c <rfPutTXBuffer+0x7c>)
+  2c:	f7ff fffe 	bl	0 <print>
+  30:	4811      	ldr	r0, [pc, #68]	; (78 <rfPutTXBuffer+0x78>)
+  32:	f815 1b01 	ldrb.w	r1, [r5], #1
+  36:	f7ff fffe 	bl	0 <spiWriteByte>
+  3a:	3401      	adds	r4, #1
+  3c:	b2e4      	uxtb	r4, r4
+  3e:	42b4      	cmp	r4, r6
+  40:	d3f1      	bcc.n	26 <rfPutTXBuffer+0x26>
+  42:	4b0c      	ldr	r3, [pc, #48]	; (74 <rfPutTXBuffer+0x74>)
+  44:	f44f 6200 	mov.w	r2, #2048	; 0x800
+  48:	611a      	str	r2, [r3, #16]
+  4a:	f7ff fffe 	bl	0 <rfPutTXBuffer>
+  4e:	f010 0f20 	tst.w	r0, #32
+  52:	d0fa      	beq.n	4a <rfPutTXBuffer+0x4a>
+  54:	2001      	movs	r0, #1
+  56:	490a      	ldr	r1, [pc, #40]	; (80 <rfPutTXBuffer+0x80>)
+  58:	f7ff fffe 	bl	0 <print>
+  5c:	2c14      	cmp	r4, #20
+  5e:	d101      	bne.n	64 <rfPutTXBuffer+0x64>
+  60:	f7ff fffe 	bl	0 <rfPutTXBuffer>
   64:	f7ff fffe 	bl	0 <rfPutTXBuffer>
-  68:	f010 0f20 	tst.w	r0, #32
-  6c:	d0f4      	beq.n	ffffffec <rfInit+0xffffffec>
-  6e:	f7ff fffe 	bl	0 <rfPutTXBuffer>
-  72:	f7ff fffe 	bl	0 <rfPutTXBuffer>
-  76:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
-  7a:	f7ff bffe 	b.w	0 <rfPutTXBuffer>
-  7e:	bf00      	nop
-  80:	000000b7 	.word	0x000000b7
-  84:	40011000 	.word	0x40011000
-  88:	00000000 	.word	0x00000000
-  8c:	000000cf 	.word	0x000000cf
-  90:	000000d1 	.word	0x000000d1
-
-Disassembly of section .text.socketSendNack:
-
-00000000 <socketSendNack>:
-socketSendNack():
-   0:	4b17b570 	.word	0x4b17b570
-   4:	f64a 22aa 	movw	r2, #43690	; 0xaaaa
-   8:	601a      	str	r2, [r3, #0]
-   a:	f890 3070 	ldrb.w	r3, [r0, #112]	; 0x70
-   e:	4604      	mov	r4, r0
-  10:	f023 0301 	bic.w	r3, r3, #1
-  14:	f880 3070 	strb.w	r3, [r0, #112]	; 0x70
-  18:	f7ff fffe 	bl	0 <timeGet>
-  1c:	f104 0550 	add.w	r5, r4, #80	; 0x50
-  20:	26a0      	movs	r6, #160	; 0xa0
-  22:	2201      	movs	r2, #1
-  24:	62e0      	str	r0, [r4, #44]	; 0x2c
-  26:	4629      	mov	r1, r5
-  28:	6b60      	ldr	r0, [r4, #52]	; 0x34
-  2a:	f884 603c 	strb.w	r6, [r4, #60]	; 0x3c
-  2e:	f7ff fffe 	bl	0 <convertU32ToBuffer>
-  32:	f894 303e 	ldrb.w	r3, [r4, #62]	; 0x3e
-  36:	2106      	movs	r1, #6
-  38:	f884 3055 	strb.w	r3, [r4, #85]	; 0x55
-  3c:	f884 6054 	strb.w	r6, [r4, #84]	; 0x54
-  40:	4628      	mov	r0, r5
-  42:	f7ff fffe 	bl	0 <sysCRC16>
-  46:	f104 0156 	add.w	r1, r4, #86	; 0x56
-  4a:	2201      	movs	r2, #1
-  4c:	f7ff fffe 	bl	0 <convertU16ToBuffer>
-  50:	2008      	movs	r0, #8
-  52:	4629      	mov	r1, r5
-  54:	f884 0042 	strb.w	r0, [r4, #66]	; 0x42
-  58:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
-  5c:	f7ff bffe 	b.w	0 <socketSendNack>
-  60:	40003000 	.word	0x40003000
-
-Disassembly of section .text.socketSendAck:
-
-00000000 <socketSendAck>:
-socketSendAck():
-   0:	f64a4b14 	.word	0xf64a4b14
-   4:	22aa      	movs	r2, #170	; 0xaa
-   6:	b570      	push	{r4, r5, r6, lr}
-   8:	601a      	str	r2, [r3, #0]
-   a:	4604      	mov	r4, r0
-   c:	f7ff fffe 	bl	0 <timeGet>
-  10:	f104 0550 	add.w	r5, r4, #80	; 0x50
-  14:	2680      	movs	r6, #128	; 0x80
-  16:	2201      	movs	r2, #1
-  18:	62e0      	str	r0, [r4, #44]	; 0x2c
-  1a:	4629      	mov	r1, r5
-  1c:	6b60      	ldr	r0, [r4, #52]	; 0x34
-  1e:	f884 603c 	strb.w	r6, [r4, #60]	; 0x3c
-  22:	f7ff fffe 	bl	0 <convertU32ToBuffer>
-  26:	f894 303e 	ldrb.w	r3, [r4, #62]	; 0x3e
-  2a:	2106      	movs	r1, #6
-  2c:	f884 3055 	strb.w	r3, [r4, #85]	; 0x55
-  30:	f884 6054 	strb.w	r6, [r4, #84]	; 0x54
-  34:	4628      	mov	r0, r5
-  36:	f7ff fffe 	bl	0 <sysCRC16>
-  3a:	f104 0156 	add.w	r1, r4, #86	; 0x56
-  3e:	2201      	movs	r2, #1
-  40:	f7ff fffe 	bl	0 <convertU16ToBuffer>
-  44:	2008      	movs	r0, #8
-  46:	4629      	mov	r1, r5
-  48:	f884 0042 	strb.w	r0, [r4, #66]	; 0x42
-  4c:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
-  50:	f7ff bffe 	b.w	0 <socketSendAck>
-  54:	40003000 	.word	0x40003000
-
-Disassembly of section .text.socketSendClose:
-
-00000000 <socketSendClose>:
-socketSendClose():
-   0:	b570      	push	{r4, r5, r6, lr}
-   2:	4b17      	ldr	r3, [pc, #92]	; (60 <socketSendClose+0x60>)
-   4:	f64a 22aa 	movw	r2, #43690	; 0xaaaa
-   8:	601a      	str	r2, [r3, #0]
-   a:	f890 3070 	ldrb.w	r3, [r0, #112]	; 0x70
-   e:	4604      	mov	r4, r0
-  10:	f023 0301 	bic.w	r3, r3, #1
-  14:	f880 3070 	strb.w	r3, [r0, #112]	; 0x70
-  18:	f7ff fffe 	bl	0 <timeGet>
-  1c:	f104 0550 	add.w	r5, r4, #80	; 0x50
-  20:	2640      	movs	r6, #64	; 0x40
-  22:	2201      	movs	r2, #1
-  24:	62e0      	str	r0, [r4, #44]	; 0x2c
-  26:	4629      	mov	r1, r5
-  28:	6b60      	ldr	r0, [r4, #52]	; 0x34
-  2a:	f884 603c 	strb.w	r6, [r4, #60]	; 0x3c
-  2e:	f7ff fffe 	bl	0 <convertU32ToBuffer>
-  32:	f894 303e 	ldrb.w	r3, [r4, #62]	; 0x3e
-  36:	2106      	movs	r1, #6
-  38:	f884 3055 	strb.w	r3, [r4, #85]	; 0x55
-  3c:	f884 6054 	strb.w	r6, [r4, #84]	; 0x54
-  40:	4628      	mov	r0, r5
-  42:	f7ff fffe 	bl	0 <sysCRC16>
-  46:	f104 0156 	add.w	r1, r4, #86	; 0x56
-  4a:	2201      	movs	r2, #1
-  4c:	f7ff fffe 	bl	0 <convertU16ToBuffer>
-  50:	2008      	movs	r0, #8
-  52:	4629      	mov	r1, r5
-  54:	f884 0042 	strb.w	r0, [r4, #66]	; 0x42
-  58:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
-  5c:	f7ff bffe 	b.w	0 <socketSendClose>
-  60:	40003000 	.word	0x40003000
-
-Disassembly of section .text.socketSendData:
-
-00000000 <socketSendData>:
-socketSendData():
-   0:	b570      	push	{r4, r5, r6, lr}
-   2:	4b25      	ldr	r3, [pc, #148]	; (98 <socketSendData+0x98>)
-   4:	f64a 22aa 	movw	r2, #43690	; 0xaaaa
-   8:	601a      	str	r2, [r3, #0]
-   a:	f890 3070 	ldrb.w	r3, [r0, #112]	; 0x70
-   e:	4604      	mov	r4, r0
-  10:	f023 0301 	bic.w	r3, r3, #1
-  14:	f880 3070 	strb.w	r3, [r0, #112]	; 0x70
-  18:	f7ff fffe 	bl	0 <timeGet>
-  1c:	2118      	movs	r1, #24
-  1e:	62e0      	str	r0, [r4, #44]	; 0x2c
-  20:	f104 0256 	add.w	r2, r4, #86	; 0x56
-  24:	4620      	mov	r0, r4
-  26:	f7ff fffe 	bl	0 <fileGetBuffer>
-  2a:	2360      	movs	r3, #96	; 0x60
-  2c:	b2c0      	uxtb	r0, r0
-  2e:	f884 003f 	strb.w	r0, [r4, #63]	; 0x3f
-  32:	f884 303c 	strb.w	r3, [r4, #60]	; 0x3c
-  36:	b920      	cbnz	r0, 42 <socketSendData+0x42>
-  38:	4620      	mov	r0, r4
-  3a:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
-  3e:	f7ff bffe 	b.w	0 <socketSendData>
-  42:	f104 0550 	add.w	r5, r4, #80	; 0x50
-  46:	f040 0060 	orr.w	r0, r0, #96	; 0x60
-  4a:	2201      	movs	r2, #1
-  4c:	f884 0054 	strb.w	r0, [r4, #84]	; 0x54
-  50:	4629      	mov	r1, r5
-  52:	6b60      	ldr	r0, [r4, #52]	; 0x34
-  54:	f7ff fffe 	bl	0 <convertU32ToBuffer>
-  58:	f894 303e 	ldrb.w	r3, [r4, #62]	; 0x3e
-  5c:	f894 103f 	ldrb.w	r1, [r4, #63]	; 0x3f
-  60:	f884 3055 	strb.w	r3, [r4, #85]	; 0x55
-  64:	3301      	adds	r3, #1
-  66:	f884 303e 	strb.w	r3, [r4, #62]	; 0x3e
-  6a:	3106      	adds	r1, #6
-  6c:	4628      	mov	r0, r5
-  6e:	f7ff fffe 	bl	0 <sysCRC16>
-  72:	f894 103f 	ldrb.w	r1, [r4, #63]	; 0x3f
-  76:	2201      	movs	r2, #1
-  78:	3156      	adds	r1, #86	; 0x56
-  7a:	1861      	adds	r1, r4, r1
-  7c:	f7ff fffe 	bl	0 <convertU16ToBuffer>
-  80:	f894 003f 	ldrb.w	r0, [r4, #63]	; 0x3f
-  84:	4629      	mov	r1, r5
-  86:	3008      	adds	r0, #8
-  88:	b2c0      	uxtb	r0, r0
-  8a:	f884 0042 	strb.w	r0, [r4, #66]	; 0x42
-  8e:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
-  92:	f7ff bffe 	b.w	0 <socketSendData>
-  96:	bf00      	nop
-  98:	40003000 	.word	0x40003000
-
-Disassembly of section .text.socketSendDataFromString:
-
-00000000 <socketSendDataFromString>:
-socketSendDataFromString():
-   0:	b570      	push	{r4, r5, r6, lr}
-   2:	4b2d      	ldr	r3, [pc, #180]	; (b8 <socketSendDataFromString+0xb8>)
-   4:	f64a 22aa 	movw	r2, #43690	; 0xaaaa
-   8:	601a      	str	r2, [r3, #0]
-   a:	f890 3070 	ldrb.w	r3, [r0, #112]	; 0x70
-   e:	4604      	mov	r4, r0
-  10:	f023 0301 	bic.w	r3, r3, #1
-  14:	f880 3070 	strb.w	r3, [r0, #112]	; 0x70
-  18:	460d      	mov	r5, r1
-  1a:	2001      	movs	r0, #1
-  1c:	4927      	ldr	r1, [pc, #156]	; (bc <socketSendDataFromString+0xbc>)
-  1e:	f7ff fffe 	bl	0 <print>
-  22:	f7ff fffe 	bl	0 <timeGet>
-  26:	62e0      	str	r0, [r4, #44]	; 0x2c
-  28:	4628      	mov	r0, r5
-  2a:	f7ff fffe 	bl	0 <len>
-  2e:	3001      	adds	r0, #1
-  30:	b2c0      	uxtb	r0, r0
-  32:	2816      	cmp	r0, #22
-  34:	f884 003f 	strb.w	r0, [r4, #63]	; 0x3f
-  38:	d83d      	bhi.n	b6 <socketSendDataFromString+0xb6>
-  3a:	2360      	movs	r3, #96	; 0x60
-  3c:	f884 303c 	strb.w	r3, [r4, #60]	; 0x3c
-  40:	b110      	cbz	r0, 48 <socketSendDataFromString+0x48>
-  42:	4622      	mov	r2, r4
-  44:	3b60      	subs	r3, #96	; 0x60
-  46:	e008      	b.n	5a <socketSendDataFromString+0x5a>
-  48:	4620      	mov	r0, r4
-  4a:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
-  4e:	f7ff bffe 	b.w	0 <socketSendDataFromString>
-  52:	5ce9      	ldrb	r1, [r5, r3]
-  54:	3301      	adds	r3, #1
-  56:	f882 1055 	strb.w	r1, [r2, #85]	; 0x55
-  5a:	b299      	uxth	r1, r3
-  5c:	3201      	adds	r2, #1
-  5e:	4281      	cmp	r1, r0
-  60:	d3f7      	bcc.n	52 <socketSendDataFromString+0x52>
-  62:	f104 0550 	add.w	r5, r4, #80	; 0x50
-  66:	f040 0060 	orr.w	r0, r0, #96	; 0x60
-  6a:	2201      	movs	r2, #1
-  6c:	f884 0054 	strb.w	r0, [r4, #84]	; 0x54
-  70:	4629      	mov	r1, r5
-  72:	6b60      	ldr	r0, [r4, #52]	; 0x34
-  74:	f7ff fffe 	bl	0 <convertU32ToBuffer>
-  78:	f894 303e 	ldrb.w	r3, [r4, #62]	; 0x3e
-  7c:	f894 103f 	ldrb.w	r1, [r4, #63]	; 0x3f
-  80:	f884 3055 	strb.w	r3, [r4, #85]	; 0x55
-  84:	3301      	adds	r3, #1
-  86:	f884 303e 	strb.w	r3, [r4, #62]	; 0x3e
-  8a:	3106      	adds	r1, #6
-  8c:	4628      	mov	r0, r5
-  8e:	f7ff fffe 	bl	0 <sysCRC16>
-  92:	f894 103f 	ldrb.w	r1, [r4, #63]	; 0x3f
-  96:	2201      	movs	r2, #1
-  98:	3156      	adds	r1, #86	; 0x56
-  9a:	1861      	adds	r1, r4, r1
-  9c:	f7ff fffe 	bl	0 <convertU16ToBuffer>
-  a0:	f894 003f 	ldrb.w	r0, [r4, #63]	; 0x3f
-  a4:	4629      	mov	r1, r5
-  a6:	3008      	adds	r0, #8
-  a8:	b2c0      	uxtb	r0, r0
-  aa:	f884 0042 	strb.w	r0, [r4, #66]	; 0x42
-  ae:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
-  b2:	f7ff bffe 	b.w	0 <socketSendDataFromString>
-  b6:	bd70      	pop	{r4, r5, r6, pc}
-  b8:	40003000 	.word	0x40003000
-  bc:	000000d8 	.word	0x000000d8
-
-Disassembly of section .text.socketControl:
-
-00000000 <socketControl>:
-socketControl():
-   0:	41f0e92d 	.word	0x41f0e92d
-   4:	4b2b      	ldr	r3, [pc, #172]	; (b4 <socketControl+0xb4>)
-   6:	4690      	mov	r8, r2
-   8:	f64a 22aa 	movw	r2, #43690	; 0xaaaa
-   c:	601a      	str	r2, [r3, #0]
-   e:	f890 3070 	ldrb.w	r3, [r0, #112]	; 0x70
-  12:	4604      	mov	r4, r0
-  14:	f023 0301 	bic.w	r3, r3, #1
-  18:	f880 3070 	strb.w	r3, [r0, #112]	; 0x70
-  1c:	2320      	movs	r3, #32
-  1e:	f880 303c 	strb.w	r3, [r0, #60]	; 0x3c
-  22:	4608      	mov	r0, r1
-  24:	460f      	mov	r7, r1
-  26:	f7ff fffe 	bl	0 <len>
-  2a:	3001      	adds	r0, #1
-  2c:	b2c5      	uxtb	r5, r0
-  2e:	f7ff fffe 	bl	0 <timeGet>
-  32:	f104 0650 	add.w	r6, r4, #80	; 0x50
-  36:	62e0      	str	r0, [r4, #44]	; 0x2c
-  38:	4631      	mov	r1, r6
-  3a:	6b60      	ldr	r0, [r4, #52]	; 0x34
-  3c:	2201      	movs	r2, #1
-  3e:	f7ff fffe 	bl	0 <convertU32ToBuffer>
-  42:	1d6b      	adds	r3, r5, #5
-  44:	f043 0320 	orr.w	r3, r3, #32
-  48:	f884 3054 	strb.w	r3, [r4, #84]	; 0x54
-  4c:	f894 303e 	ldrb.w	r3, [r4, #62]	; 0x3e
-  50:	f048 0804 	orr.w	r8, r8, #4
-  54:	f884 3055 	strb.w	r3, [r4, #85]	; 0x55
-  58:	4b17      	ldr	r3, [pc, #92]	; (b8 <socketControl+0xb8>)
-  5a:	f884 8056 	strb.w	r8, [r4, #86]	; 0x56
-  5e:	681b      	ldr	r3, [r3, #0]
-  60:	f894 0034 	ldrb.w	r0, [r4, #52]	; 0x34
-  64:	f023 03ff 	bic.w	r3, r3, #255	; 0xff
-  68:	4318      	orrs	r0, r3
-  6a:	2201      	movs	r2, #1
-  6c:	f104 0157 	add.w	r1, r4, #87	; 0x57
-  70:	f7ff fffe 	bl	0 <convertU32ToBuffer>
-  74:	4622      	mov	r2, r4
-  76:	2300      	movs	r3, #0
-  78:	e003      	b.n	82 <socketControl+0x82>
-  7a:	5cf9      	ldrb	r1, [r7, r3]
-  7c:	3301      	adds	r3, #1
-  7e:	f882 105a 	strb.w	r1, [r2, #90]	; 0x5a
-  82:	b2d9      	uxtb	r1, r3
-  84:	3201      	adds	r2, #1
-  86:	42a9      	cmp	r1, r5
-  88:	d3f7      	bcc.n	7a <socketControl+0x7a>
-  8a:	f105 010b 	add.w	r1, r5, #11
-  8e:	4630      	mov	r0, r6
-  90:	f7ff fffe 	bl	0 <sysCRC16>
-  94:	f105 015b 	add.w	r1, r5, #91	; 0x5b
-  98:	1861      	adds	r1, r4, r1
-  9a:	2201      	movs	r2, #1
-  9c:	f7ff fffe 	bl	0 <convertU16ToBuffer>
-  a0:	f105 000d 	add.w	r0, r5, #13
-  a4:	4631      	mov	r1, r6
-  a6:	f884 0042 	strb.w	r0, [r4, #66]	; 0x42
-  aa:	e8bd 41f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, lr}
-  ae:	f7ff bffe 	b.w	0 <socketControl>
-  b2:	bf00      	nop
-  b4:	40003000 	.word	0x40003000
-  b8:	00000000 	.word	0x00000000
-
-Disassembly of section .text.socketRequestControl:
-
-00000000 <socketRequestControl>:
-socketRequestControl():
-   0:	4b0bb538 	.word	0x4b0bb538
-   4:	f64a 22aa 	movw	r2, #43690	; 0xaaaa
-   8:	4605      	mov	r5, r0
-   a:	460c      	mov	r4, r1
-   c:	4608      	mov	r0, r1
-   e:	601a      	str	r2, [r3, #0]
-  10:	2100      	movs	r1, #0
-  12:	f7ff fffe 	bl	0 <taskIsRunning>
-  16:	b150      	cbz	r0, 2e <socketRequestControl+0x2e>
-  18:	4628      	mov	r0, r5
-  1a:	2184      	movs	r1, #132	; 0x84
-  1c:	f7ff fffe 	bl	0 <socketRequestControl>
-  20:	b128      	cbz	r0, 2e <socketRequestControl+0x2e>
-  22:	4621      	mov	r1, r4
-  24:	2280      	movs	r2, #128	; 0x80
-  26:	f7ff fffe 	bl	0 <socketRequestControl>
-  2a:	2001      	movs	r0, #1
-  2c:	bd38      	pop	{r3, r4, r5, pc}
-  2e:	bd38      	pop	{r3, r4, r5, pc}
-  30:	40003000 	.word	0x40003000
-
-Disassembly of section .text.socketSendControl:
-
-00000000 <socketSendControl>:
-socketSendControl():
-   0:	4b16      	ldr	r3, [pc, #88]	; (5c <socketSendControl+0x5c>)
-   2:	f64a 22aa 	movw	r2, #43690	; 0xaaaa
-   6:	b570      	push	{r4, r5, r6, lr}
-   8:	4606      	mov	r6, r0
-   a:	460d      	mov	r5, r1
-   c:	4608      	mov	r0, r1
-   e:	601a      	str	r2, [r3, #0]
-  10:	2100      	movs	r1, #0
-  12:	f7ff fffe 	bl	0 <taskIsRunning>
-  16:	4604      	mov	r4, r0
-  18:	b928      	cbnz	r0, 26 <socketSendControl+0x26>
-  1a:	2001      	movs	r0, #1
-  1c:	4910      	ldr	r1, [pc, #64]	; (60 <socketSendControl+0x60>)
-  1e:	462a      	mov	r2, r5
-  20:	f7ff fffe 	bl	0 <print>
-  24:	e017      	b.n	56 <socketSendControl+0x56>
-  26:	2001      	movs	r0, #1
-  28:	490e      	ldr	r1, [pc, #56]	; (64 <socketSendControl+0x64>)
-  2a:	f7ff fffe 	bl	0 <print>
-  2e:	4630      	mov	r0, r6
-  30:	2104      	movs	r1, #4
-  32:	f7ff fffe 	bl	0 <socketSendControl>
-  36:	4604      	mov	r4, r0
-  38:	b168      	cbz	r0, 56 <socketSendControl+0x56>
-  3a:	2001      	movs	r0, #1
-  3c:	490a      	ldr	r1, [pc, #40]	; (68 <socketSendControl+0x68>)
-  3e:	f7ff fffe 	bl	0 <print>
-  42:	4620      	mov	r0, r4
-  44:	4629      	mov	r1, r5
-  46:	2200      	movs	r2, #0
-  48:	f7ff fffe 	bl	0 <socketSendControl>
-  4c:	2001      	movs	r0, #1
-  4e:	4907      	ldr	r1, [pc, #28]	; (6c <socketSendControl+0x6c>)
-  50:	f7ff fffe 	bl	0 <print>
-  54:	2401      	movs	r4, #1
-  56:	4620      	mov	r0, r4
-  58:	bd70      	pop	{r4, r5, r6, pc}
-  5a:	bf00      	nop
-  5c:	40003000 	.word	0x40003000
-  60:	000000f4 	.word	0x000000f4
-  64:	00000109 	.word	0x00000109
-  68:	0000011c 	.word	0x0000011c
-  6c:	0000012a 	.word	0x0000012a
-
-Disassembly of section .text.socketCommandLine:
-
-00000000 <socketCommandLine>:
-socketCommandLine():
-   0:	b570      	push	{r4, r5, r6, lr}
-   2:	4b20      	ldr	r3, [pc, #128]	; (84 <socketCommandLine+0x84>)
-   4:	f64a 22aa 	movw	r2, #43690	; 0xaaaa
-   8:	601a      	str	r2, [r3, #0]
-   a:	f890 3070 	ldrb.w	r3, [r0, #112]	; 0x70
-   e:	4604      	mov	r4, r0
-  10:	f023 0301 	bic.w	r3, r3, #1
-  14:	f880 3070 	strb.w	r3, [r0, #112]	; 0x70
-  18:	2320      	movs	r3, #32
-  1a:	f880 303c 	strb.w	r3, [r0, #60]	; 0x3c
-  1e:	460e      	mov	r6, r1
-  20:	f7ff fffe 	bl	0 <timeGet>
-  24:	f104 0550 	add.w	r5, r4, #80	; 0x50
-  28:	62e0      	str	r0, [r4, #44]	; 0x2c
-  2a:	4629      	mov	r1, r5
-  2c:	6b60      	ldr	r0, [r4, #52]	; 0x34
-  2e:	2201      	movs	r2, #1
-  30:	f7ff fffe 	bl	0 <convertU32ToBuffer>
-  34:	2325      	movs	r3, #37	; 0x25
-  36:	f884 3054 	strb.w	r3, [r4, #84]	; 0x54
-  3a:	f894 303e 	ldrb.w	r3, [r4, #62]	; 0x3e
-  3e:	f046 0605 	orr.w	r6, r6, #5
-  42:	f884 3055 	strb.w	r3, [r4, #85]	; 0x55
-  46:	4b10      	ldr	r3, [pc, #64]	; (88 <socketCommandLine+0x88>)
-  48:	f884 6056 	strb.w	r6, [r4, #86]	; 0x56
-  4c:	681b      	ldr	r3, [r3, #0]
-  4e:	f894 0034 	ldrb.w	r0, [r4, #52]	; 0x34
-  52:	f023 03ff 	bic.w	r3, r3, #255	; 0xff
-  56:	4318      	orrs	r0, r3
-  58:	2201      	movs	r2, #1
-  5a:	f104 0157 	add.w	r1, r4, #87	; 0x57
-  5e:	f7ff fffe 	bl	0 <convertU32ToBuffer>
-  62:	210b      	movs	r1, #11
-  64:	4628      	mov	r0, r5
-  66:	f7ff fffe 	bl	0 <sysCRC16>
-  6a:	f104 015b 	add.w	r1, r4, #91	; 0x5b
-  6e:	2201      	movs	r2, #1
-  70:	f7ff fffe 	bl	0 <convertU16ToBuffer>
-  74:	200d      	movs	r0, #13
-  76:	4629      	mov	r1, r5
-  78:	f884 0042 	strb.w	r0, [r4, #66]	; 0x42
-  7c:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
-  80:	f7ff bffe 	b.w	0 <socketCommandLine>
-  84:	40003000 	.word	0x40003000
-  88:	00000000 	.word	0x00000000
-
-Disassembly of section .text.socketOpenCommandLine:
-
-00000000 <socketOpenCommandLine>:
-socketOpenCommandLine():
-   0:	f64a4b17 	.word	0xf64a4b17
-   4:	22aa      	movs	r2, #170	; 0xaa
-   6:	b510      	push	{r4, lr}
-   8:	4916      	ldr	r1, [pc, #88]	; (64 <socketOpenCommandLine+0x64>)
-   a:	4604      	mov	r4, r0
-   c:	601a      	str	r2, [r3, #0]
-   e:	2001      	movs	r0, #1
-  10:	f7ff fffe 	bl	0 <print>
-  14:	4620      	mov	r0, r4
-  16:	2105      	movs	r1, #5
-  18:	f7ff fffe 	bl	0 <socketOpenCommandLine>
-  1c:	4604      	mov	r4, r0
-  1e:	b1e8      	cbz	r0, 5c <socketOpenCommandLine+0x5c>
-  20:	2001      	movs	r0, #1
-  22:	4911      	ldr	r1, [pc, #68]	; (68 <socketOpenCommandLine+0x68>)
-  24:	f7ff fffe 	bl	0 <print>
-  28:	2040      	movs	r0, #64	; 0x40
-  2a:	f7ff fffe 	bl	0 <sysAllocate>
-  2e:	2340      	movs	r3, #64	; 0x40
-  30:	6460      	str	r0, [r4, #68]	; 0x44
-  32:	f884 3048 	strb.w	r3, [r4, #72]	; 0x48
-  36:	b140      	cbz	r0, 4a <socketOpenCommandLine+0x4a>
-  38:	4620      	mov	r0, r4
-  3a:	2100      	movs	r1, #0
-  3c:	f7ff fffe 	bl	0 <socketOpenCommandLine>
-  40:	2001      	movs	r0, #1
-  42:	490a      	ldr	r1, [pc, #40]	; (6c <socketOpenCommandLine+0x6c>)
-  44:	f7ff fffe 	bl	0 <print>
-  48:	e006      	b.n	58 <socketOpenCommandLine+0x58>
-  4a:	2001      	movs	r0, #1
-  4c:	4908      	ldr	r1, [pc, #32]	; (70 <socketOpenCommandLine+0x70>)
-  4e:	f7ff fffe 	bl	0 <print>
-  52:	4620      	mov	r0, r4
-  54:	f7ff fffe 	bl	0 <socketOpenCommandLine>
-  58:	2001      	movs	r0, #1
-  5a:	bd10      	pop	{r4, pc}
-  5c:	bd10      	pop	{r4, pc}
-  5e:	bf00      	nop
-  60:	40003000 	.word	0x40003000
-  64:	00000109 	.word	0x00000109
-  68:	0000011c 	.word	0x0000011c
-  6c:	00000140 	.word	0x00000140
-  70:	00000158 	.word	0x00000158
-
-Disassembly of section .text.socketFile:
-
-00000000 <socketFile>:
-socketFile():
-   0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
-   4:	4b35      	ldr	r3, [pc, #212]	; (dc <socketFile+0xdc>)
-   6:	4690      	mov	r8, r2
-   8:	f64a 22aa 	movw	r2, #43690	; 0xaaaa
-   c:	601a      	str	r2, [r3, #0]
-   e:	f890 3070 	ldrb.w	r3, [r0, #112]	; 0x70
-  12:	4604      	mov	r4, r0
-  14:	f023 0301 	bic.w	r3, r3, #1
-  18:	f880 3070 	strb.w	r3, [r0, #112]	; 0x70
-  1c:	2320      	movs	r3, #32
-  1e:	f880 303c 	strb.w	r3, [r0, #60]	; 0x3c
-  22:	4608      	mov	r0, r1
-  24:	460f      	mov	r7, r1
-  26:	f7ff fffe 	bl	0 <len>
-  2a:	3001      	adds	r0, #1
-  2c:	b2c5      	uxtb	r5, r0
-  2e:	f7ff fffe 	bl	0 <timeGet>
-  32:	f104 0650 	add.w	r6, r4, #80	; 0x50
-  36:	4602      	mov	r2, r0
-  38:	62e0      	str	r0, [r4, #44]	; 0x2c
-  3a:	4929      	ldr	r1, [pc, #164]	; (e0 <socketFile+0xe0>)
-  3c:	2001      	movs	r0, #1
-  3e:	f7ff fffe 	bl	0 <print>
-  42:	2201      	movs	r2, #1
-  44:	6b60      	ldr	r0, [r4, #52]	; 0x34
-  46:	4631      	mov	r1, r6
-  48:	f7ff fffe 	bl	0 <convertU32ToBuffer>
-  4c:	2001      	movs	r0, #1
-  4e:	4925      	ldr	r1, [pc, #148]	; (e4 <socketFile+0xe4>)
-  50:	f7ff fffe 	bl	0 <print>
-  54:	1d6b      	adds	r3, r5, #5
-  56:	f043 0320 	orr.w	r3, r3, #32
-  5a:	f884 3054 	strb.w	r3, [r4, #84]	; 0x54
-  5e:	f894 303e 	ldrb.w	r3, [r4, #62]	; 0x3e
-  62:	f048 0802 	orr.w	r8, r8, #2
-  66:	f884 3055 	strb.w	r3, [r4, #85]	; 0x55
-  6a:	4b1f      	ldr	r3, [pc, #124]	; (e8 <socketFile+0xe8>)
-  6c:	f884 8056 	strb.w	r8, [r4, #86]	; 0x56
-  70:	681b      	ldr	r3, [r3, #0]
-  72:	f894 0034 	ldrb.w	r0, [r4, #52]	; 0x34
-  76:	f023 03ff 	bic.w	r3, r3, #255	; 0xff
-  7a:	4318      	orrs	r0, r3
-  7c:	2201      	movs	r2, #1
-  7e:	f104 0157 	add.w	r1, r4, #87	; 0x57
-  82:	f7ff fffe 	bl	0 <convertU32ToBuffer>
-  86:	4622      	mov	r2, r4
-  88:	2300      	movs	r3, #0
-  8a:	e003      	b.n	94 <socketFile+0x94>
-  8c:	5cf9      	ldrb	r1, [r7, r3]
-  8e:	3301      	adds	r3, #1
-  90:	f882 105a 	strb.w	r1, [r2, #90]	; 0x5a
-  94:	b2d9      	uxtb	r1, r3
-  96:	3201      	adds	r2, #1
-  98:	42a9      	cmp	r1, r5
-  9a:	d3f7      	bcc.n	8c <socketFile+0x8c>
-  9c:	2001      	movs	r0, #1
-  9e:	4913      	ldr	r1, [pc, #76]	; (ec <socketFile+0xec>)
-  a0:	f7ff fffe 	bl	0 <print>
-  a4:	f105 010b 	add.w	r1, r5, #11
-  a8:	4630      	mov	r0, r6
-  aa:	f7ff fffe 	bl	0 <sysCRC16>
-  ae:	f105 015b 	add.w	r1, r5, #91	; 0x5b
-  b2:	2201      	movs	r2, #1
-  b4:	1861      	adds	r1, r4, r1
-  b6:	f7ff fffe 	bl	0 <convertU16ToBuffer>
-  ba:	2001      	movs	r0, #1
-  bc:	490c      	ldr	r1, [pc, #48]	; (f0 <socketFile+0xf0>)
-  be:	f7ff fffe 	bl	0 <print>
-  c2:	f105 000d 	add.w	r0, r5, #13
-  c6:	f884 0042 	strb.w	r0, [r4, #66]	; 0x42
-  ca:	4631      	mov	r1, r6
-  cc:	f7ff fffe 	bl	0 <socketFile>
-  d0:	4908      	ldr	r1, [pc, #32]	; (f4 <socketFile+0xf4>)
-  d2:	2001      	movs	r0, #1
-  d4:	e8bd 41f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, lr}
-  d8:	f7ff bffe 	b.w	0 <print>
-  dc:	40003000 	.word	0x40003000
-  e0:	00000174 	.word	0x00000174
-  e4:	00000183 	.word	0x00000183
-  e8:	00000000 	.word	0x00000000
-  ec:	00000190 	.word	0x00000190
-  f0:	0000019f 	.word	0x0000019f
-  f4:	000001ad 	.word	0x000001ad
-
-Disassembly of section .text.socketRequestFile:
-
-00000000 <socketRequestFile>:
-socketRequestFile():
-   0:	4b18b570 	.word	0x4b18b570
-   4:	f64a 22aa 	movw	r2, #43690	; 0xaaaa
-   8:	b08a      	sub	sp, #40	; 0x28
-   a:	4606      	mov	r6, r0
-   c:	601a      	str	r2, [r3, #0]
-   e:	4668      	mov	r0, sp
-  10:	2202      	movs	r2, #2
-  12:	460d      	mov	r5, r1
-  14:	f7ff fffe 	bl	0 <fileOpen>
-  18:	b308      	cbz	r0, 5e <socketRequestFile+0x5e>
-  1a:	2001      	movs	r0, #1
-  1c:	4912      	ldr	r1, [pc, #72]	; (68 <socketRequestFile+0x68>)
-  1e:	f7ff fffe 	bl	0 <print>
-  22:	4630      	mov	r0, r6
-  24:	2182      	movs	r1, #130	; 0x82
-  26:	f7ff fffe 	bl	0 <socketRequestFile>
-  2a:	4604      	mov	r4, r0
-  2c:	b1b8      	cbz	r0, 5e <socketRequestFile+0x5e>
-  2e:	2001      	movs	r0, #1
-  30:	490e      	ldr	r1, [pc, #56]	; (6c <socketRequestFile+0x6c>)
-  32:	f7ff fffe 	bl	0 <print>
-  36:	4668      	mov	r0, sp
-  38:	4621      	mov	r1, r4
-  3a:	f7ff fffe 	bl	0 <fileCopyHandle>
-  3e:	2001      	movs	r0, #1
-  40:	490b      	ldr	r1, [pc, #44]	; (70 <socketRequestFile+0x70>)
-  42:	462a      	mov	r2, r5
-  44:	f7ff fffe 	bl	0 <print>
-  48:	4620      	mov	r0, r4
-  4a:	4629      	mov	r1, r5
-  4c:	2280      	movs	r2, #128	; 0x80
-  4e:	f7ff fffe 	bl	0 <socketRequestFile>
-  52:	2001      	movs	r0, #1
-  54:	4907      	ldr	r1, [pc, #28]	; (74 <socketRequestFile+0x74>)
-  56:	f7ff fffe 	bl	0 <print>
-  5a:	2001      	movs	r0, #1
-  5c:	e7ff      	b.n	5e <socketRequestFile+0x5e>
-  5e:	b00a      	add	sp, #40	; 0x28
-  60:	bd70      	pop	{r4, r5, r6, pc}
-  62:	bf00      	nop
-  64:	40003000 	.word	0x40003000
-  68:	00000109 	.word	0x00000109
-  6c:	0000011c 	.word	0x0000011c
-  70:	000001c2 	.word	0x000001c2
-  74:	000001dd 	.word	0x000001dd
-
-Disassembly of section .text.socketSendFile:
-
-00000000 <socketSendFile>:
-socketSendFile():
-   0:	4b0fb530 	.word	0x4b0fb530
-   4:	f64a 22aa 	movw	r2, #43690	; 0xaaaa
-   8:	b08b      	sub	sp, #44	; 0x2c
-   a:	4605      	mov	r5, r0
-   c:	601a      	str	r2, [r3, #0]
-   e:	4668      	mov	r0, sp
-  10:	2201      	movs	r2, #1
-  12:	460c      	mov	r4, r1
-  14:	f7ff fffe 	bl	0 <fileOpen>
-  18:	b180      	cbz	r0, 3c <socketSendFile+0x3c>
-  1a:	4628      	mov	r0, r5
-  1c:	2102      	movs	r1, #2
-  1e:	f7ff fffe 	bl	0 <socketSendFile>
-  22:	4605      	mov	r5, r0
-  24:	b150      	cbz	r0, 3c <socketSendFile+0x3c>
-  26:	4668      	mov	r0, sp
-  28:	4629      	mov	r1, r5
-  2a:	f7ff fffe 	bl	0 <fileCopyHandle>
-  2e:	4628      	mov	r0, r5
-  30:	4621      	mov	r1, r4
-  32:	2200      	movs	r2, #0
-  34:	f7ff fffe 	bl	0 <socketSendFile>
-  38:	2001      	movs	r0, #1
-  3a:	e7ff      	b.n	3c <socketSendFile+0x3c>
-  3c:	b00b      	add	sp, #44	; 0x2c
-  3e:	bd30      	pop	{r4, r5, pc}
-  40:	40003000 	.word	0x40003000
-
-Disassembly of section .text.socketResend:
-
-00000000 <socketResend>:
-socketResend():
-   0:	f64a4b06 	.word	0xf64a4b06
-   4:	22aa      	movs	r2, #170	; 0xaa
-   6:	601a      	str	r2, [r3, #0]
-   8:	4601      	mov	r1, r0
-   a:	f890 0042 	ldrb.w	r0, [r0, #66]	; 0x42
-   e:	2820      	cmp	r0, #32
-  10:	d802      	bhi.n	18 <socketResend+0x18>
-  12:	3150      	adds	r1, #80	; 0x50
-  14:	f7ff bffe 	b.w	0 <socketResend>
-  18:	4770      	bx	lr
-  1a:	bf00      	nop
-  1c:	40003000 	.word	0x40003000
-
-Disassembly of section .text.socketHandler:
-
-00000000 <socketHandler>:
-socketHandler():
-   0:	b570      	push	{r4, r5, r6, lr}
-   2:	4bb1      	ldr	r3, [pc, #708]	; (2c8 <socketHandler+0x2c8>)
-   4:	f64a 22aa 	movw	r2, #43690	; 0xaaaa
-   8:	b08a      	sub	sp, #40	; 0x28
-   a:	601a      	str	r2, [r3, #0]
-   c:	4604      	mov	r4, r0
-   e:	f7ff fffe 	bl	0 <convertBufferToU32>
-  12:	9000      	str	r0, [sp, #0]
-  14:	7920      	ldrb	r0, [r4, #4]
-  16:	f020 031f 	bic.w	r3, r0, #31
-  1a:	f000 001f 	and.w	r0, r0, #31
-  1e:	f88d 000b 	strb.w	r0, [sp, #11]
-  22:	f88d 300a 	strb.w	r3, [sp, #10]
-  26:	7963      	ldrb	r3, [r4, #5]
-  28:	3006      	adds	r0, #6
-  2a:	1820      	adds	r0, r4, r0
-  2c:	f88d 300c 	strb.w	r3, [sp, #12]
-  30:	f7ff fffe 	bl	0 <convertBufferToU16>
-  34:	f89d 100b 	ldrb.w	r1, [sp, #11]
-  38:	f8ad 0008 	strh.w	r0, [sp, #8]
-  3c:	3106      	adds	r1, #6
-  3e:	4620      	mov	r0, r4
-  40:	f7ff fffe 	bl	0 <sysCRC16>
-  44:	f8bd 3008 	ldrh.w	r3, [sp, #8]
-  48:	4283      	cmp	r3, r0
-  4a:	f040 818b 	bne.w	364 <socketHandler+0x364>
-  4e:	f89d 300a 	ldrb.w	r3, [sp, #10]
-  52:	1da6      	adds	r6, r4, #6
-  54:	2b20      	cmp	r3, #32
-  56:	d108      	bne.n	6a <socketHandler+0x6a>
-  58:	79a3      	ldrb	r3, [r4, #6]
-  5a:	1de0      	adds	r0, r4, #7
-  5c:	f88d 300d 	strb.w	r3, [sp, #13]
-  60:	f7ff fffe 	bl	0 <convertBufferToU32>
-  64:	f104 060b 	add.w	r6, r4, #11
-  68:	9001      	str	r0, [sp, #4]
-  6a:	f89d 100b 	ldrb.w	r1, [sp, #11]
-  6e:	f10d 020d 	add.w	r2, sp, #13
-  72:	2300      	movs	r3, #0
-  74:	e003      	b.n	7e <socketHandler+0x7e>
-  76:	5cf0      	ldrb	r0, [r6, r3]
-  78:	3301      	adds	r3, #1
-  7a:	f802 0f01 	strb.w	r0, [r2, #1]!
-  7e:	b298      	uxth	r0, r3
-  80:	4288      	cmp	r0, r1
-  82:	d3f8      	bcc.n	76 <socketHandler+0x76>
-  84:	f89d 300a 	ldrb.w	r3, [sp, #10]
-  88:	f003 03e0 	and.w	r3, r3, #224	; 0xe0
-  8c:	2b20      	cmp	r3, #32
-  8e:	d176      	bne.n	17e <socketHandler+0x17e>
-  90:	9b01      	ldr	r3, [sp, #4]
-  92:	a80a      	add	r0, sp, #40	; 0x28
-  94:	9c00      	ldr	r4, [sp, #0]
-  96:	f840 3d28 	str.w	r3, [r0, #-40]!
-  9a:	4668      	mov	r0, sp
-  9c:	f7ff fffe 	bl	0 <socketHandler>
-  a0:	4605      	mov	r5, r0
-  a2:	2800      	cmp	r0, #0
-  a4:	f000 815b 	beq.w	35e <socketHandler+0x35e>
-  a8:	6384      	str	r4, [r0, #56]	; 0x38
-  aa:	f7ff fffe 	bl	0 <timeGet>
-  ae:	f89d 300d 	ldrb.w	r3, [sp, #13]
-  b2:	62e8      	str	r0, [r5, #44]	; 0x2c
-  b4:	f003 027f 	and.w	r2, r3, #127	; 0x7f
-  b8:	2a02      	cmp	r2, #2
-  ba:	f885 303d 	strb.w	r3, [r5, #61]	; 0x3d
-  be:	d115      	bne.n	ec <socketHandler+0xec>
-  c0:	f013 0f80 	tst.w	r3, #128	; 0x80
-  c4:	d00c      	beq.n	e0 <socketHandler+0xe0>
-  c6:	4628      	mov	r0, r5
-  c8:	f10d 010e 	add.w	r1, sp, #14
-  cc:	3a01      	subs	r2, #1
-  ce:	f7ff fffe 	bl	0 <fileOpen>
-  d2:	4604      	mov	r4, r0
-  d4:	2800      	cmp	r0, #0
-  d6:	d04e      	beq.n	176 <socketHandler+0x176>
-  d8:	4628      	mov	r0, r5
-  da:	f7ff fffe 	bl	0 <socketHandler>
-  de:	e04e      	b.n	17e <socketHandler+0x17e>
-  e0:	4628      	mov	r0, r5
-  e2:	f10d 010e 	add.w	r1, sp, #14
-  e6:	f7ff fffe 	bl	0 <fileOpen>
-  ea:	e02a      	b.n	142 <socketHandler+0x142>
-  ec:	2a04      	cmp	r2, #4
-  ee:	d12b      	bne.n	148 <socketHandler+0x148>
-  f0:	2001      	movs	r0, #1
-  f2:	4976      	ldr	r1, [pc, #472]	; (2cc <socketHandler+0x2cc>)
-  f4:	f7ff fffe 	bl	0 <print>
-  f8:	f99d 300d 	ldrsb.w	r3, [sp, #13]
-  fc:	2b00      	cmp	r3, #0
-  fe:	da1b      	bge.n	138 <socketHandler+0x138>
- 100:	2001      	movs	r0, #1
- 102:	4973      	ldr	r1, [pc, #460]	; (2d0 <socketHandler+0x2d0>)
- 104:	f7ff fffe 	bl	0 <print>
- 108:	f10d 000e 	add.w	r0, sp, #14
- 10c:	2100      	movs	r1, #0
- 10e:	f7ff fffe 	bl	0 <taskIsRunning>
- 112:	4604      	mov	r4, r0
- 114:	b378      	cbz	r0, 176 <socketHandler+0x176>
- 116:	2001      	movs	r0, #1
- 118:	496e      	ldr	r1, [pc, #440]	; (2d4 <socketHandler+0x2d4>)
- 11a:	f7ff fffe 	bl	0 <print>
- 11e:	f10d 000e 	add.w	r0, sp, #14
- 122:	f24f 0101 	movw	r1, #61441	; 0xf001
- 126:	4a6c      	ldr	r2, [pc, #432]	; (2d8 <socketHandler+0x2d8>)
- 128:	6b6b      	ldr	r3, [r5, #52]	; 0x34
- 12a:	f7ff fffe 	bl	0 <msgSend>
- 12e:	2001      	movs	r0, #1
- 130:	496a      	ldr	r1, [pc, #424]	; (2dc <socketHandler+0x2dc>)
- 132:	f7ff fffe 	bl	0 <print>
- 136:	e022      	b.n	17e <socketHandler+0x17e>
- 138:	f10d 000e 	add.w	r0, sp, #14
- 13c:	2100      	movs	r1, #0
- 13e:	f7ff fffe 	bl	0 <taskIsRunning>
- 142:	4604      	mov	r4, r0
- 144:	b978      	cbnz	r0, 166 <socketHandler+0x166>
- 146:	e016      	b.n	176 <socketHandler+0x176>
- 148:	2a05      	cmp	r2, #5
- 14a:	d118      	bne.n	17e <socketHandler+0x17e>
- 14c:	2040      	movs	r0, #64	; 0x40
- 14e:	f7ff fffe 	bl	0 <sysAllocate>
- 152:	2340      	movs	r3, #64	; 0x40
- 154:	4604      	mov	r4, r0
- 156:	6468      	str	r0, [r5, #68]	; 0x44
- 158:	f885 3048 	strb.w	r3, [r5, #72]	; 0x48
- 15c:	b138      	cbz	r0, 16e <socketHandler+0x16e>
- 15e:	2001      	movs	r0, #1
- 160:	495f      	ldr	r1, [pc, #380]	; (2e0 <socketHandler+0x2e0>)
- 162:	f7ff fffe 	bl	0 <print>
- 166:	4628      	mov	r0, r5
- 168:	f7ff fffe 	bl	0 <socketHandler>
- 16c:	e007      	b.n	17e <socketHandler+0x17e>
- 16e:	2001      	movs	r0, #1
- 170:	495c      	ldr	r1, [pc, #368]	; (2e4 <socketHandler+0x2e4>)
- 172:	f7ff fffe 	bl	0 <print>
- 176:	4628      	mov	r0, r5
- 178:	f7ff fffe 	bl	0 <socketHandler>
- 17c:	e0f2      	b.n	364 <socketHandler+0x364>
- 17e:	9800      	ldr	r0, [sp, #0]
- 180:	6ba9      	ldr	r1, [r5, #56]	; 0x38
- 182:	f7ff fffe 	bl	0 <socketHandler>
- 186:	4604      	mov	r4, r0
- 188:	2800      	cmp	r0, #0
- 18a:	f000 80eb 	beq.w	364 <socketHandler+0x364>
- 18e:	f89d 300a 	ldrb.w	r3, [sp, #10]
- 192:	f003 03e0 	and.w	r3, r3, #224	; 0xe0
- 196:	2b40      	cmp	r3, #64	; 0x40
- 198:	d10a      	bne.n	1b0 <socketHandler+0x1b0>
- 19a:	2001      	movs	r0, #1
- 19c:	4952      	ldr	r1, [pc, #328]	; (2e8 <socketHandler+0x2e8>)
- 19e:	f7ff fffe 	bl	0 <print>
- 1a2:	4620      	mov	r0, r4
- 1a4:	f7ff fffe 	bl	0 <socketHandler>
- 1a8:	4620      	mov	r0, r4
- 1aa:	f7ff fffe 	bl	0 <socketHandler>
- 1ae:	e0d8      	b.n	362 <socketHandler+0x362>
- 1b0:	2b60      	cmp	r3, #96	; 0x60
- 1b2:	d165      	bne.n	280 <socketHandler+0x280>
- 1b4:	f890 303d 	ldrb.w	r3, [r0, #61]	; 0x3d
- 1b8:	f003 037f 	and.w	r3, r3, #127	; 0x7f
- 1bc:	2b02      	cmp	r3, #2
- 1be:	d109      	bne.n	1d4 <socketHandler+0x1d4>
- 1c0:	4669      	mov	r1, sp
- 1c2:	f7ff fffe 	bl	0 <socketHandler>
- 1c6:	2800      	cmp	r0, #0
- 1c8:	d156      	bne.n	278 <socketHandler+0x278>
- 1ca:	3001      	adds	r0, #1
- 1cc:	4947      	ldr	r1, [pc, #284]	; (2ec <socketHandler+0x2ec>)
- 1ce:	f7ff fffe 	bl	0 <print>
- 1d2:	e012      	b.n	1fa <socketHandler+0x1fa>
- 1d4:	2b04      	cmp	r3, #4
- 1d6:	d114      	bne.n	202 <socketHandler+0x202>
- 1d8:	4945      	ldr	r1, [pc, #276]	; (2f0 <socketHandler+0x2f0>)
- 1da:	4632      	mov	r2, r6
- 1dc:	2001      	movs	r0, #1
- 1de:	f7ff fffe 	bl	0 <print>
- 1e2:	f10d 000e 	add.w	r0, sp, #14
- 1e6:	6ce5      	ldr	r5, [r4, #76]	; 0x4c
- 1e8:	f7ff fffe 	bl	0 <convertStringToInt>
- 1ec:	f24f 0101 	movw	r1, #61441	; 0xf001
- 1f0:	4603      	mov	r3, r0
- 1f2:	4a40      	ldr	r2, [pc, #256]	; (2f4 <socketHandler+0x2f4>)
- 1f4:	4628      	mov	r0, r5
- 1f6:	f7ff fffe 	bl	0 <msgSend>
- 1fa:	4620      	mov	r0, r4
- 1fc:	f7ff fffe 	bl	0 <socketHandler>
- 200:	e0af      	b.n	362 <socketHandler+0x362>
- 202:	2b05      	cmp	r3, #5
- 204:	f040 80ad 	bne.w	362 <socketHandler+0x362>
- 208:	2001      	movs	r0, #1
- 20a:	493b      	ldr	r1, [pc, #236]	; (2f8 <socketHandler+0x2f8>)
- 20c:	f7ff fffe 	bl	0 <print>
- 210:	f89d 300b 	ldrb.w	r3, [sp, #11]
- 214:	f894 1049 	ldrb.w	r1, [r4, #73]	; 0x49
- 218:	18c9      	adds	r1, r1, r3
- 21a:	f894 3048 	ldrb.w	r3, [r4, #72]	; 0x48
- 21e:	4299      	cmp	r1, r3
- 220:	dd0c      	ble.n	23c <socketHandler+0x23c>
- 222:	6c60      	ldr	r0, [r4, #68]	; 0x44
- 224:	f7ff fffe 	bl	0 <sysReallocate>
- 228:	4605      	mov	r5, r0
- 22a:	b930      	cbnz	r0, 23a <socketHandler+0x23a>
- 22c:	4620      	mov	r0, r4
- 22e:	f7ff fffe 	bl	0 <socketHandler>
- 232:	6c60      	ldr	r0, [r4, #68]	; 0x44
- 234:	f7ff fffe 	bl	0 <sysFree>
- 238:	e091      	b.n	35e <socketHandler+0x35e>
- 23a:	6460      	str	r0, [r4, #68]	; 0x44
- 23c:	2300      	movs	r3, #0
- 23e:	e017      	b.n	270 <socketHandler+0x270>
- 240:	a90a      	add	r1, sp, #40	; 0x28
- 242:	18ca      	adds	r2, r1, r3
- 244:	f812 0c1a 	ldrb.w	r0, [r2, #-26]
- 248:	6c61      	ldr	r1, [r4, #68]	; 0x44
- 24a:	280d      	cmp	r0, #13
- 24c:	f894 2049 	ldrb.w	r2, [r4, #73]	; 0x49
- 250:	d108      	bne.n	264 <socketHandler+0x264>
- 252:	2300      	movs	r3, #0
- 254:	548b      	strb	r3, [r1, r2]
- 256:	6c60      	ldr	r0, [r4, #68]	; 0x44
- 258:	f884 3049 	strb.w	r3, [r4, #73]	; 0x49
- 25c:	4927      	ldr	r1, [pc, #156]	; (a0 <cmdExecute+0xa0>)
- 25e:	f7ff fffe 	bl	0 <cmdExecute>
- 262:	e009      	b.n	278 <socketHandler+0x278>
- 264:	5488      	strb	r0, [r1, r2]
- 266:	3301      	adds	r3, #1
- 268:	3201      	adds	r2, #1
- 26a:	f884 2049 	strb.w	r2, [r4, #73]	; 0x49
- 26e:	b29b      	uxth	r3, r3
- 270:	f89d 200b 	ldrb.w	r2, [sp, #11]
- 274:	429a      	cmp	r2, r3
- 276:	d8e3      	bhi.n	240 <socketHandler+0x240>
- 278:	4620      	mov	r0, r4
- 27a:	f7ff fffe 	bl	0 <socketHandler>
- 27e:	e070      	b.n	362 <socketHandler+0x362>
- 280:	2b80      	cmp	r3, #128	; 0x80
- 282:	d163      	bne.n	34c <socketHandler+0x34c>
- 284:	f890 3070 	ldrb.w	r3, [r0, #112]	; 0x70
- 288:	491d      	ldr	r1, [pc, #116]	; (300 <socketHandler+0x300>)
- 28a:	f043 0301 	orr.w	r3, r3, #1
- 28e:	f880 3070 	strb.w	r3, [r0, #112]	; 0x70
- 292:	2001      	movs	r0, #1
- 294:	f7ff fffe 	bl	0 <print>
- 298:	f894 203c 	ldrb.w	r2, [r4, #60]	; 0x3c
- 29c:	2001      	movs	r0, #1
- 29e:	4919      	ldr	r1, [pc, #100]	; (304 <socketHandler+0x304>)
- 2a0:	f002 02e0 	and.w	r2, r2, #224	; 0xe0
- 2a4:	f7ff fffe 	bl	0 <print>
- 2a8:	f894 303c 	ldrb.w	r3, [r4, #60]	; 0x3c
- 2ac:	f003 03e0 	and.w	r3, r3, #224	; 0xe0
- 2b0:	2b40      	cmp	r3, #64	; 0x40
- 2b2:	d12b      	bne.n	30c <socketHandler+0x30c>
- 2b4:	2001      	movs	r0, #1
- 2b6:	4914      	ldr	r1, [pc, #80]	; (308 <socketHandler+0x308>)
- 2b8:	f7ff fffe 	bl	0 <print>
- 2bc:	4620      	mov	r0, r4
- 2be:	f7ff fffe 	bl	0 <socketHandler>
- 2c2:	2400      	movs	r4, #0
- 2c4:	e04e      	b.n	364 <socketHandler+0x364>
- 2c6:	bf00      	nop
- 2c8:	40003000 	.word	0x40003000
- 2cc:	000001ee 	.word	0x000001ee
- 2d0:	00000201 	.word	0x00000201
- 2d4:	00000209 	.word	0x00000209
- 2d8:	00000215 	.word	0x00000215
- 2dc:	00000218 	.word	0x00000218
- 2e0:	0000022e 	.word	0x0000022e
- 2e4:	0000024d 	.word	0x0000024d
- 2e8:	00000276 	.word	0x00000276
- 2ec:	0000028e 	.word	0x0000028e
- 2f0:	00000298 	.word	0x00000298
- 2f4:	000002ab 	.word	0x000002ab
- 2f8:	000002ae 	.word	0x000002ae
- 2fc:	00000000 	.word	0x00000000
- 300:	000002bf 	.word	0x000002bf
- 304:	000002cd 	.word	0x000002cd
- 308:	000002de 	.word	0x000002de
- 30c:	f894 303d 	ldrb.w	r3, [r4, #61]	; 0x3d
- 310:	f003 037f 	and.w	r3, r3, #127	; 0x7f
- 314:	2b02      	cmp	r3, #2
- 316:	d103      	bne.n	320 <socketHandler+0x320>
- 318:	4620      	mov	r0, r4
- 31a:	f7ff fffe 	bl	0 <socketHandler>
- 31e:	e020      	b.n	362 <socketHandler+0x362>
- 320:	2b04      	cmp	r3, #4
- 322:	d10c      	bne.n	33e <socketHandler+0x33e>
- 324:	2001      	movs	r0, #1
- 326:	4911      	ldr	r1, [pc, #68]	; (36c <socketHandler+0x36c>)
- 328:	f7ff fffe 	bl	0 <print>
- 32c:	f10d 000e 	add.w	r0, sp, #14
- 330:	f24f 0101 	movw	r1, #61441	; 0xf001
- 334:	4a0e      	ldr	r2, [pc, #56]	; (370 <socketHandler+0x370>)
- 336:	6b63      	ldr	r3, [r4, #52]	; 0x34
- 338:	f7ff fffe 	bl	0 <msgSend>
- 33c:	e011      	b.n	362 <socketHandler+0x362>
- 33e:	2b05      	cmp	r3, #5
- 340:	d10f      	bne.n	362 <socketHandler+0x362>
- 342:	2001      	movs	r0, #1
- 344:	490b      	ldr	r1, [pc, #44]	; (374 <socketHandler+0x374>)
- 346:	f7ff fffe 	bl	0 <print>
- 34a:	e00a      	b.n	362 <socketHandler+0x362>
- 34c:	f890 303c 	ldrb.w	r3, [r0, #60]	; 0x3c
- 350:	f003 03e0 	and.w	r3, r3, #224	; 0xe0
- 354:	2ba0      	cmp	r3, #160	; 0xa0
- 356:	d104      	bne.n	362 <socketHandler+0x362>
- 358:	f7ff fffe 	bl	0 <socketHandler>
- 35c:	e001      	b.n	362 <socketHandler+0x362>
- 35e:	462c      	mov	r4, r5
- 360:	e000      	b.n	364 <socketHandler+0x364>
- 362:	2401      	movs	r4, #1
- 364:	4620      	mov	r0, r4
- 366:	b00a      	add	sp, #40	; 0x28
- 368:	bd70      	pop	{r4, r5, r6, pc}
- 36a:	bf00      	nop
- 36c:	000002f4 	.word	0x000002f4
- 370:	00000215 	.word	0x00000215
- 374:	00000315 	.word	0x00000315
-
-Disassembly of section .text.threadSocketMonitor:
-
-00000000 <threadSocketMonitor>:
-threadSocketMonitor():
-   0:	2400b570 	.word	0x2400b570
-   4:	e042      	b.n	8c <threadSocketMonitor+0x8c>
-   6:	2574      	movs	r5, #116	; 0x74
-   8:	4365      	muls	r5, r4
-   a:	4e23      	ldr	r6, [pc, #140]	; (98 <threadSocketMonitor+0x98>)
-   c:	6833      	ldr	r3, [r6, #0]
-   e:	195b      	adds	r3, r3, r5
-  10:	f893 2070 	ldrb.w	r2, [r3, #112]	; 0x70
-  14:	f012 0f01 	tst.w	r2, #1
-  18:	d136      	bne.n	88 <threadSocketMonitor+0x88>
-  1a:	8f9b      	ldrh	r3, [r3, #60]	; 0x3c
-  1c:	f5b3 6fb0 	cmp.w	r3, #1408	; 0x580
-  20:	d032      	beq.n	88 <threadSocketMonitor+0x88>
-  22:	2001      	movs	r0, #1
-  24:	491d      	ldr	r1, [pc, #116]	; (9c <threadSocketMonitor+0x9c>)
-  26:	f7ff fffe 	bl	0 <print>
-  2a:	6830      	ldr	r0, [r6, #0]
-  2c:	1940      	adds	r0, r0, r5
-  2e:	f890 3040 	ldrb.w	r3, [r0, #64]	; 0x40
-  32:	2bff      	cmp	r3, #255	; 0xff
-  34:	d007      	beq.n	46 <threadSocketMonitor+0x46>
-  36:	f890 2041 	ldrb.w	r2, [r0, #65]	; 0x41
-  3a:	429a      	cmp	r2, r3
-  3c:	d903      	bls.n	46 <threadSocketMonitor+0x46>
-  3e:	6ac2      	ldr	r2, [r0, #44]	; 0x2c
-  40:	6b03      	ldr	r3, [r0, #48]	; 0x30
-  42:	429a      	cmp	r2, r3
-  44:	d306      	bcc.n	54 <threadSocketMonitor+0x54>
-  46:	f7ff fffe 	bl	0 <threadSocketMonitor>
-  4a:	2001      	movs	r0, #1
-  4c:	4914      	ldr	r1, [pc, #80]	; (a0 <threadSocketMonitor+0xa0>)
-  4e:	f7ff fffe 	bl	0 <print>
-  52:	e019      	b.n	36 <timeGet+0x36>
-  54:	f7ff fffe 	bl	0 <timeGet>
-  58:	6833      	ldr	r3, [r6, #0]
-  5a:	195b      	adds	r3, r3, r5
-  5c:	6ada      	ldr	r2, [r3, #44]	; 0x2c
-  5e:	3203      	adds	r2, #3
-  60:	4290      	cmp	r0, r2
-  62:	d911      	bls.n	88 <threadSocketMonitor+0x88>
-  64:	f893 2040 	ldrb.w	r2, [r3, #64]	; 0x40
-  68:	4618      	mov	r0, r3
-  6a:	3201      	adds	r2, #1
-  6c:	f883 2040 	strb.w	r2, [r3, #64]	; 0x40
-  70:	f7ff fffe 	bl	0 <threadSocketMonitor>
-  74:	6833      	ldr	r3, [r6, #0]
-  76:	2001      	movs	r0, #1
-  78:	195d      	adds	r5, r3, r5
-  7a:	490a      	ldr	r1, [pc, #40]	; (a4 <threadSocketMonitor+0xa4>)
-  7c:	f895 2040 	ldrb.w	r2, [r5, #64]	; 0x40
-  80:	f895 3041 	ldrb.w	r3, [r5, #65]	; 0x41
-  84:	f7ff fffe 	bl	0 <print>
-  88:	3401      	adds	r4, #1
-  8a:	b2e4      	uxtb	r4, r4
-  8c:	4b06      	ldr	r3, [pc, #24]	; (a8 <threadSocketMonitor+0xa8>)
-  8e:	781b      	ldrb	r3, [r3, #0]
-  90:	42a3      	cmp	r3, r4
-  92:	d8b8      	bhi.n	6 <threadSocketMonitor+0x6>
-  94:	bd70      	pop	{r4, r5, r6, pc}
-  96:	bf00      	nop
-  98:	00000000 	.word	0x00000000
-  9c:	00000324 	.word	0x00000324
-  a0:	0000032d 	.word	0x0000032d
-  a4:	0000033c 	.word	0x0000033c
-  a8:	00000000 	.word	0x00000000
+  68:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+  6c:	f7ff bffe 	b.w	0 <rfPutTXBuffer>
+  70:	00000000 	.word	0x00000000
+  74:	40011000 	.word	0x40011000
+  78:	00000000 	.word	0x00000000
+  7c:	0000000c 	.word	0x0000000c
+  80:	00000012 	.word	0x00000012
 
 Disassembly of section .text.rfGetSignalQuality:
 
 00000000 <rfGetSignalQuality>:
 rfGetSignalQuality():
-   0:	4c09b570 	.word	0x4c09b570
-   4:	f44f 6500 	mov.w	r5, #2048	; 0x800
-   8:	2108      	movs	r1, #8
-   a:	6165      	str	r5, [r4, #20]
-   c:	4807      	ldr	r0, [pc, #28]	; (2c <rfGetSignalQuality+0x2c>)
+   0:	4c0ab538 	.word	0x4c0ab538
+   4:	2108      	movs	r1, #8
+   6:	6823      	ldr	r3, [r4, #0]
+   8:	8a22      	ldrh	r2, [r4, #16]
+   a:	4620      	mov	r0, r4
+   c:	615a      	str	r2, [r3, #20]
    e:	f7ff fffe 	bl	0 <spiWriteByte>
-  12:	4806      	ldr	r0, [pc, #24]	; (1c <spiReadByte+0x1c>)
+  12:	4620      	mov	r0, r4
   14:	f7ff fffe 	bl	0 <spiReadByte>
-  18:	6125      	str	r5, [r4, #16]
-  1a:	4606      	mov	r6, r0
-  1c:	f7ff fffe 	bl	0 <rfGetSignalQuality>
-  20:	43f0      	mvns	r0, r6
-  22:	f000 000f 	and.w	r0, r0, #15
-  26:	bd70      	pop	{r4, r5, r6, pc}
-  28:	40011000 	.word	0x40011000
+  18:	6823      	ldr	r3, [r4, #0]
+  1a:	8a22      	ldrh	r2, [r4, #16]
+  1c:	4605      	mov	r5, r0
+  1e:	611a      	str	r2, [r3, #16]
+  20:	f7ff fffe 	bl	0 <rfGetSignalQuality>
+  24:	43e8      	mvns	r0, r5
+  26:	f000 000f 	and.w	r0, r0, #15
+  2a:	bd38      	pop	{r3, r4, r5, pc}
   2c:	00000000 	.word	0x00000000
 
 Disassembly of section .text.rfRX:
@@ -1728,52 +285,77 @@ Disassembly of section .text.rfRX:
 00000000 <rfRX>:
 rfRX():
    0:	b5f0      	push	{r4, r5, r6, r7, lr}
-   2:	4b1d      	ldr	r3, [pc, #116]	; (78 <rfRX+0x78>)
+   2:	4b29      	ldr	r3, [pc, #164]	; (a8 <rfRX+0xa8>)
    4:	f64a 22aa 	movw	r2, #43690	; 0xaaaa
    8:	b089      	sub	sp, #36	; 0x24
    a:	601a      	str	r2, [r3, #0]
    c:	f7ff fffe 	bl	0 <rfRX>
-  10:	f010 0f40 	tst.w	r0, #64	; 0x40
-  14:	4604      	mov	r4, r0
-  16:	d027      	beq.n	68 <rfRX+0x68>
-  18:	f000 030e 	and.w	r3, r0, #14
-  1c:	2b0e      	cmp	r3, #14
-  1e:	d028      	beq.n	72 <rfRX+0x72>
-  20:	f7ff fffe 	bl	0 <rfRX>
-  24:	4b15      	ldr	r3, [pc, #84]	; (7c <rfRX+0x7c>)
-  26:	f44f 6200 	mov.w	r2, #2048	; 0x800
-  2a:	4605      	mov	r5, r0
-  2c:	615a      	str	r2, [r3, #20]
-  2e:	4814      	ldr	r0, [pc, #80]	; (80 <rfRX+0x80>)
-  30:	2161      	movs	r1, #97	; 0x61
-  32:	f7ff fffe 	bl	0 <spiWriteByte>
-  36:	f10d 37ff 	add.w	r7, sp, #4294967295
-  3a:	2600      	movs	r6, #0
-  3c:	e009      	b.n	52 <rfRX+0x52>
-  3e:	4810      	ldr	r0, [pc, #64]	; (80 <rfRX+0x80>)
-  40:	f7ff fffe 	bl	0 <spiReadByte>
-  44:	f807 0f01 	strb.w	r0, [r7, #1]!
-  48:	2064      	movs	r0, #100	; 0x64
-  4a:	f7ff fffe 	bl	0 <delay>
-  4e:	3601      	adds	r6, #1
-  50:	b2f6      	uxtb	r6, r6
-  52:	42ae      	cmp	r6, r5
-  54:	d3f3      	bcc.n	3e <rfRX+0x3e>
-  56:	4b09      	ldr	r3, [pc, #36]	; (7c <rfRX+0x7c>)
-  58:	f44f 6200 	mov.w	r2, #2048	; 0x800
-  5c:	611a      	str	r2, [r3, #16]
-  5e:	4668      	mov	r0, sp
-  60:	f7ff fffe 	bl	0 <rfRX>
-  64:	f7ff fffe 	bl	0 <rfRX>
-  68:	f014 0f20 	tst.w	r4, #32
-  6c:	d001      	beq.n	6 <rfRX+0x6>
-  6e:	f7ff fffe 	bl	0 <rfRX>
-  72:	b009      	add	sp, #36	; 0x24
-  74:	bdf0      	pop	{r4, r5, r6, r7, pc}
-  76:	bf00      	nop
-  78:	40003000 	.word	0x40003000
-  7c:	40011000 	.word	0x40011000
-  80:	00000000 	.word	0x00000000
+  10:	4926      	ldr	r1, [pc, #152]	; (ac <rfRX+0xac>)
+  12:	4604      	mov	r4, r0
+  14:	2001      	movs	r0, #1
+  16:	f7ff fffe 	bl	0 <print>
+  1a:	f014 0f40 	tst.w	r4, #64	; 0x40
+  1e:	d03b      	beq.n	98 <rfRX+0x98>
+  20:	2001      	movs	r0, #1
+  22:	4923      	ldr	r1, [pc, #140]	; (b0 <rfRX+0xb0>)
+  24:	f7ff fffe 	bl	0 <print>
+  28:	f004 030e 	and.w	r3, r4, #14
+  2c:	2b0e      	cmp	r3, #14
+  2e:	d104      	bne.n	3a <rfRX+0x3a>
+  30:	2001      	movs	r0, #1
+  32:	4920      	ldr	r1, [pc, #128]	; (b4 <rfRX+0xb4>)
+  34:	f7ff fffe 	bl	0 <print>
+  38:	e033      	b.n	6a <rfRX+0x6a>
+  3a:	f7ff fffe 	bl	0 <rfRX>
+  3e:	4607      	mov	r7, r0
+  40:	491d      	ldr	r1, [pc, #116]	; (b8 <rfRX+0xb8>)
+  42:	2001      	movs	r0, #1
+  44:	463a      	mov	r2, r7
+  46:	f7ff fffe 	bl	0 <print>
+  4a:	4b1c      	ldr	r3, [pc, #112]	; (bc <rfRX+0xbc>)
+  4c:	f44f 6200 	mov.w	r2, #2048	; 0x800
+  50:	615a      	str	r2, [r3, #20]
+  52:	481b      	ldr	r0, [pc, #108]	; (c0 <rfRX+0xc0>)
+  54:	2161      	movs	r1, #97	; 0x61
+  56:	f7ff fffe 	bl	0 <spiWriteByte>
+  5a:	f10d 36ff 	add.w	r6, sp, #4294967295
+  5e:	2500      	movs	r5, #0
+  60:	e00b      	b.n	7a <rfRX+0x7a>
+  62:	4817      	ldr	r0, [pc, #92]	; (c0 <rfRX+0xc0>)
+  64:	f7ff fffe 	bl	0 <spiReadByte>
+  68:	4916      	ldr	r1, [pc, #88]	; (c4 <rfRX+0xc4>)
+  6a:	4602      	mov	r2, r0
+  6c:	f806 0f01 	strb.w	r0, [r6, #1]!
+  70:	2001      	movs	r0, #1
+  72:	f7ff fffe 	bl	0 <print>
+  76:	3501      	adds	r5, #1
+  78:	b2ed      	uxtb	r5, r5
+  7a:	42bd      	cmp	r5, r7
+  7c:	d3f1      	bcc.n	62 <rfRX+0x62>
+  7e:	4b0f      	ldr	r3, [pc, #60]	; (bc <rfRX+0xbc>)
+  80:	f44f 6200 	mov.w	r2, #2048	; 0x800
+  84:	611a      	str	r2, [r3, #16]
+  86:	2001      	movs	r0, #1
+  88:	490f      	ldr	r1, [pc, #60]	; (c8 <rfRX+0xc8>)
+  8a:	f7ff fffe 	bl	0 <print>
+  8e:	4668      	mov	r0, sp
+  90:	f7ff fffe 	bl	0 <socketHandler>
+  94:	f7ff fffe 	bl	0 <rfRX>
+  98:	f014 0f20 	tst.w	r4, #32
+  9c:	d001      	beq.n	6 <rfRX+0x6>
+  9e:	f7ff fffe 	bl	0 <rfRX>
+  a2:	b009      	add	sp, #36	; 0x24
+  a4:	bdf0      	pop	{r4, r5, r6, r7, pc}
+  a6:	bf00      	nop
+  a8:	40003000 	.word	0x40003000
+  ac:	00000018 	.word	0x00000018
+  b0:	00000020 	.word	0x00000020
+  b4:	00000032 	.word	0x00000032
+  b8:	0000003e 	.word	0x0000003e
+  bc:	40011000 	.word	0x40011000
+  c0:	00000000 	.word	0x00000000
+  c4:	00000052 	.word	0x00000052
+  c8:	00000056 	.word	0x00000056
 
 Disassembly of section .text.rfWriteAddress:
 
@@ -1804,97 +386,83 @@ Disassembly of section .text.rfInit:
 00000000 <rfInit>:
 rfInit():
    0:	b537      	push	{r0, r1, r2, r4, r5, lr}
-   2:	f7ff fffe 	bl	0 <sysGetID>
-   6:	2101      	movs	r1, #1
-   8:	4605      	mov	r5, r0
-   a:	4a38      	ldr	r2, [pc, #224]	; (ec <rfInit+0xec>)
-   c:	2000      	movs	r0, #0
-   e:	f7ff fffe 	bl	0 <pdiaEncode>
-  12:	2400      	movs	r4, #0
-  14:	5d28      	ldrb	r0, [r5, r4]
-  16:	2102      	movs	r1, #2
-  18:	4a34      	ldr	r2, [pc, #208]	; (ec <rfInit+0xec>)
-  1a:	3401      	adds	r4, #1
-  1c:	f7ff fffe 	bl	0 <pdiaEncode>
-  20:	2c0c      	cmp	r4, #12
-  22:	d1f7      	bne.n	14 <rfInit+0x14>
-  24:	2104      	movs	r1, #4
-  26:	2000      	movs	r0, #0
-  28:	4a30      	ldr	r2, [pc, #192]	; (ec <rfInit+0xec>)
-  2a:	f7ff fffe 	bl	0 <pdiaEncode>
-  2e:	2312      	movs	r3, #18
-  30:	222c      	movs	r2, #44	; 0x2c
-  32:	9300      	str	r3, [sp, #0]
-  34:	212b      	movs	r1, #43	; 0x2b
-  36:	3b01      	subs	r3, #1
-  38:	482d      	ldr	r0, [pc, #180]	; (f0 <rfInit+0xf0>)
-  3a:	4c2e      	ldr	r4, [pc, #184]	; (f4 <rfInit+0xf4>)
-  3c:	f7ff fffe 	bl	0 <spiConfig>
-  40:	202a      	movs	r0, #42	; 0x2a
-  42:	2103      	movs	r1, #3
-  44:	f7ff fffe 	bl	0 <pinConfig>
-  48:	f44f 6380 	mov.w	r3, #1024	; 0x400
-  4c:	6163      	str	r3, [r4, #20]
-  4e:	2029      	movs	r0, #41	; 0x29
-  50:	2118      	movs	r1, #24
-  52:	f44f 6500 	mov.w	r5, #2048	; 0x800
-  56:	f7ff fffe 	bl	0 <pinConfig>
-  5a:	2201      	movs	r2, #1
-  5c:	2303      	movs	r3, #3
-  5e:	2129      	movs	r1, #41	; 0x29
-  60:	4825      	ldr	r0, [pc, #148]	; (f8 <rfInit+0xf8>)
-  62:	f7ff fffe 	bl	0 <pinInterrupt>
-  66:	2124      	movs	r1, #36	; 0x24
+   2:	2312      	movs	r3, #18
+   4:	9300      	str	r3, [sp, #0]
+   6:	3b12      	subs	r3, #18
+   8:	222c      	movs	r2, #44	; 0x2c
+   a:	9301      	str	r3, [sp, #4]
+   c:	212b      	movs	r1, #43	; 0x2b
+   e:	3311      	adds	r3, #17
+  10:	482d      	ldr	r0, [pc, #180]	; (c8 <rfInit+0xc8>)
+  12:	4c2e      	ldr	r4, [pc, #184]	; (cc <rfInit+0xcc>)
+  14:	f7ff fffe 	bl	0 <spiConfig>
+  18:	202a      	movs	r0, #42	; 0x2a
+  1a:	2103      	movs	r1, #3
+  1c:	f7ff fffe 	bl	0 <pinConfig>
+  20:	f44f 6380 	mov.w	r3, #1024	; 0x400
+  24:	6163      	str	r3, [r4, #20]
+  26:	2029      	movs	r0, #41	; 0x29
+  28:	2118      	movs	r1, #24
+  2a:	f44f 6500 	mov.w	r5, #2048	; 0x800
+  2e:	f7ff fffe 	bl	0 <pinConfig>
+  32:	2201      	movs	r2, #1
+  34:	2303      	movs	r3, #3
+  36:	2129      	movs	r1, #41	; 0x29
+  38:	4825      	ldr	r0, [pc, #148]	; (d0 <rfInit+0xd0>)
+  3a:	f7ff fffe 	bl	0 <pinInterrupt>
+  3e:	6165      	str	r5, [r4, #20]
+  40:	2124      	movs	r1, #36	; 0x24
+  42:	4821      	ldr	r0, [pc, #132]	; (c8 <rfInit+0xc8>)
+  44:	f7ff fffe 	bl	0 <spiWriteByte>
+  48:	210f      	movs	r1, #15
+  4a:	481f      	ldr	r0, [pc, #124]	; (c8 <rfInit+0xc8>)
+  4c:	f7ff fffe 	bl	0 <spiWriteByte>
+  50:	6125      	str	r5, [r4, #16]
+  52:	2122      	movs	r1, #34	; 0x22
+  54:	6165      	str	r5, [r4, #20]
+  56:	481c      	ldr	r0, [pc, #112]	; (c8 <rfInit+0xc8>)
+  58:	f7ff fffe 	bl	0 <spiWriteByte>
+  5c:	2101      	movs	r1, #1
+  5e:	481a      	ldr	r0, [pc, #104]	; (c8 <rfInit+0xc8>)
+  60:	f7ff fffe 	bl	0 <spiWriteByte>
+  64:	6125      	str	r5, [r4, #16]
+  66:	213c      	movs	r1, #60	; 0x3c
   68:	6165      	str	r5, [r4, #20]
-  6a:	4821      	ldr	r0, [pc, #132]	; (f0 <rfInit+0xf0>)
+  6a:	4817      	ldr	r0, [pc, #92]	; (c8 <rfInit+0xc8>)
   6c:	f7ff fffe 	bl	0 <spiWriteByte>
-  70:	210f      	movs	r1, #15
-  72:	481f      	ldr	r0, [pc, #124]	; (f0 <rfInit+0xf0>)
+  70:	2101      	movs	r1, #1
+  72:	4815      	ldr	r0, [pc, #84]	; (c8 <rfInit+0xc8>)
   74:	f7ff fffe 	bl	0 <spiWriteByte>
   78:	6125      	str	r5, [r4, #16]
-  7a:	2122      	movs	r1, #34	; 0x22
+  7a:	213d      	movs	r1, #61	; 0x3d
   7c:	6165      	str	r5, [r4, #20]
-  7e:	481c      	ldr	r0, [pc, #112]	; (f0 <rfInit+0xf0>)
+  7e:	4812      	ldr	r0, [pc, #72]	; (c8 <rfInit+0xc8>)
   80:	f7ff fffe 	bl	0 <spiWriteByte>
-  84:	2101      	movs	r1, #1
-  86:	481a      	ldr	r0, [pc, #104]	; (f0 <rfInit+0xf0>)
+  84:	2104      	movs	r1, #4
+  86:	4810      	ldr	r0, [pc, #64]	; (c8 <rfInit+0xc8>)
   88:	f7ff fffe 	bl	0 <spiWriteByte>
   8c:	6125      	str	r5, [r4, #16]
-  8e:	213c      	movs	r1, #60	; 0x3c
+  8e:	480e      	ldr	r0, [pc, #56]	; (c8 <rfInit+0xc8>)
   90:	6165      	str	r5, [r4, #20]
-  92:	4817      	ldr	r0, [pc, #92]	; (f0 <rfInit+0xf0>)
+  92:	2121      	movs	r1, #33	; 0x21
   94:	f7ff fffe 	bl	0 <spiWriteByte>
   98:	2101      	movs	r1, #1
-  9a:	4815      	ldr	r0, [pc, #84]	; (f0 <rfInit+0xf0>)
+  9a:	480b      	ldr	r0, [pc, #44]	; (c8 <rfInit+0xc8>)
   9c:	f7ff fffe 	bl	0 <spiWriteByte>
   a0:	6125      	str	r5, [r4, #16]
-  a2:	213d      	movs	r1, #61	; 0x3d
-  a4:	6165      	str	r5, [r4, #20]
-  a6:	4812      	ldr	r0, [pc, #72]	; (f0 <rfInit+0xf0>)
-  a8:	f7ff fffe 	bl	0 <spiWriteByte>
-  ac:	4810      	ldr	r0, [pc, #64]	; (f0 <rfInit+0xf0>)
-  ae:	2104      	movs	r1, #4
-  b0:	f7ff fffe 	bl	0 <spiWriteByte>
-  b4:	6125      	str	r5, [r4, #16]
-  b6:	2121      	movs	r1, #33	; 0x21
-  b8:	6165      	str	r5, [r4, #20]
-  ba:	480d      	ldr	r0, [pc, #52]	; (f0 <rfInit+0xf0>)
-  bc:	f7ff fffe 	bl	0 <spiWriteByte>
-  c0:	2101      	movs	r1, #1
-  c2:	480b      	ldr	r0, [pc, #44]	; (f0 <rfInit+0xf0>)
-  c4:	f7ff fffe 	bl	0 <spiWriteByte>
-  c8:	6125      	str	r5, [r4, #16]
-  ca:	f7ff fffe 	bl	0 <rfInit>
-  ce:	f7ff fffe 	bl	0 <rfInit>
-  d2:	2010      	movs	r0, #16
-  d4:	4909      	ldr	r1, [pc, #36]	; (fc <rfInit+0xfc>)
-  d6:	f7ff fffe 	bl	0 <rfInit>
-  da:	200a      	movs	r0, #10
-  dc:	4907      	ldr	r1, [pc, #28]	; (fc <rfInit+0xfc>)
-  de:	f7ff fffe 	bl	0 <rfInit>
-  e2:	b003      	add	sp, #12
-  e4:	e8bd 4030 	ldmia.w	sp!, {r4, r5, lr}
-  e8:	f7ff bffe 	b.w	0 <rfInit>
-	...
-  f4:	40011000 	.word	0x40011000
+  a2:	4c0c      	ldr	r4, [pc, #48]	; (d4 <rfInit+0xd4>)
+  a4:	f7ff fffe 	bl	0 <rfInit>
+  a8:	f7ff fffe 	bl	0 <rfInit>
+  ac:	2010      	movs	r0, #16
+  ae:	4621      	mov	r1, r4
+  b0:	f7ff fffe 	bl	0 <rfInit>
+  b4:	200a      	movs	r0, #10
+  b6:	4621      	mov	r1, r4
+  b8:	f7ff fffe 	bl	0 <rfInit>
+  bc:	b003      	add	sp, #12
+  be:	e8bd 4030 	ldmia.w	sp!, {r4, r5, lr}
+  c2:	f7ff bffe 	b.w	0 <rfInit>
+  c6:	bf00      	nop
+  c8:	00000000 	.word	0x00000000
+  cc:	40011000 	.word	0x40011000
 	...

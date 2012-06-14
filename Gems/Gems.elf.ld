@@ -32,6 +32,7 @@ INPUT("C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\hih5030.o")
 INPUT("C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\at24hc02b.o")
 INPUT("C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\mcp443x.o")
 INPUT("C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\gasSensor.o")
+INPUT("C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_socket.o")
 GROUP(
 "std_sbrk_thumb.lib"
 "smallprintf_thumb.a"

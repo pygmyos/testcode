@@ -1,0 +1,4896 @@
+
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\gsm\pygmy_file.o:     file format elf32-littlearm
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\gsm\pygmy_file.o
+
+
+Disassembly of section .text.fileOpenResource:
+
+00000000 <fileOpenResource>:
+fileOpenResource():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:154
+    
+    return( 1 );
+}
+
+u8 fileOpenResource( PYGMYFILE *pygmyFile, u8 *ucResource )
+{
+   0:	4603      	mov	r3, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:162
+    /*ulLen = (u32)((u8)*(ucResource)) << 24;
+    ulLen |= (u32)((u8)*(ucResource+1)) << 16;
+    ulLen |= (u32)((u8)*(ucResource+2)) << 8;
+    ulLen |= (u32)((u8)*(ucResource+3));
+    */
+    pygmyFile->Length = (u32)((u8)*(ucResource)) << 24;
+   2:	780a      	ldrb	r2, [r1, #0]
+   4:	ea4f 6202 	mov.w	r2, r2, lsl #24
+   8:	6042      	str	r2, [r0, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:163
+    pygmyFile->Length |= (u32)((u8)*(ucResource+1)) << 16;
+   a:	7848      	ldrb	r0, [r1, #1]
+   c:	ea42 4200 	orr.w	r2, r2, r0, lsl #16
+  10:	605a      	str	r2, [r3, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:164
+    pygmyFile->Length |= (u32)((u8)*(ucResource+2)) << 8;
+  12:	7888      	ldrb	r0, [r1, #2]
+  14:	ea42 2200 	orr.w	r2, r2, r0, lsl #8
+  18:	605a      	str	r2, [r3, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:165
+    pygmyFile->Length |= (u32)((u8)*(ucResource+3));
+  1a:	78c8      	ldrb	r0, [r1, #3]
+  1c:	4302      	orrs	r2, r0
+  1e:	605a      	str	r2, [r3, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:166
+    pygmyFile->Resource = (u8*)(ucResource+4);
+  20:	f101 0104 	add.w	r1, r1, #4
+  24:	6159      	str	r1, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:167
+    pygmyFile->Name[ 0 ] = '\0';
+  26:	f04f 0200 	mov.w	r2, #0
+  2a:	761a      	strb	r2, [r3, #24]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:169
+    //pygmyFile->Length = ulLen;
+    pygmyFile->Index = 0;
+  2c:	609a      	str	r2, [r3, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:170
+    pygmyFile->Attributes = READ;
+  2e:	f04f 0001 	mov.w	r0, #1
+  32:	7418      	strb	r0, [r3, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:173
+
+    return( 1 );
+}
+  34:	4770      	bx	lr
+  36:	bf00      	nop
+
+Disassembly of section .text.fileCopyHandle:
+
+00000000 <fileCopyHandle>:
+fileCopyHandle():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:192
+    
+    return( 1 );
+}
+
+void fileCopyHandle( PYGMYFILE *pygmyFrom, PYGMYFILE *pygmyTo )
+{
+   0:	b508      	push	{r3, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:193
+    pygmyTo->Sector     = pygmyFrom->Sector;
+   2:	6803      	ldr	r3, [r0, #0]
+   4:	600b      	str	r3, [r1, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:194
+    pygmyTo->Length     = pygmyFrom->Length;
+   6:	6843      	ldr	r3, [r0, #4]
+   8:	604b      	str	r3, [r1, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:195
+    pygmyTo->Index      = pygmyFrom->Index;
+   a:	6883      	ldr	r3, [r0, #8]
+   c:	608b      	str	r3, [r1, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:196
+    pygmyTo->ID_Sector  = pygmyFrom->ID_Sector;
+   e:	8983      	ldrh	r3, [r0, #12]
+  10:	818b      	strh	r3, [r1, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:197
+    pygmyTo->ID_File    = pygmyFrom->ID_File;
+  12:	89c3      	ldrh	r3, [r0, #14]
+  14:	81cb      	strh	r3, [r1, #14]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:198
+    pygmyTo->Attributes = pygmyFrom->Attributes;
+  16:	7c03      	ldrb	r3, [r0, #16]
+  18:	740b      	strb	r3, [r1, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:199
+    pygmyTo->Resource   = pygmyFrom->Resource;
+  1a:	6943      	ldr	r3, [r0, #20]
+  1c:	614b      	str	r3, [r1, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:200
+    copyString( pygmyFrom->Name, pygmyTo->Name );
+  1e:	f100 0018 	add.w	r0, r0, #24
+  22:	f101 0118 	add.w	r1, r1, #24
+  26:	f7ff fffe 	bl	0 <copyString>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:201
+}
+  2a:	bd08      	pop	{r3, pc}
+
+Disassembly of section .text.fileGetPosition:
+
+00000000 <fileGetPosition>:
+fileGetPosition():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:206
+
+u32 fileGetPosition( PYGMYFILE *pygmyFile )
+{
+    return( pygmyFile->Index );
+}
+   0:	6880      	ldr	r0, [r0, #8]
+   2:	4770      	bx	lr
+
+Disassembly of section .text.fileSetPosition:
+
+00000000 <fileSetPosition>:
+fileSetPosition():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:210
+
+u8 fileSetPosition( PYGMYFILE *pygmyFile, u8 ucOrigin, s32 lIndex )
+{
+    if( ucOrigin == START ){ 
+   0:	2901      	cmp	r1, #1
+   2:	d108      	bne.n	16 <fileSetPosition+0x16>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:211
+        if( lIndex >= 0 && lIndex < pygmyFile->Length ){
+   4:	2a00      	cmp	r2, #0
+   6:	db1a      	blt.n	3e <fileSetPosition+0x3e>
+   8:	6843      	ldr	r3, [r0, #4]
+   a:	429a      	cmp	r2, r3
+   c:	d21a      	bcs.n	44 <fileSetPosition+0x44>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:212
+            pygmyFile->Index = lIndex;
+   e:	6082      	str	r2, [r0, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:213
+            return( 1 );
+  10:	f04f 0001 	mov.w	r0, #1
+  14:	4770      	bx	lr
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:215
+        } // if
+    } else if( ucOrigin == CURRENT ){
+  16:	2902      	cmp	r1, #2
+  18:	d108      	bne.n	2c <fileSetPosition+0x2c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:216
+        if( ( pygmyFile->Index + lIndex ) >= 0 && ( pygmyFile->Index + lIndex ) < pygmyFile->Length ){
+  1a:	6883      	ldr	r3, [r0, #8]
+  1c:	18d2      	adds	r2, r2, r3
+  1e:	6843      	ldr	r3, [r0, #4]
+  20:	429a      	cmp	r2, r3
+  22:	d212      	bcs.n	4a <fileSetPosition+0x4a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:217
+            pygmyFile->Index += lIndex;
+  24:	6082      	str	r2, [r0, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:218
+            return( 1 );
+  26:	f04f 0001 	mov.w	r0, #1
+  2a:	4770      	bx	lr
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:220
+        } // if
+    } else if( ucOrigin == END ){
+  2c:	2904      	cmp	r1, #4
+  2e:	d10f      	bne.n	50 <fileSetPosition+0x50>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:221
+        if( ( pygmyFile->Length + lIndex ) >= 0 && ( pygmyFile->Length + lIndex ) < pygmyFile->Length ){
+  30:	6843      	ldr	r3, [r0, #4]
+  32:	18d2      	adds	r2, r2, r3
+  34:	d30f      	bcc.n	56 <fileSetPosition+0x56>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:222
+                pygmyFile->Length += lIndex;
+  36:	6042      	str	r2, [r0, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:223
+            return( 1 );
+  38:	f04f 0001 	mov.w	r0, #1
+  3c:	4770      	bx	lr
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:227
+        } // if
+    } // else
+    
+    return( 0 );
+  3e:	f04f 0000 	mov.w	r0, #0
+  42:	4770      	bx	lr
+  44:	f04f 0000 	mov.w	r0, #0
+  48:	4770      	bx	lr
+  4a:	f04f 0000 	mov.w	r0, #0
+  4e:	4770      	bx	lr
+  50:	f04f 0000 	mov.w	r0, #0
+  54:	4770      	bx	lr
+  56:	f04f 0000 	mov.w	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:228
+}
+  5a:	4770      	bx	lr
+
+Disassembly of section .text.fileIsEOF:
+
+00000000 <fileIsEOF>:
+fileIsEOF():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:232
+
+u8 fileIsEOF( PYGMYFILE *pygmyFile )
+{
+    return( pygmyFile->Attributes & EOF );
+   0:	7c00      	ldrb	r0, [r0, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:233
+}
+   2:	f000 0080 	and.w	r0, r0, #128	; 0x80
+   6:	4770      	bx	lr
+
+Disassembly of section .text.fileIsRootFull:
+
+00000000 <fileIsRootFull>:
+fileIsRootFull():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:237
+
+u8 fileIsRootFull( void )
+{
+    return( pygmyRootVolume.Attributes & VOLUMEFULL );
+   0:	f240 0300 	movw	r3, #0
+   4:	f2c0 0300 	movt	r3, #0
+   8:	7b58      	ldrb	r0, [r3, #13]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:238
+}
+   a:	f000 0080 	and.w	r0, r0, #128	; 0x80
+   e:	4770      	bx	lr
+
+Disassembly of section .text.fileIsValidName:
+
+00000000 <fileIsValidName>:
+fileIsValidName():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:275
+
+    return( ulFreeSpace );
+}
+
+u8 fileIsValidName( u8 *ucName )
+{
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	4605      	mov	r5, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:280
+    u8 i;   
+
+    // alpha upper and lower allowed, 35-38 allowed, 45-57 allowed ( numeric plus - and . )
+    // 95 ( _ ) and 126 ( ~ ) also allowed 
+    for( i = 0; i < PYGMY_FILE_MAXFILENAMELEN+1 && ucName[ i ]; i++ ){    
+   4:	7800      	ldrb	r0, [r0, #0]
+   6:	b310      	cbz	r0, 4e <fileIsValidName+0x4e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:274
+    } // for
+
+    return( ulFreeSpace );
+}
+
+u8 fileIsValidName( u8 *ucName )
+   8:	f105 0401 	add.w	r4, r5, #1
+   c:	f105 060d 	add.w	r6, r5, #13
+  10:	e001      	b.n	16 <fileIsValidName+0x16>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:281
+    u8 i;   
+
+    // alpha upper and lower allowed, 35-38 allowed, 45-57 allowed ( numeric plus - and . )
+    // 95 ( _ ) and 126 ( ~ ) also allowed 
+    for( i = 0; i < PYGMY_FILE_MAXFILENAMELEN+1 && ucName[ i ]; i++ ){    
+        if( i == PYGMY_FILE_MAXFILENAMELEN || ( !isAlpha( ucName[ i ] ) && 
+  12:	42b4      	cmp	r4, r6
+  14:	d01e      	beq.n	54 <fileIsValidName+0x54>
+  16:	f7ff fffe 	bl	0 <isAlpha>
+  1a:	b970      	cbnz	r0, 3a <fileIsValidName+0x3a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:282
+            !( ucName[ i ] > 34 && ucName[ i ] < 39 ) && !( ucName[ i ] > 44 && ucName[ i ] < 58 ) &&
+  1c:	782b      	ldrb	r3, [r5, #0]
+  1e:	f1a3 0223 	sub.w	r2, r3, #35	; 0x23
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:281
+    u8 i;   
+
+    // alpha upper and lower allowed, 35-38 allowed, 45-57 allowed ( numeric plus - and . )
+    // 95 ( _ ) and 126 ( ~ ) also allowed 
+    for( i = 0; i < PYGMY_FILE_MAXFILENAMELEN+1 && ucName[ i ]; i++ ){    
+        if( i == PYGMY_FILE_MAXFILENAMELEN || ( !isAlpha( ucName[ i ] ) && 
+  22:	b2d2      	uxtb	r2, r2
+  24:	2a03      	cmp	r2, #3
+  26:	d908      	bls.n	3a <fileIsValidName+0x3a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:282
+            !( ucName[ i ] > 34 && ucName[ i ] < 39 ) && !( ucName[ i ] > 44 && ucName[ i ] < 58 ) &&
+  28:	f1a3 022d 	sub.w	r2, r3, #45	; 0x2d
+  2c:	b2d2      	uxtb	r2, r2
+  2e:	2a0c      	cmp	r2, #12
+  30:	d903      	bls.n	3a <fileIsValidName+0x3a>
+  32:	2b5f      	cmp	r3, #95	; 0x5f
+  34:	d001      	beq.n	3a <fileIsValidName+0x3a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:283
+            !(ucName[ i ] == 95 ) && !(ucName[ i ] == 126 ) ) ){
+  36:	2b7e      	cmp	r3, #126	; 0x7e
+  38:	d10f      	bne.n	5a <fileIsValidName+0x5a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:280
+{
+    u8 i;   
+
+    // alpha upper and lower allowed, 35-38 allowed, 45-57 allowed ( numeric plus - and . )
+    // 95 ( _ ) and 126 ( ~ ) also allowed 
+    for( i = 0; i < PYGMY_FILE_MAXFILENAMELEN+1 && ucName[ i ]; i++ ){    
+  3a:	42a6      	cmp	r6, r4
+  3c:	d010      	beq.n	60 <fileIsValidName+0x60>
+  3e:	4625      	mov	r5, r4
+  40:	f814 0b01 	ldrb.w	r0, [r4], #1
+  44:	2800      	cmp	r0, #0
+  46:	d1e4      	bne.n	12 <fileIsValidName+0x12>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:288
+            !(ucName[ i ] == 95 ) && !(ucName[ i ] == 126 ) ) ){
+            return( 0 );
+        } // if
+    } // for
+
+    return( 1 );
+  48:	f04f 0001 	mov.w	r0, #1
+  4c:	bd70      	pop	{r4, r5, r6, pc}
+  4e:	f04f 0001 	mov.w	r0, #1
+  52:	bd70      	pop	{r4, r5, r6, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:284
+    // 95 ( _ ) and 126 ( ~ ) also allowed 
+    for( i = 0; i < PYGMY_FILE_MAXFILENAMELEN+1 && ucName[ i ]; i++ ){    
+        if( i == PYGMY_FILE_MAXFILENAMELEN || ( !isAlpha( ucName[ i ] ) && 
+            !( ucName[ i ] > 34 && ucName[ i ] < 39 ) && !( ucName[ i ] > 44 && ucName[ i ] < 58 ) &&
+            !(ucName[ i ] == 95 ) && !(ucName[ i ] == 126 ) ) ){
+            return( 0 );
+  54:	f04f 0000 	mov.w	r0, #0
+  58:	bd70      	pop	{r4, r5, r6, pc}
+  5a:	f04f 0000 	mov.w	r0, #0
+  5e:	bd70      	pop	{r4, r5, r6, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:288
+        } // if
+    } // for
+
+    return( 1 );
+  60:	f04f 0001 	mov.w	r0, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:289
+}
+  64:	bd70      	pop	{r4, r5, r6, pc}
+  66:	bf00      	nop
+
+Disassembly of section .text.fileGetMaxFiles:
+
+00000000 <fileGetMaxFiles>:
+fileGetMaxFiles():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:603
+    return( ulFAT );
+}
+ 
+u16 fileGetMaxFiles( void )
+{
+    return( pygmyRootVolume.MaxFiles );
+   0:	f240 0300 	movw	r3, #0
+   4:	f2c0 0300 	movt	r3, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:604
+}
+   8:	8b98      	ldrh	r0, [r3, #28]
+   a:	4770      	bx	lr
+
+Disassembly of section .text.flashReadWord:
+
+00000000 <flashReadWord>:
+flashReadWord():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1233
+}
+
+#endif
+
+u16 flashReadWord( u32 ulAddress )
+{
+   0:	b508      	push	{r3, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1236
+    u16 uiWord;
+
+    ulAddress |=  0x03000000;
+   2:	f040 7140 	orr.w	r1, r0, #50331648	; 0x3000000
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1237
+    uiWord = spiGetWord( &pygmyFlashSPI, ulAddress );
+   6:	f240 0000 	movw	r0, #0
+   a:	f2c0 0000 	movt	r0, #0
+   e:	f7ff fffe 	bl	0 <spiGetWord>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1245
+    //    uiWord = (u16)spiReadByte( &pygmyFlashSPI ) << 8;
+    //uiWord |= (u16)spiReadByte( &pygmyFlashSPI );
+    //FLASH_CS_HIGH;
+    
+    return( uiWord );
+}
+  12:	b280      	uxth	r0, r0
+  14:	bd08      	pop	{r3, pc}
+  16:	bf00      	nop
+
+Disassembly of section .text.fileGetFAT:
+
+00000000 <fileGetFAT>:
+fileGetFAT():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:428
+
+    return( 0 );
+}
+
+u16 fileGetFAT( u16 uiID, u16 uiIndex )
+{
+   0:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
+   4:	4682      	mov	sl, r0
+   6:	4689      	mov	r9, r1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:432
+    u8 ucAlloc;
+    u16 i, uiTmpID, uiID_Sector;
+
+    for( i = 0; i < pygmyRootVolume.Sectors; i++ ){
+   8:	f240 0300 	movw	r3, #0
+   c:	f2c0 0300 	movt	r3, #0
+  10:	8b1b      	ldrh	r3, [r3, #24]
+  12:	b35b      	cbz	r3, 6c <fileGetFAT+0x6c>
+  14:	f04f 0400 	mov.w	r4, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:433
+        uiID_Sector = flashReadWord( pygmyRootVolume.ActiveFAT + ( i * 4 ) );
+  18:	f240 0500 	movw	r5, #0
+  1c:	f2c0 0500 	movt	r5, #0
+  20:	ea4f 0684 	mov.w	r6, r4, lsl #2
+  24:	6968      	ldr	r0, [r5, #20]
+  26:	1830      	adds	r0, r6, r0
+  28:	f7ff fffe 	bl	0 <fileGetFAT>
+  2c:	4607      	mov	r7, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:435
+        ucAlloc = uiID_Sector >> 14;
+        uiID_Sector <<= 2;
+  2e:	ea4f 0880 	mov.w	r8, r0, lsl #2
+  32:	fa1f f888 	uxth.w	r8, r8
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:438
+        uiID_Sector >>= 2; 
+        
+        uiTmpID = flashReadWord( pygmyRootVolume.ActiveFAT + ( i * 4 ) + 2 );
+  36:	6968      	ldr	r0, [r5, #20]
+  38:	f100 0002 	add.w	r0, r0, #2
+  3c:	1980      	adds	r0, r0, r6
+  3e:	f7ff fffe 	bl	0 <fileGetFAT>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:439
+        if(  ucAlloc == 0x01 && uiID_Sector == uiIndex && uiID == uiTmpID ){
+  42:	f3c7 3787 	ubfx	r7, r7, #14, #8
+  46:	ebb9 0f98 	cmp.w	r9, r8, lsr #2
+  4a:	bf14      	ite	ne
+  4c:	2300      	movne	r3, #0
+  4e:	2301      	moveq	r3, #1
+  50:	2f01      	cmp	r7, #1
+  52:	bf14      	ite	ne
+  54:	2700      	movne	r7, #0
+  56:	f003 0701 	andeq.w	r7, r3, #1
+  5a:	b10f      	cbz	r7, 60 <fileGetFAT+0x60>
+  5c:	4582      	cmp	sl, r0
+  5e:	d00f      	beq.n	80 <fileGetFAT+0x80>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:432
+u16 fileGetFAT( u16 uiID, u16 uiIndex )
+{
+    u8 ucAlloc;
+    u16 i, uiTmpID, uiID_Sector;
+
+    for( i = 0; i < pygmyRootVolume.Sectors; i++ ){
+  60:	f104 0401 	add.w	r4, r4, #1
+  64:	b2a4      	uxth	r4, r4
+  66:	8b2b      	ldrh	r3, [r5, #24]
+  68:	42a3      	cmp	r3, r4
+  6a:	d8d9      	bhi.n	20 <fileGetFAT+0x20>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:444
+        if(  ucAlloc == 0x01 && uiID_Sector == uiIndex && uiID == uiTmpID ){
+            return( i );
+        } // if
+    } // for
+    #ifndef __PYGMY_BOOT
+        pygmyRootVolume.Attributes |= VOLUMEERROR;
+  6c:	f240 0300 	movw	r3, #0
+  70:	f2c0 0300 	movt	r3, #0
+  74:	7b5a      	ldrb	r2, [r3, #13]
+  76:	f042 0240 	orr.w	r2, r2, #64	; 0x40
+  7a:	735a      	strb	r2, [r3, #13]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:446
+    #endif // __PYGMY_BOOT
+    return( 0xFFFF ); // 0xFFFF indicates error
+  7c:	f64f 74ff 	movw	r4, #65535	; 0xffff
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:447
+}
+  80:	4620      	mov	r0, r4
+  82:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+  86:	bf00      	nop
+
+Disassembly of section .text.fileGetChar:
+
+00000000 <fileGetChar>:
+fileGetChar():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:921
+
+    return( flashReadByte( ulAddress ) );
+}
+#else
+u8 fileGetChar( PYGMYFILE *pygmyFile )
+{
+   0:	b538      	push	{r3, r4, r5, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:928
+    static PYGMYFILE *pygmyFilePtr;
+    static u32 ulIndex;
+    u32 i, ulAddress;
+    static u8 ucIndex, ucChar, ucBuffer[ PYGMY_FILE_BUFLEN ];
+
+    if( pygmyFile != pygmyFilePtr || ulIndex != pygmyFile->Index ){
+   2:	f240 0300 	movw	r3, #0
+   6:	f2c0 0300 	movt	r3, #0
+   a:	681b      	ldr	r3, [r3, #0]
+   c:	4298      	cmp	r0, r3
+   e:	d107      	bne.n	20 <fileGetChar+0x20>
+  10:	f240 0300 	movw	r3, #0
+  14:	f2c0 0300 	movt	r3, #0
+  18:	6882      	ldr	r2, [r0, #8]
+  1a:	685b      	ldr	r3, [r3, #4]
+  1c:	429a      	cmp	r2, r3
+  1e:	d007      	beq.n	30 <fileGetChar+0x30>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:929
+        pygmyFilePtr = pygmyFile;
+  20:	f240 0300 	movw	r3, #0
+  24:	f2c0 0300 	movt	r3, #0
+  28:	6018      	str	r0, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:930
+        ucIndex = PYGMY_FILE_BUFLEN;
+  2a:	f04f 0280 	mov.w	r2, #128	; 0x80
+  2e:	721a      	strb	r2, [r3, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:933
+    } // if
+    
+    if( pygmyFilePtr->Index >= pygmyFilePtr->Length ){
+  30:	f240 0300 	movw	r3, #0
+  34:	f2c0 0300 	movt	r3, #0
+  38:	681b      	ldr	r3, [r3, #0]
+  3a:	689a      	ldr	r2, [r3, #8]
+  3c:	6859      	ldr	r1, [r3, #4]
+  3e:	428a      	cmp	r2, r1
+  40:	d306      	bcc.n	50 <fileGetChar+0x50>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:934
+        pygmyFilePtr->Attributes |= EOF;
+  42:	7c1a      	ldrb	r2, [r3, #16]
+  44:	f062 027f 	orn	r2, r2, #127	; 0x7f
+  48:	741a      	strb	r2, [r3, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:935
+        return( 0 );
+  4a:	f04f 0000 	mov.w	r0, #0
+  4e:	bd38      	pop	{r3, r4, r5, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:937
+    } // if
+    if( pygmyFilePtr->Resource ){ // If resource use index to return value
+  50:	6959      	ldr	r1, [r3, #20]
+  52:	b149      	cbz	r1, 68 <fileGetChar+0x68>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:938
+        ucChar = pygmyFilePtr->Resource[ pygmyFilePtr->Index++ ];
+  54:	5c88      	ldrb	r0, [r1, r2]
+  56:	f240 0100 	movw	r1, #0
+  5a:	f2c0 0100 	movt	r1, #0
+  5e:	7248      	strb	r0, [r1, #9]
+  60:	f102 0201 	add.w	r2, r2, #1
+  64:	609a      	str	r2, [r3, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:939
+        return( ucChar );
+  66:	bd38      	pop	{r3, r4, r5, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:940
+    } else if( ucIndex == PYGMY_FILE_BUFLEN || !( (( pygmyFilePtr->Index + 128 ) ) % pygmyRootVolume.SectorSize ) ){
+  68:	f240 0100 	movw	r1, #0
+  6c:	f2c0 0100 	movt	r1, #0
+  70:	7a09      	ldrb	r1, [r1, #8]
+  72:	2980      	cmp	r1, #128	; 0x80
+  74:	d00c      	beq.n	90 <fileGetChar+0x90>
+  76:	f102 0080 	add.w	r0, r2, #128	; 0x80
+  7a:	f240 0100 	movw	r1, #0
+  7e:	f2c0 0100 	movt	r1, #0
+  82:	8b49      	ldrh	r1, [r1, #26]
+  84:	fbb0 f4f1 	udiv	r4, r0, r1
+  88:	fb01 0114 	mls	r1, r1, r4, r0
+  8c:	2900      	cmp	r1, #0
+  8e:	d161      	bne.n	154 <fileGetChar+0x154>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:941
+        ucIndex = 0;
+  90:	f240 0100 	movw	r1, #0
+  94:	f2c0 0100 	movt	r1, #0
+  98:	f04f 0000 	mov.w	r0, #0
+  9c:	7208      	strb	r0, [r1, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:942
+        if( !( (( pygmyFilePtr->Index + 128 ) ) % pygmyRootVolume.SectorSize ) ) {
+  9e:	f102 0280 	add.w	r2, r2, #128	; 0x80
+  a2:	f240 0100 	movw	r1, #0
+  a6:	f2c0 0100 	movt	r1, #0
+  aa:	8b49      	ldrh	r1, [r1, #26]
+  ac:	fbb2 f0f1 	udiv	r0, r2, r1
+  b0:	fb01 2210 	mls	r2, r1, r0, r2
+  b4:	bb4a      	cbnz	r2, 10a <fileGetChar+0x10a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:944
+            
+            i = fileGetFAT( pygmyFilePtr->ID_File, pygmyFilePtr->ID_Sector+1 );
+  b6:	8999      	ldrh	r1, [r3, #12]
+  b8:	f101 0101 	add.w	r1, r1, #1
+  bc:	89d8      	ldrh	r0, [r3, #14]
+  be:	b289      	uxth	r1, r1
+  c0:	f7ff fffe 	bl	0 <fileGetChar>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:945
+            if( i == 0xFFFF ){
+  c4:	f64f 73ff 	movw	r3, #65535	; 0xffff
+  c8:	4298      	cmp	r0, r3
+  ca:	d10b      	bne.n	e4 <fileGetChar+0xe4>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:946
+                pygmyFilePtr->Attributes |= EOF;
+  cc:	f240 0300 	movw	r3, #0
+  d0:	f2c0 0300 	movt	r3, #0
+  d4:	681b      	ldr	r3, [r3, #0]
+  d6:	7c1a      	ldrb	r2, [r3, #16]
+  d8:	f062 027f 	orn	r2, r2, #127	; 0x7f
+  dc:	741a      	strb	r2, [r3, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:947
+                return( 0 ); 
+  de:	f04f 0000 	mov.w	r0, #0
+  e2:	bd38      	pop	{r3, r4, r5, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:949
+            } // if
+            pygmyFilePtr->Sector = i + ( pygmyRootVolume.FirstFileSector / pygmyRootVolume.SectorSize );
+  e4:	f240 0300 	movw	r3, #0
+  e8:	f2c0 0300 	movt	r3, #0
+  ec:	681a      	ldr	r2, [r3, #0]
+  ee:	f240 0300 	movw	r3, #0
+  f2:	f2c0 0300 	movt	r3, #0
+  f6:	8b59      	ldrh	r1, [r3, #26]
+  f8:	6adb      	ldr	r3, [r3, #44]	; 0x2c
+  fa:	fbb3 f3f1 	udiv	r3, r3, r1
+  fe:	18c0      	adds	r0, r0, r3
+ 100:	6010      	str	r0, [r2, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:950
+            ++pygmyFilePtr->ID_Sector;    
+ 102:	8993      	ldrh	r3, [r2, #12]
+ 104:	f103 0301 	add.w	r3, r3, #1
+ 108:	8193      	strh	r3, [r2, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:953
+        } // if
+    
+        ulAddress = ( pygmyFilePtr->Sector * pygmyRootVolume.SectorSize ) + ((( pygmyFilePtr->Index + 128 ) ) % pygmyRootVolume.SectorSize ) ;
+ 10a:	f240 0400 	movw	r4, #0
+ 10e:	f2c0 0400 	movt	r4, #0
+ 112:	4622      	mov	r2, r4
+ 114:	f852 0b0c 	ldr.w	r0, [r2], #12
+ 118:	f240 0300 	movw	r3, #0
+ 11c:	f2c0 0300 	movt	r3, #0
+ 120:	8b5b      	ldrh	r3, [r3, #26]
+ 122:	6881      	ldr	r1, [r0, #8]
+ 124:	f101 0180 	add.w	r1, r1, #128	; 0x80
+ 128:	fbb1 f5f3 	udiv	r5, r1, r3
+ 12c:	fb03 1115 	mls	r1, r3, r5, r1
+ 130:	6800      	ldr	r0, [r0, #0]
+ 132:	fb00 1103 	mla	r1, r0, r3, r1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:956
+        
+        ulAddress = ulAddress | 0x03000000;
+        spiGetBuffer( &pygmyFlashSPI, ulAddress, ucBuffer, PYGMY_FILE_BUFLEN );
+ 136:	f240 0000 	movw	r0, #0
+ 13a:	f2c0 0000 	movt	r0, #0
+ 13e:	f041 7140 	orr.w	r1, r1, #50331648	; 0x3000000
+ 142:	f04f 0380 	mov.w	r3, #128	; 0x80
+ 146:	f7ff fffe 	bl	0 <spiGetBuffer>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:965
+        //    ucBuffer[ i ] = spiReadByte( &pygmyFlashSPI );
+        //} // for   
+        //FLASH_CS_HIGH;
+    } // if
+      
+    if( pygmyFilePtr->Index < pygmyFilePtr->Length ){
+ 14a:	6823      	ldr	r3, [r4, #0]
+ 14c:	689a      	ldr	r2, [r3, #8]
+ 14e:	6859      	ldr	r1, [r3, #4]
+ 150:	428a      	cmp	r2, r1
+ 152:	d207      	bcs.n	164 <fileGetChar+0x164>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:966
+        ++pygmyFilePtr->Index;
+ 154:	f102 0201 	add.w	r2, r2, #1
+ 158:	609a      	str	r2, [r3, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:967
+        ulIndex = pygmyFilePtr->Index;
+ 15a:	f240 0300 	movw	r3, #0
+ 15e:	f2c0 0300 	movt	r3, #0
+ 162:	605a      	str	r2, [r3, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:970
+    } // if
+    
+    return( ucBuffer[ ucIndex++ ] );
+ 164:	f240 0300 	movw	r3, #0
+ 168:	f2c0 0300 	movt	r3, #0
+ 16c:	7a1a      	ldrb	r2, [r3, #8]
+ 16e:	1899      	adds	r1, r3, r2
+ 170:	7b08      	ldrb	r0, [r1, #12]
+ 172:	f102 0201 	add.w	r2, r2, #1
+ 176:	721a      	strb	r2, [r3, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:971
+}
+ 178:	bd38      	pop	{r3, r4, r5, pc}
+ 17a:	bf00      	nop
+
+Disassembly of section .text.fileGetLong:
+
+00000000 <fileGetLong>:
+fileGetLong():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:874
+
+    return( uiData );
+}
+
+u32 fileGetLong( PYGMYFILE *pygmyFile, u8 ucEndian )
+{
+   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+   2:	4604      	mov	r4, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:877
+    u32 ulData;
+
+    if( ucEndian == BIGENDIAN ){
+   4:	2901      	cmp	r1, #1
+   6:	d115      	bne.n	34 <fileGetLong+0x34>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:878
+        ulData = (u32)fileGetChar( pygmyFile ) << 24;
+   8:	f7ff fffe 	bl	0 <fileGetLong>
+   c:	ea4f 6600 	mov.w	r6, r0, lsl #24
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:879
+        ulData |= (u32)fileGetChar( pygmyFile ) << 16;
+  10:	4620      	mov	r0, r4
+  12:	f7ff fffe 	bl	0 <fileGetLong>
+  16:	4605      	mov	r5, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:880
+        ulData |= (u32)fileGetChar( pygmyFile ) << 8;
+  18:	4620      	mov	r0, r4
+  1a:	f7ff fffe 	bl	0 <fileGetLong>
+  1e:	4607      	mov	r7, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:881
+        ulData |= (u32)fileGetChar( pygmyFile ); 
+  20:	4620      	mov	r0, r4
+  22:	f7ff fffe 	bl	0 <fileGetLong>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:879
+{
+    u32 ulData;
+
+    if( ucEndian == BIGENDIAN ){
+        ulData = (u32)fileGetChar( pygmyFile ) << 24;
+        ulData |= (u32)fileGetChar( pygmyFile ) << 16;
+  26:	ea46 4505 	orr.w	r5, r6, r5, lsl #16
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:880
+        ulData |= (u32)fileGetChar( pygmyFile ) << 8;
+  2a:	ea45 0000 	orr.w	r0, r5, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:881
+        ulData |= (u32)fileGetChar( pygmyFile ); 
+  2e:	ea40 2007 	orr.w	r0, r0, r7, lsl #8
+  32:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:883
+    } else{
+        ulData = (u32)fileGetChar( pygmyFile );
+  34:	f7ff fffe 	bl	0 <fileGetLong>
+  38:	4606      	mov	r6, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:884
+        ulData |= (u32)fileGetChar( pygmyFile ) << 8;
+  3a:	4620      	mov	r0, r4
+  3c:	f7ff fffe 	bl	0 <fileGetLong>
+  40:	4605      	mov	r5, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:885
+        ulData |= (u32)fileGetChar( pygmyFile ) << 16;
+  42:	4620      	mov	r0, r4
+  44:	f7ff fffe 	bl	0 <fileGetLong>
+  48:	ea4f 4000 	mov.w	r0, r0, lsl #16
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:884
+        ulData |= (u32)fileGetChar( pygmyFile ) << 16;
+        ulData |= (u32)fileGetChar( pygmyFile ) << 8;
+        ulData |= (u32)fileGetChar( pygmyFile ); 
+    } else{
+        ulData = (u32)fileGetChar( pygmyFile );
+        ulData |= (u32)fileGetChar( pygmyFile ) << 8;
+  4c:	ea40 2505 	orr.w	r5, r0, r5, lsl #8
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:885
+        ulData |= (u32)fileGetChar( pygmyFile ) << 16;
+  50:	ea45 0606 	orr.w	r6, r5, r6
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:886
+        ulData |= (u32)fileGetChar( pygmyFile ) << 24;
+  54:	4620      	mov	r0, r4
+  56:	f7ff fffe 	bl	0 <fileGetLong>
+  5a:	ea46 6000 	orr.w	r0, r6, r0, lsl #24
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:890
+    } // else
+
+    return( ulData );
+}
+  5e:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+
+Disassembly of section .text.fileGetWord:
+
+00000000 <fileGetWord>:
+fileGetWord():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:858
+
+    return( i );
+}
+
+u16 fileGetWord( PYGMYFILE *pygmyFile, u8 ucEndian )
+{
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	4604      	mov	r4, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:862
+    u16 uiData;
+    u8 i;
+
+    if( ucEndian == BIGENDIAN ){
+   4:	2901      	cmp	r1, #1
+   6:	d10b      	bne.n	20 <fileGetWord+0x20>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:863
+        uiData = (u16)fileGetChar( pygmyFile ) << 8;
+   8:	f7ff fffe 	bl	0 <fileGetWord>
+   c:	ea4f 2000 	mov.w	r0, r0, lsl #8
+  10:	b285      	uxth	r5, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:864
+        uiData |= (u16)fileGetChar( pygmyFile );
+  12:	4620      	mov	r0, r4
+  14:	f7ff fffe 	bl	0 <fileGetWord>
+  18:	ea45 0000 	orr.w	r0, r5, r0
+  1c:	b280      	uxth	r0, r0
+  1e:	bd38      	pop	{r3, r4, r5, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:866
+    } else {
+        uiData = (u16)fileGetChar( pygmyFile );
+  20:	f7ff fffe 	bl	0 <fileGetWord>
+  24:	4605      	mov	r5, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:867
+        uiData |= (u16)fileGetChar( pygmyFile ) << 8;
+  26:	4620      	mov	r0, r4
+  28:	f7ff fffe 	bl	0 <fileGetWord>
+  2c:	ea45 2000 	orr.w	r0, r5, r0, lsl #8
+  30:	b280      	uxth	r0, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:871
+    } // else
+
+    return( uiData );
+}
+  32:	bd38      	pop	{r3, r4, r5, pc}
+
+Disassembly of section .text.fileGetBuffer:
+
+00000000 <fileGetBuffer>:
+fileGetBuffer():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:844
+        filePutChar( pygmyFile, (u8)((u32) ulData >> 24 ) );
+    } // else
+}
+
+u16 fileGetBuffer( PYGMYFILE *pygmyFile, u16 uiLen, u8 *ucBuffer )
+{
+   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+   2:	4605      	mov	r5, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:847
+    u16 i;
+
+    for( i = 0; i < uiLen; i++ ){
+   4:	460f      	mov	r7, r1
+   6:	f04f 0400 	mov.w	r4, #0
+   a:	b181      	cbz	r1, 2e <fileGetBuffer+0x2e>
+   c:	4616      	mov	r6, r2
+   e:	f04f 0400 	mov.w	r4, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:848
+        ucBuffer[ i ] = fileGetChar( pygmyFile );
+  12:	4628      	mov	r0, r5
+  14:	f7ff fffe 	bl	0 <fileGetBuffer>
+  18:	f806 0b01 	strb.w	r0, [r6], #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:849
+        if( fileIsEOF( pygmyFile ) ){
+  1c:	4628      	mov	r0, r5
+  1e:	f7ff fffe 	bl	0 <fileGetBuffer>
+  22:	b920      	cbnz	r0, 2e <fileGetBuffer+0x2e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:847
+
+u16 fileGetBuffer( PYGMYFILE *pygmyFile, u16 uiLen, u8 *ucBuffer )
+{
+    u16 i;
+
+    for( i = 0; i < uiLen; i++ ){
+  24:	f104 0401 	add.w	r4, r4, #1
+  28:	b2a4      	uxth	r4, r4
+  2a:	42a7      	cmp	r7, r4
+  2c:	d8f1      	bhi.n	12 <fileGetBuffer+0x12>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:855
+            return( i );
+        } // if
+    } // for
+
+    return( i );
+}
+  2e:	4620      	mov	r0, r4
+  30:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+  32:	bf00      	nop
+
+Disassembly of section .text.flashReadLong:
+
+00000000 <flashReadLong>:
+flashReadLong():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1248
+    
+    return( uiWord );
+}
+
+u32 flashReadLong( u32 ulAddress )
+{
+   0:	b508      	push	{r3, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1251
+    u32 ulLong;
+
+    ulAddress |= 0x03000000;
+   2:	f040 7140 	orr.w	r1, r0, #50331648	; 0x3000000
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1252
+    ulLong = spiGetLong( &pygmyFlashSPI, ulAddress );
+   6:	f240 0000 	movw	r0, #0
+   a:	f2c0 0000 	movt	r0, #0
+   e:	f7ff fffe 	bl	0 <spiGetLong>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1262
+    ulLong |= (u32)spiReadByte( &pygmyFlashSPI ) << 8;
+    ulLong |= (u32)spiReadByte( &pygmyFlashSPI );
+    FLASH_CS_HIGH;*/
+
+    return( ulLong );
+}
+  12:	bd08      	pop	{r3, pc}
+
+Disassembly of section .text.fileGetLength:
+
+00000000 <fileGetLength>:
+fileGetLength():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:742
+    
+    return( 0 );
+}
+
+u32 fileGetLength( u32 ulID_File )
+{
+   0:	b538      	push	{r3, r4, r5, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:745
+    u32 i, ulLen, ulAddress;
+
+    ulAddress = fileGetFAT( ulID_File, 1 ); // This returns sector index, not address
+   2:	b280      	uxth	r0, r0
+   4:	f04f 0101 	mov.w	r1, #1
+   8:	f7ff fffe 	bl	0 <fileGetLength>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:746
+    if( ulAddress == 0xFFFF ){
+   c:	f64f 73ff 	movw	r3, #65535	; 0xffff
+  10:	4298      	cmp	r0, r3
+  12:	d018      	beq.n	46 <fileGetLength+0x46>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:753
+    } // if
+    // Sector index retrieved from FAT is 0 based, add index to first file sector and mult by
+    // sector size to get address
+    //ulAddress += ( pygmyRootVolume.FirstFileSector / pygmyRootVolume.SectorSize );
+    //ulAddress *= pygmyRootVolume.SectorSize;
+    ulAddress = pygmyRootVolume.FirstFileSector + ( ulAddress * pygmyRootVolume.SectorSize );
+  14:	f240 0300 	movw	r3, #0
+  18:	f2c0 0300 	movt	r3, #0
+  1c:	8b5d      	ldrh	r5, [r3, #26]
+  1e:	6adb      	ldr	r3, [r3, #44]	; 0x2c
+  20:	fb05 3500 	mla	r5, r5, r0, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:754
+    for( i = 0; i < 128; ){
+  24:	f04f 0400 	mov.w	r4, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:755
+        ulLen = flashReadLong( ulAddress + i );
+  28:	1960      	adds	r0, r4, r5
+  2a:	f7ff fffe 	bl	0 <fileGetLength>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:757
+        i += 4;
+        if( ulLen != 0x00000000 && ulLen != 0xFFFFFFFF ){
+  2e:	f100 33ff 	add.w	r3, r0, #4294967295
+  32:	f113 0f03 	cmn.w	r3, #3
+  36:	d908      	bls.n	4a <fileGetLength+0x4a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:756
+    //ulAddress += ( pygmyRootVolume.FirstFileSector / pygmyRootVolume.SectorSize );
+    //ulAddress *= pygmyRootVolume.SectorSize;
+    ulAddress = pygmyRootVolume.FirstFileSector + ( ulAddress * pygmyRootVolume.SectorSize );
+    for( i = 0; i < 128; ){
+        ulLen = flashReadLong( ulAddress + i );
+        i += 4;
+  38:	f104 0404 	add.w	r4, r4, #4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:754
+    // Sector index retrieved from FAT is 0 based, add index to first file sector and mult by
+    // sector size to get address
+    //ulAddress += ( pygmyRootVolume.FirstFileSector / pygmyRootVolume.SectorSize );
+    //ulAddress *= pygmyRootVolume.SectorSize;
+    ulAddress = pygmyRootVolume.FirstFileSector + ( ulAddress * pygmyRootVolume.SectorSize );
+    for( i = 0; i < 128; ){
+  3c:	2c80      	cmp	r4, #128	; 0x80
+  3e:	d1f3      	bne.n	28 <fileGetLength+0x28>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:762
+        if( ulLen != 0x00000000 && ulLen != 0xFFFFFFFF ){
+            return( ulLen );
+        } // if
+    } // for
+
+    return( 0 ); 
+  40:	f04f 0000 	mov.w	r0, #0
+  44:	bd38      	pop	{r3, r4, r5, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:747
+{
+    u32 i, ulLen, ulAddress;
+
+    ulAddress = fileGetFAT( ulID_File, 1 ); // This returns sector index, not address
+    if( ulAddress == 0xFFFF ){
+        return( 0 );
+  46:	f04f 0000 	mov.w	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:763
+            return( ulLen );
+        } // if
+    } // for
+
+    return( 0 ); 
+}
+  4a:	bd38      	pop	{r3, r4, r5, pc}
+
+Disassembly of section .text.flashReadByte:
+
+00000000 <flashReadByte>:
+flashReadByte():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1265
+
+    return( ulLong );
+}
+
+u8 flashReadByte( u32 ulAddress )
+{
+   0:	b508      	push	{r3, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1268
+    u8 ucByte;
+    
+    ulAddress |= 0x03000000;
+   2:	f040 7140 	orr.w	r1, r0, #50331648	; 0x3000000
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1269
+    ucByte = spiGetChar( &pygmyFlashSPI, ulAddress );
+   6:	f240 0000 	movw	r0, #0
+   a:	f2c0 0000 	movt	r0, #0
+   e:	f7ff fffe 	bl	0 <spiGetChar>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1276
+    //spiWriteLong( &pygmyFlashSPI, ulAddress );
+    //    ucByte = spiReadByte( &pygmyFlashSPI );
+    //FLASH_CS_HIGH;
+        
+        return( ucByte );    
+}
+  12:	bd08      	pop	{r3, pc}
+
+Disassembly of section .text.fileGetActiveFiles:
+
+00000000 <fileGetActiveFiles>:
+fileGetActiveFiles():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:529
+
+    return( pygmyRootVolume.FAT_A );
+}
+
+u32 fileGetActiveFiles( void )
+{
+   0:	b508      	push	{r3, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:530
+    if( flashReadByte( PYGMY_FILE_FILES_A ) ){
+   2:	f04f 0000 	mov.w	r0, #0
+   6:	f7ff fffe 	bl	0 <fileGetActiveFiles>
+   a:	b9c0      	cbnz	r0, 70 <.LC7>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:533
+        return( PYGMY_FILE_FILES_A );
+    } // if
+    if( flashReadByte( pygmyRootVolume.Files_B ) ){
+   c:	f240 0300 	movw	r3, #0
+  10:	f2c0 0300 	movt	r3, #0
+  14:	6b18      	ldr	r0, [r3, #48]	; 0x30
+  16:	f7ff fffe 	bl	0 <fileGetActiveFiles>
+  1a:	b128      	cbz	r0, 4a <.LC4+0xe>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:534
+        return( pygmyRootVolume.Files_B );
+  1c:	f240 0300 	movw	r3, #0
+  20:	f2c0 0300 	movt	r3, #0
+  24:	6b18      	ldr	r0, [r3, #48]	; 0x30
+  26:	bd08      	pop	{r3, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:537
+    } // if
+    #ifndef __PYGMY_BOOT
+        pygmyRootVolume.Attributes |= VOLUMEERROR;
+  28:	f240 0300 	movw	r3, #0
+  2c:	f2c0 0300 	movt	r3, #0
+  30:	7b5a      	ldrb	r2, [r3, #13]
+  32:	f042 0240 	orr.w	r2, r2, #64	; 0x40
+  36:	735a      	strb	r2, [r3, #13]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:540
+    #endif // __PYGMY_BOOT
+    
+    return( 0xFFFFFFFF ); // both Files tables inactive means memory failure
+  38:	f04f 30ff 	mov.w	r0, #4294967295
+  3c:	bd08      	pop	{r3, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:531
+}
+
+u32 fileGetActiveFiles( void )
+{
+    if( flashReadByte( PYGMY_FILE_FILES_A ) ){
+        return( PYGMY_FILE_FILES_A );
+  3e:	f04f 0000 	mov.w	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:541
+    #ifndef __PYGMY_BOOT
+        pygmyRootVolume.Attributes |= VOLUMEERROR;
+    #endif // __PYGMY_BOOT
+    
+    return( 0xFFFFFFFF ); // both Files tables inactive means memory failure
+}
+  42:	bd08      	pop	{r3, pc}
+
+Disassembly of section .text.fileGetFreeSpace:
+
+00000000 <fileGetFreeSpace>:
+fileGetFreeSpace():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:256
+    
+    return( ucName );
+}
+
+u32 fileGetFreeSpace( void )
+{
+   0:	b570      	push	{r4, r5, r6, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:262
+    u32 ulFreeSpace;
+    u16 i;
+    u8 ucByte;
+
+    // Count unallocated and erased tags
+    for( i = 0, ulFreeSpace = 0; i < pygmyRootVolume.Sectors; i++ ){
+   2:	f240 0300 	movw	r3, #0
+   6:	f2c0 0300 	movt	r3, #0
+   a:	8b1b      	ldrh	r3, [r3, #24]
+   c:	f04f 0600 	mov.w	r6, #0
+  10:	b1bb      	cbz	r3, 42 <fileGetFreeSpace+0x42>
+  12:	f04f 0400 	mov.w	r4, #0
+  16:	4626      	mov	r6, r4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:263
+        ucByte = flashReadByte( pygmyRootVolume.ActiveFAT + ( i * 4 ) );
+  18:	f240 0500 	movw	r5, #0
+  1c:	f2c0 0500 	movt	r5, #0
+  20:	6968      	ldr	r0, [r5, #20]
+  22:	eb00 0084 	add.w	r0, r0, r4, lsl #2
+  26:	f7ff fffe 	bl	0 <fileGetFreeSpace>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:266
+        ucByte >>= 6;
+        //if( !ucByte || ucByte == 0xFF ){
+        if( ucByte != 1 ){ // Updated for 2 bit allocation
+  2a:	f3c0 1087 	ubfx	r0, r0, #6, #8
+  2e:	2801      	cmp	r0, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:267
+            ulFreeSpace += pygmyRootVolume.SectorSize;
+  30:	bf1c      	itt	ne
+  32:	8b6b      	ldrhne	r3, [r5, #26]
+  34:	18f6      	addne	r6, r6, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:262
+    u32 ulFreeSpace;
+    u16 i;
+    u8 ucByte;
+
+    // Count unallocated and erased tags
+    for( i = 0, ulFreeSpace = 0; i < pygmyRootVolume.Sectors; i++ ){
+  36:	f104 0401 	add.w	r4, r4, #1
+  3a:	b2a4      	uxth	r4, r4
+  3c:	8b2b      	ldrh	r3, [r5, #24]
+  3e:	42a3      	cmp	r3, r4
+  40:	d8ee      	bhi.n	20 <fileGetFreeSpace+0x20>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:272
+            ulFreeSpace += pygmyRootVolume.SectorSize;
+        } // if
+    } // for
+
+    return( ulFreeSpace );
+}
+  42:	4630      	mov	r0, r6
+  44:	bd70      	pop	{r4, r5, r6, pc}
+  46:	bf00      	nop
+
+Disassembly of section .text.fileGetVolumeName:
+
+00000000 <fileGetVolumeName>:
+fileGetVolumeName():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:241
+{
+    return( pygmyRootVolume.Attributes & VOLUMEFULL );
+}
+
+u8 *fileGetVolumeName( u8 *ucName )
+{
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	4606      	mov	r6, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:244
+    u8 i, ucByte;
+
+    for( i = 0, ucName[ 0 ] = 0; i < 13; i++ ){
+   4:	f04f 0400 	mov.w	r4, #0
+   8:	7004      	strb	r4, [r0, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:245
+        ucByte = flashReadByte( pygmyRootVolume.ActiveFiles + i );
+   a:	f240 0500 	movw	r5, #0
+   e:	f2c0 0500 	movt	r5, #0
+  12:	6928      	ldr	r0, [r5, #16]
+  14:	1820      	adds	r0, r4, r0
+  16:	f7ff fffe 	bl	0 <fileGetVolumeName>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:246
+        ucName[ i ] = ucByte;
+  1a:	5530      	strb	r0, [r6, r4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:247
+        if( !ucByte ){
+  1c:	b118      	cbz	r0, 26 <fileGetVolumeName+0x26>
+  1e:	f104 0401 	add.w	r4, r4, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:244
+
+u8 *fileGetVolumeName( u8 *ucName )
+{
+    u8 i, ucByte;
+
+    for( i = 0, ucName[ 0 ] = 0; i < 13; i++ ){
+  22:	2c0d      	cmp	r4, #13
+  24:	d1f5      	bne.n	12 <fileGetVolumeName+0x12>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:253
+            break;
+        } // if
+    } // for
+    
+    return( ucName );
+}
+  26:	4630      	mov	r0, r6
+  28:	bd70      	pop	{r4, r5, r6, pc}
+  2a:	bf00      	nop
+
+Disassembly of section .text.flashReadBuffer:
+
+00000000 <flashReadBuffer>:
+flashReadBuffer():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1279
+        
+        return( ucByte );    
+}
+
+void flashReadBuffer( u32 ulAddress, u8 *ucBuffer, u16 uiLen )
+{
+   0:	b510      	push	{r4, lr}
+   2:	460c      	mov	r4, r1
+   4:	4613      	mov	r3, r2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1282
+    //u16 i;
+
+    ulAddress = ulAddress | 0x03000000;
+   6:	f040 7140 	orr.w	r1, r0, #50331648	; 0x3000000
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1283
+    spiGetBuffer( &pygmyFlashSPI, ulAddress, ucBuffer, uiLen );
+   a:	f240 0000 	movw	r0, #0
+   e:	f2c0 0000 	movt	r0, #0
+  12:	4622      	mov	r2, r4
+  14:	f7ff fffe 	bl	0 <spiGetBuffer>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1290
+    //spiWriteLong( &pygmyFlashSPI, ulAddress );
+    //for( i = 0; i < uiLen; i++ ){
+    //    ucBuffer[ i ] = spiReadByte( &pygmyFlashSPI );
+    //} // for
+    //FLASH_CS_HIGH;   
+}
+  18:	bd10      	pop	{r4, pc}
+  1a:	bf00      	nop
+
+Disassembly of section .text.filePrintDebug:
+
+00000000 <filePrintDebug>:
+filePrintDebug():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1036
+    //print( ucStream, "\rFree:           %d\r", fileGetFreeSpace() );
+    print( ucStream, "\r%8d Free", fileGetFreeSpace() );
+}
+
+void filePrintDebug( u8 ucStream )
+{
+   0:	e92d 43f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, lr}
+   4:	b08b      	sub	sp, #44	; 0x2c
+   6:	4680      	mov	r8, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1038
+    u32 i, ulA, ulB;
+    u8 ucBuffer1[ 16 ], ucBuffer2[ 16 ], ucTerm[] = { 0xFF, 0x00 };
+   8:	f04f 03ff 	mov.w	r3, #255	; 0xff
+   c:	f88d 3004 	strb.w	r3, [sp, #4]
+  10:	f04f 0300 	mov.w	r3, #0
+  14:	f88d 3005 	strb.w	r3, [sp, #5]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1040
+
+    print( ucStream, "\rRoot:" );
+  18:	f240 0100 	movw	r1, #0
+  1c:	f2c0 0100 	movt	r1, #0
+  20:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1041
+    print( ucStream, "\r\tAttrib: 0x%2X", pygmyRootVolume.Attributes );
+  24:	f240 0400 	movw	r4, #0
+  28:	f2c0 0400 	movt	r4, #0
+  2c:	4640      	mov	r0, r8
+  2e:	f240 0100 	movw	r1, #0
+  32:	f2c0 0100 	movt	r1, #0
+  36:	7b62      	ldrb	r2, [r4, #13]
+  38:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1042
+    print( ucStream, "\r\tSectors: %d", pygmyRootVolume.Sectors );
+  3c:	4640      	mov	r0, r8
+  3e:	f240 0100 	movw	r1, #0
+  42:	f2c0 0100 	movt	r1, #0
+  46:	8b22      	ldrh	r2, [r4, #24]
+  48:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1043
+    print( ucStream, "\r\tSectorSize: %d", pygmyRootVolume.SectorSize );
+  4c:	4640      	mov	r0, r8
+  4e:	f240 0100 	movw	r1, #0
+  52:	f2c0 0100 	movt	r1, #0
+  56:	8b62      	ldrh	r2, [r4, #26]
+  58:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1044
+    print( ucStream, "\r\tMaxFiles: %d", pygmyRootVolume.MaxFiles );
+  5c:	4640      	mov	r0, r8
+  5e:	f240 0100 	movw	r1, #0
+  62:	f2c0 0100 	movt	r1, #0
+  66:	69e2      	ldr	r2, [r4, #28]
+  68:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1045
+    print( ucStream, "\r\tMediaSize: %d", pygmyRootVolume.MediaSize );
+  6c:	4640      	mov	r0, r8
+  6e:	f240 0100 	movw	r1, #0
+  72:	f2c0 0100 	movt	r1, #0
+  76:	6a22      	ldr	r2, [r4, #32]
+  78:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1046
+    print( ucStream, "\r\tEntriesPerFAT: %d", pygmyRootVolume.EntriesPerFAT );
+  7c:	4640      	mov	r0, r8
+  7e:	f240 0100 	movw	r1, #0
+  82:	f2c0 0100 	movt	r1, #0
+  86:	8ca2      	ldrh	r2, [r4, #36]	; 0x24
+  88:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1047
+    print( ucStream, "\r\tFilesSectors: %d", pygmyRootVolume.FilesSectors );
+  8c:	4640      	mov	r0, r8
+  8e:	f240 0100 	movw	r1, #0
+  92:	f2c0 0100 	movt	r1, #0
+  96:	8ce2      	ldrh	r2, [r4, #38]	; 0x26
+  98:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1048
+    print( ucStream, "\r\tFATSectors: %d", pygmyRootVolume.FATSectors );
+  9c:	4640      	mov	r0, r8
+  9e:	f240 0100 	movw	r1, #0
+  a2:	f2c0 0100 	movt	r1, #0
+  a6:	8d22      	ldrh	r2, [r4, #40]	; 0x28
+  a8:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1049
+    print( ucStream, "\r\tFirstFileSector: %d", pygmyRootVolume.FirstFileSector );
+  ac:	4640      	mov	r0, r8
+  ae:	f240 0100 	movw	r1, #0
+  b2:	f2c0 0100 	movt	r1, #0
+  b6:	6ae2      	ldr	r2, [r4, #44]	; 0x2c
+  b8:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1050
+    print( ucStream, "\r\tFAT_A: %d", pygmyRootVolume.FAT_A );
+  bc:	4640      	mov	r0, r8
+  be:	f240 0100 	movw	r1, #0
+  c2:	f2c0 0100 	movt	r1, #0
+  c6:	6b62      	ldr	r2, [r4, #52]	; 0x34
+  c8:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1051
+    print( ucStream, "\r\tFAT_B: %d", pygmyRootVolume.FAT_B );
+  cc:	4640      	mov	r0, r8
+  ce:	f240 0100 	movw	r1, #0
+  d2:	f2c0 0100 	movt	r1, #0
+  d6:	6ba2      	ldr	r2, [r4, #56]	; 0x38
+  d8:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1052
+    print( ucStream, "\r\tActiveFAT: %d", pygmyRootVolume.ActiveFAT );
+  dc:	4640      	mov	r0, r8
+  de:	f240 0100 	movw	r1, #0
+  e2:	f2c0 0100 	movt	r1, #0
+  e6:	6962      	ldr	r2, [r4, #20]
+  e8:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1053
+    print( ucStream, "\r\tActiveFiles: %d", pygmyRootVolume.ActiveFiles );
+  ec:	4640      	mov	r0, r8
+  ee:	f240 0100 	movw	r1, #0
+  f2:	f2c0 0100 	movt	r1, #0
+  f6:	6922      	ldr	r2, [r4, #16]
+  f8:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1055
+
+    print( ucStream, "\r\rFAT_A         FAT_B" );
+  fc:	4640      	mov	r0, r8
+  fe:	f240 0100 	movw	r1, #0
+ 102:	f2c0 0100 	movt	r1, #0
+ 106:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1056
+    for( i = 0; i < ( pygmyRootVolume.EntriesPerFAT * pygmyRootVolume.FATSectors ); i++ ){
+ 10a:	8d23      	ldrh	r3, [r4, #40]	; 0x28
+ 10c:	8ca2      	ldrh	r2, [r4, #36]	; 0x24
+ 10e:	fb02 f303 	mul.w	r3, r2, r3
+ 112:	b373      	cbz	r3, 172 <filePrintDebug+0x172>
+ 114:	f04f 0500 	mov.w	r5, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1057
+        ulA = flashReadLong( pygmyRootVolume.FAT_A + ( i * 4 ) );
+ 118:	f240 0400 	movw	r4, #0
+ 11c:	f2c0 0400 	movt	r4, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1062
+        ulB = flashReadLong( pygmyRootVolume.FAT_B + ( i * 4 ) );
+        if( ulA == 0xFFFFFFFF && ulB == 0xFFFFFFFF ){
+            continue;
+        } // if
+        print( ucStream, "\r0x%8X    0x%8X", ulA, ulB);
+ 120:	f240 0900 	movw	r9, #0
+ 124:	f2c0 0900 	movt	r9, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1056
+    print( ucStream, "\r\tFAT_B: %d", pygmyRootVolume.FAT_B );
+    print( ucStream, "\r\tActiveFAT: %d", pygmyRootVolume.ActiveFAT );
+    print( ucStream, "\r\tActiveFiles: %d", pygmyRootVolume.ActiveFiles );
+
+    print( ucStream, "\r\rFAT_A         FAT_B" );
+    for( i = 0; i < ( pygmyRootVolume.EntriesPerFAT * pygmyRootVolume.FATSectors ); i++ ){
+ 128:	ea4f 0685 	mov.w	r6, r5, lsl #2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1057
+        ulA = flashReadLong( pygmyRootVolume.FAT_A + ( i * 4 ) );
+ 12c:	6b60      	ldr	r0, [r4, #52]	; 0x34
+ 12e:	1830      	adds	r0, r6, r0
+ 130:	f7ff fffe 	bl	0 <filePrintDebug>
+ 134:	4607      	mov	r7, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1058
+        ulB = flashReadLong( pygmyRootVolume.FAT_B + ( i * 4 ) );
+ 136:	6ba0      	ldr	r0, [r4, #56]	; 0x38
+ 138:	1830      	adds	r0, r6, r0
+ 13a:	f7ff fffe 	bl	0 <filePrintDebug>
+ 13e:	4603      	mov	r3, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1059
+        if( ulA == 0xFFFFFFFF && ulB == 0xFFFFFFFF ){
+ 140:	f1b0 3fff 	cmp.w	r0, #4294967295
+ 144:	bf14      	ite	ne
+ 146:	2200      	movne	r2, #0
+ 148:	2201      	moveq	r2, #1
+ 14a:	f1b7 3fff 	cmp.w	r7, #4294967295
+ 14e:	bf14      	ite	ne
+ 150:	2200      	movne	r2, #0
+ 152:	f002 0201 	andeq.w	r2, r2, #1
+ 156:	b922      	cbnz	r2, 162 <filePrintDebug+0x162>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1062
+            continue;
+        } // if
+        print( ucStream, "\r0x%8X    0x%8X", ulA, ulB);
+ 158:	4640      	mov	r0, r8
+ 15a:	4649      	mov	r1, r9
+ 15c:	463a      	mov	r2, r7
+ 15e:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1056
+    print( ucStream, "\r\tFAT_B: %d", pygmyRootVolume.FAT_B );
+    print( ucStream, "\r\tActiveFAT: %d", pygmyRootVolume.ActiveFAT );
+    print( ucStream, "\r\tActiveFiles: %d", pygmyRootVolume.ActiveFiles );
+
+    print( ucStream, "\r\rFAT_A         FAT_B" );
+    for( i = 0; i < ( pygmyRootVolume.EntriesPerFAT * pygmyRootVolume.FATSectors ); i++ ){
+ 162:	f105 0501 	add.w	r5, r5, #1
+ 166:	8d23      	ldrh	r3, [r4, #40]	; 0x28
+ 168:	8ca2      	ldrh	r2, [r4, #36]	; 0x24
+ 16a:	fb02 f303 	mul.w	r3, r2, r3
+ 16e:	42ab      	cmp	r3, r5
+ 170:	d8da      	bhi.n	128 <filePrintDebug+0x128>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1064
+        if( ulA == 0xFFFFFFFF && ulB == 0xFFFFFFFF ){
+            continue;
+        } // if
+        print( ucStream, "\r0x%8X    0x%8X", ulA, ulB);
+    } // for
+    PYGMY_WATCHDOG_REFRESH;
+ 172:	f44f 5340 	mov.w	r3, #12288	; 0x3000
+ 176:	f2c4 0300 	movt	r3, #16384	; 0x4000
+ 17a:	f64a 22aa 	movw	r2, #43690	; 0xaaaa
+ 17e:	601a      	str	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1065
+    print( ucStream, "\r\rFiles_A               Files_B" );
+ 180:	4640      	mov	r0, r8
+ 182:	f240 0100 	movw	r1, #0
+ 186:	f2c0 0100 	movt	r1, #0
+ 18a:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1066
+    for( i = 4; i < pygmyRootVolume.MaxFiles+4; i++ ){
+ 18e:	f240 0300 	movw	r3, #0
+ 192:	f2c0 0300 	movt	r3, #0
+ 196:	69db      	ldr	r3, [r3, #28]
+ 198:	f103 0304 	add.w	r3, r3, #4
+ 19c:	2b04      	cmp	r3, #4
+ 19e:	d95f      	bls.n	260 <filePrintDebug+0x260>
+ 1a0:	f04f 0404 	mov.w	r4, #4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1068
+        flashReadBuffer( i * 16, ucBuffer1, 16 );
+        flashReadBuffer( pygmyRootVolume.Files_B + ( i * 16 ), ucBuffer2, 16 );
+ 1a4:	f240 0500 	movw	r5, #0
+ 1a8:	f2c0 0500 	movt	r5, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1071
+        
+        if( !ucBuffer1[ 0 ] ){
+            copyString( "DELETED", ucBuffer1 );
+ 1ac:	f240 0700 	movw	r7, #0
+ 1b0:	f2c0 0700 	movt	r7, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1075
+        } // if
+        
+        if( ucBuffer1[ 0 ] == 0xFF ){
+            copyString( "EMPTY", ucBuffer1 );
+ 1b4:	f240 0900 	movw	r9, #0
+ 1b8:	f2c0 0900 	movt	r9, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1066
+        } // if
+        print( ucStream, "\r0x%8X    0x%8X", ulA, ulB);
+    } // for
+    PYGMY_WATCHDOG_REFRESH;
+    print( ucStream, "\r\rFiles_A               Files_B" );
+    for( i = 4; i < pygmyRootVolume.MaxFiles+4; i++ ){
+ 1bc:	ea4f 1604 	mov.w	r6, r4, lsl #4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1067
+        flashReadBuffer( i * 16, ucBuffer1, 16 );
+ 1c0:	4630      	mov	r0, r6
+ 1c2:	a906      	add	r1, sp, #24
+ 1c4:	f04f 0210 	mov.w	r2, #16
+ 1c8:	f7ff fffe 	bl	0 <filePrintDebug>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1068
+        flashReadBuffer( pygmyRootVolume.Files_B + ( i * 16 ), ucBuffer2, 16 );
+ 1cc:	6b28      	ldr	r0, [r5, #48]	; 0x30
+ 1ce:	1830      	adds	r0, r6, r0
+ 1d0:	a902      	add	r1, sp, #8
+ 1d2:	f04f 0210 	mov.w	r2, #16
+ 1d6:	f7ff fffe 	bl	0 <filePrintDebug>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1070
+        
+        if( !ucBuffer1[ 0 ] ){
+ 1da:	f89d 3018 	ldrb.w	r3, [sp, #24]
+ 1de:	b91b      	cbnz	r3, 1e8 <filePrintDebug+0x1e8>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1071
+            copyString( "DELETED", ucBuffer1 );
+ 1e0:	4638      	mov	r0, r7
+ 1e2:	a906      	add	r1, sp, #24
+ 1e4:	f7ff fffe 	bl	0 <copyString>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1074
+        } // if
+        
+        if( ucBuffer1[ 0 ] == 0xFF ){
+ 1e8:	f89d 3018 	ldrb.w	r3, [sp, #24]
+ 1ec:	2bff      	cmp	r3, #255	; 0xff
+ 1ee:	d104      	bne.n	1fa <filePrintDebug+0x1fa>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1075
+            copyString( "EMPTY", ucBuffer1 );
+ 1f0:	4648      	mov	r0, r9
+ 1f2:	a906      	add	r1, sp, #24
+ 1f4:	f7ff fffe 	bl	0 <copyString>
+ 1f8:	e005      	b.n	206 <filePrintDebug+0x206>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1077
+        } else{
+            replaceChars( ucBuffer1, ucTerm, 0x00 );
+ 1fa:	a806      	add	r0, sp, #24
+ 1fc:	a901      	add	r1, sp, #4
+ 1fe:	f04f 0200 	mov.w	r2, #0
+ 202:	f7ff fffe 	bl	0 <replaceChars>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1079
+        } // else
+        if( !ucBuffer2[ 0 ] ){
+ 206:	f89d 3008 	ldrb.w	r3, [sp, #8]
+ 20a:	b91b      	cbnz	r3, 214 <filePrintDebug+0x214>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1080
+            copyString( "DELETED", ucBuffer1 );
+ 20c:	4638      	mov	r0, r7
+ 20e:	a906      	add	r1, sp, #24
+ 210:	f7ff fffe 	bl	0 <copyString>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1083
+        } // if
+        
+        if( ucBuffer2[ 0 ] == 0xFF ){
+ 214:	f89d 3008 	ldrb.w	r3, [sp, #8]
+ 218:	2bff      	cmp	r3, #255	; 0xff
+ 21a:	d104      	bne.n	226 <filePrintDebug+0x226>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1084
+            copyString( "EMPTY", ucBuffer2 );
+ 21c:	4648      	mov	r0, r9
+ 21e:	a902      	add	r1, sp, #8
+ 220:	f7ff fffe 	bl	0 <copyString>
+ 224:	e005      	b.n	232 <filePrintDebug+0x232>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1086
+        } else{
+            replaceChars( ucBuffer2, ucTerm, 0x00 );
+ 226:	a802      	add	r0, sp, #8
+ 228:	a901      	add	r1, sp, #4
+ 22a:	f04f 0200 	mov.w	r2, #0
+ 22e:	f7ff fffe 	bl	0 <replaceChars>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1088
+        } // else
+        print( ucStream, "\r%10s %10s", ucBuffer1, ucBuffer2 );
+ 232:	4640      	mov	r0, r8
+ 234:	f240 0100 	movw	r1, #0
+ 238:	f2c0 0100 	movt	r1, #0
+ 23c:	aa06      	add	r2, sp, #24
+ 23e:	ab02      	add	r3, sp, #8
+ 240:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1089
+        PYGMY_WATCHDOG_REFRESH;
+ 244:	f44f 5340 	mov.w	r3, #12288	; 0x3000
+ 248:	f2c4 0300 	movt	r3, #16384	; 0x4000
+ 24c:	f64a 22aa 	movw	r2, #43690	; 0xaaaa
+ 250:	601a      	str	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1066
+        } // if
+        print( ucStream, "\r0x%8X    0x%8X", ulA, ulB);
+    } // for
+    PYGMY_WATCHDOG_REFRESH;
+    print( ucStream, "\r\rFiles_A               Files_B" );
+    for( i = 4; i < pygmyRootVolume.MaxFiles+4; i++ ){
+ 252:	f104 0401 	add.w	r4, r4, #1
+ 256:	69eb      	ldr	r3, [r5, #28]
+ 258:	f103 0304 	add.w	r3, r3, #4
+ 25c:	42a3      	cmp	r3, r4
+ 25e:	d8ad      	bhi.n	1bc <filePrintDebug+0x1bc>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1091
+            replaceChars( ucBuffer2, ucTerm, 0x00 );
+        } // else
+        print( ucStream, "\r%10s %10s", ucBuffer1, ucBuffer2 );
+        PYGMY_WATCHDOG_REFRESH;
+    } // for
+}
+ 260:	b00b      	add	sp, #44	; 0x2c
+ 262:	e8bd 83f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, pc}
+ 266:	bf00      	nop
+
+Disassembly of section .text.filePrintList:
+
+00000000 <filePrintList>:
+filePrintList():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1012
+    return( 1 );
+}
+
+#ifdef __PYGMYSTREAMS
+void filePrintList( u8 ucStream )
+{
+   0:	b5f0      	push	{r4, r5, r6, r7, lr}
+   2:	b085      	sub	sp, #20
+   4:	4607      	mov	r7, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1016
+    u16 i, ii, uiLen, uiID;
+    u8 ucName[ 16 ];
+
+    for( i = 0; i < pygmyRootVolume.MaxFiles; i++ ){
+   6:	f240 0300 	movw	r3, #0
+   a:	f2c0 0300 	movt	r3, #0
+   e:	69db      	ldr	r3, [r3, #28]
+  10:	2b00      	cmp	r3, #0
+  12:	d03a      	beq.n	8a <filePrintList+0x8a>
+  14:	f04f 0400 	mov.w	r4, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1017
+        flashReadBuffer( pygmyRootVolume.ActiveFiles + ( ( i + 4 ) * 16 ), ucName, 16 );
+  18:	f240 0500 	movw	r5, #0
+  1c:	f2c0 0500 	movt	r5, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1028
+            //uiLen = 16 - len( ucName );
+            //for( ii = 0; ii < uiLen; ii++ ){
+            //    print( ucStream, " " );
+            //} // for
+            //print( ucStream, "%d", fileGetLength( uiID ) );
+            print( ucStream, "\r%8d %s", fileGetLength( uiID ), ucName ); 
+  20:	f240 0600 	movw	r6, #0
+  24:	f2c0 0600 	movt	r6, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1017
+{
+    u16 i, ii, uiLen, uiID;
+    u8 ucName[ 16 ];
+
+    for( i = 0; i < pygmyRootVolume.MaxFiles; i++ ){
+        flashReadBuffer( pygmyRootVolume.ActiveFiles + ( ( i + 4 ) * 16 ), ucName, 16 );
+  28:	f104 0004 	add.w	r0, r4, #4
+  2c:	692b      	ldr	r3, [r5, #16]
+  2e:	eb03 1000 	add.w	r0, r3, r0, lsl #4
+  32:	4669      	mov	r1, sp
+  34:	f04f 0210 	mov.w	r2, #16
+  38:	f7ff fffe 	bl	0 <filePrintList>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1018
+        PYGMY_WATCHDOG_REFRESH;
+  3c:	f44f 5340 	mov.w	r3, #12288	; 0x3000
+  40:	f2c4 0300 	movt	r3, #16384	; 0x4000
+  44:	f64a 22aa 	movw	r2, #43690	; 0xaaaa
+  48:	601a      	str	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1019
+        if( ucName[ 0 ] && ucName[ 0 ] != 0xFF && !(ucName[ 13 ] & (HIDDEN|BURIED) ) ){
+  4a:	f89d 3000 	ldrb.w	r3, [sp]
+  4e:	f103 33ff 	add.w	r3, r3, #4294967295
+  52:	b2db      	uxtb	r3, r3
+  54:	2bfd      	cmp	r3, #253	; 0xfd
+  56:	d812      	bhi.n	7e <filePrintList+0x7e>
+  58:	f89d 300d 	ldrb.w	r3, [sp, #13]
+  5c:	f013 0f48 	tst.w	r3, #72	; 0x48
+  60:	d10d      	bne.n	7e <filePrintList+0x7e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1021
+            uiID = ucName[ 14 ];
+            uiID = ( uiID << 8 ) | ucName[ 15 ]; //fileGetName( i+4, ucName );
+  62:	f89d 000e 	ldrb.w	r0, [sp, #14]
+  66:	f89d 300f 	ldrb.w	r3, [sp, #15]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1028
+            //uiLen = 16 - len( ucName );
+            //for( ii = 0; ii < uiLen; ii++ ){
+            //    print( ucStream, " " );
+            //} // for
+            //print( ucStream, "%d", fileGetLength( uiID ) );
+            print( ucStream, "\r%8d %s", fileGetLength( uiID ), ucName ); 
+  6a:	ea43 2000 	orr.w	r0, r3, r0, lsl #8
+  6e:	f7ff fffe 	bl	0 <filePrintList>
+  72:	4602      	mov	r2, r0
+  74:	4638      	mov	r0, r7
+  76:	4631      	mov	r1, r6
+  78:	466b      	mov	r3, sp
+  7a:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1016
+void filePrintList( u8 ucStream )
+{
+    u16 i, ii, uiLen, uiID;
+    u8 ucName[ 16 ];
+
+    for( i = 0; i < pygmyRootVolume.MaxFiles; i++ ){
+  7e:	f104 0401 	add.w	r4, r4, #1
+  82:	b2a4      	uxth	r4, r4
+  84:	69eb      	ldr	r3, [r5, #28]
+  86:	429c      	cmp	r4, r3
+  88:	d3ce      	bcc.n	28 <filePrintList+0x28>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1032
+            //print( ucStream, "%d", fileGetLength( uiID ) );
+            print( ucStream, "\r%8d %s", fileGetLength( uiID ), ucName ); 
+        } // if
+    } // for
+    //print( ucStream, "\rFree:           %d\r", fileGetFreeSpace() );
+    print( ucStream, "\r%8d Free", fileGetFreeSpace() );
+  8a:	f7ff fffe 	bl	0 <filePrintList>
+  8e:	4602      	mov	r2, r0
+  90:	4638      	mov	r0, r7
+  92:	f240 0100 	movw	r1, #0
+  96:	f2c0 0100 	movt	r1, #0
+  9a:	f7ff fffe 	bl	0 <print>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1033
+}
+  9e:	b005      	add	sp, #20
+  a0:	bdf0      	pop	{r4, r5, r6, r7, pc}
+  a2:	bf00      	nop
+
+Disassembly of section .text.fileSeekName:
+
+00000000 <fileSeekName>:
+fileSeekName():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:652
+    // return the ID of the file to use to load length
+    return( uiID );//flashReadWord( ulAddress + 14 ) );
+}
+
+u16 fileSeekName( u8 *ucName )
+{
+   0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+   4:	b084      	sub	sp, #16
+   6:	4607      	mov	r7, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:656
+    u32 i, ii;
+    u8 ucBuffer[ 13 ];
+    
+    for( i = 0; i < pygmyRootVolume.MaxFiles; i++ ){
+   8:	f240 0300 	movw	r3, #0
+   c:	f2c0 0300 	movt	r3, #0
+  10:	69db      	ldr	r3, [r3, #28]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:671
+        if( isStringSame( ucName, ucBuffer ) ){
+            return( 4 + i );
+        } // if
+    } // for
+
+    return( 0 );
+  12:	f04f 0000 	mov.w	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:656
+u16 fileSeekName( u8 *ucName )
+{
+    u32 i, ii;
+    u8 ucBuffer[ 13 ];
+    
+    for( i = 0; i < pygmyRootVolume.MaxFiles; i++ ){
+  16:	b30b      	cbz	r3, 5c <fileSeekName+0x5c>
+  18:	f04f 0440 	mov.w	r4, #64	; 0x40
+  1c:	f04f 0600 	mov.w	r6, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:665
+                ucBuffer[ ii ] = '\0';
+                break;
+            } // if
+        } // for
+        */
+        flashReadBuffer( pygmyRootVolume.ActiveFiles + ( ( i + 4 ) * 16 ), ucBuffer, 13 );
+  20:	f240 0500 	movw	r5, #0
+  24:	f2c0 0500 	movt	r5, #0
+  28:	f04f 080d 	mov.w	r8, #13
+  2c:	6928      	ldr	r0, [r5, #16]
+  2e:	1820      	adds	r0, r4, r0
+  30:	4669      	mov	r1, sp
+  32:	4642      	mov	r2, r8
+  34:	f7ff fffe 	bl	0 <fileSeekName>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:666
+        if( isStringSame( ucName, ucBuffer ) ){
+  38:	4638      	mov	r0, r7
+  3a:	4669      	mov	r1, sp
+  3c:	f7ff fffe 	bl	0 <isStringSame>
+  40:	b118      	cbz	r0, 4a <fileSeekName+0x4a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:667
+            return( 4 + i );
+  42:	f106 0004 	add.w	r0, r6, #4
+  46:	b280      	uxth	r0, r0
+  48:	e008      	b.n	5c <fileSeekName+0x5c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:656
+u16 fileSeekName( u8 *ucName )
+{
+    u32 i, ii;
+    u8 ucBuffer[ 13 ];
+    
+    for( i = 0; i < pygmyRootVolume.MaxFiles; i++ ){
+  4a:	f106 0601 	add.w	r6, r6, #1
+  4e:	f104 0410 	add.w	r4, r4, #16
+  52:	69eb      	ldr	r3, [r5, #28]
+  54:	42b3      	cmp	r3, r6
+  56:	d8e9      	bhi.n	2c <fileSeekName+0x2c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:671
+        if( isStringSame( ucName, ucBuffer ) ){
+            return( 4 + i );
+        } // if
+    } // for
+
+    return( 0 );
+  58:	f04f 0000 	mov.w	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:672
+}
+  5c:	b004      	add	sp, #16
+  5e:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  62:	bf00      	nop
+
+Disassembly of section .text.fileGetName:
+
+00000000 <fileGetName>:
+fileGetName():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:607
+{
+    return( pygmyRootVolume.MaxFiles );
+}
+
+u16 fileGetName( u16 uiFileEntry, u8 *ucName )
+{
+   0:	b5f0      	push	{r4, r5, r6, r7, lr}
+   2:	b085      	sub	sp, #20
+   4:	460c      	mov	r4, r1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:614
+    // listing information
+    u32 ulAddress;
+    u16 uiID;
+    u8 i, ucBuffer[ 16 ];
+
+    if( uiFileEntry > pygmyRootVolume.MaxFiles ){
+   6:	f240 0300 	movw	r3, #0
+   a:	f2c0 0300 	movt	r3, #0
+   e:	69db      	ldr	r3, [r3, #28]
+  10:	4298      	cmp	r0, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:615
+        return( 0 );
+  12:	bf88      	it	hi
+  14:	2000      	movhi	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:614
+    // listing information
+    u32 ulAddress;
+    u16 uiID;
+    u8 i, ucBuffer[ 16 ];
+
+    if( uiFileEntry > pygmyRootVolume.MaxFiles ){
+  16:	d82f      	bhi.n	78 <fileGetName+0x78>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:618
+        return( 0 );
+    } // if
+    
+    flashReadBuffer( pygmyRootVolume.ActiveFiles + ( uiFileEntry * 16 ), ucBuffer, 16 );
+  18:	f240 0300 	movw	r3, #0
+  1c:	f2c0 0300 	movt	r3, #0
+  20:	691b      	ldr	r3, [r3, #16]
+  22:	eb03 1000 	add.w	r0, r3, r0, lsl #4
+  26:	4669      	mov	r1, sp
+  28:	f04f 0210 	mov.w	r2, #16
+  2c:	f7ff fffe 	bl	0 <fileGetName>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:619
+    uiID = ucBuffer[ 14 ];
+  30:	f89d 000e 	ldrb.w	r0, [sp, #14]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:620
+    uiID = uiID << 8 | ucBuffer[ 15 ];
+  34:	f89d 700f 	ldrb.w	r7, [sp, #15]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:623
+    
+    for( i = 0; i < 12; i++ ){
+        if( !ucBuffer[ i ] || ucBuffer[ i ] == 0xFF ){
+  38:	f89d 3000 	ldrb.w	r3, [sp]
+  3c:	f103 32ff 	add.w	r2, r3, #4294967295
+  40:	b2d2      	uxtb	r2, r2
+  42:	2afd      	cmp	r2, #253	; 0xfd
+  44:	d91e      	bls.n	84 <fileGetName+0x84>
+  46:	e019      	b.n	7c <fileGetName+0x7c>
+  48:	f811 2f01 	ldrb.w	r2, [r1, #1]!
+  4c:	f102 36ff 	add.w	r6, r2, #4294967295
+  50:	b2f6      	uxtb	r6, r6
+  52:	2efd      	cmp	r6, #253	; 0xfd
+  54:	d807      	bhi.n	66 <fileGetName+0x66>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:626
+            break;
+        } else{
+            ucName[ i ] = ucBuffer[ i ];
+  56:	f805 2f01 	strb.w	r2, [r5, #1]!
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:622
+    
+    flashReadBuffer( pygmyRootVolume.ActiveFiles + ( uiFileEntry * 16 ), ucBuffer, 16 );
+    uiID = ucBuffer[ 14 ];
+    uiID = uiID << 8 | ucBuffer[ 15 ];
+    
+    for( i = 0; i < 12; i++ ){
+  5a:	f103 0301 	add.w	r3, r3, #1
+  5e:	b2db      	uxtb	r3, r3
+  60:	2b0c      	cmp	r3, #12
+  62:	d1f1      	bne.n	48 <fileGetName+0x48>
+  64:	e014      	b.n	90 <fileGetName+0x90>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:629
+            break;
+        } else{
+            ucName[ i ] = ucBuffer[ i ];
+        } // else
+    } // for
+    ucName[ i ] = '\0';
+  66:	f04f 0200 	mov.w	r2, #0
+  6a:	54e2      	strb	r2, [r4, r3]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:630
+    if( !i ){
+  6c:	b113      	cbz	r3, 74 <fileGetName+0x74>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:620
+        return( 0 );
+    } // if
+    
+    flashReadBuffer( pygmyRootVolume.ActiveFiles + ( uiFileEntry * 16 ), ucBuffer, 16 );
+    uiID = ucBuffer[ 14 ];
+    uiID = uiID << 8 | ucBuffer[ 15 ];
+  6e:	ea47 2000 	orr.w	r0, r7, r0, lsl #8
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:648
+            } // else
+        } // if
+    } // for
+    */
+    // return the ID of the file to use to load length
+    return( uiID );//flashReadWord( ulAddress + 14 ) );
+  72:	e001      	b.n	78 <fileGetName+0x78>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:631
+            ucName[ i ] = ucBuffer[ i ];
+        } // else
+    } // for
+    ucName[ i ] = '\0';
+    if( !i ){
+        return( 0 );
+  74:	f04f 0000 	mov.w	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:649
+        } // if
+    } // for
+    */
+    // return the ID of the file to use to load length
+    return( uiID );//flashReadWord( ulAddress + 14 ) );
+}
+  78:	b005      	add	sp, #20
+  7a:	bdf0      	pop	{r4, r5, r6, r7, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:629
+            break;
+        } else{
+            ucName[ i ] = ucBuffer[ i ];
+        } // else
+    } // for
+    ucName[ i ] = '\0';
+  7c:	f04f 0000 	mov.w	r0, #0
+  80:	7020      	strb	r0, [r4, #0]
+  82:	e7f9      	b.n	78 <fileGetName+0x78>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:626
+    
+    for( i = 0; i < 12; i++ ){
+        if( !ucBuffer[ i ] || ucBuffer[ i ] == 0xFF ){
+            break;
+        } else{
+            ucName[ i ] = ucBuffer[ i ];
+  84:	7023      	strb	r3, [r4, #0]
+  86:	4669      	mov	r1, sp
+  88:	4625      	mov	r5, r4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:622
+    
+    flashReadBuffer( pygmyRootVolume.ActiveFiles + ( uiFileEntry * 16 ), ucBuffer, 16 );
+    uiID = ucBuffer[ 14 ];
+    uiID = uiID << 8 | ucBuffer[ 15 ];
+    
+    for( i = 0; i < 12; i++ ){
+  8a:	f04f 0301 	mov.w	r3, #1
+  8e:	e7db      	b.n	48 <fileGetName+0x48>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:629
+            break;
+        } else{
+            ucName[ i ] = ucBuffer[ i ];
+        } // else
+    } // for
+    ucName[ i ] = '\0';
+  90:	f04f 0200 	mov.w	r2, #0
+  94:	54e2      	strb	r2, [r4, r3]
+  96:	e7ea      	b.n	6e <fileGetName+0x6e>
+
+Disassembly of section .text.flashReadStatus:
+
+00000000 <flashReadStatus>:
+flashReadStatus():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1293
+    //} // for
+    //FLASH_CS_HIGH;   
+}
+
+u8 flashReadStatus( void )
+{
+   0:	b570      	push	{r4, r5, r6, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1296
+    u8 ucByte;
+    
+    FLASH_CS_LOW;
+   2:	f44f 6540 	mov.w	r5, #3072	; 0xc00
+   6:	f2c4 0501 	movt	r5, #16385	; 0x4001
+   a:	f44f 5680 	mov.w	r6, #4096	; 0x1000
+   e:	616e      	str	r6, [r5, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1297
+    spiWriteByte( &pygmyFlashSPI, PYGMY_FLASH_RDSR );
+  10:	f240 0400 	movw	r4, #0
+  14:	f2c0 0400 	movt	r4, #0
+  18:	4620      	mov	r0, r4
+  1a:	f04f 0105 	mov.w	r1, #5
+  1e:	f7ff fffe 	bl	0 <spiWriteByte>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1298
+    ucByte = spiReadByte( &pygmyFlashSPI );
+  22:	4620      	mov	r0, r4
+  24:	f7ff fffe 	bl	0 <spiReadByte>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1299
+    FLASH_CS_HIGH;
+  28:	612e      	str	r6, [r5, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1302
+
+    return( ucByte );
+}
+  2a:	bd70      	pop	{r4, r5, r6, pc}
+
+Disassembly of section .text.flashReadID:
+
+00000000 <flashReadID>:
+flashReadID():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1305
+
+u8 flashReadID( void )
+{
+   0:	b570      	push	{r4, r5, r6, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1308
+    u8 ucByte;
+    
+    FLASH_CS_LOW;
+   2:	f44f 6540 	mov.w	r5, #3072	; 0xc00
+   6:	f2c4 0501 	movt	r5, #16385	; 0x4001
+   a:	f44f 5680 	mov.w	r6, #4096	; 0x1000
+   e:	616e      	str	r6, [r5, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1309
+    spiWriteByte( &pygmyFlashSPI, PYGMY_FLASH_JEDECID );
+  10:	f240 0400 	movw	r4, #0
+  14:	f2c0 0400 	movt	r4, #0
+  18:	4620      	mov	r0, r4
+  1a:	f04f 019f 	mov.w	r1, #159	; 0x9f
+  1e:	f7ff fffe 	bl	0 <spiWriteByte>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1310
+    ucByte = spiReadByte( &pygmyFlashSPI ); // Manufacturer
+  22:	4620      	mov	r0, r4
+  24:	f7ff fffe 	bl	0 <spiReadByte>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1311
+    ucByte = spiReadByte( &pygmyFlashSPI ); // Type
+  28:	4620      	mov	r0, r4
+  2a:	f7ff fffe 	bl	0 <spiReadByte>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1312
+    ucByte = spiReadByte( &pygmyFlashSPI ); // Capacity
+  2e:	4620      	mov	r0, r4
+  30:	f7ff fffe 	bl	0 <spiReadByte>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1313
+    FLASH_CS_HIGH;
+  34:	612e      	str	r6, [r5, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1317
+
+    return( ucByte );
+    
+}
+  36:	bd70      	pop	{r4, r5, r6, pc}
+
+Disassembly of section .text.flashWaitForBusy:
+
+00000000 <flashWaitForBusy>:
+flashWaitForBusy():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1347
+    
+    return( 1 );
+}
+
+void flashWaitForBusy( void )
+{
+   0:	b508      	push	{r3, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1348
+    for( ; PYGMY_FLASH_STATUS_BUSY & flashReadStatus( ); );    
+   2:	f7ff fffe 	bl	0 <flashWaitForBusy>
+   6:	f010 0f01 	tst.w	r0, #1
+   a:	d1fa      	bne.n	2 <flashWaitForBusy+0x2>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1349
+}
+   c:	bd08      	pop	{r3, pc}
+   e:	bf00      	nop
+
+Disassembly of section .text.flashChipErase:
+
+00000000 <flashChipErase>:
+flashChipErase():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1334
+    FLASH_CS_HIGH;
+    flashWaitForBusy();
+}
+
+u8 flashChipErase( void )
+{
+   0:	b570      	push	{r4, r5, r6, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1335
+    FLASH_CS_LOW;
+   2:	f44f 6440 	mov.w	r4, #3072	; 0xc00
+   6:	f2c4 0401 	movt	r4, #16385	; 0x4001
+   a:	f44f 5680 	mov.w	r6, #4096	; 0x1000
+   e:	6166      	str	r6, [r4, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1336
+    spiWriteByte( &pygmyFlashSPI, PYGMY_FLASH_WREN );
+  10:	f240 0500 	movw	r5, #0
+  14:	f2c0 0500 	movt	r5, #0
+  18:	4628      	mov	r0, r5
+  1a:	f04f 0106 	mov.w	r1, #6
+  1e:	f7ff fffe 	bl	0 <spiWriteByte>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1337
+    FLASH_CS_HIGH;
+  22:	6126      	str	r6, [r4, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1338
+    FLASH_CS_LOW;
+  24:	6166      	str	r6, [r4, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1339
+    spiWriteByte( &pygmyFlashSPI, PYGMY_FLASH_ERASE_ALL );
+  26:	4628      	mov	r0, r5
+  28:	f04f 0160 	mov.w	r1, #96	; 0x60
+  2c:	f7ff fffe 	bl	0 <spiWriteByte>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1340
+    FLASH_CS_HIGH;
+  30:	6126      	str	r6, [r4, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1341
+    flashWaitForBusy( );
+  32:	f7ff fffe 	bl	0 <flashChipErase>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1344
+    
+    return( 1 );
+}
+  36:	f04f 0001 	mov.w	r0, #1
+  3a:	bd70      	pop	{r4, r5, r6, pc}
+
+Disassembly of section .text.flashSectorErase:
+
+00000000 <flashSectorErase>:
+flashSectorErase():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1320
+    return( ucByte );
+    
+}
+
+void flashSectorErase( u32 ulSector )
+{
+   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+   2:	4607      	mov	r7, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1322
+    ulSector |= 0x20000000; // 4KB Sector Erase
+    spiPutCommand( &pygmyFlashSPI, PYGMY_FLASH_WREN );
+   4:	f240 0400 	movw	r4, #0
+   8:	f2c0 0400 	movt	r4, #0
+   c:	4620      	mov	r0, r4
+   e:	f04f 0106 	mov.w	r1, #6
+  12:	f7ff fffe 	bl	0 <spiPutCommand>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1323
+    FLASH_CS_LOW;
+  16:	f44f 6540 	mov.w	r5, #3072	; 0xc00
+  1a:	f2c4 0501 	movt	r5, #16385	; 0x4001
+  1e:	f44f 5680 	mov.w	r6, #4096	; 0x1000
+  22:	616e      	str	r6, [r5, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1326
+    //spiWriteByte( &pygmyFlashSPI, PYGMY_FLASH_WREN );
+    //FLASH_CS_HIGH;
+    spiWriteAddress( &pygmyFlashSPI, ulSector );
+  24:	4620      	mov	r0, r4
+  26:	f047 5100 	orr.w	r1, r7, #536870912	; 0x20000000
+  2a:	f7ff fffe 	bl	0 <spiWriteAddress>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1329
+    //FLASH_CS_LOW;
+    //spiWriteLong( &pygmyFlashSPI, ulSector );
+    FLASH_CS_HIGH;
+  2e:	612e      	str	r6, [r5, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1330
+    flashWaitForBusy();
+  30:	f7ff fffe 	bl	0 <flashSectorErase>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1331
+}
+  34:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+  36:	bf00      	nop
+
+Disassembly of section .text.flashWriteByte:
+
+00000000 <flashWriteByte>:
+flashWriteByte():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1389
+    }
+}
+
+
+void flashWriteByte( u32 ulAddress, u8 ucByte )
+{
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	4605      	mov	r5, r0
+   4:	460e      	mov	r6, r1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1392
+    // Mask 32 bit long to make sure MSB is clear for instruction
+    ulAddress |= 0x02000000;
+    spiPutCommand( &pygmyFlashSPI, PYGMY_FLASH_WREN );
+   6:	f240 0400 	movw	r4, #0
+   a:	f2c0 0400 	movt	r4, #0
+   e:	4620      	mov	r0, r4
+  10:	f04f 0106 	mov.w	r1, #6
+  14:	f7ff fffe 	bl	0 <spiPutCommand>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1393
+    spiPutChar( &pygmyFlashSPI, ulAddress, ucByte );
+  18:	4620      	mov	r0, r4
+  1a:	f045 7100 	orr.w	r1, r5, #33554432	; 0x2000000
+  1e:	4632      	mov	r2, r6
+  20:	f7ff fffe 	bl	0 <spiPutChar>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1401
+    //FLASH_CS_HIGH;
+    //FLASH_CS_LOW;
+    //spiWriteLong( &pygmyFlashSPI, ulAddress ); // Write instruction and 3 address bytes
+    //spiWriteByte( &pygmyFlashSPI, ucByte ); // Write data byte
+    //FLASH_CS_HIGH;
+    flashWaitForBusy(); // Busy must be clear before next write cycle may start
+  24:	f7ff fffe 	bl	0 <flashWriteByte>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1402
+}
+  28:	bd70      	pop	{r4, r5, r6, pc}
+  2a:	bf00      	nop
+
+Disassembly of section .text.flashWriteBuffer:
+
+00000000 <flashWriteBuffer>:
+flashWriteBuffer():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1378
+        flashWriteByte( ulAddress++, 0 ); // Terminate string with NULL if true
+    } // if
+}
+
+void flashWriteBuffer( u32 ulAddress, u16 uiLen , u8 *ucBuffer )
+{
+   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+   2:	4606      	mov	r6, r0
+   4:	4615      	mov	r5, r2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1382
+    // Function returns 1 for all bytes good, 0 for failure of one or more bytes
+    u32 i;
+    
+    for( i = 0; i < uiLen; i++ ){
+   6:	460f      	mov	r7, r1
+   8:	b149      	cbz	r1, 1e <flashWriteBuffer+0x1e>
+   a:	f04f 0400 	mov.w	r4, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1383
+        flashWriteByte( ulAddress + i, ucBuffer[ i ] );
+   e:	19a0      	adds	r0, r4, r6
+  10:	5d29      	ldrb	r1, [r5, r4]
+  12:	f7ff fffe 	bl	0 <flashWriteBuffer>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1382
+void flashWriteBuffer( u32 ulAddress, u16 uiLen , u8 *ucBuffer )
+{
+    // Function returns 1 for all bytes good, 0 for failure of one or more bytes
+    u32 i;
+    
+    for( i = 0; i < uiLen; i++ ){
+  16:	f104 0401 	add.w	r4, r4, #1
+  1a:	42bc      	cmp	r4, r7
+  1c:	d3f7      	bcc.n	e <flashWriteBuffer+0xe>
+  1e:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+
+Disassembly of section .text.flashWriteString:
+
+00000000 <flashWriteString>:
+flashWriteString():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1367
+        flashWriteByte( ulAddress + i, (u8)( ulLong >> ( ( 3 - i ) * 8 ) ) );
+    } // for
+}
+
+void flashWriteString( u32 ulAddress, u8 ucTerminate, u8 *ucBuffer )
+{
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	460e      	mov	r6, r1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1369
+
+    for( ; *ucBuffer; ){
+   4:	7811      	ldrb	r1, [r2, #0]
+   6:	4605      	mov	r5, r0
+   8:	b151      	cbz	r1, 20 <flashWriteString+0x20>
+   a:	4614      	mov	r4, r2
+   c:	e000      	b.n	10 <flashWriteString+0x10>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1370
+        flashWriteByte( ulAddress++, *(ucBuffer++) );
+   e:	4628      	mov	r0, r5
+  10:	f100 0501 	add.w	r5, r0, #1
+  14:	f7ff fffe 	bl	0 <flashWriteString>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1369
+}
+
+void flashWriteString( u32 ulAddress, u8 ucTerminate, u8 *ucBuffer )
+{
+
+    for( ; *ucBuffer; ){
+  18:	f814 1f01 	ldrb.w	r1, [r4, #1]!
+  1c:	2900      	cmp	r1, #0
+  1e:	d1f6      	bne.n	e <flashWriteString+0xe>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1372
+        flashWriteByte( ulAddress++, *(ucBuffer++) );
+    } // for
+    if( ucTerminate ){
+  20:	b126      	cbz	r6, 2c <flashWriteString+0x2c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1373
+        flashWriteByte( ulAddress++, 0 ); // Terminate string with NULL if true
+  22:	4628      	mov	r0, r5
+  24:	f04f 0100 	mov.w	r1, #0
+  28:	f7ff fffe 	bl	0 <flashWriteString>
+  2c:	bd70      	pop	{r4, r5, r6, pc}
+  2e:	bf00      	nop
+
+Disassembly of section .text.flashWriteLong:
+
+00000000 <flashWriteLong>:
+flashWriteLong():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1358
+    flashWriteByte( ulAddress, (u8)( uiWord >> 8 ) );
+    flashWriteByte( ulAddress + 1, (u8) uiWord );    
+}
+
+void flashWriteLong( u32 ulAddress, u32 ulLong )
+{
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	4605      	mov	r5, r0
+   4:	460e      	mov	r6, r1
+   6:	f04f 0418 	mov.w	r4, #24
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1362
+    u8 i;
+    
+    for( i = 0; i < 4; i++ ){
+        flashWriteByte( ulAddress + i, (u8)( ulLong >> ( ( 3 - i ) * 8 ) ) );
+   a:	fa26 f104 	lsr.w	r1, r6, r4
+   e:	4628      	mov	r0, r5
+  10:	b2c9      	uxtb	r1, r1
+  12:	f7ff fffe 	bl	0 <flashWriteLong>
+  16:	f1a4 0408 	sub.w	r4, r4, #8
+  1a:	f105 0501 	add.w	r5, r5, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1361
+
+void flashWriteLong( u32 ulAddress, u32 ulLong )
+{
+    u8 i;
+    
+    for( i = 0; i < 4; i++ ){
+  1e:	f114 0f08 	cmn.w	r4, #8
+  22:	d1f2      	bne.n	a <flashWriteLong+0xa>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1364
+        flashWriteByte( ulAddress + i, (u8)( ulLong >> ( ( 3 - i ) * 8 ) ) );
+    } // for
+}
+  24:	bd70      	pop	{r4, r5, r6, pc}
+  26:	bf00      	nop
+
+Disassembly of section .text.fileWriteLength:
+
+00000000 <fileWriteLength>:
+fileWriteLength():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:718
+    
+    return( 0 ); 
+}
+
+u8 fileWriteLength( PYGMYFILE *pygmyFile, u32 ulLength )
+{
+   0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+   4:	460f      	mov	r7, r1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:721
+    u32 i, ulTmp, ulAddress;
+
+    ulAddress = pygmyRootVolume.FirstFileSector + ( fileGetFAT( pygmyFile->ID_File, 1 ) * pygmyRootVolume.SectorSize );
+   6:	f240 0400 	movw	r4, #0
+   a:	f2c0 0400 	movt	r4, #0
+   e:	6ae5      	ldr	r5, [r4, #44]	; 0x2c
+  10:	89c0      	ldrh	r0, [r0, #14]
+  12:	f04f 0101 	mov.w	r1, #1
+  16:	f7ff fffe 	bl	0 <fileWriteLength>
+  1a:	8b66      	ldrh	r6, [r4, #26]
+  1c:	fb06 5600 	mla	r6, r6, r0, r5
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:723
+    
+    for( i = 0; i < 128; ){
+  20:	f04f 0400 	mov.w	r4, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:733
+            return( 1 );
+        } else if( ulTmp ){ //ulTmp != 0xFFFFFFFF && ulTmp != 0x00000000 ){
+            if( ulTmp == ulLength ){ // Don't waste a write cycle if Length hasn't changed
+                return( 1 );
+            } // if
+            flashWriteLong( ulAddress + i, 0x00000000 );
+  24:	46a0      	mov	r8, r4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:721
+
+u8 fileWriteLength( PYGMYFILE *pygmyFile, u32 ulLength )
+{
+    u32 i, ulTmp, ulAddress;
+
+    ulAddress = pygmyRootVolume.FirstFileSector + ( fileGetFAT( pygmyFile->ID_File, 1 ) * pygmyRootVolume.SectorSize );
+  26:	19a5      	adds	r5, r4, r6
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:724
+    
+    for( i = 0; i < 128; ){
+        ulTmp = flashReadLong( ulAddress + i );
+  28:	4628      	mov	r0, r5
+  2a:	f7ff fffe 	bl	0 <fileWriteLength>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:726
+        
+        if( ulTmp == 0xFFFFFFFF ){
+  2e:	f1b0 3fff 	cmp.w	r0, #4294967295
+  32:	d107      	bne.n	44 <fileWriteLength+0x44>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:727
+            flashWriteLong( ulAddress + i, ulLength );
+  34:	4628      	mov	r0, r5
+  36:	4639      	mov	r1, r7
+  38:	f7ff fffe 	bl	0 <fileWriteLength>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:728
+            return( 1 );
+  3c:	f04f 0001 	mov.w	r0, #1
+  40:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:729
+        } else if( ulTmp ){ //ulTmp != 0xFFFFFFFF && ulTmp != 0x00000000 ){
+  44:	b128      	cbz	r0, 52 <fileWriteLength+0x52>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:730
+            if( ulTmp == ulLength ){ // Don't waste a write cycle if Length hasn't changed
+  46:	42b8      	cmp	r0, r7
+  48:	d00b      	beq.n	62 <fileWriteLength+0x62>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:733
+                return( 1 );
+            } // if
+            flashWriteLong( ulAddress + i, 0x00000000 );
+  4a:	4628      	mov	r0, r5
+  4c:	4641      	mov	r1, r8
+  4e:	f7ff fffe 	bl	0 <fileWriteLength>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:735
+        } // if
+        i += 4;
+  52:	f104 0404 	add.w	r4, r4, #4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:723
+{
+    u32 i, ulTmp, ulAddress;
+
+    ulAddress = pygmyRootVolume.FirstFileSector + ( fileGetFAT( pygmyFile->ID_File, 1 ) * pygmyRootVolume.SectorSize );
+    
+    for( i = 0; i < 128; ){
+  56:	2c80      	cmp	r4, #128	; 0x80
+  58:	d1e5      	bne.n	26 <fileWriteLength+0x26>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:738
+            flashWriteLong( ulAddress + i, 0x00000000 );
+        } // if
+        i += 4;
+    } // if
+    
+    return( 0 );
+  5a:	f04f 0000 	mov.w	r0, #0
+  5e:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:731
+        if( ulTmp == 0xFFFFFFFF ){
+            flashWriteLong( ulAddress + i, ulLength );
+            return( 1 );
+        } else if( ulTmp ){ //ulTmp != 0xFFFFFFFF && ulTmp != 0x00000000 ){
+            if( ulTmp == ulLength ){ // Don't waste a write cycle if Length hasn't changed
+                return( 1 );
+  62:	f04f 0001 	mov.w	r0, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:739
+        } // if
+        i += 4;
+    } // if
+    
+    return( 0 );
+}
+  66:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  6a:	bf00      	nop
+
+Disassembly of section .text.flashWriteWord:
+
+00000000 <flashWriteWord>:
+flashWriteWord():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1352
+{
+    for( ; PYGMY_FLASH_STATUS_BUSY & flashReadStatus( ); );    
+}
+
+void flashWriteWord( u32 ulAddress, u16 uiWord )
+{
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	4605      	mov	r5, r0
+   4:	460c      	mov	r4, r1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1353
+    flashWriteByte( ulAddress, (u8)( uiWord >> 8 ) );
+   6:	ea4f 2111 	mov.w	r1, r1, lsr #8
+   a:	f7ff fffe 	bl	0 <flashWriteWord>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1354
+    flashWriteByte( ulAddress + 1, (u8) uiWord );    
+   e:	f105 0001 	add.w	r0, r5, #1
+  12:	b2e1      	uxtb	r1, r4
+  14:	f7ff fffe 	bl	0 <flashWriteWord>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1355
+}
+  18:	bd38      	pop	{r3, r4, r5, pc}
+  1a:	bf00      	nop
+
+Disassembly of section .text.fileDeleteFATEntry:
+
+00000000 <fileDeleteFATEntry>:
+fileDeleteFATEntry():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:544
+    
+    return( 0xFFFFFFFF ); // both Files tables inactive means memory failure
+}
+
+u8 fileDeleteFATEntry( u16 uiID_File, u16 uiID_Sector )
+{
+   0:	e92d 4ff8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, lr}
+   4:	4681      	mov	r9, r0
+   6:	468a      	mov	sl, r1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:550
+    u32 i, ii;
+    u16 uiTmpID, uiDeleted, uiSector;
+    u8 ucAlloc;
+
+    // ucID_Sector == 0 calls for a complete erase
+    for( i = 0, uiDeleted = 0; i < pygmyRootVolume.Sectors; i++ ){ // There are as many entries as Sectors
+   8:	f240 0300 	movw	r3, #0
+   c:	f2c0 0300 	movt	r3, #0
+  10:	8b1b      	ldrh	r3, [r3, #24]
+  12:	2b00      	cmp	r3, #0
+  14:	d04d      	beq.n	b2 <fileDeleteFATEntry+0xb2>
+  16:	f04f 0b00 	mov.w	fp, #0
+  1a:	465e      	mov	r6, fp
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:552
+        ii = i * 4;
+        uiSector = flashReadWord( pygmyRootVolume.ActiveFAT + ii );
+  1c:	f240 0400 	movw	r4, #0
+  20:	f2c0 0400 	movt	r4, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:550
+    u32 i, ii;
+    u16 uiTmpID, uiDeleted, uiSector;
+    u8 ucAlloc;
+
+    // ucID_Sector == 0 calls for a complete erase
+    for( i = 0, uiDeleted = 0; i < pygmyRootVolume.Sectors; i++ ){ // There are as many entries as Sectors
+  24:	ea4f 0586 	mov.w	r5, r6, lsl #2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:552
+        ii = i * 4;
+        uiSector = flashReadWord( pygmyRootVolume.ActiveFAT + ii );
+  28:	6960      	ldr	r0, [r4, #20]
+  2a:	1828      	adds	r0, r5, r0
+  2c:	f7ff fffe 	bl	0 <fileDeleteFATEntry>
+  30:	4680      	mov	r8, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:555
+        ucAlloc = uiSector >> 14;
+        uiSector &= 0x3FFF;
+        uiTmpID = flashReadByte( pygmyRootVolume.ActiveFAT + ii + 2 ) << 8;
+  32:	6960      	ldr	r0, [r4, #20]
+  34:	f100 0002 	add.w	r0, r0, #2
+  38:	1828      	adds	r0, r5, r0
+  3a:	f7ff fffe 	bl	0 <fileDeleteFATEntry>
+  3e:	ea4f 2000 	mov.w	r0, r0, lsl #8
+  42:	b287      	uxth	r7, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:556
+        uiTmpID |= flashReadByte( pygmyRootVolume.ActiveFAT + ii + 3 );
+  44:	6960      	ldr	r0, [r4, #20]
+  46:	f100 0003 	add.w	r0, r0, #3
+  4a:	1828      	adds	r0, r5, r0
+  4c:	f7ff fffe 	bl	0 <fileDeleteFATEntry>
+  50:	4307      	orrs	r7, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:557
+        if( uiTmpID == uiID_File ){
+  52:	b2bf      	uxth	r7, r7
+  54:	454f      	cmp	r7, r9
+  56:	d126      	bne.n	a6 <fileDeleteFATEntry+0xa6>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:558
+            pygmyRootVolume.Attributes &= ~VOLUMEFULL;
+  58:	7b63      	ldrb	r3, [r4, #13]
+  5a:	f003 037f 	and.w	r3, r3, #127	; 0x7f
+  5e:	7363      	strb	r3, [r4, #13]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:559
+            if( !uiID_Sector ){
+  60:	f1ba 0f00 	cmp.w	sl, #0
+  64:	d108      	bne.n	78 <fileDeleteFATEntry+0x78>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:560
+                flashWriteByte( pygmyRootVolume.ActiveFAT + ii, 0x0F );
+  66:	6960      	ldr	r0, [r4, #20]
+  68:	1828      	adds	r0, r5, r0
+  6a:	f04f 010f 	mov.w	r1, #15
+  6e:	f7ff fffe 	bl	0 <fileDeleteFATEntry>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:561
+                uiDeleted = 1;
+  72:	f04f 0b01 	mov.w	fp, #1
+  76:	e016      	b.n	a6 <fileDeleteFATEntry+0xa6>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:562
+            } else if( uiID_Sector == uiSector ){
+  78:	ea4f 4388 	mov.w	r3, r8, lsl #18
+  7c:	ea4f 4393 	mov.w	r3, r3, lsr #18
+  80:	459a      	cmp	sl, r3
+  82:	d110      	bne.n	a6 <fileDeleteFATEntry+0xa6>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:563
+                if ( ucAlloc ){
+  84:	f3c8 3387 	ubfx	r3, r8, #14, #8
+  88:	b16b      	cbz	r3, 5a <fileDeleteFATEntry+0x5a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:564
+                    flashWriteByte( pygmyRootVolume.ActiveFAT + ii, 0x0F );
+  8a:	f240 0300 	movw	r3, #0
+  8e:	f2c0 0300 	movt	r3, #0
+  92:	6958      	ldr	r0, [r3, #20]
+  94:	1828      	adds	r0, r5, r0
+  96:	f04f 010f 	mov.w	r1, #15
+  9a:	f7ff fffe 	bl	0 <fileDeleteFATEntry>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:565
+                    return( 1 );
+  9e:	f04f 0001 	mov.w	r0, #1
+  a2:	e8bd 8ff8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:550
+    u32 i, ii;
+    u16 uiTmpID, uiDeleted, uiSector;
+    u8 ucAlloc;
+
+    // ucID_Sector == 0 calls for a complete erase
+    for( i = 0, uiDeleted = 0; i < pygmyRootVolume.Sectors; i++ ){ // There are as many entries as Sectors
+  a6:	f106 0601 	add.w	r6, r6, #1
+  aa:	8b23      	ldrh	r3, [r4, #24]
+  ac:	42b3      	cmp	r3, r6
+  ae:	d8b9      	bhi.n	24 <fileDeleteFATEntry+0x24>
+  b0:	e001      	b.n	b6 <fileDeleteFATEntry+0xb6>
+  b2:	f04f 0b00 	mov.w	fp, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:571
+                } // if
+            } //else if
+        } // if
+    } // for
+ 
+    return( uiDeleted );
+  b6:	fa5f f08b 	uxtb.w	r0, fp
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:572
+}
+  ba:	e8bd 8ff8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}
+  be:	bf00      	nop
+
+Disassembly of section .text.fileGetActiveFAT:
+
+00000000 <fileGetActiveFAT>:
+fileGetActiveFAT():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:510
+    
+    return( 0xFFFF ); // No memory left
+}
+
+u32 fileGetActiveFAT( void )
+{  
+   0:	b510      	push	{r4, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:515
+    // Warning! Changed to mark ACTIVE table with 0!
+    // Note: Sectors may never be an even value such as 1024, 
+    //  normally the file and FAT sectors will see to this, but the last 32 bit field should always be
+    //  left for use by the Active/Inactive tag below
+    if( flashReadByte( pygmyRootVolume.FAT_A + (pygmyRootVolume.FATSectors * pygmyRootVolume.SectorSize) - 1 ) == 0x00 ){
+   2:	f240 0300 	movw	r3, #0
+   6:	f2c0 0300 	movt	r3, #0
+   a:	6b5a      	ldr	r2, [r3, #52]	; 0x34
+   c:	f102 32ff 	add.w	r2, r2, #4294967295
+  10:	8b59      	ldrh	r1, [r3, #26]
+  12:	8d18      	ldrh	r0, [r3, #40]	; 0x28
+  14:	fb00 2001 	mla	r0, r0, r1, r2
+  18:	f7ff fffe 	bl	0 <fileGetActiveFAT>
+  1c:	b928      	cbnz	r0, 4a <fileGetActiveFAT+0x4a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:516
+        return( pygmyRootVolume.FAT_A ); // Table A Active, last byte is set to 0x00 for active, 0xFF for inactive
+  1e:	f240 0300 	movw	r3, #0
+  22:	f2c0 0300 	movt	r3, #0
+  26:	6b58      	ldr	r0, [r3, #52]	; 0x34
+  28:	bd10      	pop	{r4, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:519
+    } // if
+ 
+    if( flashReadByte( pygmyRootVolume.FAT_B + (pygmyRootVolume.FATSectors * pygmyRootVolume.SectorSize) - 1 ) == 0x00 ){
+  2a:	f240 0300 	movw	r3, #0
+  2e:	f2c0 0300 	movt	r3, #0
+  32:	6b9a      	ldr	r2, [r3, #56]	; 0x38
+  34:	f102 32ff 	add.w	r2, r2, #4294967295
+  38:	8b59      	ldrh	r1, [r3, #26]
+  3a:	8d18      	ldrh	r0, [r3, #40]	; 0x28
+  3c:	fb00 2001 	mla	r0, r0, r1, r2
+  40:	f7ff fffe 	bl	0 <fileGetActiveFAT>
+  44:	b928      	cbnz	r0, 4a <fileGetActiveFAT+0x4a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:520
+        return( pygmyRootVolume.FAT_B ); // Table B Active, last byte is set to 0x00 for active, 0xFF for inactive
+  46:	f240 0300 	movw	r3, #0
+  4a:	f2c0 0300 	movt	r3, #0
+  4e:	6b98      	ldr	r0, [r3, #56]	; 0x38
+  50:	bd10      	pop	{r4, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:523
+    } // if
+    
+    flashWriteByte( pygmyRootVolume.FAT_A + (pygmyRootVolume.FATSectors * pygmyRootVolume.SectorSize) - 1, 0x00 );
+  52:	f240 0400 	movw	r4, #0
+  56:	f2c0 0400 	movt	r4, #0
+  5a:	6b63      	ldr	r3, [r4, #52]	; 0x34
+  5c:	f103 33ff 	add.w	r3, r3, #4294967295
+  60:	8b62      	ldrh	r2, [r4, #26]
+  62:	8d20      	ldrh	r0, [r4, #40]	; 0x28
+  64:	fb00 3002 	mla	r0, r0, r2, r3
+  68:	f04f 0100 	mov.w	r1, #0
+  6c:	f7ff fffe 	bl	0 <fileGetActiveFAT>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:525
+
+    return( pygmyRootVolume.FAT_A );
+  70:	6b60      	ldr	r0, [r4, #52]	; 0x34
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:526
+}
+  72:	bd10      	pop	{r4, pc}
+
+Disassembly of section .text.fileGetFreeFATEntry:
+
+00000000 <fileGetFreeFATEntry>:
+fileGetFreeFATEntry():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:450
+    #endif // __PYGMY_BOOT
+    return( 0xFFFF ); // 0xFFFF indicates error
+}
+
+u16 fileGetFreeFATEntry( void )
+{
+   0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:459
+    // Read MSB of each Entry until 0xFF is found 
+    // Return 0xFF for failure, last entry is invalid for a FAT Entry
+    // Last Entry would always be reserved for Active Table Byte
+    // [ ALLOCATION 4bits MSb ][ SEQUENCE 4 bits LSb ][ SEQUENCE 1B ][ FILE 2B ]
+    // Note that sequence is a 12 bit field, allocation should be shifted 4 bits before testing 
+    for( i = 0; i < pygmyRootVolume.Sectors; i++ ){
+   4:	f240 0300 	movw	r3, #0
+   8:	f2c0 0300 	movt	r3, #0
+   c:	8b1b      	ldrh	r3, [r3, #24]
+   e:	2b00      	cmp	r3, #0
+  10:	f000 8081 	beq.w	116 <fileGetFreeFATEntry+0x116>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:452
+}
+
+u16 fileGetFreeFATEntry( void )
+{
+    u32 i, ii, ulFAT, ulAddress, ulEntry;
+    u8 ucErased = 0;
+  14:	f04f 0600 	mov.w	r6, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:459
+    // Read MSB of each Entry until 0xFF is found 
+    // Return 0xFF for failure, last entry is invalid for a FAT Entry
+    // Last Entry would always be reserved for Active Table Byte
+    // [ ALLOCATION 4bits MSb ][ SEQUENCE 4 bits LSb ][ SEQUENCE 1B ][ FILE 2B ]
+    // Note that sequence is a 12 bit field, allocation should be shifted 4 bits before testing 
+    for( i = 0; i < pygmyRootVolume.Sectors; i++ ){
+  18:	4634      	mov	r4, r6
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:460
+        ii = flashReadWord( pygmyRootVolume.ActiveFAT + ( i * 4 ) ); 
+  1a:	f240 0500 	movw	r5, #0
+  1e:	f2c0 0500 	movt	r5, #0
+  22:	6968      	ldr	r0, [r5, #20]
+  24:	eb00 0084 	add.w	r0, r0, r4, lsl #2
+  28:	f7ff fffe 	bl	0 <fileGetFreeFATEntry>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:461
+        ii >>= 14;
+  2c:	ea4f 3090 	mov.w	r0, r0, lsr #14
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:462
+        if( ii == 3 ){
+  30:	2803      	cmp	r0, #3
+  32:	d102      	bne.n	3a <fileGetFreeFATEntry+0x3a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:463
+            return( i );
+  34:	b2a0      	uxth	r0, r4
+  36:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:466
+        } // if
+        if( ii == 1 ){
+            ucErased = 1;
+  3a:	2801      	cmp	r0, #1
+  3c:	bf08      	it	eq
+  3e:	2601      	moveq	r6, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:459
+    // Read MSB of each Entry until 0xFF is found 
+    // Return 0xFF for failure, last entry is invalid for a FAT Entry
+    // Last Entry would always be reserved for Active Table Byte
+    // [ ALLOCATION 4bits MSb ][ SEQUENCE 4 bits LSb ][ SEQUENCE 1B ][ FILE 2B ]
+    // Note that sequence is a 12 bit field, allocation should be shifted 4 bits before testing 
+    for( i = 0; i < pygmyRootVolume.Sectors; i++ ){
+  40:	f104 0401 	add.w	r4, r4, #1
+  44:	8b2b      	ldrh	r3, [r5, #24]
+  46:	42a3      	cmp	r3, r4
+  48:	d8eb      	bhi.n	22 <fileGetFreeFATEntry+0x22>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:472
+        } // else if
+    } // for
+    
+    // We have deleted entries in the FAT that can be recycled, since we have no free entries
+    // To recycle we must swap the tables A to B or B to A
+    if( ucErased ){
+  4a:	2e00      	cmp	r6, #0
+  4c:	d067      	beq.n	11e <fileGetFreeFATEntry+0x11e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:473
+        pygmyRootVolume.Attributes &= ~VOLUMEFULL;
+  4e:	f240 0400 	movw	r4, #0
+  52:	f2c0 0400 	movt	r4, #0
+  56:	7b63      	ldrb	r3, [r4, #13]
+  58:	f003 037f 	and.w	r3, r3, #127	; 0x7f
+  5c:	7363      	strb	r3, [r4, #13]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:474
+        pygmyRootVolume.ActiveFAT = fileGetActiveFAT( );
+  5e:	f7ff fffe 	bl	0 <fileGetFreeFATEntry>
+  62:	6160      	str	r0, [r4, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:475
+        if( pygmyRootVolume.ActiveFAT == pygmyRootVolume.FAT_B ){
+  64:	f8d4 8038 	ldr.w	r8, [r4, #56]	; 0x38
+  68:	4540      	cmp	r0, r8
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:476
+            ulAddress = pygmyRootVolume.FAT_A;
+  6a:	bf04      	itt	eq
+  6c:	4623      	moveq	r3, r4
+  6e:	f8d3 8034 	ldreq.w	r8, [r3, #52]	; 0x34
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:483
+            ulAddress = pygmyRootVolume.FAT_B;
+        } //else
+        // Now that alternate table location is known clear, copy while omitting deleted entries
+        // Also, the Active FAT and Files must be updated after copy, at this point ulAddress contains the
+        //     destination for sector copy and the ActiveFAT contains 
+        for( i = 0, ulFAT = 0xFFFFFFFF; i < pygmyRootVolume.Sectors; i++ ){
+  72:	f240 0300 	movw	r3, #0
+  76:	f2c0 0300 	movt	r3, #0
+  7a:	8b1b      	ldrh	r3, [r3, #24]
+  7c:	f04f 37ff 	mov.w	r7, #4294967295
+  80:	b303      	cbz	r3, c4 <fileGetFreeFATEntry+0xc4>
+  82:	4646      	mov	r6, r8
+  84:	f04f 37ff 	mov.w	r7, #4294967295
+  88:	f04f 0400 	mov.w	r4, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:485
+            ii = i * 4;
+            ulEntry = flashReadLong( pygmyRootVolume.ActiveFAT + ii );
+  8c:	f240 0500 	movw	r5, #0
+  90:	f2c0 0500 	movt	r5, #0
+  94:	6968      	ldr	r0, [r5, #20]
+  96:	eb00 0084 	add.w	r0, r0, r4, lsl #2
+  9a:	f7ff fffe 	bl	0 <fileGetFreeFATEntry>
+  9e:	4601      	mov	r1, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:486
+            if( ulEntry & 0xC0000000 ){ // ToDo: Test
+  a0:	f010 4f40 	tst.w	r0, #3221225472	; 0xc0000000
+  a4:	d003      	beq.n	ae <fileGetFreeFATEntry+0xae>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:488
+            //if( ulEntry & 0xFF000000 ){
+                flashWriteLong( ulAddress + ii, ulEntry );
+  a6:	4630      	mov	r0, r6
+  a8:	f7ff fffe 	bl	0 <fileGetFreeFATEntry>
+  ac:	e003      	b.n	b6 <fileGetFreeFATEntry+0xb6>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:489
+            } else if( ulFAT == 0xFFFFFFFF ){
+  ae:	f1b7 3fff 	cmp.w	r7, #4294967295
+  b2:	bf08      	it	eq
+  b4:	4627      	moveq	r7, r4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:483
+            ulAddress = pygmyRootVolume.FAT_B;
+        } //else
+        // Now that alternate table location is known clear, copy while omitting deleted entries
+        // Also, the Active FAT and Files must be updated after copy, at this point ulAddress contains the
+        //     destination for sector copy and the ActiveFAT contains 
+        for( i = 0, ulFAT = 0xFFFFFFFF; i < pygmyRootVolume.Sectors; i++ ){
+  b6:	f104 0401 	add.w	r4, r4, #1
+  ba:	f106 0604 	add.w	r6, r6, #4
+  be:	8b2b      	ldrh	r3, [r5, #24]
+  c0:	42a3      	cmp	r3, r4
+  c2:	d8e7      	bhi.n	94 <fileGetFreeFATEntry+0x94>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:495
+                ulFAT = i; // Only assign ulFAT on first recycled Entry
+            } // else if
+        } // for 
+        // Now delete original table and make updated table active
+        // This will set the Active/Inactive byte to 0xFF, or inactive
+        for( i = 0; i < pygmyRootVolume.FATSectors; i++ ){ // If more then 1 sector reserved for each A and B
+  c4:	f240 0300 	movw	r3, #0
+  c8:	f2c0 0300 	movt	r3, #0
+  cc:	8d1b      	ldrh	r3, [r3, #40]	; 0x28
+  ce:	b183      	cbz	r3, f2 <fileGetFreeFATEntry+0xf2>
+  d0:	f04f 0400 	mov.w	r4, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:496
+            flashSectorErase( pygmyRootVolume.ActiveFAT + ( i * pygmyRootVolume.SectorSize ) );
+  d4:	f240 0500 	movw	r5, #0
+  d8:	f2c0 0500 	movt	r5, #0
+  dc:	8b68      	ldrh	r0, [r5, #26]
+  de:	696b      	ldr	r3, [r5, #20]
+  e0:	fb00 3004 	mla	r0, r0, r4, r3
+  e4:	f7ff fffe 	bl	0 <fileGetFreeFATEntry>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:495
+                ulFAT = i; // Only assign ulFAT on first recycled Entry
+            } // else if
+        } // for 
+        // Now delete original table and make updated table active
+        // This will set the Active/Inactive byte to 0xFF, or inactive
+        for( i = 0; i < pygmyRootVolume.FATSectors; i++ ){ // If more then 1 sector reserved for each A and B
+  e8:	f104 0401 	add.w	r4, r4, #1
+  ec:	8d2b      	ldrh	r3, [r5, #40]	; 0x28
+  ee:	42a3      	cmp	r3, r4
+  f0:	d8f4      	bhi.n	dc <fileGetFreeFATEntry+0xdc>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:500
+            flashSectorErase( pygmyRootVolume.ActiveFAT + ( i * pygmyRootVolume.SectorSize ) );
+        } // for
+        // Finally clear last byte of FAT table to mark as unused
+        // Warning! Changed to mark ACTIVE table with 0!
+        pygmyRootVolume.ActiveFAT = ulAddress; // Now update the ActiveFAT to the updated table
+  f2:	f240 0200 	movw	r2, #0
+  f6:	f2c0 0200 	movt	r2, #0
+  fa:	f8c2 8014 	str.w	r8, [r2, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:501
+        flashWriteByte( pygmyRootVolume.ActiveFAT + (pygmyRootVolume.FATSectors * pygmyRootVolume.SectorSize) - 1, 0x00 );
+  fe:	f108 38ff 	add.w	r8, r8, #4294967295
+ 102:	8b50      	ldrh	r0, [r2, #26]
+ 104:	fb00 8003 	mla	r0, r0, r3, r8
+ 108:	f04f 0100 	mov.w	r1, #0
+ 10c:	f7ff fffe 	bl	0 <fileGetFreeFATEntry>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:503
+        
+        return( (u16)ulFAT ); // Return the recycled value
+ 110:	b2b8      	uxth	r0, r7
+ 112:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:506
+    } // if 
+    
+    return( 0xFFFF ); // No memory left
+ 116:	f64f 70ff 	movw	r0, #65535	; 0xffff
+ 11a:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+ 11e:	f64f 70ff 	movw	r0, #65535	; 0xffff
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:507
+}
+ 122:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+ 126:	bf00      	nop
+
+Disassembly of section .text.fileAllocateFAT:
+
+00000000 <fileAllocateFAT>:
+fileAllocateFAT():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:575
+ 
+    return( uiDeleted );
+}
+
+u16 fileAllocateFAT( u16 uiID_File, u16 uiID_Sector )
+{
+   0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+   4:	4606      	mov	r6, r0
+   6:	460d      	mov	r5, r1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:583
+    // BIT15 set, BIT14 set is empty
+    // BIT15 clear, BIT14 set is allocated
+    // BIT15 clear, BIT14 clear is deleted
+    // An ID_Sector of 0x00 and 0xFF reserved for error
+    // If these IDs are requested, return error ( 0xFFFF )
+    if( !uiID_Sector || uiID_Sector > 0x3FFE ){
+   8:	f101 32ff 	add.w	r2, r1, #4294967295
+   c:	b292      	uxth	r2, r2
+   e:	f643 73fd 	movw	r3, #16381	; 0x3ffd
+  12:	429a      	cmp	r2, r3
+  14:	d90a      	bls.n	2c <fileAllocateFAT+0x2c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:585
+        #ifndef __PYGMY_BOOT
+            pygmyRootVolume.Attributes |= VOLUMEERROR;
+  16:	f240 0300 	movw	r3, #0
+  1a:	f2c0 0300 	movt	r3, #0
+  1e:	7b5a      	ldrb	r2, [r3, #13]
+  20:	f042 0240 	orr.w	r2, r2, #64	; 0x40
+  24:	735a      	strb	r2, [r3, #13]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:587
+        #endif //__PYGMY_BOOT
+        return( 0xFFFF );
+  26:	f64f 74ff 	movw	r4, #65535	; 0xffff
+  2a:	e01f      	b.n	42 <fileAllocateFAT+0x42>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:589
+    } // if
+    ulFAT = fileGetFreeFATEntry( );
+  2c:	f7ff fffe 	bl	0 <fileAllocateFAT>
+  30:	4604      	mov	r4, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:590
+    if( ulFAT != 0xFFFF ){
+  32:	f64f 73ff 	movw	r3, #65535	; 0xffff
+  36:	4298      	cmp	r0, r3
+  38:	d018      	beq.n	6c <fileAllocateFAT+0x6c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:591
+        flashSectorErase( pygmyRootVolume.FirstFileSector + ( ulFAT * pygmyRootVolume.SectorSize ) );
+  3a:	f240 0700 	movw	r7, #0
+  3e:	f2c0 0700 	movt	r7, #0
+  42:	8b78      	ldrh	r0, [r7, #26]
+  44:	6afb      	ldr	r3, [r7, #44]	; 0x2c
+  46:	fb00 3004 	mla	r0, r0, r4, r3
+  4a:	f7ff fffe 	bl	0 <fileAllocateFAT>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:592
+        ulAddress = ulFAT * 4;
+  4e:	ea4f 0884 	mov.w	r8, r4, lsl #2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:594
+        //flashWriteByte( pygmyRootVolume.ActiveFAT + ulAddress++, 0x7F ); // 0x07 = Allocated, shifted 4 bits, F leaves bits unaffected
+        flashWriteWord( pygmyRootVolume.ActiveFAT + ulAddress, BIT14 | uiID_Sector ); 
+  52:	6978      	ldr	r0, [r7, #20]
+  54:	4440      	add	r0, r8
+  56:	f445 4180 	orr.w	r1, r5, #16384	; 0x4000
+  5a:	f7ff fffe 	bl	0 <fileAllocateFAT>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:595
+        flashWriteWord( pygmyRootVolume.ActiveFAT + ulAddress + 2, uiID_File );  
+  5e:	6978      	ldr	r0, [r7, #20]
+  60:	f100 0002 	add.w	r0, r0, #2
+  64:	4440      	add	r0, r8
+  66:	4631      	mov	r1, r6
+  68:	f7ff fffe 	bl	0 <fileAllocateFAT>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:599
+    } // if
+
+    return( ulFAT );
+}
+  6c:	4620      	mov	r0, r4
+  6e:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  72:	bf00      	nop
+
+Disassembly of section .text.filePutChar:
+
+00000000 <filePutChar>:
+filePutChar():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:788
+
+    return( 1 );
+}
+
+u8 filePutChar( PYGMYFILE *pygmyFile, u8 ucChar )
+{
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	4604      	mov	r4, r0
+   4:	460d      	mov	r5, r1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:791
+    u32 i, ulAddress;
+    
+    if( !( pygmyFile->Attributes & WRITE ) || pygmyRootVolume.Attributes & VOLUMEFULL ) {
+   6:	7c03      	ldrb	r3, [r0, #16]
+   8:	f013 0f02 	tst.w	r3, #2
+   c:	d05b      	beq.n	f6 <.LC14+0xa>
+   e:	f240 0300 	movw	r3, #0
+  12:	f2c0 0300 	movt	r3, #0
+  16:	f993 300d 	ldrsb.w	r3, [r3, #13]
+  1a:	2b00      	cmp	r3, #0
+  1c:	db56      	blt.n	cc <filePutChar+0xcc>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:794
+        return( 0 ); // In Write mode, Length and Index must match or memory corruption will occur
+    } // if
+    if( !( (( pygmyFile->Index + 128 ) ) % pygmyRootVolume.SectorSize ) ){      
+  1e:	6882      	ldr	r2, [r0, #8]
+  20:	f102 0280 	add.w	r2, r2, #128	; 0x80
+  24:	f240 0300 	movw	r3, #0
+  28:	f2c0 0300 	movt	r3, #0
+  2c:	8b5b      	ldrh	r3, [r3, #26]
+  2e:	fbb2 f1f3 	udiv	r1, r2, r3
+  32:	fb03 2311 	mls	r3, r3, r1, r2
+  36:	b9e3      	cbnz	r3, 72 <filePutChar+0x72>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:795
+        i = fileAllocateFAT( pygmyFile->ID_File, pygmyFile->ID_Sector + 1 );
+  38:	8981      	ldrh	r1, [r0, #12]
+  3a:	f101 0101 	add.w	r1, r1, #1
+  3e:	89c0      	ldrh	r0, [r0, #14]
+  40:	b289      	uxth	r1, r1
+  42:	f7ff fffe 	bl	0 <filePutChar>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:796
+        if( pygmyRootVolume.Attributes & VOLUMEFULL ){
+  46:	f240 0300 	movw	r3, #0
+  4a:	f2c0 0300 	movt	r3, #0
+  4e:	f993 300d 	ldrsb.w	r3, [r3, #13]
+  52:	2b00      	cmp	r3, #0
+  54:	db3d      	blt.n	d2 <filePutChar+0xd2>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:799
+            return( 0 );// memory is full!
+        } // if
+        pygmyFile->Sector = i + ( pygmyRootVolume.FirstFileSector / pygmyRootVolume.SectorSize );
+  56:	f240 0300 	movw	r3, #0
+  5a:	f2c0 0300 	movt	r3, #0
+  5e:	8b5a      	ldrh	r2, [r3, #26]
+  60:	6adb      	ldr	r3, [r3, #44]	; 0x2c
+  62:	fbb3 f3f2 	udiv	r3, r3, r2
+  66:	18c0      	adds	r0, r0, r3
+  68:	6020      	str	r0, [r4, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:800
+        ++pygmyFile->ID_Sector;     
+  6a:	89a3      	ldrh	r3, [r4, #12]
+  6c:	f103 0301 	add.w	r3, r3, #1
+  70:	81a3      	strh	r3, [r4, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:802
+    } // if
+    ulAddress = ( pygmyFile->Sector * pygmyRootVolume.SectorSize ) + ((( pygmyFile->Index + 128 ) ) % pygmyRootVolume.SectorSize );
+  72:	f240 0200 	movw	r2, #0
+  76:	f2c0 0200 	movt	r2, #0
+  7a:	8b53      	ldrh	r3, [r2, #26]
+  7c:	68a1      	ldr	r1, [r4, #8]
+  7e:	f101 0180 	add.w	r1, r1, #128	; 0x80
+  82:	fbb1 f0f3 	udiv	r0, r1, r3
+  86:	fb03 1110 	mls	r1, r3, r0, r1
+  8a:	6820      	ldr	r0, [r4, #0]
+  8c:	fb00 1003 	mla	r0, r0, r3, r1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:803
+    if( ulAddress < ( pygmyRootVolume.FirstFileSector / pygmyRootVolume.SectorSize ) ) {//|| ulAddress > 0x03FFF000 ){
+  90:	6ad2      	ldr	r2, [r2, #44]	; 0x2c
+  92:	fbb2 f3f3 	udiv	r3, r2, r3
+  96:	4298      	cmp	r0, r3
+  98:	d20a      	bcs.n	b0 <filePutChar+0xb0>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:805
+        #ifndef __PYGMY_BOOT
+            pygmyRootVolume.Attributes |= VOLUMEERROR;
+  9a:	f240 0300 	movw	r3, #0
+  9e:	f2c0 0300 	movt	r3, #0
+  a2:	7b5a      	ldrb	r2, [r3, #13]
+  a4:	f042 0240 	orr.w	r2, r2, #64	; 0x40
+  a8:	735a      	strb	r2, [r3, #13]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:807
+        #endif // __PYGMY_BOOT
+        return( 0 );
+  aa:	f04f 0000 	mov.w	r0, #0
+  ae:	bd38      	pop	{r3, r4, r5, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:809
+    } // if 
+    flashWriteByte( ulAddress, ucChar );
+  b0:	4629      	mov	r1, r5
+  b2:	f7ff fffe 	bl	0 <filePutChar>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:811
+    
+    ++pygmyFile->Index;
+  b6:	68a3      	ldr	r3, [r4, #8]
+  b8:	f103 0301 	add.w	r3, r3, #1
+  bc:	60a3      	str	r3, [r4, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:812
+    pygmyFile->Length = pygmyFile->Index;
+  be:	6063      	str	r3, [r4, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:814
+
+    return( 1 );
+  c0:	f04f 0001 	mov.w	r0, #1
+  c4:	bd38      	pop	{r3, r4, r5, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:792
+u8 filePutChar( PYGMYFILE *pygmyFile, u8 ucChar )
+{
+    u32 i, ulAddress;
+    
+    if( !( pygmyFile->Attributes & WRITE ) || pygmyRootVolume.Attributes & VOLUMEFULL ) {
+        return( 0 ); // In Write mode, Length and Index must match or memory corruption will occur
+  c6:	f04f 0000 	mov.w	r0, #0
+  ca:	bd38      	pop	{r3, r4, r5, pc}
+  cc:	f04f 0000 	mov.w	r0, #0
+  d0:	bd38      	pop	{r3, r4, r5, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:797
+    } // if
+    if( !( (( pygmyFile->Index + 128 ) ) % pygmyRootVolume.SectorSize ) ){      
+        i = fileAllocateFAT( pygmyFile->ID_File, pygmyFile->ID_Sector + 1 );
+        if( pygmyRootVolume.Attributes & VOLUMEFULL ){
+            return( 0 );// memory is full!
+  d2:	f04f 0000 	mov.w	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:815
+    
+    ++pygmyFile->Index;
+    pygmyFile->Length = pygmyFile->Index;
+
+    return( 1 );
+}
+  d6:	bd38      	pop	{r3, r4, r5, pc}
+
+Disassembly of section .text.filePutLong:
+
+00000000 <filePutLong>:
+filePutLong():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:829
+        filePutChar( pygmyFile, (u8)((u16) uiData >> 8 ) );
+    } // else
+}
+
+void filePutLong( PYGMYFILE *pygmyFile, u32 ulData, u8 ucEndian )
+{
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	4605      	mov	r5, r0
+   4:	460c      	mov	r4, r1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:830
+    if( ucEndian == BIGENDIAN ){
+   6:	2a01      	cmp	r2, #1
+   8:	d112      	bne.n	30 <filePutLong+0x30>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:831
+        filePutChar( pygmyFile, (u8)((u32) ulData >> 24 ) );
+   a:	ea4f 6111 	mov.w	r1, r1, lsr #24
+   e:	f7ff fffe 	bl	0 <filePutLong>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:832
+        filePutChar( pygmyFile, (u8)((u32) ulData >> 16 ) );
+  12:	4628      	mov	r0, r5
+  14:	f3c4 4107 	ubfx	r1, r4, #16, #8
+  18:	f7ff fffe 	bl	0 <filePutLong>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:833
+        filePutChar( pygmyFile, (u8)((u32) ulData >> 8 ) );
+  1c:	4628      	mov	r0, r5
+  1e:	f3c4 2107 	ubfx	r1, r4, #8, #8
+  22:	f7ff fffe 	bl	0 <filePutLong>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:834
+        filePutChar( pygmyFile, (u8) ulData );
+  26:	4628      	mov	r0, r5
+  28:	b2e1      	uxtb	r1, r4
+  2a:	f7ff fffe 	bl	0 <filePutLong>
+  2e:	bd38      	pop	{r3, r4, r5, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:836
+    } else {
+        filePutChar( pygmyFile, (u8) ulData );
+  30:	b2c9      	uxtb	r1, r1
+  32:	f7ff fffe 	bl	0 <filePutLong>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:837
+        filePutChar( pygmyFile, (u8)((u32) ulData >> 8 ) );
+  36:	4628      	mov	r0, r5
+  38:	f3c4 2107 	ubfx	r1, r4, #8, #8
+  3c:	f7ff fffe 	bl	0 <filePutLong>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:838
+        filePutChar( pygmyFile, (u8)((u32) ulData >> 16 ) );
+  40:	4628      	mov	r0, r5
+  42:	f3c4 4107 	ubfx	r1, r4, #16, #8
+  46:	f7ff fffe 	bl	0 <filePutLong>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:839
+        filePutChar( pygmyFile, (u8)((u32) ulData >> 24 ) );
+  4a:	4628      	mov	r0, r5
+  4c:	ea4f 6114 	mov.w	r1, r4, lsr #24
+  50:	f7ff fffe 	bl	0 <filePutLong>
+  54:	bd38      	pop	{r3, r4, r5, pc}
+  56:	bf00      	nop
+
+Disassembly of section .text.filePutWord:
+
+00000000 <filePutWord>:
+filePutWord():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:818
+
+    return( 1 );
+}
+
+void filePutWord( PYGMYFILE *pygmyFile, u16 uiData, u8 ucEndian )
+{
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	4605      	mov	r5, r0
+   4:	460c      	mov	r4, r1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:819
+    if( ucEndian == BIGENDIAN ){
+   6:	2a01      	cmp	r2, #1
+   8:	d108      	bne.n	1c <filePutWord+0x1c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:820
+        filePutChar( pygmyFile, (u8)((u16) uiData >> 8 ) );
+   a:	ea4f 2111 	mov.w	r1, r1, lsr #8
+   e:	f7ff fffe 	bl	0 <filePutWord>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:821
+        filePutChar( pygmyFile, (u8)uiData );
+  12:	4628      	mov	r0, r5
+  14:	b2e1      	uxtb	r1, r4
+  16:	f7ff fffe 	bl	0 <filePutWord>
+  1a:	bd38      	pop	{r3, r4, r5, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:823
+    } else {
+        filePutChar( pygmyFile, (u8)uiData );
+  1c:	b2c9      	uxtb	r1, r1
+  1e:	f7ff fffe 	bl	0 <filePutWord>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:824
+        filePutChar( pygmyFile, (u8)((u16) uiData >> 8 ) );
+  22:	4628      	mov	r0, r5
+  24:	ea4f 2114 	mov.w	r1, r4, lsr #8
+  28:	f7ff fffe 	bl	0 <filePutWord>
+  2c:	bd38      	pop	{r3, r4, r5, pc}
+  2e:	bf00      	nop
+
+Disassembly of section .text.filePutString:
+
+00000000 <filePutString>:
+filePutString():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:777
+
+    return( 1 );
+}
+
+u8 filePutString( PYGMYFILE *pygmyFile, u8 *ucString )
+{   
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	4605      	mov	r5, r0
+   4:	460c      	mov	r4, r1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:778
+    for( ; *ucString; ){
+   6:	e003      	b.n	10 <filePutString+0x10>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:779
+        if( !filePutChar( pygmyFile, *(ucString++) ) ){
+   8:	4628      	mov	r0, r5
+   a:	f7ff fffe 	bl	0 <filePutString>
+   e:	b130      	cbz	r0, 1e <filePutString+0x1e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:778
+    return( 1 );
+}
+
+u8 filePutString( PYGMYFILE *pygmyFile, u8 *ucString )
+{   
+    for( ; *ucString; ){
+  10:	f814 1b01 	ldrb.w	r1, [r4], #1
+  14:	2900      	cmp	r1, #0
+  16:	d1f7      	bne.n	8 <filePutString+0x8>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:784
+        if( !filePutChar( pygmyFile, *(ucString++) ) ){
+            return( 0 );
+        } // if
+    } // for
+
+    return( 1 );
+  18:	f04f 0001 	mov.w	r0, #1
+  1c:	bd38      	pop	{r3, r4, r5, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:780
+
+u8 filePutString( PYGMYFILE *pygmyFile, u8 *ucString )
+{   
+    for( ; *ucString; ){
+        if( !filePutChar( pygmyFile, *(ucString++) ) ){
+            return( 0 );
+  1e:	f04f 0000 	mov.w	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:785
+        } // if
+    } // for
+
+    return( 1 );
+}
+  22:	bd38      	pop	{r3, r4, r5, pc}
+
+Disassembly of section .text.filePutBuffer:
+
+00000000 <filePutBuffer>:
+filePutBuffer():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:766
+
+    return( 0 ); 
+}
+
+u8 filePutBuffer( PYGMYFILE *pygmyFile, u16 uiLen, u8 *ucBuffer )
+{
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	4606      	mov	r6, r0
+   4:	460c      	mov	r4, r1
+   6:	4615      	mov	r5, r2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:767
+    for( ; uiLen--; ){
+   8:	e008      	b.n	1c <filePutBuffer+0x1c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:768
+        if( !filePutChar( pygmyFile, *(ucBuffer++) ) ){
+   a:	4630      	mov	r0, r6
+   c:	f815 1b01 	ldrb.w	r1, [r5], #1
+  10:	f7ff fffe 	bl	0 <filePutBuffer>
+  14:	f104 34ff 	add.w	r4, r4, #4294967295
+  18:	b2a4      	uxth	r4, r4
+  1a:	b120      	cbz	r0, 26 <filePutBuffer+0x26>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:767
+    return( 0 ); 
+}
+
+u8 filePutBuffer( PYGMYFILE *pygmyFile, u16 uiLen, u8 *ucBuffer )
+{
+    for( ; uiLen--; ){
+  1c:	2c00      	cmp	r4, #0
+  1e:	d1f4      	bne.n	a <filePutBuffer+0xa>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:773
+        if( !filePutChar( pygmyFile, *(ucBuffer++) ) ){
+            return( 0 );
+        } // if
+    } // for
+
+    return( 1 );
+  20:	f04f 0001 	mov.w	r0, #1
+  24:	bd70      	pop	{r4, r5, r6, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:769
+
+u8 filePutBuffer( PYGMYFILE *pygmyFile, u16 uiLen, u8 *ucBuffer )
+{
+    for( ; uiLen--; ){
+        if( !filePutChar( pygmyFile, *(ucBuffer++) ) ){
+            return( 0 );
+  26:	f04f 0000 	mov.w	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:774
+        } // if
+    } // for
+
+    return( 1 );
+}
+  2a:	bd70      	pop	{r4, r5, r6, pc}
+
+Disassembly of section .text.fileClose:
+
+00000000 <fileClose>:
+fileClose():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:675
+
+    return( 0 );
+}
+
+u8 fileClose( PYGMYFILE *pygmyFile )
+{
+   0:	e92d 43f8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
+   4:	4605      	mov	r5, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:685
+    // ID_Sector 1 moves the current Sector to the newly allocated address
+
+    u32 i, ulAddress, ulAddress2;
+    u8 ucByte;
+    
+    ulAddress = pygmyRootVolume.FirstFileSector + ( fileGetFAT( pygmyFile->ID_File, 1 ) * pygmyRootVolume.SectorSize );
+   6:	f240 0400 	movw	r4, #0
+   a:	f2c0 0400 	movt	r4, #0
+   e:	f8d4 902c 	ldr.w	r9, [r4, #44]	; 0x2c
+  12:	89c0      	ldrh	r0, [r0, #14]
+  14:	f04f 0101 	mov.w	r1, #1
+  18:	f7ff fffe 	bl	0 <fileClose>
+  1c:	4606      	mov	r6, r0
+  1e:	8b67      	ldrh	r7, [r4, #26]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:686
+    if( fileWriteLength( pygmyFile, pygmyFile->Length ) ){
+  20:	4628      	mov	r0, r5
+  22:	6869      	ldr	r1, [r5, #4]
+  24:	f7ff fffe 	bl	0 <fileClose>
+  28:	2800      	cmp	r0, #0
+  2a:	d142      	bne.n	b2 <fileClose+0xb2>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:690
+        return( 1 );
+    } // if
+    // Out of length slots in Sector, Handle Sector copy and re-allocation
+    fileDeleteFATEntry( pygmyFile->ID_File, 1 ); // Deletes on first sequential FAT entry
+  2c:	89e8      	ldrh	r0, [r5, #14]
+  2e:	f04f 0101 	mov.w	r1, #1
+  32:	f7ff fffe 	bl	0 <fileClose>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:691
+    ulAddress2 = fileAllocateFAT( pygmyFile->ID_File, 1 ); // Allocates new sector to replace first FAT entry
+  36:	89e8      	ldrh	r0, [r5, #14]
+  38:	f04f 0101 	mov.w	r1, #1
+  3c:	f7ff fffe 	bl	0 <fileClose>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:692
+    if( ulAddress2 == 0xFFFF ){
+  40:	f64f 73ff 	movw	r3, #65535	; 0xffff
+  44:	4298      	cmp	r0, r3
+  46:	d038      	beq.n	ba <fileClose+0xba>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:695
+        return( 0 ); // Time to panic, there is no room left to complete operation and we have run out of options
+    } // if
+    ulAddress2 += pygmyRootVolume.FirstFileSector / pygmyRootVolume.SectorSize;
+  48:	8b62      	ldrh	r2, [r4, #26]
+  4a:	6ae3      	ldr	r3, [r4, #44]	; 0x2c
+  4c:	fbb3 f8f2 	udiv	r8, r3, r2
+  50:	4440      	add	r0, r8
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:696
+    if( pygmyFile->ID_Sector == 1 ){
+  52:	89ab      	ldrh	r3, [r5, #12]
+  54:	2b01      	cmp	r3, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:697
+        pygmyFile->Sector = ulAddress2; // Sector must be updated if we are still in sector 1
+  56:	bf08      	it	eq
+  58:	6028      	streq	r0, [r5, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:685
+    // ID_Sector 1 moves the current Sector to the newly allocated address
+
+    u32 i, ulAddress, ulAddress2;
+    u8 ucByte;
+    
+    ulAddress = pygmyRootVolume.FirstFileSector + ( fileGetFAT( pygmyFile->ID_File, 1 ) * pygmyRootVolume.SectorSize );
+  5a:	fb07 9706 	mla	r7, r7, r6, r9
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:699
+    } // if
+    ulAddress2 += pygmyRootVolume.FirstFileSector / pygmyRootVolume.SectorSize;
+    if( pygmyFile->ID_Sector == 1 ){
+        pygmyFile->Sector = ulAddress2; // Sector must be updated if we are still in sector 1
+    } // if
+    ulAddress2 *= pygmyRootVolume.SectorSize;
+  5e:	f240 0300 	movw	r3, #0
+  62:	f2c0 0300 	movt	r3, #0
+  66:	8b5b      	ldrh	r3, [r3, #26]
+  68:	fb03 f800 	mul.w	r8, r3, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:701
+    
+    for( i = 128; i < pygmyRootVolume.SectorSize;  ){
+  6c:	2b80      	cmp	r3, #128	; 0x80
+  6e:	d914      	bls.n	9a <fileClose+0x9a>
+  70:	f04f 0480 	mov.w	r4, #128	; 0x80
+  74:	f240 0600 	movw	r6, #0
+  78:	f2c0 0600 	movt	r6, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:702
+        ucByte = flashReadByte( ulAddress + i );
+  7c:	19e0      	adds	r0, r4, r7
+  7e:	f7ff fffe 	bl	0 <fileClose>
+  82:	4601      	mov	r1, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:703
+        if( ucByte != 0xFF ) {// Don't attempt to erase the erased
+  84:	28ff      	cmp	r0, #255	; 0xff
+  86:	d003      	beq.n	90 <fileClose+0x90>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:704
+            flashWriteByte( ulAddress2 + i, ucByte ); 
+  88:	eb04 0008 	add.w	r0, r4, r8
+  8c:	f7ff fffe 	bl	0 <fileClose>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:706
+        } // if
+        ++i;
+  90:	f104 0401 	add.w	r4, r4, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:701
+    if( pygmyFile->ID_Sector == 1 ){
+        pygmyFile->Sector = ulAddress2; // Sector must be updated if we are still in sector 1
+    } // if
+    ulAddress2 *= pygmyRootVolume.SectorSize;
+    
+    for( i = 128; i < pygmyRootVolume.SectorSize;  ){
+  94:	8b73      	ldrh	r3, [r6, #26]
+  96:	42a3      	cmp	r3, r4
+  98:	d8f0      	bhi.n	7c <fileClose+0x7c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:709
+            flashWriteByte( ulAddress2 + i, ucByte ); 
+        } // if
+        ++i;
+    } // for
+    
+    flashSectorErase( ulAddress );// Pre-erase to speed next write operation
+  9a:	4638      	mov	r0, r7
+  9c:	f7ff fffe 	bl	0 <fileClose>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:710
+    if( fileWriteLength( pygmyFile, pygmyFile->Length ) ){
+  a0:	4628      	mov	r0, r5
+  a2:	6869      	ldr	r1, [r5, #4]
+  a4:	f7ff fffe 	bl	0 <fileClose>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:687
+    u32 i, ulAddress, ulAddress2;
+    u8 ucByte;
+    
+    ulAddress = pygmyRootVolume.FirstFileSector + ( fileGetFAT( pygmyFile->ID_File, 1 ) * pygmyRootVolume.SectorSize );
+    if( fileWriteLength( pygmyFile, pygmyFile->Length ) ){
+        return( 1 );
+  a8:	3800      	subs	r0, #0
+  aa:	bf18      	it	ne
+  ac:	2001      	movne	r0, #1
+  ae:	e8bd 83f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
+  b2:	f04f 0001 	mov.w	r0, #1
+  b6:	e8bd 83f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:693
+    } // if
+    // Out of length slots in Sector, Handle Sector copy and re-allocation
+    fileDeleteFATEntry( pygmyFile->ID_File, 1 ); // Deletes on first sequential FAT entry
+    ulAddress2 = fileAllocateFAT( pygmyFile->ID_File, 1 ); // Allocates new sector to replace first FAT entry
+    if( ulAddress2 == 0xFFFF ){
+        return( 0 ); // Time to panic, there is no room left to complete operation and we have run out of options
+  ba:	f04f 0000 	mov.w	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:715
+    if( fileWriteLength( pygmyFile, pygmyFile->Length ) ){
+        return( 1 ); 
+    } // if
+    
+    return( 0 ); 
+}
+  be:	e8bd 83f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
+  c2:	bf00      	nop
+
+Disassembly of section .text.fileGetFreeFileEntry:
+
+00000000 <fileGetFreeFileEntry>:
+fileGetFreeFileEntry():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:361
+
+    return( 1 );
+}
+
+u16 fileGetFreeFileEntry( void )
+{
+   0:	e92d 4ff8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:369
+    u8 ucBuffer[ 16 ];
+
+    // Read MSB of each Entry until 0xFF is found
+    // First four entries are always reserved for File Volume Descriptor
+
+    pygmyRootVolume.ActiveFiles = fileGetActiveFiles( );
+   4:	f7ff fffe 	bl	0 <fileGetFreeFileEntry>
+   8:	f240 0300 	movw	r3, #0
+   c:	f2c0 0300 	movt	r3, #0
+  10:	6118      	str	r0, [r3, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:371
+
+    if( pygmyRootVolume.ActiveFiles == 0xFFFFFFFF ){ 
+  12:	f1b0 3fff 	cmp.w	r0, #4294967295
+  16:	f000 80aa 	beq.w	16e <fileGetFreeFileEntry+0x16e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:375
+        return( 0 );
+    } // if
+    
+    for( i = 0, uiErased = 0; i < pygmyRootVolume.MaxFiles; i++ ){
+  1a:	f240 0300 	movw	r3, #0
+  1e:	f2c0 0300 	movt	r3, #0
+  22:	69db      	ldr	r3, [r3, #28]
+  24:	2b00      	cmp	r3, #0
+  26:	f000 8096 	beq.w	156 <fileGetFreeFileEntry+0x156>
+  2a:	f04f 0404 	mov.w	r4, #4
+  2e:	f04f 0800 	mov.w	r8, #0
+  32:	4646      	mov	r6, r8
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:376
+        ii = flashReadByte( pygmyRootVolume.ActiveFiles + ( ( i + 4 ) * 16 ) );
+  34:	f240 0500 	movw	r5, #0
+  38:	f2c0 0500 	movt	r5, #0
+  3c:	6928      	ldr	r0, [r5, #16]
+  3e:	eb00 1004 	add.w	r0, r0, r4, lsl #4
+  42:	f7ff fffe 	bl	0 <fileGetFreeFileEntry>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:377
+        if( ii == 0xFF ){
+  46:	28ff      	cmp	r0, #255	; 0xff
+  48:	d104      	bne.n	54 <fileGetFreeFileEntry+0x54>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:378
+            return( 4 + i );
+  4a:	f106 0004 	add.w	r0, r6, #4
+  4e:	b280      	uxth	r0, r0
+  50:	e8bd 8ff8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:380
+        } // if
+        if( !uiErased && !ii ){ // We have a deleted entry
+  54:	ea40 0008 	orr.w	r0, r0, r8
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:381
+            uiErased = 4 + i; // Store deleted entry, if no entries left we will free up and use
+  58:	2800      	cmp	r0, #0
+  5a:	bf08      	it	eq
+  5c:	46a0      	moveq	r8, r4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:375
+
+    if( pygmyRootVolume.ActiveFiles == 0xFFFFFFFF ){ 
+        return( 0 );
+    } // if
+    
+    for( i = 0, uiErased = 0; i < pygmyRootVolume.MaxFiles; i++ ){
+  5e:	f106 0601 	add.w	r6, r6, #1
+  62:	f104 0401 	add.w	r4, r4, #1
+  66:	69eb      	ldr	r3, [r5, #28]
+  68:	42b3      	cmp	r3, r6
+  6a:	d8e7      	bhi.n	3c <fileGetFreeFileEntry+0x3c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:385
+        if( !uiErased && !ii ){ // We have a deleted entry
+            uiErased = 4 + i; // Store deleted entry, if no entries left we will free up and use
+        } // if
+    } // for
+    // If we exit the loop then we are out of memory
+    if( uiErased ){
+  6c:	f1b8 0f00 	cmp.w	r8, #0
+  70:	d071      	beq.n	122 <fileGetFreeFileEntry+0x122>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:387
+        // Create pointer to unused Table set
+        if( pygmyRootVolume.ActiveFiles == pygmyRootVolume.Files_B ){ 
+  72:	f240 0300 	movw	r3, #0
+  76:	f2c0 0300 	movt	r3, #0
+  7a:	f8d3 9030 	ldr.w	r9, [r3, #48]	; 0x30
+  7e:	691b      	ldr	r3, [r3, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:388
+            ulAddress = PYGMY_FILE_FILES_A;
+  80:	454b      	cmp	r3, r9
+  82:	bf08      	it	eq
+  84:	f04f 0900 	moveq.w	r9, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:392
+        } else{
+            ulAddress = pygmyRootVolume.Files_B;
+        } // else
+        for( i = 0; i < pygmyRootVolume.FilesSectors; i++ ){
+  88:	f240 0300 	movw	r3, #0
+  8c:	f2c0 0300 	movt	r3, #0
+  90:	8cdb      	ldrh	r3, [r3, #38]	; 0x26
+  92:	b17b      	cbz	r3, b4 <fileGetFreeFileEntry+0xb4>
+  94:	f04f 0400 	mov.w	r4, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:393
+            flashSectorErase( ulAddress + ( i * pygmyRootVolume.SectorSize ) );
+  98:	f240 0500 	movw	r5, #0
+  9c:	f2c0 0500 	movt	r5, #0
+  a0:	8b68      	ldrh	r0, [r5, #26]
+  a2:	fb00 9004 	mla	r0, r0, r4, r9
+  a6:	f7ff fffe 	bl	0 <fileGetFreeFileEntry>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:392
+        if( pygmyRootVolume.ActiveFiles == pygmyRootVolume.Files_B ){ 
+            ulAddress = PYGMY_FILE_FILES_A;
+        } else{
+            ulAddress = pygmyRootVolume.Files_B;
+        } // else
+        for( i = 0; i < pygmyRootVolume.FilesSectors; i++ ){
+  aa:	f104 0401 	add.w	r4, r4, #1
+  ae:	8ceb      	ldrh	r3, [r5, #38]	; 0x26
+  b0:	42a3      	cmp	r3, r4
+  b2:	d8f5      	bhi.n	a0 <fileGetFreeFileEntry+0xa0>
+  b4:	f04f 0400 	mov.w	r4, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:397
+            flashSectorErase( ulAddress + ( i * pygmyRootVolume.SectorSize ) );
+        } // for
+        
+        for( i = 0; i < 64; i++ ){ // Copy first 64 bytes of Volume descriptor to new sector
+            flashWriteByte( ulAddress + i, flashReadByte( pygmyRootVolume.ActiveFiles + i ) );
+  b8:	f240 0500 	movw	r5, #0
+  bc:	f2c0 0500 	movt	r5, #0
+  c0:	6928      	ldr	r0, [r5, #16]
+  c2:	1820      	adds	r0, r4, r0
+  c4:	f7ff fffe 	bl	0 <fileGetFreeFileEntry>
+  c8:	4601      	mov	r1, r0
+  ca:	eb04 0009 	add.w	r0, r4, r9
+  ce:	f7ff fffe 	bl	0 <fileGetFreeFileEntry>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:396
+        } // else
+        for( i = 0; i < pygmyRootVolume.FilesSectors; i++ ){
+            flashSectorErase( ulAddress + ( i * pygmyRootVolume.SectorSize ) );
+        } // for
+        
+        for( i = 0; i < 64; i++ ){ // Copy first 64 bytes of Volume descriptor to new sector
+  d2:	f104 0401 	add.w	r4, r4, #1
+  d6:	2c40      	cmp	r4, #64	; 0x40
+  d8:	d1f2      	bne.n	c0 <fileGetFreeFileEntry+0xc0>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:400
+            flashWriteByte( ulAddress + i, flashReadByte( pygmyRootVolume.ActiveFiles + i ) );
+        } // for
+        
+        for( i = 0; i < pygmyRootVolume.MaxFiles; i++ ){
+  da:	f240 0300 	movw	r3, #0
+  de:	f2c0 0300 	movt	r3, #0
+  e2:	69db      	ldr	r3, [r3, #28]
+  e4:	b343      	cbz	r3, 138 <fileGetFreeFileEntry+0x138>
+  e6:	f04f 0740 	mov.w	r7, #64	; 0x40
+  ea:	f04f 0a00 	mov.w	sl, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:403
+            ii = ( i + 4 ) * 16;
+            // Test first byte, if marked deleted ( 0 ), then skip entry since 0xFF cannot be written to 0xFF in flash
+            ucBuffer[ 0 ] = flashReadByte( pygmyRootVolume.ActiveFiles + ii );
+  ee:	f240 0600 	movw	r6, #0
+  f2:	f2c0 0600 	movt	r6, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:404
+            if( !ucBuffer[ 0 ] ){
+  f6:	46d3      	mov	fp, sl
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:403
+        } // for
+        
+        for( i = 0; i < pygmyRootVolume.MaxFiles; i++ ){
+            ii = ( i + 4 ) * 16;
+            // Test first byte, if marked deleted ( 0 ), then skip entry since 0xFF cannot be written to 0xFF in flash
+            ucBuffer[ 0 ] = flashReadByte( pygmyRootVolume.ActiveFiles + ii );
+  f8:	6930      	ldr	r0, [r6, #16]
+  fa:	1838      	adds	r0, r7, r0
+  fc:	f7ff fffe 	bl	0 <fileGetFreeFileEntry>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:404
+            if( !ucBuffer[ 0 ] ){
+ 100:	b198      	cbz	r0, 12a <fileGetFreeFileEntry+0x12a>
+ 102:	eb07 0509 	add.w	r5, r7, r9
+ 106:	465c      	mov	r4, fp
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:408
+                continue;
+            } // if
+            for( iii = 0; iii < 16; iii++ ){
+                ucBuffer[ iii ] = flashReadByte( pygmyRootVolume.ActiveFiles + ii + iii );  
+ 108:	6930      	ldr	r0, [r6, #16]
+ 10a:	1838      	adds	r0, r7, r0
+ 10c:	1900      	adds	r0, r0, r4
+ 10e:	f7ff fffe 	bl	0 <fileGetFreeFileEntry>
+ 112:	4601      	mov	r1, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:409
+                if( ucBuffer[ iii ] != 0xFF ){
+ 114:	28ff      	cmp	r0, #255	; 0xff
+ 116:	d002      	beq.n	11e <fileGetFreeFileEntry+0x11e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:410
+                    flashWriteByte( ulAddress + ii + iii, ucBuffer[ iii ] );
+ 118:	4628      	mov	r0, r5
+ 11a:	f7ff fffe 	bl	0 <fileGetFreeFileEntry>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:407
+            // Test first byte, if marked deleted ( 0 ), then skip entry since 0xFF cannot be written to 0xFF in flash
+            ucBuffer[ 0 ] = flashReadByte( pygmyRootVolume.ActiveFiles + ii );
+            if( !ucBuffer[ 0 ] ){
+                continue;
+            } // if
+            for( iii = 0; iii < 16; iii++ ){
+ 11e:	f104 0401 	add.w	r4, r4, #1
+ 122:	f105 0501 	add.w	r5, r5, #1
+ 126:	2c10      	cmp	r4, #16
+ 128:	d1ee      	bne.n	108 <fileGetFreeFileEntry+0x108>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:400
+        
+        for( i = 0; i < 64; i++ ){ // Copy first 64 bytes of Volume descriptor to new sector
+            flashWriteByte( ulAddress + i, flashReadByte( pygmyRootVolume.ActiveFiles + i ) );
+        } // for
+        
+        for( i = 0; i < pygmyRootVolume.MaxFiles; i++ ){
+ 12a:	f10a 0a01 	add.w	sl, sl, #1
+ 12e:	f107 0710 	add.w	r7, r7, #16
+ 132:	69f3      	ldr	r3, [r6, #28]
+ 134:	4553      	cmp	r3, sl
+ 136:	d8df      	bhi.n	f8 <fileGetFreeFileEntry+0xf8>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:415
+                    flashWriteByte( ulAddress + ii + iii, ucBuffer[ iii ] );
+                } // if
+            } // for
+        } // for
+        // Now set first byte of ActiveFiles to 0 to delete
+        flashWriteByte( pygmyRootVolume.ActiveFiles, 0x00 );
+ 138:	f240 0400 	movw	r4, #0
+ 13c:	f2c0 0400 	movt	r4, #0
+ 140:	6920      	ldr	r0, [r4, #16]
+ 142:	f04f 0100 	mov.w	r1, #0
+ 146:	f7ff fffe 	bl	0 <fileGetFreeFileEntry>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:416
+        pygmyRootVolume.ActiveFiles = ulAddress;
+ 14a:	f8c4 9010 	str.w	r9, [r4, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:418
+    
+        return( uiErased ); // This was the location of the first known deleted entry, now free
+ 14e:	fa1f f088 	uxth.w	r0, r8
+ 152:	e8bd 8ff8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:422
+    } // if
+    
+    // If we drop through, there are no free sectors remaining, mark volume as full
+    pygmyRootVolume.Attributes |= VOLUMEFULL;
+ 156:	f240 0300 	movw	r3, #0
+ 15a:	f2c0 0300 	movt	r3, #0
+ 15e:	7b5a      	ldrb	r2, [r3, #13]
+ 160:	f062 027f 	orn	r2, r2, #127	; 0x7f
+ 164:	735a      	strb	r2, [r3, #13]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:424
+
+    return( 0 );
+ 166:	f04f 0000 	mov.w	r0, #0
+ 16a:	e8bd 8ff8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:372
+    // First four entries are always reserved for File Volume Descriptor
+
+    pygmyRootVolume.ActiveFiles = fileGetActiveFiles( );
+
+    if( pygmyRootVolume.ActiveFiles == 0xFFFFFFFF ){ 
+        return( 0 );
+ 16e:	f04f 0000 	mov.w	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:425
+    
+    // If we drop through, there are no free sectors remaining, mark volume as full
+    pygmyRootVolume.Attributes |= VOLUMEFULL;
+
+    return( 0 );
+}
+ 172:	e8bd 8ff8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}
+ 176:	bf00      	nop
+
+Disassembly of section .text.fileRename:
+
+00000000 <fileRename>:
+fileRename():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:316
+
+    return( 0 );
+}
+
+u8 fileRename( u8 *ucCurrentName, u8 *ucName )
+{
+   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+   2:	4605      	mov	r5, r0
+   4:	460c      	mov	r4, r1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:325
+ 
+    /*if( !fileIsValidName( ucName ) || !fileIsValidName( ucCurrentName ) ){
+        return( 0 );
+    } // if
+    */
+    if( !fileIsValidName( ucName ) ){
+   6:	4608      	mov	r0, r1
+   8:	f7ff fffe 	bl	0 <fileRename>
+   c:	2800      	cmp	r0, #0
+   e:	d03b      	beq.n	88 <fileRename+0x88>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:328
+        return( 0 );
+    } // if
+    ulFileEntry = fileSeekName( ucCurrentName );
+  10:	4628      	mov	r0, r5
+  12:	f7ff fffe 	bl	0 <fileRename>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:329
+    if( !ulFileEntry || fileSeekName( ucName ) ){
+  16:	4605      	mov	r5, r0
+  18:	2800      	cmp	r0, #0
+  1a:	d038      	beq.n	8e <fileRename+0x8e>
+  1c:	4620      	mov	r0, r4
+  1e:	f7ff fffe 	bl	0 <fileRename>
+  22:	2800      	cmp	r0, #0
+  24:	d136      	bne.n	94 <fileRename+0x94>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:333
+        return( 0 );
+    } // if
+
+    ulFileEntry = pygmyRootVolume.ActiveFiles + ( ulFileEntry * 16); // Each file Entry exactly 16 bytes
+  26:	f240 0300 	movw	r3, #0
+  2a:	f2c0 0300 	movt	r3, #0
+  2e:	691b      	ldr	r3, [r3, #16]
+  30:	eb03 1505 	add.w	r5, r3, r5, lsl #4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:334
+    ulFileID = (u32)flashReadByte( ulFileEntry + 13 ) << 24;
+  34:	f105 000d 	add.w	r0, r5, #13
+  38:	f7ff fffe 	bl	0 <fileRename>
+  3c:	4606      	mov	r6, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:335
+    ulFileID |= (u32)flashReadWord( ulFileEntry + 14 );
+  3e:	f105 000e 	add.w	r0, r5, #14
+  42:	f7ff fffe 	bl	0 <fileRename>
+  46:	4607      	mov	r7, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:338
+    //ucAttrib = flashReadByte( ulFileEntry + 13 );
+    //uiFileID = flashReadWord( ulFileEntry + 14 );
+    flashWriteByte( ulFileEntry, 0x00 ); // Delete old entry by setting first byte to NULL
+  48:	4628      	mov	r0, r5
+  4a:	f04f 0100 	mov.w	r1, #0
+  4e:	f7ff fffe 	bl	0 <fileRename>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:340
+    
+    ulFileEntry = fileGetFreeFileEntry( );
+  52:	f7ff fffe 	bl	0 <fileRename>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:341
+    if( !ulFileEntry ){
+  56:	b300      	cbz	r0, 80 <fileRename+0x80>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:345
+        return( 0 ); // This can only happen in the case of memory failure
+    } // if
+
+    ulFileEntry = pygmyRootVolume.ActiveFiles + ( ulFileEntry * 16); // Each file Entry exactly 16 bytes
+  58:	f240 0200 	movw	r2, #0
+  5c:	f2c0 0200 	movt	r2, #0
+  60:	6915      	ldr	r5, [r2, #16]
+  62:	eb05 1500 	add.w	r5, r5, r0, lsl #4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:346
+    flashWriteBuffer( ulFileEntry, len( ucName ), ucName );
+  66:	4620      	mov	r0, r4
+  68:	f7ff fffe 	bl	0 <len>
+  6c:	4601      	mov	r1, r0
+  6e:	4628      	mov	r0, r5
+  70:	4622      	mov	r2, r4
+  72:	f7ff fffe 	bl	0 <fileRename>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:349
+    //ulFileID = ( (u32)ucAttrib << 24 ) | uiFileID;
+    
+    flashWriteLong( ulFileEntry + 12, ulFileID );
+  76:	f105 000c 	add.w	r0, r5, #12
+  7a:	ea47 6106 	orr.w	r1, r7, r6, lsl #24
+  7e:	f7ff fffe 	bl	0 <fileRename>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:357
+    // Next we write the ID, this starts as the physical offset of the entry
+    // This tag cannot be used to identify the entry location since the tag will follow the
+    // file through name changes, etc. If ID changes, all associated FAT Entries are lost
+    //flashWriteWord( ulFileEntry+14, uiFileID );
+
+    return( 1 );
+  82:	f04f 0001 	mov.w	r0, #1
+  86:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:326
+    /*if( !fileIsValidName( ucName ) || !fileIsValidName( ucCurrentName ) ){
+        return( 0 );
+    } // if
+    */
+    if( !fileIsValidName( ucName ) ){
+        return( 0 );
+  88:	f04f 0000 	mov.w	r0, #0
+  8c:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:330
+    } // if
+    ulFileEntry = fileSeekName( ucCurrentName );
+    if( !ulFileEntry || fileSeekName( ucName ) ){
+        return( 0 );
+  8e:	f04f 0000 	mov.w	r0, #0
+  92:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+  94:	f04f 0000 	mov.w	r0, #0
+  98:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:342
+    //uiFileID = flashReadWord( ulFileEntry + 14 );
+    flashWriteByte( ulFileEntry, 0x00 ); // Delete old entry by setting first byte to NULL
+    
+    ulFileEntry = fileGetFreeFileEntry( );
+    if( !ulFileEntry ){
+        return( 0 ); // This can only happen in the case of memory failure
+  9a:	f04f 0000 	mov.w	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:358
+    // This tag cannot be used to identify the entry location since the tag will follow the
+    // file through name changes, etc. If ID changes, all associated FAT Entries are lost
+    //flashWriteWord( ulFileEntry+14, uiFileID );
+
+    return( 1 );
+}
+  9e:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+
+Disassembly of section .text.flashWriteEnable:
+
+00000000 <flashWriteEnable>:
+flashWriteEnable():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1405
+    //FLASH_CS_HIGH;
+    flashWaitForBusy(); // Busy must be clear before next write cycle may start
+}
+
+void flashWriteEnable( void )
+{
+   0:	b5f0      	push	{r4, r5, r6, r7, lr}
+   2:	b083      	sub	sp, #12
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1408
+    // Must be called before any write operations to FLASH
+    #ifndef __PYGMY_BOOT
+        spiConfig( &pygmyFlashSPI, FLASH_CS, FLASH_SCK, FLASH_MISO, FLASH_MOSI, 0 );
+   4:	f240 0400 	movw	r4, #0
+   8:	f2c0 0400 	movt	r4, #0
+   c:	f04f 031f 	mov.w	r3, #31
+  10:	9300      	str	r3, [sp, #0]
+  12:	f04f 0700 	mov.w	r7, #0
+  16:	9701      	str	r7, [sp, #4]
+  18:	4620      	mov	r0, r4
+  1a:	f04f 011c 	mov.w	r1, #28
+  1e:	f04f 021d 	mov.w	r2, #29
+  22:	f04f 031e 	mov.w	r3, #30
+  26:	f7ff fffe 	bl	0 <spiConfig>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1416
+        FLASH_CS_INIT; // To be defined in profile
+        FLASH_SCK_INIT;
+        FLASH_MISO_INIT;
+        FLASH_MOSI_INIT; 
+    #endif
+    FLASH_CS_LOW;
+  2a:	f44f 6540 	mov.w	r5, #3072	; 0xc00
+  2e:	f2c4 0501 	movt	r5, #16385	; 0x4001
+  32:	f44f 5680 	mov.w	r6, #4096	; 0x1000
+  36:	616e      	str	r6, [r5, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1417
+    spiWriteByte( &pygmyFlashSPI, PYGMY_FLASH_WREN ); // WREN must be written before status register may be modified
+  38:	4620      	mov	r0, r4
+  3a:	f04f 0106 	mov.w	r1, #6
+  3e:	f7ff fffe 	bl	0 <spiWriteByte>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1418
+    FLASH_CS_HIGH;
+  42:	612e      	str	r6, [r5, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1419
+    FLASH_CS_LOW;
+  44:	616e      	str	r6, [r5, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1420
+    spiWriteByte( &pygmyFlashSPI, PYGMY_FLASH_WRSR );
+  46:	4620      	mov	r0, r4
+  48:	f04f 0101 	mov.w	r1, #1
+  4c:	f7ff fffe 	bl	0 <spiWriteByte>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1421
+    spiWriteByte( &pygmyFlashSPI, 0 );
+  50:	4620      	mov	r0, r4
+  52:	4639      	mov	r1, r7
+  54:	f7ff fffe 	bl	0 <spiWriteByte>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1422
+    FLASH_CS_HIGH;
+  58:	612e      	str	r6, [r5, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1423
+  5a:	b003      	add	sp, #12
+  5c:	bdf0      	pop	{r4, r5, r6, r7, pc}
+  5e:	bf00      	nop
+
+Disassembly of section .text.fileFormat:
+
+00000000 <fileFormat>:
+fileFormat():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1095
+    } // for
+}
+#endif // __PYGMYSTREAMS
+
+u32 fileFormat( u8 *ucName )
+{
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	4606      	mov	r6, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1102
+    u16 uiSectorSize, uiSectors, uiSecPerFAT;
+    u8 ucAttribs;
+
+    #ifndef __PYGMY_BOOT
+        // Verify name isn't too long 
+        if( ucName[ 0 ] && !fileIsValidName( ucName ) ){ 
+   4:	7803      	ldrb	r3, [r0, #0]
+   6:	b133      	cbz	r3, 16 <fileFormat+0x16>
+   8:	f7ff fffe 	bl	0 <fileFormat>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1103
+            return( 0 );
+   c:	f04f 0500 	mov.w	r5, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1102
+    u16 uiSectorSize, uiSectors, uiSecPerFAT;
+    u8 ucAttribs;
+
+    #ifndef __PYGMY_BOOT
+        // Verify name isn't too long 
+        if( ucName[ 0 ] && !fileIsValidName( ucName ) ){ 
+  10:	2800      	cmp	r0, #0
+  12:	f000 808b 	beq.w	12c <fileFormat+0x12c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1108
+            return( 0 );
+        } // if
+    #endif
+    // Start by erasing chip
+    
+    flashWriteEnable( );
+  16:	f7ff fffe 	bl	0 <fileFormat>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1109
+    flashChipErase( );
+  1a:	f7ff fffe 	bl	0 <fileFormat>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1110
+    ulCapacity = flashReadID( );
+  1e:	f7ff fffe 	bl	0 <fileFormat>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1117
+    ucAttribs = 0;
+    // If ID is for FLASH, use the following settings:
+        ucAttribs = READ|WRITE|MEDIAFLASH;
+        uiSectorSize = 0x1000;
+    // Flash ICs up to 32Mbit use 1 4KB sector for FAT_A and 1 for FAT_B
+    if( ulCapacity == SST_ID_32M ){
+  22:	284a      	cmp	r0, #74	; 0x4a
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1119
+        uiSectors = 1024;
+        uiSecPerFAT = 4;
+  24:	bf04      	itt	eq
+  26:	2404      	moveq	r4, #4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1118
+    // If ID is for FLASH, use the following settings:
+        ucAttribs = READ|WRITE|MEDIAFLASH;
+        uiSectorSize = 0x1000;
+    // Flash ICs up to 32Mbit use 1 4KB sector for FAT_A and 1 for FAT_B
+    if( ulCapacity == SST_ID_32M ){
+        uiSectors = 1024;
+  28:	f44f 6580 	moveq.w	r5, #1024	; 0x400
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1117
+    ucAttribs = 0;
+    // If ID is for FLASH, use the following settings:
+        ucAttribs = READ|WRITE|MEDIAFLASH;
+        uiSectorSize = 0x1000;
+    // Flash ICs up to 32Mbit use 1 4KB sector for FAT_A and 1 for FAT_B
+    if( ulCapacity == SST_ID_32M ){
+  2c:	d011      	beq.n	52 <fileFormat+0x52>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1120
+        uiSectors = 1024;
+        uiSecPerFAT = 4;
+    } else if( ulCapacity == SST_ID_16M ){
+  2e:	2841      	cmp	r0, #65	; 0x41
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1122
+        uiSectors = 512;
+        uiSecPerFAT = 2;
+  30:	bf04      	itt	eq
+  32:	2402      	moveq	r4, #2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1121
+    // Flash ICs up to 32Mbit use 1 4KB sector for FAT_A and 1 for FAT_B
+    if( ulCapacity == SST_ID_32M ){
+        uiSectors = 1024;
+        uiSecPerFAT = 4;
+    } else if( ulCapacity == SST_ID_16M ){
+        uiSectors = 512;
+  34:	f44f 7500 	moveq.w	r5, #512	; 0x200
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1120
+        uiSectorSize = 0x1000;
+    // Flash ICs up to 32Mbit use 1 4KB sector for FAT_A and 1 for FAT_B
+    if( ulCapacity == SST_ID_32M ){
+        uiSectors = 1024;
+        uiSecPerFAT = 4;
+    } else if( ulCapacity == SST_ID_16M ){
+  38:	d00b      	beq.n	52 <fileFormat+0x52>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1123
+        uiSectors = 512;
+        uiSecPerFAT = 2;
+    } else if( ulCapacity == SST_ID_8M ){
+  3a:	288e      	cmp	r0, #142	; 0x8e
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1111
+    // Start by erasing chip
+    
+    flashWriteEnable( );
+    flashChipErase( );
+    ulCapacity = flashReadID( );
+    uiSecPerFAT = 1;
+  3c:	bf04      	itt	eq
+  3e:	2401      	moveq	r4, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1124
+        uiSecPerFAT = 4;
+    } else if( ulCapacity == SST_ID_16M ){
+        uiSectors = 512;
+        uiSecPerFAT = 2;
+    } else if( ulCapacity == SST_ID_8M ){
+        uiSectors = 256;
+  40:	f44f 7580 	moveq.w	r5, #256	; 0x100
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1123
+        uiSectors = 1024;
+        uiSecPerFAT = 4;
+    } else if( ulCapacity == SST_ID_16M ){
+        uiSectors = 512;
+        uiSecPerFAT = 2;
+    } else if( ulCapacity == SST_ID_8M ){
+  44:	d005      	beq.n	52 <fileFormat+0x52>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1111
+    // Start by erasing chip
+    
+    flashWriteEnable( );
+    flashChipErase( );
+    ulCapacity = flashReadID( );
+    uiSecPerFAT = 1;
+  46:	f04f 0401 	mov.w	r4, #1
+  4a:	288d      	cmp	r0, #141	; 0x8d
+  4c:	bf0c      	ite	eq
+  4e:	2580      	moveq	r5, #128	; 0x80
+  50:	2500      	movne	r5, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1131
+        uiSectors = 128;
+    } // else if
+    
+    #ifndef __PYGMY_BOOT
+        // Next write optional volume name, if needed
+        if( ucName[ 0 ] ){ // As long as first char of name field is non-null, name is optional
+  52:	7833      	ldrb	r3, [r6, #0]
+  54:	b133      	cbz	r3, 64 <fileFormat+0x64>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1132
+            flashWriteString( PYGMY_FILE_VOLUME_FIELD_NAME, TRUE, ucName );
+  56:	f04f 0000 	mov.w	r0, #0
+  5a:	f04f 0101 	mov.w	r1, #1
+  5e:	4632      	mov	r2, r6
+  60:	f7ff fffe 	bl	0 <fileFormat>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1135
+        } // if
+    #endif
+    flashWriteByte( PYGMY_FILE_VOLUME_FIELD_ATTRIB, ucAttribs );
+  64:	f04f 000f 	mov.w	r0, #15
+  68:	f04f 010b 	mov.w	r1, #11
+  6c:	f7ff fffe 	bl	0 <fileFormat>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1136
+    flashWriteWord( PYGMY_FILE_VOLUME_FIELD_SECTORS, uiSecPerFAT * 252 ); 
+  70:	ea4f 1684 	mov.w	r6, r4, lsl #6
+  74:	1b36      	subs	r6, r6, r4
+  76:	ea4f 0686 	mov.w	r6, r6, lsl #2
+  7a:	b2b6      	uxth	r6, r6
+  7c:	f04f 0010 	mov.w	r0, #16
+  80:	4631      	mov	r1, r6
+  82:	f7ff fffe 	bl	0 <fileFormat>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1137
+    flashWriteWord( PYGMY_FILE_VOLUME_FIELD_SECTORSIZE, uiSectorSize ); // hard coded to SST family sectors size
+  86:	f04f 0012 	mov.w	r0, #18
+  8a:	f44f 5180 	mov.w	r1, #4096	; 0x1000
+  8e:	f7ff fffe 	bl	0 <fileFormat>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1138
+    flashWriteLong( PYGMY_FILE_VOLUME_FIELD_MAXFILES, uiSecPerFAT * 252 );
+  92:	ea4f 1184 	mov.w	r1, r4, lsl #6
+  96:	1b09      	subs	r1, r1, r4
+  98:	f04f 0014 	mov.w	r0, #20
+  9c:	ea4f 0181 	mov.w	r1, r1, lsl #2
+  a0:	f7ff fffe 	bl	0 <fileFormat>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1140
+    // Media size is defined as total sectors minus FILE and FAT sectors * SECTOR SIZE
+    ulCapacity = ( uiSectors - ( uiSecPerFAT * 2 ) ) * uiSectorSize;
+  a4:	eba5 0544 	sub.w	r5, r5, r4, lsl #1
+  a8:	ea4f 3505 	mov.w	r5, r5, lsl #12
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1141
+    flashWriteLong( PYGMY_FILE_VOLUME_FIELD_MEDIASIZE, ulCapacity );
+  ac:	f04f 0018 	mov.w	r0, #24
+  b0:	4629      	mov	r1, r5
+  b2:	f7ff fffe 	bl	0 <fileFormat>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1142
+    flashWriteWord( PYGMY_FILE_VOLUME_FIELD_ENTRIESPERFAT, uiSecPerFAT * 252 ); // 252
+  b6:	f04f 001c 	mov.w	r0, #28
+  ba:	4631      	mov	r1, r6
+  bc:	f7ff fffe 	bl	0 <fileFormat>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1143
+    flashWriteWord( PYGMY_FILE_VOLUME_FIELD_FILESSECTORS, uiSecPerFAT );
+  c0:	f04f 001e 	mov.w	r0, #30
+  c4:	4621      	mov	r1, r4
+  c6:	f7ff fffe 	bl	0 <fileFormat>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1144
+    flashWriteWord( PYGMY_FILE_VOLUME_FIELD_FATSECTORS, 1 );
+  ca:	f04f 0020 	mov.w	r0, #32
+  ce:	f04f 0101 	mov.w	r1, #1
+  d2:	f7ff fffe 	bl	0 <fileFormat>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1145
+    flashWriteLong( PYGMY_FILE_VOLUME_FIELD_FIRSTFILESECTOR, ( ( ( uiSecPerFAT * 2 ) + 2 )* uiSectorSize ) );
+  d6:	f104 0101 	add.w	r1, r4, #1
+  da:	f04f 0022 	mov.w	r0, #34	; 0x22
+  de:	ea4f 3141 	mov.w	r1, r1, lsl #13
+  e2:	f7ff fffe 	bl	0 <fileFormat>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1146
+    flashWriteLong( PYGMY_FILE_VOLUME_FIELD_FILES_A, PYGMY_FILE_FILES_A );
+  e6:	f04f 0026 	mov.w	r0, #38	; 0x26
+  ea:	f04f 0100 	mov.w	r1, #0
+  ee:	f7ff fffe 	bl	0 <fileFormat>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1147
+    flashWriteLong( PYGMY_FILE_VOLUME_FIELD_FILES_B, uiSecPerFAT * uiSectorSize );
+  f2:	f04f 002a 	mov.w	r0, #42	; 0x2a
+  f6:	ea4f 3104 	mov.w	r1, r4, lsl #12
+  fa:	f7ff fffe 	bl	0 <fileFormat>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1148
+    ulFATBase = ( uiSecPerFAT * 2 ) * uiSectorSize;
+  fe:	ea4f 3444 	mov.w	r4, r4, lsl #13
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1149
+    flashWriteLong( PYGMY_FILE_VOLUME_FIELD_FAT_A, ulFATBase );
+ 102:	f04f 002e 	mov.w	r0, #46	; 0x2e
+ 106:	4621      	mov	r1, r4
+ 108:	f7ff fffe 	bl	0 <fileFormat>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1150
+    flashWriteLong( PYGMY_FILE_VOLUME_FIELD_FAT_B, ulFATBase + uiSectorSize );
+ 10c:	f04f 0032 	mov.w	r0, #50	; 0x32
+ 110:	f504 5180 	add.w	r1, r4, #4096	; 0x1000
+ 114:	f7ff fffe 	bl	0 <fileFormat>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1151
+    flashWriteByte( ( ulFATBase - uiSectorSize ) - 1, 0x00 ); // Mark FAT_A as active
+ 118:	f5a4 5080 	sub.w	r0, r4, #4096	; 0x1000
+ 11c:	f100 30ff 	add.w	r0, r0, #4294967295
+ 120:	f04f 0100 	mov.w	r1, #0
+ 124:	f7ff fffe 	bl	0 <fileFormat>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1153
+    
+    fileMountRoot();
+ 128:	f7ff fffe 	bl	0 <fileFormat>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1156
+    
+    return( ulCapacity );
+}       
+ 12c:	4628      	mov	r0, r5
+ 12e:	bd70      	pop	{r4, r5, r6, pc}
+
+Disassembly of section .text.fileMountRoot:
+
+00000000 <fileMountRoot>:
+fileMountRoot():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:975
+    return( ucBuffer[ ucIndex++ ] );
+}
+#endif
+
+u8 fileMountRoot( void )//Volume( void )//PYGMYFILEVOLUME *pygmyFileVolume )
+{
+   0:	b538      	push	{r3, r4, r5, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:978
+    u32 ulTableOffset;
+    
+    flashWriteEnable( );
+   2:	f7ff fffe 	bl	0 <fileMountRoot>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:981
+    // Note that the Files_A and Files_B values are static and will not change, both Files A/B will be same in both tables 
+    //pygmyRootVolume.Files_A = PYGMY_FILE_FILES_A;//Pygmy_FLASH_ReadLong( PYGMY_FILE_VOLUME_FIELD_FILES_A );
+    pygmyRootVolume.Files_B = flashReadLong( PYGMY_FILE_VOLUME_FIELD_FILES_B );
+   6:	f04f 002a 	mov.w	r0, #42	; 0x2a
+   a:	f7ff fffe 	bl	0 <fileMountRoot>
+   e:	f240 0300 	movw	r3, #0
+  12:	f2c0 0300 	movt	r3, #0
+  16:	6318      	str	r0, [r3, #48]	; 0x30
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:983
+    
+    ulTableOffset = fileGetActiveFiles();
+  18:	f7ff fffe 	bl	0 <fileMountRoot>
+  1c:	4605      	mov	r5, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:984
+    if( ulTableOffset == 0xFFFFFFFF ){ // May not have been formatted
+  1e:	f1b0 3fff 	cmp.w	r0, #4294967295
+  22:	d10b      	bne.n	17e <.LC22+0x1a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:985
+        fileFormat( "" );
+  24:	f240 0000 	movw	r0, #0
+  28:	f2c0 0000 	movt	r0, #0
+  2c:	f7ff fffe 	bl	0 <fileMountRoot>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:986
+        ulTableOffset = fileGetActiveFiles();
+  30:	f7ff fffe 	bl	0 <fileMountRoot>
+  34:	4605      	mov	r5, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:987
+        if( ulTableOffset == 0xFFFFFFFF ){ // After format this means memory failure
+  36:	f1b0 3fff 	cmp.w	r0, #4294967295
+  3a:	d040      	beq.n	be <fileMountRoot+0xbe>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:994
+        } // if
+    } // if
+    
+    // Add code to copy volume name to structure here, if needed
+     
+    pygmyRootVolume.Attributes          = flashReadByte( ulTableOffset + PYGMY_FILE_VOLUME_FIELD_ATTRIB );
+  3c:	f105 000f 	add.w	r0, r5, #15
+  40:	f7ff fffe 	bl	0 <fileMountRoot>
+  44:	f240 0400 	movw	r4, #0
+  48:	f2c0 0400 	movt	r4, #0
+  4c:	7360      	strb	r0, [r4, #13]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:995
+    pygmyRootVolume.Sectors             = flashReadWord( ulTableOffset + PYGMY_FILE_VOLUME_FIELD_SECTORS );
+  4e:	f105 0010 	add.w	r0, r5, #16
+  52:	f7ff fffe 	bl	0 <fileMountRoot>
+  56:	8320      	strh	r0, [r4, #24]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:996
+    pygmyRootVolume.SectorSize          = flashReadWord( ulTableOffset + PYGMY_FILE_VOLUME_FIELD_SECTORSIZE );
+  58:	f105 0012 	add.w	r0, r5, #18
+  5c:	f7ff fffe 	bl	0 <fileMountRoot>
+  60:	8360      	strh	r0, [r4, #26]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:997
+    pygmyRootVolume.MaxFiles            = flashReadLong( ulTableOffset + PYGMY_FILE_VOLUME_FIELD_MAXFILES );
+  62:	f105 0014 	add.w	r0, r5, #20
+  66:	f7ff fffe 	bl	0 <fileMountRoot>
+  6a:	61e0      	str	r0, [r4, #28]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:998
+    pygmyRootVolume.MediaSize           = flashReadLong( ulTableOffset + PYGMY_FILE_VOLUME_FIELD_MEDIASIZE );
+  6c:	f105 0018 	add.w	r0, r5, #24
+  70:	f7ff fffe 	bl	0 <fileMountRoot>
+  74:	6220      	str	r0, [r4, #32]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:999
+    pygmyRootVolume.EntriesPerFAT       = flashReadWord( ulTableOffset + PYGMY_FILE_VOLUME_FIELD_ENTRIESPERFAT );
+  76:	f105 001c 	add.w	r0, r5, #28
+  7a:	f7ff fffe 	bl	0 <fileMountRoot>
+  7e:	84a0      	strh	r0, [r4, #36]	; 0x24
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1000
+    pygmyRootVolume.FilesSectors        = flashReadWord( ulTableOffset + PYGMY_FILE_VOLUME_FIELD_FILESSECTORS );
+  80:	f105 001e 	add.w	r0, r5, #30
+  84:	f7ff fffe 	bl	0 <fileMountRoot>
+  88:	84e0      	strh	r0, [r4, #38]	; 0x26
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1001
+    pygmyRootVolume.FATSectors          = flashReadWord( ulTableOffset + PYGMY_FILE_VOLUME_FIELD_FATSECTORS );
+  8a:	f105 0020 	add.w	r0, r5, #32
+  8e:	f7ff fffe 	bl	0 <fileMountRoot>
+  92:	8520      	strh	r0, [r4, #40]	; 0x28
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1002
+    pygmyRootVolume.FirstFileSector     = flashReadLong( ulTableOffset + PYGMY_FILE_VOLUME_FIELD_FIRSTFILESECTOR );
+  94:	f105 0022 	add.w	r0, r5, #34	; 0x22
+  98:	f7ff fffe 	bl	0 <fileMountRoot>
+  9c:	62e0      	str	r0, [r4, #44]	; 0x2c
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1003
+    pygmyRootVolume.FAT_A               = flashReadLong( ulTableOffset + PYGMY_FILE_VOLUME_FIELD_FAT_A );
+  9e:	f105 002e 	add.w	r0, r5, #46	; 0x2e
+  a2:	f7ff fffe 	bl	0 <fileMountRoot>
+  a6:	6360      	str	r0, [r4, #52]	; 0x34
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1004
+    pygmyRootVolume.FAT_B               = flashReadLong( ulTableOffset + PYGMY_FILE_VOLUME_FIELD_FAT_B );
+  a8:	f105 0032 	add.w	r0, r5, #50	; 0x32
+  ac:	f7ff fffe 	bl	0 <fileMountRoot>
+  b0:	63a0      	str	r0, [r4, #56]	; 0x38
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1005
+    pygmyRootVolume.ActiveFAT           = fileGetActiveFAT();
+  b2:	f7ff fffe 	bl	0 <fileMountRoot>
+  b6:	6160      	str	r0, [r4, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1007
+
+    return( 1 );
+  b8:	f04f 0001 	mov.w	r0, #1
+  bc:	bd38      	pop	{r3, r4, r5, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:988
+    ulTableOffset = fileGetActiveFiles();
+    if( ulTableOffset == 0xFFFFFFFF ){ // May not have been formatted
+        fileFormat( "" );
+        ulTableOffset = fileGetActiveFiles();
+        if( ulTableOffset == 0xFFFFFFFF ){ // After format this means memory failure
+            return( 0 );
+  be:	f04f 0000 	mov.w	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:1008
+    pygmyRootVolume.FAT_A               = flashReadLong( ulTableOffset + PYGMY_FILE_VOLUME_FIELD_FAT_A );
+    pygmyRootVolume.FAT_B               = flashReadLong( ulTableOffset + PYGMY_FILE_VOLUME_FIELD_FAT_B );
+    pygmyRootVolume.ActiveFAT           = fileGetActiveFAT();
+
+    return( 1 );
+}
+  c2:	bd38      	pop	{r3, r4, r5, pc}
+
+Disassembly of section .text.fileDelete:
+
+00000000 <fileDelete>:
+fileDelete():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:176
+
+    return( 1 );
+}
+
+u8 fileDelete( u8 *ucName )
+{
+   0:	b510      	push	{r4, lr}
+   2:	4604      	mov	r4, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:179
+    u16 uiFileEntry;
+
+    fileMountRoot( );
+   4:	f7ff fffe 	bl	0 <fileDelete>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:180
+    uiFileEntry = fileSeekName( ucName );
+   8:	4620      	mov	r0, r4
+   a:	f7ff fffe 	bl	0 <fileDelete>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:181
+    if( !uiFileEntry || !( pygmyRootVolume.Attributes & WRITE ) ){
+   e:	4604      	mov	r4, r0
+  10:	b1d0      	cbz	r0, 48 <fileDelete+0x48>
+  12:	f240 0300 	movw	r3, #0
+  16:	f2c0 0300 	movt	r3, #0
+  1a:	7b5b      	ldrb	r3, [r3, #13]
+  1c:	f013 0f02 	tst.w	r3, #2
+  20:	d015      	beq.n	6a <.LC6+0xe>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:184
+        return( 0 );
+    } // if
+    flashWriteByte( pygmyRootVolume.ActiveFiles + ( uiFileEntry * 16 ), 0 ); // First byte 0 marks as deleted
+  22:	f240 0300 	movw	r3, #0
+  26:	f2c0 0300 	movt	r3, #0
+  2a:	6918      	ldr	r0, [r3, #16]
+  2c:	eb00 1004 	add.w	r0, r0, r4, lsl #4
+  30:	f04f 0100 	mov.w	r1, #0
+  34:	f7ff fffe 	bl	0 <fileDelete>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:186
+    // Next find all FAT entries with the ID uiFleEntry and Delete
+    fileDeleteFATEntry( uiFileEntry, 0 ); // 0 erases all FAT Entries with ID uiFileEntry
+  38:	4620      	mov	r0, r4
+  3a:	f04f 0100 	mov.w	r1, #0
+  3e:	f7ff fffe 	bl	0 <fileDelete>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:188
+    
+    return( 1 );
+  42:	f04f 0001 	mov.w	r0, #1
+  46:	bd10      	pop	{r4, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:182
+    u16 uiFileEntry;
+
+    fileMountRoot( );
+    uiFileEntry = fileSeekName( ucName );
+    if( !uiFileEntry || !( pygmyRootVolume.Attributes & WRITE ) ){
+        return( 0 );
+  48:	f04f 0000 	mov.w	r0, #0
+  4c:	bd10      	pop	{r4, pc}
+  4e:	f04f 0000 	mov.w	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:189
+    flashWriteByte( pygmyRootVolume.ActiveFiles + ( uiFileEntry * 16 ), 0 ); // First byte 0 marks as deleted
+    // Next find all FAT entries with the ID uiFleEntry and Delete
+    fileDeleteFATEntry( uiFileEntry, 0 ); // 0 erases all FAT Entries with ID uiFileEntry
+    
+    return( 1 );
+}
+  52:	bd10      	pop	{r4, pc}
+
+Disassembly of section .text.fileOpen:
+
+00000000 <fileOpen>:
+fileOpen():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:84
+
+PYGMYFILEVOLUME pygmyRootVolume;
+PYGMYSPIPORT pygmyFlashSPI;
+
+u8 fileOpen( PYGMYFILE *pygmyFile, u8 *ucName, u8 ucAttrib )
+{
+   0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+   4:	4604      	mov	r4, r0
+   6:	460d      	mov	r5, r1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:88
+    u32 ulFileEntry;
+    u32 ulEntryAddress, ulNameMatch;
+
+    if( !(ucAttrib & (WRITE|READ) ) ){
+   8:	f012 0f03 	tst.w	r2, #3
+   c:	f000 808c 	beq.w	128 <fileOpen+0x128>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:92
+        return( 0 );
+    } // if
+    
+    if( ucAttrib & APPEND ){
+  10:	f012 0f04 	tst.w	r2, #4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:94
+        // Append must always have write 
+        ucAttrib |= WRITE; 
+  14:	bf18      	it	ne
+  16:	f042 0202 	orrne.w	r2, r2, #2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:96
+    } // if
+    pygmyFile->Attributes = ucAttrib;
+  1a:	7402      	strb	r2, [r0, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:103
+    //    pygmyFile->Attributes = ucAttrib;
+    //} else{ 
+    //    pygmyFile->Attributes = READ;
+    //} // else
+    
+    fileMountRoot( );
+  1c:	f7ff fffe 	bl	0 <fileOpen>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:105
+    
+    if( !fileIsValidName( ucName ) ){
+  20:	4628      	mov	r0, r5
+  22:	f7ff fffe 	bl	0 <fileOpen>
+  26:	2800      	cmp	r0, #0
+  28:	f000 8082 	beq.w	130 <fileOpen+0x130>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:109
+       return( 0 );
+    } // if
+    
+    ulNameMatch = fileSeekName( ucName );
+  2c:	4628      	mov	r0, r5
+  2e:	f7ff fffe 	bl	0 <fileOpen>
+  32:	4606      	mov	r6, r0
+  34:	4680      	mov	r8, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:110
+    if( !ulNameMatch && ( pygmyFile->Attributes & READ ) ){
+  36:	b918      	cbnz	r0, 40 <fileOpen+0x40>
+  38:	7c23      	ldrb	r3, [r4, #16]
+  3a:	f013 0f01 	tst.w	r3, #1
+  3e:	d17b      	bne.n	138 <fileOpen+0x138>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:113
+        return( 0 );
+    } // if
+    copyString( ucName, pygmyFile->Name );
+  40:	f104 0718 	add.w	r7, r4, #24
+  44:	4628      	mov	r0, r5
+  46:	4639      	mov	r1, r7
+  48:	f7ff fffe 	bl	0 <copyString>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:114
+    pygmyFile->Resource = NULL;
+  4c:	f04f 0300 	mov.w	r3, #0
+  50:	6163      	str	r3, [r4, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:115
+    if( ( pygmyFile->Attributes & WRITE ) && 
+  52:	7c23      	ldrb	r3, [r4, #16]
+  54:	f013 0f02 	tst.w	r3, #2
+  58:	d030      	beq.n	bc <fileOpen+0xbc>
+  5a:	b12e      	cbz	r6, 68 <fileOpen+0x68>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:116
+        !( ulNameMatch && ( pygmyFile->Attributes & APPEND ) ) ){
+  5c:	f013 0f04 	tst.w	r3, #4
+  60:	d12c      	bne.n	bc <fileOpen+0xbc>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:118
+        if ( ulNameMatch ){ // File exists and we are in write mode, delete
+            fileDelete( pygmyFile->Name ); // If file exists and not in append mode, file must be deleted
+  62:	4638      	mov	r0, r7
+  64:	f7ff fffe 	bl	0 <fileOpen>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:121
+            ulNameMatch = 0;
+        } // if    
+        ulFileEntry = fileGetFreeFileEntry( );
+  68:	f7ff fffe 	bl	0 <fileOpen>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:123
+        ulNameMatch = ulFileEntry;
+        if( !ulFileEntry ){
+  6c:	4680      	mov	r8, r0
+  6e:	2800      	cmp	r0, #0
+  70:	d066      	beq.n	140 <fileOpen+0x140>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:127
+            return( 0 ); // No Sectors left to allocate     
+        } // if
+        //[ FILENAME 13B ][ ATTRIB 1B ][ ID_File 2B ] ( 16B total )
+        ulFileEntry = pygmyRootVolume.ActiveFiles + ( ulFileEntry * 16); // Each file Entry exactly 16 bytes
+  72:	f240 0300 	movw	r3, #0
+  76:	f2c0 0300 	movt	r3, #0
+  7a:	691d      	ldr	r5, [r3, #16]
+  7c:	eb05 1500 	add.w	r5, r5, r0, lsl #4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:129
+        
+        flashWriteBuffer( ulFileEntry, len( pygmyFile->Name )+1, pygmyFile->Name );
+  80:	4638      	mov	r0, r7
+  82:	f7ff fffe 	bl	0 <len>
+  86:	f100 0101 	add.w	r1, r0, #1
+  8a:	4628      	mov	r0, r5
+  8c:	b289      	uxth	r1, r1
+  8e:	463a      	mov	r2, r7
+  90:	f7ff fffe 	bl	0 <fileOpen>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:130
+        flashWriteByte( ulFileEntry+13, (WRITE|READ) );
+  94:	f105 000d 	add.w	r0, r5, #13
+  98:	f04f 0103 	mov.w	r1, #3
+  9c:	f7ff fffe 	bl	0 <fileOpen>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:131
+        pygmyFile->ID_File = ulNameMatch;
+  a0:	f8a4 800e 	strh.w	r8, [r4, #14]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:132
+        pygmyFile->ID_Sector = 1;
+  a4:	f04f 0301 	mov.w	r3, #1
+  a8:	81a3      	strh	r3, [r4, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:133
+        flashWriteWord( ulFileEntry+14, pygmyFile->ID_File );
+  aa:	f105 000e 	add.w	r0, r5, #14
+  ae:	4641      	mov	r1, r8
+  b0:	f7ff fffe 	bl	0 <fileOpen>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:134
+        fileAllocateFAT( pygmyFile->ID_File, pygmyFile->ID_Sector );    
+  b4:	89e0      	ldrh	r0, [r4, #14]
+  b6:	89a1      	ldrh	r1, [r4, #12]
+  b8:	f7ff fffe 	bl	0 <fileOpen>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:137
+    } // if 
+    
+    ulEntryAddress = pygmyRootVolume.ActiveFiles + ( ulNameMatch * 16); // Each file Entry exactly 16 bytes
+  bc:	f240 0500 	movw	r5, #0
+  c0:	f2c0 0500 	movt	r5, #0
+  c4:	6928      	ldr	r0, [r5, #16]
+  c6:	f100 000e 	add.w	r0, r0, #14
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:139
+    
+    pygmyFile->ID_File = flashReadWord( ulEntryAddress + 14 ); // last two bytes store ID
+  ca:	eb00 1008 	add.w	r0, r0, r8, lsl #4
+  ce:	f7ff fffe 	bl	0 <fileOpen>
+  d2:	81e0      	strh	r0, [r4, #14]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:140
+    pygmyFile->Length = fileGetLength( pygmyFile->ID_File );  
+  d4:	f7ff fffe 	bl	0 <fileOpen>
+  d8:	6060      	str	r0, [r4, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:141
+    pygmyFile->Sector = (u16)((u32)pygmyRootVolume.FirstFileSector / pygmyRootVolume.SectorSize);
+  da:	8b6b      	ldrh	r3, [r5, #26]
+  dc:	6aed      	ldr	r5, [r5, #44]	; 0x2c
+  de:	fbb5 f5f3 	udiv	r5, r5, r3
+  e2:	b2ad      	uxth	r5, r5
+  e4:	6025      	str	r5, [r4, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:142
+    pygmyFile->ID_Sector = 1;
+  e6:	f04f 0301 	mov.w	r3, #1
+  ea:	81a3      	strh	r3, [r4, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:143
+    pygmyFile->Index = 0;
+  ec:	f04f 0300 	mov.w	r3, #0
+  f0:	60a3      	str	r3, [r4, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:144
+    if( pygmyFile->Attributes & APPEND ){
+  f2:	7c23      	ldrb	r3, [r4, #16]
+  f4:	f013 0f04 	tst.w	r3, #4
+  f8:	d00c      	beq.n	114 <fileOpen+0x114>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:145
+        pygmyFile->Index = pygmyFile->Length;
+  fa:	60a0      	str	r0, [r4, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:146
+        pygmyFile->ID_Sector += ( ( pygmyFile->Length + 128 ) / pygmyRootVolume.SectorSize );
+  fc:	f100 0080 	add.w	r0, r0, #128	; 0x80
+ 100:	f240 0300 	movw	r3, #0
+ 104:	f2c0 0300 	movt	r3, #0
+ 108:	8b5b      	ldrh	r3, [r3, #26]
+ 10a:	fbb0 f3f3 	udiv	r3, r0, r3
+ 10e:	f103 0301 	add.w	r3, r3, #1
+ 112:	81a3      	strh	r3, [r4, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:148
+    } // if
+    pygmyFile->Sector += fileGetFAT( pygmyFile->ID_File, pygmyFile->ID_Sector );
+ 114:	89e0      	ldrh	r0, [r4, #14]
+ 116:	89a1      	ldrh	r1, [r4, #12]
+ 118:	f7ff fffe 	bl	0 <fileOpen>
+ 11c:	1940      	adds	r0, r0, r5
+ 11e:	6020      	str	r0, [r4, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:150
+    
+    return( 1 );
+ 120:	f04f 0001 	mov.w	r0, #1
+ 124:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:89
+{
+    u32 ulFileEntry;
+    u32 ulEntryAddress, ulNameMatch;
+
+    if( !(ucAttrib & (WRITE|READ) ) ){
+        return( 0 );
+ 128:	f04f 0000 	mov.w	r0, #0
+ 12c:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:106
+    //} // else
+    
+    fileMountRoot( );
+    
+    if( !fileIsValidName( ucName ) ){
+       return( 0 );
+ 130:	f04f 0000 	mov.w	r0, #0
+ 134:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:111
+    } // if
+    
+    ulNameMatch = fileSeekName( ucName );
+    if( !ulNameMatch && ( pygmyFile->Attributes & READ ) ){
+        return( 0 );
+ 138:	f04f 0000 	mov.w	r0, #0
+ 13c:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:124
+            ulNameMatch = 0;
+        } // if    
+        ulFileEntry = fileGetFreeFileEntry( );
+        ulNameMatch = ulFileEntry;
+        if( !ulFileEntry ){
+            return( 0 ); // No Sectors left to allocate     
+ 140:	f04f 0000 	mov.w	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:151
+        pygmyFile->ID_Sector += ( ( pygmyFile->Length + 128 ) / pygmyRootVolume.SectorSize );
+    } // if
+    pygmyFile->Sector += fileGetFAT( pygmyFile->ID_File, pygmyFile->ID_Sector );
+    
+    return( 1 );
+}
+ 144:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+
+Disassembly of section .text.fileCopy:
+
+00000000 <fileCopy>:
+fileCopy():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:292
+
+    return( 1 );
+}
+
+u8 fileCopy( u8 *ucCurrentName, u8 *ucName )
+{
+   0:	b510      	push	{r4, lr}
+   2:	b094      	sub	sp, #80	; 0x50
+   4:	4603      	mov	r3, r0
+   6:	460c      	mov	r4, r1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:298
+    PYGMYFILE pygmyFileTo, pygmyFileFrom;    
+    u8 ucByte;
+
+    //if( fileIsValidName( ucCurrentName ) && fileIsValidName( ucName ) ){  
+    //if( fileIsValidName( ucName ) ){
+        if( !fileOpen( &pygmyFileFrom, ucCurrentName, READ ) || 
+   8:	4668      	mov	r0, sp
+   a:	4619      	mov	r1, r3
+   c:	f04f 0201 	mov.w	r2, #1
+  10:	f7ff fffe 	bl	0 <fileCopy>
+  14:	b1e0      	cbz	r0, 50 <fileCopy+0x50>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:299
+            !fileOpen( &pygmyFileTo, ucName, WRITE ) ){
+  16:	a80a      	add	r0, sp, #40	; 0x28
+  18:	4621      	mov	r1, r4
+  1a:	f04f 0202 	mov.w	r2, #2
+  1e:	f7ff fffe 	bl	0 <fileCopy>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:298
+    PYGMYFILE pygmyFileTo, pygmyFileFrom;    
+    u8 ucByte;
+
+    //if( fileIsValidName( ucCurrentName ) && fileIsValidName( ucName ) ){  
+    //if( fileIsValidName( ucName ) ){
+        if( !fileOpen( &pygmyFileFrom, ucCurrentName, READ ) || 
+  22:	b958      	cbnz	r0, 3c <fileCopy+0x3c>
+  24:	e017      	b.n	56 <fileCopy+0x56>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:303
+            !fileOpen( &pygmyFileTo, ucName, WRITE ) ){
+            return( 0 );
+        } // if
+        for( ; !(pygmyFileFrom.Attributes & EOF ); ){
+            ucByte = fileGetChar( &pygmyFileFrom );
+  26:	4668      	mov	r0, sp
+  28:	f7ff fffe 	bl	0 <fileCopy>
+  2c:	4601      	mov	r1, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:304
+            if( !(pygmyFileFrom.Attributes & EOF ) ){
+  2e:	f99d 3010 	ldrsb.w	r3, [sp, #16]
+  32:	2b00      	cmp	r3, #0
+  34:	db02      	blt.n	3c <fileCopy+0x3c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:305
+                filePutChar( &pygmyFileTo, ucByte );
+  36:	a80a      	add	r0, sp, #40	; 0x28
+  38:	f7ff fffe 	bl	0 <fileCopy>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:302
+    //if( fileIsValidName( ucName ) ){
+        if( !fileOpen( &pygmyFileFrom, ucCurrentName, READ ) || 
+            !fileOpen( &pygmyFileTo, ucName, WRITE ) ){
+            return( 0 );
+        } // if
+        for( ; !(pygmyFileFrom.Attributes & EOF ); ){
+  3c:	f99d 3010 	ldrsb.w	r3, [sp, #16]
+  40:	2b00      	cmp	r3, #0
+  42:	daf0      	bge.n	26 <fileCopy+0x26>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:308
+            ucByte = fileGetChar( &pygmyFileFrom );
+            if( !(pygmyFileFrom.Attributes & EOF ) ){
+                filePutChar( &pygmyFileTo, ucByte );
+            } // if
+        } // for
+        fileClose( &pygmyFileTo );
+  44:	a80a      	add	r0, sp, #40	; 0x28
+  46:	f7ff fffe 	bl	0 <fileCopy>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:309
+        return( 1 );
+  4a:	f04f 0001 	mov.w	r0, #1
+  4e:	e004      	b.n	5a <fileCopy+0x5a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:300
+
+    //if( fileIsValidName( ucCurrentName ) && fileIsValidName( ucName ) ){  
+    //if( fileIsValidName( ucName ) ){
+        if( !fileOpen( &pygmyFileFrom, ucCurrentName, READ ) || 
+            !fileOpen( &pygmyFileTo, ucName, WRITE ) ){
+            return( 0 );
+  50:	f04f 0000 	mov.w	r0, #0
+  54:	e001      	b.n	5a <fileCopy+0x5a>
+  56:	f04f 0000 	mov.w	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_file.c:313
+        fileClose( &pygmyFileTo );
+        return( 1 );
+    //} // if
+
+    return( 0 );
+}
+  5a:	b014      	add	sp, #80	; 0x50
+  5c:	bd10      	pop	{r4, pc}
+  5e:	bf00      	nop

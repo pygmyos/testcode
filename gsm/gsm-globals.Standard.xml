@@ -1,0 +1,436 @@
+<!-- DWF2XML 2.00.01 - Raisonance Dwarf information extractor -->
+<aoffile Header="gsm" Path="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\gsm\gsm.elf">
+ <Def>
+  <Col Header="DeclFile" Desc="File"/>
+  <Col Header="Type" Desc="Type"/>
+  <Col Header="Header" Desc="Name"/>
+ </Def>
+ <func Header="main" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\gsm\main.c" DeclLine="3"/>
+ <type Header="u32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="52" Pointer="No"/>
+ <type Header="u16" Icon="1" Type="type" Desc=": unsigned int" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="53" Pointer="No"/>
+ <type Header="u8" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="54" Pointer="No"/>
+ <type Header="RCC_TYPEDEF" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="406" Pointer="No"/>
+ <type Header="DMA_CHANNEL_TYPEDEF" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="679" Pointer="No"/>
+ <type Header="DMA_TYPEDEF" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="685" Pointer="No"/>
+ <type Header="PYGMYADC" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_adc.h" DeclLine="99" Pointer="No"/>
+ <func Header="adcGetStatus" Icon="3" Type="func" Desc=":   unsigned int" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_adc.c" DeclLine="27"/>
+ <func Header="ADC1_2_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_adc.c" DeclLine="32"/>
+ <func Header="adcSingleSampleInit" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_adc.c" DeclLine="162"/>
+ <func Header="adcGetChannelFromPin" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_adc.c" DeclLine="196"/>
+ <func Header="adcSingleSample" Icon="3" Type="func" Desc=":   unsigned int" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_adc.c" DeclLine="184"/>
+ <variable Header="PYGMY_ADC_CHANNELS" Icon="2" Type="variable" Desc=":   unsigned char[18]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_adc.c" DeclLine="24" Pointer="No"/>
+ <variable Header="uiGlobalADC1Channel" Icon="2" Type="variable" Desc=":   unsigned int" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_adc.c" DeclLine="25" Pointer="No"/>
+ <variable Header="uiGlobalADC1" Icon="2" Type="variable" Desc=":   unsigned int[16]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_adc.c" DeclLine="25" Pointer="No"/>
+ <variable Header="globalADCStatus" Icon="2" Type="variable" Desc=":   unsigned int" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_adc.c" DeclLine="25" Pointer="No"/>
+ <type Header="u32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="52" Pointer="No"/>
+ <type Header="u16" Icon="1" Type="type" Desc=": unsigned int" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="53" Pointer="No"/>
+ <type Header="u8" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="54" Pointer="No"/>
+ <type Header="PYGMYVOIDPTR" Icon="1" Type="type" Desc=": void CODE*" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="227" Pointer="Yes"/>
+ <type Header="PYGMYCMDPTR" Icon="1" Type="type" Desc=": unsigned char CODE*" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="229" Pointer="Yes"/>
+ <type Header="RCC_TYPEDEF" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="406" Pointer="No"/>
+ <type Header="IWDG_TYPEDEF" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="1038" Pointer="No"/>
+ <type Header="GPIO" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.h" DeclLine="427" Pointer="No"/>
+ <type Header="I2C_TYPEDEF" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.h" DeclLine="48" Pointer="No"/>
+ <type Header="USART_TYPEDEF" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.h" DeclLine="257" Pointer="No"/>
+ <type Header="PYGMYFIFO" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.h" DeclLine="373" Pointer="No"/>
+ <type Header="PYGMYI2CPORT" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.h" DeclLine="473" Pointer="No"/>
+ <type Header="PYGMYSPIPORT" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.h" DeclLine="485" Pointer="No"/>
+ <type Header="PYGMYPARALLELPORT" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.h" DeclLine="500" Pointer="No"/>
+ <func Header="spiWriteByte" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="422"/>
+ <func Header="spiWriteAddress" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="283"/>
+ <func Header="spiPutCommand" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="275"/>
+ <func Header="spiReadByte" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="477"/>
+ <func Header="spiGetBuffer" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="397"/>
+ <func Header="spiGetLong" Icon="3" Type="func" Desc=":   unsigned long" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="379"/>
+ <func Header="spiGetWord" Icon="3" Type="func" Desc=":   unsigned int" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="363"/>
+ <func Header="spiGetChar" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="350"/>
+ <func Header="spiPutBuffer" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="335"/>
+ <func Header="spiPutChar" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="295"/>
+ <func Header="spiReadBuffer" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="503"/>
+ <func Header="spiConfig" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="525"/>
+ <func Header="I2C1_ER_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="618"/>
+ <func Header="I2C2_EV_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="623"/>
+ <func Header="I2C2_ER_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="628"/>
+ <func Header="i2cConfig" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="649"/>
+ <func Header="i2cDelay" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="691"/>
+ <func Header="i2cWriteBit" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="754"/>
+ <func Header="i2cReadBit" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="784"/>
+ <func Header="i2cWriteByte" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="849"/>
+ <func Header="i2cReadByte" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="870"/>
+ <func Header="i2cResetBus" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="884"/>
+ <func Header="i2cStop" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="734"/>
+ <func Header="i2cStart" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="711"/>
+ <func Header="i2cGetChar" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="958"/>
+ <func Header="i2cGetBuffer" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="979"/>
+ <func Header="i2cPollAck" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="988"/>
+ <func Header="i2cPutChar" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="933"/>
+ <func Header="i2cPutBuffer" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="920"/>
+ <func Header="streamReset" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="1022"/>
+ <func Header="streamInit" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="1012"/>
+ <func Header="streamGetSTDIO" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="1043"/>
+ <func Header="streamSetSTDIO" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="1048"/>
+ <func Header="streamTXChar" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="1082"/>
+ <func Header="streamEchoChar" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="1096"/>
+ <func Header="streamGetChar" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="1105"/>
+ <func Header="streamFIFOToString" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="1136"/>
+ <func Header="streamPopChar" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="1153"/>
+ <func Header="streamPushChar" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="1180"/>
+ <func Header="streamSetPut" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="1192"/>
+ <func Header="streamSetGet" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="1203"/>
+ <func Header="streamSetRXBuffer" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="1214"/>
+ <func Header="streamEnableEcho" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="1259"/>
+ <func Header="streamEnableActionChars" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="1270"/>
+ <func Header="streamEnableBackspace" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="1280"/>
+ <func Header="streamHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="1290"/>
+ <func Header="USART2_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="1358"/>
+ <func Header="putsUSART2" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="1400"/>
+ <func Header="USART3_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="1433"/>
+ <func Header="putsUSART3" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="1451"/>
+ <variable Header="globalStreams" Icon="2" Type="variable" Desc=":   struct [4]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="24" Pointer="No"/>
+ <variable Header="globalCOM2RXBuffer" Icon="2" Type="variable" Desc=":   unsigned char[128]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="32" Pointer="No"/>
+ <variable Header="globalCOM3RXBuffer" Icon="2" Type="variable" Desc=":   unsigned char[128]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="35" Pointer="No"/>
+ <variable Header="globalStreamEcho" Icon="2" Type="variable" Desc=":   unsigned char[4]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="25" Pointer="No"/>
+ <variable Header="globalSTDIO" Icon="2" Type="variable" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" DeclLine="26" Pointer="No"/>
+ <type Header="s32" Icon="1" Type="type" Desc=": long" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="30" Pointer="No"/>
+ <type Header="u32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="52" Pointer="No"/>
+ <type Header="u16" Icon="1" Type="type" Desc=": unsigned int" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="53" Pointer="No"/>
+ <type Header="u8" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="54" Pointer="No"/>
+ <type Header="IWDG_TYPEDEF" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="1038" Pointer="No"/>
+ <type Header="GPIO" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.h" DeclLine="427" Pointer="No"/>
+ <type Header="PYGMYSPIPORT" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.h" DeclLine="485" Pointer="No"/>
+ <type Header="PYGMYFILEVOLUME" Icon="1" Type="type" Desc=": struct PYGMYFILEVOLUME_TYPEDEF" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.h" DeclLine="137" Pointer="No"/>
+ <type Header="PYGMYFILE" Icon="1" Type="type" Desc=": struct PYGMYFILE_TYPEDEF" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.h" DeclLine="148" Pointer="No"/>
+ <func Header="fileIsValidName" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" DeclLine="274"/>
+ <func Header="flashReadWord" Icon="3" Type="func" Desc=":   unsigned int" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" DeclLine="1232"/>
+ <func Header="fileGetFAT" Icon="3" Type="func" Desc=":   unsigned int" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" DeclLine="427"/>
+ <func Header="fileGetChar" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" DeclLine="920"/>
+ <func Header="flashReadLong" Icon="3" Type="func" Desc=":   unsigned long" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" DeclLine="1247"/>
+ <func Header="fileGetLength" Icon="3" Type="func" Desc=":   unsigned long" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" DeclLine="741"/>
+ <func Header="flashReadByte" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" DeclLine="1264"/>
+ <func Header="fileGetActiveFiles" Icon="3" Type="func" Desc=":   unsigned long" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" DeclLine="528"/>
+ <func Header="fileGetFreeSpace" Icon="3" Type="func" Desc=":   unsigned long" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" DeclLine="255"/>
+ <func Header="flashReadBuffer" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" DeclLine="1278"/>
+ <func Header="filePrintList" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" DeclLine="1011"/>
+ <func Header="fileSeekName" Icon="3" Type="func" Desc=":   unsigned int" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" DeclLine="651"/>
+ <func Header="flashReadStatus" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" DeclLine="1292"/>
+ <func Header="flashReadID" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" DeclLine="1304"/>
+ <func Header="flashWaitForBusy" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" DeclLine="1346"/>
+ <func Header="flashChipErase" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" DeclLine="1333"/>
+ <func Header="flashSectorErase" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" DeclLine="1319"/>
+ <func Header="flashWriteByte" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" DeclLine="1388"/>
+ <func Header="flashWriteBuffer" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" DeclLine="1377"/>
+ <func Header="flashWriteString" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" DeclLine="1366"/>
+ <func Header="flashWriteLong" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" DeclLine="1357"/>
+ <func Header="fileWriteLength" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" DeclLine="717"/>
+ <func Header="flashWriteWord" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" DeclLine="1351"/>
+ <func Header="fileDeleteFATEntry" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" DeclLine="543"/>
+ <func Header="fileGetActiveFAT" Icon="3" Type="func" Desc=":   unsigned long" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" DeclLine="509"/>
+ <func Header="fileGetFreeFATEntry" Icon="3" Type="func" Desc=":   unsigned int" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" DeclLine="449"/>
+ <func Header="fileAllocateFAT" Icon="3" Type="func" Desc=":   unsigned int" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" DeclLine="574"/>
+ <func Header="filePutChar" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" DeclLine="787"/>
+ <func Header="filePutString" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" DeclLine="776"/>
+ <func Header="fileClose" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" DeclLine="674"/>
+ <func Header="fileGetFreeFileEntry" Icon="3" Type="func" Desc=":   unsigned int" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" DeclLine="360"/>
+ <func Header="fileRename" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" DeclLine="315"/>
+ <func Header="flashWriteEnable" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" DeclLine="1404"/>
+ <func Header="fileFormat" Icon="3" Type="func" Desc=":   unsigned long" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" DeclLine="1094"/>
+ <func Header="fileMountRoot" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" DeclLine="974"/>
+ <func Header="fileDelete" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" DeclLine="175"/>
+ <func Header="fileOpen" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" DeclLine="83"/>
+ <func Header="fileCopy" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" DeclLine="291"/>
+ <variable Header="pygmyRootVolume" Icon="2" Type="variable" Desc=":   struct PYGMYFILEVOLUME_TYPEDEF" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" DeclLine="80" Pointer="No"/>
+ <variable Header="pygmyFlashSPI" Icon="2" Type="variable" Desc=":   struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" DeclLine="81" Pointer="No"/>
+ <type Header="u32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="52" Pointer="No"/>
+ <type Header="u8" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="54" Pointer="No"/>
+ <type Header="NVIC_TYPEDEF" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_nvic.h" DeclLine="42" Pointer="No"/>
+ <type Header="SCB_TYPEDEF" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_nvic.h" DeclLine="85" Pointer="No"/>
+ <func Header="interruptGetTimerVector" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_nvic.c" DeclLine="35"/>
+ <func Header="interruptEnable" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_nvic.c" DeclLine="46"/>
+ <func Header="interruptSetPriority" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_nvic.c" DeclLine="73"/>
+ <variable Header="PYGMY_TIMERVECTORS" Icon="2" Type="variable" Desc=":   unsigned char[18]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_nvic.c" DeclLine="23" Pointer="No"/>
+ <variable Header="PYGMY_TIMERVECTORS_L15X" Icon="2" Type="variable" Desc=":   unsigned char[18]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_nvic.c" DeclLine="29" Pointer="No"/>
+ <type Header="u32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="52" Pointer="No"/>
+ <type Header="u16" Icon="1" Type="type" Desc=": unsigned int" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="53" Pointer="No"/>
+ <type Header="u8" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="54" Pointer="No"/>
+ <type Header="PYGMYVOIDPTR" Icon="1" Type="type" Desc=": void CODE*" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="227" Pointer="Yes"/>
+ <type Header="RCC_TYPEDEF" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="406" Pointer="No"/>
+ <type Header="TIM1_TYPEDEF" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.h" DeclLine="375" Pointer="No"/>
+ <type Header="TIM_TYPEDEF" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.h" DeclLine="414" Pointer="No"/>
+ <type Header="GPIO" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.h" DeclLine="427" Pointer="No"/>
+ <type Header="PYGMYPWM" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.h" DeclLine="2041" Pointer="No"/>
+ <type Header="AFIO_TYPEDEF" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_nvic.h" DeclLine="49" Pointer="No"/>
+ <type Header="EXTI_TYPEDEF" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_nvic.h" DeclLine="59" Pointer="No"/>
+ <func Header="pinGetIRQPR" Icon="3" Type="func" Desc=":   unsigned int" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" DeclLine="50"/>
+ <func Header="pinGetIRQPin" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" DeclLine="55"/>
+ <func Header="pinInterrupt" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" DeclLine="100"/>
+ <func Header="pinEnablePortClock" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" DeclLine="173"/>
+ <func Header="pinGetPort" Icon="3" Type="func" Desc=":   struct  CODE*" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" DeclLine="190"/>
+ <func Header="pinSet" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" DeclLine="210"/>
+ <func Header="pinConfig" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" DeclLine="69"/>
+ <func Header="pinGet" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" DeclLine="243"/>
+ <func Header="pinGetTimer" Icon="3" Type="func" Desc=":   void CODE*" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" DeclLine="272"/>
+ <func Header="pinGetChannel" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" DeclLine="297"/>
+ <func Header="pinInitSoftPWM" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" DeclLine="498"/>
+ <func Header="pinAddSoftPWM" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" DeclLine="548"/>
+ <func Header="pinPWM" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" DeclLine="318"/>
+ <func Header="pinProcessSoftPWM" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" DeclLine="604"/>
+ <func Header="TIM1_UP_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" DeclLine="627"/>
+ <func Header="EXTI0_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" DeclLine="633"/>
+ <func Header="EXTI1_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" DeclLine="641"/>
+ <func Header="EXTI2_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" DeclLine="649"/>
+ <func Header="EXTI3_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" DeclLine="657"/>
+ <func Header="EXTI4_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" DeclLine="665"/>
+ <func Header="EXTI9_5_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" DeclLine="673"/>
+ <func Header="EXTI15_10_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" DeclLine="708"/>
+ <variable Header="PYGMY_TIMERS" Icon="2" Type="variable" Desc=":   struct  CODE*[18]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" DeclLine="30" Pointer="No"/>
+ <variable Header="globalIRQHandlers" Icon="2" Type="variable" Desc=":   void CODE*[16]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" DeclLine="27" Pointer="No"/>
+ <variable Header="globalIRQPR" Icon="2" Type="variable" Desc=":   unsigned int" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" DeclLine="28" Pointer="No"/>
+ <variable Header="globalIRQPins" Icon="2" Type="variable" Desc=":   unsigned char[16]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" DeclLine="29" Pointer="No"/>
+ <variable Header="PYGMY_TIMERPINS" Icon="2" Type="variable" Desc=":   unsigned char[16]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" DeclLine="34" Pointer="No"/>
+ <variable Header="globalPygmyPWM" Icon="2" Type="variable" Desc=":   struct [8]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" DeclLine="42" Pointer="No"/>
+ <variable Header="globalPygmyPWMFreq" Icon="2" Type="variable" Desc=":   unsigned long" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" DeclLine="43" Pointer="No"/>
+ <variable Header="globalPygmyPWMCR" Icon="2" Type="variable" Desc=":   unsigned long" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.c" DeclLine="43" Pointer="No"/>
+ <type Header="u32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="52" Pointer="No"/>
+ <type Header="u16" Icon="1" Type="type" Desc=": unsigned int" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="53" Pointer="No"/>
+ <type Header="u8" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="54" Pointer="No"/>
+ <type Header="PYGMYTIME" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="239" Pointer="No"/>
+ <type Header="PWR_TYPEDEF" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="378" Pointer="No"/>
+ <type Header="RCC_TYPEDEF" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="406" Pointer="No"/>
+ <type Header="SYSTICK_TYPEDEF" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_nvic.h" DeclLine="67" Pointer="No"/>
+ <type Header="RTC_TypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_rtc.h" DeclLine="60" Pointer="No"/>
+ <func Header="timeInit" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_rtc.c" DeclLine="31"/>
+ <func Header="timeGet" Icon="3" Type="func" Desc=":   unsigned long" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_rtc.c" DeclLine="82"/>
+ <func Header="convertSecondsToSystemTime" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_rtc.c" DeclLine="121"/>
+ <type Header="int64_t" Icon="1" Type="type" Desc=": long" DeclFile="c:\program files (x86)\raisonance\ride\arm-gcc\arm-none-eabi\include\stdint.h" DeclLine="119" Pointer="No"/>
+ <type Header="s64" Icon="1" Type="type" Desc=": long" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="29" Pointer="No"/>
+ <type Header="s32" Icon="1" Type="type" Desc=": long" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="30" Pointer="No"/>
+ <type Header="s16" Icon="1" Type="type" Desc=": int" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="31" Pointer="No"/>
+ <type Header="s8" Icon="1" Type="type" Desc=": signed char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="32" Pointer="No"/>
+ <type Header="u32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="52" Pointer="No"/>
+ <type Header="u16" Icon="1" Type="type" Desc=": unsigned int" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="53" Pointer="No"/>
+ <type Header="u8" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="54" Pointer="No"/>
+ <type Header="PYGMYPAIR" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="297" Pointer="No"/>
+ <func Header="convertPinToString" Icon="3" Type="func" Desc=":   unsigned char CODE*" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" DeclLine="63"/>
+ <func Header="isCharInString" Icon="3" Type="func" Desc=":   signed char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" DeclLine="228"/>
+ <func Header="isAlpha" Icon="3" Type="func" Desc=":   signed char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" DeclLine="239"/>
+ <func Header="isNumeric" Icon="3" Type="func" Desc=":   signed char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" DeclLine="248"/>
+ <func Header="isAlphaOrNumeric" Icon="3" Type="func" Desc=":   signed char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" DeclLine="257"/>
+ <func Header="isNewline" Icon="3" Type="func" Desc=":   signed char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" DeclLine="294"/>
+ <func Header="isWhitespace" Icon="3" Type="func" Desc=":   signed char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" DeclLine="303"/>
+ <func Header="isQuote" Icon="3" Type="func" Desc=":   signed char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" DeclLine="312"/>
+ <func Header="isFileSeparator" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" DeclLine="331"/>
+ <func Header="isSeparator" Icon="3" Type="func" Desc=":   signed char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" DeclLine="340"/>
+ <func Header="isPunctuation" Icon="3" Type="func" Desc=":   signed char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" DeclLine="349"/>
+ <func Header="len" Icon="3" Type="func" Desc=":   unsigned int" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" DeclLine="358"/>
+ <func Header="convertCharToUpper" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" DeclLine="371"/>
+ <func Header="isCharSameIgnoreCase" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" DeclLine="389"/>
+ <func Header="isStringSameIgnoreCase" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" DeclLine="398"/>
+ <func Header="isStringSame" Icon="3" Type="func" Desc=":   signed char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" DeclLine="412"/>
+ <func Header="replaceChars" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" DeclLine="507"/>
+ <func Header="convertCharToInt" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" DeclLine="525"/>
+ <func Header="appendString" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" DeclLine="729"/>
+ <func Header="copyString" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" DeclLine="740"/>
+ <func Header="getNextSubString" Icon="3" Type="func" Desc=":   unsigned char CODE*" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" DeclLine="444"/>
+ <func Header="getAllSubStrings" Icon="3" Type="func" Desc=":   unsigned int" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" DeclLine="426"/>
+ <func Header="convertStringToInt" Icon="3" Type="func" Desc=":   long" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" DeclLine="748"/>
+ <func Header="convertIntToString" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" DeclLine="671"/>
+ <func Header="convertFloatToString" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" DeclLine="617"/>
+ <func Header="convertStringToPin" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" DeclLine="76"/>
+ <variable Header="PYGMYHEXCHARS" Icon="2" Type="variable" Desc=":   unsigned char[16]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" DeclLine="27" Pointer="No"/>
+ <variable Header="PYGMYNEBULAPINS" Icon="2" Type="variable" Desc=":   struct [28]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" DeclLine="32" Pointer="No"/>
+ <variable Header="PYGMYBASE64CHARS" Icon="2" Type="variable" Desc=":   unsigned char[66]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" DeclLine="28" Pointer="No"/>
+ <type Header="__gnuc_va_list" Icon="1" Type="type" Desc=": struct __va_list" DeclFile="c:\program files (x86)\raisonance\ride\arm-gcc\lib\gcc\arm-none-eabi\4.5.1\include\stdarg.h" DeclLine="40" Pointer="No"/>
+ <type Header="va_list" Icon="1" Type="type" Desc=": struct __va_list" DeclFile="c:\program files (x86)\raisonance\ride\arm-gcc\lib\gcc\arm-none-eabi\4.5.1\include\stdarg.h" DeclLine="102" Pointer="No"/>
+ <type Header="u32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="52" Pointer="No"/>
+ <type Header="u16" Icon="1" Type="type" Desc=": unsigned int" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="53" Pointer="No"/>
+ <type Header="u8" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="54" Pointer="No"/>
+ <type Header="PYGMYFUNCPTR" Icon="1" Type="type" Desc=": unsigned char CODE*" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="226" Pointer="Yes"/>
+ <type Header="PYGMYVOIDPTR" Icon="1" Type="type" Desc=": void CODE*" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="227" Pointer="Yes"/>
+ <type Header="PYGMYCMDPTR" Icon="1" Type="type" Desc=": unsigned char CODE*" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="229" Pointer="Yes"/>
+ <type Header="PYGMYTIME" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="239" Pointer="No"/>
+ <type Header="PYGMYCOMMAND" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="255" Pointer="No"/>
+ <type Header="PYGMYCOMMANDQUEUE" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="263" Pointer="No"/>
+ <type Header="PYGMYMESSAGE" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="274" Pointer="No"/>
+ <type Header="PYGMYTASK" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="285" Pointer="No"/>
+ <type Header="PYGMYSYSTEM" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="325" Pointer="No"/>
+ <type Header="RCC_TYPEDEF" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="406" Pointer="No"/>
+ <type Header="IWDG_TYPEDEF" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="1038" Pointer="No"/>
+ <type Header="SIZEREG_TYPEDEF" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_fpec.h" DeclLine="56" Pointer="No"/>
+ <type Header="TIM1_TYPEDEF" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.h" DeclLine="375" Pointer="No"/>
+ <type Header="TIM_TYPEDEF" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.h" DeclLine="414" Pointer="No"/>
+ <type Header="GPIO" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.h" DeclLine="427" Pointer="No"/>
+ <type Header="PYGMYFIFO" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.h" DeclLine="373" Pointer="No"/>
+ <type Header="PYGMYADC" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_adc.h" DeclLine="99" Pointer="No"/>
+ <type Header="SYSTICK_TYPEDEF" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_nvic.h" DeclLine="67" Pointer="No"/>
+ <func Header="TaskException_Handler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" DeclLine="1030"/>
+ <func Header="putsFILE" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" DeclLine="1370"/>
+ <func Header="sysAllocate" Icon="3" Type="func" Desc=":   void CODE*" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" DeclLine="53"/>
+ <func Header="sysFree" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" DeclLine="63"/>
+ <func Header="sysEnableTimerClock" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" DeclLine="379"/>
+ <func Header="sysEnableTimerInterrupt" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" DeclLine="457"/>
+ <func Header="sysGetDelayTimer" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" DeclLine="470"/>
+ <func Header="sysGetPWMTimer" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" DeclLine="475"/>
+ <func Header="sysGetMainClock" Icon="3" Type="func" Desc=":   unsigned long" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" DeclLine="480"/>
+ <func Header="cmdListQueue" Icon="3" Type="func" Desc=":   void CODE*" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" DeclLine="651"/>
+ <func Header="sysGenerateBit" Icon="3" Type="func" Desc=":   unsigned long" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" DeclLine="662"/>
+ <func Header="taskInit" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" DeclLine="849"/>
+ <func Header="taskGetCount" Icon="3" Type="func" Desc=":   unsigned int" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" DeclLine="1004"/>
+ <func Header="taskDelete" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" DeclLine="940"/>
+ <func Header="taskProcess" Icon="3" Type="func" Desc=":   unsigned int" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" DeclLine="816"/>
+ <func Header="msgInit" Icon="3" Type="func" Desc=":   unsigned int" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" DeclLine="1042"/>
+ <func Header="sysInit" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" DeclLine="82"/>
+ <func Header="msgGetIndex" Icon="3" Type="func" Desc=":   unsigned int" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" DeclLine="1085"/>
+ <func Header="msgDelete" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" DeclLine="1058"/>
+ <func Header="msgProcess" Icon="3" Type="func" Desc=":   unsigned int" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" DeclLine="1141"/>
+ <func Header="msgList" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" DeclLine="1176"/>
+ <func Header="sysGetFile" Icon="3" Type="func" Desc=":   void CODE*" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" DeclLine="1216"/>
+ <func Header="descriptorGetID" Icon="3" Type="func" Desc=":   unsigned long" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" DeclLine="1241"/>
+ <func Header="print" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" DeclLine="1284"/>
+ <func Header="sysGetTimer" Icon="3" Type="func" Desc=":   void CODE*" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" DeclLine="1473"/>
+ <func Header="SysTick_Handler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" DeclLine="1576"/>
+ <variable Header="PYGMY_DAYSINMONTH" Icon="2" Type="variable" Desc=":   unsigned char[12]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" DeclLine="29" Pointer="No"/>
+ <variable Header="pygmyGlobalData" Icon="2" Type="variable" Desc=":   struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" DeclLine="39" Pointer="No"/>
+ <variable Header="pygmyGlobalTasks" Icon="2" Type="variable" Desc=":   struct [15]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" DeclLine="37" Pointer="No"/>
+ <variable Header="pygmyGlobalMessages" Icon="2" Type="variable" Desc=":   struct [20]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" DeclLine="38" Pointer="No"/>
+ <variable Header="pygmyGlobalQueues" Icon="2" Type="variable" Desc=":   struct  CODE*[4]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" DeclLine="41" Pointer="No"/>
+ <type Header="u32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="52" Pointer="No"/>
+ <type Header="u16" Icon="1" Type="type" Desc=": unsigned int" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="53" Pointer="No"/>
+ <type Header="u8" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="54" Pointer="No"/>
+ <type Header="PYGMYVOIDPTR" Icon="1" Type="type" Desc=": void CODE*" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="227" Pointer="Yes"/>
+ <type Header="PYGMYCMDPTR" Icon="1" Type="type" Desc=": unsigned char CODE*" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="229" Pointer="Yes"/>
+ <type Header="PYGMYCMD" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="244" Pointer="No"/>
+ <type Header="PYGMYCOMMAND" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="255" Pointer="No"/>
+ <type Header="PYGMYCOMMANDQUEUE" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="263" Pointer="No"/>
+ <type Header="PYGMYFILE" Icon="1" Type="type" Desc=": struct PYGMYFILE_TYPEDEF" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.h" DeclLine="148" Pointer="No"/>
+ <type Header="PYGMYSMS" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.h" DeclLine="56" Pointer="No"/>
+ <type Header="PYGMYEMAIL" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.h" DeclLine="69" Pointer="No"/>
+ <type Header="PYGMYPFTP" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.h" DeclLine="82" Pointer="No"/>
+ <variable Header="PYGMYMODEMCMDS" Icon="2" Type="variable" Desc=":   struct [23]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="86" Pointer="No"/>
+ <variable Header="AT_OK" Icon="2" Type="variable" Desc=":   unsigned char[3]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="24" Pointer="No"/>
+ <variable Header="AT_ERROR" Icon="2" Type="variable" Desc=":   unsigned char[6]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="25" Pointer="No"/>
+ <variable Header="AT_CONNECT" Icon="2" Type="variable" Desc=":   unsigned char[8]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="26" Pointer="No"/>
+ <variable Header="AT_NOCARRIER" Icon="2" Type="variable" Desc=":   unsigned char[11]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="27" Pointer="No"/>
+ <variable Header="AT_ESCAPE" Icon="2" Type="variable" Desc=":   unsigned char[4]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="28" Pointer="No"/>
+ <variable Header="AT_SGACT" Icon="2" Type="variable" Desc=":   unsigned char[7]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="29" Pointer="No"/>
+ <variable Header="AT_CMGF" Icon="2" Type="variable" Desc=":   unsigned char[6]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="30" Pointer="No"/>
+ <variable Header="AT_CMGS" Icon="2" Type="variable" Desc=":   unsigned char[6]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="31" Pointer="No"/>
+ <variable Header="AT_CMS" Icon="2" Type="variable" Desc=":   unsigned char[5]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="32" Pointer="No"/>
+ <variable Header="AT_CSQ" Icon="2" Type="variable" Desc=":   unsigned char[5]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="33" Pointer="No"/>
+ <variable Header="AT_QSS" Icon="2" Type="variable" Desc=":   unsigned char[5]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="34" Pointer="No"/>
+ <variable Header="AT_CCLK" Icon="2" Type="variable" Desc=":   unsigned char[6]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="35" Pointer="No"/>
+ <variable Header="AT_MWI" Icon="2" Type="variable" Desc=":   unsigned char[5]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="36" Pointer="No"/>
+ <variable Header="AT_CGDCONT" Icon="2" Type="variable" Desc=":   unsigned char[9]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="37" Pointer="No"/>
+ <variable Header="AT_CGDATA" Icon="2" Type="variable" Desc=":   unsigned char[8]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="38" Pointer="No"/>
+ <variable Header="AT_SD" Icon="2" Type="variable" Desc=":   unsigned char[4]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="39" Pointer="No"/>
+ <variable Header="AT_SH" Icon="2" Type="variable" Desc=":   unsigned char[4]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="40" Pointer="No"/>
+ <variable Header="AT_ATE" Icon="2" Type="variable" Desc=":   unsigned char[4]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="41" Pointer="No"/>
+ <variable Header="AT_ATIP" Icon="2" Type="variable" Desc=":   unsigned char[4]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="42" Pointer="No"/>
+ <variable Header="AT_W" Icon="2" Type="variable" Desc=":   unsigned char[3]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="43" Pointer="No"/>
+ <variable Header="AT_SERVINFO" Icon="2" Type="variable" Desc=":   unsigned char[10]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="44" Pointer="No"/>
+ <variable Header="AT_VTS" Icon="2" Type="variable" Desc=":   unsigned char[5]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="45" Pointer="No"/>
+ <variable Header="AT_VTD" Icon="2" Type="variable" Desc=":   unsigned char[5]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="46" Pointer="No"/>
+ <variable Header="AT_IPR" Icon="2" Type="variable" Desc=":   unsigned char[5]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="47" Pointer="No"/>
+ <variable Header="AT_IFC" Icon="2" Type="variable" Desc=":   unsigned char[5]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="48" Pointer="No"/>
+ <variable Header="AT_ICF" Icon="2" Type="variable" Desc=":   unsigned char[5]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="49" Pointer="No"/>
+ <variable Header="AT_CRLF" Icon="2" Type="variable" Desc=":   unsigned char[3]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="51" Pointer="No"/>
+ <variable Header="AT_CTRLZ" Icon="2" Type="variable" Desc=":   unsigned char[2]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="52" Pointer="No"/>
+ <variable Header="AT_ESC" Icon="2" Type="variable" Desc=":   unsigned char[2]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="53" Pointer="No"/>
+ <variable Header="EMAIL_AUTHLOGIN" Icon="2" Type="variable" Desc=":   unsigned char[11]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="55" Pointer="No"/>
+ <variable Header="EMAIL_HELO" Icon="2" Type="variable" Desc=":   unsigned char[5]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="56" Pointer="No"/>
+ <variable Header="EMAIL_RCPT" Icon="2" Type="variable" Desc=":   unsigned char[9]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="57" Pointer="No"/>
+ <variable Header="EMAIL_MAILFROM" Icon="2" Type="variable" Desc=":   unsigned char[11]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="58" Pointer="No"/>
+ <variable Header="EMAIL_DATA" Icon="2" Type="variable" Desc=":   unsigned char[5]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="59" Pointer="No"/>
+ <variable Header="EMAIL_QUIT" Icon="2" Type="variable" Desc=":   unsigned char[5]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="60" Pointer="No"/>
+ <variable Header="EMAIL_From" Icon="2" Type="variable" Desc=":   unsigned char[6]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="61" Pointer="No"/>
+ <variable Header="EMAIL_To" Icon="2" Type="variable" Desc=":   unsigned char[4]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="62" Pointer="No"/>
+ <variable Header="EMAIL_Cc" Icon="2" Type="variable" Desc=":   unsigned char[4]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="63" Pointer="No"/>
+ <variable Header="EMAIL_Subject" Icon="2" Type="variable" Desc=":   unsigned char[9]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="64" Pointer="No"/>
+ <variable Header="EMAIL_ContentType" Icon="2" Type="variable" Desc=":   unsigned char[47]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="65" Pointer="No"/>
+ <variable Header="EMAIL_ContentEncoding" Icon="2" Type="variable" Desc=":   unsigned char[32]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="66" Pointer="No"/>
+ <variable Header="EMAIL_MIMVersion" Icon="2" Type="variable" Desc=":   unsigned char[18]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="67" Pointer="No"/>
+ <variable Header="EMAIL_Priority" Icon="2" Type="variable" Desc=":   unsigned char[10]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="68" Pointer="No"/>
+ <variable Header="EMAIL_Importance" Icon="2" Type="variable" Desc=":   unsigned char[12]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="69" Pointer="No"/>
+ <variable Header="EMAIL_220" Icon="2" Type="variable" Desc=":   unsigned char[4]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="70" Pointer="No"/>
+ <variable Header="EMAIL_221" Icon="2" Type="variable" Desc=":   unsigned char[4]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="71" Pointer="No"/>
+ <variable Header="EMAIL_235" Icon="2" Type="variable" Desc=":   unsigned char[4]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="72" Pointer="No"/>
+ <variable Header="EMAIL_250" Icon="2" Type="variable" Desc=":   unsigned char[4]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="73" Pointer="No"/>
+ <variable Header="EMAIL_334" Icon="2" Type="variable" Desc=":   unsigned char[4]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="74" Pointer="No"/>
+ <variable Header="EMAIL_354" Icon="2" Type="variable" Desc=":   unsigned char[4]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="75" Pointer="No"/>
+ <variable Header="EMAIL_451" Icon="2" Type="variable" Desc=":   unsigned char[4]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="76" Pointer="No"/>
+ <variable Header="EMAIL_530" Icon="2" Type="variable" Desc=":   unsigned char[4]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="77" Pointer="No"/>
+ <variable Header="HTTP_Connection" Icon="2" Type="variable" Desc=":   unsigned char[12]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="79" Pointer="No"/>
+ <variable Header="HTTP_keepalive" Icon="2" Type="variable" Desc=":   unsigned char[11]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="80" Pointer="No"/>
+ <variable Header="HTTP_V1P0" Icon="2" Type="variable" Desc=":   unsigned char[9]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="81" Pointer="No"/>
+ <variable Header="HTTP_V1P1" Icon="2" Type="variable" Desc=":   unsigned char[9]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="82" Pointer="No"/>
+ <variable Header="HTTP_Host" Icon="2" Type="variable" Desc=":   unsigned char[5]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="83" Pointer="No"/>
+ <variable Header="HTTP_GET" Icon="2" Type="variable" Desc=":   unsigned char[4]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="84" Pointer="No"/>
+ <variable Header="AT_ACTIONCHARS" Icon="2" Type="variable" Desc=":   unsigned char[3]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="23" Pointer="No"/>
+ <variable Header="globalModemStatus" Icon="2" Type="variable" Desc=":   unsigned long" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="117" Pointer="No"/>
+ <variable Header="globalModemTCPPort" Icon="2" Type="variable" Desc=":   unsigned int" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="118" Pointer="No"/>
+ <variable Header="globalModemPortal" Icon="2" Type="variable" Desc=":   unsigned char[40]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="119" Pointer="No"/>
+ <variable Header="globalModemURL" Icon="2" Type="variable" Desc=":   unsigned char[128]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="120" Pointer="No"/>
+ <variable Header="globalModemHostName" Icon="2" Type="variable" Desc=":   unsigned char[40]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="121" Pointer="No"/>
+ <variable Header="globalModemSMTPServer" Icon="2" Type="variable" Desc=":   unsigned char[40]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="122" Pointer="No"/>
+ <variable Header="globalModemSMS" Icon="2" Type="variable" Desc=":   struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="123" Pointer="No"/>
+ <variable Header="globalModemPFTP" Icon="2" Type="variable" Desc=":   struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="124" Pointer="No"/>
+ <variable Header="globalModemEmail" Icon="2" Type="variable" Desc=":   struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="125" Pointer="No"/>
+ <variable Header="globalModemQueue" Icon="2" Type="variable" Desc=":   struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\gsmModem.c" DeclLine="126" Pointer="No"/>
+ <type Header="u32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="52" Pointer="No"/>
+ <type Header="u16" Icon="1" Type="type" Desc=": unsigned int" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="53" Pointer="No"/>
+ <type Header="u8" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="54" Pointer="No"/>
+ <type Header="PYGMYFUNCPTR" Icon="1" Type="type" Desc=": unsigned char CODE*" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="226" Pointer="Yes"/>
+ <type Header="PYGMYVOIDPTR" Icon="1" Type="type" Desc=": void CODE*" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="227" Pointer="Yes"/>
+ <type Header="PYGMYCMDPTR" Icon="1" Type="type" Desc=": unsigned char CODE*" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="229" Pointer="Yes"/>
+ <type Header="PYGMYCMD" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="244" Pointer="No"/>
+ <type Header="PYGMYCOMMAND" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="255" Pointer="No"/>
+ <type Header="PYGMYCOMMANDQUEUE" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="263" Pointer="No"/>
+ <type Header="PYGMYMESSAGE" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="274" Pointer="No"/>
+ <type Header="PYGMYTASK" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" DeclLine="285" Pointer="No"/>
+ <type Header="GPIO" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.h" DeclLine="427" Pointer="No"/>
+ <type Header="PYGMYI2CPORT" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.h" DeclLine="473" Pointer="No"/>
+ <type Header="PYGMYSPIPORT" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.h" DeclLine="485" Pointer="No"/>
+ <type Header="PYGMYPORTINDEX" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.h" DeclLine="505" Pointer="No"/>
+ <type Header="PYGMYFILE" Icon="1" Type="type" Desc=": struct PYGMYFILE_TYPEDEF" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.h" DeclLine="148" Pointer="No"/>
+ <type Header="SCB_TYPEDEF" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_nvic.h" DeclLine="85" Pointer="No"/>
+ <func Header="cmdNull" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" DeclLine="351"/>
+ <func Header="cmd_reset" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" DeclLine="356"/>
+ <func Header="cmd_peek" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" DeclLine="363"/>
+ <func Header="cmd_poke" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" DeclLine="369"/>
+ <func Header="cmd_kill" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" DeclLine="428"/>
+ <func Header="cmd_set" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" DeclLine="246"/>
+ <func Header="cmd_write" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" DeclLine="613"/>
+ <func Header="cmd_cp" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" DeclLine="672"/>
+ <func Header="cmd_mv" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" DeclLine="663"/>
+ <func Header="cmd_open" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" DeclLine="641"/>
+ <func Header="cmd_close" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" DeclLine="631"/>
+ <func Header="cmd_rm" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" DeclLine="626"/>
+ <func Header="cmd_ls" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" DeclLine="620"/>
+ <func Header="cmd_read" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" DeclLine="583"/>
+ <func Header="cmd_format" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" DeclLine="573"/>
+ <func Header="cmd_mnt" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" DeclLine="566"/>
+ <func Header="cmd_pinconfig" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" DeclLine="536"/>
+ <func Header="cmd_pinpwm" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" DeclLine="523"/>
+ <func Header="cmd_pinanalog" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" DeclLine="513"/>
+ <func Header="cmd_pinget" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" DeclLine="506"/>
+ <func Header="cmd_pinset" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" DeclLine="486"/>
+ <func Header="cmd_pinevent" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" DeclLine="470"/>
+ <func Header="cmdPinEvent" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" DeclLine="452"/>
+ <func Header="cmd_ps" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" DeclLine="375"/>
+ <func Header="cmdInit" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" DeclLine="189"/>
+ <func Header="cmdExecute" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" DeclLine="212"/>
+ <func Header="cmdGetsCOM3" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" DeclLine="137"/>
+ <func Header="cmdGetsCOM2" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" DeclLine="124"/>
+ <func Header="cmdOpenPort" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" DeclLine="686"/>
+ <func Header="cmdWritePort" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" DeclLine="722"/>
+ <func Header="cmdReadPort" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" DeclLine="736"/>
+ <func Header="cmd_port" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" DeclLine="750"/>
+ <variable Header="PYGMYSTDCOMMANDS" Icon="2" Type="variable" Desc=":   struct [23]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" DeclLine="48" Pointer="No"/>
+ <variable Header="globalCMDPrompt" Icon="2" Type="variable" Desc=":   unsigned char CODE*" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" DeclLine="29" Pointer="Yes"/>
+ <variable Header="globalCMDError" Icon="2" Type="variable" Desc=":   unsigned char CODE*" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" DeclLine="29" Pointer="Yes"/>
+ <variable Header="globalCMDUnsupported" Icon="2" Type="variable" Desc=":   unsigned char CODE*" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" DeclLine="29" Pointer="Yes"/>
+ <variable Header="globalSPIPorts" Icon="2" Type="variable" Desc=":   struct [2]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" DeclLine="39" Pointer="No"/>
+ <variable Header="globalI2CPorts" Icon="2" Type="variable" Desc=":   struct [2]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" DeclLine="40" Pointer="No"/>
+ <variable Header="globalCMDPorts" Icon="2" Type="variable" Desc=":   struct [4]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" DeclLine="41" Pointer="No"/>
+ <variable Header="PYGMYCORECOMMANDS" Icon="2" Type="variable" Desc=":   struct [2]" DeclFile="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" DeclLine="43" Pointer="No"/>
+</aoffile>
+

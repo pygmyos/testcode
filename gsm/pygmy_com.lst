@@ -1,0 +1,4752 @@
+
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\gsm\pygmy_com.o:     file format elf32-littlearm
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\gsm\pygmy_com.o
+
+
+Disassembly of section .text.i2cSetAddress:
+
+00000000 <i2cSetAddress>:
+i2cSetAddress():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:594
+    } else if( ucDual ){
+        globalI2COwnAddress[ i ][ 1 ] = 0x00FE & uiAddress;
+    } // else
+    i2c->OAR2 = globalI2COwnAddress[ i ][ 1 ] | ( ucDual & BIT0 );
+    */
+}
+   0:	4770      	bx	lr
+   2:	bf00      	nop
+
+Disassembly of section .text.comDisable:
+
+00000000 <comDisable>:
+comDisable():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:159
+    ptrUSART->SR = 0;
+}
+
+void comDisable( u8 ucPort )
+{
+    if( ucPort == 1 ){
+   0:	2801      	cmp	r0, #1
+   2:	d114      	bne.n	2e <comDisable+0x2e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:160
+        USART1->CR1 &= ~USART_UE;
+   4:	f44f 5260 	mov.w	r2, #14336	; 0x3800
+   8:	f2c4 0201 	movt	r2, #16385	; 0x4001
+   c:	8993      	ldrh	r3, [r2, #12]
+   e:	f423 5300 	bic.w	r3, r3, #8192	; 0x2000
+  12:	ea4f 4303 	mov.w	r3, r3, lsl #16
+  16:	ea4f 4313 	mov.w	r3, r3, lsr #16
+  1a:	8193      	strh	r3, [r2, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:161
+        PYGMY_RCC_USART1_DISABLE;
+  1c:	f44f 5380 	mov.w	r3, #4096	; 0x1000
+  20:	f2c4 0302 	movt	r3, #16386	; 0x4002
+  24:	699a      	ldr	r2, [r3, #24]
+  26:	f422 4280 	bic.w	r2, r2, #16384	; 0x4000
+  2a:	619a      	str	r2, [r3, #24]
+  2c:	4770      	bx	lr
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:162
+    } else if( ucPort == 2 ){
+  2e:	2802      	cmp	r0, #2
+  30:	d114      	bne.n	5c <comDisable+0x5c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:163
+        USART2->CR1 &= ~USART_UE;
+  32:	f44f 4288 	mov.w	r2, #17408	; 0x4400
+  36:	f2c4 0200 	movt	r2, #16384	; 0x4000
+  3a:	8993      	ldrh	r3, [r2, #12]
+  3c:	f423 5300 	bic.w	r3, r3, #8192	; 0x2000
+  40:	ea4f 4303 	mov.w	r3, r3, lsl #16
+  44:	ea4f 4313 	mov.w	r3, r3, lsr #16
+  48:	8193      	strh	r3, [r2, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:164
+        PYGMY_RCC_USART1_DISABLE;
+  4a:	f44f 5380 	mov.w	r3, #4096	; 0x1000
+  4e:	f2c4 0302 	movt	r3, #16386	; 0x4002
+  52:	699a      	ldr	r2, [r3, #24]
+  54:	f422 4280 	bic.w	r2, r2, #16384	; 0x4000
+  58:	619a      	str	r2, [r3, #24]
+  5a:	4770      	bx	lr
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:165
+    } else if( ucPort == 3 ){
+  5c:	2803      	cmp	r0, #3
+  5e:	d113      	bne.n	88 <comDisable+0x88>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:166
+        USART3->CR1 &= ~USART_UE;
+  60:	f44f 4290 	mov.w	r2, #18432	; 0x4800
+  64:	f2c4 0200 	movt	r2, #16384	; 0x4000
+  68:	8993      	ldrh	r3, [r2, #12]
+  6a:	f423 5300 	bic.w	r3, r3, #8192	; 0x2000
+  6e:	ea4f 4303 	mov.w	r3, r3, lsl #16
+  72:	ea4f 4313 	mov.w	r3, r3, lsr #16
+  76:	8193      	strh	r3, [r2, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:167
+        PYGMY_RCC_USART1_DISABLE;
+  78:	f44f 5380 	mov.w	r3, #4096	; 0x1000
+  7c:	f2c4 0302 	movt	r3, #16386	; 0x4002
+  80:	699a      	ldr	r2, [r3, #24]
+  82:	f422 4280 	bic.w	r2, r2, #16384	; 0x4000
+  86:	619a      	str	r2, [r3, #24]
+  88:	4770      	bx	lr
+  8a:	bf00      	nop
+
+Disassembly of section .text.comEnable:
+
+00000000 <comEnable>:
+comEnable():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:173
+    } // else if
+}
+
+void comEnable( u8 ucPort )
+{
+    if( ucPort == 1 ){
+   0:	2801      	cmp	r0, #1
+   2:	d111      	bne.n	28 <comEnable+0x28>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:174
+        PYGMY_RCC_USART1_ENABLE;
+   4:	f44f 5380 	mov.w	r3, #4096	; 0x1000
+   8:	f2c4 0302 	movt	r3, #16386	; 0x4002
+   c:	699a      	ldr	r2, [r3, #24]
+   e:	f442 4280 	orr.w	r2, r2, #16384	; 0x4000
+  12:	619a      	str	r2, [r3, #24]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:175
+        USART1->CR1 |= USART_UE;
+  14:	f44f 5360 	mov.w	r3, #14336	; 0x3800
+  18:	f2c4 0301 	movt	r3, #16385	; 0x4001
+  1c:	899a      	ldrh	r2, [r3, #12]
+  1e:	b292      	uxth	r2, r2
+  20:	f442 5200 	orr.w	r2, r2, #8192	; 0x2000
+  24:	819a      	strh	r2, [r3, #12]
+  26:	4770      	bx	lr
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:176
+    } else if( ucPort == 2 ){
+  28:	2802      	cmp	r0, #2
+  2a:	d111      	bne.n	50 <comEnable+0x50>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:177
+        PYGMY_RCC_USART1_ENABLE;
+  2c:	f44f 5380 	mov.w	r3, #4096	; 0x1000
+  30:	f2c4 0302 	movt	r3, #16386	; 0x4002
+  34:	699a      	ldr	r2, [r3, #24]
+  36:	f442 4280 	orr.w	r2, r2, #16384	; 0x4000
+  3a:	619a      	str	r2, [r3, #24]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:178
+        USART2->CR1 |= USART_UE;
+  3c:	f44f 4388 	mov.w	r3, #17408	; 0x4400
+  40:	f2c4 0300 	movt	r3, #16384	; 0x4000
+  44:	899a      	ldrh	r2, [r3, #12]
+  46:	b292      	uxth	r2, r2
+  48:	f442 5200 	orr.w	r2, r2, #8192	; 0x2000
+  4c:	819a      	strh	r2, [r3, #12]
+  4e:	4770      	bx	lr
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:179
+    } else if( ucPort == 3 ){
+  50:	2803      	cmp	r0, #3
+  52:	d110      	bne.n	76 <comEnable+0x76>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:180
+        PYGMY_RCC_USART1_ENABLE;
+  54:	f44f 5380 	mov.w	r3, #4096	; 0x1000
+  58:	f2c4 0302 	movt	r3, #16386	; 0x4002
+  5c:	699a      	ldr	r2, [r3, #24]
+  5e:	f442 4280 	orr.w	r2, r2, #16384	; 0x4000
+  62:	619a      	str	r2, [r3, #24]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:181
+        USART3->CR1 |= USART_UE;
+  64:	f44f 4390 	mov.w	r3, #18432	; 0x4800
+  68:	f2c4 0300 	movt	r3, #16384	; 0x4000
+  6c:	899a      	ldrh	r2, [r3, #12]
+  6e:	b292      	uxth	r2, r2
+  70:	f442 5200 	orr.w	r2, r2, #8192	; 0x2000
+  74:	819a      	strh	r2, [r3, #12]
+  76:	4770      	bx	lr
+
+Disassembly of section .text.comGenerateBaud:
+
+00000000 <comGenerateBaud>:
+comGenerateBaud():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:186
+    } // else if
+}
+
+u16 comGenerateBaud( u32 ulClock, u32 ulRate )
+{
+   0:	b510      	push	{r4, lr}
+   2:	460c      	mov	r4, r1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:190
+    u16 uiBRR;
+
+    // APB bus is limited to 36MHz, if clock is above that then div by 4
+    ulClock = sysGetMainClock();
+   4:	f7ff fffe 	bl	0 <sysGetMainClock>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:191
+    if( ulClock == 72000000 || ulClock == 48000000  ){
+   8:	f44f 4322 	mov.w	r3, #41472	; 0xa200
+   c:	f2c0 434a 	movt	r3, #1098	; 0x44a
+  10:	f44f 42d8 	mov.w	r2, #27648	; 0x6c00
+  14:	f2c0 22dc 	movt	r2, #732	; 0x2dc
+  18:	4290      	cmp	r0, r2
+  1a:	bf14      	ite	ne
+  1c:	2200      	movne	r2, #0
+  1e:	2201      	moveq	r2, #1
+  20:	4298      	cmp	r0, r3
+  22:	bf14      	ite	ne
+  24:	4613      	movne	r3, r2
+  26:	f042 0301 	orreq.w	r3, r2, #1
+  2a:	b10b      	cbz	r3, 30 <comGenerateBaud+0x30>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:192
+        ulClock /= 4;
+  2c:	ea4f 0090 	mov.w	r0, r0, lsr #2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:194
+    } // if
+    uiBRR = ( ( (ulClock >> 3 ) / ulRate ) << 4 ) + ( ( ( ulClock / ulRate ) ) & 0x0007 );
+  30:	ea4f 03d0 	mov.w	r3, r0, lsr #3
+  34:	fbb3 f3f4 	udiv	r3, r3, r4
+  38:	fbb0 f0f4 	udiv	r0, r0, r4
+  3c:	f000 0007 	and.w	r0, r0, #7
+  40:	eb00 1003 	add.w	r0, r0, r3, lsl #4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:197
+    
+    return( (u16)uiBRR ); 
+}
+  44:	b280      	uxth	r0, r0
+  46:	bd10      	pop	{r4, pc}
+
+Disassembly of section .text.comConfig:
+
+00000000 <comConfig>:
+comConfig():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:47
+#endif
+#ifdef __PYGMYSTREAMUSER
+    
+#endif
+void comConfig( u8 ucPort, u8 ucProtocol, u8 ucOptions, u32 uiRate )
+{
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	4604      	mov	r4, r0
+   4:	4615      	mov	r5, r2
+   6:	461e      	mov	r6, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:70
+            PA9_ALT;
+            PA10_PULLUP;
+        } // if
+    #endif // __PYGMYSTREAMCOM1
+    #ifdef __PYGMYSTREAMCOM2
+        if( ucPort == COM2 ){
+   8:	2801      	cmp	r0, #1
+   a:	d14a      	bne.n	a2 <comConfig+0xa2>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:71
+            PYGMY_RCC_USART2_ENABLE;
+   c:	f44f 5380 	mov.w	r3, #4096	; 0x1000
+  10:	f2c4 0302 	movt	r3, #16386	; 0x4002
+  14:	69da      	ldr	r2, [r3, #28]
+  16:	f442 3200 	orr.w	r2, r2, #131072	; 0x20000
+  1a:	61da      	str	r2, [r3, #28]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:72
+            PYGMY_RCC_GPIOA_ENABLE;
+  1c:	699a      	ldr	r2, [r3, #24]
+  1e:	f042 0204 	orr.w	r2, r2, #4
+  22:	619a      	str	r2, [r3, #24]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:73
+            interruptSetPriority( USART2_IRQ, 0 );
+  24:	f04f 0026 	mov.w	r0, #38	; 0x26
+  28:	f04f 0100 	mov.w	r1, #0
+  2c:	f7ff fffe 	bl	0 <interruptSetPriority>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:74
+            interruptEnable( USART2_IRQ );
+  30:	f04f 0026 	mov.w	r0, #38	; 0x26
+  34:	f7ff fffe 	bl	0 <interruptEnable>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:76
+            ptrUSART = USART2;
+            if( ucOptions & RTS ){
+  38:	f015 0f01 	tst.w	r5, #1
+  3c:	d00b      	beq.n	56 <comConfig+0x56>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:77
+                PA1_ALT;
+  3e:	f44f 6300 	mov.w	r3, #2048	; 0x800
+  42:	f2c4 0301 	movt	r3, #16385	; 0x4001
+  46:	681a      	ldr	r2, [r3, #0]
+  48:	f022 02f0 	bic.w	r2, r2, #240	; 0xf0
+  4c:	601a      	str	r2, [r3, #0]
+  4e:	681a      	ldr	r2, [r3, #0]
+  50:	f042 02b0 	orr.w	r2, r2, #176	; 0xb0
+  54:	601a      	str	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:79
+            } // if
+            if( ucOptions & CTS ){
+  56:	f015 0f02 	tst.w	r5, #2
+  5a:	d00b      	beq.n	74 <comConfig+0x74>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:80
+                PA0_FLOAT;
+  5c:	f44f 6300 	mov.w	r3, #2048	; 0x800
+  60:	f2c4 0301 	movt	r3, #16385	; 0x4001
+  64:	681a      	ldr	r2, [r3, #0]
+  66:	f022 020f 	bic.w	r2, r2, #15
+  6a:	601a      	str	r2, [r3, #0]
+  6c:	681a      	ldr	r2, [r3, #0]
+  6e:	f042 0204 	orr.w	r2, r2, #4
+  72:	601a      	str	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:82
+            } // if
+            PA2_ALT;
+  74:	f44f 6300 	mov.w	r3, #2048	; 0x800
+  78:	f2c4 0301 	movt	r3, #16385	; 0x4001
+  7c:	681a      	ldr	r2, [r3, #0]
+  7e:	f422 6270 	bic.w	r2, r2, #3840	; 0xf00
+  82:	601a      	str	r2, [r3, #0]
+  84:	681a      	ldr	r2, [r3, #0]
+  86:	f442 6230 	orr.w	r2, r2, #2816	; 0xb00
+  8a:	601a      	str	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:83
+            PA3_PULLUP;
+  8c:	681a      	ldr	r2, [r3, #0]
+  8e:	f422 4270 	bic.w	r2, r2, #61440	; 0xf000
+  92:	601a      	str	r2, [r3, #0]
+  94:	681a      	ldr	r2, [r3, #0]
+  96:	f442 4200 	orr.w	r2, r2, #32768	; 0x8000
+  9a:	601a      	str	r2, [r3, #0]
+  9c:	f04f 0208 	mov.w	r2, #8
+  a0:	611a      	str	r2, [r3, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:87
+        } // if
+    #endif // __PYGMYSTREAMCOM2
+    #ifdef __PYGMYSTREAMCOM3
+        if( ucPort == COM3 ){
+  a2:	2c02      	cmp	r4, #2
+  a4:	bf1c      	itt	ne
+  a6:	f44f 4488 	movne.w	r4, #17408	; 0x4400
+  aa:	f2c4 0400 	movtne	r4, #16384	; 0x4000
+  ae:	d14e      	bne.n	14e <comConfig+0x14e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:88
+            PYGMY_RCC_USART3_ENABLE;
+  b0:	f44f 5380 	mov.w	r3, #4096	; 0x1000
+  b4:	f2c4 0302 	movt	r3, #16386	; 0x4002
+  b8:	69da      	ldr	r2, [r3, #28]
+  ba:	f442 2280 	orr.w	r2, r2, #262144	; 0x40000
+  be:	61da      	str	r2, [r3, #28]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:89
+            PYGMY_RCC_GPIOB_ENABLE;
+  c0:	699a      	ldr	r2, [r3, #24]
+  c2:	f042 0208 	orr.w	r2, r2, #8
+  c6:	619a      	str	r2, [r3, #24]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:90
+            interruptSetPriority( USART3_IRQ, 1 );
+  c8:	f04f 0027 	mov.w	r0, #39	; 0x27
+  cc:	f04f 0101 	mov.w	r1, #1
+  d0:	f7ff fffe 	bl	0 <interruptSetPriority>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:91
+            interruptEnable( USART3_IRQ );
+  d4:	f04f 0027 	mov.w	r0, #39	; 0x27
+  d8:	f7ff fffe 	bl	0 <interruptEnable>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:93
+            ptrUSART = USART3;
+            if( ucOptions & RTS ){
+  dc:	f015 0f01 	tst.w	r5, #1
+  e0:	d00b      	beq.n	fa <comConfig+0xfa>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:94
+                PB14_ALT;
+  e2:	f44f 6340 	mov.w	r3, #3072	; 0xc00
+  e6:	f2c4 0301 	movt	r3, #16385	; 0x4001
+  ea:	685a      	ldr	r2, [r3, #4]
+  ec:	f022 6270 	bic.w	r2, r2, #251658240	; 0xf000000
+  f0:	605a      	str	r2, [r3, #4]
+  f2:	685a      	ldr	r2, [r3, #4]
+  f4:	f042 6230 	orr.w	r2, r2, #184549376	; 0xb000000
+  f8:	605a      	str	r2, [r3, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:96
+            } // if
+            if( ucOptions & CTS ){
+  fa:	f015 0f02 	tst.w	r5, #2
+  fe:	d00b      	beq.n	118 <comConfig+0x118>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:97
+                PB13_FLOAT;
+ 100:	f44f 6340 	mov.w	r3, #3072	; 0xc00
+ 104:	f2c4 0301 	movt	r3, #16385	; 0x4001
+ 108:	685a      	ldr	r2, [r3, #4]
+ 10a:	f422 0270 	bic.w	r2, r2, #15728640	; 0xf00000
+ 10e:	605a      	str	r2, [r3, #4]
+ 110:	685a      	ldr	r2, [r3, #4]
+ 112:	f442 0280 	orr.w	r2, r2, #4194304	; 0x400000
+ 116:	605a      	str	r2, [r3, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:99
+            } // if
+            PB10_ALT;
+ 118:	f44f 6340 	mov.w	r3, #3072	; 0xc00
+ 11c:	f2c4 0301 	movt	r3, #16385	; 0x4001
+ 120:	685a      	ldr	r2, [r3, #4]
+ 122:	f422 6270 	bic.w	r2, r2, #3840	; 0xf00
+ 126:	605a      	str	r2, [r3, #4]
+ 128:	685a      	ldr	r2, [r3, #4]
+ 12a:	f442 6230 	orr.w	r2, r2, #2816	; 0xb00
+ 12e:	605a      	str	r2, [r3, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:100
+            PB11_PULLUP;
+ 130:	685a      	ldr	r2, [r3, #4]
+ 132:	f422 4270 	bic.w	r2, r2, #61440	; 0xf000
+ 136:	605a      	str	r2, [r3, #4]
+ 138:	685a      	ldr	r2, [r3, #4]
+ 13a:	f442 4200 	orr.w	r2, r2, #32768	; 0x8000
+ 13e:	605a      	str	r2, [r3, #4]
+ 140:	f44f 6200 	mov.w	r2, #2048	; 0x800
+ 144:	611a      	str	r2, [r3, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:92
+        if( ucPort == COM3 ){
+            PYGMY_RCC_USART3_ENABLE;
+            PYGMY_RCC_GPIOB_ENABLE;
+            interruptSetPriority( USART3_IRQ, 1 );
+            interruptEnable( USART3_IRQ );
+            ptrUSART = USART3;
+ 146:	f44f 4490 	mov.w	r4, #18432	; 0x4800
+ 14a:	f2c4 0400 	movt	r4, #16384	; 0x4000
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:138
+            PG10_ALT;
+            PG11_PULLUP;
+        } // if
+    #endif // __PYGMYSTREAMCOM4  
+            
+    ptrUSART->CR3 = 0;
+ 14e:	f04f 0300 	mov.w	r3, #0
+ 152:	82a3      	strh	r3, [r4, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:140
+    // Warning! CTS and RTS are not supported on UART4-UART5
+    if( ucOptions & RTS ){
+ 154:	f015 0f01 	tst.w	r5, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:141
+        ptrUSART->CR3 |= USART_RTSE;
+ 158:	bf1f      	itttt	ne
+ 15a:	8aa3      	ldrhne	r3, [r4, #20]
+ 15c:	b29b      	uxthne	r3, r3
+ 15e:	f443 7380 	orrne.w	r3, r3, #256	; 0x100
+ 162:	82a3      	strhne	r3, [r4, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:143
+    } // if
+    if( ucOptions & CTS ){
+ 164:	f015 0f02 	tst.w	r5, #2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:144
+        ptrUSART->CR3 |= USART_CTSE;
+ 168:	bf1f      	itttt	ne
+ 16a:	8aa3      	ldrhne	r3, [r4, #20]
+ 16c:	b29b      	uxthne	r3, r3
+ 16e:	f443 7300 	orrne.w	r3, r3, #512	; 0x200
+ 172:	82a3      	strhne	r3, [r4, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:146
+    } // if
+    ptrUSART->BRR = comGenerateBaud( sysGetMainClock(), uiRate );
+ 174:	f7ff fffe 	bl	0 <sysGetMainClock>
+ 178:	4631      	mov	r1, r6
+ 17a:	f7ff fffe 	bl	0 <comConfig>
+ 17e:	8120      	strh	r0, [r4, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:147
+    ptrUSART->CR3 = 0;//USART_ONEBITE;
+ 180:	f04f 0300 	mov.w	r3, #0
+ 184:	82a3      	strh	r3, [r4, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:148
+    if( ucOptions & TXIE ){
+ 186:	f015 0f10 	tst.w	r5, #16
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:149
+        ptrUSART->CR1 = ( USART_OVER8 | USART_UE | USART_TXEIE | USART_RXNEIE | USART_TE | USART_RE  );
+ 18a:	bf14      	ite	ne
+ 18c:	f24a 03ac 	movwne	r3, #41132	; 0xa0ac
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:151
+    } else{
+        ptrUSART->CR1 = ( USART_OVER8 | USART_UE | USART_RXNEIE | USART_TE | USART_RE  );
+ 190:	f24a 032c 	movweq	r3, #41004	; 0xa02c
+ 194:	81a3      	strh	r3, [r4, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:154
+    } // else
+    //ptrUSART->CR1 = ( USART_UE | USART_RXNEIE | USART_TE | USART_RE  );
+    ptrUSART->SR = 0;
+ 196:	f04f 0300 	mov.w	r3, #0
+ 19a:	8023      	strh	r3, [r4, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:155
+}
+ 19c:	bd70      	pop	{r4, r5, r6, pc}
+ 19e:	bf00      	nop
+
+Disassembly of section .text.parallelConfig:
+
+00000000 <parallelConfig>:
+parallelConfig():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:200
+    
+    return( (u16)uiBRR ); 
+}
+
+void parallelConfig( PYGMYPARALLELPORT *pygmyPort, u8 ucWidth, u8 ucCS, u8 ucA0, u8 ucWR, u8 ucRD, u8 ucD0 )
+{
+   0:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+   4:	b083      	sub	sp, #12
+   6:	4604      	mov	r4, r0
+   8:	460e      	mov	r6, r1
+   a:	4691      	mov	r9, r2
+   c:	469a      	mov	sl, r3
+   e:	f89d b030 	ldrb.w	fp, [sp, #48]	; 0x30
+  12:	f89d 1034 	ldrb.w	r1, [sp, #52]	; 0x34
+  16:	9101      	str	r1, [sp, #4]
+  18:	f89d 5038 	ldrb.w	r5, [sp, #56]	; 0x38
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:203
+    u8 i;
+
+    pinConfig( ucCS, OUT );
+  1c:	4610      	mov	r0, r2
+  1e:	f04f 0103 	mov.w	r1, #3
+  22:	f7ff fffe 	bl	0 <pinConfig>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:204
+    pinConfig( ucA0, OUT );
+  26:	4650      	mov	r0, sl
+  28:	f04f 0103 	mov.w	r1, #3
+  2c:	f7ff fffe 	bl	0 <pinConfig>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:205
+    pinConfig( ucWR, OUT );
+  30:	4658      	mov	r0, fp
+  32:	f04f 0103 	mov.w	r1, #3
+  36:	f7ff fffe 	bl	0 <pinConfig>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:206
+    pinConfig( ucRD, OUT );
+  3a:	9801      	ldr	r0, [sp, #4]
+  3c:	f04f 0103 	mov.w	r1, #3
+  40:	f7ff fffe 	bl	0 <pinConfig>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:209
+
+    // Width sets the number of bits in the data bus, 8 and 16 are the expected values
+    if( ucWidth < 17 ){
+  44:	2e10      	cmp	r6, #16
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:210
+        pygmyPort->Width = ucWidth;
+  46:	bf92      	itee	ls
+  48:	f884 6020 	strbls.w	r6, [r4, #32]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:212
+    } else{
+        pygmyPort->Width = 8;
+  4c:	2308      	movhi	r3, #8
+  4e:	f884 3020 	strbhi.w	r3, [r4, #32]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:214
+    } // else
+    for( i = 0, pygmyPort->Mask = 0; i < pygmyPort->Width; i++, ucD0++ ){
+  52:	f04f 0300 	mov.w	r3, #0
+  56:	83e3      	strh	r3, [r4, #30]
+  58:	f894 3020 	ldrb.w	r3, [r4, #32]
+  5c:	b1eb      	cbz	r3, 9a <parallelConfig+0x9a>
+  5e:	f04f 0600 	mov.w	r6, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:215
+        pygmyPort->Mask |= PYGMY_BITMASKS[ ucD0 % 16 ]; // pre-build bitmask for later port operations
+  62:	f240 0700 	movw	r7, #0
+  66:	f2c0 0700 	movt	r7, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:216
+        pinConfig( ucD0, OUT );
+  6a:	f04f 0803 	mov.w	r8, #3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:215
+        pygmyPort->Width = ucWidth;
+    } else{
+        pygmyPort->Width = 8;
+    } // else
+    for( i = 0, pygmyPort->Mask = 0; i < pygmyPort->Width; i++, ucD0++ ){
+        pygmyPort->Mask |= PYGMY_BITMASKS[ ucD0 % 16 ]; // pre-build bitmask for later port operations
+  6e:	f005 030f 	and.w	r3, r5, #15
+  72:	f857 2023 	ldr.w	r2, [r7, r3, lsl #2]
+  76:	8be3      	ldrh	r3, [r4, #30]
+  78:	ea42 0303 	orr.w	r3, r2, r3
+  7c:	83e3      	strh	r3, [r4, #30]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:216
+        pinConfig( ucD0, OUT );
+  7e:	4628      	mov	r0, r5
+  80:	4641      	mov	r1, r8
+  82:	f7ff fffe 	bl	0 <pinConfig>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:214
+    if( ucWidth < 17 ){
+        pygmyPort->Width = ucWidth;
+    } else{
+        pygmyPort->Width = 8;
+    } // else
+    for( i = 0, pygmyPort->Mask = 0; i < pygmyPort->Width; i++, ucD0++ ){
+  86:	f106 0601 	add.w	r6, r6, #1
+  8a:	b2f6      	uxtb	r6, r6
+  8c:	f105 0501 	add.w	r5, r5, #1
+  90:	b2ed      	uxtb	r5, r5
+  92:	f894 3020 	ldrb.w	r3, [r4, #32]
+  96:	42b3      	cmp	r3, r6
+  98:	d8e9      	bhi.n	6e <parallelConfig+0x6e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:219
+        pygmyPort->Mask |= PYGMY_BITMASKS[ ucD0 % 16 ]; // pre-build bitmask for later port operations
+        pinConfig( ucD0, OUT );
+    } // for
+    
+    pygmyPort->PortCS   = pinGetPort( ucCS );
+  9a:	4648      	mov	r0, r9
+  9c:	f7ff fffe 	bl	0 <pinGetPort>
+  a0:	6020      	str	r0, [r4, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:220
+    pygmyPort->PortA0   = pinGetPort( ucA0 );
+  a2:	4650      	mov	r0, sl
+  a4:	f7ff fffe 	bl	0 <pinGetPort>
+  a8:	6060      	str	r0, [r4, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:221
+    pygmyPort->PortWR   = pinGetPort( ucWR );
+  aa:	4658      	mov	r0, fp
+  ac:	f7ff fffe 	bl	0 <pinGetPort>
+  b0:	60a0      	str	r0, [r4, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:222
+    pygmyPort->PortRD   = pinGetPort( ucRD );
+  b2:	9801      	ldr	r0, [sp, #4]
+  b4:	f7ff fffe 	bl	0 <pinGetPort>
+  b8:	60e0      	str	r0, [r4, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:223
+    pygmyPort->PortDATA = pinGetPort( ucD0 );
+  ba:	4628      	mov	r0, r5
+  bc:	f7ff fffe 	bl	0 <pinGetPort>
+  c0:	6120      	str	r0, [r4, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:225
+    
+    pygmyPort->PinCS = PYGMY_BITMASKS[ ucCS % 16 ];
+  c2:	f240 0300 	movw	r3, #0
+  c6:	f2c0 0300 	movt	r3, #0
+  ca:	f009 020f 	and.w	r2, r9, #15
+  ce:	f833 2022 	ldrh.w	r2, [r3, r2, lsl #2]
+  d2:	82a2      	strh	r2, [r4, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:226
+    pygmyPort->PinA0 = PYGMY_BITMASKS[ ucA0 % 16 ];
+  d4:	f00a 020f 	and.w	r2, sl, #15
+  d8:	f833 2022 	ldrh.w	r2, [r3, r2, lsl #2]
+  dc:	82e2      	strh	r2, [r4, #22]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:227
+    pygmyPort->PinWR = PYGMY_BITMASKS[ ucWR % 16 ];
+  de:	f00b 020f 	and.w	r2, fp, #15
+  e2:	f833 2022 	ldrh.w	r2, [r3, r2, lsl #2]
+  e6:	8322      	strh	r2, [r4, #24]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:228
+    pygmyPort->PinRD = PYGMY_BITMASKS[ ucRD % 16 ];
+  e8:	9901      	ldr	r1, [sp, #4]
+  ea:	f001 020f 	and.w	r2, r1, #15
+  ee:	f833 2022 	ldrh.w	r2, [r3, r2, lsl #2]
+  f2:	8362      	strh	r2, [r4, #26]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:229
+    pygmyPort->PinD0 = PYGMY_BITMASKS[ ucD0 % 16 ];
+  f4:	f005 050f 	and.w	r5, r5, #15
+  f8:	f833 5025 	ldrh.w	r5, [r3, r5, lsl #2]
+  fc:	83a5      	strh	r5, [r4, #28]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:231
+    
+    pinSet( ucCS, HIGH );
+  fe:	4648      	mov	r0, r9
+ 100:	f04f 0101 	mov.w	r1, #1
+ 104:	f7ff fffe 	bl	0 <pinSet>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:232
+    pinSet( ucA0, HIGH );
+ 108:	4650      	mov	r0, sl
+ 10a:	f04f 0101 	mov.w	r1, #1
+ 10e:	f7ff fffe 	bl	0 <pinSet>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:233
+    pinSet( ucWR, HIGH );
+ 112:	4658      	mov	r0, fp
+ 114:	f04f 0101 	mov.w	r1, #1
+ 118:	f7ff fffe 	bl	0 <pinSet>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:234
+    pinSet( ucRD, HIGH );
+ 11c:	9801      	ldr	r0, [sp, #4]
+ 11e:	f04f 0101 	mov.w	r1, #1
+ 122:	f7ff fffe 	bl	0 <pinSet>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:235
+}
+ 126:	b003      	add	sp, #12
+ 128:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+
+Disassembly of section .text.parallelWrite:
+
+00000000 <parallelWrite>:
+parallelWrite():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:238
+
+void parallelWrite( PYGMYPARALLELPORT *pygmyPort, u8 ucA0, u16 uiWord )
+{
+   0:	b410      	push	{r4}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:239
+    uiWord = ( uiWord << pygmyPort->PinD0 ) & pygmyPort->Mask;
+   2:	8b83      	ldrh	r3, [r0, #28]
+   4:	fa02 f303 	lsl.w	r3, r2, r3
+   8:	8bc4      	ldrh	r4, [r0, #30]
+   a:	4023      	ands	r3, r4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:240
+    if( ucA0 ){
+   c:	b119      	cbz	r1, 16 <parallelWrite+0x16>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:241
+        pygmyPort->PortA0->BSRR = pygmyPort->PinA0;
+   e:	6842      	ldr	r2, [r0, #4]
+  10:	8ac1      	ldrh	r1, [r0, #22]
+  12:	6111      	str	r1, [r2, #16]
+  14:	e002      	b.n	1c <parallelWrite+0x1c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:243
+    } else{
+        pygmyPort->PortA0->BRR = pygmyPort->PinA0;
+  16:	6842      	ldr	r2, [r0, #4]
+  18:	8ac1      	ldrh	r1, [r0, #22]
+  1a:	6151      	str	r1, [r2, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:246
+    } // else
+    
+    pygmyPort->PortCS->BRR      = pygmyPort->PinCS;
+  1c:	6802      	ldr	r2, [r0, #0]
+  1e:	8a81      	ldrh	r1, [r0, #20]
+  20:	6151      	str	r1, [r2, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:247
+    pygmyPort->PortDATA->ODR    &= ~pygmyPort->Mask;
+  22:	6902      	ldr	r2, [r0, #16]
+  24:	68d1      	ldr	r1, [r2, #12]
+  26:	8bc4      	ldrh	r4, [r0, #30]
+  28:	ea21 0104 	bic.w	r1, r1, r4
+  2c:	60d1      	str	r1, [r2, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:248
+    pygmyPort->PortDATA->ODR    |= uiWord;
+  2e:	6902      	ldr	r2, [r0, #16]
+  30:	68d1      	ldr	r1, [r2, #12]
+  32:	430b      	orrs	r3, r1
+  34:	60d3      	str	r3, [r2, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:249
+    pygmyPort->PortWR->BRR      = pygmyPort->PinWR; // Go high to set to inactive
+  36:	6883      	ldr	r3, [r0, #8]
+  38:	8b02      	ldrh	r2, [r0, #24]
+  3a:	615a      	str	r2, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:250
+    pygmyPort->PortWR->BSRR     = pygmyPort->PinWR; // Go low to clock out data/cmd
+  3c:	6883      	ldr	r3, [r0, #8]
+  3e:	8b02      	ldrh	r2, [r0, #24]
+  40:	611a      	str	r2, [r3, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:251
+    pygmyPort->PortCS->BSRR     = pygmyPort->PinCS;
+  42:	6803      	ldr	r3, [r0, #0]
+  44:	8a82      	ldrh	r2, [r0, #20]
+  46:	611a      	str	r2, [r3, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:252
+}
+  48:	bc10      	pop	{r4}
+  4a:	4770      	bx	lr
+
+Disassembly of section .text.parallelRead:
+
+00000000 <parallelRead>:
+parallelRead():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:269
+
+u16 parallelRead( PYGMYPARALLELPORT *pygmyPort, u8 ucA0 )
+{
+    u16 uiWord;
+
+    uiWord = pygmyPort->PortDATA->IDR & pygmyPort->Mask;
+   0:	6903      	ldr	r3, [r0, #16]
+   2:	689a      	ldr	r2, [r3, #8]
+   4:	8bc3      	ldrh	r3, [r0, #30]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:270
+    uiWord >>= pygmyPort->PinD0;
+   6:	401a      	ands	r2, r3
+   8:	8b83      	ldrh	r3, [r0, #28]
+   a:	fa42 f003 	asr.w	r0, r2, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:273
+    
+    return( uiWord );
+}
+   e:	b280      	uxth	r0, r0
+  10:	4770      	bx	lr
+  12:	bf00      	nop
+
+Disassembly of section .text.spiWriteByte:
+
+00000000 <spiWriteByte>:
+spiWriteByte():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:423
+    spiPutChar( pygmySPI, (u8) ulData );
+}*/
+
+
+void spiWriteByte( PYGMYSPIPORT *pygmySPI, u8 ucByte )
+{
+   0:	b430      	push	{r4, r5}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:427
+    // Clocks out 8 bits
+	u16 i;
+
+	pygmySPI->PortSCK->BRR = pygmySPI->PinSCK;	        // Clock starts low, low-high-low clocks data in or out
+   2:	6843      	ldr	r3, [r0, #4]
+   4:	8a42      	ldrh	r2, [r0, #18]
+   6:	615a      	str	r2, [r3, #20]
+   8:	f04f 0300 	mov.w	r3, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:430
+	//for( i = 24; i < 32; i++ ){ 		                        // 
+    for( i = 0; i < 8; i++ ){ 
+		if( ucByte & ( BIT7 >> i ) ){                       // 	
+   c:	f04f 0580 	mov.w	r5, #128	; 0x80
+  10:	fa45 f203 	asr.w	r2, r5, r3
+  14:	420a      	tst	r2, r1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:432
+        //if( ucByte & PYGMY_INVBITMASKS[ i ] ){
+            pygmySPI->PortMOSI->BSRR = pygmySPI->PinMOSI;   // MasterOutSlaveIn high if bit set
+  16:	6882      	ldr	r2, [r0, #8]
+  18:	8a84      	ldrh	r4, [r0, #20]
+  1a:	bf14      	ite	ne
+  1c:	6114      	strne	r4, [r2, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:434
+		} else{                                             //
+            pygmySPI->PortMOSI->BRR = pygmySPI->PinMOSI;  // MasterOutSlaveIn low if bit clear
+  1e:	6154      	streq	r4, [r2, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:436
+        } // else                                           //
+		pygmySPI->PortSCK->BSRR = pygmySPI->PinSCK;			// clock must start low, transition high
+  20:	6842      	ldr	r2, [r0, #4]
+  22:	8a44      	ldrh	r4, [r0, #18]
+  24:	6114      	str	r4, [r2, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:437
+		pygmySPI->PortSCK->BRR = pygmySPI->PinSCK;	    // Low transition finishes clock sequence
+  26:	6842      	ldr	r2, [r0, #4]
+  28:	8a44      	ldrh	r4, [r0, #18]
+  2a:	6154      	str	r4, [r2, #20]
+  2c:	f103 0301 	add.w	r3, r3, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:429
+    // Clocks out 8 bits
+	u16 i;
+
+	pygmySPI->PortSCK->BRR = pygmySPI->PinSCK;	        // Clock starts low, low-high-low clocks data in or out
+	//for( i = 24; i < 32; i++ ){ 		                        // 
+    for( i = 0; i < 8; i++ ){ 
+  30:	2b08      	cmp	r3, #8
+  32:	d1ed      	bne.n	10 <spiWriteByte+0x10>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:439
+            pygmySPI->PortMOSI->BRR = pygmySPI->PinMOSI;  // MasterOutSlaveIn low if bit clear
+        } // else                                           //
+		pygmySPI->PortSCK->BSRR = pygmySPI->PinSCK;			// clock must start low, transition high
+		pygmySPI->PortSCK->BRR = pygmySPI->PinSCK;	    // Low transition finishes clock sequence
+    } // for
+} 
+  34:	bc30      	pop	{r4, r5}
+  36:	4770      	bx	lr
+
+Disassembly of section .text.spiWriteAddress:
+
+00000000 <spiWriteAddress>:
+spiWriteAddress():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:284
+    spiWriteByte( pygmySPI, ucByte );
+    pygmySPI->PortCS->BSRR = pygmySPI->PinCS;
+}
+
+void spiWriteAddress( PYGMYSPIPORT *pygmySPI, u32 ulAddress )
+{
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	4604      	mov	r4, r0
+   4:	460d      	mov	r5, r1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:285
+    if( pygmySPI->CR & SPILONGADDRESS ){
+   6:	8b03      	ldrh	r3, [r0, #24]
+   8:	f013 0f04 	tst.w	r3, #4
+   c:	d00e      	beq.n	2c <spiWriteAddress+0x2c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:286
+        spiWriteByte( pygmySPI, (u8)((u32) ulAddress >> 24 ) );
+   e:	ea4f 6111 	mov.w	r1, r1, lsr #24
+  12:	f7ff fffe 	bl	0 <spiWriteAddress>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:287
+        spiWriteByte( pygmySPI, (u8)((u32) ulAddress >> 16 ) );
+  16:	4620      	mov	r0, r4
+  18:	f3c5 4107 	ubfx	r1, r5, #16, #8
+  1c:	f7ff fffe 	bl	0 <spiWriteAddress>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:288
+        spiWriteByte( pygmySPI, (u8)((u32) ulAddress >> 8 ) );
+  20:	4620      	mov	r0, r4
+  22:	f3c5 2107 	ubfx	r1, r5, #8, #8
+  26:	f7ff fffe 	bl	0 <spiWriteAddress>
+  2a:	e006      	b.n	3a <spiWriteAddress+0x3a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:289
+    } else if( pygmySPI->CR & SPIWORDADDRESS ){
+  2c:	f013 0f02 	tst.w	r3, #2
+  30:	d003      	beq.n	3a <spiWriteAddress+0x3a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:290
+        spiWriteByte( pygmySPI, (u8)((u32) ulAddress >> 8 ) );
+  32:	f3c1 2107 	ubfx	r1, r1, #8, #8
+  36:	f7ff fffe 	bl	0 <spiWriteAddress>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:292
+    } // else if
+    spiWriteByte( pygmySPI, (u8) ulAddress );
+  3a:	4620      	mov	r0, r4
+  3c:	b2e9      	uxtb	r1, r5
+  3e:	f7ff fffe 	bl	0 <spiWriteAddress>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:293
+}
+  42:	bd38      	pop	{r3, r4, r5, pc}
+
+Disassembly of section .text.spiPutCommand:
+
+00000000 <spiPutCommand>:
+spiPutCommand():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:276
+    
+    return( uiWord );
+}
+
+void spiPutCommand( PYGMYSPIPORT *pygmySPI, u8 ucByte )
+{
+   0:	b510      	push	{r4, lr}
+   2:	4604      	mov	r4, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:278
+    // write one byte with CS cycle to SPI device, generally used for command transfer
+    pygmySPI->PortCS->BRR = pygmySPI->PinCS;
+   4:	6803      	ldr	r3, [r0, #0]
+   6:	8a02      	ldrh	r2, [r0, #16]
+   8:	615a      	str	r2, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:279
+    spiWriteByte( pygmySPI, ucByte );
+   a:	f7ff fffe 	bl	0 <spiPutCommand>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:280
+    pygmySPI->PortCS->BSRR = pygmySPI->PinCS;
+   e:	6823      	ldr	r3, [r4, #0]
+  10:	8a22      	ldrh	r2, [r4, #16]
+  12:	611a      	str	r2, [r3, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:281
+}
+  14:	bd10      	pop	{r4, pc}
+  16:	bf00      	nop
+
+Disassembly of section .text.spiReadByte:
+
+00000000 <spiReadByte>:
+spiReadByte():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:478
+		pygmySPI->PortSCK->BRR = pygmySPI->PinSCK;        // Low transition finishes clock sequence
+    } // for
+} */
+
+u8 spiReadByte( PYGMYSPIPORT *pygmySPI )
+{
+   0:	b430      	push	{r4, r5}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:483
+    // Clocks in 8 bits
+    u16 i;
+	u8 ucByte;
+	
+    pygmySPI->PortSCK->BRR = pygmySPI->PinSCK;             // Clock starts low, low-high-low clocks data in or out
+   2:	6843      	ldr	r3, [r0, #4]
+   4:	8a42      	ldrh	r2, [r0, #18]
+   6:	615a      	str	r2, [r3, #20]
+   8:	f04f 0300 	mov.w	r3, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:492
+            ucByte |= PYGMY_INVBITMASKS[ i ];
+			//ucByte |= ( BIT7 >> i );                        //
+        } // if                                             //
+		pygmySPI->PortSCK->BRR = pygmySPI->PinSCK;	        // Low transition finishes clock sequence
+    } // for*/
+	for( i = 0, ucByte = 0; i < 8; i++ ){                   // 
+   c:	461c      	mov	r4, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:496
+		pygmySPI->PortSCK->BSRR = pygmySPI->PinSCK;          // clock must start low, transition high 			
+        if( pygmySPI->PortMISO->IDR & pygmySPI->PinMISO ){    // Test port input for high and set bit in ucByte
+            //ucByte |= PYGMY_INVBITMASKS[ i ];
+			ucByte |= ( BIT7 >> i );                        //
+   e:	f04f 0580 	mov.w	r5, #128	; 0x80
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:493
+			//ucByte |= ( BIT7 >> i );                        //
+        } // if                                             //
+		pygmySPI->PortSCK->BRR = pygmySPI->PinSCK;	        // Low transition finishes clock sequence
+    } // for*/
+	for( i = 0, ucByte = 0; i < 8; i++ ){                   // 
+		pygmySPI->PortSCK->BSRR = pygmySPI->PinSCK;          // clock must start low, transition high 			
+  12:	6842      	ldr	r2, [r0, #4]
+  14:	8a41      	ldrh	r1, [r0, #18]
+  16:	6111      	str	r1, [r2, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:494
+        if( pygmySPI->PortMISO->IDR & pygmySPI->PinMISO ){    // Test port input for high and set bit in ucByte
+  18:	68c2      	ldr	r2, [r0, #12]
+  1a:	6892      	ldr	r2, [r2, #8]
+  1c:	8ac1      	ldrh	r1, [r0, #22]
+  1e:	4211      	tst	r1, r2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:496
+            //ucByte |= PYGMY_INVBITMASKS[ i ];
+			ucByte |= ( BIT7 >> i );                        //
+  20:	bf1e      	ittt	ne
+  22:	fa45 f203 	asrne.w	r2, r5, r3
+  26:	4314      	orrne	r4, r2
+  28:	b2e4      	uxtbne	r4, r4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:498
+        } // if                                             //
+		pygmySPI->PortSCK->BRR = pygmySPI->PinSCK;	        // Low transition finishes clock sequence
+  2a:	6842      	ldr	r2, [r0, #4]
+  2c:	8a41      	ldrh	r1, [r0, #18]
+  2e:	6151      	str	r1, [r2, #20]
+  30:	f103 0301 	add.w	r3, r3, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:492
+            ucByte |= PYGMY_INVBITMASKS[ i ];
+			//ucByte |= ( BIT7 >> i );                        //
+        } // if                                             //
+		pygmySPI->PortSCK->BRR = pygmySPI->PinSCK;	        // Low transition finishes clock sequence
+    } // for*/
+	for( i = 0, ucByte = 0; i < 8; i++ ){                   // 
+  34:	2b08      	cmp	r3, #8
+  36:	d1ec      	bne.n	12 <spiReadByte+0x12>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:501
+			ucByte |= ( BIT7 >> i );                        //
+        } // if                                             //
+		pygmySPI->PortSCK->BRR = pygmySPI->PinSCK;	        // Low transition finishes clock sequence
+    } // for
+	return( ucByte );
+}
+  38:	4620      	mov	r0, r4
+  3a:	bc30      	pop	{r4, r5}
+  3c:	4770      	bx	lr
+  3e:	bf00      	nop
+
+Disassembly of section .text.spiGetBuffer:
+
+00000000 <spiGetBuffer>:
+spiGetBuffer():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:398
+
+    return( ulData );
+}
+
+void spiGetBuffer( PYGMYSPIPORT *pygmySPI, u32 ulAddress, u8 *ucBuffer, u32 ulLen )
+{
+   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+   2:	4605      	mov	r5, r0
+   4:	4617      	mov	r7, r2
+   6:	461e      	mov	r6, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:401
+    u32 i;
+
+    pygmySPI->PortCS->BRR = pygmySPI->PinCS;
+   8:	6803      	ldr	r3, [r0, #0]
+   a:	8a02      	ldrh	r2, [r0, #16]
+   c:	615a      	str	r2, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:402
+    spiWriteAddress( pygmySPI, ulAddress );
+   e:	f7ff fffe 	bl	0 <spiGetBuffer>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:403
+    if( pygmySPI->CR & SPIDUMMYONREAD ){
+  12:	8b2b      	ldrh	r3, [r5, #24]
+  14:	f013 0f08 	tst.w	r3, #8
+  18:	d002      	beq.n	20 <spiGetBuffer+0x20>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:404
+        spiReadByte( pygmySPI );
+  1a:	4628      	mov	r0, r5
+  1c:	f7ff fffe 	bl	0 <spiGetBuffer>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:406
+    } // if
+    for( i = 0; i < ulLen; i++ ){
+  20:	b14e      	cbz	r6, 36 <spiGetBuffer+0x36>
+  22:	f04f 0400 	mov.w	r4, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:407
+        ucBuffer[ i ] = spiReadByte( pygmySPI );
+  26:	4628      	mov	r0, r5
+  28:	f7ff fffe 	bl	0 <spiGetBuffer>
+  2c:	5538      	strb	r0, [r7, r4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:406
+    pygmySPI->PortCS->BRR = pygmySPI->PinCS;
+    spiWriteAddress( pygmySPI, ulAddress );
+    if( pygmySPI->CR & SPIDUMMYONREAD ){
+        spiReadByte( pygmySPI );
+    } // if
+    for( i = 0; i < ulLen; i++ ){
+  2e:	f104 0401 	add.w	r4, r4, #1
+  32:	42a6      	cmp	r6, r4
+  34:	d8f7      	bhi.n	26 <spiGetBuffer+0x26>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:409
+        ucBuffer[ i ] = spiReadByte( pygmySPI );
+    } // for
+    pygmySPI->PortCS->BSRR = pygmySPI->PinCS;
+  36:	682b      	ldr	r3, [r5, #0]
+  38:	8a2a      	ldrh	r2, [r5, #16]
+  3a:	611a      	str	r2, [r3, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:410
+}
+  3c:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+  3e:	bf00      	nop
+
+Disassembly of section .text.spiGetLong:
+
+00000000 <spiGetLong>:
+spiGetLong():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:380
+    
+    return( uiData );
+}
+
+u32 spiGetLong( PYGMYSPIPORT *pygmySPI, u32 ulAddress )
+{
+   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+   2:	4604      	mov	r4, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:383
+    u32 ulData;
+
+    pygmySPI->PortCS->BRR = pygmySPI->PinCS;
+   4:	6803      	ldr	r3, [r0, #0]
+   6:	8a02      	ldrh	r2, [r0, #16]
+   8:	615a      	str	r2, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:384
+    spiWriteAddress( pygmySPI, ulAddress );
+   a:	f7ff fffe 	bl	0 <spiGetLong>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:385
+    if( pygmySPI->CR & SPIDUMMYONREAD ){
+   e:	8b23      	ldrh	r3, [r4, #24]
+  10:	f013 0f08 	tst.w	r3, #8
+  14:	d002      	beq.n	1c <spiGetLong+0x1c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:386
+        spiReadByte( pygmySPI );
+  16:	4620      	mov	r0, r4
+  18:	f7ff fffe 	bl	0 <spiGetLong>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:388
+    } // if
+    ulData = (u32)spiReadByte( pygmySPI ) << 24;
+  1c:	4620      	mov	r0, r4
+  1e:	f7ff fffe 	bl	0 <spiGetLong>
+  22:	ea4f 6600 	mov.w	r6, r0, lsl #24
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:389
+    ulData |= (u32)spiReadByte( pygmySPI ) << 16;
+  26:	4620      	mov	r0, r4
+  28:	f7ff fffe 	bl	0 <spiGetLong>
+  2c:	4605      	mov	r5, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:390
+    ulData |= (u32)spiReadByte( pygmySPI ) << 8;
+  2e:	4620      	mov	r0, r4
+  30:	f7ff fffe 	bl	0 <spiGetLong>
+  34:	4607      	mov	r7, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:391
+    ulData |= (u32)spiReadByte( pygmySPI );
+  36:	4620      	mov	r0, r4
+  38:	f7ff fffe 	bl	0 <spiGetLong>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:389
+    spiWriteAddress( pygmySPI, ulAddress );
+    if( pygmySPI->CR & SPIDUMMYONREAD ){
+        spiReadByte( pygmySPI );
+    } // if
+    ulData = (u32)spiReadByte( pygmySPI ) << 24;
+    ulData |= (u32)spiReadByte( pygmySPI ) << 16;
+  3c:	ea46 4505 	orr.w	r5, r6, r5, lsl #16
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:390
+    ulData |= (u32)spiReadByte( pygmySPI ) << 8;
+  40:	ea45 0000 	orr.w	r0, r5, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:392
+    ulData |= (u32)spiReadByte( pygmySPI );
+    pygmySPI->PortCS->BSRR = pygmySPI->PinCS;
+  44:	6823      	ldr	r3, [r4, #0]
+  46:	8a22      	ldrh	r2, [r4, #16]
+  48:	611a      	str	r2, [r3, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:395
+
+    return( ulData );
+}
+  4a:	ea40 2007 	orr.w	r0, r0, r7, lsl #8
+  4e:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+
+Disassembly of section .text.spiGetWord:
+
+00000000 <spiGetWord>:
+spiGetWord():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:364
+    ucChar = spiReadByte( pygmySPI );
+    pygmySPI->PortCS->BSRR = pygmySPI->PinCS;
+}
+
+u16 spiGetWord( PYGMYSPIPORT *pygmySPI, u32 ulAddress )
+{
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	4604      	mov	r4, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:367
+    u16 uiData;
+
+    pygmySPI->PortCS->BRR = pygmySPI->PinCS;
+   4:	6803      	ldr	r3, [r0, #0]
+   6:	8a02      	ldrh	r2, [r0, #16]
+   8:	615a      	str	r2, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:368
+    spiWriteAddress( pygmySPI, ulAddress );
+   a:	f7ff fffe 	bl	0 <spiGetWord>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:369
+    if( pygmySPI->CR & SPIDUMMYONREAD ){
+   e:	8b23      	ldrh	r3, [r4, #24]
+  10:	f013 0f08 	tst.w	r3, #8
+  14:	d002      	beq.n	1c <spiGetWord+0x1c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:370
+        spiReadByte( pygmySPI );
+  16:	4620      	mov	r0, r4
+  18:	f7ff fffe 	bl	0 <spiGetWord>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:372
+    } // if
+    uiData = (u16)spiReadByte( pygmySPI ) << 8;
+  1c:	4620      	mov	r0, r4
+  1e:	f7ff fffe 	bl	0 <spiGetWord>
+  22:	ea4f 2000 	mov.w	r0, r0, lsl #8
+  26:	b285      	uxth	r5, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:373
+    uiData |= (u16)spiReadByte( pygmySPI );
+  28:	4620      	mov	r0, r4
+  2a:	f7ff fffe 	bl	0 <spiGetWord>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:374
+    pygmySPI->PortCS->BSRR = pygmySPI->PinCS;
+  2e:	6823      	ldr	r3, [r4, #0]
+  30:	8a22      	ldrh	r2, [r4, #16]
+  32:	611a      	str	r2, [r3, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:373
+    spiWriteAddress( pygmySPI, ulAddress );
+    if( pygmySPI->CR & SPIDUMMYONREAD ){
+        spiReadByte( pygmySPI );
+    } // if
+    uiData = (u16)spiReadByte( pygmySPI ) << 8;
+    uiData |= (u16)spiReadByte( pygmySPI );
+  34:	ea45 0000 	orr.w	r0, r5, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:377
+    pygmySPI->PortCS->BSRR = pygmySPI->PinCS;
+    
+    return( uiData );
+}
+  38:	b280      	uxth	r0, r0
+  3a:	bd38      	pop	{r3, r4, r5, pc}
+
+Disassembly of section .text.spiGetChar:
+
+00000000 <spiGetChar>:
+spiGetChar():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:351
+    } // for
+    pygmySPI->PortCS->BSRR = pygmySPI->PinCS;
+}
+
+u8 spiGetChar( PYGMYSPIPORT *pygmySPI, u32 ulAddress )
+{
+   0:	b510      	push	{r4, lr}
+   2:	4604      	mov	r4, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:354
+    u8 ucChar;
+
+    pygmySPI->PortCS->BRR = pygmySPI->PinCS;
+   4:	6803      	ldr	r3, [r0, #0]
+   6:	8a02      	ldrh	r2, [r0, #16]
+   8:	615a      	str	r2, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:355
+    spiWriteAddress( pygmySPI, ulAddress );
+   a:	f7ff fffe 	bl	0 <spiGetChar>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:356
+    if( pygmySPI->CR & SPIDUMMYONREAD ){
+   e:	8b23      	ldrh	r3, [r4, #24]
+  10:	f013 0f08 	tst.w	r3, #8
+  14:	d002      	beq.n	1c <spiGetChar+0x1c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:357
+        spiReadByte( pygmySPI );
+  16:	4620      	mov	r0, r4
+  18:	f7ff fffe 	bl	0 <spiGetChar>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:359
+    } // if
+    ucChar = spiReadByte( pygmySPI );
+  1c:	4620      	mov	r0, r4
+  1e:	f7ff fffe 	bl	0 <spiGetChar>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:360
+    pygmySPI->PortCS->BSRR = pygmySPI->PinCS;
+  22:	6823      	ldr	r3, [r4, #0]
+  24:	8a22      	ldrh	r2, [r4, #16]
+  26:	611a      	str	r2, [r3, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:361
+}
+  28:	bd10      	pop	{r4, pc}
+  2a:	bf00      	nop
+
+Disassembly of section .text.spiPutBuffer:
+
+00000000 <spiPutBuffer>:
+spiPutBuffer():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:336
+    spiWriteByte( pygmySPI, (u8) ulData );
+    pygmySPI->PortCS->BSRR = pygmySPI->PinCS;
+}
+
+void spiPutBuffer( PYGMYSPIPORT *pygmySPI, u32 ulAddress, u8 *ucBuffer, u32 ulLen )
+{
+   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+   2:	4605      	mov	r5, r0
+   4:	4617      	mov	r7, r2
+   6:	461e      	mov	r6, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:339
+    u32 i;
+    
+    pygmySPI->PortCS->BRR = pygmySPI->PinCS;
+   8:	6803      	ldr	r3, [r0, #0]
+   a:	8a02      	ldrh	r2, [r0, #16]
+   c:	615a      	str	r2, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:340
+    spiWriteAddress( pygmySPI, ulAddress );
+   e:	f7ff fffe 	bl	0 <spiPutBuffer>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:341
+    if( pygmySPI->CR & SPIDUMMYONWRITE ){
+  12:	8b2b      	ldrh	r3, [r5, #24]
+  14:	f013 0f10 	tst.w	r3, #16
+  18:	d002      	beq.n	20 <spiPutBuffer+0x20>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:342
+        spiReadByte( pygmySPI );
+  1a:	4628      	mov	r0, r5
+  1c:	f7ff fffe 	bl	0 <spiPutBuffer>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:344
+    } // if
+    for( i = 0; i < ulLen; i++ ){
+  20:	b14e      	cbz	r6, 36 <spiPutBuffer+0x36>
+  22:	f04f 0400 	mov.w	r4, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:345
+        spiWriteByte( pygmySPI, ucBuffer[ i ] );
+  26:	4628      	mov	r0, r5
+  28:	5d39      	ldrb	r1, [r7, r4]
+  2a:	f7ff fffe 	bl	0 <spiPutBuffer>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:344
+    pygmySPI->PortCS->BRR = pygmySPI->PinCS;
+    spiWriteAddress( pygmySPI, ulAddress );
+    if( pygmySPI->CR & SPIDUMMYONWRITE ){
+        spiReadByte( pygmySPI );
+    } // if
+    for( i = 0; i < ulLen; i++ ){
+  2e:	f104 0401 	add.w	r4, r4, #1
+  32:	42a6      	cmp	r6, r4
+  34:	d8f7      	bhi.n	26 <spiPutBuffer+0x26>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:347
+        spiWriteByte( pygmySPI, ucBuffer[ i ] );
+    } // for
+    pygmySPI->PortCS->BSRR = pygmySPI->PinCS;
+  36:	682b      	ldr	r3, [r5, #0]
+  38:	8a2a      	ldrh	r2, [r5, #16]
+  3a:	611a      	str	r2, [r3, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:348
+}
+  3c:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+  3e:	bf00      	nop
+
+Disassembly of section .text.spiPutLong:
+
+00000000 <spiPutLong>:
+spiPutLong():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:321
+    spiWriteByte( pygmySPI, (u8) uiData );
+    pygmySPI->PortCS->BSRR = pygmySPI->PinCS;
+}
+
+void spiPutLong( PYGMYSPIPORT *pygmySPI, u32 ulAddress, u32 ulData )
+{
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	4604      	mov	r4, r0
+   4:	4615      	mov	r5, r2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:323
+    // writes a bigendian 32bit  long with prepended address and CS cycle
+    pygmySPI->PortCS->BRR = pygmySPI->PinCS;
+   6:	6803      	ldr	r3, [r0, #0]
+   8:	8a02      	ldrh	r2, [r0, #16]
+   a:	615a      	str	r2, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:324
+    spiWriteAddress( pygmySPI, ulAddress );
+   c:	f7ff fffe 	bl	0 <spiPutLong>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:325
+    if( pygmySPI->CR & SPIDUMMYONWRITE ){
+  10:	8b23      	ldrh	r3, [r4, #24]
+  12:	f013 0f10 	tst.w	r3, #16
+  16:	d002      	beq.n	1e <spiPutLong+0x1e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:326
+        spiReadByte( pygmySPI );
+  18:	4620      	mov	r0, r4
+  1a:	f7ff fffe 	bl	0 <spiPutLong>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:328
+    } // if
+    spiWriteByte( pygmySPI, (u8)((u32) ulData >> 24 ) );
+  1e:	4620      	mov	r0, r4
+  20:	ea4f 6115 	mov.w	r1, r5, lsr #24
+  24:	f7ff fffe 	bl	0 <spiPutLong>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:329
+    spiWriteByte( pygmySPI, (u8)((u32) ulData >> 16 ) );
+  28:	4620      	mov	r0, r4
+  2a:	f3c5 4107 	ubfx	r1, r5, #16, #8
+  2e:	f7ff fffe 	bl	0 <spiPutLong>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:330
+    spiWriteByte( pygmySPI, (u8)((u32) ulData >> 8 ) );
+  32:	4620      	mov	r0, r4
+  34:	f3c5 2107 	ubfx	r1, r5, #8, #8
+  38:	f7ff fffe 	bl	0 <spiPutLong>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:331
+    spiWriteByte( pygmySPI, (u8) ulData );
+  3c:	4620      	mov	r0, r4
+  3e:	b2e9      	uxtb	r1, r5
+  40:	f7ff fffe 	bl	0 <spiPutLong>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:332
+    pygmySPI->PortCS->BSRR = pygmySPI->PinCS;
+  44:	6823      	ldr	r3, [r4, #0]
+  46:	8a22      	ldrh	r2, [r4, #16]
+  48:	611a      	str	r2, [r3, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:333
+}
+  4a:	bd38      	pop	{r3, r4, r5, pc}
+
+Disassembly of section .text.spiPutWord:
+
+00000000 <spiPutWord>:
+spiPutWord():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:308
+    spiWriteByte( pygmySPI, ucByte );
+    pygmySPI->PortCS->BSRR = pygmySPI->PinCS;
+}
+
+void spiPutWord( PYGMYSPIPORT *pygmySPI, u32 ulAddress, u16 uiData )
+{
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	4604      	mov	r4, r0
+   4:	4615      	mov	r5, r2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:310
+    // writes a bigendian 16bit word with prepended address and CS cycle
+    pygmySPI->PortCS->BRR = pygmySPI->PinCS;
+   6:	6803      	ldr	r3, [r0, #0]
+   8:	8a02      	ldrh	r2, [r0, #16]
+   a:	615a      	str	r2, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:311
+    spiWriteAddress( pygmySPI, ulAddress );
+   c:	f7ff fffe 	bl	0 <spiPutWord>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:312
+    if( pygmySPI->CR & SPIDUMMYONWRITE ){
+  10:	8b23      	ldrh	r3, [r4, #24]
+  12:	f013 0f10 	tst.w	r3, #16
+  16:	d002      	beq.n	1e <spiPutWord+0x1e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:313
+        spiReadByte( pygmySPI );
+  18:	4620      	mov	r0, r4
+  1a:	f7ff fffe 	bl	0 <spiPutWord>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:315
+    } // if
+    spiWriteByte( pygmySPI, (u8)((u16) uiData >> 8 ) );
+  1e:	4620      	mov	r0, r4
+  20:	ea4f 2115 	mov.w	r1, r5, lsr #8
+  24:	f7ff fffe 	bl	0 <spiPutWord>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:316
+    spiWriteByte( pygmySPI, (u8) uiData );
+  28:	4620      	mov	r0, r4
+  2a:	b2e9      	uxtb	r1, r5
+  2c:	f7ff fffe 	bl	0 <spiPutWord>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:317
+    pygmySPI->PortCS->BSRR = pygmySPI->PinCS;
+  30:	6823      	ldr	r3, [r4, #0]
+  32:	8a22      	ldrh	r2, [r4, #16]
+  34:	611a      	str	r2, [r3, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:318
+}
+  36:	bd38      	pop	{r3, r4, r5, pc}
+
+Disassembly of section .text.spiPutChar:
+
+00000000 <spiPutChar>:
+spiPutChar():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:296
+    } // else if
+    spiWriteByte( pygmySPI, (u8) ulAddress );
+}
+
+void spiPutChar( PYGMYSPIPORT *pygmySPI, u32 ulAddress, u8 ucByte )
+{
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	4604      	mov	r4, r0
+   4:	4615      	mov	r5, r2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:298
+    // Writes one char with prepended address and CS cycle
+    pygmySPI->PortCS->BRR = pygmySPI->PinCS;
+   6:	6803      	ldr	r3, [r0, #0]
+   8:	8a02      	ldrh	r2, [r0, #16]
+   a:	615a      	str	r2, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:299
+    spiWriteAddress( pygmySPI, ulAddress );
+   c:	f7ff fffe 	bl	0 <spiPutChar>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:300
+    if( pygmySPI->CR & SPIDUMMYONWRITE ){
+  10:	8b23      	ldrh	r3, [r4, #24]
+  12:	f013 0f10 	tst.w	r3, #16
+  16:	d002      	beq.n	1e <spiPutChar+0x1e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:301
+        spiReadByte( pygmySPI );
+  18:	4620      	mov	r0, r4
+  1a:	f7ff fffe 	bl	0 <spiPutChar>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:303
+    } // if
+    spiWriteByte( pygmySPI, ucByte );
+  1e:	4620      	mov	r0, r4
+  20:	4629      	mov	r1, r5
+  22:	f7ff fffe 	bl	0 <spiPutChar>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:304
+    pygmySPI->PortCS->BSRR = pygmySPI->PinCS;
+  26:	6823      	ldr	r3, [r4, #0]
+  28:	8a22      	ldrh	r2, [r4, #16]
+  2a:	611a      	str	r2, [r3, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:305
+}
+  2c:	bd38      	pop	{r3, r4, r5, pc}
+  2e:	bf00      	nop
+
+Disassembly of section .text.spiReadBuffer:
+
+00000000 <spiReadBuffer>:
+spiReadBuffer():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:504
+    } // for
+	return( ucByte );
+}
+
+void spiReadBuffer( PYGMYSPIPORT *pygmySPI, u8 *ucBuffer, u16 uiLen )
+{
+   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+   2:	4605      	mov	r5, r0
+   4:	460f      	mov	r7, r1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:507
+    u16 i; 
+
+    pygmySPI->PortCS->BRR = pygmySPI->PinCS;
+   6:	6803      	ldr	r3, [r0, #0]
+   8:	8a01      	ldrh	r1, [r0, #16]
+   a:	6159      	str	r1, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:508
+    for( i = 0; i < uiLen; i++ ){
+   c:	4616      	mov	r6, r2
+   e:	b152      	cbz	r2, 26 <spiReadBuffer+0x26>
+  10:	f04f 0400 	mov.w	r4, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:509
+        ucBuffer[ i ] = spiReadByte( pygmySPI );
+  14:	4628      	mov	r0, r5
+  16:	f7ff fffe 	bl	0 <spiReadBuffer>
+  1a:	5538      	strb	r0, [r7, r4]
+  1c:	f104 0401 	add.w	r4, r4, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:508
+void spiReadBuffer( PYGMYSPIPORT *pygmySPI, u8 *ucBuffer, u16 uiLen )
+{
+    u16 i; 
+
+    pygmySPI->PortCS->BRR = pygmySPI->PinCS;
+    for( i = 0; i < uiLen; i++ ){
+  20:	b2a3      	uxth	r3, r4
+  22:	429e      	cmp	r6, r3
+  24:	d8f6      	bhi.n	14 <spiReadBuffer+0x14>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:511
+        ucBuffer[ i ] = spiReadByte( pygmySPI );
+    } // for
+    pygmySPI->PortCS->BSRR = pygmySPI->PinCS;
+  26:	682b      	ldr	r3, [r5, #0]
+  28:	8a2a      	ldrh	r2, [r5, #16]
+  2a:	611a      	str	r2, [r3, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:512
+}
+  2c:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+  2e:	bf00      	nop
+
+Disassembly of section .text.spiWriteBuffer:
+
+00000000 <spiWriteBuffer>:
+spiWriteBuffer():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:515
+
+void spiWriteBuffer( PYGMYSPIPORT *pygmySPI, u8 *ucBuffer, u16 uiLen )
+{
+   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+   2:	4605      	mov	r5, r0
+   4:	460f      	mov	r7, r1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:518
+    u16 i; 
+
+    pygmySPI->PortCS->BRR = pygmySPI->PinCS;
+   6:	6803      	ldr	r3, [r0, #0]
+   8:	8a01      	ldrh	r1, [r0, #16]
+   a:	6159      	str	r1, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:519
+    for( i = 0; i < uiLen; i++ ){
+   c:	4616      	mov	r6, r2
+   e:	b152      	cbz	r2, 26 <spiWriteBuffer+0x26>
+  10:	f04f 0400 	mov.w	r4, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:520
+        spiWriteByte( pygmySPI, ucBuffer[ i ] );
+  14:	4628      	mov	r0, r5
+  16:	5d39      	ldrb	r1, [r7, r4]
+  18:	f7ff fffe 	bl	0 <spiWriteBuffer>
+  1c:	f104 0401 	add.w	r4, r4, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:519
+void spiWriteBuffer( PYGMYSPIPORT *pygmySPI, u8 *ucBuffer, u16 uiLen )
+{
+    u16 i; 
+
+    pygmySPI->PortCS->BRR = pygmySPI->PinCS;
+    for( i = 0; i < uiLen; i++ ){
+  20:	b2a3      	uxth	r3, r4
+  22:	429e      	cmp	r6, r3
+  24:	d8f6      	bhi.n	14 <spiWriteBuffer+0x14>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:522
+        spiWriteByte( pygmySPI, ucBuffer[ i ] );
+    } // for
+    pygmySPI->PortCS->BSRR = pygmySPI->PinCS;
+  26:	682b      	ldr	r3, [r5, #0]
+  28:	8a2a      	ldrh	r2, [r5, #16]
+  2a:	611a      	str	r2, [r3, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:523
+}
+  2c:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+  2e:	bf00      	nop
+
+Disassembly of section .text.spiConfig:
+
+00000000 <spiConfig>:
+spiConfig():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:526
+
+void spiConfig( PYGMYSPIPORT *pygmySPI, u8 ucCS, u8 ucSCK, u8 ucMISO, u8 ucMOSI, u8 ucCR )
+{
+   0:	e92d 43f8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
+   4:	4604      	mov	r4, r0
+   6:	460f      	mov	r7, r1
+   8:	4616      	mov	r6, r2
+   a:	4698      	mov	r8, r3
+   c:	f89d 9020 	ldrb.w	r9, [sp, #32]
+  10:	f89d 5024 	ldrb.w	r5, [sp, #36]	; 0x24
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:527
+    pinConfig( ucCS, OUT );
+  14:	4608      	mov	r0, r1
+  16:	f04f 0103 	mov.w	r1, #3
+  1a:	f7ff fffe 	bl	0 <pinConfig>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:528
+    pinConfig( ucSCK, OUT );
+  1e:	4630      	mov	r0, r6
+  20:	f04f 0103 	mov.w	r1, #3
+  24:	f7ff fffe 	bl	0 <pinConfig>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:529
+    if( ucMOSI != NONE ){
+  28:	f1b9 0fff 	cmp.w	r9, #255	; 0xff
+  2c:	d00d      	beq.n	4a <spiConfig+0x4a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:530
+        pinConfig( ucMOSI, OUT );
+  2e:	4648      	mov	r0, r9
+  30:	f04f 0103 	mov.w	r1, #3
+  34:	f7ff fffe 	bl	0 <pinConfig>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:531
+        pygmySPI->PortMOSI  = pinGetPort( ucMOSI );
+  38:	4648      	mov	r0, r9
+  3a:	f7ff fffe 	bl	0 <pinGetPort>
+  3e:	60a0      	str	r0, [r4, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:532
+        pygmySPI->PinMOSI   = sysGenerateBit( ucMOSI % 16 );//PYGMY_BITMASKS[ ucMOSI % 16 ];
+  40:	f009 000f 	and.w	r0, r9, #15
+  44:	f7ff fffe 	bl	0 <sysGenerateBit>
+  48:	82a0      	strh	r0, [r4, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:534
+    } // if
+    if( ucMISO != NONE ){
+  4a:	f1b8 0fff 	cmp.w	r8, #255	; 0xff
+  4e:	d00d      	beq.n	6c <spiConfig+0x6c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:535
+        pinConfig( ucMISO, IN );
+  50:	4640      	mov	r0, r8
+  52:	f04f 0104 	mov.w	r1, #4
+  56:	f7ff fffe 	bl	0 <pinConfig>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:536
+        pygmySPI->PortMISO  = pinGetPort( ucMISO );
+  5a:	4640      	mov	r0, r8
+  5c:	f7ff fffe 	bl	0 <pinGetPort>
+  60:	60e0      	str	r0, [r4, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:537
+        pygmySPI->PinMISO   = sysGenerateBit( ucMISO % 16 );//PYGMY_BITMASKS[ ucMISO % 16 ];
+  62:	f008 000f 	and.w	r0, r8, #15
+  66:	f7ff fffe 	bl	0 <sysGenerateBit>
+  6a:	82e0      	strh	r0, [r4, #22]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:540
+    } // if
+
+    pygmySPI->PortCS    = pinGetPort( ucCS );
+  6c:	4638      	mov	r0, r7
+  6e:	f7ff fffe 	bl	0 <pinGetPort>
+  72:	6020      	str	r0, [r4, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:541
+    pygmySPI->PortSCK   = pinGetPort( ucSCK );   
+  74:	4630      	mov	r0, r6
+  76:	f7ff fffe 	bl	0 <pinGetPort>
+  7a:	6060      	str	r0, [r4, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:543
+    
+    pygmySPI->PinCS     = sysGenerateBit( ucCS % 16 );//PYGMY_BITMASKS[ ucCS % 16 ];
+  7c:	f007 000f 	and.w	r0, r7, #15
+  80:	f7ff fffe 	bl	0 <sysGenerateBit>
+  84:	8220      	strh	r0, [r4, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:544
+    pygmySPI->PinSCK    = sysGenerateBit( ucSCK % 16 );//PYGMY_BITMASKS[ ucSCK % 16 ];   
+  86:	f006 000f 	and.w	r0, r6, #15
+  8a:	f7ff fffe 	bl	0 <sysGenerateBit>
+  8e:	8260      	strh	r0, [r4, #18]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:546
+    
+    pygmySPI->CR        = ucCR;//0xFF;
+  90:	8325      	strh	r5, [r4, #24]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:548
+
+    pinSet( ucSCK, LOW );
+  92:	4630      	mov	r0, r6
+  94:	f04f 0100 	mov.w	r1, #0
+  98:	f7ff fffe 	bl	0 <pinSet>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:549
+    pinSet( ucCS, HIGH );
+  9c:	4638      	mov	r0, r7
+  9e:	f04f 0101 	mov.w	r1, #1
+  a2:	f7ff fffe 	bl	0 <pinSet>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:550
+}
+  a6:	e8bd 83f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
+  aa:	bf00      	nop
+
+Disassembly of section .text.i2cInit:
+
+00000000 <i2cInit>:
+i2cInit():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:555
+
+//--------------------------------------I2C Hardware Interface-------------------------------------
+//-------------------------------------------------------------------------------------------------
+void i2cInit( I2C_TYPEDEF *i2c )
+{
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	4606      	mov	r6, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:559
+    #ifndef __PYGMYI2COWNADDRESS
+        #define __PYGMYI2COWNADDRESS 0x10
+    #endif // __PYGMYI2COWNADDRESS
+    i2cSetAddress( I2C1, 0, __PYGMYI2COWNADDRESS );
+   4:	f240 0400 	movw	r4, #0
+   8:	f2c0 0400 	movt	r4, #0
+   c:	f44f 45a8 	mov.w	r5, #21504	; 0x5400
+  10:	f2c4 0500 	movt	r5, #16384	; 0x4000
+  14:	4628      	mov	r0, r5
+  16:	f04f 0100 	mov.w	r1, #0
+  1a:	f04f 0210 	mov.w	r2, #16
+  1e:	47a0      	blx	r4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:560
+    i2cSetAddress( I2C1, 1, __PYGMYI2COWNADDRESS + 3 );
+  20:	4628      	mov	r0, r5
+  22:	f04f 0101 	mov.w	r1, #1
+  26:	f04f 0213 	mov.w	r2, #19
+  2a:	47a0      	blx	r4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:561
+    i2cSetAddress( I2C2, 0, __PYGMYI2COWNADDRESS + 1 );
+  2c:	f44f 45b0 	mov.w	r5, #22528	; 0x5800
+  30:	f2c4 0500 	movt	r5, #16384	; 0x4000
+  34:	4628      	mov	r0, r5
+  36:	f04f 0100 	mov.w	r1, #0
+  3a:	f04f 0211 	mov.w	r2, #17
+  3e:	47a0      	blx	r4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:562
+    i2cSetAddress( I2C2, 1, __PYGMYI2COWNADDRESS + 4 );
+  40:	4628      	mov	r0, r5
+  42:	f04f 0101 	mov.w	r1, #1
+  46:	f04f 0214 	mov.w	r2, #20
+  4a:	47a0      	blx	r4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:563
+    i2cSetAddress( I2C3, 0, __PYGMYI2COWNADDRESS + 2 );
+  4c:	f44f 45b8 	mov.w	r5, #23552	; 0x5c00
+  50:	f2c4 0500 	movt	r5, #16384	; 0x4000
+  54:	4628      	mov	r0, r5
+  56:	f04f 0100 	mov.w	r1, #0
+  5a:	f04f 0212 	mov.w	r2, #18
+  5e:	47a0      	blx	r4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:564
+    i2cSetAddress( I2C3, 1, __PYGMYI2COWNADDRESS + 5 );
+  60:	4628      	mov	r0, r5
+  62:	f04f 0101 	mov.w	r1, #1
+  66:	f04f 0215 	mov.w	r2, #21
+  6a:	47a0      	blx	r4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:565
+    i2c->CR2 = ( I2C_ITEVTEN|I2C_ITERREN|36 ); // 36 Periph Clock
+  6c:	f44f 7349 	mov.w	r3, #804	; 0x324
+  70:	80b3      	strh	r3, [r6, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:566
+    i2c->CR1 = ( I2C_ACK|I2C_STOP|I2C_PE );
+  72:	f240 6301 	movw	r3, #1537	; 0x601
+  76:	8033      	strh	r3, [r6, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:567
+}
+  78:	bd70      	pop	{r4, r5, r6, pc}
+  7a:	bf00      	nop
+
+Disassembly of section .text.i2cReset:
+
+00000000 <i2cReset>:
+i2cReset():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:598
+    */
+}
+
+void i2cReset( I2C_TYPEDEF *i2c )
+{
+    i2c->CR1 |= I2C_SWRST;
+   0:	8803      	ldrh	r3, [r0, #0]
+   2:	ea6f 4343 	mvn.w	r3, r3, lsl #17
+   6:	ea6f 4353 	mvn.w	r3, r3, lsr #17
+   a:	b29b      	uxth	r3, r3
+   c:	8003      	strh	r3, [r0, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:599
+}
+   e:	4770      	bx	lr
+
+Disassembly of section .text.I2C1_ER_IRQHandler:
+
+00000000 <I2C1_ER_IRQHandler>:
+I2C1_ER_IRQHandler():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:621
+#endif // __PYGMYSTREAMSBUS1
+
+void I2C1_ER_IRQHandler( void ) 
+{
+
+}
+   0:	4770      	bx	lr
+   2:	bf00      	nop
+
+Disassembly of section .text.I2C2_EV_IRQHandler:
+
+00000000 <I2C2_EV_IRQHandler>:
+I2C2_EV_IRQHandler():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:626
+
+void I2C2_EV_IRQHandler( void ) 
+{ 
+
+}
+   0:	4770      	bx	lr
+   2:	bf00      	nop
+
+Disassembly of section .text.I2C2_ER_IRQHandler:
+
+00000000 <I2C2_ER_IRQHandler>:
+I2C2_ER_IRQHandler():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:631
+
+void I2C2_ER_IRQHandler( void ) 
+{
+
+}
+   0:	4770      	bx	lr
+   2:	bf00      	nop
+
+Disassembly of section .text.I2C3_EV_IRQHandler:
+
+00000000 <I2C3_EV_IRQHandler>:
+I2C3_EV_IRQHandler():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:636
+
+void I2C3_EV_IRQHandler( void )
+{
+
+}
+   0:	4770      	bx	lr
+   2:	bf00      	nop
+
+Disassembly of section .text.I2C3_ER_IRQHandler:
+
+00000000 <I2C3_ER_IRQHandler>:
+I2C3_ER_IRQHandler():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:641
+
+void I2C3_ER_IRQHandler( void )
+{
+
+}
+   0:	4770      	bx	lr
+   2:	bf00      	nop
+
+Disassembly of section .text.i2cConfig:
+
+00000000 <i2cConfig>:
+i2cConfig():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:650
+
+//--------------------------------------I2C Software Interface-------------------------------------
+//-------------------------------------------------------------------------------------------------
+
+void i2cConfig( PYGMYI2CPORT *pygmyI2C, u8 ucSCL, u8 ucSDA, u8 ucAddress, u16 uiCR )
+{
+   0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+   4:	4604      	mov	r4, r0
+   6:	460d      	mov	r5, r1
+   8:	4616      	mov	r6, r2
+   a:	4698      	mov	r8, r3
+   c:	f8bd 7018 	ldrh.w	r7, [sp, #24]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:653
+    u32 ulSpeed;
+
+    pinConfig( ucSCL, PULLUP );
+  10:	4608      	mov	r0, r1
+  12:	f04f 0118 	mov.w	r1, #24
+  16:	f7ff fffe 	bl	0 <pinConfig>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:654
+    pinConfig( ucSDA, PULLUP );
+  1a:	4630      	mov	r0, r6
+  1c:	f04f 0118 	mov.w	r1, #24
+  20:	f7ff fffe 	bl	0 <pinConfig>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:656
+    
+    pygmyI2C->SCL       = ucSCL;
+  24:	7025      	strb	r5, [r4, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:657
+    pygmyI2C->SDA       = ucSDA;
+  26:	7066      	strb	r6, [r4, #1]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:658
+    pygmyI2C->PortSCL   = pinGetPort( ucSCL );
+  28:	4628      	mov	r0, r5
+  2a:	f7ff fffe 	bl	0 <pinGetPort>
+  2e:	6060      	str	r0, [r4, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:659
+    pygmyI2C->PortSDA   = pinGetPort( ucSDA );
+  30:	4630      	mov	r0, r6
+  32:	f7ff fffe 	bl	0 <pinGetPort>
+  36:	60a0      	str	r0, [r4, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:661
+                        
+    pygmyI2C->PinSCL    = BIT0 << ( ucSCL % 16 ); //PYGMY_BITMASKS[ ucSCL % 16 ];
+  38:	f005 050f 	and.w	r5, r5, #15
+  3c:	f04f 0301 	mov.w	r3, #1
+  40:	fa03 f505 	lsl.w	r5, r3, r5
+  44:	81a5      	strh	r5, [r4, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:662
+    pygmyI2C->PinSDA    = BIT0 << ( ucSDA % 16 ); //PYGMY_BITMASKS[ ucSDA % 16 ];
+  46:	f006 060f 	and.w	r6, r6, #15
+  4a:	fa03 f306 	lsl.w	r3, r3, r6
+  4e:	81e3      	strh	r3, [r4, #14]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:664
+    
+    pygmyI2C->Address   = ucAddress << 1;
+  50:	ea4f 0848 	mov.w	r8, r8, lsl #1
+  54:	f884 8002 	strb.w	r8, [r4, #2]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:665
+    if( uiCR ){
+  58:	b10f      	cbz	r7, 5e <i2cConfig+0x5e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:666
+        pygmyI2C->CR    = uiCR;
+  5a:	8267      	strh	r7, [r4, #18]
+  5c:	e002      	b.n	64 <i2cConfig+0x64>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:668
+    } else{
+        pygmyI2C->CR    = I2CSPEEDFAST;
+  5e:	f04f 0108 	mov.w	r1, #8
+  62:	8261      	strh	r1, [r4, #18]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:672
+    } // else
+    
+    // This function assumes a 50 MHz maximum GPIO speed!
+    ulSpeed = sysGetMainClock();
+  64:	f7ff fffe 	bl	0 <sysGetMainClock>
+  68:	f24f 0380 	movw	r3, #61568	; 0xf080
+  6c:	f2c0 23fa 	movt	r3, #762	; 0x2fa
+  70:	4298      	cmp	r0, r3
+  72:	bf38      	it	cc
+  74:	4603      	movcc	r3, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:676
+    if( ulSpeed > 50000000 ){
+        ulSpeed  = 50000000;
+    } // if
+    if( pygmyI2C->CR & I2CSPEEDSTANDARD ){
+  76:	8a62      	ldrh	r2, [r4, #18]
+  78:	f012 0f04 	tst.w	r2, #4
+  7c:	d00a      	beq.n	94 <i2cConfig+0x94>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:677
+        ulSpeed /= ( 100000 * 4 );
+  7e:	ea4f 13d3 	mov.w	r3, r3, lsr #7
+  82:	f648 3259 	movw	r2, #35673	; 0x8b59
+  86:	f2c0 124f 	movt	r2, #335	; 0x14f
+  8a:	fba2 1303 	umull	r1, r3, r2, r3
+  8e:	ea4f 1313 	mov.w	r3, r3, lsr #4
+  92:	e02b      	b.n	ec <i2cConfig+0xec>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:678
+    } else if( pygmyI2C->CR & I2CSPEEDFAST ){
+  94:	f012 0f08 	tst.w	r2, #8
+  98:	d00a      	beq.n	b0 <i2cConfig+0xb0>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:679
+        ulSpeed /= ( 400000 * 4 );
+  9a:	ea4f 2353 	mov.w	r3, r3, lsr #9
+  9e:	f24c 52ad 	movw	r2, #50605	; 0xc5ad
+  a2:	f2c0 02a7 	movt	r2, #167	; 0xa7
+  a6:	fba2 1303 	umull	r1, r3, r2, r3
+  aa:	ea4f 03d3 	mov.w	r3, r3, lsr #3
+  ae:	e01d      	b.n	ec <i2cConfig+0xec>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:680
+    } else if( pygmyI2C->CR & I2CSPEEDFASTPLUS ){
+  b0:	f012 0f10 	tst.w	r2, #16
+  b4:	d008      	beq.n	c8 <i2cConfig+0xc8>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:681
+        ulSpeed /= ( 1000000 * 4 );
+  b6:	f64d 6283 	movw	r2, #56963	; 0xde83
+  ba:	f2c4 321b 	movt	r2, #17179	; 0x431b
+  be:	fba2 1303 	umull	r1, r3, r2, r3
+  c2:	ea4f 5313 	mov.w	r3, r3, lsr #20
+  c6:	e011      	b.n	ec <i2cConfig+0xec>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:682
+    } else if( pygmyI2C->CR & I2CSPEEDHIGH ){
+  c8:	f012 0f20 	tst.w	r2, #32
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:683
+        ulSpeed /= ( 3400000 * 4 );
+  cc:	bf1f      	itttt	ne
+  ce:	f64c 622f 	movwne	r2, #52783	; 0xce2f
+  d2:	f2c2 7279 	movtne	r2, #10105	; 0x2779
+  d6:	fba2 1303 	umullne	r1, r3, r2, r3
+  da:	0d5b      	lsrne	r3, r3, #21
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:686
+    } else{ 
+        // Low Speed Default
+        ulSpeed /= ( 10000 * 4 );
+  dc:	bf01      	itttt	eq
+  de:	f241 7259 	movweq	r2, #5977	; 0x1759
+  e2:	f2cd 12b7 	movteq	r2, #53687	; 0xd1b7
+  e6:	fba2 1303 	umulleq	r1, r3, r2, r3
+  ea:	0bdb      	lsreq	r3, r3, #15
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:688
+    } // else
+    pygmyI2C->Speed     = ulSpeed;
+  ec:	8223      	strh	r3, [r4, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:689
+}
+  ee:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  f2:	bf00      	nop
+
+Disassembly of section .text.i2cDelay:
+
+00000000 <i2cDelay>:
+i2cDelay():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:695
+
+void i2cDelay( PYGMYI2CPORT *pygmyI2C ) 
+{ 
+    u16 i;
+
+    for( i = 0; i < pygmyI2C->Speed; i++ ){
+   0:	8a02      	ldrh	r2, [r0, #16]
+   2:	b13a      	cbz	r2, 14 <i2cDelay+0x14>
+   4:	f04f 0300 	mov.w	r3, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:696
+        asm( "nop" );
+   8:	bf00      	nop
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:695
+
+void i2cDelay( PYGMYI2CPORT *pygmyI2C ) 
+{ 
+    u16 i;
+
+    for( i = 0; i < pygmyI2C->Speed; i++ ){
+   a:	f103 0301 	add.w	r3, r3, #1
+   e:	b29b      	uxth	r3, r3
+  10:	4293      	cmp	r3, r2
+  12:	d3f9      	bcc.n	8 <i2cDelay+0x8>
+  14:	4770      	bx	lr
+  16:	bf00      	nop
+
+Disassembly of section .text.i2cStretch:
+
+00000000 <i2cStretch>:
+i2cStretch():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:705
+void i2cStretch( PYGMYI2CPORT *pygmyI2C )
+{
+    u16 i;
+
+    for( i = 0; i < 60000; i++ ){
+        if( pygmyI2C->PortSCL->IDR & pygmyI2C->PinSCL ){
+   0:	6841      	ldr	r1, [r0, #4]
+   2:	688b      	ldr	r3, [r1, #8]
+   4:	8980      	ldrh	r0, [r0, #12]
+   6:	4218      	tst	r0, r3
+   8:	d109      	bne.n	1e <i2cStretch+0x1e>
+   a:	f64e 235f 	movw	r3, #59999	; 0xea5f
+   e:	688a      	ldr	r2, [r1, #8]
+  10:	4210      	tst	r0, r2
+  12:	d104      	bne.n	1e <i2cStretch+0x1e>
+  14:	f103 33ff 	add.w	r3, r3, #4294967295
+  18:	b29b      	uxth	r3, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:704
+ 
+void i2cStretch( PYGMYI2CPORT *pygmyI2C )
+{
+    u16 i;
+
+    for( i = 0; i < 60000; i++ ){
+  1a:	2b00      	cmp	r3, #0
+  1c:	d1f7      	bne.n	e <i2cStretch+0xe>
+  1e:	4770      	bx	lr
+
+Disassembly of section .text.i2cWriteBit:
+
+00000000 <i2cWriteBit>:
+i2cWriteBit():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:755
+    } // 
+    //pinSet( MCO, HIGH ); // used to test timing
+}
+ 
+void i2cWriteBit( PYGMYI2CPORT *pygmyI2C, u8 ucBit )
+{
+   0:	b510      	push	{r4, lr}
+   2:	4604      	mov	r4, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:757
+    // write one bit
+    if ( ucBit ){
+   4:	b1a1      	cbz	r1, 30 <i2cWriteBit+0x30>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:758
+        pinConfig( pygmyI2C->SDA, PULLUP );
+   6:	7840      	ldrb	r0, [r0, #1]
+   8:	f04f 0118 	mov.w	r1, #24
+   c:	f7ff fffe 	bl	0 <pinConfig>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:763
+    } else{ 
+        pygmyI2C->PortSDA->ODR &= ~pygmyI2C->PinSDA; // set state before setting to output
+        pinConfig( pygmyI2C->SDA, OUT );
+    } // else
+    i2cDelay( pygmyI2C );
+  10:	4620      	mov	r0, r4
+  12:	f7ff fffe 	bl	0 <i2cWriteBit>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:765
+    // allow clock stretching 
+    pinConfig( pygmyI2C->SCL, PULLUP );
+  16:	7820      	ldrb	r0, [r4, #0]
+  18:	f04f 0118 	mov.w	r1, #24
+  1c:	f7ff fffe 	bl	0 <pinConfig>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:771
+    
+    i2cStretch( pygmyI2C );
+    // If SDA should be 1, check that it isn't being push/pulled by another device
+    
+    if ( ucBit ){  
+        pinConfig( pygmyI2C->SDA, PULLUP );  
+  20:	7860      	ldrb	r0, [r4, #1]
+  22:	f04f 0118 	mov.w	r1, #24
+  26:	f7ff fffe 	bl	0 <pinConfig>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:772
+        if( !( pygmyI2C->PortSDA->IDR & pygmyI2C->PinSDA ) ){
+  2a:	68a3      	ldr	r3, [r4, #8]
+  2c:	689b      	ldr	r3, [r3, #8]
+  2e:	e012      	b.n	56 <i2cWriteBit+0x56>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:760
+{
+    // write one bit
+    if ( ucBit ){
+        pinConfig( pygmyI2C->SDA, PULLUP );
+    } else{ 
+        pygmyI2C->PortSDA->ODR &= ~pygmyI2C->PinSDA; // set state before setting to output
+  30:	6883      	ldr	r3, [r0, #8]
+  32:	68da      	ldr	r2, [r3, #12]
+  34:	89c1      	ldrh	r1, [r0, #14]
+  36:	ea22 0201 	bic.w	r2, r2, r1
+  3a:	60da      	str	r2, [r3, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:761
+        pinConfig( pygmyI2C->SDA, OUT );
+  3c:	7840      	ldrb	r0, [r0, #1]
+  3e:	f04f 0103 	mov.w	r1, #3
+  42:	f7ff fffe 	bl	0 <pinConfig>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:763
+    } // else
+    i2cDelay( pygmyI2C );
+  46:	4620      	mov	r0, r4
+  48:	f7ff fffe 	bl	0 <i2cWriteBit>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:765
+    // allow clock stretching 
+    pinConfig( pygmyI2C->SCL, PULLUP );
+  4c:	7820      	ldrb	r0, [r4, #0]
+  4e:	f04f 0118 	mov.w	r1, #24
+  52:	f7ff fffe 	bl	0 <pinConfig>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:778
+            // print( COM3, "\rBus error on WRITE" ); // Debug Output
+            //i2cResetBus( pygmyI2C );
+            // ToDo: Handle loss of arbitration
+        } // if
+    } // if   
+    i2cDelay( pygmyI2C );
+  56:	4620      	mov	r0, r4
+  58:	f7ff fffe 	bl	0 <i2cWriteBit>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:779
+    pygmyI2C->PortSCL->ODR &= ~pygmyI2C->PinSCL; // set state before setting to output
+  5c:	6863      	ldr	r3, [r4, #4]
+  5e:	68da      	ldr	r2, [r3, #12]
+  60:	89a1      	ldrh	r1, [r4, #12]
+  62:	ea22 0201 	bic.w	r2, r2, r1
+  66:	60da      	str	r2, [r3, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:780
+    pinConfig( pygmyI2C->SCL, OUT );
+  68:	7820      	ldrb	r0, [r4, #0]
+  6a:	f04f 0103 	mov.w	r1, #3
+  6e:	f7ff fffe 	bl	0 <pinConfig>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:781
+}
+  72:	bd10      	pop	{r4, pc}
+
+Disassembly of section .text.i2cReadBit:
+
+00000000 <i2cReadBit>:
+i2cReadBit():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:785
+ 
+
+u8 i2cReadBit( PYGMYI2CPORT *pygmyI2C )
+{
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	4604      	mov	r4, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:789
+    // read one bit
+    u8 ucBit;
+
+    pinConfig( pygmyI2C->SDA, PULLUP );
+   4:	7840      	ldrb	r0, [r0, #1]
+   6:	f04f 0118 	mov.w	r1, #24
+   a:	f7ff fffe 	bl	0 <pinConfig>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:791
+    // allow clock stretching 
+    i2cDelay( pygmyI2C );
+   e:	4620      	mov	r0, r4
+  10:	f7ff fffe 	bl	0 <i2cReadBit>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:792
+    pinConfig( pygmyI2C->SCL, PULLUP );
+  14:	7820      	ldrb	r0, [r4, #0]
+  16:	f04f 0118 	mov.w	r1, #24
+  1a:	f7ff fffe 	bl	0 <pinConfig>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:798
+    
+    i2cStretch( pygmyI2C );
+    
+    // Clock in whenSCL high
+    
+    if( pygmyI2C->PortSDA->IDR & pygmyI2C->PinSDA ){
+  1e:	68a3      	ldr	r3, [r4, #8]
+  20:	689b      	ldr	r3, [r3, #8]
+  22:	89e2      	ldrh	r2, [r4, #14]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:799
+        ucBit = 1;
+  24:	421a      	tst	r2, r3
+  26:	bf0c      	ite	eq
+  28:	2500      	moveq	r5, #0
+  2a:	2501      	movne	r5, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:804
+    } else{
+        ucBit = 0;
+    } // else
+    
+    i2cDelay( pygmyI2C );
+  2c:	4620      	mov	r0, r4
+  2e:	f7ff fffe 	bl	0 <i2cReadBit>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:805
+    pygmyI2C->PortSCL->ODR &= ~pygmyI2C->PinSCL; // set state before setting to output
+  32:	6863      	ldr	r3, [r4, #4]
+  34:	68da      	ldr	r2, [r3, #12]
+  36:	89a1      	ldrh	r1, [r4, #12]
+  38:	ea22 0201 	bic.w	r2, r2, r1
+  3c:	60da      	str	r2, [r3, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:806
+    pinConfig( pygmyI2C->SCL, OUT );
+  3e:	7820      	ldrb	r0, [r4, #0]
+  40:	f04f 0103 	mov.w	r1, #3
+  44:	f7ff fffe 	bl	0 <pinConfig>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:809
+        
+    return( ucBit );
+}
+  48:	4628      	mov	r0, r5
+  4a:	bd38      	pop	{r3, r4, r5, pc}
+
+Disassembly of section .text.i2cWriteByte:
+
+00000000 <i2cWriteByte>:
+i2cWriteByte():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:850
+    i2cWriteBit( pygmyI2C, 1 ); // Nack when all bytes read
+    i2cStop( pygmyI2C );
+}*/
+
+u8 i2cWriteByte( PYGMYI2CPORT *pygmyI2C, u8 ucByte )
+{
+   0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+   4:	4606      	mov	r6, r0
+   6:	460d      	mov	r5, r1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:854
+    u8 i;
+    u8 ucAck;
+
+    for ( i = 0; i < 8; i++ ){
+   8:	f04f 0400 	mov.w	r4, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:858
+        if( ucByte & BIT7 ){
+            i2cWriteBit( pygmyI2C, 1 );
+        } else{
+            i2cWriteBit( pygmyI2C, 0 );
+   c:	4627      	mov	r7, r4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:856
+    u8 i;
+    u8 ucAck;
+
+    for ( i = 0; i < 8; i++ ){
+        if( ucByte & BIT7 ){
+            i2cWriteBit( pygmyI2C, 1 );
+   e:	f04f 0801 	mov.w	r8, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:855
+{
+    u8 i;
+    u8 ucAck;
+
+    for ( i = 0; i < 8; i++ ){
+        if( ucByte & BIT7 ){
+  12:	f015 0f80 	tst.w	r5, #128	; 0x80
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:856
+            i2cWriteBit( pygmyI2C, 1 );
+  16:	4630      	mov	r0, r6
+  18:	bf14      	ite	ne
+  1a:	4641      	movne	r1, r8
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:858
+        } else{
+            i2cWriteBit( pygmyI2C, 0 );
+  1c:	4639      	moveq	r1, r7
+  1e:	f7ff fffe 	bl	0 <i2cWriteByte>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:854
+u8 i2cWriteByte( PYGMYI2CPORT *pygmyI2C, u8 ucByte )
+{
+    u8 i;
+    u8 ucAck;
+
+    for ( i = 0; i < 8; i++ ){
+  22:	f104 0401 	add.w	r4, r4, #1
+  26:	b2e4      	uxtb	r4, r4
+  28:	2c08      	cmp	r4, #8
+  2a:	d003      	beq.n	34 <i2cWriteByte+0x34>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:860
+        if( ucByte & BIT7 ){
+            i2cWriteBit( pygmyI2C, 1 );
+        } else{
+            i2cWriteBit( pygmyI2C, 0 );
+        } // else
+        ucByte <<= 1;
+  2c:	ea4f 0545 	mov.w	r5, r5, lsl #1
+  30:	b2ed      	uxtb	r5, r5
+  32:	e7ee      	b.n	12 <i2cWriteByte+0x12>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:862
+    } // for
+    ucAck = i2cReadBit( pygmyI2C );
+  34:	4630      	mov	r0, r6
+  36:	f7ff fffe 	bl	0 <i2cWriteByte>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:868
+    if( ucAck ){
+        // ToDo: Add code to handle Ack error
+    } // if
+
+    return( ucAck );
+}
+  3a:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  3e:	bf00      	nop
+
+Disassembly of section .text.i2cReadByte:
+
+00000000 <i2cReadByte>:
+i2cReadByte():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:871
+ 
+u8 i2cReadByte( PYGMYI2CPORT *pygmyI2C )
+{
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	4606      	mov	r6, r0
+   4:	f04f 0408 	mov.w	r4, #8
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:875
+    u8 ucByte;
+    u8 i;
+        
+    for( i = 0, ucByte = 0; i < 8; i++ ){
+   8:	f04f 0500 	mov.w	r5, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:876
+        ucByte = ( ucByte << 1 ) | i2cReadBit( pygmyI2C );
+   c:	4630      	mov	r0, r6
+   e:	f7ff fffe 	bl	0 <i2cReadByte>
+  12:	ea40 0545 	orr.w	r5, r0, r5, lsl #1
+  16:	b2ed      	uxtb	r5, r5
+  18:	f104 34ff 	add.w	r4, r4, #4294967295
+  1c:	b2e4      	uxtb	r4, r4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:875
+u8 i2cReadByte( PYGMYI2CPORT *pygmyI2C )
+{
+    u8 ucByte;
+    u8 i;
+        
+    for( i = 0, ucByte = 0; i < 8; i++ ){
+  1e:	2c00      	cmp	r4, #0
+  20:	d1f4      	bne.n	c <i2cReadByte+0xc>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:882
+    } // for
+    //i2cWriteBit( pygmyI2C, 0 ); // Low ACK
+    //pinConfig( pygmyI2C->SDA, PULLUP );
+
+    return( ucByte );
+}
+  22:	4628      	mov	r0, r5
+  24:	bd70      	pop	{r4, r5, r6, pc}
+  26:	bf00      	nop
+
+Disassembly of section .text.i2cResetBus:
+
+00000000 <i2cResetBus>:
+i2cResetBus():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:885
+
+void i2cResetBus( PYGMYI2CPORT *pygmyI2C )
+{
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	4604      	mov	r4, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:892
+
+    //1) Master tries to assert a Logic 1 on the SDA line
+    //2) Master still sees a Logic 0 and then generates a clock pulse on SCL (1-0-1 transition)
+    //3) Master examines SDA. If SDA = 0, go to Step 2; if SDA = 1, go to Step 4
+    //4) Generate a STOP condition
+    pinConfig( pygmyI2C->SCL, OUT );
+   4:	7800      	ldrb	r0, [r0, #0]
+   6:	f04f 0103 	mov.w	r1, #3
+   a:	f7ff fffe 	bl	0 <pinConfig>
+   e:	f04f 0509 	mov.w	r5, #9
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:895
+    for ( i = 0; i < 9; i++ ){
+        pygmyI2C->PortSDA->ODR |= pygmyI2C->PinSDA; // set state before setting to output 
+        pinConfig( pygmyI2C->SDA, OUT ); // set to output to drive low
+  12:	f04f 0603 	mov.w	r6, #3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:894
+    //2) Master still sees a Logic 0 and then generates a clock pulse on SCL (1-0-1 transition)
+    //3) Master examines SDA. If SDA = 0, go to Step 2; if SDA = 1, go to Step 4
+    //4) Generate a STOP condition
+    pinConfig( pygmyI2C->SCL, OUT );
+    for ( i = 0; i < 9; i++ ){
+        pygmyI2C->PortSDA->ODR |= pygmyI2C->PinSDA; // set state before setting to output 
+  16:	68a3      	ldr	r3, [r4, #8]
+  18:	68da      	ldr	r2, [r3, #12]
+  1a:	89e1      	ldrh	r1, [r4, #14]
+  1c:	ea41 0202 	orr.w	r2, r1, r2
+  20:	60da      	str	r2, [r3, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:895
+        pinConfig( pygmyI2C->SDA, OUT ); // set to output to drive low
+  22:	7860      	ldrb	r0, [r4, #1]
+  24:	4631      	mov	r1, r6
+  26:	f7ff fffe 	bl	0 <pinConfig>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:896
+        if( !( pygmyI2C->PortSDA->IDR & pygmyI2C->PinSDA ) ){
+  2a:	68a3      	ldr	r3, [r4, #8]
+  2c:	689b      	ldr	r3, [r3, #8]
+  2e:	89e2      	ldrh	r2, [r4, #14]
+  30:	421a      	tst	r2, r3
+  32:	d103      	bne.n	3c <i2cResetBus+0x3c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:897
+            i2cStop( pygmyI2C );
+  34:	4620      	mov	r0, r4
+  36:	f7ff fffe 	bl	0 <i2cResetBus>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:898
+            return;
+  3a:	bd70      	pop	{r4, r5, r6, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:900
+        } // if
+        i2cDelay( pygmyI2C );
+  3c:	4620      	mov	r0, r4
+  3e:	f7ff fffe 	bl	0 <i2cResetBus>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:901
+        pygmyI2C->PortSCL->ODR |= pygmyI2C->PinSCL; // set state before setting to output
+  42:	6863      	ldr	r3, [r4, #4]
+  44:	68da      	ldr	r2, [r3, #12]
+  46:	89a1      	ldrh	r1, [r4, #12]
+  48:	ea41 0202 	orr.w	r2, r1, r2
+  4c:	60da      	str	r2, [r3, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:902
+        i2cDelay( pygmyI2C );
+  4e:	4620      	mov	r0, r4
+  50:	f7ff fffe 	bl	0 <i2cResetBus>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:903
+        pygmyI2C->PortSCL->ODR &= ~pygmyI2C->PinSCL; // set state before setting to output
+  54:	6863      	ldr	r3, [r4, #4]
+  56:	68da      	ldr	r2, [r3, #12]
+  58:	89a1      	ldrh	r1, [r4, #12]
+  5a:	ea22 0201 	bic.w	r2, r2, r1
+  5e:	60da      	str	r2, [r3, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:904
+        i2cDelay( pygmyI2C );
+  60:	4620      	mov	r0, r4
+  62:	f7ff fffe 	bl	0 <i2cResetBus>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:905
+        pygmyI2C->PortSCL->ODR |= pygmyI2C->PinSCL; // set state before setting to output
+  66:	6863      	ldr	r3, [r4, #4]
+  68:	68da      	ldr	r2, [r3, #12]
+  6a:	89a1      	ldrh	r1, [r4, #12]
+  6c:	ea41 0202 	orr.w	r2, r1, r2
+  70:	60da      	str	r2, [r3, #12]
+  72:	f105 35ff 	add.w	r5, r5, #4294967295
+  76:	b2ed      	uxtb	r5, r5
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:893
+    //1) Master tries to assert a Logic 1 on the SDA line
+    //2) Master still sees a Logic 0 and then generates a clock pulse on SCL (1-0-1 transition)
+    //3) Master examines SDA. If SDA = 0, go to Step 2; if SDA = 1, go to Step 4
+    //4) Generate a STOP condition
+    pinConfig( pygmyI2C->SCL, OUT );
+    for ( i = 0; i < 9; i++ ){
+  78:	2d00      	cmp	r5, #0
+  7a:	d1cc      	bne.n	16 <i2cResetBus+0x16>
+  7c:	bd70      	pop	{r4, r5, r6, pc}
+  7e:	bf00      	nop
+
+Disassembly of section .text.i2cStop:
+
+00000000 <i2cStop>:
+i2cStop():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:735
+    pygmyI2C->PortSCL->ODR &= ~pygmyI2C->PinSCL; // set state before setting to output
+    pinConfig( pygmyI2C->SCL, OUT );
+}
+ 
+void i2cStop( PYGMYI2CPORT *pygmyI2C )
+{
+   0:	b510      	push	{r4, lr}
+   2:	4604      	mov	r4, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:736
+    pygmyI2C->PortSDA->ODR &= ~pygmyI2C->PinSDA; // set state before setting to output 
+   4:	6883      	ldr	r3, [r0, #8]
+   6:	68da      	ldr	r2, [r3, #12]
+   8:	89c1      	ldrh	r1, [r0, #14]
+   a:	ea22 0201 	bic.w	r2, r2, r1
+   e:	60da      	str	r2, [r3, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:737
+    pinConfig( pygmyI2C->SDA, OUT ); // set to output to drive low
+  10:	7840      	ldrb	r0, [r0, #1]
+  12:	f04f 0103 	mov.w	r1, #3
+  16:	f7ff fffe 	bl	0 <pinConfig>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:738
+    i2cDelay( pygmyI2C );
+  1a:	4620      	mov	r0, r4
+  1c:	f7ff fffe 	bl	0 <i2cStop>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:740
+    // Allow for SCL stretching   
+    pinConfig( pygmyI2C->SCL, PULLUP );
+  20:	7820      	ldrb	r0, [r4, #0]
+  22:	f04f 0118 	mov.w	r1, #24
+  26:	f7ff fffe 	bl	0 <pinConfig>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:743
+    i2cStretch( pygmyI2C );
+    // Allow SDA to float and check state ( arbitration test )
+    pinConfig( pygmyI2C->SDA, PULLUP );
+  2a:	7860      	ldrb	r0, [r4, #1]
+  2c:	f04f 0118 	mov.w	r1, #24
+  30:	f7ff fffe 	bl	0 <pinConfig>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:744
+    i2cDelay( pygmyI2C );
+  34:	4620      	mov	r0, r4
+  36:	f7ff fffe 	bl	0 <i2cStop>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:746
+    //pinSet( MCO, LOW ); // used to test timing
+    if ( !( pygmyI2C->PortSDA->IDR & pygmyI2C->PinSDA ) ){
+  3a:	68a3      	ldr	r3, [r4, #8]
+  3c:	689b      	ldr	r3, [r3, #8]
+  3e:	89e2      	ldrh	r2, [r4, #14]
+  40:	421a      	tst	r2, r3
+  42:	d102      	bne.n	4a <i2cStop+0x4a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:748
+        // print( COM3, "\rBus error on STOP" ); // Debug Output
+        i2cResetBus( pygmyI2C );
+  44:	4620      	mov	r0, r4
+  46:	f7ff fffe 	bl	0 <i2cStop>
+  4a:	bd10      	pop	{r4, pc}
+
+Disassembly of section .text.i2cStart:
+
+00000000 <i2cStart>:
+i2cStart():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:712
+        } // if
+    } // for
+}
+ 
+void i2cStart( PYGMYI2CPORT *pygmyI2C )
+{
+   0:	b510      	push	{r4, lr}
+   2:	4604      	mov	r4, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:714
+    // Allow SDA to float
+    pinConfig( pygmyI2C->SDA, PULLUP );
+   4:	7840      	ldrb	r0, [r0, #1]
+   6:	f04f 0118 	mov.w	r1, #24
+   a:	f7ff fffe 	bl	0 <pinConfig>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:715
+    i2cDelay( pygmyI2C );
+   e:	4620      	mov	r0, r4
+  10:	f7ff fffe 	bl	0 <i2cStart>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:717
+    // allow clock stretching
+    pinConfig( pygmyI2C->SCL, PULLUP );
+  14:	7820      	ldrb	r0, [r4, #0]
+  16:	f04f 0118 	mov.w	r1, #24
+  1a:	f7ff fffe 	bl	0 <pinConfig>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:720
+    i2cStretch( pygmyI2C );   
+   
+    if ( !( pygmyI2C->PortSDA->IDR & pygmyI2C->PinSDA ) ){
+  1e:	68a3      	ldr	r3, [r4, #8]
+  20:	689b      	ldr	r3, [r3, #8]
+  22:	89e2      	ldrh	r2, [r4, #14]
+  24:	421a      	tst	r2, r3
+  26:	d102      	bne.n	2e <i2cStart+0x2e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:723
+        // ToDo: Handle loss of arbitration
+        // print( COM3, "\rBus error on START" ); // Debug Output
+        i2cResetBus( pygmyI2C );
+  28:	4620      	mov	r0, r4
+  2a:	f7ff fffe 	bl	0 <i2cStart>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:725
+    } //
+    pygmyI2C->PortSDA->ODR &= ~pygmyI2C->PinSDA; // set state before setting to output 
+  2e:	68a3      	ldr	r3, [r4, #8]
+  30:	68da      	ldr	r2, [r3, #12]
+  32:	89e1      	ldrh	r1, [r4, #14]
+  34:	ea22 0201 	bic.w	r2, r2, r1
+  38:	60da      	str	r2, [r3, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:726
+    pinConfig( pygmyI2C->SDA, OUT ); // set to output to drive low
+  3a:	7860      	ldrb	r0, [r4, #1]
+  3c:	f04f 0103 	mov.w	r1, #3
+  40:	f7ff fffe 	bl	0 <pinConfig>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:728
+    
+    i2cDelay( pygmyI2C );
+  44:	4620      	mov	r0, r4
+  46:	f7ff fffe 	bl	0 <i2cStart>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:730
+    
+    pygmyI2C->PortSCL->ODR &= ~pygmyI2C->PinSCL; // set state before setting to output
+  4a:	6863      	ldr	r3, [r4, #4]
+  4c:	68da      	ldr	r2, [r3, #12]
+  4e:	89a1      	ldrh	r1, [r4, #12]
+  50:	ea22 0201 	bic.w	r2, r2, r1
+  54:	60da      	str	r2, [r3, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:731
+    pinConfig( pygmyI2C->SCL, OUT );
+  56:	7820      	ldrb	r0, [r4, #0]
+  58:	f04f 0103 	mov.w	r1, #3
+  5c:	f7ff fffe 	bl	0 <pinConfig>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:732
+}
+  60:	bd10      	pop	{r4, pc}
+  62:	bf00      	nop
+
+Disassembly of section .text.i2cGetChar:
+
+00000000 <i2cGetChar>:
+i2cGetChar():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:959
+    
+    return( TRUE );
+}
+
+u8 i2cGetChar( PYGMYI2CPORT *pygmyI2C, u16 uiAddress )
+{
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	4604      	mov	r4, r0
+   4:	460d      	mov	r5, r1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:962
+    u8 ucChar;
+
+    PYGMY_WATCHDOG_REFRESH;
+   6:	f44f 5340 	mov.w	r3, #12288	; 0x3000
+   a:	f2c4 0300 	movt	r3, #16384	; 0x4000
+   e:	f64a 22aa 	movw	r2, #43690	; 0xaaaa
+  12:	601a      	str	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:963
+    i2cStart( pygmyI2C);
+  14:	f7ff fffe 	bl	0 <i2cGetChar>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:964
+    i2cWriteByte( pygmyI2C, pygmyI2C->Address );
+  18:	4620      	mov	r0, r4
+  1a:	78a1      	ldrb	r1, [r4, #2]
+  1c:	f7ff fffe 	bl	0 <i2cGetChar>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:965
+    if( pygmyI2C->CR & I2CWORDADDRESS ){
+  20:	8a63      	ldrh	r3, [r4, #18]
+  22:	f013 0f02 	tst.w	r3, #2
+  26:	d004      	beq.n	32 <i2cGetChar+0x32>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:966
+        i2cWriteByte( pygmyI2C, (u8)((u16)uiAddress >> 8) );
+  28:	4620      	mov	r0, r4
+  2a:	ea4f 2115 	mov.w	r1, r5, lsr #8
+  2e:	f7ff fffe 	bl	0 <i2cGetChar>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:968
+    } // if
+    i2cWriteByte( pygmyI2C, (u8)uiAddress );
+  32:	4620      	mov	r0, r4
+  34:	b2e9      	uxtb	r1, r5
+  36:	f7ff fffe 	bl	0 <i2cGetChar>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:969
+    i2cStart( pygmyI2C );
+  3a:	4620      	mov	r0, r4
+  3c:	f7ff fffe 	bl	0 <i2cGetChar>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:970
+    i2cWriteByte( pygmyI2C, pygmyI2C->Address | 1 ); // Read
+  40:	78a1      	ldrb	r1, [r4, #2]
+  42:	4620      	mov	r0, r4
+  44:	f041 0101 	orr.w	r1, r1, #1
+  48:	f7ff fffe 	bl	0 <i2cGetChar>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:971
+    ucChar = i2cReadByte( pygmyI2C ); // Clock in Byte
+  4c:	4620      	mov	r0, r4
+  4e:	f7ff fffe 	bl	0 <i2cGetChar>
+  52:	4605      	mov	r5, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:973
+    
+    i2cWriteBit( pygmyI2C, 1 ); // High NACK to end sequence
+  54:	4620      	mov	r0, r4
+  56:	f04f 0101 	mov.w	r1, #1
+  5a:	f7ff fffe 	bl	0 <i2cGetChar>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:974
+    i2cStop( pygmyI2C );
+  5e:	4620      	mov	r0, r4
+  60:	f7ff fffe 	bl	0 <i2cGetChar>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:977
+
+    return( ucChar );
+}
+  64:	4628      	mov	r0, r5
+  66:	bd38      	pop	{r3, r4, r5, pc}
+
+Disassembly of section .text.i2cGetBuffer:
+
+00000000 <i2cGetBuffer>:
+i2cGetBuffer():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:980
+
+void i2cGetBuffer( PYGMYI2CPORT *pygmyI2C, u16 uiAddress, u8 *ucBuffer, u16 uiLen )
+{
+   0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+   4:	4680      	mov	r8, r0
+   6:	460f      	mov	r7, r1
+   8:	4616      	mov	r6, r2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:983
+    u8 i;
+
+    for( i = 0; i < uiLen; i++ ){
+   a:	461d      	mov	r5, r3
+   c:	b173      	cbz	r3, 2c <i2cGetBuffer+0x2c>
+   e:	f04f 0100 	mov.w	r1, #0
+  12:	460c      	mov	r4, r1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:984
+        ucBuffer[ i ] = i2cGetChar( pygmyI2C, uiAddress + i );
+  14:	19c9      	adds	r1, r1, r7
+  16:	4640      	mov	r0, r8
+  18:	b289      	uxth	r1, r1
+  1a:	f7ff fffe 	bl	0 <i2cGetBuffer>
+  1e:	5530      	strb	r0, [r6, r4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:983
+
+void i2cGetBuffer( PYGMYI2CPORT *pygmyI2C, u16 uiAddress, u8 *ucBuffer, u16 uiLen )
+{
+    u8 i;
+
+    for( i = 0; i < uiLen; i++ ){
+  20:	f104 0401 	add.w	r4, r4, #1
+  24:	b2e4      	uxtb	r4, r4
+  26:	4621      	mov	r1, r4
+  28:	42ac      	cmp	r4, r5
+  2a:	d3f3      	bcc.n	14 <i2cGetBuffer+0x14>
+  2c:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+
+Disassembly of section .text.i2cPollAck:
+
+00000000 <i2cPollAck>:
+i2cPollAck():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:989
+        ucBuffer[ i ] = i2cGetChar( pygmyI2C, uiAddress + i );
+    } // for
+}
+
+void i2cPollAck( PYGMYI2CPORT *pygmyI2C )
+{
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	4604      	mov	r4, r0
+   4:	f64f 76ff 	movw	r6, #65535	; 0xffff
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:996
+    // Used by EEPROM and other devices to show busy status
+    u16 i;
+    u8 ucAck;
+
+    for( i = 0; i < 0xFFFF; i++  ){
+        i2cDelay( pygmyI2C );
+   8:	4620      	mov	r0, r4
+   a:	f7ff fffe 	bl	0 <i2cPollAck>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:997
+        i2cStart( pygmyI2C );
+   e:	4620      	mov	r0, r4
+  10:	f7ff fffe 	bl	0 <i2cPollAck>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:998
+        ucAck = i2cWriteByte( pygmyI2C, pygmyI2C->Address );
+  14:	4620      	mov	r0, r4
+  16:	78a1      	ldrb	r1, [r4, #2]
+  18:	f7ff fffe 	bl	0 <i2cPollAck>
+  1c:	4605      	mov	r5, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:999
+        i2cStop( pygmyI2C );
+  1e:	4620      	mov	r0, r4
+  20:	f7ff fffe 	bl	0 <i2cPollAck>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1000
+        if( !ucAck ){
+  24:	b125      	cbz	r5, 30 <i2cPollAck+0x30>
+  26:	f106 36ff 	add.w	r6, r6, #4294967295
+  2a:	b2b6      	uxth	r6, r6
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:995
+    // Waits for device to ack address
+    // Used by EEPROM and other devices to show busy status
+    u16 i;
+    u8 ucAck;
+
+    for( i = 0; i < 0xFFFF; i++  ){
+  2c:	2e00      	cmp	r6, #0
+  2e:	d1eb      	bne.n	8 <i2cPollAck+0x8>
+  30:	bd70      	pop	{r4, r5, r6, pc}
+  32:	bf00      	nop
+
+Disassembly of section .text.i2cPutChar:
+
+00000000 <i2cPutChar>:
+i2cPutChar():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:934
+    
+    return( TRUE );
+}
+
+u8 i2cPutChar( PYGMYI2CPORT *pygmyI2C, u16 uiAddress, u8 ucChar )
+{
+   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+   2:	4604      	mov	r4, r0
+   4:	460e      	mov	r6, r1
+   6:	4617      	mov	r7, r2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:938
+    u8 ucAck;
+
+    ucAck = 0;
+    PYGMY_WATCHDOG_REFRESH;
+   8:	f44f 5340 	mov.w	r3, #12288	; 0x3000
+   c:	f2c4 0300 	movt	r3, #16384	; 0x4000
+  10:	f64a 22aa 	movw	r2, #43690	; 0xaaaa
+  14:	601a      	str	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:939
+    i2cStart( pygmyI2C );
+  16:	f7ff fffe 	bl	0 <i2cPutChar>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:940
+    ucAck |= i2cWriteByte( pygmyI2C, pygmyI2C->Address );
+  1a:	4620      	mov	r0, r4
+  1c:	78a1      	ldrb	r1, [r4, #2]
+  1e:	f7ff fffe 	bl	0 <i2cPutChar>
+  22:	4605      	mov	r5, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:941
+    if( pygmyI2C->CR & I2CWORDADDRESS ){
+  24:	8a63      	ldrh	r3, [r4, #18]
+  26:	f013 0f02 	tst.w	r3, #2
+  2a:	d007      	beq.n	3c <i2cPutChar+0x3c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:942
+        ucAck |= i2cWriteByte( pygmyI2C, (u8)( (u16)uiAddress >> 8 )); // Write MSB if 16bit addressing
+  2c:	4620      	mov	r0, r4
+  2e:	ea4f 2116 	mov.w	r1, r6, lsr #8
+  32:	f7ff fffe 	bl	0 <i2cPutChar>
+  36:	ea40 0505 	orr.w	r5, r0, r5
+  3a:	b2ed      	uxtb	r5, r5
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:944
+    } // if
+    ucAck |= i2cWriteByte( pygmyI2C, (u8)uiAddress );
+  3c:	4620      	mov	r0, r4
+  3e:	b2f1      	uxtb	r1, r6
+  40:	f7ff fffe 	bl	0 <i2cPutChar>
+  44:	ea40 0505 	orr.w	r5, r0, r5
+  48:	b2ee      	uxtb	r6, r5
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:945
+    ucAck |= i2cWriteByte( pygmyI2C, ucChar );
+  4a:	4620      	mov	r0, r4
+  4c:	4639      	mov	r1, r7
+  4e:	f7ff fffe 	bl	0 <i2cPutChar>
+  52:	4605      	mov	r5, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:946
+    i2cStop( pygmyI2C );
+  54:	4620      	mov	r0, r4
+  56:	f7ff fffe 	bl	0 <i2cPutChar>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:948
+    
+    if( ucAck ){
+  5a:	b2ed      	uxtb	r5, r5
+  5c:	4335      	orrs	r5, r6
+  5e:	d109      	bne.n	74 <i2cPutChar+0x74>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:951
+        return( FALSE );
+    } // if
+    if( pygmyI2C->CR & I2CPOLLFORACK ){
+  60:	8a63      	ldrh	r3, [r4, #18]
+  62:	f013 0f40 	tst.w	r3, #64	; 0x40
+  66:	d008      	beq.n	7a <i2cPutChar+0x7a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:952
+        i2cPollAck( pygmyI2C );
+  68:	4620      	mov	r0, r4
+  6a:	f7ff fffe 	bl	0 <i2cPutChar>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:955
+    } // if
+    
+    return( TRUE );
+  6e:	f04f 0001 	mov.w	r0, #1
+  72:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:949
+    ucAck |= i2cWriteByte( pygmyI2C, (u8)uiAddress );
+    ucAck |= i2cWriteByte( pygmyI2C, ucChar );
+    i2cStop( pygmyI2C );
+    
+    if( ucAck ){
+        return( FALSE );
+  74:	f04f 0000 	mov.w	r0, #0
+  78:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:955
+    } // if
+    if( pygmyI2C->CR & I2CPOLLFORACK ){
+        i2cPollAck( pygmyI2C );
+    } // if
+    
+    return( TRUE );
+  7a:	f04f 0001 	mov.w	r0, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:956
+}
+  7e:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+
+Disassembly of section .text.i2cPutBuffer:
+
+00000000 <i2cPutBuffer>:
+i2cPutBuffer():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:921
+
+    return( TRUE );
+}
+
+u8 i2cPutBuffer( PYGMYI2CPORT *pygmyI2C, u16 uiAddress, u8 *ucBuffer, u16 uiLen )
+{
+   0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+   4:	4607      	mov	r7, r0
+   6:	460e      	mov	r6, r1
+   8:	4615      	mov	r5, r2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:924
+    u16 i;
+
+    for( i = 0; i < uiLen; i++ ){
+   a:	4698      	mov	r8, r3
+   c:	b18b      	cbz	r3, 32 <i2cPutBuffer+0x32>
+   e:	f04f 0400 	mov.w	r4, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:925
+        if( !i2cPutChar( pygmyI2C, uiAddress + i, *ucBuffer ) ){
+  12:	19a1      	adds	r1, r4, r6
+  14:	4638      	mov	r0, r7
+  16:	b289      	uxth	r1, r1
+  18:	782a      	ldrb	r2, [r5, #0]
+  1a:	f7ff fffe 	bl	0 <i2cPutBuffer>
+  1e:	b160      	cbz	r0, 3a <i2cPutBuffer+0x3a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:924
+
+u8 i2cPutBuffer( PYGMYI2CPORT *pygmyI2C, u16 uiAddress, u8 *ucBuffer, u16 uiLen )
+{
+    u16 i;
+
+    for( i = 0; i < uiLen; i++ ){
+  20:	f104 0401 	add.w	r4, r4, #1
+  24:	b2a4      	uxth	r4, r4
+  26:	45a0      	cmp	r8, r4
+  28:	d8f3      	bhi.n	12 <i2cPutBuffer+0x12>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:930
+        if( !i2cPutChar( pygmyI2C, uiAddress + i, *ucBuffer ) ){
+            return( FALSE );   
+        } // else
+    } // for
+    
+    return( TRUE );
+  2a:	f04f 0001 	mov.w	r0, #1
+  2e:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  32:	f04f 0001 	mov.w	r0, #1
+  36:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:926
+{
+    u16 i;
+
+    for( i = 0; i < uiLen; i++ ){
+        if( !i2cPutChar( pygmyI2C, uiAddress + i, *ucBuffer ) ){
+            return( FALSE );   
+  3a:	f04f 0000 	mov.w	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:931
+        } // else
+    } // for
+    
+    return( TRUE );
+}
+  3e:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+  42:	bf00      	nop
+
+Disassembly of section .text.i2cPutString:
+
+00000000 <i2cPutString>:
+i2cPutString():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:910
+        pygmyI2C->PortSCL->ODR |= pygmyI2C->PinSCL; // set state before setting to output
+    } // for
+}
+
+u8 i2cPutString( PYGMYI2CPORT *pygmyI2C, u16 uiAddress, u8 *ucBuffer )
+{
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	4606      	mov	r6, r0
+   4:	460c      	mov	r4, r1
+   6:	4615      	mov	r5, r2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:911
+    for( ; *ucBuffer; uiAddress++, ucBuffer++  ){
+   8:	7812      	ldrb	r2, [r2, #0]
+   a:	b15a      	cbz	r2, 24 <i2cPutString+0x24>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:912
+        if( !i2cPutChar( pygmyI2C, uiAddress, *ucBuffer ) ){
+   c:	4630      	mov	r0, r6
+   e:	4621      	mov	r1, r4
+  10:	f7ff fffe 	bl	0 <i2cPutString>
+  14:	b148      	cbz	r0, 2a <i2cPutString+0x2a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:911
+    } // for
+}
+
+u8 i2cPutString( PYGMYI2CPORT *pygmyI2C, u16 uiAddress, u8 *ucBuffer )
+{
+    for( ; *ucBuffer; uiAddress++, ucBuffer++  ){
+  16:	f815 2f01 	ldrb.w	r2, [r5, #1]!
+  1a:	b14a      	cbz	r2, 30 <i2cPutString+0x30>
+  1c:	f104 0401 	add.w	r4, r4, #1
+  20:	b2a4      	uxth	r4, r4
+  22:	e7f3      	b.n	c <i2cPutString+0xc>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:917
+        if( !i2cPutChar( pygmyI2C, uiAddress, *ucBuffer ) ){
+            return( FALSE );
+        } // if
+    } // for
+
+    return( TRUE );
+  24:	f04f 0001 	mov.w	r0, #1
+  28:	bd70      	pop	{r4, r5, r6, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:913
+
+u8 i2cPutString( PYGMYI2CPORT *pygmyI2C, u16 uiAddress, u8 *ucBuffer )
+{
+    for( ; *ucBuffer; uiAddress++, ucBuffer++  ){
+        if( !i2cPutChar( pygmyI2C, uiAddress, *ucBuffer ) ){
+            return( FALSE );
+  2a:	f04f 0000 	mov.w	r0, #0
+  2e:	bd70      	pop	{r4, r5, r6, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:917
+        } // if
+    } // for
+
+    return( TRUE );
+  30:	f04f 0001 	mov.w	r0, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:918
+}
+  34:	bd70      	pop	{r4, r5, r6, pc}
+  36:	bf00      	nop
+
+Disassembly of section .text.streamReset:
+
+00000000 <streamReset>:
+streamReset():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1023
+    } // for
+    
+}
+
+u8 streamReset( u8 ucStream )
+{
+   0:	b410      	push	{r4}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1024
+    if( ucStream < MAXCOMPORTS ){
+   2:	2803      	cmp	r0, #3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1040
+        globalStreams[ ucStream ].CR            = 0;
+        globalStreams[ ucStream ].ActionChars   = "\r";
+        return( 1 );
+    } // if
+
+    return( 0 );
+   4:	bf88      	it	hi
+   6:	2000      	movhi	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1024
+    
+}
+
+u8 streamReset( u8 ucStream )
+{
+    if( ucStream < MAXCOMPORTS ){
+   8:	d822      	bhi.n	50 <streamReset+0x50>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1025
+        globalStreams[ ucStream ].RXBufferLen   = 0;
+   a:	f240 0100 	movw	r1, #0
+   e:	f2c0 0100 	movt	r1, #0
+  12:	eb00 00c0 	add.w	r0, r0, r0, lsl #3
+  16:	eb01 0380 	add.w	r3, r1, r0, lsl #2
+  1a:	f04f 0200 	mov.w	r2, #0
+  1e:	4614      	mov	r4, r2
+  20:	f821 2020 	strh.w	r2, [r1, r0, lsl #2]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1026
+        globalStreams[ ucStream ].RXIndex       = 0;
+  24:	805a      	strh	r2, [r3, #2]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1027
+        globalStreams[ ucStream ].RXLen         = 0; 
+  26:	809a      	strh	r2, [r3, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1028
+        globalStreams[ ucStream ].TXBufferLen   = 0;
+  28:	80da      	strh	r2, [r3, #6]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1029
+        globalStreams[ ucStream ].TXIndex       = 0;
+  2a:	811a      	strh	r2, [r3, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1030
+        globalStreams[ ucStream ].TXLen         = 0;
+  2c:	815a      	strh	r2, [r3, #10]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1031
+        globalStreams[ ucStream ].Put           = (void *)TaskException_Handler;
+  2e:	f240 0100 	movw	r1, #0
+  32:	f2c0 0100 	movt	r1, #0
+  36:	60d9      	str	r1, [r3, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1032
+        globalStreams[ ucStream ].Get           = (void *)TaskException_Handler;
+  38:	6119      	str	r1, [r3, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1033
+        globalStreams[ ucStream ].RXBuffer      = NULL;
+  3a:	615a      	str	r2, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1034
+        globalStreams[ ucStream ].TXBuffer      = NULL;
+  3c:	619a      	str	r2, [r3, #24]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1035
+        globalStreams[ ucStream ].CR            = 0;
+  3e:	f883 2020 	strb.w	r2, [r3, #32]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1036
+        globalStreams[ ucStream ].ActionChars   = "\r";
+  42:	f240 0200 	movw	r2, #0
+  46:	f2c0 0200 	movt	r2, #0
+  4a:	61da      	str	r2, [r3, #28]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1037
+        return( 1 );
+  4c:	f04f 0001 	mov.w	r0, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1041
+    } // if
+
+    return( 0 );
+}
+  50:	bc10      	pop	{r4}
+  52:	4770      	bx	lr
+
+Disassembly of section .text.streamInit:
+
+00000000 <streamInit>:
+streamInit():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1013
+
+//--------------------------------------------------------------------------------------------
+//-------------------------------------Pygmy OS IO Stream-------------------------------------
+#ifdef __PYGMYSTREAMS
+void streamInit( void )
+{
+   0:	b510      	push	{r4, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1016
+    u8 i;
+    
+    for( i = 0; i < MAXCOMPORTS; i++ ){
+   2:	f04f 0400 	mov.w	r4, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1017
+        streamReset( i );
+   6:	4620      	mov	r0, r4
+   8:	f7ff fffe 	bl	0 <streamInit>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1016
+#ifdef __PYGMYSTREAMS
+void streamInit( void )
+{
+    u8 i;
+    
+    for( i = 0; i < MAXCOMPORTS; i++ ){
+   c:	f104 0401 	add.w	r4, r4, #1
+  10:	b2e4      	uxtb	r4, r4
+  12:	2c04      	cmp	r4, #4
+  14:	d1f7      	bne.n	6 <streamInit+0x6>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1020
+        streamReset( i );
+    } // for
+    
+}
+  16:	bd10      	pop	{r4, pc}
+
+Disassembly of section .text.streamGetSTDIO:
+
+00000000 <streamGetSTDIO>:
+streamGetSTDIO():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1044
+
+    return( 0 );
+}
+
+u8 streamGetSTDIO( void )
+{
+   0:	f240 0300 	movw	r3, #0
+   4:	f2c0 0300 	movt	r3, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1046
+    return( globalSTDIO );
+}
+   8:	7818      	ldrb	r0, [r3, #0]
+   a:	4770      	bx	lr
+
+Disassembly of section .text.streamSetSTDIO:
+
+00000000 <streamSetSTDIO>:
+streamSetSTDIO():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1050
+
+void streamSetSTDIO( u8 ucStream )
+{
+    globalSTDIO = ucStream;
+   0:	f240 0300 	movw	r3, #0
+   4:	f2c0 0300 	movt	r3, #0
+   8:	7018      	strb	r0, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1052
+    
+    globalStreams[ STDIO ].RXBufferLen  = globalStreams[ ucStream ].RXBufferLen;
+   a:	f240 0300 	movw	r3, #0
+   e:	f2c0 0300 	movt	r3, #0
+  12:	eb00 00c0 	add.w	r0, r0, r0, lsl #3
+  16:	eb03 0280 	add.w	r2, r3, r0, lsl #2
+  1a:	f833 0020 	ldrh.w	r0, [r3, r0, lsl #2]
+  1e:	8018      	strh	r0, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1053
+    globalStreams[ STDIO ].RXIndex      = globalStreams[ ucStream ].RXIndex;
+  20:	8851      	ldrh	r1, [r2, #2]
+  22:	8059      	strh	r1, [r3, #2]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1054
+    globalStreams[ STDIO ].RXLen        = globalStreams[ ucStream ].RXLen; 
+  24:	8891      	ldrh	r1, [r2, #4]
+  26:	8099      	strh	r1, [r3, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1055
+    globalStreams[ STDIO ].TXBufferLen  = globalStreams[ ucStream ].TXBufferLen;
+  28:	88d1      	ldrh	r1, [r2, #6]
+  2a:	80d9      	strh	r1, [r3, #6]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1056
+    globalStreams[ STDIO ].TXIndex      = globalStreams[ ucStream ].TXIndex;
+  2c:	8911      	ldrh	r1, [r2, #8]
+  2e:	8119      	strh	r1, [r3, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1057
+    globalStreams[ STDIO ].TXLen        = globalStreams[ ucStream ].TXLen;
+  30:	8951      	ldrh	r1, [r2, #10]
+  32:	8159      	strh	r1, [r3, #10]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1058
+    globalStreams[ STDIO ].Put          = globalStreams[ ucStream ].Put;
+  34:	68d1      	ldr	r1, [r2, #12]
+  36:	60d9      	str	r1, [r3, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1059
+    globalStreams[ STDIO ].Get          = globalStreams[ ucStream ].Get;
+  38:	6911      	ldr	r1, [r2, #16]
+  3a:	6119      	str	r1, [r3, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1060
+    globalStreams[ STDIO ].RXBuffer     = globalStreams[ ucStream ].RXBuffer;
+  3c:	6951      	ldr	r1, [r2, #20]
+  3e:	6159      	str	r1, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1061
+    globalStreams[ STDIO ].TXBuffer     = globalStreams[ ucStream ].TXBuffer;
+  40:	6991      	ldr	r1, [r2, #24]
+  42:	6199      	str	r1, [r3, #24]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1062
+    globalStreams[ STDIO ].CR           = globalStreams[ ucStream ].CR;
+  44:	f892 1020 	ldrb.w	r1, [r2, #32]
+  48:	f883 1020 	strb.w	r1, [r3, #32]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1063
+    globalStreams[ STDIO ].ActionChars  = globalStreams[ ucStream ].ActionChars;
+  4c:	69d2      	ldr	r2, [r2, #28]
+  4e:	61da      	str	r2, [r3, #28]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1064
+}   
+  50:	4770      	bx	lr
+  52:	bf00      	nop
+
+Disassembly of section .text.streamResetRX:
+
+00000000 <streamResetRX>:
+streamResetRX():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1068
+
+void streamResetRX( u8 ucStream )
+{
+    if( ucStream < MAXCOMPORTS ){
+   0:	2803      	cmp	r0, #3
+   2:	d80b      	bhi.n	1c <streamResetRX+0x1c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1069
+        globalStreams[ ucStream ].RXIndex = 0;
+   4:	f240 0300 	movw	r3, #0
+   8:	f2c0 0300 	movt	r3, #0
+   c:	eb00 00c0 	add.w	r0, r0, r0, lsl #3
+  10:	eb03 0380 	add.w	r3, r3, r0, lsl #2
+  14:	f04f 0200 	mov.w	r2, #0
+  18:	805a      	strh	r2, [r3, #2]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1070
+        globalStreams[ ucStream ].RXLen = 0;
+  1a:	809a      	strh	r2, [r3, #4]
+  1c:	4770      	bx	lr
+  1e:	bf00      	nop
+
+Disassembly of section .text.streamResetTX:
+
+00000000 <streamResetTX>:
+streamResetTX():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1076
+    } // if
+}
+
+void streamResetTX( u8 ucStream )
+{
+    if( ucStream < MAXCOMPORTS ){
+   0:	2803      	cmp	r0, #3
+   2:	d80b      	bhi.n	1c <streamResetTX+0x1c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1077
+        globalStreams[ ucStream ].TXIndex = 0;
+   4:	f240 0300 	movw	r3, #0
+   8:	f2c0 0300 	movt	r3, #0
+   c:	eb00 00c0 	add.w	r0, r0, r0, lsl #3
+  10:	eb03 0380 	add.w	r3, r3, r0, lsl #2
+  14:	f04f 0200 	mov.w	r2, #0
+  18:	811a      	strh	r2, [r3, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1078
+        globalStreams[ ucStream ].TXLen = 0;
+  1a:	815a      	strh	r2, [r3, #10]
+  1c:	4770      	bx	lr
+  1e:	bf00      	nop
+
+Disassembly of section .text.streamTXChar:
+
+00000000 <streamTXChar>:
+streamTXChar():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1086
+
+void streamTXChar( u8 ucStream, void *pygmyPeriph )
+{
+    //USART_TYPEDEF *ptrPeriph = (USART_TYPEDEF *)pygmyUSART;
+    
+    if( ucStream < MAXCOMPORTS && globalStreams[ ucStream ].TXLen ){
+   0:	2803      	cmp	r0, #3
+   2:	d822      	bhi.n	4a <streamTXChar+0x4a>
+   4:	f240 0300 	movw	r3, #0
+   8:	f2c0 0300 	movt	r3, #0
+   c:	eb00 02c0 	add.w	r2, r0, r0, lsl #3
+  10:	eb03 0382 	add.w	r3, r3, r2, lsl #2
+  14:	895b      	ldrh	r3, [r3, #10]
+  16:	b1c3      	cbz	r3, 4a <streamTXChar+0x4a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1087
+		--globalStreams[ ucStream ].TXLen;  
+  18:	f240 0200 	movw	r2, #0
+  1c:	f2c0 0200 	movt	r2, #0
+  20:	eb00 00c0 	add.w	r0, r0, r0, lsl #3
+  24:	eb02 0080 	add.w	r0, r2, r0, lsl #2
+  28:	f103 33ff 	add.w	r3, r3, #4294967295
+  2c:	8143      	strh	r3, [r0, #10]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1088
+		((USART_TYPEDEF *)pygmyPeriph)->DR = globalStreams[ ucStream ].TXBuffer[ globalStreams[ ucStream ].TXIndex ]; 
+  2e:	8903      	ldrh	r3, [r0, #8]
+  30:	6982      	ldr	r2, [r0, #24]
+  32:	5cd3      	ldrb	r3, [r2, r3]
+  34:	808b      	strh	r3, [r1, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1089
+        globalStreams[ ucStream ].TXIndex = ( globalStreams[ ucStream ].TXIndex + 1 ) % 
+  36:	8902      	ldrh	r2, [r0, #8]
+  38:	f102 0201 	add.w	r2, r2, #1
+  3c:	88c3      	ldrh	r3, [r0, #6]
+  3e:	fb92 f1f3 	sdiv	r1, r2, r3
+  42:	fb03 2311 	mls	r3, r3, r1, r2
+  46:	8103      	strh	r3, [r0, #8]
+  48:	4770      	bx	lr
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1092
+            globalStreams[ ucStream ].TXBufferLen;
+    } else{
+        ((USART_TYPEDEF *)pygmyPeriph)->CR1 &= ~USART_TXEIE;
+  4a:	898b      	ldrh	r3, [r1, #12]
+  4c:	f023 0380 	bic.w	r3, r3, #128	; 0x80
+  50:	ea4f 4303 	mov.w	r3, r3, lsl #16
+  54:	ea4f 4313 	mov.w	r3, r3, lsr #16
+  58:	818b      	strh	r3, [r1, #12]
+  5a:	4770      	bx	lr
+
+Disassembly of section .text.streamEchoChar:
+
+00000000 <streamEchoChar>:
+streamEchoChar():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1097
+    } // else
+}
+
+void streamEchoChar( u8 ucStream, u8 ucChar )
+{
+   0:	b500      	push	{lr}
+   2:	b083      	sub	sp, #12
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1098
+    u8 ucString[ 2 ] = { ucChar, '\0' };
+   4:	f88d 1004 	strb.w	r1, [sp, #4]
+   8:	f04f 0300 	mov.w	r3, #0
+   c:	f88d 3005 	strb.w	r3, [sp, #5]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1100
+
+    if( ucStream < MAXCOMPORTS ){
+  10:	2803      	cmp	r0, #3
+  12:	d80a      	bhi.n	2a <streamEchoChar+0x2a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1101
+        globalStreams[ ucStream ].Put( ucString );
+  14:	f240 0300 	movw	r3, #0
+  18:	f2c0 0300 	movt	r3, #0
+  1c:	eb00 00c0 	add.w	r0, r0, r0, lsl #3
+  20:	eb03 0380 	add.w	r3, r3, r0, lsl #2
+  24:	68db      	ldr	r3, [r3, #12]
+  26:	a801      	add	r0, sp, #4
+  28:	4798      	blx	r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1103
+    } // if
+}
+  2a:	b003      	add	sp, #12
+  2c:	bd00      	pop	{pc}
+  2e:	bf00      	nop
+
+Disassembly of section .text.streamGetChar:
+
+00000000 <streamGetChar>:
+streamGetChar():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1106
+
+u8 streamGetChar( u8 ucStream )
+{
+   0:	b410      	push	{r4}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1109
+    u16 i;
+
+    if( ucStream < MAXCOMPORTS && globalStreams[ ucStream ].RXLen ){
+   2:	2803      	cmp	r0, #3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1116
+        globalStreams[ ucStream ].RXIndex = ( globalStreams[ ucStream ].RXIndex+1 ) % globalStreams[ ucStream ].RXBufferLen; // modulo prevents overrun
+        --globalStreams[ ucStream ].RXLen;
+        return( globalStreams[ ucStream ].RXBuffer[ i ] );
+    } // if
+
+    return(  0 );
+   4:	bf88      	it	hi
+   6:	2000      	movhi	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1109
+
+u8 streamGetChar( u8 ucStream )
+{
+    u16 i;
+
+    if( ucStream < MAXCOMPORTS && globalStreams[ ucStream ].RXLen ){
+   8:	d824      	bhi.n	54 <streamGetChar+0x54>
+   a:	f240 0300 	movw	r3, #0
+   e:	f2c0 0300 	movt	r3, #0
+  12:	eb00 02c0 	add.w	r2, r0, r0, lsl #3
+  16:	eb03 0382 	add.w	r3, r3, r2, lsl #2
+  1a:	889b      	ldrh	r3, [r3, #4]
+  1c:	b1c3      	cbz	r3, 50 <streamGetChar+0x50>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1110
+        i = globalStreams[ ucStream ].RXIndex;
+  1e:	f240 0200 	movw	r2, #0
+  22:	f2c0 0200 	movt	r2, #0
+  26:	eb00 00c0 	add.w	r0, r0, r0, lsl #3
+  2a:	eb02 0380 	add.w	r3, r2, r0, lsl #2
+  2e:	8859      	ldrh	r1, [r3, #2]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1111
+        globalStreams[ ucStream ].RXIndex = ( globalStreams[ ucStream ].RXIndex+1 ) % globalStreams[ ucStream ].RXBufferLen; // modulo prevents overrun
+  30:	f101 0401 	add.w	r4, r1, #1
+  34:	f832 2020 	ldrh.w	r2, [r2, r0, lsl #2]
+  38:	fb94 f0f2 	sdiv	r0, r4, r2
+  3c:	fb02 4210 	mls	r2, r2, r0, r4
+  40:	805a      	strh	r2, [r3, #2]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1112
+        --globalStreams[ ucStream ].RXLen;
+  42:	889a      	ldrh	r2, [r3, #4]
+  44:	f102 32ff 	add.w	r2, r2, #4294967295
+  48:	809a      	strh	r2, [r3, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1113
+        return( globalStreams[ ucStream ].RXBuffer[ i ] );
+  4a:	695b      	ldr	r3, [r3, #20]
+  4c:	5c58      	ldrb	r0, [r3, r1]
+  4e:	e001      	b.n	54 <streamGetChar+0x54>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1116
+    } // if
+
+    return(  0 );
+  50:	f04f 0000 	mov.w	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1117
+}
+  54:	bc10      	pop	{r4}
+  56:	4770      	bx	lr
+
+Disassembly of section .text.streamPutChar:
+
+00000000 <streamPutChar>:
+streamPutChar():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1120
+
+u8 streamPutChar( u8 ucStream, u8 ucChar )
+{
+   0:	b430      	push	{r4, r5}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1124
+    u16 uiIndex;
+    
+    //for( i = 0; i < 1000; i++ ){
+        if( ucStream < MAXCOMPORTS && globalStreams[ ucStream ].TXLen < ( globalStreams[ ucStream ].TXBufferLen - 1 ) ){
+   2:	2803      	cmp	r0, #3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1133
+			return( 1 );
+        } // if
+        //delay( 50 );
+    //}
+    
+    return( 0 );
+   4:	bf88      	it	hi
+   6:	2000      	movhi	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1124
+u8 streamPutChar( u8 ucStream, u8 ucChar )
+{
+    u16 uiIndex;
+    
+    //for( i = 0; i < 1000; i++ ){
+        if( ucStream < MAXCOMPORTS && globalStreams[ ucStream ].TXLen < ( globalStreams[ ucStream ].TXBufferLen - 1 ) ){
+   8:	d828      	bhi.n	5c <streamPutChar+0x5c>
+   a:	f240 0300 	movw	r3, #0
+   e:	f2c0 0300 	movt	r3, #0
+  12:	eb00 02c0 	add.w	r2, r0, r0, lsl #3
+  16:	eb03 0382 	add.w	r3, r3, r2, lsl #2
+  1a:	895a      	ldrh	r2, [r3, #10]
+  1c:	88db      	ldrh	r3, [r3, #6]
+  1e:	f103 34ff 	add.w	r4, r3, #4294967295
+  22:	42a2      	cmp	r2, r4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1133
+			return( 1 );
+        } // if
+        //delay( 50 );
+    //}
+    
+    return( 0 );
+  24:	bfa8      	it	ge
+  26:	2000      	movge	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1124
+u8 streamPutChar( u8 ucStream, u8 ucChar )
+{
+    u16 uiIndex;
+    
+    //for( i = 0; i < 1000; i++ ){
+        if( ucStream < MAXCOMPORTS && globalStreams[ ucStream ].TXLen < ( globalStreams[ ucStream ].TXBufferLen - 1 ) ){
+  28:	da18      	bge.n	5c <streamPutChar+0x5c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1126
+            uiIndex = ( globalStreams[ ucStream ].TXIndex + globalStreams[ ucStream ].TXLen ) % globalStreams[ ucStream ].TXBufferLen;
+            globalStreams[ ucStream ].TXBuffer[ uiIndex ] = ucChar;
+  2a:	f240 0400 	movw	r4, #0
+  2e:	f2c0 0400 	movt	r4, #0
+  32:	eb00 00c0 	add.w	r0, r0, r0, lsl #3
+  36:	eb04 0080 	add.w	r0, r4, r0, lsl #2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1125
+{
+    u16 uiIndex;
+    
+    //for( i = 0; i < 1000; i++ ){
+        if( ucStream < MAXCOMPORTS && globalStreams[ ucStream ].TXLen < ( globalStreams[ ucStream ].TXBufferLen - 1 ) ){
+            uiIndex = ( globalStreams[ ucStream ].TXIndex + globalStreams[ ucStream ].TXLen ) % globalStreams[ ucStream ].TXBufferLen;
+  3a:	f100 0408 	add.w	r4, r0, #8
+  3e:	8905      	ldrh	r5, [r0, #8]
+  40:	18aa      	adds	r2, r5, r2
+  42:	fb92 f5f3 	sdiv	r5, r2, r3
+  46:	fb03 2215 	mls	r2, r3, r5, r2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1126
+            globalStreams[ ucStream ].TXBuffer[ uiIndex ] = ucChar;
+  4a:	b292      	uxth	r2, r2
+  4c:	6983      	ldr	r3, [r0, #24]
+  4e:	5499      	strb	r1, [r3, r2]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1127
+            ++globalStreams[ ucStream ].TXLen;
+  50:	8943      	ldrh	r3, [r0, #10]
+  52:	f103 0301 	add.w	r3, r3, #1
+  56:	8143      	strh	r3, [r0, #10]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1128
+			return( 1 );
+  58:	f04f 0001 	mov.w	r0, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1134
+        } // if
+        //delay( 50 );
+    //}
+    
+    return( 0 );
+}
+  5c:	bc30      	pop	{r4, r5}
+  5e:	4770      	bx	lr
+
+Disassembly of section .text.streamFIFOToString:
+
+00000000 <streamFIFOToString>:
+streamFIFOToString():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1137
+
+void streamFIFOToString( u8 ucStream, u8 *ucBuffer )
+{
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	4605      	mov	r5, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1138
+    for( ; globalStreams[ ucStream ].RXLen; ){
+   4:	f240 0300 	movw	r3, #0
+   8:	f2c0 0300 	movt	r3, #0
+   c:	eb00 00c0 	add.w	r0, r0, r0, lsl #3
+  10:	eb03 0380 	add.w	r3, r3, r0, lsl #2
+  14:	889b      	ldrh	r3, [r3, #4]
+  16:	b17b      	cbz	r3, 38 <streamFIFOToString+0x38>
+  18:	460c      	mov	r4, r1
+  1a:	f240 0300 	movw	r3, #0
+  1e:	f2c0 0300 	movt	r3, #0
+  22:	eb03 0680 	add.w	r6, r3, r0, lsl #2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1139
+        *(ucBuffer++) = streamGetChar( ucStream );
+  26:	4628      	mov	r0, r5
+  28:	f7ff fffe 	bl	0 <streamFIFOToString>
+  2c:	f804 0b01 	strb.w	r0, [r4], #1
+  30:	4621      	mov	r1, r4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1138
+    return( 0 );
+}
+
+void streamFIFOToString( u8 ucStream, u8 *ucBuffer )
+{
+    for( ; globalStreams[ ucStream ].RXLen; ){
+  32:	88b3      	ldrh	r3, [r6, #4]
+  34:	2b00      	cmp	r3, #0
+  36:	d1f6      	bne.n	26 <streamFIFOToString+0x26>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1141
+        *(ucBuffer++) = streamGetChar( ucStream );
+    } // for
+    *ucBuffer = '\0'; // NULL Terminate
+  38:	f04f 0300 	mov.w	r3, #0
+  3c:	700b      	strb	r3, [r1, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1142
+}
+  3e:	bd70      	pop	{r4, r5, r6, pc}
+
+Disassembly of section .text.streamIsEmpty:
+
+00000000 <streamIsEmpty>:
+streamIsEmpty():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1146
+
+u8 streamIsEmpty( u8 ucStream )
+{
+    if( globalStreams[ ucStream ].RXLen ){
+   0:	f240 0300 	movw	r3, #0
+   4:	f2c0 0300 	movt	r3, #0
+   8:	eb00 00c0 	add.w	r0, r0, r0, lsl #3
+   c:	eb03 0380 	add.w	r3, r3, r0, lsl #2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1147
+        return( 0 ); // Still data in buffer
+  10:	8898      	ldrh	r0, [r3, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1151
+    } // if
+    
+    return( 1 ); // Buffer empty
+}
+  12:	f1d0 0001 	rsbs	r0, r0, #1
+  16:	bf38      	it	cc
+  18:	2000      	movcc	r0, #0
+  1a:	4770      	bx	lr
+
+Disassembly of section .text.streamPopChar:
+
+00000000 <streamPopChar>:
+streamPopChar():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1154
+
+u8 streamPopChar( u8 ucStream )
+{
+   0:	b410      	push	{r4}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1158
+    // Function returns last char received and decrements length
+    u16 i;
+
+    if( ucStream < MAXCOMPORTS && globalStreams[ ucStream ].RXLen ){
+   2:	2803      	cmp	r0, #3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1164
+        --globalStreams[ ucStream ].RXLen;
+        i = ( globalStreams[ ucStream ].RXIndex + ( globalStreams[ ucStream ].RXLen ) ) % globalStreams[ ucStream ].RXBufferLen;
+        return( globalStreams[ ucStream ].RXBuffer[ i ] );
+    } // if
+    
+    return( 0 );
+   4:	bf88      	it	hi
+   6:	2000      	movhi	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1158
+u8 streamPopChar( u8 ucStream )
+{
+    // Function returns last char received and decrements length
+    u16 i;
+
+    if( ucStream < MAXCOMPORTS && globalStreams[ ucStream ].RXLen ){
+   8:	d821      	bhi.n	4e <streamPopChar+0x4e>
+   a:	f240 0300 	movw	r3, #0
+   e:	f2c0 0300 	movt	r3, #0
+  12:	eb00 02c0 	add.w	r2, r0, r0, lsl #3
+  16:	eb03 0382 	add.w	r3, r3, r2, lsl #2
+  1a:	889b      	ldrh	r3, [r3, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1164
+        --globalStreams[ ucStream ].RXLen;
+        i = ( globalStreams[ ucStream ].RXIndex + ( globalStreams[ ucStream ].RXLen ) ) % globalStreams[ ucStream ].RXBufferLen;
+        return( globalStreams[ ucStream ].RXBuffer[ i ] );
+    } // if
+    
+    return( 0 );
+  1c:	f04f 0000 	mov.w	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1158
+u8 streamPopChar( u8 ucStream )
+{
+    // Function returns last char received and decrements length
+    u16 i;
+
+    if( ucStream < MAXCOMPORTS && globalStreams[ ucStream ].RXLen ){
+  20:	b1ab      	cbz	r3, 4e <streamPopChar+0x4e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1159
+        --globalStreams[ ucStream ].RXLen;
+  22:	f103 34ff 	add.w	r4, r3, #4294967295
+  26:	b2a4      	uxth	r4, r4
+  28:	f240 0300 	movw	r3, #0
+  2c:	f2c0 0300 	movt	r3, #0
+  30:	4610      	mov	r0, r2
+  32:	eb03 0282 	add.w	r2, r3, r2, lsl #2
+  36:	8094      	strh	r4, [r2, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1160
+        i = ( globalStreams[ ucStream ].RXIndex + ( globalStreams[ ucStream ].RXLen ) ) % globalStreams[ ucStream ].RXBufferLen;
+  38:	8851      	ldrh	r1, [r2, #2]
+  3a:	1864      	adds	r4, r4, r1
+  3c:	f833 1020 	ldrh.w	r1, [r3, r0, lsl #2]
+  40:	fb94 f3f1 	sdiv	r3, r4, r1
+  44:	fb01 4113 	mls	r1, r1, r3, r4
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1161
+        return( globalStreams[ ucStream ].RXBuffer[ i ] );
+  48:	b289      	uxth	r1, r1
+  4a:	6953      	ldr	r3, [r2, #20]
+  4c:	5c58      	ldrb	r0, [r3, r1]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1165
+    } // if
+    
+    return( 0 );
+}
+  4e:	bc10      	pop	{r4}
+  50:	4770      	bx	lr
+  52:	bf00      	nop
+
+Disassembly of section .text.streamPeekChar:
+
+00000000 <streamPeekChar>:
+streamPeekChar():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1168
+
+u8 streamPeekChar( u8 ucStream )
+{
+   0:	b410      	push	{r4}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1172
+    // Function returns value of last char without affecting FIFO
+    u16 i;
+
+    if( ucStream < MAXCOMPORTS && globalStreams[ ucStream ].RXLen ){
+   2:	2803      	cmp	r0, #3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1177
+        i = ( globalStreams[ ucStream ].RXIndex + ( globalStreams[ ucStream ].RXLen - 1 ) ) % globalStreams[ ucStream ].RXBufferLen;
+        return( globalStreams[ ucStream ].RXBuffer[ i ] );
+    } // if
+    
+    return( 0 );
+   4:	bf88      	it	hi
+   6:	2000      	movhi	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1172
+u8 streamPeekChar( u8 ucStream )
+{
+    // Function returns value of last char without affecting FIFO
+    u16 i;
+
+    if( ucStream < MAXCOMPORTS && globalStreams[ ucStream ].RXLen ){
+   8:	d821      	bhi.n	4e <streamPeekChar+0x4e>
+   a:	f240 0300 	movw	r3, #0
+   e:	f2c0 0300 	movt	r3, #0
+  12:	eb00 02c0 	add.w	r2, r0, r0, lsl #3
+  16:	eb03 0382 	add.w	r3, r3, r2, lsl #2
+  1a:	889a      	ldrh	r2, [r3, #4]
+  1c:	b1aa      	cbz	r2, 4a <streamPeekChar+0x4a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1174
+        i = ( globalStreams[ ucStream ].RXIndex + ( globalStreams[ ucStream ].RXLen - 1 ) ) % globalStreams[ ucStream ].RXBufferLen;
+        return( globalStreams[ ucStream ].RXBuffer[ i ] );
+  1e:	f240 0300 	movw	r3, #0
+  22:	f2c0 0300 	movt	r3, #0
+  26:	eb00 00c0 	add.w	r0, r0, r0, lsl #3
+  2a:	eb03 0180 	add.w	r1, r3, r0, lsl #2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1173
+{
+    // Function returns value of last char without affecting FIFO
+    u16 i;
+
+    if( ucStream < MAXCOMPORTS && globalStreams[ ucStream ].RXLen ){
+        i = ( globalStreams[ ucStream ].RXIndex + ( globalStreams[ ucStream ].RXLen - 1 ) ) % globalStreams[ ucStream ].RXBufferLen;
+  2e:	884c      	ldrh	r4, [r1, #2]
+  30:	18a2      	adds	r2, r4, r2
+  32:	f102 32ff 	add.w	r2, r2, #4294967295
+  36:	f833 3020 	ldrh.w	r3, [r3, r0, lsl #2]
+  3a:	fb92 f0f3 	sdiv	r0, r2, r3
+  3e:	fb03 2210 	mls	r2, r3, r0, r2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1174
+        return( globalStreams[ ucStream ].RXBuffer[ i ] );
+  42:	b292      	uxth	r2, r2
+  44:	694b      	ldr	r3, [r1, #20]
+  46:	5c98      	ldrb	r0, [r3, r2]
+  48:	e001      	b.n	4e <streamPeekChar+0x4e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1177
+    } // if
+    
+    return( 0 );
+  4a:	f04f 0000 	mov.w	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1178
+}
+  4e:	bc10      	pop	{r4}
+  50:	4770      	bx	lr
+  52:	bf00      	nop
+
+Disassembly of section .text.streamPushChar:
+
+00000000 <streamPushChar>:
+streamPushChar():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1181
+
+void streamPushChar( u8 ucStream, u8 ucChar )
+{
+   0:	b430      	push	{r4, r5}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1185
+    // Function appends char to FIFO and increments length
+    u16 i;
+
+    if( ucStream < MAXCOMPORTS && globalStreams[ ucStream ].RXLen < globalStreams[ ucStream ].RXBufferLen){
+   2:	2803      	cmp	r0, #3
+   4:	d820      	bhi.n	48 <streamPushChar+0x48>
+   6:	f240 0300 	movw	r3, #0
+   a:	f2c0 0300 	movt	r3, #0
+   e:	eb00 04c0 	add.w	r4, r0, r0, lsl #3
+  12:	eb03 0284 	add.w	r2, r3, r4, lsl #2
+  16:	8892      	ldrh	r2, [r2, #4]
+  18:	f833 3024 	ldrh.w	r3, [r3, r4, lsl #2]
+  1c:	429a      	cmp	r2, r3
+  1e:	d213      	bcs.n	48 <streamPushChar+0x48>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1186
+        i = ( globalStreams[ ucStream ].RXIndex + globalStreams[ ucStream ].RXLen ) % globalStreams[ ucStream ].RXBufferLen;
+  20:	f240 0400 	movw	r4, #0
+  24:	f2c0 0400 	movt	r4, #0
+  28:	eb00 00c0 	add.w	r0, r0, r0, lsl #3
+  2c:	eb04 0080 	add.w	r0, r4, r0, lsl #2
+  30:	8844      	ldrh	r4, [r0, #2]
+  32:	1914      	adds	r4, r2, r4
+  34:	fb94 f5f3 	sdiv	r5, r4, r3
+  38:	fb03 4315 	mls	r3, r3, r5, r4
+  3c:	b29b      	uxth	r3, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1187
+        ++globalStreams[ ucStream ].RXLen;
+  3e:	f102 0201 	add.w	r2, r2, #1
+  42:	8082      	strh	r2, [r0, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1188
+        globalStreams[ ucStream ].RXBuffer[ i ] = ucChar;
+  44:	6942      	ldr	r2, [r0, #20]
+  46:	54d1      	strb	r1, [r2, r3]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1190
+    } // if
+}
+  48:	bc30      	pop	{r4, r5}
+  4a:	4770      	bx	lr
+
+Disassembly of section .text.streamSetPut:
+
+00000000 <streamSetPut>:
+streamSetPut():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1194
+
+u8 streamSetPut( u8 ucStream, void *ptrFunc )
+{
+    if( ucStream < MAXCOMPORTS ){
+   0:	2803      	cmp	r0, #3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1195
+        globalStreams[ ucStream ].Put = ptrFunc;
+   2:	bf9f      	itttt	ls
+   4:	f240 0300 	movwls	r3, #0
+   8:	f2c0 0300 	movtls	r3, #0
+   c:	eb00 00c0 	addls.w	r0, r0, r0, lsl #3
+  10:	eb03 0380 	addls.w	r3, r3, r0, lsl #2
+  14:	bf9a      	itte	ls
+  16:	60d9      	strls	r1, [r3, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1197
+    
+        return( 1 );
+  18:	2001      	movls	r0, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1200
+    } // if
+
+    return( 0 );
+  1a:	2000      	movhi	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1201
+}
+  1c:	4770      	bx	lr
+  1e:	bf00      	nop
+
+Disassembly of section .text.streamSetGet:
+
+00000000 <streamSetGet>:
+streamSetGet():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1205
+
+u8 streamSetGet( u8 ucStream, void *ptrFunc )
+{
+    if( ucStream < MAXCOMPORTS ){
+   0:	2803      	cmp	r0, #3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1206
+        globalStreams[ ucStream ].Get = ptrFunc;
+   2:	bf9f      	itttt	ls
+   4:	f240 0300 	movwls	r3, #0
+   8:	f2c0 0300 	movtls	r3, #0
+   c:	eb00 00c0 	addls.w	r0, r0, r0, lsl #3
+  10:	eb03 0380 	addls.w	r3, r3, r0, lsl #2
+  14:	bf9a      	itte	ls
+  16:	6119      	strls	r1, [r3, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1208
+    
+        return( 1 );
+  18:	2001      	movls	r0, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1211
+    } // if
+
+    return( 0 );
+  1a:	2000      	movhi	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1212
+}
+  1c:	4770      	bx	lr
+  1e:	bf00      	nop
+
+Disassembly of section .text.streamSetRXBuffer:
+
+00000000 <streamSetRXBuffer>:
+streamSetRXBuffer():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1215
+
+u8 streamSetRXBuffer( u8 ucStream, u8 *ucBuffer, u16 uiLen )
+{
+   0:	b410      	push	{r4}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1216
+    if( ucStream < MAXCOMPORTS ){
+   2:	2803      	cmp	r0, #3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1217
+        globalStreams[ ucStream ].RXBuffer = ucBuffer;
+   4:	bf9f      	itttt	ls
+   6:	f240 0300 	movwls	r3, #0
+   a:	f2c0 0300 	movtls	r3, #0
+   e:	eb00 00c0 	addls.w	r0, r0, r0, lsl #3
+  12:	eb03 0480 	addls.w	r4, r3, r0, lsl #2
+  16:	bf9d      	ittte	ls
+  18:	6161      	strls	r1, [r4, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1218
+        globalStreams[ ucStream ].RXBufferLen = uiLen;
+  1a:	f823 2020 	strhls.w	r2, [r3, r0, lsl #2]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1219
+        return( 1 );
+  1e:	2001      	movls	r0, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1222
+    } // if
+
+    return( 0 );
+  20:	2000      	movhi	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1223
+}
+  22:	bc10      	pop	{r4}
+  24:	4770      	bx	lr
+  26:	bf00      	nop
+
+Disassembly of section .text.streamSetTXBuffer:
+
+00000000 <streamSetTXBuffer>:
+streamSetTXBuffer():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1227
+
+u8 streamSetTXBuffer( u8 ucStream, u8 *ucBuffer, u16 uiLen )
+{
+    if( ucStream < MAXCOMPORTS ){
+   0:	2803      	cmp	r0, #3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1228
+        globalStreams[ ucStream ].TXBuffer = ucBuffer;
+   2:	bf9f      	itttt	ls
+   4:	f240 0300 	movwls	r3, #0
+   8:	f2c0 0300 	movtls	r3, #0
+   c:	eb00 00c0 	addls.w	r0, r0, r0, lsl #3
+  10:	eb03 0380 	addls.w	r3, r3, r0, lsl #2
+  14:	bf9d      	ittte	ls
+  16:	6199      	strls	r1, [r3, #24]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1229
+        globalStreams[ ucStream ].TXBufferLen = uiLen;
+  18:	80da      	strhls	r2, [r3, #6]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1230
+        return( 1 );
+  1a:	2001      	movls	r0, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1233
+    } // if
+    
+    return( 0 );
+  1c:	2000      	movhi	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1234
+}
+  1e:	4770      	bx	lr
+
+Disassembly of section .text.streamSetActionChars:
+
+00000000 <streamSetActionChars>:
+streamSetActionChars():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1241
+
+
+void streamSetActionChars( u8 ucStream, u8 *ucString )
+{
+    // Warning! ucString must be NULL terminated
+    globalStreams[ ucStream ].ActionChars = ucString;
+   0:	f240 0300 	movw	r3, #0
+   4:	f2c0 0300 	movt	r3, #0
+   8:	eb00 00c0 	add.w	r0, r0, r0, lsl #3
+   c:	eb03 0380 	add.w	r3, r3, r0, lsl #2
+  10:	61d9      	str	r1, [r3, #28]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1242
+}
+  12:	4770      	bx	lr
+
+Disassembly of section .text.streamDisableDefaultGet:
+
+00000000 <streamDisableDefaultGet>:
+streamDisableDefaultGet():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1246
+
+void streamDisableDefaultGet( u8 ucStream )
+{
+    globalStreams[ ucStream ].CR |= PYGMY_STREAMS_USERHANDLER;
+   0:	f240 0300 	movw	r3, #0
+   4:	f2c0 0300 	movt	r3, #0
+   8:	eb00 00c0 	add.w	r0, r0, r0, lsl #3
+   c:	eb03 0380 	add.w	r3, r3, r0, lsl #2
+  10:	f893 2020 	ldrb.w	r2, [r3, #32]
+  14:	f042 0220 	orr.w	r2, r2, #32
+  18:	f883 2020 	strb.w	r2, [r3, #32]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1247
+}
+  1c:	4770      	bx	lr
+  1e:	bf00      	nop
+
+Disassembly of section .text.streamEnableDefaultGet:
+
+00000000 <streamEnableDefaultGet>:
+streamEnableDefaultGet():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1251
+
+void streamEnableDefaultGet( u8 ucStream )
+{
+    globalStreams[ ucStream ].CR &= ~PYGMY_STREAMS_USERHANDLER;
+   0:	f240 0300 	movw	r3, #0
+   4:	f2c0 0300 	movt	r3, #0
+   8:	eb00 00c0 	add.w	r0, r0, r0, lsl #3
+   c:	eb03 0380 	add.w	r3, r3, r0, lsl #2
+  10:	f893 2020 	ldrb.w	r2, [r3, #32]
+  14:	f022 0220 	bic.w	r2, r2, #32
+  18:	f883 2020 	strb.w	r2, [r3, #32]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1252
+}
+  1c:	4770      	bx	lr
+  1e:	bf00      	nop
+
+Disassembly of section .text.streamGetEcho:
+
+00000000 <streamGetEcho>:
+streamGetEcho():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1256
+
+u8 streamGetEcho( u8 ucStream )
+{
+    return( globalStreams[ ucStream ].CR & PYGMY_STREAMS_ECHO );
+   0:	f240 0300 	movw	r3, #0
+   4:	f2c0 0300 	movt	r3, #0
+   8:	eb00 00c0 	add.w	r0, r0, r0, lsl #3
+   c:	eb03 0380 	add.w	r3, r3, r0, lsl #2
+  10:	f893 0020 	ldrb.w	r0, [r3, #32]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1257
+}
+  14:	f000 0002 	and.w	r0, r0, #2
+  18:	4770      	bx	lr
+  1a:	bf00      	nop
+
+Disassembly of section .text.streamEnableEcho:
+
+00000000 <streamEnableEcho>:
+streamEnableEcho():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1261
+
+void streamEnableEcho( u8 ucStream )
+{
+    globalStreams[ ucStream ].CR |= PYGMY_STREAMS_ECHO;
+   0:	f240 0300 	movw	r3, #0
+   4:	f2c0 0300 	movt	r3, #0
+   8:	eb00 00c0 	add.w	r0, r0, r0, lsl #3
+   c:	eb03 0380 	add.w	r3, r3, r0, lsl #2
+  10:	f893 2020 	ldrb.w	r2, [r3, #32]
+  14:	f042 0202 	orr.w	r2, r2, #2
+  18:	f883 2020 	strb.w	r2, [r3, #32]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1263
+    
+}
+  1c:	4770      	bx	lr
+  1e:	bf00      	nop
+
+Disassembly of section .text.streamDisableEcho:
+
+00000000 <streamDisableEcho>:
+streamDisableEcho():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1267
+
+void streamDisableEcho( u8 ucStream )
+{
+    globalStreams[ ucStream ].CR &= ~PYGMY_STREAMS_ECHO;
+   0:	f240 0300 	movw	r3, #0
+   4:	f2c0 0300 	movt	r3, #0
+   8:	eb00 00c0 	add.w	r0, r0, r0, lsl #3
+   c:	eb03 0380 	add.w	r3, r3, r0, lsl #2
+  10:	f893 2020 	ldrb.w	r2, [r3, #32]
+  14:	f022 0202 	bic.w	r2, r2, #2
+  18:	f883 2020 	strb.w	r2, [r3, #32]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1268
+}
+  1c:	4770      	bx	lr
+  1e:	bf00      	nop
+
+Disassembly of section .text.streamEnableActionChars:
+
+00000000 <streamEnableActionChars>:
+streamEnableActionChars():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1272
+
+void streamEnableActionChars( u8 ucStream )
+{
+    globalStreams[ ucStream ].CR |= PYGMY_STREAMS_ACTIONCHARS;
+   0:	f240 0300 	movw	r3, #0
+   4:	f2c0 0300 	movt	r3, #0
+   8:	eb00 00c0 	add.w	r0, r0, r0, lsl #3
+   c:	eb03 0380 	add.w	r3, r3, r0, lsl #2
+  10:	f893 2020 	ldrb.w	r2, [r3, #32]
+  14:	f042 0208 	orr.w	r2, r2, #8
+  18:	f883 2020 	strb.w	r2, [r3, #32]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1273
+}
+  1c:	4770      	bx	lr
+  1e:	bf00      	nop
+
+Disassembly of section .text.streamDisableActionChars:
+
+00000000 <streamDisableActionChars>:
+streamDisableActionChars():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1277
+
+void streamDisableActionChars( u8 ucStream )
+{
+    globalStreams[ ucStream ].CR &= ~PYGMY_STREAMS_ACTIONCHARS;
+   0:	f240 0300 	movw	r3, #0
+   4:	f2c0 0300 	movt	r3, #0
+   8:	eb00 00c0 	add.w	r0, r0, r0, lsl #3
+   c:	eb03 0380 	add.w	r3, r3, r0, lsl #2
+  10:	f893 2020 	ldrb.w	r2, [r3, #32]
+  14:	f022 0208 	bic.w	r2, r2, #8
+  18:	f883 2020 	strb.w	r2, [r3, #32]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1278
+}
+  1c:	4770      	bx	lr
+  1e:	bf00      	nop
+
+Disassembly of section .text.streamEnableBackspace:
+
+00000000 <streamEnableBackspace>:
+streamEnableBackspace():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1282
+
+void streamEnableBackspace( u8 ucStream )
+{
+    globalStreams[ ucStream ].CR |= PYGMY_STREAMS_BACKSPACE;
+   0:	f240 0300 	movw	r3, #0
+   4:	f2c0 0300 	movt	r3, #0
+   8:	eb00 00c0 	add.w	r0, r0, r0, lsl #3
+   c:	eb03 0380 	add.w	r3, r3, r0, lsl #2
+  10:	f893 2020 	ldrb.w	r2, [r3, #32]
+  14:	f042 0204 	orr.w	r2, r2, #4
+  18:	f883 2020 	strb.w	r2, [r3, #32]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1283
+}
+  1c:	4770      	bx	lr
+  1e:	bf00      	nop
+
+Disassembly of section .text.streamDisableBackspace:
+
+00000000 <streamDisableBackspace>:
+streamDisableBackspace():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1287
+
+void streamDisableBackspace( u8 ucStream )
+{
+    globalStreams[ ucStream ].CR &= ~PYGMY_STREAMS_BACKSPACE;
+   0:	f240 0300 	movw	r3, #0
+   4:	f2c0 0300 	movt	r3, #0
+   8:	eb00 00c0 	add.w	r0, r0, r0, lsl #3
+   c:	eb03 0380 	add.w	r3, r3, r0, lsl #2
+  10:	f893 2020 	ldrb.w	r2, [r3, #32]
+  14:	f022 0204 	bic.w	r2, r2, #4
+  18:	f883 2020 	strb.w	r2, [r3, #32]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1288
+}
+  1c:	4770      	bx	lr
+  1e:	bf00      	nop
+
+Disassembly of section .text.streamHandler:
+
+00000000 <streamHandler>:
+streamHandler():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1291
+
+void streamHandler( u8 ucPort, u8 ucChar )
+{
+   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+   2:	4604      	mov	r4, r0
+   4:	460d      	mov	r5, r1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1294
+    u8 ucAction;
+
+    ucAction = isCharInString( ucChar, globalStreams[ ucPort ].ActionChars );
+   6:	f240 0300 	movw	r3, #0
+   a:	f2c0 0300 	movt	r3, #0
+   e:	eb00 06c0 	add.w	r6, r0, r0, lsl #3
+  12:	eb03 0686 	add.w	r6, r3, r6, lsl #2
+  16:	4608      	mov	r0, r1
+  18:	69f1      	ldr	r1, [r6, #28]
+  1a:	f7ff fffe 	bl	0 <isCharInString>
+  1e:	b2c7      	uxtb	r7, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1295
+    if( ( globalStreams[ ucPort ].CR & PYGMY_STREAMS_ECHO ) && !ucAction ){
+  20:	f896 2020 	ldrb.w	r2, [r6, #32]
+  24:	f1d7 0301 	rsbs	r3, r7, #1
+  28:	bf38      	it	cc
+  2a:	2300      	movcc	r3, #0
+  2c:	ea13 0352 	ands.w	r3, r3, r2, lsr #1
+  30:	d003      	beq.n	3a <streamHandler+0x3a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1296
+        streamEchoChar( ucPort, ucChar );
+  32:	4620      	mov	r0, r4
+  34:	4629      	mov	r1, r5
+  36:	f7ff fffe 	bl	0 <streamHandler>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1298
+    } //
+    if( ( globalStreams[ ucPort ].CR & PYGMY_STREAMS_BACKSPACE ) && ucChar == '\b' ){
+  3a:	f240 0300 	movw	r3, #0
+  3e:	f2c0 0300 	movt	r3, #0
+  42:	eb04 02c4 	add.w	r2, r4, r4, lsl #3
+  46:	eb03 0382 	add.w	r3, r3, r2, lsl #2
+  4a:	f893 2020 	ldrb.w	r2, [r3, #32]
+  4e:	2d08      	cmp	r5, #8
+  50:	bf14      	ite	ne
+  52:	2300      	movne	r3, #0
+  54:	2301      	moveq	r3, #1
+  56:	ea13 0392 	ands.w	r3, r3, r2, lsr #2
+  5a:	d003      	beq.n	64 <streamHandler+0x64>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1299
+        streamPopChar( ucPort );
+  5c:	4620      	mov	r0, r4
+  5e:	f7ff fffe 	bl	0 <streamHandler>
+  62:	e003      	b.n	6c <streamHandler+0x6c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1301
+    } else{
+        streamPushChar( ucPort, ucChar );
+  64:	4620      	mov	r0, r4
+  66:	4629      	mov	r1, r5
+  68:	f7ff fffe 	bl	0 <streamHandler>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1303
+    } // else
+    if( globalStreams[ ucPort ].Get ){
+  6c:	f240 0300 	movw	r3, #0
+  70:	f2c0 0300 	movt	r3, #0
+  74:	eb04 02c4 	add.w	r2, r4, r4, lsl #3
+  78:	eb03 0382 	add.w	r3, r3, r2, lsl #2
+  7c:	691a      	ldr	r2, [r3, #16]
+  7e:	b172      	cbz	r2, 9e <streamHandler+0x9e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1304
+        if( !( globalStreams[ ucPort ].CR & PYGMY_STREAMS_ACTIONCHARS ) || 
+  80:	f240 0300 	movw	r3, #0
+  84:	f2c0 0300 	movt	r3, #0
+  88:	eb04 04c4 	add.w	r4, r4, r4, lsl #3
+  8c:	eb03 0384 	add.w	r3, r3, r4, lsl #2
+  90:	f893 3020 	ldrb.w	r3, [r3, #32]
+  94:	f013 0f08 	tst.w	r3, #8
+  98:	d000      	beq.n	9c <streamHandler+0x9c>
+  9a:	b107      	cbz	r7, 9e <streamHandler+0x9e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1306
+            (( globalStreams[ ucPort ].CR & PYGMY_STREAMS_ACTIONCHARS ) && ucAction )){
+            globalStreams[ ucPort ].Get();
+  9c:	4790      	blx	r2
+  9e:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+
+Disassembly of section .text.USART2_IRQHandler:
+
+00000000 <USART2_IRQHandler>:
+USART2_IRQHandler():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1359
+}
+#endif // __PYGMYSTREAMCOM1
+
+#ifdef __PYGMYSTREAMCOM2
+void USART2_IRQHandler( void )
+{
+   0:	b538      	push	{r3, r4, r5, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1363
+    u16 i;
+    u8 ucChar, *ucChars;
+
+    if( USART2->SR & USART_RXNE){
+   2:	f44f 4388 	mov.w	r3, #17408	; 0x4400
+   6:	f2c4 0300 	movt	r3, #16384	; 0x4000
+   a:	881b      	ldrh	r3, [r3, #0]
+   c:	f013 0f20 	tst.w	r3, #32
+  10:	d03b      	beq.n	8a <USART2_IRQHandler+0x8a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1364
+        ucChar = USART2->DR;
+  12:	f44f 4388 	mov.w	r3, #17408	; 0x4400
+  16:	f2c4 0300 	movt	r3, #16384	; 0x4000
+  1a:	889b      	ldrh	r3, [r3, #4]
+  1c:	b2db      	uxtb	r3, r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1366
+        //USART2->SR = 0;
+        USART3->DR = ucChar;
+  1e:	f44f 4290 	mov.w	r2, #18432	; 0x4800
+  22:	f2c4 0200 	movt	r2, #16384	; 0x4000
+  26:	8093      	strh	r3, [r2, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1368
+        //return;
+        if( ucChar > 31 ){
+  28:	2b1f      	cmp	r3, #31
+  2a:	d917      	bls.n	5c <USART2_IRQHandler+0x5c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1369
+            if( globalStreams[ COM2 ].RXLen < globalStreams[ COM2 ].RXBufferLen){
+  2c:	f240 0200 	movw	r2, #0
+  30:	f2c0 0200 	movt	r2, #0
+  34:	8d11      	ldrh	r1, [r2, #40]	; 0x28
+  36:	8c92      	ldrh	r2, [r2, #36]	; 0x24
+  38:	4291      	cmp	r1, r2
+  3a:	d20f      	bcs.n	5c <USART2_IRQHandler+0x5c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1370
+                i = ( globalStreams[ COM2 ].RXIndex + globalStreams[ COM2 ].RXLen ) % globalStreams[ COM2 ].RXBufferLen;
+  3c:	f240 0000 	movw	r0, #0
+  40:	f2c0 0000 	movt	r0, #0
+  44:	8cc4      	ldrh	r4, [r0, #38]	; 0x26
+  46:	190c      	adds	r4, r1, r4
+  48:	fb94 f5f2 	sdiv	r5, r4, r2
+  4c:	fb02 4215 	mls	r2, r2, r5, r4
+  50:	b292      	uxth	r2, r2
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1371
+                ++globalStreams[ COM2 ].RXLen;
+  52:	f101 0101 	add.w	r1, r1, #1
+  56:	8501      	strh	r1, [r0, #40]	; 0x28
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1372
+                globalStreams[ COM2 ].RXBuffer[ i ] = ucChar;
+  58:	6b81      	ldr	r1, [r0, #56]	; 0x38
+  5a:	548b      	strb	r3, [r1, r2]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1380
+        } // if
+        //if( globalStreams[ ucPort ].CR & PYGMY_STREAMS_ACTIONCHARS ) ){
+        //if( globalStreams[ COM2 ].RXLen ){
+        //for( ucChars = globalStreams[ COM2 ].ActionChars; *ucChars; ) {
+        //    if( ucChar == *(ucChars++) ){
+            if( ucChar == '>' || ( globalStreams[ COM2 ].RXLen > 1 && ucChar == 10 ) ){
+  5c:	2b3e      	cmp	r3, #62	; 0x3e
+  5e:	d00e      	beq.n	7e <USART2_IRQHandler+0x7e>
+  60:	f240 0200 	movw	r2, #0
+  64:	f2c0 0200 	movt	r2, #0
+  68:	8d12      	ldrh	r2, [r2, #40]	; 0x28
+  6a:	2b0a      	cmp	r3, #10
+  6c:	bf14      	ite	ne
+  6e:	2300      	movne	r3, #0
+  70:	2301      	moveq	r3, #1
+  72:	2a01      	cmp	r2, #1
+  74:	bf94      	ite	ls
+  76:	2300      	movls	r3, #0
+  78:	f003 0301 	andhi.w	r3, r3, #1
+  7c:	b12b      	cbz	r3, 9e <globalSTDIO+0x9e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1382
+                //if( globalStreams[ COM2 ].Get ){
+                    globalStreams[ COM2 ].Get();
+  7e:	f240 0300 	movw	r3, #0
+  82:	f2c0 0300 	movt	r3, #0
+  86:	6b5b      	ldr	r3, [r3, #52]	; 0x34
+  88:	4798      	blx	r3
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1394
+    } // if
+    //if( USART2->SR & USART_TXE ){
+    //    print( COM3, "TX" );
+    //   streamTXChar( COM2, USART2 );
+    //} // if
+    USART2->SR = 0;
+  8a:	f44f 4388 	mov.w	r3, #17408	; 0x4400
+  8e:	f2c4 0300 	movt	r3, #16384	; 0x4000
+  92:	f04f 0200 	mov.w	r2, #0
+  96:	801a      	strh	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1395
+}
+  98:	bd38      	pop	{r3, r4, r5, pc}
+  9a:	bf00      	nop
+
+Disassembly of section .text.putsUSART2:
+
+00000000 <putsUSART2>:
+putsUSART2():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1403
+//#endif
+
+u8 putsUSART2( u8 *ucBuffer )
+{ 
+    for( ; *ucBuffer ; ){
+        if( USART2->SR & USART_TXE ){
+   0:	f44f 4288 	mov.w	r2, #17408	; 0x4400
+   4:	f2c4 0200 	movt	r2, #16384	; 0x4000
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1402
+
+//#endif
+
+u8 putsUSART2( u8 *ucBuffer )
+{ 
+    for( ; *ucBuffer ; ){
+   8:	e004      	b.n	14 <putsUSART2+0x14>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1403
+        if( USART2->SR & USART_TXE ){
+   a:	8813      	ldrh	r3, [r2, #0]
+   c:	f013 0f80 	tst.w	r3, #128	; 0x80
+  10:	d0fb      	beq.n	a <putsUSART2+0xa>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1404
+            USART2->DR = *(ucBuffer++);
+  12:	8091      	strh	r1, [r2, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1402
+
+//#endif
+
+u8 putsUSART2( u8 *ucBuffer )
+{ 
+    for( ; *ucBuffer ; ){
+  14:	f810 1b01 	ldrb.w	r1, [r0], #1
+  18:	2900      	cmp	r1, #0
+  1a:	d1f6      	bne.n	a <putsUSART2+0xa>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1410
+            //while( !(USART2->SR & USART_TXE ) );
+        } // if   
+    } // for
+    
+    return( 1 );
+}
+  1c:	f04f 0001 	mov.w	r0, #1
+  20:	4770      	bx	lr
+  22:	bf00      	nop
+
+Disassembly of section .text.putsUSART2FIFO:
+
+00000000 <putsUSART2FIFO>:
+putsUSART2FIFO():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1413
+
+u8 putsUSART2FIFO( u8 *ucBuffer )
+{   
+   0:	e92d 43f8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1412
+    } // for
+    
+    return( 1 );
+}
+
+u8 putsUSART2FIFO( u8 *ucBuffer )
+   4:	f100 0801 	add.w	r8, r0, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1417
+{   
+    u16 i;
+	
+    for( ; *ucBuffer; ){
+		USART2->CR1 &= ~USART_TXEIE;
+   8:	f44f 4588 	mov.w	r5, #17408	; 0x4400
+   c:	f2c4 0500 	movt	r5, #16384	; 0x4000
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1418
+        for( i = 0; i < __PYGMYCOM2BUFFERLEN; i++ ){
+  10:	f04f 0900 	mov.w	r9, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1416
+
+u8 putsUSART2FIFO( u8 *ucBuffer )
+{   
+    u16 i;
+	
+    for( ; *ucBuffer; ){
+  14:	e01d      	b.n	52 <putsUSART2FIFO+0x52>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1417
+		USART2->CR1 &= ~USART_TXEIE;
+  16:	89ab      	ldrh	r3, [r5, #12]
+  18:	f023 0380 	bic.w	r3, r3, #128	; 0x80
+  1c:	ea4f 4303 	mov.w	r3, r3, lsl #16
+  20:	ea4f 4313 	mov.w	r3, r3, lsr #16
+  24:	81ab      	strh	r3, [r5, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1418
+        for( i = 0; i < __PYGMYCOM2BUFFERLEN; i++ ){
+  26:	464c      	mov	r4, r9
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1419
+			if( streamPutChar( COM2, *ucBuffer ) ){
+  28:	f04f 0701 	mov.w	r7, #1
+  2c:	4638      	mov	r0, r7
+  2e:	f816 1c01 	ldrb.w	r1, [r6, #-1]
+  32:	f7ff fffe 	bl	0 <putsUSART2FIFO>
+  36:	b110      	cbz	r0, 3e <putsUSART2FIFO+0x3e>
+  38:	f108 0801 	add.w	r8, r8, #1
+  3c:	e009      	b.n	52 <putsUSART2FIFO+0x52>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1423
+				++ucBuffer;
+				break;
+			} // if
+			USART2->CR1 |= USART_TXEIE;
+  3e:	89ab      	ldrh	r3, [r5, #12]
+  40:	b29b      	uxth	r3, r3
+  42:	f043 0380 	orr.w	r3, r3, #128	; 0x80
+  46:	81ab      	strh	r3, [r5, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1418
+{   
+    u16 i;
+	
+    for( ; *ucBuffer; ){
+		USART2->CR1 &= ~USART_TXEIE;
+        for( i = 0; i < __PYGMYCOM2BUFFERLEN; i++ ){
+  48:	f104 0401 	add.w	r4, r4, #1
+  4c:	b2a4      	uxth	r4, r4
+  4e:	2c80      	cmp	r4, #128	; 0x80
+  50:	d1ec      	bne.n	2c <putsUSART2FIFO+0x2c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1412
+    } // for
+    
+    return( 1 );
+}
+
+u8 putsUSART2FIFO( u8 *ucBuffer )
+  52:	4646      	mov	r6, r8
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1416
+{   
+    u16 i;
+	
+    for( ; *ucBuffer; ){
+  54:	f818 3c01 	ldrb.w	r3, [r8, #-1]
+  58:	2b00      	cmp	r3, #0
+  5a:	d1dc      	bne.n	16 <putsUSART2FIFO+0x16>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1429
+		} // for
+		
+    } // for
+    
+	return( 1 );
+}
+  5c:	f04f 0001 	mov.w	r0, #1
+  60:	e8bd 83f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
+
+Disassembly of section .text.USART3_IRQHandler:
+
+00000000 <USART3_IRQHandler>:
+USART3_IRQHandler():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1434
+#endif // __PYGMYSTREAMCOM2
+
+#ifdef __PYGMYSTREAMCOM3
+void USART3_IRQHandler( void )
+{
+   0:	b508      	push	{r3, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1437
+    u8 ucChar;//, ucAction;
+
+    if( USART3->SR & USART_RXNE){
+   2:	f44f 4390 	mov.w	r3, #18432	; 0x4800
+   6:	f2c4 0300 	movt	r3, #16384	; 0x4000
+   a:	881b      	ldrh	r3, [r3, #0]
+   c:	f013 0f20 	tst.w	r3, #32
+  10:	d019      	beq.n	c6 <globalSTDIO+0xc6>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1438
+        if( globalStreams[ COM3 ].CR & PYGMY_STREAMS_USERHANDLER ){
+  12:	f240 0300 	movw	r3, #0
+  16:	f2c0 0300 	movt	r3, #0
+  1a:	f893 3068 	ldrb.w	r3, [r3, #104]	; 0x68
+  1e:	f013 0f20 	tst.w	r3, #32
+  22:	d006      	beq.n	a0 <globalSTDIO+0xa0>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1439
+            globalStreams[ COM3 ].Get();
+  24:	f240 0300 	movw	r3, #0
+  28:	f2c0 0300 	movt	r3, #0
+  2c:	6d9b      	ldr	r3, [r3, #88]	; 0x58
+  2e:	4798      	blx	r3
+  30:	e009      	b.n	46 <USART3_IRQHandler+0x46>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1441
+        } else{
+            ucChar = USART3->DR;
+  32:	f44f 4390 	mov.w	r3, #18432	; 0x4800
+  36:	f2c4 0300 	movt	r3, #16384	; 0x4000
+  3a:	8899      	ldrh	r1, [r3, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1442
+            streamHandler( COM3, ucChar );
+  3c:	f04f 0002 	mov.w	r0, #2
+  40:	b2c9      	uxtb	r1, r1
+  42:	f7ff fffe 	bl	0 <USART3_IRQHandler>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1445
+        } // else
+    } // if
+    if( USART3->SR & USART_TXE ){
+  46:	f44f 4390 	mov.w	r3, #18432	; 0x4800
+  4a:	f2c4 0300 	movt	r3, #16384	; 0x4000
+  4e:	881b      	ldrh	r3, [r3, #0]
+  50:	f013 0f80 	tst.w	r3, #128	; 0x80
+  54:	d007      	beq.n	66 <USART3_IRQHandler+0x66>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1446
+       streamTXChar( COM3, USART3 );
+  56:	f04f 0002 	mov.w	r0, #2
+  5a:	f44f 4190 	mov.w	r1, #18432	; 0x4800
+  5e:	f2c4 0100 	movt	r1, #16384	; 0x4000
+  62:	f7ff fffe 	bl	0 <USART3_IRQHandler>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1448
+    } // if
+    USART3->SR = 0;
+  66:	f44f 4390 	mov.w	r3, #18432	; 0x4800
+  6a:	f2c4 0300 	movt	r3, #16384	; 0x4000
+  6e:	f04f 0200 	mov.w	r2, #0
+  72:	801a      	strh	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1449
+}
+  74:	bd08      	pop	{r3, pc}
+  76:	bf00      	nop
+
+Disassembly of section .text.putsUSART3:
+
+00000000 <putsUSART3>:
+putsUSART3():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1454
+
+u8 putsUSART3( u8 *ucBuffer )
+{ 
+    for( ; *ucBuffer ; ){
+        if( USART3->SR & USART_TXE ){
+   0:	f44f 4290 	mov.w	r2, #18432	; 0x4800
+   4:	f2c4 0200 	movt	r2, #16384	; 0x4000
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1453
+    USART3->SR = 0;
+}
+
+u8 putsUSART3( u8 *ucBuffer )
+{ 
+    for( ; *ucBuffer ; ){
+   8:	e004      	b.n	14 <putsUSART3+0x14>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1454
+        if( USART3->SR & USART_TXE ){
+   a:	8813      	ldrh	r3, [r2, #0]
+   c:	f013 0f80 	tst.w	r3, #128	; 0x80
+  10:	d0fb      	beq.n	a <putsUSART3+0xa>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1455
+            USART3->DR = *(ucBuffer++);
+  12:	8091      	strh	r1, [r2, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1453
+    USART3->SR = 0;
+}
+
+u8 putsUSART3( u8 *ucBuffer )
+{ 
+    for( ; *ucBuffer ; ){
+  14:	f810 1b01 	ldrb.w	r1, [r0], #1
+  18:	2900      	cmp	r1, #0
+  1a:	d1f6      	bne.n	a <putsUSART3+0xa>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1460
+            USART3->DR = *(ucBuffer++);
+        } // if   
+    } // for
+    
+    return( 1 );
+}
+  1c:	f04f 0001 	mov.w	r0, #1
+  20:	4770      	bx	lr
+  22:	bf00      	nop
+
+Disassembly of section .text.putsUSART3FIFO:
+
+00000000 <putsUSART3FIFO>:
+putsUSART3FIFO():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1463
+
+u8 putsUSART3FIFO( u8 *ucBuffer )
+{   
+   0:	e92d 43f8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1462
+    } // for
+    
+    return( 1 );
+}
+
+u8 putsUSART3FIFO( u8 *ucBuffer )
+   4:	f100 0801 	add.w	r8, r0, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1467
+{   
+    u16 i;
+	
+    for( ; *ucBuffer; ){
+		USART3->CR1 &= ~USART_TXEIE;
+   8:	f44f 4590 	mov.w	r5, #18432	; 0x4800
+   c:	f2c4 0500 	movt	r5, #16384	; 0x4000
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1468
+        for( i = 0; i < __PYGMYCOM3BUFFERLEN; i++ ){
+  10:	f04f 0900 	mov.w	r9, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1466
+
+u8 putsUSART3FIFO( u8 *ucBuffer )
+{   
+    u16 i;
+	
+    for( ; *ucBuffer; ){
+  14:	e01d      	b.n	52 <putsUSART3FIFO+0x52>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1467
+		USART3->CR1 &= ~USART_TXEIE;
+  16:	89ab      	ldrh	r3, [r5, #12]
+  18:	f023 0380 	bic.w	r3, r3, #128	; 0x80
+  1c:	ea4f 4303 	mov.w	r3, r3, lsl #16
+  20:	ea4f 4313 	mov.w	r3, r3, lsr #16
+  24:	81ab      	strh	r3, [r5, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1468
+        for( i = 0; i < __PYGMYCOM3BUFFERLEN; i++ ){
+  26:	464c      	mov	r4, r9
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1469
+			if( streamPutChar( COM3, *ucBuffer ) ){
+  28:	f04f 0702 	mov.w	r7, #2
+  2c:	4638      	mov	r0, r7
+  2e:	f816 1c01 	ldrb.w	r1, [r6, #-1]
+  32:	f7ff fffe 	bl	0 <putsUSART3FIFO>
+  36:	b110      	cbz	r0, 3e <putsUSART3FIFO+0x3e>
+  38:	f108 0801 	add.w	r8, r8, #1
+  3c:	e009      	b.n	52 <putsUSART3FIFO+0x52>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1473
+				++ucBuffer;
+				break;
+			} // if
+			USART3->CR1 |= USART_TXEIE;
+  3e:	89ab      	ldrh	r3, [r5, #12]
+  40:	b29b      	uxth	r3, r3
+  42:	f043 0380 	orr.w	r3, r3, #128	; 0x80
+  46:	81ab      	strh	r3, [r5, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1468
+{   
+    u16 i;
+	
+    for( ; *ucBuffer; ){
+		USART3->CR1 &= ~USART_TXEIE;
+        for( i = 0; i < __PYGMYCOM3BUFFERLEN; i++ ){
+  48:	f104 0401 	add.w	r4, r4, #1
+  4c:	b2a4      	uxth	r4, r4
+  4e:	2c80      	cmp	r4, #128	; 0x80
+  50:	d1ec      	bne.n	2c <putsUSART3FIFO+0x2c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1462
+    } // for
+    
+    return( 1 );
+}
+
+u8 putsUSART3FIFO( u8 *ucBuffer )
+  52:	4646      	mov	r6, r8
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1466
+{   
+    u16 i;
+	
+    for( ; *ucBuffer; ){
+  54:	f818 3c01 	ldrb.w	r3, [r8, #-1]
+  58:	2b00      	cmp	r3, #0
+  5a:	d1dc      	bne.n	16 <putsUSART3FIFO+0x16>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_com.c:1479
+		} // for
+		
+    } // for
+    
+    return( 1 );
+}
+  5c:	f04f 0001 	mov.w	r0, #1
+  60:	e8bd 83f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, pc}

@@ -32,7 +32,8 @@
 #define __PYGMYTASKS
 #define __PYGMYSPRITES
 #define __PYGMYMESSAGES
-#define __PYGMYHUMIDITYSHIELD
+#define __PYGMYSOCKETS
+//#define __PYGMYHUMIDITYSHIELD
 //#define __PYGMYMODEMSHIELD
 //#define __PYGMYVOLTSHIELD
 //#define __PYGMYWEATHERSHIELD
@@ -43,6 +44,7 @@
 //---------------------------------- Stream Setting Defines-----------------------------------
 //--------------------------------------------------------------------------------------------
 #define __PYGMYSTREAMS
+    //#define __PYGMYSTREAMSOCKET
     //#define __PYGMYSTREAMCOM1
     //#define __PYGMYSTREAMCOM2
     #define __PYGMYSTREAMCOM3
@@ -70,6 +72,7 @@
 #include "pygmy_rtc.h"
 #include "pygmy_string.h"
 #include "pygmy_rf.h"
+#include "pygmy_socket.h"
 
 //-------------------------------------------------------------------------------------
 // Place Hardware Defines Below -------------------------------------------------------

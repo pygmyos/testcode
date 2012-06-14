@@ -20,122 +20,123 @@ Disassembly of section .text.gemDrawEndMenu:
 00000000 <gemDrawEndMenu>:
 gemDrawEndMenu():
    0:	b500      	push	{lr}
-   2:	2100      	movs	r1, #0
+   2:	4849      	ldr	r0, [pc, #292]	; (128 <gemDrawEndMenu+0x128>)
    4:	b093      	sub	sp, #76	; 0x4c
-   6:	4847      	ldr	r0, [pc, #284]	; (124 <gemDrawEndMenu+0x124>)
-   8:	f7ff fffe 	bl	0 <taskDelete>
-   c:	f7ff fffe 	bl	0 <guiInitSprites>
-  10:	2100      	movs	r1, #0
-  12:	2202      	movs	r2, #2
-  14:	2301      	movs	r3, #1
-  16:	4844      	ldr	r0, [pc, #272]	; (128 <gemDrawEndMenu+0x128>)
-  18:	f7ff fffe 	bl	0 <pinInterrupt>
-  1c:	2128      	movs	r1, #40	; 0x28
-  1e:	2202      	movs	r2, #2
-  20:	2301      	movs	r3, #1
-  22:	4842      	ldr	r0, [pc, #264]	; (12c <gemDrawEndMenu+0x12c>)
-  24:	f7ff fffe 	bl	0 <pinInterrupt>
-  28:	2106      	movs	r1, #6
-  2a:	2202      	movs	r2, #2
-  2c:	2301      	movs	r3, #1
-  2e:	4840      	ldr	r0, [pc, #256]	; (130 <gemDrawEndMenu+0x130>)
-  30:	f7ff fffe 	bl	0 <pinInterrupt>
-  34:	2104      	movs	r1, #4
-  36:	2202      	movs	r2, #2
-  38:	2301      	movs	r3, #1
-  3a:	483e      	ldr	r0, [pc, #248]	; (134 <gemDrawEndMenu+0x134>)
-  3c:	f7ff fffe 	bl	0 <pinInterrupt>
-  40:	2105      	movs	r1, #5
-  42:	2202      	movs	r2, #2
-  44:	2301      	movs	r3, #1
-  46:	483c      	ldr	r0, [pc, #240]	; (138 <gemDrawEndMenu+0x138>)
-  48:	f7ff fffe 	bl	0 <pinInterrupt>
-  4c:	2102      	movs	r1, #2
-  4e:	460a      	mov	r2, r1
-  50:	2301      	movs	r3, #1
-  52:	483a      	ldr	r0, [pc, #232]	; (13c <gemDrawEndMenu+0x13c>)
-  54:	f7ff fffe 	bl	0 <pinInterrupt>
-  58:	2103      	movs	r1, #3
-  5a:	2202      	movs	r2, #2
-  5c:	2301      	movs	r3, #1
-  5e:	4838      	ldr	r0, [pc, #224]	; (140 <gemDrawEndMenu+0x140>)
-  60:	f7ff fffe 	bl	0 <pinInterrupt>
-  64:	f7ff fffe 	bl	0 <colorGetRootColor>
-  68:	2165      	movs	r1, #101	; 0x65
-  6a:	22be      	movs	r2, #190	; 0xbe
-  6c:	23ff      	movs	r3, #255	; 0xff
-  6e:	f7ff fffe 	bl	0 <colorSetRGB>
-  72:	f7ff fffe 	bl	0 <colorGetRootBackColor>
-  76:	2165      	movs	r1, #101	; 0x65
-  78:	460a      	mov	r2, r1
-  7a:	460b      	mov	r3, r1
-  7c:	f7ff fffe 	bl	0 <colorSetRGB>
-  80:	f7ff fffe 	bl	0 <colorGetRootFocusColor>
-  84:	2165      	movs	r1, #101	; 0x65
-  86:	460a      	mov	r2, r1
-  88:	460b      	mov	r3, r1
-  8a:	f7ff fffe 	bl	0 <colorSetRGB>
-  8e:	f7ff fffe 	bl	0 <colorGetRootFocusBackColor>
-  92:	2165      	movs	r1, #101	; 0x65
-  94:	228e      	movs	r2, #142	; 0x8e
-  96:	23df      	movs	r3, #223	; 0xdf
-  98:	f7ff fffe 	bl	0 <colorSetRGB>
-  9c:	f7ff fffe 	bl	0 <colorGetRootClearColor>
-  a0:	21ff      	movs	r1, #255	; 0xff
-  a2:	220e      	movs	r2, #14
-  a4:	23e0      	movs	r3, #224	; 0xe0
-  a6:	f7ff fffe 	bl	0 <colorSetRGB>
-  aa:	2008      	movs	r0, #8
-  ac:	f7ff fffe 	bl	0 <guiSetRadius>
-  b0:	4824      	ldr	r0, [pc, #144]	; (94 <guiSetStyle+0x94>)
-  b2:	f7ff fffe 	bl	0 <guiSetStyle>
-  b6:	f7ff fffe 	bl	0 <formFreeAll>
-  ba:	2280      	movs	r2, #128	; 0x80
-  bc:	2000      	movs	r0, #0
-  be:	4613      	mov	r3, r2
-  c0:	4601      	mov	r1, r0
-  c2:	f7ff fffe 	bl	0 <formNew>
-  c6:	4b20      	ldr	r3, [pc, #128]	; (148 <gemDrawEndMenu+0x148>)
-  c8:	4668      	mov	r0, sp
-  ca:	9307      	str	r3, [sp, #28]
-  cc:	2304      	movs	r3, #4
-  ce:	f88d 3020 	strb.w	r3, [sp, #32]
-  d2:	2300      	movs	r3, #0
-  d4:	f8ad 3014 	strh.w	r3, [sp, #20]
-  d8:	2306      	movs	r3, #6
-  da:	f8ad 3016 	strh.w	r3, [sp, #22]
-  de:	237f      	movs	r3, #127	; 0x7f
-  e0:	f8ad 3018 	strh.w	r3, [sp, #24]
-  e4:	2324      	movs	r3, #36	; 0x24
-  e6:	f8ad 301a 	strh.w	r3, [sp, #26]
-  ea:	4b18      	ldr	r3, [pc, #96]	; (14c <gemDrawEndMenu+0x14c>)
-  ec:	9309      	str	r3, [sp, #36]	; 0x24
-  ee:	f7ff fffe 	bl	0 <formAddWidget>
-  f2:	f7ff fffe 	bl	0 <widgetGetCurrent>
-  f6:	4916      	ldr	r1, [pc, #88]	; (150 <gemDrawEndMenu+0x150>)
-  f8:	220b      	movs	r2, #11
-  fa:	f7ff fffe 	bl	0 <widgetAddEventHandler>
-  fe:	232e      	movs	r3, #46	; 0x2e
- 100:	f8ad 3016 	strh.w	r3, [sp, #22]
- 104:	4b13      	ldr	r3, [pc, #76]	; (154 <gemDrawEndMenu+0x154>)
- 106:	4668      	mov	r0, sp
- 108:	9309      	str	r3, [sp, #36]	; 0x24
- 10a:	f7ff fffe 	bl	0 <formAddWidget>
- 10e:	f7ff fffe 	bl	0 <widgetGetCurrent>
- 112:	4911      	ldr	r1, [pc, #68]	; (158 <gemDrawEndMenu+0x158>)
- 114:	220b      	movs	r2, #11
- 116:	f7ff fffe 	bl	0 <widgetAddEventHandler>
- 11a:	f7ff fffe 	bl	0 <drawForms>
- 11e:	b013      	add	sp, #76	; 0x4c
- 120:	bd00      	pop	{pc}
- 122:	bf00      	nop
+   6:	f7ff fffe 	bl	0 <taskIsRunning>
+   a:	b110      	cbz	r0, 12 <gemDrawEndMenu+0x12>
+   c:	4846      	ldr	r0, [pc, #280]	; (128 <gemDrawEndMenu+0x128>)
+   e:	f7ff fffe 	bl	0 <taskDelete>
+  12:	f7ff fffe 	bl	0 <guiInitSprites>
+  16:	2100      	movs	r1, #0
+  18:	2202      	movs	r2, #2
+  1a:	2301      	movs	r3, #1
+  1c:	4843      	ldr	r0, [pc, #268]	; (12c <gemDrawEndMenu+0x12c>)
+  1e:	f7ff fffe 	bl	0 <pinInterrupt>
+  22:	2128      	movs	r1, #40	; 0x28
+  24:	2202      	movs	r2, #2
+  26:	2301      	movs	r3, #1
+  28:	4841      	ldr	r0, [pc, #260]	; (130 <gemDrawEndMenu+0x130>)
+  2a:	f7ff fffe 	bl	0 <pinInterrupt>
+  2e:	2106      	movs	r1, #6
+  30:	2202      	movs	r2, #2
+  32:	2301      	movs	r3, #1
+  34:	483f      	ldr	r0, [pc, #252]	; (134 <gemDrawEndMenu+0x134>)
+  36:	f7ff fffe 	bl	0 <pinInterrupt>
+  3a:	2104      	movs	r1, #4
+  3c:	2202      	movs	r2, #2
+  3e:	2301      	movs	r3, #1
+  40:	483d      	ldr	r0, [pc, #244]	; (138 <gemDrawEndMenu+0x138>)
+  42:	f7ff fffe 	bl	0 <pinInterrupt>
+  46:	2105      	movs	r1, #5
+  48:	2202      	movs	r2, #2
+  4a:	2301      	movs	r3, #1
+  4c:	483b      	ldr	r0, [pc, #236]	; (13c <gemDrawEndMenu+0x13c>)
+  4e:	f7ff fffe 	bl	0 <pinInterrupt>
+  52:	2102      	movs	r1, #2
+  54:	460a      	mov	r2, r1
+  56:	2301      	movs	r3, #1
+  58:	4839      	ldr	r0, [pc, #228]	; (140 <gemDrawEndMenu+0x140>)
+  5a:	f7ff fffe 	bl	0 <pinInterrupt>
+  5e:	2103      	movs	r1, #3
+  60:	2202      	movs	r2, #2
+  62:	2301      	movs	r3, #1
+  64:	4837      	ldr	r0, [pc, #220]	; (144 <gemDrawEndMenu+0x144>)
+  66:	f7ff fffe 	bl	0 <pinInterrupt>
+  6a:	f7ff fffe 	bl	0 <colorGetRootColor>
+  6e:	2165      	movs	r1, #101	; 0x65
+  70:	22be      	movs	r2, #190	; 0xbe
+  72:	23ff      	movs	r3, #255	; 0xff
+  74:	f7ff fffe 	bl	0 <colorSetRGB>
+  78:	f7ff fffe 	bl	0 <colorGetRootBackColor>
+  7c:	2165      	movs	r1, #101	; 0x65
+  7e:	460a      	mov	r2, r1
+  80:	460b      	mov	r3, r1
+  82:	f7ff fffe 	bl	0 <colorSetRGB>
+  86:	f7ff fffe 	bl	0 <colorGetRootFocusColor>
+  8a:	2165      	movs	r1, #101	; 0x65
+  8c:	460a      	mov	r2, r1
+  8e:	460b      	mov	r3, r1
+  90:	f7ff fffe 	bl	0 <colorSetRGB>
+  94:	f7ff fffe 	bl	0 <colorGetRootFocusBackColor>
+  98:	2165      	movs	r1, #101	; 0x65
+  9a:	228e      	movs	r2, #142	; 0x8e
+  9c:	23df      	movs	r3, #223	; 0xdf
+  9e:	f7ff fffe 	bl	0 <colorSetRGB>
+  a2:	f7ff fffe 	bl	0 <colorGetRootClearColor>
+  a6:	21ff      	movs	r1, #255	; 0xff
+  a8:	220e      	movs	r2, #14
+  aa:	23e0      	movs	r3, #224	; 0xe0
+  ac:	f7ff fffe 	bl	0 <colorSetRGB>
+  b0:	2008      	movs	r0, #8
+  b2:	f7ff fffe 	bl	0 <guiSetRadius>
+  b6:	4824      	ldr	r0, [pc, #144]	; (94 <guiSetStyle+0x94>)
+  b8:	f7ff fffe 	bl	0 <guiSetStyle>
+  bc:	f7ff fffe 	bl	0 <formFreeAll>
+  c0:	2280      	movs	r2, #128	; 0x80
+  c2:	2000      	movs	r0, #0
+  c4:	4613      	mov	r3, r2
+  c6:	4601      	mov	r1, r0
+  c8:	f7ff fffe 	bl	0 <formNew>
+  cc:	4b1f      	ldr	r3, [pc, #124]	; (14c <gemDrawEndMenu+0x14c>)
+  ce:	4668      	mov	r0, sp
+  d0:	9307      	str	r3, [sp, #28]
+  d2:	2305      	movs	r3, #5
+  d4:	f88d 3020 	strb.w	r3, [sp, #32]
+  d8:	2300      	movs	r3, #0
+  da:	f8ad 3014 	strh.w	r3, [sp, #20]
+  de:	2306      	movs	r3, #6
+  e0:	f8ad 3016 	strh.w	r3, [sp, #22]
+  e4:	237f      	movs	r3, #127	; 0x7f
+  e6:	f8ad 3018 	strh.w	r3, [sp, #24]
+  ea:	2324      	movs	r3, #36	; 0x24
+  ec:	f8ad 301a 	strh.w	r3, [sp, #26]
+  f0:	4b17      	ldr	r3, [pc, #92]	; (150 <gemDrawEndMenu+0x150>)
+  f2:	9309      	str	r3, [sp, #36]	; 0x24
+  f4:	f7ff fffe 	bl	0 <formAddWidget>
+  f8:	f7ff fffe 	bl	0 <widgetGetCurrent>
+  fc:	4915      	ldr	r1, [pc, #84]	; (154 <gemDrawEndMenu+0x154>)
+  fe:	220b      	movs	r2, #11
+ 100:	f7ff fffe 	bl	0 <widgetAddEventHandler>
+ 104:	232e      	movs	r3, #46	; 0x2e
+ 106:	f8ad 3016 	strh.w	r3, [sp, #22]
+ 10a:	4b13      	ldr	r3, [pc, #76]	; (158 <gemDrawEndMenu+0x158>)
+ 10c:	4668      	mov	r0, sp
+ 10e:	9309      	str	r3, [sp, #36]	; 0x24
+ 110:	f7ff fffe 	bl	0 <formAddWidget>
+ 114:	f7ff fffe 	bl	0 <widgetGetCurrent>
+ 118:	4910      	ldr	r1, [pc, #64]	; (15c <gemDrawEndMenu+0x15c>)
+ 11a:	220b      	movs	r2, #11
+ 11c:	f7ff fffe 	bl	0 <widgetAddEventHandler>
+ 120:	f7ff fffe 	bl	0 <drawForms>
+ 124:	b013      	add	sp, #76	; 0x4c
+ 126:	bd00      	pop	{pc}
 	...
- 144:	00010055 	.word	0x00010055
- 148:	00110151 	.word	0x00110151
- 14c:	00000008 	.word	0x00000008
- 150:	00000000 	.word	0x00000000
- 154:	00000011 	.word	0x00000011
- 158:	00000000 	.word	0x00000000
+ 148:	00010055 	.word	0x00010055
+ 14c:	00110151 	.word	0x00110151
+ 150:	00000008 	.word	0x00000008
+ 154:	00000000 	.word	0x00000000
+ 158:	00000011 	.word	0x00000011
+ 15c:	00000000 	.word	0x00000000
 
 Disassembly of section .text.gemDetectRows:
 
@@ -148,11 +149,11 @@ Disassembly of section .text.gemDrawGameOver:
 00000000 <gemDrawGameOver>:
 gemDrawGameOver():
    0:	b513      	push	{r0, r1, r4, lr}
-   2:	23ff      	movs	r3, #255	; 0xff
-   4:	2100      	movs	r1, #0
-   6:	9101      	str	r1, [sp, #4]
-   8:	4813      	ldr	r0, [pc, #76]	; (58 <gemDrawGameOver+0x58>)
-   a:	f88d 3004 	strb.w	r3, [sp, #4]
+   2:	2300      	movs	r3, #0
+   4:	9301      	str	r3, [sp, #4]
+   6:	33ff      	adds	r3, #255	; 0xff
+   8:	f88d 3004 	strb.w	r3, [sp, #4]
+   c:	4813      	ldr	r0, [pc, #76]	; (5c <gemDrawGameOver+0x5c>)
    e:	3bdf      	subs	r3, #223	; 0xdf
   10:	f88d 3006 	strb.w	r3, [sp, #6]
   14:	f7ff fffe 	bl	0 <taskDelete>
@@ -168,20 +169,20 @@ gemDrawGameOver():
   34:	4601      	mov	r1, r0
   36:	4620      	mov	r0, r4
   38:	f7ff fffe 	bl	0 <fontSetColor>
-  3c:	2003      	movs	r0, #3
-  3e:	4907      	ldr	r1, [pc, #28]	; (5c <gemDrawGameOver+0x5c>)
+  3c:	4908      	ldr	r1, [pc, #32]	; (60 <gemDrawGameOver+0x60>)
+  3e:	2003      	movs	r0, #3
   40:	f7ff fffe 	bl	0 <print>
-  44:	4b06      	ldr	r3, [pc, #24]	; (60 <gemDrawGameOver+0x60>)
-  46:	f64a 22aa 	movw	r2, #43690	; 0xaaaa
-  4a:	601a      	str	r2, [r3, #0]
-  4c:	4805      	ldr	r0, [pc, #20]	; (64 <gemDrawGameOver+0x64>)
-  4e:	f7ff fffe 	bl	0 <delay>
-  52:	f7ff fffe 	bl	0 <gemDrawGameOver>
-  56:	bd1c      	pop	{r2, r3, r4, pc}
-  58:	00000000 	.word	0x00000000
-  5c:	0000001b 	.word	0x0000001b
-  60:	40003000 	.word	0x40003000
-  64:	003d0900 	.word	0x003d0900
+  44:	f247 5030 	movw	r0, #30000	; 0x7530
+  48:	f7ff fffe 	bl	0 <delay>
+  4c:	f7ff fffe 	bl	0 <gemDrawGameOver>
+  50:	4b04      	ldr	r3, [pc, #16]	; (64 <gemDrawGameOver+0x64>)
+  52:	f64a 22aa 	movw	r2, #43690	; 0xaaaa
+  56:	601a      	str	r2, [r3, #0]
+  58:	bd1c      	pop	{r2, r3, r4, pc}
+  5a:	bf00      	nop
+  5c:	00000000 	.word	0x00000000
+  60:	0000001b 	.word	0x0000001b
+  64:	40003000 	.word	0x40003000
 
 Disassembly of section .text.gemResetCursor:
 
@@ -491,38 +492,30 @@ Disassembly of section .text.gemAdd:
 
 00000000 <gemAdd>:
 gemAdd():
-   0:	4604b5f7 	.word	0x4604b5f7
+   0:	4604b570 	.word	0x4604b570
    4:	4615      	mov	r5, r2
    6:	460e      	mov	r6, r1
-   8:	b1d9      	cbz	r1, 42 <gemAdd+0x42>
+   8:	b1a1      	cbz	r1, 34 <gemAdd+0x34>
    a:	4610      	mov	r0, r2
    c:	f7ff fffe 	bl	0 <guiGetSprite>
-  10:	4a0d      	ldr	r2, [pc, #52]	; (48 <gemAdd+0x48>)
+  10:	4a09      	ldr	r2, [pc, #36]	; (38 <gemAdd+0x38>)
   12:	eb06 03c4 	add.w	r3, r6, r4, lsl #3
   16:	54d5      	strb	r5, [r2, r3]
-  18:	8a81      	ldrh	r1, [r0, #20]
-  1a:	6905      	ldr	r5, [r0, #16]
-  1c:	0127      	lsls	r7, r4, #4
-  1e:	f825 7011 	strh.w	r7, [r5, r1, lsl #1]
-  22:	3101      	adds	r1, #1
-  24:	b289      	uxth	r1, r1
-  26:	0137      	lsls	r7, r6, #4
-  28:	f825 7011 	strh.w	r7, [r5, r1, lsl #1]
-  2c:	3101      	adds	r1, #1
-  2e:	8281      	strh	r1, [r0, #20]
-  30:	5cd2      	ldrb	r2, [r2, r3]
-  32:	2001      	movs	r0, #1
-  34:	4905      	ldr	r1, [pc, #20]	; (4c <gemAdd+0x4c>)
-  36:	4623      	mov	r3, r4
-  38:	9600      	str	r6, [sp, #0]
-  3a:	f7ff fffe 	bl	0 <print>
-  3e:	2001      	movs	r0, #1
-  40:	e000      	b.n	44 <gemAdd+0x44>
-  42:	4608      	mov	r0, r1
-  44:	bdfe      	pop	{r1, r2, r3, r4, r5, r6, r7, pc}
-  46:	bf00      	nop
-  48:	00000000 	.word	0x00000000
-  4c:	00000025 	.word	0x00000025
+  18:	8a83      	ldrh	r3, [r0, #20]
+  1a:	6902      	ldr	r2, [r0, #16]
+  1c:	0124      	lsls	r4, r4, #4
+  1e:	f822 4013 	strh.w	r4, [r2, r3, lsl #1]
+  22:	3301      	adds	r3, #1
+  24:	b29b      	uxth	r3, r3
+  26:	0136      	lsls	r6, r6, #4
+  28:	f822 6013 	strh.w	r6, [r2, r3, lsl #1]
+  2c:	3301      	adds	r3, #1
+  2e:	8283      	strh	r3, [r0, #20]
+  30:	2001      	movs	r0, #1
+  32:	bd70      	pop	{r4, r5, r6, pc}
+  34:	4608      	mov	r0, r1
+  36:	bd70      	pop	{r4, r5, r6, pc}
+  38:	00000000 	.word	0x00000000
 
 Disassembly of section .text.gemDetectRowsY:
 
@@ -714,7 +707,7 @@ gemDetectRowsX():
  112:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
  116:	bf00      	nop
  118:	00000000 	.word	0x00000000
- 11c:	00000040 	.word	0x00000040
+ 11c:	00000025 	.word	0x00000025
 
 Disassembly of section .text.gemGravity:
 

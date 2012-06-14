@@ -1,0 +1,676 @@
+
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\gsm\pygmy_adc.o:     file format elf32-littlearm
+C:\Users\MightyDubster\Documents\Projects\pygmyos.code\gsm\pygmy_adc.o
+
+
+Disassembly of section .text.adcGetStatus:
+
+00000000 <adcGetStatus>:
+adcGetStatus():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:28
+#ifdef __PYGMYANALOG
+const u8 PYGMY_ADC_CHANNELS[] = { PA0, PA1, PA2, PA3, PA4, PA5, PA6, PA7, PB0, PB1, PC0, PC1, PC2, PC3, PC4, PC5, ADCTEMP, ADCREF };
+u16 uiGlobalADC1Channel, uiGlobalADC1[ 16 ], globalADCStatus = 0;
+
+u16 adcGetStatus( void )
+{
+   0:	f240 0300 	movw	r3, #0
+   4:	f2c0 0300 	movt	r3, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:30
+    return( globalADCStatus );
+}
+   8:	8818      	ldrh	r0, [r3, #0]
+   a:	4770      	bx	lr
+
+Disassembly of section .text.ADC1_2_IRQHandler:
+
+00000000 <ADC1_2_IRQHandler>:
+ADC1_2_IRQHandler():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:36
+
+void ADC1_2_IRQHandler( void )
+{
+    u16 i;
+
+    if( ADC1->SR & ADC_EOC ){
+   0:	f44f 5310 	mov.w	r3, #9216	; 0x2400
+   4:	f2c4 0301 	movt	r3, #16385	; 0x4001
+   8:	681a      	ldr	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:42
+      
+        //uiGlobalADC1[ uiGlobalADC1Channel++ ] = ADC1->DR;
+        
+    } // if
+    
+    ADC1->SR = 0x00;
+   a:	f04f 0200 	mov.w	r2, #0
+   e:	601a      	str	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:44
+        
+}
+  10:	4770      	bx	lr
+  12:	bf00      	nop
+
+Disassembly of section .text.DMAChannel1_IRQHandler:
+
+00000000 <DMAChannel1_IRQHandler>:
+DMAChannel1_IRQHandler():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:50
+
+void DMAChannel1_IRQHandler( void )
+{
+    u16 i;
+
+    if( DMA1->ISR & BIT3 ){
+   0:	f04f 0300 	mov.w	r3, #0
+   4:	f2c4 0302 	movt	r3, #16386	; 0x4002
+   8:	681b      	ldr	r3, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:54
+        // ToDo: Add DMA Handler code
+    }
+    //DMA1->IFCR = 0x0000000F;
+}
+   a:	4770      	bx	lr
+
+Disassembly of section .text.adcInit:
+
+00000000 <adcInit>:
+adcInit():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:57
+
+void adcInit( void ) //u32 ulScan )
+{
+   0:	b430      	push	{r4, r5}
+   2:	4920      	ldr	r1, [pc, #128]	; (84 <adcInit+0x84>)
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:56
+        // ToDo: Add DMA Handler code
+    }
+    //DMA1->IFCR = 0x0000000F;
+}
+
+void adcInit( void ) //u32 ulScan )
+   4:	f101 0502 	add.w	r5, r1, #2
+   8:	f101 0420 	add.w	r4, r1, #32
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:62
+{
+    // ADC1 uses DMA1 Channel1 to manage Data Register after conversion
+    u16 i;
+
+    for( i = 0; i< 16; i++ ){
+        uiGlobalADC1[ i ] = 0;
+   c:	f04f 0000 	mov.w	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:63
+        ADC1->SQR1 = 0;
+  10:	f44f 5310 	mov.w	r3, #9216	; 0x2400
+  14:	f2c4 0301 	movt	r3, #16385	; 0x4001
+  18:	4602      	mov	r2, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:62
+{
+    // ADC1 uses DMA1 Channel1 to manage Data Register after conversion
+    u16 i;
+
+    for( i = 0; i< 16; i++ ){
+        uiGlobalADC1[ i ] = 0;
+  1a:	f821 0f02 	strh.w	r0, [r1, #2]!
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:63
+        ADC1->SQR1 = 0;
+  1e:	62da      	str	r2, [r3, #44]	; 0x2c
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:64
+        ADC1->SQR2 = 0;
+  20:	631a      	str	r2, [r3, #48]	; 0x30
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:65
+        ADC1->SQR3 = 0;
+  22:	635a      	str	r2, [r3, #52]	; 0x34
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:66
+        ADC1->SMPR1 = 0;
+  24:	60da      	str	r2, [r3, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:67
+        ADC1->SMPR2 = 0;
+  26:	611a      	str	r2, [r3, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:61
+void adcInit( void ) //u32 ulScan )
+{
+    // ADC1 uses DMA1 Channel1 to manage Data Register after conversion
+    u16 i;
+
+    for( i = 0; i< 16; i++ ){
+  28:	42a1      	cmp	r1, r4
+  2a:	d1f6      	bne.n	1a <adcInit+0x1a>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:69
+        ADC1->SQR2 = 0;
+        ADC1->SQR3 = 0;
+        ADC1->SMPR1 = 0;
+        ADC1->SMPR2 = 0;
+    } // for
+    PYGMY_RCC_ADC1_ENABLE;
+  2c:	f44f 5380 	mov.w	r3, #4096	; 0x1000
+  30:	f2c4 0302 	movt	r3, #16386	; 0x4002
+  34:	699a      	ldr	r2, [r3, #24]
+  36:	f442 7200 	orr.w	r2, r2, #512	; 0x200
+  3a:	619a      	str	r2, [r3, #24]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:70
+    PYGMY_RCC_DMA1_ENABLE;
+  3c:	695a      	ldr	r2, [r3, #20]
+  3e:	f042 0201 	orr.w	r2, r2, #1
+  42:	615a      	str	r2, [r3, #20]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:71
+    PYGMY_DMA1_CH1_DISABLE;
+  44:	f04f 0308 	mov.w	r3, #8
+  48:	f2c4 0302 	movt	r3, #16386	; 0x4002
+  4c:	681a      	ldr	r2, [r3, #0]
+  4e:	f022 0201 	bic.w	r2, r2, #1
+  52:	601a      	str	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:72
+    ADC1->CR2 = 0x00;       // Clear ADC if already in use
+  54:	f44f 5210 	mov.w	r2, #9216	; 0x2400
+  58:	f2c4 0201 	movt	r2, #16385	; 0x4001
+  5c:	f04f 0100 	mov.w	r1, #0
+  60:	6091      	str	r1, [r2, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:78
+    //enableInterrupt( ADC_IRQ );
+    //enableInterrupt( DMAChannel1_IRQ );
+    //setInterruptPriority( DMAChannel1_IRQ, 1 );
+    //setInterruptPriority( ADC_IRQ, 1 );
+
+    ADC1->CR1 = ADC_SCAN;//BIT5; // Enable EOC Interrupt 
+  62:	f44f 7080 	mov.w	r0, #256	; 0x100
+  66:	6050      	str	r0, [r2, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:81
+    
+    //ADC1->CR2 |= (BIT20|BIT19|BIT18|BIT17); // Software trigger
+    ADC1->CR2 = (ADC_DMA|ADC_EXTTRIG|ADC_EXTSEL_SWSTART|ADC_ADON); // Start ADC with Calibration
+  68:	f240 1001 	movw	r0, #257	; 0x101
+  6c:	f2c0 001e 	movt	r0, #30
+  70:	6090      	str	r0, [r2, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:85
+    //ADC1->CR2 = ADC_ADON;
+    //while( !(ADC1->CR2 & ADC_CAL) ); // Wait for Calibration to complete
+    
+    DMA1_CH1->CPAR = (volatile u32)(volatile u32*)ADC1->DR; // Peripheral Register Pointer
+  72:	6cd2      	ldr	r2, [r2, #76]	; 0x4c
+  74:	609a      	str	r2, [r3, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:86
+    DMA1_CH1->CMAR = (volatile u32)(volatile u32*)uiGlobalADC1; // Destination Memory Address
+  76:	60dd      	str	r5, [r3, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:87
+    DMA1_CH1->CNDTR = 0; // Number of values to transfer
+  78:	6059      	str	r1, [r3, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:88
+    DMA1_CH1->CCR = ( DMA_MSIZE16 | DMA_PSIZE16 | DMA_MINC | DMA_CIRC );   
+  7a:	f44f 62b4 	mov.w	r2, #1440	; 0x5a0
+  7e:	601a      	str	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:89
+}
+  80:	bc30      	pop	{r4, r5}
+  82:	4770      	bx	lr
+  84:	fffffffe 	.word	0xfffffffe
+
+Disassembly of section .text.adcStart:
+
+00000000 <adcStart>:
+adcStart():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:94
+
+void adcStart( void )
+{
+    //ADC1->CR2 |= ADC_ADON;   // Start Single Conversion
+    ADC1->CR2 |= ADC_SWSTART;
+   0:	f44f 5310 	mov.w	r3, #9216	; 0x2400
+   4:	f2c4 0301 	movt	r3, #16385	; 0x4001
+   8:	689a      	ldr	r2, [r3, #8]
+   a:	f442 0280 	orr.w	r2, r2, #4194304	; 0x400000
+   e:	609a      	str	r2, [r3, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:95
+}
+  10:	4770      	bx	lr
+  12:	bf00      	nop
+
+Disassembly of section .text.adcSetSampleTime:
+
+00000000 <adcSetSampleTime>:
+adcSetSampleTime():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:105
+
+    //ucInput = 
+    
+    //ADC1->SMPR1 = 
+    //ADC1->SMPR2 = 
+}
+   0:	4770      	bx	lr
+   2:	bf00      	nop
+
+Disassembly of section .text.adcGetSQR:
+
+00000000 <adcGetSQR>:
+adcGetSQR():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:141
+u8 adcGetSQR( u8 ucIndex )
+{
+    // Note!!! This function uses a 1 base index, i.e. SQ1, etc., to match the ST datasheets
+    u8 ucSQR;
+    
+    if( ucIndex < 7 ){
+   0:	2806      	cmp	r0, #6
+   2:	d80c      	bhi.n	1e <adcGetSQR+0x1e>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:142
+        ucSQR = ADC1->SQR1 >> ( ( ucIndex - 1 ) * 5 );
+   4:	f44f 5310 	mov.w	r3, #9216	; 0x2400
+   8:	f2c4 0301 	movt	r3, #16385	; 0x4001
+   c:	6adb      	ldr	r3, [r3, #44]	; 0x2c
+   e:	f100 30ff 	add.w	r0, r0, #4294967295
+  12:	eb00 0080 	add.w	r0, r0, r0, lsl #2
+  16:	fa23 f000 	lsr.w	r0, r3, r0
+  1a:	b2c0      	uxtb	r0, r0
+  1c:	e011      	b.n	42 <adcGetSQR+0x42>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:143
+    } else if( ucIndex < 13 ){
+  1e:	280c      	cmp	r0, #12
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:144
+        ucSQR = ADC1->SQR2 >> ( ( ucIndex - 7 ) * 5 );
+  20:	f44f 5310 	mov.w	r3, #9216	; 0x2400
+  24:	f2c4 0301 	movt	r3, #16385	; 0x4001
+  28:	bf9d      	ittte	ls
+  2a:	6b1b      	ldrls	r3, [r3, #48]	; 0x30
+  2c:	eb00 0080 	addls.w	r0, r0, r0, lsl #2
+  30:	3823      	subls	r0, #35	; 0x23
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:146
+    } else{
+        ucSQR = ADC1->SQR3 >> ( ( ucIndex - 13 ) * 5 );
+  32:	6b5b      	ldrhi	r3, [r3, #52]	; 0x34
+  34:	bf84      	itt	hi
+  36:	eb00 0080 	addhi.w	r0, r0, r0, lsl #2
+  3a:	3841      	subhi	r0, #65	; 0x41
+  3c:	fa23 f000 	lsr.w	r0, r3, r0
+  40:	b2c0      	uxtb	r0, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:150
+    } // else
+    
+    return( ucSQR & 0x1F ); // Mask the 5 bit register value
+}
+  42:	f000 001f 	and.w	r0, r0, #31
+  46:	4770      	bx	lr
+
+Disassembly of section .text.adcDisableChannel:
+
+00000000 <adcDisableChannel>:
+adcDisableChannel():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:155
+
+u8 adcDisableChannel( u8 ucChannel )
+{
+
+}
+   0:	4770      	bx	lr
+   2:	bf00      	nop
+
+Disassembly of section .text.adcDisableAll:
+
+00000000 <adcDisableAll>:
+adcDisableAll():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:160
+
+void adcDisableAll( u8 ucChannel )
+{
+
+}
+   0:	4770      	bx	lr
+   2:	bf00      	nop
+
+Disassembly of section .text.adcSingleSampleInit:
+
+00000000 <adcSingleSampleInit>:
+adcSingleSampleInit():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:166
+
+void adcSingleSampleInit( void )
+{
+    //u16 i;
+
+    PYGMY_RCC_ADC1_ENABLE;
+   0:	f44f 5380 	mov.w	r3, #4096	; 0x1000
+   4:	f2c4 0302 	movt	r3, #16386	; 0x4002
+   8:	699a      	ldr	r2, [r3, #24]
+   a:	f442 7200 	orr.w	r2, r2, #512	; 0x200
+   e:	619a      	str	r2, [r3, #24]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:167
+    ADC1->CR2 = 0;
+  10:	f44f 5310 	mov.w	r3, #9216	; 0x2400
+  14:	f2c4 0301 	movt	r3, #16385	; 0x4001
+  18:	f04f 0200 	mov.w	r2, #0
+  1c:	609a      	str	r2, [r3, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:168
+    ADC1->SR = 0;
+  1e:	601a      	str	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:169
+    ADC1->CR1 = 0;
+  20:	605a      	str	r2, [r3, #4]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:170
+    ADC1->SMPR1 = 0;
+  22:	60da      	str	r2, [r3, #12]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:171
+    ADC1->SMPR2 = 0;
+  24:	611a      	str	r2, [r3, #16]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:172
+    ADC1->SQR1 = 0;
+  26:	62da      	str	r2, [r3, #44]	; 0x2c
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:173
+    ADC1->SQR2 = 0;
+  28:	631a      	str	r2, [r3, #48]	; 0x30
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:174
+    ADC1->SQR3 = 0;
+  2a:	635a      	str	r2, [r3, #52]	; 0x34
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:175
+    ADC1->CR2 = (ADC_CAL|ADC_EXTTRIG|ADC_EXTSEL_SWSTART|ADC_ADON);
+  2c:	f04f 0205 	mov.w	r2, #5
+  30:	f2c0 021e 	movt	r2, #30
+  34:	609a      	str	r2, [r3, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:176
+    while( ADC1->CR2 & ADC_CAL );
+  36:	f44f 5210 	mov.w	r2, #9216	; 0x2400
+  3a:	f2c4 0201 	movt	r2, #16385	; 0x4001
+  3e:	6893      	ldr	r3, [r2, #8]
+  40:	f013 0f04 	tst.w	r3, #4
+  44:	d1fb      	bne.n	fffffffa <globalADCStatus+0xfffffffa>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:177
+    globalADCStatus = BIT0;
+  46:	f240 0300 	movw	r3, #0
+  4a:	f2c0 0300 	movt	r3, #0
+  4e:	f04f 0201 	mov.w	r2, #1
+  52:	801a      	strh	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:182
+    //for( i = 0; i < 10; i++ ){
+    //    adcSingleSample( ADCREF );
+    //} // for
+    
+}
+  54:	4770      	bx	lr
+  56:	bf00      	nop
+
+Disassembly of section .text.adcGetChannelFromPin:
+
+00000000 <adcGetChannelFromPin>:
+adcGetChannelFromPin():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:201
+u8 adcGetChannelFromPin( u8 ucPin )
+{
+    u8 i;
+
+    for( i = 0; i < 18; i++ ){
+        if( PYGMY_ADC_CHANNELS[ i ] == ucPin ){
+   0:	4603      	mov	r3, r0
+   2:	b188      	cbz	r0, 28 <adcGetChannelFromPin+0x28>
+   4:	f240 0200 	movw	r2, #0
+   8:	f2c0 0200 	movt	r2, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:200
+
+u8 adcGetChannelFromPin( u8 ucPin )
+{
+    u8 i;
+
+    for( i = 0; i < 18; i++ ){
+   c:	f04f 0001 	mov.w	r0, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:201
+        if( PYGMY_ADC_CHANNELS[ i ] == ucPin ){
+  10:	f812 1f01 	ldrb.w	r1, [r2, #1]!
+  14:	4299      	cmp	r1, r3
+  16:	d009      	beq.n	2c <adcGetChannelFromPin+0x2c>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:200
+
+u8 adcGetChannelFromPin( u8 ucPin )
+{
+    u8 i;
+
+    for( i = 0; i < 18; i++ ){
+  18:	f100 0001 	add.w	r0, r0, #1
+  1c:	b2c0      	uxtb	r0, r0
+  1e:	2812      	cmp	r0, #18
+  20:	d1f6      	bne.n	10 <adcGetChannelFromPin+0x10>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:206
+        if( PYGMY_ADC_CHANNELS[ i ] == ucPin ){
+            return( i );
+        } // if
+    } // for
+
+    return( 0 );
+  22:	f04f 0000 	mov.w	r0, #0
+  26:	4770      	bx	lr
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:200
+
+u8 adcGetChannelFromPin( u8 ucPin )
+{
+    u8 i;
+
+    for( i = 0; i < 18; i++ ){
+  28:	f04f 0000 	mov.w	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:207
+            return( i );
+        } // if
+    } // for
+
+    return( 0 );
+}
+  2c:	4770      	bx	lr
+  2e:	bf00      	nop
+
+Disassembly of section .text.adcSingleSample:
+
+00000000 <adcSingleSample>:
+adcSingleSample():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:185
+    //} // for
+    
+}
+
+u16 adcSingleSample( u8 ucPin )
+{
+   0:	b508      	push	{r3, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:188
+    u16 uiADC;
+
+    ADC1->SQR3 = adcGetChannelFromPin( ucPin );
+   2:	f7ff fffe 	bl	0 <adcSingleSample>
+   6:	f44f 5310 	mov.w	r3, #9216	; 0x2400
+   a:	f2c4 0301 	movt	r3, #16385	; 0x4001
+   e:	6358      	str	r0, [r3, #52]	; 0x34
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:189
+    ADC1->SR = 0;
+  10:	f04f 0200 	mov.w	r2, #0
+  14:	601a      	str	r2, [r3, #0]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:190
+    ADC1->CR2 |= (ADC_ADON);
+  16:	689a      	ldr	r2, [r3, #8]
+  18:	f042 0201 	orr.w	r2, r2, #1
+  1c:	609a      	str	r2, [r3, #8]
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:191
+    while( !( ADC1->SR & ADC_EOC ) );    
+  1e:	f44f 5210 	mov.w	r2, #9216	; 0x2400
+  22:	f2c4 0201 	movt	r2, #16385	; 0x4001
+  26:	6813      	ldr	r3, [r2, #0]
+  28:	f013 0f02 	tst.w	r3, #2
+  2c:	d0fb      	beq.n	26 <adcSingleSample+0x26>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:192
+    uiADC = ADC1->DR;
+  2e:	f44f 5310 	mov.w	r3, #9216	; 0x2400
+  32:	f2c4 0301 	movt	r3, #16385	; 0x4001
+  36:	6cd8      	ldr	r0, [r3, #76]	; 0x4c
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:194
+    return( uiADC ); 
+}
+  38:	b280      	uxth	r0, r0
+  3a:	bd08      	pop	{r3, pc}
+
+Disassembly of section .text.adcEnableChannel:
+
+00000000 <adcEnableChannel>:
+adcEnableChannel():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:108
+    //ADC1->SMPR1 = 
+    //ADC1->SMPR2 = 
+}
+
+u8 adcEnableChannel( u8 ucPin ) 
+{
+   0:	b538      	push	{r3, r4, r5, lr}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:112
+    u16 i;
+    u8 ucChannel;
+
+    ucChannel = adcGetChannelFromPin( ucPin ) + 1;
+   2:	f7ff fffe 	bl	0 <adcEnableChannel>
+   6:	4605      	mov	r5, r0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:113
+    for( i = 1; i < 17; i++ ){
+   8:	f04f 0401 	mov.w	r4, #1
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:114
+        if( !adcGetSQR( i ) ){
+   c:	b2e0      	uxtb	r0, r4
+   e:	f7ff fffe 	bl	0 <adcEnableChannel>
+  12:	b138      	cbz	r0, 24 <adcEnableChannel+0x24>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:113
+{
+    u16 i;
+    u8 ucChannel;
+
+    ucChannel = adcGetChannelFromPin( ucPin ) + 1;
+    for( i = 1; i < 17; i++ ){
+  14:	f104 0401 	add.w	r4, r4, #1
+  18:	b2a4      	uxth	r4, r4
+  1a:	2c11      	cmp	r4, #17
+  1c:	d1f6      	bne.n	c <adcEnableChannel+0xc>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:119
+        if( !adcGetSQR( i ) ){
+            break; // found empty channel
+        } // if
+    } // for
+    if( i == 17 ) {
+        return( 0 ); // No empty channels
+  1e:	f04f 0000 	mov.w	r0, #0
+  22:	bd38      	pop	{r3, r4, r5, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:118
+    for( i = 1; i < 17; i++ ){
+        if( !adcGetSQR( i ) ){
+            break; // found empty channel
+        } // if
+    } // for
+    if( i == 17 ) {
+  24:	2c11      	cmp	r4, #17
+  26:	d036      	beq.n	96 <adcEnableChannel+0x96>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:112
+u8 adcEnableChannel( u8 ucPin ) 
+{
+    u16 i;
+    u8 ucChannel;
+
+    ucChannel = adcGetChannelFromPin( ucPin ) + 1;
+  28:	f105 0501 	add.w	r5, r5, #1
+  2c:	b2ed      	uxtb	r5, r5
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:122
+    } // for
+    if( i == 17 ) {
+        return( 0 ); // No empty channels
+    } // if
+
+    if( i < 7 ){
+  2e:	2c06      	cmp	r4, #6
+  30:	d80f      	bhi.n	52 <adcEnableChannel+0x52>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:123
+        ADC1->SQR1 |= ( ucChannel << ( ( i - 1 ) * 5 ) );
+  32:	f44f 5310 	mov.w	r3, #9216	; 0x2400
+  36:	f2c4 0301 	movt	r3, #16385	; 0x4001
+  3a:	6ada      	ldr	r2, [r3, #44]	; 0x2c
+  3c:	f104 34ff 	add.w	r4, r4, #4294967295
+  40:	eb04 0484 	add.w	r4, r4, r4, lsl #2
+  44:	fa05 f504 	lsl.w	r5, r5, r4
+  48:	4315      	orrs	r5, r2
+  4a:	62dd      	str	r5, [r3, #44]	; 0x2c
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:133
+    } // else
+    //PYGMY_DMA1_CH1_DISABLE;
+    //DMA1_CH1->CNDTR += 1;
+    //DMA1_CH1->CCR |= DMA_EN;  
+
+    return( 1 );
+  4c:	f04f 0001 	mov.w	r0, #1
+  50:	bd38      	pop	{r3, r4, r5, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:124
+        return( 0 ); // No empty channels
+    } // if
+
+    if( i < 7 ){
+        ADC1->SQR1 |= ( ucChannel << ( ( i - 1 ) * 5 ) );
+    } else if( i < 13 ){
+  52:	2c0c      	cmp	r4, #12
+  54:	d80f      	bhi.n	76 <adcEnableChannel+0x76>
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:125
+        ADC1->SQR2 |= ( ucChannel << ( ( i - 7 ) * 5 ) );
+  56:	f44f 5310 	mov.w	r3, #9216	; 0x2400
+  5a:	f2c4 0301 	movt	r3, #16385	; 0x4001
+  5e:	6b1a      	ldr	r2, [r3, #48]	; 0x30
+  60:	eb04 0484 	add.w	r4, r4, r4, lsl #2
+  64:	f1a4 0423 	sub.w	r4, r4, #35	; 0x23
+  68:	fa05 f504 	lsl.w	r5, r5, r4
+  6c:	4315      	orrs	r5, r2
+  6e:	631d      	str	r5, [r3, #48]	; 0x30
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:133
+    } // else
+    //PYGMY_DMA1_CH1_DISABLE;
+    //DMA1_CH1->CNDTR += 1;
+    //DMA1_CH1->CCR |= DMA_EN;  
+
+    return( 1 );
+  70:	f04f 0001 	mov.w	r0, #1
+  74:	bd38      	pop	{r3, r4, r5, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:127
+    if( i < 7 ){
+        ADC1->SQR1 |= ( ucChannel << ( ( i - 1 ) * 5 ) );
+    } else if( i < 13 ){
+        ADC1->SQR2 |= ( ucChannel << ( ( i - 7 ) * 5 ) );
+    } else{
+        ADC1->SQR3 |= ( ucChannel << ( ( i - 13 ) * 5 ) );
+  76:	f44f 5310 	mov.w	r3, #9216	; 0x2400
+  7a:	f2c4 0301 	movt	r3, #16385	; 0x4001
+  7e:	6b5a      	ldr	r2, [r3, #52]	; 0x34
+  80:	eb04 0484 	add.w	r4, r4, r4, lsl #2
+  84:	f1a4 0441 	sub.w	r4, r4, #65	; 0x41
+  88:	fa05 f504 	lsl.w	r5, r5, r4
+  8c:	4315      	orrs	r5, r2
+  8e:	635d      	str	r5, [r3, #52]	; 0x34
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:133
+    } // else
+    //PYGMY_DMA1_CH1_DISABLE;
+    //DMA1_CH1->CNDTR += 1;
+    //DMA1_CH1->CCR |= DMA_EN;  
+
+    return( 1 );
+  90:	f04f 0001 	mov.w	r0, #1
+  94:	bd38      	pop	{r3, r4, r5, pc}
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:119
+        if( !adcGetSQR( i ) ){
+            break; // found empty channel
+        } // if
+    } // for
+    if( i == 17 ) {
+        return( 0 ); // No empty channels
+  96:	f04f 0000 	mov.w	r0, #0
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:134
+    //PYGMY_DMA1_CH1_DISABLE;
+    //DMA1_CH1->CNDTR += 1;
+    //DMA1_CH1->CCR |= DMA_EN;  
+
+    return( 1 );
+}
+  9a:	bd38      	pop	{r3, r4, r5, pc}
+
+Disassembly of section .text.adcGet:
+
+00000000 <adcGet>:
+adcGet():
+C:\Users\MightyDubster\Documents\Projects\pygmyos\core/pygmy_adc.c:212
+}
+
+u16 adcGet( u8 ucChannel )
+{
+    
+}
+   0:	4770      	bx	lr
+   2:	bf00      	nop
