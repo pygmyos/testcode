@@ -18,10 +18,10 @@ convertPinToString():
   14:	3301      	adds	r3, #1
   16:	2b1b      	cmp	r3, #27
   18:	d1f3      	bne.n	2 <convertPinToString+0x2>
-  1a:	2000      	movs	r0, #0
+  1a:	4802      	ldr	r0, [pc, #8]	; (24 <convertPinToString+0x24>)
   1c:	4770      	bx	lr
   1e:	bf00      	nop
-  20:	00000000 	.word	0x00000000
+	...
 
 Disassembly of section .text.copyBuffer:
 
@@ -278,6 +278,22 @@ isWhitespace():
    a:	2001      	movls	r0, #1
    c:	4770      	bx	lr
 
+Disassembly of section .text.removeLeadingWhitespace:
+
+00000000 <removeLeadingWhitespace>:
+removeLeadingWhitespace():
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	4604      	mov	r4, r0
+   4:	e002      	b.n	c <removeLeadingWhitespace+0xc>
+   6:	f7ff fffe 	bl	0 <removeLeadingWhitespace>
+   a:	b120      	cbz	r0, 16 <removeLeadingWhitespace+0x16>
+   c:	4625      	mov	r5, r4
+   e:	f814 0b01 	ldrb.w	r0, [r4], #1
+  12:	2800      	cmp	r0, #0
+  14:	d1f7      	bne.n	6 <removeLeadingWhitespace+0x6>
+  16:	4628      	mov	r0, r5
+  18:	bd38      	pop	{r3, r4, r5, pc}
+
 Disassembly of section .text.isQuote:
 
 00000000 <isQuote>:
@@ -302,7 +318,7 @@ isMath():
    a:	bf18      	it	ne
    c:	2001      	movne	r0, #1
    e:	bd08      	pop	{r3, pc}
-  10:	00000000 	.word	0x00000000
+  10:	00000002 	.word	0x00000002
 
 Disassembly of section .text.isFileSeparator:
 
@@ -324,7 +340,7 @@ isSeparator():
    a:	bf18      	it	ne
    c:	2001      	movne	r0, #1
    e:	bd08      	pop	{r3, pc}
-  10:	0000000f 	.word	0x0000000f
+  10:	00000011 	.word	0x00000011
 
 Disassembly of section .text.isPunctuation:
 
@@ -337,7 +353,7 @@ isPunctuation():
    a:	bf18      	it	ne
    c:	2001      	movne	r0, #1
    e:	bd08      	pop	{r3, pc}
-  10:	00000021 	.word	0x00000021
+  10:	00000023 	.word	0x00000023
 
 Disassembly of section .text.len:
 
@@ -634,127 +650,125 @@ Disassembly of section .text.getNextSubString:
 00000000 <getNextSubString>:
 getNextSubString():
    0:	e92d 4ff7 	stmdb	sp!, {r0, r1, r2, r4, r5, r6, r7, r8, r9, sl, fp, lr}
-   4:	7803      	ldrb	r3, [r0, #0]
+   4:	460c      	mov	r4, r1
    6:	4607      	mov	r7, r0
-   8:	460c      	mov	r4, r1
-   a:	4d49      	ldr	r5, [pc, #292]	; (130 <getNextSubString+0x130>)
-   c:	b19b      	cbz	r3, 36 <getNextSubString+0x36>
-   e:	6828      	ldr	r0, [r5, #0]
-  10:	b108      	cbz	r0, 16 <getNextSubString+0x16>
-  12:	f7ff fffe 	bl	0 <sysFree>
-  16:	4638      	mov	r0, r7
-  18:	f7ff fffe 	bl	0 <getNextSubString>
-  1c:	3001      	adds	r0, #1
-  1e:	f7ff fffe 	bl	0 <sysAllocate>
-  22:	4606      	mov	r6, r0
-  24:	6028      	str	r0, [r5, #0]
-  26:	2800      	cmp	r0, #0
-  28:	d07e      	beq.n	128 <getNextSubString+0x128>
-  2a:	4638      	mov	r0, r7
-  2c:	4631      	mov	r1, r6
-  2e:	f7ff fffe 	bl	0 <getNextSubString>
-  32:	4b3f      	ldr	r3, [pc, #252]	; (130 <getNextSubString+0x130>)
-  34:	605e      	str	r6, [r3, #4]
-  36:	686e      	ldr	r6, [r5, #4]
-  38:	2e00      	cmp	r6, #0
-  3a:	d075      	beq.n	128 <getNextSubString+0x128>
-  3c:	e06f      	b.n	11e <getNextSubString+0x11e>
-  3e:	4638      	mov	r0, r7
-  40:	f7ff fffe 	bl	0 <getNextSubString>
-  44:	bb18      	cbnz	r0, 8e <getNextSubString+0x8e>
-  46:	fa5f f884 	uxtb.w	r8, r4
-  4a:	f018 0f80 	tst.w	r8, #128	; 0x80
-  4e:	d003      	beq.n	58 <getNextSubString+0x58>
-  50:	4638      	mov	r0, r7
-  52:	f7ff fffe 	bl	0 <getNextSubString>
-  56:	b9d0      	cbnz	r0, 8e <getNextSubString+0x8e>
-  58:	f014 0901 	ands.w	r9, r4, #1
-  5c:	d003      	beq.n	66 <getNextSubString+0x66>
-  5e:	4638      	mov	r0, r7
-  60:	f7ff fffe 	bl	0 <getNextSubString>
-  64:	b998      	cbnz	r0, 8e <getNextSubString+0x8e>
-  66:	f014 0a08 	ands.w	sl, r4, #8
-  6a:	d003      	beq.n	74 <getNextSubString+0x74>
-  6c:	4638      	mov	r0, r7
-  6e:	f7ff fffe 	bl	0 <getNextSubString>
-  72:	b960      	cbnz	r0, 8e <getNextSubString+0x8e>
-  74:	f014 0b10 	ands.w	fp, r4, #16
-  78:	d003      	beq.n	82 <getNextSubString+0x82>
-  7a:	4638      	mov	r0, r7
-  7c:	f7ff fffe 	bl	0 <getNextSubString>
-  80:	b928      	cbnz	r0, 8e <getNextSubString+0x8e>
-  82:	f014 0220 	ands.w	r2, r4, #32
-  86:	9201      	str	r2, [sp, #4]
-  88:	d03b      	beq.n	102 <getNextSubString+0x102>
-  8a:	2f2c      	cmp	r7, #44	; 0x2c
-  8c:	d139      	bne.n	102 <getNextSubString+0x102>
-  8e:	3601      	adds	r6, #1
-  90:	606e      	str	r6, [r5, #4]
-  92:	e044      	b.n	11e <getNextSubString+0x11e>
-  94:	f014 0f02 	tst.w	r4, #2
-  98:	d004      	beq.n	a4 <getNextSubString+0xa4>
-  9a:	4638      	mov	r0, r7
-  9c:	f7ff fffe 	bl	0 <getNextSubString>
-  a0:	2800      	cmp	r0, #0
-  a2:	d136      	bne.n	112 <getNextSubString+0x112>
-  a4:	f018 0f80 	tst.w	r8, #128	; 0x80
-  a8:	d001      	beq.n	ae <getNextSubString+0xae>
-  aa:	2f2f      	cmp	r7, #47	; 0x2f
-  ac:	d031      	beq.n	112 <getNextSubString+0x112>
-  ae:	f1b9 0f00 	cmp.w	r9, #0
-  b2:	d003      	beq.n	bc <getNextSubString+0xbc>
-  b4:	4638      	mov	r0, r7
-  b6:	f7ff fffe 	bl	0 <getNextSubString>
-  ba:	bb50      	cbnz	r0, 112 <getNextSubString+0x112>
-  bc:	f1ba 0f00 	cmp.w	sl, #0
-  c0:	d003      	beq.n	ca <getNextSubString+0xca>
-  c2:	4638      	mov	r0, r7
-  c4:	f7ff fffe 	bl	0 <getNextSubString>
-  c8:	bb18      	cbnz	r0, 112 <getNextSubString+0x112>
-  ca:	f1bb 0f00 	cmp.w	fp, #0
-  ce:	d003      	beq.n	d8 <getNextSubString+0xd8>
-  d0:	4638      	mov	r0, r7
-  d2:	f7ff fffe 	bl	0 <getNextSubString>
-  d6:	b9e0      	cbnz	r0, 112 <getNextSubString+0x112>
-  d8:	f014 0f04 	tst.w	r4, #4
-  dc:	d003      	beq.n	e6 <getNextSubString+0xe6>
-  de:	4638      	mov	r0, r7
-  e0:	f7ff fffe 	bl	0 <getNextSubString>
-  e4:	b9a8      	cbnz	r0, 112 <getNextSubString+0x112>
-  e6:	9b01      	ldr	r3, [sp, #4]
-  e8:	b10b      	cbz	r3, ee <getNextSubString+0xee>
-  ea:	2f2c      	cmp	r7, #44	; 0x2c
-  ec:	d011      	beq.n	112 <getNextSubString+0x112>
-  ee:	f014 0f40 	tst.w	r4, #64	; 0x40
-  f2:	d003      	beq.n	fc <getNextSubString+0xfc>
-  f4:	4638      	mov	r0, r7
-  f6:	f7ff fffe 	bl	0 <getNextSubString>
-  fa:	b950      	cbnz	r0, 112 <getNextSubString+0x112>
-  fc:	9a00      	ldr	r2, [sp, #0]
-  fe:	1c53      	adds	r3, r2, #1
- 100:	606b      	str	r3, [r5, #4]
- 102:	686b      	ldr	r3, [r5, #4]
- 104:	9300      	str	r3, [sp, #0]
- 106:	781f      	ldrb	r7, [r3, #0]
- 108:	2f00      	cmp	r7, #0
- 10a:	d1c3      	bne.n	94 <getNextSubString+0x94>
- 10c:	4b08      	ldr	r3, [pc, #32]	; (130 <getNextSubString+0x130>)
- 10e:	605f      	str	r7, [r3, #4]
- 110:	e00a      	b.n	128 <getNextSubString+0x128>
- 112:	9b00      	ldr	r3, [sp, #0]
- 114:	2200      	movs	r2, #0
- 116:	f803 2b01 	strb.w	r2, [r3], #1
- 11a:	606b      	str	r3, [r5, #4]
- 11c:	e004      	b.n	128 <getNextSubString+0x128>
- 11e:	686e      	ldr	r6, [r5, #4]
- 120:	7837      	ldrb	r7, [r6, #0]
- 122:	2f00      	cmp	r7, #0
- 124:	d18b      	bne.n	3e <getNextSubString+0x3e>
- 126:	463e      	mov	r6, r7
- 128:	4630      	mov	r0, r6
- 12a:	e8bd 8ffe 	ldmia.w	sp!, {r1, r2, r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}
- 12e:	bf00      	nop
- 130:	00000000 	.word	0x00000000
+   8:	4d48      	ldr	r5, [pc, #288]	; (12c <getNextSubString+0x12c>)
+   a:	b198      	cbz	r0, 34 <getNextSubString+0x34>
+   c:	6828      	ldr	r0, [r5, #0]
+   e:	b108      	cbz	r0, 14 <getNextSubString+0x14>
+  10:	f7ff fffe 	bl	0 <free>
+  14:	4638      	mov	r0, r7
+  16:	f7ff fffe 	bl	0 <getNextSubString>
+  1a:	3001      	adds	r0, #1
+  1c:	f7ff fffe 	bl	0 <malloc>
+  20:	4606      	mov	r6, r0
+  22:	6028      	str	r0, [r5, #0]
+  24:	2800      	cmp	r0, #0
+  26:	d07e      	beq.n	126 <getNextSubString+0x126>
+  28:	4638      	mov	r0, r7
+  2a:	4631      	mov	r1, r6
+  2c:	f7ff fffe 	bl	0 <getNextSubString>
+  30:	4b3e      	ldr	r3, [pc, #248]	; (12c <getNextSubString+0x12c>)
+  32:	605e      	str	r6, [r3, #4]
+  34:	686e      	ldr	r6, [r5, #4]
+  36:	2e00      	cmp	r6, #0
+  38:	d075      	beq.n	126 <getNextSubString+0x126>
+  3a:	e06f      	b.n	11c <getNextSubString+0x11c>
+  3c:	4638      	mov	r0, r7
+  3e:	f7ff fffe 	bl	0 <getNextSubString>
+  42:	bb18      	cbnz	r0, 8c <getNextSubString+0x8c>
+  44:	fa5f f884 	uxtb.w	r8, r4
+  48:	f018 0f80 	tst.w	r8, #128	; 0x80
+  4c:	d003      	beq.n	56 <getNextSubString+0x56>
+  4e:	4638      	mov	r0, r7
+  50:	f7ff fffe 	bl	0 <getNextSubString>
+  54:	b9d0      	cbnz	r0, 8c <getNextSubString+0x8c>
+  56:	f014 0901 	ands.w	r9, r4, #1
+  5a:	d003      	beq.n	64 <getNextSubString+0x64>
+  5c:	4638      	mov	r0, r7
+  5e:	f7ff fffe 	bl	0 <getNextSubString>
+  62:	b998      	cbnz	r0, 8c <getNextSubString+0x8c>
+  64:	f014 0a08 	ands.w	sl, r4, #8
+  68:	d003      	beq.n	72 <getNextSubString+0x72>
+  6a:	4638      	mov	r0, r7
+  6c:	f7ff fffe 	bl	0 <getNextSubString>
+  70:	b960      	cbnz	r0, 8c <getNextSubString+0x8c>
+  72:	f014 0b10 	ands.w	fp, r4, #16
+  76:	d003      	beq.n	80 <getNextSubString+0x80>
+  78:	4638      	mov	r0, r7
+  7a:	f7ff fffe 	bl	0 <getNextSubString>
+  7e:	b928      	cbnz	r0, 8c <getNextSubString+0x8c>
+  80:	f014 0220 	ands.w	r2, r4, #32
+  84:	9201      	str	r2, [sp, #4]
+  86:	d03b      	beq.n	100 <getNextSubString+0x100>
+  88:	2f2c      	cmp	r7, #44	; 0x2c
+  8a:	d139      	bne.n	100 <getNextSubString+0x100>
+  8c:	3601      	adds	r6, #1
+  8e:	606e      	str	r6, [r5, #4]
+  90:	e044      	b.n	11c <getNextSubString+0x11c>
+  92:	f014 0f02 	tst.w	r4, #2
+  96:	d004      	beq.n	a2 <getNextSubString+0xa2>
+  98:	4638      	mov	r0, r7
+  9a:	f7ff fffe 	bl	0 <getNextSubString>
+  9e:	2800      	cmp	r0, #0
+  a0:	d136      	bne.n	110 <getNextSubString+0x110>
+  a2:	f018 0f80 	tst.w	r8, #128	; 0x80
+  a6:	d001      	beq.n	ac <getNextSubString+0xac>
+  a8:	2f2f      	cmp	r7, #47	; 0x2f
+  aa:	d031      	beq.n	110 <getNextSubString+0x110>
+  ac:	f1b9 0f00 	cmp.w	r9, #0
+  b0:	d003      	beq.n	ba <getNextSubString+0xba>
+  b2:	4638      	mov	r0, r7
+  b4:	f7ff fffe 	bl	0 <getNextSubString>
+  b8:	bb50      	cbnz	r0, 110 <getNextSubString+0x110>
+  ba:	f1ba 0f00 	cmp.w	sl, #0
+  be:	d003      	beq.n	c8 <getNextSubString+0xc8>
+  c0:	4638      	mov	r0, r7
+  c2:	f7ff fffe 	bl	0 <getNextSubString>
+  c6:	bb18      	cbnz	r0, 110 <getNextSubString+0x110>
+  c8:	f1bb 0f00 	cmp.w	fp, #0
+  cc:	d003      	beq.n	d6 <getNextSubString+0xd6>
+  ce:	4638      	mov	r0, r7
+  d0:	f7ff fffe 	bl	0 <getNextSubString>
+  d4:	b9e0      	cbnz	r0, 110 <getNextSubString+0x110>
+  d6:	f014 0f04 	tst.w	r4, #4
+  da:	d003      	beq.n	e4 <getNextSubString+0xe4>
+  dc:	4638      	mov	r0, r7
+  de:	f7ff fffe 	bl	0 <getNextSubString>
+  e2:	b9a8      	cbnz	r0, 110 <getNextSubString+0x110>
+  e4:	9b01      	ldr	r3, [sp, #4]
+  e6:	b10b      	cbz	r3, ec <getNextSubString+0xec>
+  e8:	2f2c      	cmp	r7, #44	; 0x2c
+  ea:	d011      	beq.n	110 <getNextSubString+0x110>
+  ec:	f014 0f40 	tst.w	r4, #64	; 0x40
+  f0:	d003      	beq.n	fa <getNextSubString+0xfa>
+  f2:	4638      	mov	r0, r7
+  f4:	f7ff fffe 	bl	0 <getNextSubString>
+  f8:	b950      	cbnz	r0, 110 <getNextSubString+0x110>
+  fa:	9a00      	ldr	r2, [sp, #0]
+  fc:	1c53      	adds	r3, r2, #1
+  fe:	606b      	str	r3, [r5, #4]
+ 100:	686b      	ldr	r3, [r5, #4]
+ 102:	9300      	str	r3, [sp, #0]
+ 104:	781f      	ldrb	r7, [r3, #0]
+ 106:	2f00      	cmp	r7, #0
+ 108:	d1c3      	bne.n	92 <getNextSubString+0x92>
+ 10a:	4b08      	ldr	r3, [pc, #32]	; (12c <getNextSubString+0x12c>)
+ 10c:	605f      	str	r7, [r3, #4]
+ 10e:	e00a      	b.n	126 <getNextSubString+0x126>
+ 110:	9b00      	ldr	r3, [sp, #0]
+ 112:	2200      	movs	r2, #0
+ 114:	f803 2b01 	strb.w	r2, [r3], #1
+ 118:	606b      	str	r3, [r5, #4]
+ 11a:	e004      	b.n	126 <getNextSubString+0x126>
+ 11c:	686e      	ldr	r6, [r5, #4]
+ 11e:	7837      	ldrb	r7, [r6, #0]
+ 120:	2f00      	cmp	r7, #0
+ 122:	d18b      	bne.n	3c <getNextSubString+0x3c>
+ 124:	463e      	mov	r6, r7
+ 126:	4630      	mov	r0, r6
+ 128:	e8bd 8ffe 	ldmia.w	sp!, {r1, r2, r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}
+ 12c:	00000000 	.word	0x00000000
 
 Disassembly of section .text.getAllSubStrings:
 
@@ -860,11 +874,11 @@ convertStringToInt():
   96:	fb04 f006 	mul.w	r0, r4, r6
   9a:	b00a      	add	sp, #40	; 0x28
   9c:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
-  a0:	00000028 	.word	0x00000028
-  a4:	0000002a 	.word	0x0000002a
-  a8:	0000002f 	.word	0x0000002f
-  ac:	00000032 	.word	0x00000032
-  b0:	00000035 	.word	0x00000035
+  a0:	0000002a 	.word	0x0000002a
+  a4:	0000002c 	.word	0x0000002c
+  a8:	00000031 	.word	0x00000031
+  ac:	00000034 	.word	0x00000034
+  b0:	00000037 	.word	0x00000037
 
 Disassembly of section .text.convertIntToString:
 
@@ -902,8 +916,8 @@ convertIntToString():
   4a:	da06      	bge.n	5a <convertIntToString+0x5a>
   4c:	232d      	movs	r3, #45	; 0x2d
   4e:	f806 3b01 	strb.w	r3, [r6], #1
-  52:	f1c8 0800 	rsb	r8, r8, #0
-  56:	f04f 0900 	mov.w	r9, #0
+  52:	f1d8 0800 	rsbs	r8, r8, #0
+  56:	eb69 0949 	sbc.w	r9, r9, r9, lsl #1
   5a:	f89d 700c 	ldrb.w	r7, [sp, #12]
   5e:	2f25      	cmp	r7, #37	; 0x25
   60:	bf06      	itte	eq
@@ -1022,9 +1036,9 @@ convertIntToString():
  190:	b007      	add	sp, #28
  192:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
  196:	bf00      	nop
- 198:	00000038 	.word	0x00000038
- 19c:	00000032 	.word	0x00000032
- 1a0:	0000002f 	.word	0x0000002f
+ 198:	0000003a 	.word	0x0000003a
+ 19c:	00000034 	.word	0x00000034
+ 1a0:	00000031 	.word	0x00000031
  1a4:	00000000 	.word	0x00000000
 
 Disassembly of section .text.convertFloatToString:
@@ -1144,12 +1158,12 @@ convertFloatToString():
  124:	f3af 8000 	nop.w
  128:	9abcaf48 	.word	0x9abcaf48
  12c:	3e7ad7f2 	.word	0x3e7ad7f2
- 130:	0000003d 	.word	0x0000003d
- 134:	0000003f 	.word	0x0000003f
- 138:	00000041 	.word	0x00000041
+ 130:	0000003f 	.word	0x0000003f
+ 134:	00000041 	.word	0x00000041
+ 138:	00000043 	.word	0x00000043
  13c:	40240000 	.word	0x40240000
- 140:	00000043 	.word	0x00000043
- 144:	00000046 	.word	0x00000046
+ 140:	00000045 	.word	0x00000045
+ 144:	00000048 	.word	0x00000048
 
 Disassembly of section .text.convertStringToFloat:
 
@@ -1315,13 +1329,13 @@ convertStringToPin():
   a6:	20ff      	movs	r0, #255	; 0xff
   a8:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
   ac:	00000000 	.word	0x00000000
-  b0:	00000049 	.word	0x00000049
-  b4:	0000004c 	.word	0x0000004c
-  b8:	0000002f 	.word	0x0000002f
-  bc:	0000004f 	.word	0x0000004f
-  c0:	00000035 	.word	0x00000035
-  c4:	00000052 	.word	0x00000052
-  c8:	00000055 	.word	0x00000055
+  b0:	0000004b 	.word	0x0000004b
+  b4:	0000004e 	.word	0x0000004e
+  b8:	00000031 	.word	0x00000031
+  bc:	00000051 	.word	0x00000051
+  c0:	00000037 	.word	0x00000037
+  c4:	00000054 	.word	0x00000054
+  c8:	00000057 	.word	0x00000057
 
 Disassembly of section .text.convertBase64ToCode:
 

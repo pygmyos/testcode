@@ -20,38 +20,6 @@ putsFILE():
    a:	bf00      	nop
    c:	00000000 	.word	0x00000000
 
-Disassembly of section .text.sysAllocate:
-
-00000000 <sysAllocate>:
-sysAllocate():
-   0:	f7ff bffe 	b.w	0 <malloc>
-
-Disassembly of section .text.sysReallocate:
-
-00000000 <sysReallocate>:
-sysReallocate():
-   0:	f7ff bffe 	b.w	0 <realloc>
-
-Disassembly of section .text.sysFree:
-
-00000000 <sysFree>:
-sysFree():
-   0:	f7ff bffe 	b.w	0 <free>
-
-Disassembly of section .text.sysHeapInit:
-
-00000000 <sysHeapInit>:
-sysHeapInit():
-   0:	4b03      	ldr	r3, [pc, #12]	; (10 <sysHeapInit+0x10>)
-   2:	2200      	movs	r2, #0
-   4:	f843 2b04 	str.w	r2, [r3], #4
-   8:	4a02      	ldr	r2, [pc, #8]	; (14 <sysHeapInit+0x14>)
-   a:	4293      	cmp	r3, r2
-   c:	d1f9      	bne.n	2 <sysHeapInit+0x2>
-   e:	4770      	bx	lr
-  10:	20002000 	.word	0x20002000
-  14:	20016000 	.word	0x20016000
-
 Disassembly of section .text.sysGetADCVoltage:
 
 00000000 <sysGetADCVoltage>:
@@ -950,15 +918,19 @@ Disassembly of section .text.taskGetByIndex:
 00000000 <taskGetByIndex>:
 taskGetByIndex():
    0:	280e      	cmp	r0, #14
-   2:	d904      	bls.n	e <taskGetByIndex+0xe>
-   4:	4b03      	ldr	r3, [pc, #12]	; (14 <taskGetByIndex+0x14>)
+   2:	d808      	bhi.n	16 <taskGetByIndex+0x16>
+   4:	4b05      	ldr	r3, [pc, #20]	; (1c <taskGetByIndex+0x1c>)
    6:	221c      	movs	r2, #28
    8:	fb02 3000 	mla	r0, r2, r0, r3
-   c:	4770      	bx	lr
-   e:	2000      	movs	r0, #0
-  10:	4770      	bx	lr
-  12:	bf00      	nop
-  14:	00000000 	.word	0x00000000
+   c:	88c3      	ldrh	r3, [r0, #6]
+   e:	2b00      	cmp	r3, #0
+  10:	bf08      	it	eq
+  12:	2000      	moveq	r0, #0
+  14:	4770      	bx	lr
+  16:	2000      	movs	r0, #0
+  18:	4770      	bx	lr
+  1a:	bf00      	nop
+  1c:	00000000 	.word	0x00000000
 
 Disassembly of section .text.msgInit:
 
@@ -1366,19 +1338,19 @@ Disassembly of section .text.print:
 print():
    0:	b40e      	push	{r1, r2, r3}
    2:	e92d 43f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, lr}
-   6:	b092      	sub	sp, #72	; 0x48
-   8:	ab19      	add	r3, sp, #100	; 0x64
+   6:	b096      	sub	sp, #88	; 0x58
+   8:	ab1d      	add	r3, sp, #116	; 0x74
    a:	f853 4b04 	ldr.w	r4, [r3], #4
    e:	2200      	movs	r2, #0
   10:	4605      	mov	r5, r0
-  12:	f88d 2046 	strb.w	r2, [sp, #70]	; 0x46
-  16:	9310      	str	r3, [sp, #64]	; 0x40
-  18:	e0e9      	b.n	1ee <print+0x1ee>
+  12:	f88d 2056 	strb.w	r2, [sp, #86]	; 0x56
+  16:	9314      	str	r3, [sp, #80]	; 0x50
+  18:	e0ff      	b.n	21a <print+0x21a>
   1a:	2b25      	cmp	r3, #37	; 0x25
   1c:	f04f 0600 	mov.w	r6, #0
-  20:	f040 80d9 	bne.w	1d6 <print+0x1d6>
+  20:	f040 80ef 	bne.w	202 <print+0x202>
   24:	4627      	mov	r7, r4
-  26:	f10d 0827 	add.w	r8, sp, #39	; 0x27
+  26:	f10d 0837 	add.w	r8, sp, #55	; 0x37
   2a:	e007      	b.n	3c <print+0x3c>
   2c:	3601      	adds	r6, #1
   2e:	787b      	ldrb	r3, [r7, #1]
@@ -1399,7 +1371,7 @@ print():
   50:	d0ec      	beq.n	2c <print+0x2c>
   52:	2b2e      	cmp	r3, #46	; 0x2e
   54:	d0ea      	beq.n	2c <print+0x2c>
-  56:	a912      	add	r1, sp, #72	; 0x48
+  56:	a916      	add	r1, sp, #88	; 0x58
   58:	198b      	adds	r3, r1, r6
   5a:	f04f 0900 	mov.w	r9, #0
   5e:	f803 9c20 	strb.w	r9, [r3, #-32]
@@ -1410,29 +1382,29 @@ print():
   6a:	e006      	b.n	7a <print+0x7a>
   6c:	2b63      	cmp	r3, #99	; 0x63
   6e:	d10c      	bne.n	8a <print+0x8a>
-  70:	9b10      	ldr	r3, [sp, #64]	; 0x40
-  72:	a812      	add	r0, sp, #72	; 0x48
+  70:	9b14      	ldr	r3, [sp, #80]	; 0x50
+  72:	a816      	add	r0, sp, #88	; 0x58
   74:	1d1a      	adds	r2, r3, #4
   76:	681b      	ldr	r3, [r3, #0]
-  78:	9210      	str	r2, [sp, #64]	; 0x40
+  78:	9214      	str	r2, [sp, #80]	; 0x50
   7a:	f800 3d04 	strb.w	r3, [r0, #-4]!
-  7e:	4b60      	ldr	r3, [pc, #384]	; (200 <print+0x200>)
+  7e:	4b6b      	ldr	r3, [pc, #428]	; (22c <print+0x22c>)
   80:	2224      	movs	r2, #36	; 0x24
   82:	fb02 3305 	mla	r3, r2, r5, r3
   86:	68db      	ldr	r3, [r3, #12]
-  88:	e0af      	b.n	1ea <print+0x1ea>
+  88:	e0c5      	b.n	216 <print+0x216>
   8a:	2b73      	cmp	r3, #115	; 0x73
   8c:	d150      	bne.n	130 <print+0x130>
-  8e:	9b10      	ldr	r3, [sp, #64]	; 0x40
-  90:	4e5b      	ldr	r6, [pc, #364]	; (200 <print+0x200>)
+  8e:	9b14      	ldr	r3, [sp, #80]	; 0x50
+  90:	4e66      	ldr	r6, [pc, #408]	; (22c <print+0x22c>)
   92:	f8d3 8000 	ldr.w	r8, [r3]
   96:	1d1a      	adds	r2, r3, #4
   98:	4640      	mov	r0, r8
-  9a:	9210      	str	r2, [sp, #64]	; 0x40
+  9a:	9214      	str	r2, [sp, #80]	; 0x50
   9c:	f7ff fffe 	bl	0 <len>
   a0:	2320      	movs	r3, #32
-  a2:	f88d 3044 	strb.w	r3, [sp, #68]	; 0x44
-  a6:	f89d 3028 	ldrb.w	r3, [sp, #40]	; 0x28
+  a2:	f88d 3054 	strb.w	r3, [sp, #84]	; 0x54
+  a6:	f89d 3038 	ldrb.w	r3, [sp, #56]	; 0x38
   aa:	4607      	mov	r7, r0
   ac:	2b2d      	cmp	r3, #45	; 0x2d
   ae:	d120      	bne.n	f2 <print+0xf2>
@@ -1441,7 +1413,7 @@ print():
   b6:	4640      	mov	r0, r8
   b8:	68db      	ldr	r3, [r3, #12]
   ba:	4798      	blx	r3
-  bc:	f10d 0029 	add.w	r0, sp, #41	; 0x29
+  bc:	f10d 0039 	add.w	r0, sp, #57	; 0x39
   c0:	f7ff fffe 	bl	0 <convertStringToInt>
   c4:	b2c0      	uxtb	r0, r0
   c6:	42b8      	cmp	r0, r7
@@ -1452,15 +1424,15 @@ print():
   d6:	e009      	b.n	ec <print+0xec>
   d8:	2324      	movs	r3, #36	; 0x24
   da:	fb03 6305 	mla	r3, r3, r5, r6
-  de:	a811      	add	r0, sp, #68	; 0x44
+  de:	a815      	add	r0, sp, #84	; 0x54
   e0:	68db      	ldr	r3, [r3, #12]
   e2:	4798      	blx	r3
   e4:	f108 0801 	add.w	r8, r8, #1
   e8:	fa5f f888 	uxtb.w	r8, r8
   ec:	45c8      	cmp	r8, r9
   ee:	d3f3      	bcc.n	d8 <print+0xd8>
-  f0:	e07c      	b.n	1ec <print+0x1ec>
-  f2:	a80a      	add	r0, sp, #40	; 0x28
+  f0:	e092      	b.n	218 <print+0x218>
+  f2:	a80e      	add	r0, sp, #56	; 0x38
   f4:	f7ff fffe 	bl	0 <convertStringToInt>
   f8:	b2c0      	uxtb	r0, r0
   fa:	42b8      	cmp	r0, r7
@@ -1471,7 +1443,7 @@ print():
  106:	f04f 0900 	mov.w	r9, #0
  10a:	e008      	b.n	11e <print+0x11e>
  10c:	fb03 6305 	mla	r3, r3, r5, r6
- 110:	a811      	add	r0, sp, #68	; 0x44
+ 110:	a815      	add	r0, sp, #84	; 0x54
  112:	68db      	ldr	r3, [r3, #12]
  114:	4798      	blx	r3
  116:	f109 0901 	add.w	r9, r9, #1
@@ -1482,92 +1454,110 @@ print():
  126:	fb03 6605 	mla	r6, r3, r5, r6
  12a:	4640      	mov	r0, r8
  12c:	68f3      	ldr	r3, [r6, #12]
- 12e:	e05c      	b.n	1ea <print+0x1ea>
+ 12e:	e072      	b.n	216 <print+0x216>
  130:	2b69      	cmp	r3, #105	; 0x69
- 132:	d009      	beq.n	148 <print+0x148>
+ 132:	d012      	beq.n	15a <print+0x15a>
  134:	2b64      	cmp	r3, #100	; 0x64
- 136:	d007      	beq.n	148 <print+0x148>
+ 136:	d010      	beq.n	15a <print+0x15a>
  138:	2b78      	cmp	r3, #120	; 0x78
- 13a:	d005      	beq.n	148 <print+0x148>
+ 13a:	d00e      	beq.n	15a <print+0x15a>
  13c:	2b58      	cmp	r3, #88	; 0x58
- 13e:	d003      	beq.n	148 <print+0x148>
+ 13e:	d00c      	beq.n	15a <print+0x15a>
  140:	2b6f      	cmp	r3, #111	; 0x6f
- 142:	d001      	beq.n	148 <print+0x148>
+ 142:	d00a      	beq.n	15a <print+0x15a>
  144:	2b66      	cmp	r3, #102	; 0x66
- 146:	d128      	bne.n	19a <print+0x19a>
- 148:	a912      	add	r1, sp, #72	; 0x48
- 14a:	198a      	adds	r2, r1, r6
- 14c:	3601      	adds	r6, #1
- 14e:	b2f6      	uxtb	r6, r6
- 150:	198e      	adds	r6, r1, r6
- 152:	2100      	movs	r1, #0
- 154:	f802 3c20 	strb.w	r3, [r2, #-32]
- 158:	f806 1c20 	strb.w	r1, [r6, #-32]
- 15c:	7823      	ldrb	r3, [r4, #0]
- 15e:	2b66      	cmp	r3, #102	; 0x66
- 160:	9b10      	ldr	r3, [sp, #64]	; 0x40
- 162:	d10c      	bne.n	17e <print+0x17e>
- 164:	3307      	adds	r3, #7
- 166:	f023 0307 	bic.w	r3, r3, #7
- 16a:	f103 0208 	add.w	r2, r3, #8
- 16e:	9210      	str	r2, [sp, #64]	; 0x40
- 170:	e9d3 0100 	ldrd	r0, r1, [r3]
- 174:	aa0a      	add	r2, sp, #40	; 0x28
- 176:	ab05      	add	r3, sp, #20
- 178:	f7ff fffe 	bl	0 <convertFloatToString>
- 17c:	e006      	b.n	18c <print+0x18c>
- 17e:	1d1a      	adds	r2, r3, #4
- 180:	9210      	str	r2, [sp, #64]	; 0x40
- 182:	6818      	ldr	r0, [r3, #0]
- 184:	aa0a      	add	r2, sp, #40	; 0x28
- 186:	ab05      	add	r3, sp, #20
- 188:	f7ff fffe 	bl	0 <convertIntToString>
- 18c:	4b1c      	ldr	r3, [pc, #112]	; (200 <print+0x200>)
- 18e:	2224      	movs	r2, #36	; 0x24
- 190:	fb02 3305 	mla	r3, r2, r5, r3
- 194:	a805      	add	r0, sp, #20
- 196:	68db      	ldr	r3, [r3, #12]
- 198:	e027      	b.n	1ea <print+0x1ea>
- 19a:	2b74      	cmp	r3, #116	; 0x74
- 19c:	d126      	bne.n	1ec <print+0x1ec>
- 19e:	9b10      	ldr	r3, [sp, #64]	; 0x40
- 1a0:	a90e      	add	r1, sp, #56	; 0x38
- 1a2:	1d1a      	adds	r2, r3, #4
- 1a4:	6818      	ldr	r0, [r3, #0]
- 1a6:	9210      	str	r2, [sp, #64]	; 0x40
- 1a8:	f7ff fffe 	bl	0 <convertSecondsToSystemTime>
- 1ac:	f89d 103b 	ldrb.w	r1, [sp, #59]	; 0x3b
- 1b0:	f8bd 2038 	ldrh.w	r2, [sp, #56]	; 0x38
- 1b4:	9100      	str	r1, [sp, #0]
- 1b6:	f89d 103c 	ldrb.w	r1, [sp, #60]	; 0x3c
- 1ba:	f89d 303a 	ldrb.w	r3, [sp, #58]	; 0x3a
- 1be:	9101      	str	r1, [sp, #4]
- 1c0:	f89d 103d 	ldrb.w	r1, [sp, #61]	; 0x3d
- 1c4:	4628      	mov	r0, r5
- 1c6:	9102      	str	r1, [sp, #8]
- 1c8:	f89d 103e 	ldrb.w	r1, [sp, #62]	; 0x3e
- 1cc:	9103      	str	r1, [sp, #12]
- 1ce:	490d      	ldr	r1, [pc, #52]	; (204 <print+0x204>)
- 1d0:	f7ff fffe 	bl	0 <print>
- 1d4:	e00a      	b.n	1ec <print+0x1ec>
- 1d6:	f88d 3044 	strb.w	r3, [sp, #68]	; 0x44
- 1da:	4b09      	ldr	r3, [pc, #36]	; (200 <print+0x200>)
- 1dc:	2224      	movs	r2, #36	; 0x24
- 1de:	fb02 3305 	mla	r3, r2, r5, r3
- 1e2:	f88d 6045 	strb.w	r6, [sp, #69]	; 0x45
- 1e6:	68db      	ldr	r3, [r3, #12]
- 1e8:	a811      	add	r0, sp, #68	; 0x44
- 1ea:	4798      	blx	r3
- 1ec:	3401      	adds	r4, #1
- 1ee:	7823      	ldrb	r3, [r4, #0]
- 1f0:	2b00      	cmp	r3, #0
- 1f2:	f47f af12 	bne.w	1a <print+0x1a>
- 1f6:	b012      	add	sp, #72	; 0x48
- 1f8:	e8bd 43f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, lr}
- 1fc:	b003      	add	sp, #12
- 1fe:	4770      	bx	lr
- 200:	00000000 	.word	0x00000000
- 204:	00000003 	.word	0x00000003
+ 146:	d008      	beq.n	15a <print+0x15a>
+ 148:	2b6c      	cmp	r3, #108	; 0x6c
+ 14a:	d13c      	bne.n	1c6 <print+0x1c6>
+ 14c:	f814 3f01 	ldrb.w	r3, [r4, #1]!
+ 150:	2b6c      	cmp	r3, #108	; 0x6c
+ 152:	d102      	bne.n	15a <print+0x15a>
+ 154:	3401      	adds	r4, #1
+ 156:	3b2c      	subs	r3, #44	; 0x2c
+ 158:	e000      	b.n	15c <print+0x15c>
+ 15a:	2310      	movs	r3, #16
+ 15c:	aa16      	add	r2, sp, #88	; 0x58
+ 15e:	1991      	adds	r1, r2, r6
+ 160:	7822      	ldrb	r2, [r4, #0]
+ 162:	3601      	adds	r6, #1
+ 164:	f801 2c20 	strb.w	r2, [r1, #-32]
+ 168:	b2f6      	uxtb	r6, r6
+ 16a:	a916      	add	r1, sp, #88	; 0x58
+ 16c:	198e      	adds	r6, r1, r6
+ 16e:	2100      	movs	r1, #0
+ 170:	2a66      	cmp	r2, #102	; 0x66
+ 172:	f806 1c20 	strb.w	r1, [r6, #-32]
+ 176:	9a14      	ldr	r2, [sp, #80]	; 0x50
+ 178:	d10c      	bne.n	194 <print+0x194>
+ 17a:	3207      	adds	r2, #7
+ 17c:	f022 0207 	bic.w	r2, r2, #7
+ 180:	f102 0308 	add.w	r3, r2, #8
+ 184:	9314      	str	r3, [sp, #80]	; 0x50
+ 186:	e9d2 0100 	ldrd	r0, r1, [r2]
+ 18a:	ab04      	add	r3, sp, #16
+ 18c:	aa0e      	add	r2, sp, #56	; 0x38
+ 18e:	f7ff fffe 	bl	0 <convertFloatToString>
+ 192:	e011      	b.n	1b8 <print+0x1b8>
+ 194:	2b40      	cmp	r3, #64	; 0x40
+ 196:	d108      	bne.n	1aa <print+0x1aa>
+ 198:	3207      	adds	r2, #7
+ 19a:	f022 0207 	bic.w	r2, r2, #7
+ 19e:	f102 0308 	add.w	r3, r2, #8
+ 1a2:	9314      	str	r3, [sp, #80]	; 0x50
+ 1a4:	e9d2 0100 	ldrd	r0, r1, [r2]
+ 1a8:	e002      	b.n	1b0 <print+0x1b0>
+ 1aa:	1d13      	adds	r3, r2, #4
+ 1ac:	6810      	ldr	r0, [r2, #0]
+ 1ae:	9314      	str	r3, [sp, #80]	; 0x50
+ 1b0:	aa0e      	add	r2, sp, #56	; 0x38
+ 1b2:	ab04      	add	r3, sp, #16
+ 1b4:	f7ff fffe 	bl	0 <convertIntToString>
+ 1b8:	4b1c      	ldr	r3, [pc, #112]	; (22c <print+0x22c>)
+ 1ba:	2224      	movs	r2, #36	; 0x24
+ 1bc:	fb02 3305 	mla	r3, r2, r5, r3
+ 1c0:	a804      	add	r0, sp, #16
+ 1c2:	68db      	ldr	r3, [r3, #12]
+ 1c4:	e027      	b.n	216 <print+0x216>
+ 1c6:	2b74      	cmp	r3, #116	; 0x74
+ 1c8:	d126      	bne.n	218 <print+0x218>
+ 1ca:	9b14      	ldr	r3, [sp, #80]	; 0x50
+ 1cc:	a912      	add	r1, sp, #72	; 0x48
+ 1ce:	1d1a      	adds	r2, r3, #4
+ 1d0:	6818      	ldr	r0, [r3, #0]
+ 1d2:	9214      	str	r2, [sp, #80]	; 0x50
+ 1d4:	f7ff fffe 	bl	0 <convertSecondsToSystemTime>
+ 1d8:	f89d 104b 	ldrb.w	r1, [sp, #75]	; 0x4b
+ 1dc:	f8bd 2048 	ldrh.w	r2, [sp, #72]	; 0x48
+ 1e0:	9100      	str	r1, [sp, #0]
+ 1e2:	f89d 104c 	ldrb.w	r1, [sp, #76]	; 0x4c
+ 1e6:	f89d 304a 	ldrb.w	r3, [sp, #74]	; 0x4a
+ 1ea:	9101      	str	r1, [sp, #4]
+ 1ec:	f89d 104d 	ldrb.w	r1, [sp, #77]	; 0x4d
+ 1f0:	4628      	mov	r0, r5
+ 1f2:	9102      	str	r1, [sp, #8]
+ 1f4:	f89d 104e 	ldrb.w	r1, [sp, #78]	; 0x4e
+ 1f8:	9103      	str	r1, [sp, #12]
+ 1fa:	490d      	ldr	r1, [pc, #52]	; (230 <print+0x230>)
+ 1fc:	f7ff fffe 	bl	0 <print>
+ 200:	e00a      	b.n	218 <print+0x218>
+ 202:	f88d 3054 	strb.w	r3, [sp, #84]	; 0x54
+ 206:	4b09      	ldr	r3, [pc, #36]	; (22c <print+0x22c>)
+ 208:	2224      	movs	r2, #36	; 0x24
+ 20a:	fb02 3305 	mla	r3, r2, r5, r3
+ 20e:	f88d 6055 	strb.w	r6, [sp, #85]	; 0x55
+ 212:	68db      	ldr	r3, [r3, #12]
+ 214:	a815      	add	r0, sp, #84	; 0x54
+ 216:	4798      	blx	r3
+ 218:	3401      	adds	r4, #1
+ 21a:	7823      	ldrb	r3, [r4, #0]
+ 21c:	2b00      	cmp	r3, #0
+ 21e:	f47f aefc 	bne.w	1a <print+0x1a>
+ 222:	b016      	add	sp, #88	; 0x58
+ 224:	e8bd 43f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, lr}
+ 228:	b003      	add	sp, #12
+ 22a:	4770      	bx	lr
+ 22c:	00000000 	.word	0x00000000
+ 230:	00000003 	.word	0x00000003
 
 Disassembly of section .text.println:
 
@@ -1802,11 +1792,20 @@ cmdQueue():
   5e:	bf00      	nop
   60:	00000031 	.word	0x00000031
 
+Disassembly of section .text.HardFault_Handler:
+
+00000000 <HardFault_Handler>:
+HardFault_Handler():
+   0:	20014901 	.word	0x20014901
+   4:	f7ff bffe 	b.w	0 <HardFault_Handler>
+   8:	0000003e 	.word	0x0000003e
+
 Disassembly of section .text.streamSetPrintFile:
 
 00000000 <streamSetPrintFile>:
 streamSetPrintFile():
-   0:	61d84b01 	.word	0x61d84b01
+   0:	4b01      	ldr	r3, [pc, #4]	; (8 <streamSetPrintFile+0x8>)
+   2:	61d8      	str	r0, [r3, #28]
    4:	4770      	bx	lr
    6:	bf00      	nop
    8:	00000000 	.word	0x00000000

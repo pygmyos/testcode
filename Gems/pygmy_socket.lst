@@ -215,7 +215,7 @@ socketOpenFromPacket():
   30:	3301      	adds	r3, #1
   32:	f8d8 0000 	ldr.w	r0, [r8]
   36:	4359      	muls	r1, r3
-  38:	f7ff fffe 	bl	0 <sysReallocate>
+  38:	f7ff fffe 	bl	0 <realloc>
   3c:	4604      	mov	r4, r0
   3e:	b920      	cbnz	r0, 4a <socketOpenFromPacket+0x4a>
   40:	2001      	movs	r0, #1
@@ -255,7 +255,7 @@ socketOpenFromPacket():
   9e:	4630      	mov	r0, r6
   a0:	f7ff fffe 	bl	0 <len>
   a4:	3001      	adds	r0, #1
-  a6:	f7ff fffe 	bl	0 <sysAllocate>
+  a6:	f7ff fffe 	bl	0 <malloc>
   aa:	4601      	mov	r1, r0
   ac:	64e0      	str	r0, [r4, #76]	; 0x4c
   ae:	b120      	cbz	r0, ba <socketOpenFromPacket+0xba>
