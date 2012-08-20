@@ -22,33 +22,33 @@
 			
 	</Flags>
 	<Views>
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\main.c" Line="52" Index="0" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_profile.h" Line="70" Index="1" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\gems.h" Line="42" Index="2" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\gems.c" Line="128" Index="3" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_gui.c" Line="133" Index="4" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_gui.h" Line="95" Index="5" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\lcdVaritronixParallel.h" Line="21" Index="6" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\lcd\varitronix128x128_parallel.c" Line="416" Index="7" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\main.c" Line="53" Index="0" focus="1" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\pygmy_profile.h" Line="69" Index="1" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\gems.h" Line="41" Index="2" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\gems.c" Line="127" Index="3" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_gui.c" Line="132" Index="4" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_gui.h" Line="94" Index="5" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\nebula\shields\lcdVaritronixParallel.h" Line="20" Index="6" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\lcd\varitronix128x128_parallel.c" Line="415" Index="7" />
 		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\digipots\mcp443x.h" Line="0" Index="8" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\digipots\mcp443x.c" Line="99" Index="9" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\profiles\digipots\mcp443x.c" Line="98" Index="9" />
 		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_port.h" Line="0" Index="10" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.h" Line="579" Index="11" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="942" Index="12" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" Line="1278" Index="13" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="1030" Index="14" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.h" Line="578" Index="11" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_com.c" Line="941" Index="12" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.h" Line="1277" Index="13" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_sys.c" Line="1029" Index="14" />
 		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_string.c" Line="0" Index="15" />
 		<View File="C:\Program Files (x86)\Raisonance\Ride\lib\ARM\startup_stm32f10x_hd.s" Line="0" Index="16" />
 		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_jpeg.h" Line="0" Index="17" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\STM32F103_1M_96K_FLASH_PygmyOS.ld" Line="11" Index="18" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="495" Index="19" focus="1" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.h" Line="35" Index="20" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_jpeg.c" Line="876" Index="21" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="947" Index="22" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_socket.h" Line="29" Index="23" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.h" Line="8" Index="24" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_socket.c" Line="324" Index="25" />
-		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_rf.c" Line="66" Index="26" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos.code\Gems\STM32F103_1M_96K_FLASH_PygmyOS.ld" Line="10" Index="18" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.c" Line="494" Index="19" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_cmd.h" Line="34" Index="20" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_jpeg.c" Line="875" Index="21" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.c" Line="946" Index="22" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_socket.h" Line="28" Index="23" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_file.h" Line="7" Index="24" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_socket.c" Line="323" Index="25" />
+		<View File="C:\Users\MightyDubster\Documents\Projects\pygmyos\core\pygmy_rf.c" Line="65" Index="26" />
 	</Views>
 	<Grep>
 		<GrepIncludeSub>yes</GrepIncludeSub>

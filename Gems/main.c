@@ -51,7 +51,7 @@ void main( void )
  
     sysInit();
     //taskNewSimple( "volume", 5000, (void*)volumeSet );
-    taskNew( "volume", 5000, 20000, 0, (void*)volumeSet );
+    //taskNew( "volume", 5000, 20000, 0, (void*)volumeSet );
     /*socketInit();
     rfInit();
     guiInitSprites();

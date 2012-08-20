@@ -616,6 +616,29 @@ seekStringInBuffer():
    0:	2000      	movs	r0, #0
    2:	4770      	bx	lr
 
+Disassembly of section .text.replaceLastChar:
+
+00000000 <replaceLastChar>:
+replaceLastChar():
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	4604      	mov	r4, r0
+   4:	460d      	mov	r5, r1
+   6:	4616      	mov	r6, r2
+   8:	f7ff fffe 	bl	0 <replaceLastChar>
+   c:	e007      	b.n	1e <replaceLastChar+0x1e>
+   e:	3801      	subs	r0, #1
+  10:	b280      	uxth	r0, r0
+  12:	5c22      	ldrb	r2, [r4, r0]
+  14:	1823      	adds	r3, r4, r0
+  16:	42aa      	cmp	r2, r5
+  18:	d101      	bne.n	1e <replaceLastChar+0x1e>
+  1a:	701e      	strb	r6, [r3, #0]
+  1c:	e001      	b.n	22 <replaceLastChar+0x22>
+  1e:	2800      	cmp	r0, #0
+  20:	d1f5      	bne.n	e <replaceLastChar+0xe>
+  22:	b2c0      	uxtb	r0, r0
+  24:	bd70      	pop	{r4, r5, r6, pc}
+
 Disassembly of section .text.appendString:
 
 00000000 <appendString>:

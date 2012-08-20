@@ -274,11 +274,20 @@ drawFormJerboa():
   74:	00000057 	.word	0x00000057
   78:	00000062 	.word	0x00000062
 
+Disassembly of section .text.main:
+
+00000000 <main>:
+main():
+   0:	b508      	push	{r3, lr}
+   2:	f7ff fffe 	bl	0 <sysInit>
+   6:	e7fe      	b.n	6 <main+0x6>
+
 Disassembly of section .text.volumeSet:
 
 00000000 <volumeSet>:
 volumeSet():
-   0:	2308b500 	.word	0x2308b500
+   0:	b500      	push	{lr}
+   2:	2308      	movs	r3, #8
    4:	b089      	sub	sp, #36	; 0x24
    6:	220a      	movs	r2, #10
    8:	2109      	movs	r1, #9
@@ -303,22 +312,6 @@ volumeSet():
   3c:	bd00      	pop	{pc}
   3e:	bf00      	nop
   40:	0000007b 	.word	0x0000007b
-
-Disassembly of section .text.main:
-
-00000000 <main>:
-main():
-   0:	f7ffb507 	.word	0xf7ffb507
-   4:	fffe 4b05 	vtbl.8	d20, {d14-d17}, d5
-   8:	4805      	ldr	r0, [pc, #20]	; (20 <main+0x20>)
-   a:	9300      	str	r3, [sp, #0]
-   c:	f241 3188 	movw	r1, #5000	; 0x1388
-  10:	f644 6220 	movw	r2, #20000	; 0x4e20
-  14:	2300      	movs	r3, #0
-  16:	f7ff fffe 	bl	0 <taskNew>
-  1a:	e7fe      	b.n	0 <main>
-  1c:	00000000 	.word	0x00000000
-  20:	00000087 	.word	0x00000087
 
 Disassembly of section .text.drawReset:
 
